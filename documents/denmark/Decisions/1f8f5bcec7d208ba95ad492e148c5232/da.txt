@@ -1,0 +1,89 @@
+Sikkerhedsbrud i systemet FLIS
+Dato: 22-09-2020
+Afgørelse
+Offentlige myndigheder
+
+
+Journalnummer: 2019-431-0037
+Resume
+Datatilsynet modtog i december 2018 – februar 2019 en række anmeldelser fra landets kommuner vedrørende Fælleskommunalt Ledelsesinformationssystem (FLIS), som driftes af Kombit A/S. Formålet med systemet er at levere ledelsesinformation til kommunerne, der på baggrund af oplysningerne kan træffe beslutninger, der vedrører kommunens drift, på et databaseret grundlag.
+I forbindelse med levering af data til kommunerne, fik Kombit A/S’ underdatabehandler Netcompany A/S ved en fejl udeladt et filter, der skulle begrænse de enkelte kommuners adgang til kun at omfatte data om de borgere, som kommunen har ret til at se i datasættet (primært kommunens egne borgere).
+Som følge af fejlen har det været muligt over en periode på godt 4 måneder for udvalgte medarbejdere i kommunerne, samt for enkelte kommuners leverandører af Business Intelligence, uretmæssigt at tilgå personnumre og beskæftigelsesrelaterede oplysninger om op mod 4,2 mio. borgere.
+Afgørelse
+Datatilsynet vender hermed tilbage til sagen, hvor 84 kommuner – grundet en fejl ved dataudtræk fra Fælleskommunalt Ledelsesinformationssystem (herefter FLIS) – uretmæssigt har fået adgang til personnumre og beskæftigelsesrelaterede oplysninger om op mod 4,2 mio. borgere.
+1. Afgørelse
+Efter en gennemgang af sagen finder Datatilsynet, at der er grundlag for at udtale alvorlig kritik af, at Kombit A/S’ behandling af personoplysninger ikke er sket i overensstemmelse med reglerne i databeskyttelsesforordningens[1] artikel 28, stk. 3, litra f, jf. artikel 32.
+Nedenfor følger en nærmere gennemgang af sagen og en begrundelse for Datatilsynets afgørelse.
+2. Sagsfremstilling
+Kombit A/S driver FLIS, som er en infrastruktur til benchmark og ledelsesinformation. FLIS udvikles af Netcompany A/S, som er underdatabehandler for Kombit A/S.
+Datatilsynet har i perioden 14. december 2018 til 11. februar 2019 modtaget en række anmeldelser af brud på persondatasikkerheden fra 66 kommuner, der vedrører samme hændelse i systemet FLIS.
+I den forbindelse har Datatilsynet modtaget en række dokumenter fra forskellige dataansvarlige, herunder udtalelser, som de dataansvarlige har indhentet fra Kombit A/S, som er databehandler for de pågældende kommuner.
+Endvidere har Kombit A/S ved e-mail af 1. marts 2019 fremsendt lister til Datatilsynet over
+
+de 74 kommuner, der havde en aftale med Styrelsen for Arbejdsmarked og Rekruttering (STAR) og derfor var dataansvarlige i relation til sikkerhedsbruddet
+de 84 kommuner, der uretmæssigt har haft adgang til data i relation til sikkerhedsbruddet.
+
+2.1. Om hændelsen
+Det fremgår af sagen, at en medarbejder hos Kombit A/S’ underdatabehandler Netcompany A/S, i forbindelse med levering af data fra FLIS til kommunerne, ved en fejl har udeladt et filter i systemet, der skulle begrænse de enkelte kommuners data til kun at omfatte de borgere, som kommunen har ret til at se i datasættet (primært kommunens egne borgere).
+Som følge af fejlen har 84 kommuner fået adgang til personnumre og beskæftigelsesrelaterede oplysninger (fx om eventuelle dagpenge og kontanthjælpsydelser) om op mod 4,2 mio. borgere. Nogle kommuner anvender tredjepartsleverandører af Business Intelligence (BI), som derfor også har haft adgang til oplysningerne. Det drejer sig om virksomhederne KMD A/S, Fujitsu A/S, LIFA A/S og INSPARI A/S.
+Kombit A/S har oplyst, at ingen data har været offentligt tilgængelige via internettet eller lignende, men alene har været tilgængelige i et lukket it-miljø mellem FLIS og kommunernes BI-løsninger.
+Det fremgår endvidere af sagen, at fejlen, der har været til stede siden primo august 2018, blev opdaget den 12. december 2018. Fejlen blev opdaget, idet KMD A/S – i kraft af sin funktion som BI-leverandør for en kommune – undersøgte systemets ydeevne, og derfor trak en liste over personnumre i datasættet uden yderligere information. Herved konstaterede KMD A/S, at der i tabellen optrådte uforholdsmæssigt mange borgere i forhold til kommunens størrelse, hvorefter virksomheden gjorde Kombit A/S opmærksom på forholdet.
+Kombit A/S har oplyst, at fejlen hverken blev opdaget som led i Netcompany A/S’ udvikling eller test af systemet, og ej heller i forbindelse med Kombit A/S’ opfølgning på tests af systemet.
+2.2. Typer af personoplysninger
+Kombit A/S har oplyst, at de uretmæssigt videregivne oplysninger findes i en tabel, der omtales som DimDreamBorger, og som indeholder følgende felter:
+
+DimDreamBorgerId (en tilfældig og ikke-betydningsbærende kunstig nøgle, der binder tabellen DimDreamBorger sammen med øvrige tabeller i FLIS)
+personnummer
+køn
+civilstand
+herkomst
+statsborgerskab
+fire felter, der markerer om borgeren modtager hhv. dagpenge, kontanthjælp, sygedagpenge eller førtidspension
+24 felter, der indeholder datoer for såkaldte nulstillende samtaler[2]
+startdato for integrationsprogram
+slutdato for integrationsprogram
+
+Kombit A/S har oplyst, at tabellen DimDreamBorger er en fortegnelse over borgere med tilhørende egenskaber, men at tabellen almindeligvis ikke bruges selvstændigt af kommunerne og BI-leverandørerne, da den fungerer som opslag fra en anden tabel kaldet FactDream, som ikke var omfattet af fejlen, og således var begrænset til de korrekte oplysninger.
+2.3. Omfang af utilsigtet adgang
+Kombit A/S har anført, at anvendelse af data i FLIS normalt sker via FactDream tabellen, og at det manglende filter ikke har påvirket data i FactDream tabellen, hvorfor det er selskabets forventning, at kommunerne under normal anvendelse ikke har været i berøring med uretmæssige data.
+Endvidere har Kombit A/S anført, at de endelige tilbagemeldinger fra kommunerne og deres BI-leverandører peger på, at der kun i to kommuner er en person, der har tilgået den pågældende tabel med de uretmæssige data. Endvidere har en BI-leverandør, KMD A/S, været i berøring med de uretmæssige data i forbindelse med at fejlen blev opdaget.
+De øvrige 96 kommuner, og kommunernes tre øvrige BI-leverandører har ifølge Kombit A/S udmeldt, at de ikke har åbnet tabellen med de uretmæssige data.
+2.4. Trufne foranstaltninger
+Kombit A/S har anført, at de relevante sikkerhedsprocedurer blev iværksat efter hændelsen med instruks om sletning af data og indsamling af oplysninger i samarbejde med underdatabehandleren Netcompany A/S, kommunerne og BI-leverandørerne.
+Endvidere har Kombit A/S anført, at selskabet over for underdatabehandleren Netcompany A/S har krævet omfanget af tests udvidet for så vidt angår hver kommunes adgang til data i FLIS.
+2.5. Databehandleraftaler
+Datatilsynet har via Lejre Kommune fået tilsendt en kopi af den databehandleraftale, som kommunen har indgået med Kombit A/S.
+Kombit A/S har oplyst, at databehandleraftalen med Lejre Kommune er repræsentativ for de databehandleraftaler, der er indgået med de øvrige kommuner, således at der er tale om forekomster af den samme skabelon.
+Det fremgår af databehandleraftalens afsnit 4, at
+
+Kombit A/S – i det omfang at Kombit A/S behandler personoplysninger på vegne af kommunerne – skal sikre personoplysningerne via tekniske og organisatoriske foranstaltninger, som beskrevet i databeskyttelsesforordningen samt databeskyttelsesloven og bilag 1.
+Kombit A/S skal hjælpe kommunerne med at efterleve disses forpligtelser i medfør af databeskyttelsesforordningens artikel 32-36.
+Kombit A/S garanterer – i det omfang Kombit A/S behandler personoplysninger på vegne af kommunerne – at levere tilstrækkelig ekspertise, pålidelighed og ressourcer til at implementere passende tekniske og organisatoriske foranstaltninger sådan, at Kombit A/S’ behandling af kommunernes personoplysninger opfylder kravene i databeskyttelsesforordningen og sikrer beskyttelse af registreredes rettigheder. Sikkerhedsforanstaltningerne skal på forespørgsel fra Kommunen kunne dokumenteres.
+
+Endvidere fremgår det af databehandleraftalens afsnit 5, at Kombit A/S – når behandlingen af personoplysninger, som kommunerne er dataansvarlig for, overlades til underdatabehandlere – over for kommunerne har ansvaret for underdatabehandlernes overholdelse af disses forpligtelser.
+Endelig fremgår det af databehandleraftalens afsnit 7, at Kombit A/S fra den 25. maj 2018 – i det omfang Kombit A/S behandler personoplysninger på vegne af kommunerne – skal iværksætte alle sikkerhedsforanstaltninger, der kræves for at sikre et passende sikkerhedsniveau.
+3. Begrundelse for Datatilsynets afgørelse
+Det følger af databeskyttelsesforordningens artikel 28, stk. 3, litra f, at databehandleren skal bistå den dataansvarlige med at sikre overholdelse af forpligtelserne i medfør af artikel 32-36 under hensyntagen til behandlingens karakter og de oplysninger, der er tilgængelige for databehandleren.
+Det følger endvidere af databeskyttelsesforordningens artikel 32, stk. 1, at den dataansvarlige og databehandleren skal gennemføre passende tekniske og organisatoriske foranstaltninger for at sikre vedvarende fortrolighed af behandlingssystemer og -tjenester.
+Efter Datatilsynets opfattelse følger det af databeskyttelsesforordningens artikel 32, stk. 1, at dataansvarlige og databehandlere, som led i proceduren for change management/release management for et system skal sikre, at det ændrede system testes for uhensigtsmæssigheder, som ændringen måtte have medført.
+Datatilsynet lægger til grund, at der ­– som følge af en fejl i opsætningen af et filter i FLIS – er sket uretmæssig videregivelse af de i afsnit 2.2 angivne typer af oplysninger, som indebærer bl.a. oplysninger om personnummer og beskæftigelsesrelaterede oplysninger om fx dagpenge og kontanthjælpsydelser, om op mod 4,2 mio. borgere.
+Endvidere lægger Datatilsynet til grund, at Kombit A/S ikke har udført de fornødne tests i forbindelse med dataudtræk fra FLIS, til at kunne opdage det fejlopsatte filter, som har medført den uretmæssige videregivelse.
+Datatilsynet finder derfor, at Kombit A/S i sin funktion som databehandler for de 74 kommuner ikke har levet op til databeskyttelsesforordningens artikel 28, stk. 3, litra f, jf. artikel 32, idet selskabet ikke har implementeret tilstrækkelige tekniske og organisatoriske sikkerhedsforanstaltninger imod, at personoplysninger om op mod 4,2 mio. borgere kommer uvedkommende i hænde.
+På baggrund af ovenstående finder Datatilsynet, at der er grundlag for at udtale alvorlig kritik af, at Kombit A/S’ behandling af personoplysninger ikke er sket i overensstemmelse med databeskyttelsesforordningens artikel 28, stk. 3, litra f, jf. artikel 32.
+Af skærpende omstændigheder har Datatilsynet lagt vægt på, at
+
+Kombit A/S – på den del af systemet, der vedrører udtræk af data fra FLIS til de enkelte kommuner – ikke har indført basale tests, der sikrer, at kommunerne udelukkende modtager de nødvendige data, herunder at de enkelte kommuner kun modtager en mængde data, der er meningsfyldt i forhold til antallet af borgere bosat i kommunen
+hændelsen har et stort omfang, idet der uretmæssigt er blevet videregivet oplysninger om op mod 4,2 mio. borgere.
+
+Af formildende omstændigheder har Datatilsynet lagt vægt på, at
+
+formålet med kommunernes behandling af personoplysningerne er at indsamle ledelsesinformation med henblik på at evaluere kommunens drift, modsat fx konkret sagsbehandling, hvorved de potentielle konsekvenser for de registrerede ses at være lave
+videregivelsen af oplysningerne er sket til fagpersoner, der er indforstået med, at oplysningerne skal behandles med fortrolighed
+Kombit A/S har implementeret den fornødne logning til med sikkerhed at kunne fastlægge, at den reelle tilgang til oplysningerne har været begrænset
+Kombit A/S’ håndtering af sagen samt bistand til de dataansvarlige, efter tilsynets opfattelse, har været hurtig og tilstrækkelig.
+
+ 
+[1] Europa-Parlamentets og Rådets forordning (EU) 2016/679 af 27. april 2016 om beskyttelse af fysiske personer i forbindelse med behandling af personoplysninger og om fri udveksling af sådanne oplysninger og om ophævelse af direktiv 95/46/EF (generel forordning om databeskyttelse).
+[2] Lejre Kommune har over for Datatilsynet oplyst, at begrebet dækker over samtaler, der er nulstillende i forhold til regler for samtalefrekvens, der fremgår af lov om en aktiv beskæftigelsesindsats. Nulstillende samtaler omfatter således jobsamtaler, CV-samtaler, samtaler om sygeopfølgning og integrationssamtaler, der foregår på jobcentrene.
+
+

@@ -1,0 +1,60 @@
+Tilsyn med Høje-Taastrup Kommunes adgangsrettigheder i filsystemer
+Dato: 02-03-2022
+Afgørelse
+Offentlige myndigheder
+Kritik
+Tilsyn / egendriftssag
+Adgangskontrol
+Behandlingssikkerhed
+Datatilsynet udtaler kritik af Høje-Taastrup Kommune for ikke at have levet op til reglerne om behandlingssikkerhed.
+
+Journalnummer: 2021-423-0236
+Resume
+Høje-Taastrup Kommune var blandt de udvalgte kommuner, som Datatilsynet i sommeren 2021 førte tilsyn med efter reglerne om databeskyttelse.
+Tilsynet fokuserede på adgangsrettigheder i Høje-Taastrup Kommunes filsystemer. Et filsystem er i denne sammenhæng, den stistruktur kommunen opbevarer data i på deres servere. Tilsynet så på, om der var differentierede rettigheder til de forskellige mapper med oplysninger, samt om adgange blev tildelt ud fra arbejdsbetingede behov.    
+I forbindelse med tilsynet udvalgte Datatilsynet en database, hvor der var tildelt adgang for 12 AD-grupper, dvs. 12 grupper af brugere.
+Datatilsynet fandt, at Høje-Taastrup Kommune – ved ikke at have retningslinjer eller objektive kriterier for indmeldelse i AD-grupperne – ikke havde levet op til reglerne om behandlingssikkerhed.
+Datatilsynet lagde vægt på, at 410 personer havde AD-adgang til den udvalgte database, og at kommunen ikke kunne dokumentere, at der var foretaget en vurdering af de pågældende medarbejderes arbejdsbetingede behov for adgang til den pågældende database.
+På den baggrund udtalte Datatilsynet kritik af Høje-Taastrup Kommune.
+1. Skriftligt tilsyn med Høje-Taastrup Kommunes behandling er personoplysninger
+Høje-Taastrup Kommune var blandt de myndigheder, som Datatilsynet i sommeren 2021 havde udvalgt at føre tilsyn med efter databeskyttelsesforordningen[1] og databeskyttelsesloven[2].
+Datatilsynets tilsyn var et skriftligt tilsyn, som fokuserede på adgangsrettigheder i Høje-Taastrup Kommunes filsystemer jf. databeskyttelsesforordningens artikel 32.
+Ved brev af 9. juni 2021 varslede Datatilsynet tilsynet med Høje-Taastrup Kommune og anmodede i den forbindelse om en liste over kommunens filsystemer, hvori der behandles oplysninger om fysiske personer.
+Høje-Taastrup Kommune fremkom den 30. juni 2021 med en udtalelse til sagen.
+Ved brev af 11. august 2021 anmodede Datatilsynet Høje-Taastrup Kommune om at redegøre for kommunens adgangsstyring til personhenførbare brugerdata i GIS[3] i et af kommunens drev. Høje-Taastrup Kommune fremsendte på den baggrund den 1. september 2021 en supplerende udtalelse i sagen.
+På baggrund af Høje-Taastrup Kommunes udtalelse anmodede Datatilsynet den 13. oktober 2021 om at modtage en liste over de brugere, der var tildelt adgang via 12 AD-grupper til en database i GIS, med henblik på at foretage stikprøvekontrol af brugerne. Datatilsynet anmodede endvidere om at modtage kommunens retningslinjer for indmeldelse i de pågældende AD-grupper, herunder vurdering af de arbejdsbetingede behov for at have adgang.
+Høje-Taastrup Kommune besvarede den 4. november 2021 brevet.
+2. Datatilsynets afgørelse
+Efter en gennemgang af sagen finder Datatilsynet, at der er grundlag for at udtale kritik af, at Høje-Taastrup Kommunes behandling af personoplysninger ikke er sket i overensstemmelse med reglerne i databeskyttelsesforordningens artikel 32, stk. 1.
+Nedenfor følger en nærmere gennemgang af de oplysninger, der er kommet frem i forbindelse med det skriftlige tilsyn og en begrundelse for Datatilsynets afgørelse.
+3. Sagens oplysning
+Høje-Taastrup Kommune har oplyst, at kommunen anvender NTFS filsystem på Windows servere. Tildeling af adgang til netværksdrev foregår via kommunens it-afdeling gennem en formular. Høje-Taastrup Kommune udstiller en række shares og afgrænser adgangen med NTFS-rettigheder på mapper og underliggende strukturer. NTFS-rettigheder tildeles til AD sikkerhedsgrupper.
+It-afdelingen melder medarbejderens AD bruger ind i adgangsgivende sikkerhedsgrupper efter anmodning.
+Af den fremsendte liste over brugervendte shares fremgår det bl.a., at H:\ er GIS teamets dedikerede netværksdrev.
+Om H-drevet har Høje-Taastrup Kommune oplyst, at data ligger i en delt mappe ’gis’ på en Microsoft Windows filserver. Adgangen til mappen er afgrænset via NTFS permissions. Der er således kun adgang for administratorer og brugere, der er medlem af AD-gruppen ”gis”. Når en af kommunens medarbejdere logger på en klient pc med sin AD-bruger, fortolkes centralt styret Group Policy for drevtilslutning, og kun brugere, der er med i AD-gruppen ”gis”, får tilsluttet mappen ’gis’ som et H-drev. I den forbindelse har Høje-Taastrup Kommune oplyst, at der på H-drevet er 26 brugere, som har adgang, og der gives alene adgang til navn og adressedata.
+Høje-Taastrup Kommune har identificeret to databaser, der indeholder personoplysninger, herunder LOIS, som indeholder personnumre og bruges til udsøgning til høringslister mv. For databasen LOIS er der bl.a. tildelt adgang til 12 AD-grupper.
+Høje-Taastrup Kommune har oplyst, at der ikke er nedskrevet retningslinjer som beskriver indmeldelse i AD-grupperne. Indmeldelse foregår derfor gennem den generelle brugeroprettelse via et it-sagsstyringssystem.
+I den forbindelse har Høje-Taastrup Kommune oplyst, at da der ikke er retningslinjer for indmeldelse, kan kommunen ikke dokumentere vurdering af det arbejdsbetingede behov. Kommunen kan dog dokumentere, hvilke brugere der har anvendt deres adgang til LOIS databasen.
+Videre har Høje-Taastrup Kommune oplyst, at LOIS databasen ikke bliver udstillet til de brugere, som har adgang til den. Brugerne skal vide den findes, kende dens navn og vide, hvilket software de skal anvende for at kunne tilgå den.
+Det kræver derfor relativt høje tekniske kompetencer at kunne anvende adgangen. Derfor er det også kun 35 brugere, som de sidste seks måneder har tilgået databasen. Det er endvidere Høje-Taastrup Kommunes vurdering, at alle 35 medarbejdere har haft et arbejdsbetinget behov for adgangen.
+Høje-Taastrup Kommune har oplyst, at kommunen på baggrund af tilsynet vil udarbejde retningslinjer for tildeling af adgang til databasen.
+Høje-Taastrup Kommune har fremsendt en liste over brugere som har AD-adgang til LOIS. Af listen fremgår 410 personer.
+Høje-Taastrup Kommune har oplyst, at kommunen ikke har en procedure for passwordsbeskyttelse, der direkte henvender sig til filstrukturer. Kommunen har derfor fremsendt et afsnit fra sikkerhedshåndbogen om kommunens generelle procedurer for passwords. Det fremgår heraf:
+[Undtaget fra offentliggørelse].
+4. Datatilsynets vurdering
+Det følger af databeskyttelsesforordningens artikel 32, stk. 1, at den dataansvarlige skal træffe passende tekniske og organisatoriske foranstaltninger for at sikre et sikkerhedsniveau, der passer til de risici, der er ved den dataansvarliges behandlinger af personoplysninger.
+Der påhviler således den dataansvarlige en pligt til at identificere de risici, den dataansvarliges behandling udgør for de registrerede og til at sikre, at der indføres passende sikkerhedsforanstaltninger, der beskytter de registrerede mod disse risici.
+Det er Datatilsynets opfattelse, at kravet om passende sikkerhed normalt vil indebære, at brugeradgange til systemer er begrænset til de personoplysninger, som er er nødvendige for den pågældende brugers arbejdsbetingede behov, og at der er implementeret foranstaltninger om tildeling og fratagelse af adgangsrettigheder, således at kun brugere, der har et arbejdsbetinget behov for at have adgang til oplysningerne, autoriseres hertil.
+Datatilsynet finder, at Høje-Taastrup Kommune – ved ikke at have retningslinjer eller objektive kriterier for indmeldelse i AD-grupperne – ikke har truffet passende tekniske eller organisatoriske foranstaltninger for at sikre et sikkerhedsniveau, der passer til de risici, der ved kommunens behandling af personoplysninger, jf. databeskyttelsesforordningens artikel 32, stk. 1.
+Datatilsynet har lagt vægt på, at 410 personer har AD-adgang til LOIS databasen, og at kommunen ikke kan dokumentere, at der er foretaget en vurdering af de pågældende medarbejderes arbejdsbetingede behov for adgang til LOIS databasen.
+Datatilsynet finder herefter grundlag for at udtale kritik af, at Høje-Taastrup Kommunes behandling af personoplysninger ikke er sket i overensstemmelse med reglerne i databeskyttelsesforordningens artikel 32, stk. 1.
+Datatilsynet bemærker, at det ikke kan føre til et andet resultat, at det kræver relativt høje tekniske kompetencer at anvende adgangen.
+Datatilsynet har noteret sig, at Høje-Taastrup Kommune påtænker at udarbejde retningslinjer for tildeling af adgang til databasen.
+I den forbindelse skal Datatilsynet opfordre til, at kommunen objektivt beskriver, hvilken funktion eller arbejdsopgave, der skal være tilstede for at få adgang, og at en leder for denne funktion verificerer, at den konkrete medarbejder har dette behov for at udføre opgaven.
+Datatilsynet finder i øvrigt ikke grundlag for at udtale kritik af Høje-Taastrup Kommunes generelle procedurer for passwords.
+ 
+[1] Europa-Parlamentets og Rådets forordning (EU) 2016/679 af 27. april 2016 om beskyttelse af fysiske personer i forbindelse med behandling af personoplysninger og om fri udveksling af sådanne oplysninger og om ophævelse af direktiv 95/46/EF (generel forordning om databeskyttelse).
+[2] Lov nr. 502 af 23. maj 2018 om supplerende bestemmelser til forordning om beskyttelse af fysiske personer i forbindelse med behandling af personoplysninger og om fri udveksling af sådanne oplysninger (databeskyttelsesloven).
+[3] Geografisk informationssystem
+
+

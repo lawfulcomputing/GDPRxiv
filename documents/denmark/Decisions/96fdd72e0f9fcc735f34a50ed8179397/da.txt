@@ -1,0 +1,67 @@
+Tilsyn med behandlingssikkerhed hos revisionsfirma
+Dato: 05-11-2019
+Afgørelse
+Private virksomheder
+
+
+Journalnummer: 2019-41-0027
+Resume
+BDO Statsautoriseret revisionsaktieselskab (herefter BDO) var blandt de virksomheder, som Datatilsynet i 2019 havde udvalgt til tilsyn. Tilsynene fokuserede på behandlingssikkerhed, herunder særligt kryptering af e-mails, jf. databeskyttelsesforordningens artikel 32.
+Datatilsynet fandt, at BDO’s behandling af personoplysninger i forhold til fremsendelse af fortrolige og følsomme personoplysninger via e-mail over internettet var i overensstemmelse med reglerne i databeskyttelsesforordningen samt Datatilsynets retningslinjer.
+Af Datatilsynets afsluttende udtalelse fremgår bl.a., at BDO anvender end-to-end kryptering med S/MIME certifikater samt fremsendelse med tvungen TLS 1.2, når virksomheden sender e-mails med fortrolige og følsomme personoplysninger til kunder mv.
+Herudover fremgår det af udtalelsen, at BDO har påvist at have udarbejdet en risikovurdering, hvori der tages stilling til risikoen forbundet med fremsendelse af fortrolige og følsomme personoplysninger over internettet.
+Du kan læse Datatilsynets vejledende tekst om kryptering af e-mails her.
+Afgørelse
+BDO Statsautoriseret Revisionsaktieselskab (herefter BDO) var blandt de virksomheder, som Datatilsynet havde udvalgt til tilsyn i foråret 2019.
+Datatilsynets planlagte tilsyn fokuserede på behandlingssikkerhed, herunder særligt kryptering af e-mails, jf. databeskyttelsesforordningens artikel 32.
+Efter anmodning fra Datatilsynet har BDO i foråret 2019 i forbindelse med tilsynsbesøget udfyldt et spørgeskema og indsendt dette samt yderligere materiale til tilsynet. Tilsynsbesøget fandt sted den 9. april 2019.
+Efter tilsynsbesøget med BDO finder Datatilsynet anledning til sammenfattende at konkludere:
+
+At BDO – i overensstemmelse med databeskyttelsesforordningens artikel 32 – anvender end-to-end kryptering ved udveksling af S/MIME certifikat over tunnelmail fællesskabet (herefter omtalt som tunnelmail) til fremsendelse af fortrolige og følsomme personoplysninger over internettet til kunder og andre modtagere på den offentlige tunnelliste.
+At BDO – i overensstemmelse med databeskyttelsesforordningens artikel 32 –  desuden anvender kryptering på transportlaget via tvungen TLS 1.2 til fremsendelse af fortrolige og følsomme personoplysninger til kunder over internettet.
+At BDO – i overensstemmelse med databeskyttelsesforordningens artikel 5, stk. 2, jf. stk. 1, litra f, jf. artikel 32, stk. 1 og 2 – har påvist at have udarbejdet en risikovurdering, hvori der tages stilling til risikoen forbundet med fremsendelse af fortrolige og følsomme personoplysninger over internettet.
+At BDO ikke er bekendt med tilfælde, hvor fortrolige eller følsomme personoplysninger er sendt ukrypteret over internettet siden 1. januar 2019.
+
+På den baggrund anser Datatilsynet tilsynet for afsluttet og foretager sig ikke yderligere i den anledning.
+Nedenfor følger en nærmere gennemgang af Datatilsynets konklusion.
+1. Brug af kryptering ved transmission af fortrolige og følsomme personoplysninger over internettet
+BDO har forud for tilsynsbesøget oplyst, at virksomheden sender fortrolige og følsomme personoplysninger via e-mail over internettet.
+BDO har hertil oplyst, at virksomheden sjældent i revisionsmæssig sammenhæng sender personoplysninger over internettet. Virksomheden har imidlertid oplyst, at det kan hænde, at BDO i forbindelse med skatterådgivning sender fortrolige oplysninger i form af selvangivelser indeholdende bl.a. personnumre via e-mail over internettet.
+BDO har oplyst, at virksomheden kommunikerer med sine kunder enten via MIT BDO – som er en web platform, hvorpå dokumenter udveksles sikkert med BDO’s kunder – eller via krypteret e-mail.
+2. Om krypteringsløsningen
+BDO har oplyst, at der med de anvendte krypteringsløsninger forsøges at kryptere e-mail i følgende prioriterede rækkefølge:
+
+End-to-end krypteret via tunnelmail til modtagerens domæne.
+Det undersøges, om modtageren har publiceret et S/MIME certifikat på den offentlige tunnelmailliste, og i så fald krypteres e-mailen ved brug af det pågældende certifikat.
+Det undersøges, om e-mailen kan fremsendes med kryptering på transportlaget via en tvungen TLS 1.2 forbindelse.
+
+Endvidere har BDO oplyst, at hvis ingen af de tre løsninger er mulige, så bliver brugeren præsenteret med en fejlmeddelelse om, at modtageren ikke understøtter kryptering, og at e-mailen ikke vil blive sendt. Derfra hviler det på den enkelte medarbejders konkrete vurdering, om medarbejderen finder det nødvendigt at kryptere e-mailen. Hvis medarbejderen vurderer, at det ikke er nødvendigt at kryptere e-mailen, vil mailen blive fremsendt med opportunistisk TLS.
+BDO har under tilsynsbesøget og efter Datatilsynets anmodning forsøgt at sende en e-mail med tvungen TLS til en af tilsynet opsat e-mail server, der ikke understøtter modtagelse med TLS. Som forventet, og som bekræftelse på BDO’s opsætning, kunne den pågældende e-mail ikke leveres.
+BDO har oplyst, at virksomheden ved fremsendelse via tunnelmail har valgt at anvende krypteringsalgoritmen 3DES, idet flere modtagere ikke understøtter nyere algoritmer.
+2.1. Sammenfatning
+Datatilsynet lægger på baggrund af det af BDO oplyste til grund, at når BDO sender e-mails med fortrolige og følsomme personoplysninger, anvender BDO end-to-end kryptering med S/MIME certifikater i det omfang dette er muligt og ellers anvendes en tvungen TLS 1.2 forbindelse. Datatilsynet finder således, at BDO anvender tilstrækkelig behandlingssikkerhed ved fremsendelse af sådanne e-mails.
+Datatilsynet opfordrer samtidig BDO til at udfase brugen af algoritmen 3DES, da algoritmen ikke findes tidssvarende. Datatilsynet skal i den forbindelse bemærke, at kendte sårbarheder[1] ved 3DES gør algoritmen usikker i visse anvendelser, men at e-mail ikke er omfattet af disse anvendelser. Datatilsynet skal dog alligevel opfordre BDO til at udfase brugen af 3DES, idet algoritmen ikke findes tidssvarende, og fordi mere sikre alternativer er frit tilgængelige.
+3. Tilfælde hvor kryptering ikke har været anvendt
+BDO har oplyst, at virksomheden ikke er bekendt med tilfælde, hvor fortrolige eller følsomme personoplysninger er sendt ukrypteret over internettet siden 1. januar 2019.  BDO har endvidere oplyst, at BDO ikke har fået tilbagemeldinger fra medarbejdere om, at dette skulle være forekommet.
+BDO har i forlængelse heraf oplyst, at virksomheden har en procedure for, hvordan medarbejderne skal agere, hvis fortrolige og følsomme personoplysninger sendes ukrypteret over internettet. Proceduren foreskriver, at medarbejderen skal indberette en sådan hændelse til it-sikkerhedsudvalget, som består af flere medlemmer af ledelsen, herunder møderepræsentanterne, hvorefter udvalget vurderer, om hændelsen skal anmeldes til Datatilsynet. BDO har sendt en kopi af proceduren til Datatilsynet.
+3.1. Sammenfatning
+Datatilsynet lægger på baggrund af det af BDO oplyste til grund, at BDO ikke er bekendt med tilfælde, hvor fortrolige og følsomme personoplysninger er sendt ukrypteret over internettet siden 1. januar 2019.
+4. Risikovurdering
+BDO har forud for tilsynsbesøget fremsendt en risikovurdering til tilsynet, som tager højde for fremsendelse af fortrolige og følsomme personoplysninger over internettet.
+Af BDO’s risikovurdering fremgår, at der er en høj vægtet risiko forbundet med fremsendelse af fortrolige eller følsomme personoplysninger via e-mail. Af risikovurderingen fremgår ligeledes, at denne risiko nedbringes til et passende niveau ved benyttelse af de ovenfor nævnte teknologier, navnlig end-to-end kryptering når det er muligt, og som minimum ved benyttelse af TLS 1.2-kryptering på transportlaget.
+BDO har desuden udarbejdet en vejledning til sine medarbejdere omkring brugen af krypteret e-mail, som er dateret den 12. december 2018.
+Endelig har BDO oplyst, at der i afdelingerne for advisory og socialrevision er foretaget målrettet undervisning af medarbejdere i håndtering af sikkerhedsbrud, ligesom BDO bruger en række e-learnings videoer målrettet medarbejderne omkring brugen af  krypteret e-mail, hvor ledelsen har mulighed for at kontrollere, hvor stor en procentdel af videoerne, som medarbejderne har set, og at der ligeledes har været en opfølgende test til videoerne, som hver enkelt medarbejder har skulle gennemføre.
+4.1. Sammenfatning
+Det er Datatilsynets vurdering, at BDO i overensstemmelse med databeskyttelsesforordningens artikel 5, stk. 2, jf. stk. 1, litra f, jf. artikel 32, stk. 1 og 2, har påvist at have udarbejdet en risikovurdering, hvori der tages stilling til risikoen forbundet med fremsendelse af fortrolige og følsomme personoplysninger over internettet.
+5. Konklusion
+Efter tilsynsbesøget med BDO finder Datatilsynet anledning til sammenfattende at konkludere:
+
+At BDO – i overensstemmelse med databeskyttelsesforordningens artikel 32 – anvender end-to-end kryptering ved udveksling af S/MIME certifikat over tunnelmail fællesskabet (herefter omtalt som tunnelmail) til fremsendelse af fortrolige og følsomme personoplysninger over internettet til kunder og andre modtagere på den offentlige tunnelliste.
+At BDO – i overensstemmelse med databeskyttelsesforordningens artikel 32 –  desuden anvender kryptering på transportlaget via tvungen TLS 1.2 til fremsendelse af fortrolige og følsomme personoplysninger til kunder over internettet.
+At BDO – i overensstemmelse med databeskyttelsesforordningens artikel 5, stk. 2, jf. stk. 1, litra f, jf. artikel 32, stk. 1 og 2 – har påvist at have udarbejdet en risikovurdering, der tager stilling til risikoen forbundet med fremsendelse af fortrolige og følsomme personoplysninger over internettet.
+At BDO ikke er bekendt med tilfælde, hvor fortrolige eller følsomme personoplysninger er sendt ukrypteret over internettet siden 1. januar 2019.
+
+ 
+[1]   Se Bhargavan og Leurent On the Practical (In-)Security of 64-bit Block Ciphers (ACM CCS 2016) og NIST SP 800-57 Part 1 Revision 4 (afsnit 5.6.1)
+
+

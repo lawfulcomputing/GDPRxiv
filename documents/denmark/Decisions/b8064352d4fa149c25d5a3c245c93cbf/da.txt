@@ -1,0 +1,82 @@
+Tilsyn med behandlingssikkerhed hos kontorfællesskab af advokatfirmaer
+Dato: 05-11-2019
+Afgørelse
+Private virksomheder
+
+
+Journalnummer: 2019-41-0029
+Resume
+Datatilsynet har i 2019 foretaget en planlagt tilsyn hos et kontorfællesskab af advokatfirmaer. Tilsynet fokuserede på behandlingssikkerhed, herunder særligt kryptering af e-mails, jf. databeskyttelsesforordningens artikel 32.
+Datatilsynet har i anledning af tilsynet udtalt kritik af, at kontorfællesskabet ikke har efterlevet kravene i databeskyttelsesforordningens artikel 32, stk. 1, og artikel 5, stk. 2, jf. stk. 1, litra f, jf. artikel 32, stk. 1 og 2.
+Af Datatilsynets afsluttende udtalelse fremgår bl.a., at kontorfællesskabet ikke forud for tilsynsbesøget havde indført procedurer, der sikrer, at der anvendes kryptering på transportlaget via TLS til fremsendelse af fortrolige og følsomme personoplysninger til klienter mv. over internettet. Kontorfællesskabet har efter tilsynsbesøget og inden Datatilsynets udtalelse oplyst, at kontorfællesskabet nu har indført procedurer, der i tvivlstilfælde sikrer, at modtagerdomænets understøttelse af TLS undersøges forud for afsendelse af en e-mail indeholdende fortrolige eller følsomme personoplysninger.
+Herudover fremgår det af udtalelsen, at kontorfællesskabet ikke har påvist at have udarbejdet en risikovurdering, der tager stilling til risikoen forbundet med fremsendelse af fortrolige og følsomme personoplysninger over internettet, forud for tilsynsbesøget.
+Du kan læse Datatilsynets vejledende tekst om kryptering af e-mails her.
+Afgørelse
+Et kontorfællesskab bestående af advokatfirmaer var blandt de virksomheder, som Datatilsynet havde udvalgt til tilsyn i foråret 2019.
+Datatilsynets planlagte tilsyn fokuserede på behandlingssikkerhed, herunder særligt kryptering af e-mails, jf. databeskyttelsesforordningens artikel 32.
+Efter anmodning fra Datatilsynet har kontorfællesskabet i foråret 2019 i forbindelse med tilsynsbesøget udfyldt et spørgeskema og indsendt dette samt yderligere materiale til tilsynet. Tilsynsbesøget fandt sted den 21. marts 2019.
+Efter tilsynet med kontorfællesskabet finder Datatilsynet anledning til sammenfattende at konkludere:
+
+At kontorfællesskabet – i overensstemmelse med databeskyttelsesforordningens artikel 32 – anvender end-to-end kryptering ved udveksling af S/MIME certifikat over tunnelmail fællesskabet (herefter omtalt som tunnelmail) til fremsendelse af fortrolige og følsomme personoplysninger over internettet til politiet, domstole og andre modtagere på den offentlige tunnelliste.
+At kontorfællesskabet ikke forud for tilsynsbesøget havde indført procedurer, der sikrer, at der anvendes kryptering på transportlaget via TLS til fremsendelse af fortrolige og følsomme personoplysninger til klienter mv. over internettet.
+At kontorfællesskabet ikke – i overensstemmelse med databeskyttelsesforordningens artikel 5, stk. 2, jf. stk. 1, litra f, jf. artikel 32, stk. 1 og 2 – har påvist at have udarbejdet en risikovurdering, der tager stilling til risikoen forbundet med fremsendelse af fortrolige og følsomme personoplysninger over internettet, forud for tilsynsbesøget.
+At kontorfællesskabet ikke er bekendt med tilfælde, hvor fortrolige eller følsomme personoplysninger er sendt ukrypteret over internettet siden 1. januar 2019.
+
+Datatilsynet finder samlet set anledning til at udtale kritik af, at kontorfællesskabet ikke har efterlevet databeskyttelsesforordningens krav i forhold til punkt 2 og 3.
+En nærmere gennemgang af Datatilsynets konklusioner følger nedenfor.
+1. Brug af kryptering ved transmission af fortrolige og følsomme personoplysninger over internettet
+Kontorfællesskabet har på tilsynsbesøget bekræftet, at de omfattede advokatkontorer benytter den samme tekniske løsning til fremsendelse af krypteret e-mail.
+Endvidere har kontorfællesskabet forud for tilsynsbesøget oplyst, at kontorfællesskabet sender fortrolige og følsomme personoplysninger via e-mail over internettet. Efter tilsynsbesøget har kontorfællesskabet præciseret, at det kun er yderst sjældent, at kontorfællesskabet sender følsomme personoplysninger via e-mail.
+2. Om krypteringsløsningen
+Kontorfællesskabet har oplyst, at al e-mail trafik sendes over en TLS 1.2 forbindelse til databehandlerens server, hvorfra den egentlige kryptering foretages. Her er der tre mulige løsninger, som anvendes i prioriteret rækkefølge:
+
+Send sikkert-løsningen, som benytter S/MIME med Nets OCES certifikater til at sende end-to-end krypteret til modtageren.
+Tunnelmail, som ligeledes benytter S/MIME med Nets OCES certifikater til at sende krypteret mellem hovedpostkasser, men som understøtter afsendelse fra/levering til slutbrugernes egne postkasser i begge ender. Databehandleren har oplyst, at tunnelmail løsningen understøttes af over 1.500 modtager-domæner.
+Levering af e-mail med kryptering på transportlaget via opportunistisk TLS, hvis der ikke kan findes et Nets OCES certifikat for modtagerens e-mail adresse.
+
+Ved S/MIME kryptering foretages automatisk opslag mod Nets’ database over OCES certifikater. S/MIME krypteringen anvender algoritmen AES-256, og alle private og offentlige nøgler har en længde af 2048 bits.
+Kontorfællesskabet har endvidere oplyst, at Send sikkert-løsningen og tunnelmail (punkt 1 og 2 ovenfor) for afsenderen er integreret i Outlook med endnu en knap til afsendelse af e-mail med teksten ”Send sikkert”. Ved tryk på denne knap foretages en undersøgelse af, om den angivne modtageradresse kan modtage krypteret e-mail enten via Send sikkert-løsningen eller via tunnelmail løsningen. Hvis modtageren understøtter en af de to nævnte løsninger, vil feltet blive markeret med grøn farve og ellers med rød farve. Hvis modtageren ikke understøtter en af løsningerne, kan afsenderen vælge at sende e-mailen alligevel. I så fald sker afsendelsen med opportunistisk TLS uden nogen garanti for, at e-mailen sendes krypteret.
+3. E-mails til domstolene, politikredse, anklagemyndigheden, styrelser og nævn
+Forud for tilsynsbesøget har kontorfællesskabet oplyst, at advokatkontorerne sender e-mails indeholdende fortrolige eller følsomme personoplysninger til domstolene, politikredse, anklagemyndigheden, styrelser og nævn. Disse e-mails sendes enten til en hovedpostkasse eller direkte til en medarbejders e-mail adresse.
+Kontorfællesskabet har oplyst, at når sådanne e-mails sendes, anvendes enten Send sikkert-løsningen eller tunnelmail løsningen (punkt 1 og 2 under afsnit 2), som anvender S/MIME certifikater til at foretage end-to-end kryptering.
+Kontorfællesskabet har hertil oplyst, at de pågældende e-mails sendes i professionelle sammenhænge, hvor kontorfællesskabet repræsenterer en klient. Det kan eksempelvis dreje sig om kommunikation med domstolene i en konkret straffesag mv., sager vedrørende ransagning af en telefon, aftaler med politiet om afhøringer, og når kontorfællesskabet på vegne af klienter klager til Kriminalforsorgen osv.
+3.1. Sammenfatning
+Datatilsynet lægger på baggrund af det af kontorfællesskabet oplyste til grund, at kontorfællesskabet anvender end-to-end kryptering med S/MIME certifikater i det omfang, at der sendes fortrolige og følsomme personoplysninger over internettet til professionelle aktører, herunder politiet, domstole og andre modtagere på den offentlige tunnelliste. Datatilsynet finder således, at kontorfællesskabet anvender tilstrækkelig behandlingssikkerhed ved fremsendelse af sådanne e-mails.
+4. E-mails til klienter mv.
+Kontorfællesskabet har oplyst, at kontorfællesskabet kommunikerer på forskellige måder med klienter alt afhængig af den enkelte klient.
+I forhold til arrestanter har kontorfællesskabet oplyst, at kontorfællesskabet ikke kommunikerer med denne gruppe klienter via e-mail, og at kommunikationen med disse typisk foregår telefonisk.
+I forhold til hjemløse klienter og andre klienter, der er fritaget for anvendelse af e-mail, eller som ikke anvender e-mail som kommunikationsform, har kontorfællesskabet oplyst, at kommunikationen med denne gruppe klienter foregår telefonisk eller ved fysisk fremmøde.
+I forhold til klienter på fri fod har kontorfællesskabet oplyst, at kommunikationen med disse foregår via e-mail, SMS, fysisk brev, telefon og fysisk fremmøde.
+Under tilsynsbesøget oplyste kontorfællesskabet, at når der sendes e-mails til klienter, som ikke understøtter den af kontorfællesskabet anvendte løsning til end-to-end kryptering, anvendes opportunistisk TLS ved fremsendelsen.
+4.1. Tilfælde hvor kryptering ikke har været anvendt
+Forud for tilsynsbesøget oplyste kontorfællesskabet, at det er forekommet, at kontorfællesskabet efter den 1. januar 2019 fejlagtigt har sendt e-mails med følsomme og fortrolige oplysninger ukrypteret over internettet.
+Under tilsynsbesøget spurgte Datatilsynet ind til, hvor ofte siden 1. januar 2019 det var sket, at advokatkontorerne fejlagtigt havde sendt e-mails med fortrolige eller følsomme oplysninger ukrypteret over internettet.
+Hertil oplyste indehaveren af et af advokatkontorerne, at pågældende ca. en gang om ugen siden 1. januar 2019 har besvaret en e-mail fra en klient – typisk ved anvendelse af svarknappen så den oprindelige henvendelse fremgår under svaret. Samtidig oplyste pågældende, at pågældende ikke var bekendt med, hvor mange af henvendelserne, som har indeholdt fortrolige eller følsomme oplysninger, men at det formentlig har været tilfældet for en del af dem.
+Indehaveren af en af de andre advokatkontorer oplyste, at det havde været tilfældet under 10 gange, og indehaveren af det sidste advokatkontor oplyste, at det maksimalt var sket en håndfuld gange.
+Adspurgt under tilsynsbesøget oplyste advokatkontorerne, at modtageren af de pågældende e-mails har været klienten eller pårørende til klienten, og at de pågældende e-mails har indeholdt oplysninger om klienten. 
+Efter tilsynsbesøget har kontorfællesskabet imidlertid oplyst, at det ikke er korrekt, at der er blevet sendt e-mails ukrypteret over internettet med fortrolige eller følsomme personoplysninger. Kontorfællesskabet har hertil oplyst, at de omtalte e-mails er sendt sikkert via en opportunistisk TLS forbindelse, og at de omtalte e-mails i øvrigt kun i ganske få tilfælde har indeholdt fortrolige personoplysninger, og at de ikke har indeholdt oplysninger af følsom karakter. Kontorfællesskabet har i forlængelse heraf fremsendt en liste over de 16 modtagerdomæner, hvortil de pågældende e-mails er sendt, som alle ses at understøtte TLS.
+4.2. Sammenfatning
+Datatilsynet lægger på baggrund af det af kontorfællesskabet oplyste til grund, at kontorfællesskabet anvender opportunistisk TLS i det omfang, at kontorfællesskabet sender e-mails over internettet til klienter og pårørende etc., hvor disse modtagere ikke understøtter kontorfællesskabet anvendte løsning til end-to-end kryptering.
+Datatilsynet lægger på baggrund af den af kontorfællesskabet fremsendte liste over modtagerdomæner til grund, at kontorfællesskabet ikke er bekendt med tilfælde, hvor fortrolige og følsomme personoplysninger er sendt ukrypteret over internettet siden 1. januar 2019.
+5. Risikovurdering
+Forud for tilsynsbesøget havde kontorfællesskabet fremsendt en risikovurdering for behandling af personoplysninger. Den fremsendte risikovurdering indeholdt dog ikke overvejelser i forhold til fremsendelse af e-mails indeholdende personoplysninger. Kontorfællesskabet oplyste på tilsynsbesøget i den forbindelse, at der ikke var udarbejdet en sådan risikovurdering.
+Efter tilsynsbesøget har kontorfællesskabet over for Datatilsynet oplyst, at der er indført nye procedurer for anvendelse af opportunistisk TLS til afsendelse til klienter mv. Ifølge de nye procedurer vil afsenderen – på baggrund af en vurdering af modtagerens e-mail domæne og e-mailens indhold – vurdere, om e-mailen kan afsendes med opportunistisk TLS. Kontorfællesskabet har ligeledes oplyst, at der ved tvivlstilfælde enten foretages en undersøgelse af modtagerdomænets understøttelse af TLS, eller at der fremsendes en blank e-mail med anmodning om kvittering, hvorefter kvitteringsmailens e-mail header undersøges for brug af TLS.
+Kontorfællesskabet har efter tilsynet ligeledes bekræftet, at der ikke var udarbejdet en skriftlig risikovurdering og oplyst, at kontorfællesskabets procedurer for den konkrete vurdering af e-mail kontakt med kontorfællesskabets klienter, jf. afsnittet ovenfor, nu er indarbejdet i kontorfællesskabets eksisterende risikovurdering.
+5.1. Sammenfatning
+Det er Datatilsynets vurdering, at kontorfællesskabet har overtrådt databeskyttelsesforordningens artikel 5, stk. 2, jf. stk. 1, litra f, jf. artikel 32, stk. 1 og 2 ved ikke på tilsynsbesøget at kunne fremlægge en skriftlig risikovurdering, som identificerer de risici, som den pågældende behandling udgør for de registreredes rettigheder, samt en vurdering af hvilke tekniske og organisatoriske foranstaltninger, som er passende for at sikre et sikkerhedsniveau, der passer til disse risici, eller i øvrigt kunne påvise, at en sådan risikovurdering var foretaget.
+Datatilsynet lægger til grund, at kontorfællesskabet ikke forud for tilsynsbesøget har været opmærksomme på, hvorvidt modtagerdomænet understøtter TLS, når der er afsendt e-mails indeholdende fortrolige eller følsomme personoplysninger til klienter mv.
+Endvidere lægger Datatilsynet til grund, at kontorfællesskabet efter tilsynsbesøget har indført procedurer, der i tvivlstilfælde sikrer, at modtagerdomænets understøttelse af TLS undersøges forud for afsendelse af en e-mail indeholdende fortrolige eller følsomme personoplysninger.
+Det er Datatilsynets vurdering, at kontorfællesskabets manglende risikovurdering i forhold til fremsendelse af e-mails indeholdende personoplysninger har medført utilstrækkelige sikkerhedsforanstaltninger i forhold til e-mails til klienter og pårørende.
+Det er i forlængelse heraf Datatilsynets vurdering, at kontorfællesskabet ved ikke forud for tilsynsbesøget at have indført procedurer, der sikrer, at e-mails indeholdende fortrolige eller følsomme personoplysninger bliver sendt med brug af kryptering med TLS på transportlaget, har overtrådt databeskyttelsesforordningens artikel 32.
+Datatilsynet skal endvidere bemærke, at de procedurer som kontorfællesskabet efter tilsynsbesøget har indført, vurderes at være i overensstemmelse med databeskyttelsesforordningens artikel 32, idet der ifølge retningslinjerne ikke afsendes e-mails indeholdende fortrolige eller følsomme personoplysninger til klienter mv. uden det sikres, at der anvendes kryptering med TLS på transportlaget.
+6. Konklusion
+Efter tilsynet med kontorfællesskabet finder Datatilsynet anledning til sammenfattende at konkludere:
+
+At kontorfællesskabet – i overensstemmelse med databeskyttelsesforordningens artikel 32 – anvender end-to-end kryptering ved udveksling af S/MIME certifikat over tunnelmail fællesskabet (herefter omtalt som tunnelmail) til fremsendelse af fortrolige og følsomme personoplysninger over internettet til politiet, domstole og andre modtagere på den offentlige tunnelliste.
+At kontorfællesskabet ikke forud for tilsynsbesøget havde indført procedurer, der sikrer, at der anvendes kryptering på transportlaget via TLS til fremsendelse af fortrolige og følsomme personoplysninger til klienter mv. over internettet.
+At kontorfællesskabet ikke – i overensstemmelse med databeskyttelsesforordningens artikel 5, stk. 2, jf. stk. 1, litra f, jf. artikel 32, stk. 1 og 2 – har påvist at have udarbejdet en risikovurdering, der tager stilling til risikoen forbundet med fremsendelse af fortrolige og følsomme personoplysninger over internettet, forud for tilsynsbesøget.
+At kontorfællesskabet ikke er bekendt med tilfælde, hvor fortrolige eller følsomme personoplysninger er sendt ukrypteret over internettet siden 1. januar 2019.
+
+Datatilsynet finder samlet set anledning til at udtale kritik af, at kontorfællesskabet ikke har efterlevet databeskyttelsesforordningens krav i forhold til punkt 2 og 3.
+
+

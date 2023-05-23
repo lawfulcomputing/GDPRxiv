@@ -1,0 +1,46 @@
+Manglende sikkerhed omkring en udviklingsserver
+Dato: 13-02-2020
+Afgørelse
+Private virksomheder
+Datatilsynet udtaler kritik af, at KMD i forbindelse med overtagelsen af et udviklings- og testmiljø fra en anden leverandør ikke havde gennemført passende sikkerhedsforanstaltninger.
+
+Journalnummer: 2019-431-0036
+Resume
+I en konkret sag har Datatilsynet udtalt kritik af, at en databehandler i forbindelse med overtagelsen af et udviklings- og testmiljø fra en anden leverandør (før forordningen fandt anvendelse) ikke havde gennemført passende sikkerhedsforanstaltninger.
+Da databehandleren erhvervede it-løsningen (i forbindelse med et virksomhedsopkøb) blev det ikke påset, i hvilket omfang en test- og udviklingsserver indeholdt oplysninger om fysiske personer. Serveren var til brug for udviklingsopgaver opkoblet mod netværk udenfor databehandlerens kontrol (internettet) og den blev flere år efter overtagelsen kompromitteret og benyttet uretmæssigt til at ”udvinde” kryptovalutaen Bitcoin. Serveren var på grund af den oprindelige klassifikation – som intern udviklingsserver, uden persondata – ikke undergivet databehandlerens ordinære driftssikkerhedssetup (patch- og sikkerhedspolitik).
+Da den uretmæssige brug blev konstateret, blev det samtidigt fastslået, at serveren – alligevel – indeholdt personhenførbare informationer fra flere dataansvarlige.
+Datatilsynet fandt, at bruddet kunne have været undgået, hvis der havde været indført helt almindelige tekniske sikkerhedsforanstaltninger (bl.a. firewall-regler), og at de etablerede sikkerhedsforanstaltninger derfor ikke kunne anses som passende. Årsagen hertil var primært, at risikovurderingen alene var baseret på den oprindelige beskrivelse af serveren som ”intern server” (uden personoplysninger).   
+Generelt om testmiljøer og produktionsdata
+Generelt set skal Datatilsynet indskærpe, at der også i forbindelse med udvikling og test udvises den fornødne opmærksomhed, såfremt der sker behandling af oplysninger om fysiske personer. Der er konstateret flere tilfælde, hvor udviklere enten på egen hånd, i samarbejde med forretningen eller som aftalt led i udviklingen benytter produktionsdata for at sikre kvaliteten af løsningen. Dette er der ikke – nødvendigvis – noget forkert i, så længe der foreligger en vurdering af risikoen for de registreredes rettigheder, og der i overensstemmelse med denne er etableret passende sikkerhed inden behandlingen påbegyndes, og at der i alle de tilfælde, hvor risikoen for den registrerede måtte være høj, er foretaget en konsekvensanalyse.
+Lidt firkantet sagt gælder det, at hvis man ønsker at bruge produktionsdata, skal der som udgangspunkt være den samme sikkerhed på ens udviklings- og testmiljø som det, der er vurderet som passende i driftssetuppet.      
+Afgørelse
+Datatilsynet vender hermed tilbage til sagen, hvor KMD A/S (herefter "KMD") i april 2019 oplevede et brud på persondatasikkerheden ved, at en server – hvorpå der var lagret personoplysninger – blev kompromitteret.
+1. Afgørelse
+Efter en gennemgang af sagen finder Datatilsynet, at der er grundlag for at udtale kritik af, at KMD's behandling af personoplysninger ikke er sket i overensstemmelse med reglerne i databeskyttelsesforordningens[1] artikel 32.
+Nedenfor følger en nærmere gennemgang af sagen og en begrundelse for Datatilsynets afgørelse.
+2. Sagsfremstilling
+Det fremgår af sagen, at den server, som blev kompromitteret den 10. april 2019, blev erhvervet via firmaet Avaleo, som KMD indgik købsaftale om i 2015 og som fusionerede med KMD i 2017.
+KMD har over for Datatilsynet oplyst, at i forbindelse med fusionen med Avaleo var der flere servere, som skulle underlægges KMD's ansvar, og i denne proces blev undersøgelse og sikring af servere, der ikke havde direkte betydning for produktionen og som ikke indeholdt produktionsdata, henlagt til senere eller anset for overflødigt. Derfor var den kompromitterede server ikke undersøgt nærmere den 10. april 2019, og sikkerheden på serveren var heller ikke indrettet efter det forhold, at serveren indeholdt personoplysninger.
+Det fremgår af sagen, som den er fremstillet af KMD, at den kompromitterede server indeholdt en sikkerhedskopi af data fra et prioriteringsværktøj, hvori udviklingsopgaver registreres og prioriteres. Denne sikkerhedskopi indeholdt fejlbeskrivelser som en del af beskrivelsen af udviklingsopgaver. Efter kompromittering af serveren var konstateret, blev der lavet en gennemgang af en del af sikkerhedskopien. Det blev konkluderet, at kopien indeholdt personnumre, ofte uden yderligere oplysninger, men det kunne også være med navn og evt. indikation af misbrugsproblemer. Sikkerhedskopien indeholdt endvidere login-oplysninger til SMDB – en central database hvortil misbrugsbehandlinger indberettes.
+Fra nogle af de berørte dataansvarlige, har Datatilsynet modtaget oplysninger, der indikerer, at også andre typer af adgange potentielt kan være berørt, herunder adgang til oplysninger om den dataansvarliges medarbejderes navn, personnummer, mm. eller adgang til Nexus-systemet. Sidstnævnte var en testbruger-adgangskode, som dog ikke har været anvendt i 2019.
+Af sagen fremgår det, at det ikke kan udelukkes, at der har været uautoriseret adgang til den sikkerhedskopi, som indeholdt personoplysningerne og login-oplysninger, men det er KMD's vurdering, at det ikke var sandsynligt, grundet de nærmere omstændigheder ved angrebet på serveren.
+Det fremgår af redegørelsen om hændelsesforløbet, at det har været nødvendigt for KMD at foretage en manuel gennemgang af data, herunder indhold i fritekstfelter, for at fastslå, hvilke dataansvarlige og hvilke registrerede der var berørt. At nogle dataansvarlige først blev informeret om bruddet nogle uger efter det fandt sted, begrundes i blandt andet omfanget af data, der skulle gennemgås manuelt (en nærmere gennemgang af ca. 3.000 ud af ca. 65.000 sager).
+KMD har som en del af håndteringen af bruddet slettet gamle registreringer, som var berørt af bruddet. KMD kunne derfor ikke oplyse præcist, hvor gamle data var ift. en specifik kommune (dataansvarlig), men KMD kunne ikke afvise, at oplysninger stammer fra 2011 og 2012. Grundet sletningen kunne KMD heller ikke angive med sikkerhed, hvilke typer af personoplysninger der var berørt, hvor denne konkrete kommune var dataansvarlig for behandlingen.
+68 dataansvarlige – primært kommuner – er berørt af bruddet.
+Serveren beskrives som en "intern server", der var etableret med henblik på udvikling af Avaleo-løsningen, og KMD blev opmærksom på bruddet, grundet en kraftig forringelse af serverens ydelser, hvilket skyldtes afvikling af et program til 'Bitcoin mining'.
+Foranstaltninger gennemført af KMD på baggrund af bruddet indebar blandt andet sletning af ældre data, begrænsning i adgangen ved at serveren kun kan tilgås fra KMD's IP-adresser, de-aktivering af den software som blev anvendt til at opnå uautoriseret adgang, samt flytning af login-oplysninger (brugernavne og adgangskoder) til et dedikeret key management system.
+Endvidere er der gennemført foranstaltninger, der fremadrettet skal minimere behandlingen af personoplysninger på serveren.
+3. Begrundelse for Datatilsynets afgørelse
+Datatilsynet lægger til grund, at KMD er databehandler ved den behandling af personoplysninger, der er berørt af bruddet.
+Når den dataansvarlige, skal anmelde brud til Datatilsynet, skal anmeldelsen, om muligt beskrive kategorierne af personoplysninger, der er berørt, jf. databeskyttelsesforordningens artikel 33, stk. 3, litra a. I et konkret tilfælde, som blev nærmere undersøgt af Datatilsynet, synes dette ikke at være muligt, grundet KMD's sletning af oplysningerne. Selv om sletningen kan have været et fornuftigt tiltag for at håndtere bruddet, skal databehandleren også sikre sig, at kunne levere de informationer til den dataansvarlige, der gør sidstnævnte i stand til at efterleve artikel 33. Dette burde være muligt uden at beholde de fatiske personoplysninger, som blev berørt af bruddet.
+KMD har forklaret, hvorfor nogle dataansvarlige først blev informeret om bruddet, nogle uger efter det var sket. Datatilsynet finder ikke anledning til at tilsidesætte KMD's forklaring.
+Datatilsynet finder, at KMD har overtrådt databeskyttelsesforordningens artikel 32 ved som databehandler at behandle personoplysninger uden at have gennemført passende tekniske og organisatoriske foranstaltninger til sikring mod ulovlig behandling af personoplysningerne.
+Datatilsynet har herved lagt vægt på, at:
+
+KMD erkender utilstrækkelig sikkerhed for den behandling, som blev berørt af bruddet på persondatasikkerheden.
+Ved beskrivelsen af serverens formål og foranstaltningerne, der blev indført på baggrund af bruddet på persondatasikkerheden, fremstår sagen således, at KMD kunne have undgået dette brud, ved almindelige tekniske sikkerhedsforanstaltninger, der ikke ville have hindret, den tiltænkte anvendelse af serveren.
+
+ 
+[1] Europa-Parlamentets og Rådets forordning (EU) 2016/679 af 27. april 2016 om beskyttelse af fysiske personer i forbindelse med behandling af personoplysninger og om fri udveksling af sådanne oplysninger og om ophævelse af direktiv 95/46/EF (generel forordning om databeskyttelse).
+
+

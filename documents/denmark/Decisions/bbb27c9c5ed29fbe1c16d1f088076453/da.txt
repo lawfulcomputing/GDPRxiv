@@ -1,0 +1,52 @@
+Alvorlig kritik af Sports Connection for manglende behandlingssikkerhed
+Dato: 04-07-2022
+Afgørelse
+Private virksomheder
+Alvorlig kritik
+Anmeldt brud på persondatasikkerheden
+Anmeldelse af brud på persondatasikkerheden
+Password
+Behandlingssikkerhed
+Hacking o.l.
+Uautoriseret adgang
+Datatilsynet udtaler alvorlig kritik af Sports Connection for ikke at have gennemført passende sikkerhedsforanstaltninger i forbindelse med et hackerangreb, hvor uvedkommende indsamlede kunders betalingsoplysninger.
+
+Journalnummer: 2021-441-10210
+Resumé
+Datatilsynet har truffet afgørelse i en sag, hvor Sports Connection ApS har anmeldt et brud på persondatasikkerheden.
+Sports Connection var udsat for et hackerangreb, hvor uvedkommende injicerede skadelig programkode på Sports Connections webshop for at indsamle deres kunders betalingsoplysninger.
+Forud for hændelsen havde virksomheden ikke sikkerhedspatchet e-handelsprogrammet til den seneste version.
+Datatilsynet fandt på den baggrund grundlag for at udtale alvorlig kritik af Sports Connection.
+ 
+1. Afgørelse
+Efter en gennemgang af sagen finder Datatilsynet, at der er grundlag for at udtale alvorlig kritik af, at Sports Connection ApS’ behandling af personoplysninger ikke er sket i overensstemmelse med reglerne i databeskyttelsesforordningens[1] artikel 32, stk. 1 og artikel 24, stk.1, jf. artikel 32, stk. 1.
+Nedenfor følger en nærmere gennemgang af sagen og en begrundelse for Datatilsynets afgørelse.
+2. Sagsfremstilling
+Den 28. september 2021 modtog Datatilsynet en anmeldelse fra Sports Connection ApS om, at der havde været uautoriseret adgang til Sports Connection ApS’ webshop, hvilket havde resulteret i et brud på persondatasikkerheden, hvorved der havde været adgang til kunders betalingsoplysninger. Sports Connection ApS blev bekendt med den uautoriserede adgang, da virksomheden opdagede, at der var tilføjet et felt i indkøbskurven på webshoppen, som ikke tidligere havde været der.
+ Det fremgår af sagen, at Sports Connection ApS’ webshop er baseret på e-handelsprogrammet Magento. Den 26. september 2021 blev der, via et sikkerhedshul i Magento, injiceret en skadelig programkode, der gav mulighed for at uploade en fil til webshoppen, som medførte, at der kunne manipuleres med webshoppens check-ud side. Selve adgangen udefra varede i 17 sekunder, hvor den eksterne fil var uploadet til virksomhedens webshop.
+Det fremgår videre af sagen, at webshoppen øjeblikkeligt blev lukket ned på tidspunktet for hændelsens konstatering, hvorefter Sports Connection ApS fandt frem til sikkerhedsbristen og lukkede for den. Virksomheden fastlagde herefter omfanget af hændelsen, og kontaktede de berørte kunder samme dag.
+Sports Connection ApS har i forbindelse med sagens behandling oplyst, at Magento version 1.9.3.8 blev afviklet på hjemmesiden på tidspunktet for bruddet. Virksomheden har anført, at Magento kunne have været opdateret til en nyere version, men at den nyere version ikke havde medført yderligere sikkerhedsopdateringer, som kunne have forhindret angrebet.
+ Det fremgår også af sagen, at angrebet skete via et modul i Magento, som blev hacket. Det skete via det særskilte modul med navnet ”slider-filemanager”, som fungerer uafhængigt af Magento, med sit eget login. Sports Connection ApS var ikke bekendte med det særskilte modul, herunder at modulet kunne tilgås af udefrakommende.
+Sports Connection ApS har til sagen oplyst, at uvedkommende fik adgang ved at få kendskab til login til slider-funktionaliteten i ”Slider_filemanager”, hvorved det var muligt at uploade en fil til check-ud siden, hvor der kunne indtastes kreditkortoplysninger. Den uautoriserede adgang til modulet varede i 17 sekunder, hvor der var adgang til kundernes kreditkortoplysninger. Sikkerhedshullet blev efterfølgende lukket, og det pågældende modul blev fjernet fra Magento.
+Sports Connection ApS har endelig oplyst, at virksomheden skiftede udviklingspartner i første kvartal 2021. Virksomheden har i den forbindelse anført, at det ikke har været muligt at fremskaffe en logfil over opdateringer til Magento, da logfilen enten er blevet slettet, eller som følge af at der er opdateret uden om logfilen i et tidligere udviklingssamarbejde.
+3. Begrundelse for Datatilsynets afgørelse
+Datatilsynet lægger på baggrund af det af Sports Connection ApS oplyste til grund, at virksomheden – på tidspunktet hvor webshoppen blev hacket – kørte Magento version 1.9.3.8. og, at der på dette tidspunkt var frigivet en nyere patchet version 1.9.3.9. Herudover lægger Datatilsynet til grund, at denne patch – i patchhistorikken – angiver at fjerne generelle sårbarheder i produktet.
+3.1. Databeskyttelsesforordningens artikel 32
+Databeskyttelsesforordningens artikel 32, stk. 1, fastslår, at den dataansvarlige, under hensynstagen til det aktuelle tekniske niveau, implementeringsomkostningerne og den pågældende behandlings karakter, omfang, sammenhæng og formål samt risiciene af varierende sandsynlighed og alvor for fysiske personers rettigheder og frihedsrettigheder, gennemfører passende tekniske og organisatoriske foranstaltninger for at sikre et sikkerhedsniveau, der passer til disse risici.
+Der påhviler således den dataansvarlige en pligt til at identificere de risici, den dataansvarliges behandling udgør for de registrerede og til at sikre, at der indføres passende sikkerhedsforanstaltninger, der beskytter de registrerede mod disse risici.
+I artikel 32, stk. 1, er som eksempler på sikkerhedsforanstaltninger specifikt nævnt evnen til at sikre vedvarende fortrolighed, integritet og robusthed af behandlingssystemer og en procedure for regelmæssig afprøvning, vurdering og evaluering af effektiviteten af de tekniske og organisatoriske foranstaltninger til sikring af behandlingssikkerhed.
+Det er Datatilsynets opfattelse, at kravet jf. artikel 32 om passende sikkerhed normalt vil indebære, at den dataansvarlige har pligt til at sikre, at de personoplysninger, som behandles af den dataansvarlige, ikke kommer til uvedkommendes kendskab. Efter Datatilsynets opfattelse betyder det bl.a., at den dataansvarlige skal sikre, at kunder ved brug af den dataansvarliges webshop ikke utilsigtet videregiver oplysninger til uvedkommende, f.eks. ved at sikre, at kunder ikke bliver videresendt til en betalingsside, hvor kundernes betalingsoplysninger bliver opsnappet af uvedkommende. Datatilsynet mener generelt, at der ved webshops og betalingsløsninger, der stilles til rådighed via åbne tilgængelige hjemmesider, skal være procedurer for og kontroller der sikrer, at administrative brugerkonti holdes separat fra enkeltbrugerkonti, at disse generelt skal sikres ved brug af multifaktorautentifisering. Herudover skal det i videst mulige omfang benyttes forskellige brugernavne og kendeord, til de moduler og dele løsningen består af. Det er et kendt risikoscenarie, at de hyppigt anvendte e-handelsplatforme og deres add-on produkter bliver forsøgt kompromitteret, ved indbyggede svagheder, det er derfor essentielt, at der patches lige så snart leverandøren udgiver en sikkerhedspatch, både de der udbedrer specifikke trusler, men også de der blot angiver at udbedre generelle sårbarheder.
+Det er i den forbindelse Datatilsynets opfattelse, at den dataansvarlige, som led i udvikling og tilpasning af it-løsninger til behandling af personoplysninger skal sikre, at it-systemer løbende opdateres og kontrolleres med henblik på at identificere forhold, som kan føre til hændelig eller ulovlig tilintetgørelse, tab, ændring uautoriseret videregivelse af eller adgang til personoplysninger.
+Datatilsynet finder på ovenstående baggrund, at Sports Connection ApS – ved ikke at have opdateret e-handelsprogrammet Magento til den seneste version på tidspunktet for angrebet – ikke har truffet passende organisatoriske og tekniske foranstaltninger for at sikre et sikkerhedsniveau, der passer til de risici, der er ved virksomhedens behandling af personoplysninger, jf. databeskyttelsesforordningens artikel 32, stk. 1.
+3.2. Databeskyttelsesforordningens artikel 24
+Sports Connection ApS har anført, at det ikke har været muligt at fremskaffe en logfil over patches til e-handelsprogrammet Magento, idet logfilen enten er blevet slettet, eller som følge af, at der er opdateret uden om logfilen i et tidligere udviklingssamarbejde.
+Det følger af databeskyttelsesforordningens artikel 24, stk. 1, at den dataansvarlige, under hensyntagen til den pågældende behandlings karakter, omfang, sammenhæng og formål samt risiciene af varierende sandsynlighed og alvor for fysiske personers rettigheder og frihedsrettigheder, skal gennemføre passende tekniske og organisatoriske foranstaltninger for at sikre og for at være i stand til at påvise, at behandling er i overensstemmelse med denne forordning.
+Datatilsynet finder på den baggrund, at Sports Connection ApS generelt ikke har kunnet påvise overholdelse af forordningen ved ikke at kunne dokumentere hvornår systemet er blevet patchet, idet der ikke har kunne fremskaffes en logfil over løbende opdateringer i Magento. Ved ikke at kunne dette har Sports Connection ApS ikke levet op til kravet om, at den dataansvarlige skal kunne påvise en passende sikkerhed ved behandlingen af personoplysninger, jf. databeskyttelsesforordningens artikel 24, stk. 1, jf. artikel 32, stk. 1.
+3.3. Sammenfatning
+På ovenstående baggrund finder Datatilsynet, at der er grundlag for at udtale alvorlig kritik af, at Sports Connection ApS’ behandling af personoplysninger ikke er sket i overensstemmelse med reglerne i databeskyttelsesforordningens artikel 32, stk. 1 og artikel 24, stk.1, jf. artikel 32, stk. 1.
+Datatilsynet har ved valg af reaktion lagt vægt på, at det er et kendt risikoscenarie at hyppigt anvendte e-handelsplatforme bliver forsøgt kompromitteret ved indbyggede svagheder. Herudover har Datatilsynet lagt vægt på, at der er tale om kundernes betalingsoplysninger.
+ Datatilsynet har endvidere lagt vægt på, at Sports Connection ApS ikke har sikret den fornødne dokumentation, og dermed ikke har kunnet dokumentere, at e-handelsprogrammet Magento løbende er blevet sikkerhedsopdateret tilstrækkeligt.
+ 
+[1] Europa-Parlamentets og Rådets forordning (EU) 2016/679 af 27. april 2016 om beskyttelse af fysiske personer i forbindelse med behandling af personoplysninger og om fri udveksling af sådanne oplysninger og om ophævelse af direktiv 95/46/EF (generel forordning om databeskyttelse).
+
+

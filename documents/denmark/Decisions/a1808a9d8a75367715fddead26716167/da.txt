@@ -1,0 +1,94 @@
+Sikkerhedshul i Schultz Expose
+Dato: 22-09-2020
+Afgørelse
+Private virksomheder
+
+
+Journalnummer: 2019-431-0048
+Resume
+Datatilsynet modtog i oktober 2019 anmeldelser fra en række kommuner vedrørende Schultz Expose, som driftes af J.H. Schultz Information A/S. Formålet med systemet er at levere ledelsesinformation til jobcentrene i kommunerne, der på baggrund af oplysningerne kan træffe beslutninger, der vedrører kommunens drift, på et databaseret grundlag.
+I forbindelse med en opdatering af systemet blev en sikkerhedskomponent, der skulle sikre, at kun de relevante oplysninger var tilgængelige for brugerne med adgang til systemet, midlertidigt deaktiveret. Da opdateringen – på grund af en proces, der ikke kunne afsluttes – ikke forløb som forventet, blev sikkerhedskomponenten ikke planmæssigt genaktiveret.
+Som følge af fejlen har det været muligt for udvalgte medarbejdere i kommunerne uretmæssigt at tilgå beskæftigelsesrelaterede oplysninger om ca. 1,5 mio. borgere fra andre kommuner.
+Afgørelse
+Datatilsynet vender hermed tilbage til sagen, hvor brugere i en række kommuner – grundet en fejl ved en planmæssig release af en ny version af Schultz Expose – uretmæssigt har fået adgang til beskæftigelsesrelaterede oplysninger om ca. 1,5 mio. borgere fra andre kommuner.
+1. Afgørelse
+Efter en gennemgang af sagen finder Datatilsynet, at der er grundlag for at udtale kritik af, at J.H. Schultz Information A/S’ (herefter Schultz) behandling af personoplysninger ikke er sket i overensstemmelse med reglerne i databeskyttelsesforordningens[1] artikel 28, stk. 3, litra f, jf. artikel 32.
+Nedenfor følger en nærmere gennemgang af sagen og en begrundelse for Datatilsynets afgørelse.
+2. Sagsfremstilling
+Schultz driver Schultz Expose, som er et ledelsesinformationssystem til kommunernes jobcentre. Oplysningerne, der behandles i Schultz Expose, stammer bl.a. fra Schultz Fasit, som er et sagsbehandlingssystem, der anvendes på jobcentrene i en række kommuner.
+Datatilsynet har i oktober 2019 modtaget anmeldelser af brud på persondatasikkerheden fra 26 kommuner, der vedrører samme hændelse i systemet Schultz Expose.
+På baggrund af anmeldelserne har Datatilsynet den 28. oktober 2019 valgt at starte en sag af egen drift over for Schultz, som er databehandler for de pågældende kommuner.
+Schultz har ved breve af 8. november 2019, 20. november 2019 og 21. december 2019 udtalt sig i sagen.
+2.1. Om hændelsen
+Det fremgår af sagen, at Schultz den 4. oktober 2019 foretog en planmæssig teknisk release[2] af en ny version af Schultz Expose. Idet der var tale om en teknisk release, var der under opdateringen behov for at deaktivere den sikkerhedskomponent, der sørger for de rette adgangsrettigheder, således at brugerne i kommunerne kun får adgang til de oplysninger, der er relevante for den pågældende kommune.
+Idet der i forbindelse med opdateringen var foretaget ændringer i et database schema[3], forsøgte opdateringen at rekonstruere et stort antal rækker i databasens tabeller i en enkelt transaktion. Da denne proces var yderst omfattende, ”hang” processen i en uafsluttet tilstand, hvorfor sikkerhedskomponenten aldrig blev automatisk aktiveret efter endt opdatering.
+Som konsekvens af, at sikkerhedskomponenten ikke blev automatisk aktiveret efter endt opdatering, har det været muligt for brugerne i kommunerne med SQL-adgang til Schultz Expose Datawarehouse at trække data fra alle kommuner, der anvender Fasit, på nær Odense Kommune, Århus Kommune og Københavns Kommune.
+Schultz blev bekendt med fejlen, da Syddjurs Kommune den 8. oktober 2019 kl. 16.09 gjorde Schultz opmærksom på, at kommunen kunne trække data fra Schultz Expose om borgere, der ikke vedrører Syddjurs Kommune.
+Schultz har oplyst, at systemet efter henvendelsen fra Syddjurs Kommune blev lukket ned, og at fejlen var udbedret den 9. oktober kl. 10.30.
+Endvidere har Schultz oplyst, at adgang til systemet sker via login med personlige certifikater, og at adgangene til systemet logges. Således har Schultz kunnet konstatere, at tre navngivne medarbejdere i tre kommuner har tilgået systemet i den periode, hvor sikkerhedskomponenten har været deaktiveret, og at der i to af de tre tilfælde, blev hentet datasæt indeholdende oplysninger om borgere, der ikke vedrørte den pågældende kommune.
+Endelig har Schultz oplyst, at fejlen ikke blev opdaget i forbindelse med opdateringen, da opfølgning på sikkerhedskomponentens automatiske genaktivering ikke var en del af release processen.
+2.2. Typer af personoplysninger
+Schultz har oplyst, at oplysningerne fra Schultz Expose, der uretmæssigt er blevet udstillet for brugere i de forkerte kommuner, er generelle, statistiske oplysninger om borgernes tilknytning til jobcentrene, som under normale forhold er pseudonymiserede. Schultz har endvidere oplyst, at det for nogle brugere har været muligt at knytte personnummer til de pågældende data med henblik på at sammenknytte data med andre datakilder.
+Schultz har endvidere oplyst, at nogle af de tabel kolonner, dvs. typer af personoplysninger, som brugerne i kommunerne har kunnet tilgå er:
+
+borgerens køn
+borgerens alder
+statsborgerskab
+sagstyper: den type af sag, en borger er tilknyttet, fx dagpenge, jobafklaring, m.fl.
+målgrupper: type af borger i systemet, fx dagpengemodtager, kontanthjælpsmodtager, m.fl.
+status: en oplysning om borgerens ledighed, fx fuldt ledig, delvist ledig, m.fl.
+aktivitetstyper: type at aktivitet for borgeren, fx fleksjob, virksomhedspraktik, ordinært job, m.fl.
+aktivitetssteder: de enkelte virksomheder eller organisationer, som er ansvarlig for en given aktivitet
+antal samtaler, type og tidspunkt
+antal fravær, fritagelser og varigheder af disse i forbindelse med aktiviteter
+
+Schultz har fremsendt et anonymiseret eksempel på database tabeller, der uretmæssigt var givet adgang til. Datatilsynet har gennemgået det fremsendte materiale. Det er tilsynets vurdering, at der er tale om personoplysninger omfattet af databeskyttelsesforordningens artikel 6 og 9 i pseudonymiseret form. Pseudonymiseringen består i, at den enkelte borger er repræsenteret ved et 36-cifret GUID (globally unique identifier).
+2.3. Omfang af utilsigtet adgang
+Schultz har oplyst, at i perioden, hvor sikkerhedskomponenten var deaktiveret, har tre navngivne brugere i tre kommuner tilgået systemet.
+En bruger i Vejle Kommune havde logget ind i systemet, men hentede ikke noget datasæt. Dette har Schultz fået bekræftet via e-mail.
+En anden bruger i Silkeborg Kommune hentede et datasæt, der indeholdt oplysninger om borgere i andre kommuner, men anvendte ikke de pågældende data.
+En tredje bruger i Syddjurs Kommune hentede et datasæt, der indeholdt oplysninger om borgere i andre kommuner. Efter gennemgang af 5-10 borgeres oplysninger konstaterede brugeren, at det var oplysninger om borgere, der ikke vedrørte Syddjurs Kommune. Herefter benyttede brugeren et filter til kun at hente de relevante oplysninger.
+Schultz har oplyst, at der for kommunerne har været uretmæssig adgang til oplysninger vedrørende ca. 1,5 mio. borgere.
+Endelige har Schultz oplyst, at virksomheden har fulgt op med de pågældende tre kommuner, og sikret sletning af de uretmæssigt tilgåede data. Schultz har fremsendt erklæringer på tro og love fra de pågældende medarbejdere om, at de pågældende oplysninger er slettet fra eventuelle lokale filer og kopier.
+2.4. Trufne foranstaltninger
+Schultz har anført, at følgende foranstaltninger er truffet for at undgå lignende hændelser fremadrettet:
+
+Scriptet[4] til opdatering og udgivelse af nye versioner er tilpasset, så processerne fremadrettet ikke vil gå i stå
+Udgivelsesproceduren er ændret, så der nu skal ske opfølgning på, at sikkerhedskomponenten er blevet genaktiveret, uanset typen af release
+Som supplement til manuelle kontroller indføres automatisk overvågning af status på diverse komponenter, herunder sikkerhedskomponenten
+
+2.5. Databehandleraftaler
+Datatilsynet har modtaget en skabelon til de databehandleraftaler, som kommunerne har indgået med Schultz i forhold til den aktuelle hændelse.
+Af databehandleraftalens afsnit 4.3 fremgår det, at Schultz skal sikre personoplysninger via tekniske og organisatoriske sikkerhedsforanstaltninger, som beskrevet i databeskyttelsesforordningen, jf. bilag 1. Af bilag 1 fremgår det bl.a. at Schultz skal have formelle procedurer for ændringshåndtering med henblik på at sikre, at enhver ændring er behørigt autoriseret, testet og godkendt inden implementering. Det fremgår endvidere, at proceduren skal understøttes af en effektiv funktionsadskillelse og/eller ledelsesopfølgning for at sikre, at ingen enkeltpersoner kan kontrollere en ændring alene.
+Det fremgår endvidere af databehandleraftalens afsnit 4.5, at Schultz i overensstemmelse med databeskyttelsesforordningen skal bistå kommunerne med at efterleve deres forpligtelser efter databeskyttelsesforordningens artikel 32-36.
+Endvidere fremgår det af databehandleraftalens afsnit 4.6, at Schultz skal levere tilstrækkelig ekspertise, pålidelighed og ressourcer til at implementere passende tekniske og organisatoriske foranstaltninger sådan, at Schultz’ behandling af kommunernes personoplysninger opfylder kravene i databeskyttelsesforordningen og sikrer beskyttelse af den registreredes rettigheder.
+Endelig fremgår det af databehandleraftalens afsnit 7.1, at Schultz skal iværksætte alle sikkerhedsforanstaltninger, der kræves for at sikre et passende sikkerhedsniveau.
+3. Begrundelse for Datatilsynets afgørelse
+Datatilsynet lægger til grund, at der ­– som følge af en fejl, hvor en sikkerhedskomponent ikke blev genaktiveret efter opdatering – har været/er sket uretmæssig adgang til de i afsnit 2.2 angivne typer af oplysninger, som indebærer bl.a. beskæftigelsesrelaterede oplysninger om fx dagpenge og kontanthjælpsydelser, om ca. 1,5 mio. borgere.
+Endvidere lægger Datatilsynet til grund, at Schultz ikke har udført den fornødne opfølgning på opdatering af Schultz Expose, til at kunne opdage at sikkerhedskomponenten, der skulle sikre den korrekte adgangskontrol, ikke blev planmæssigt genaktiveret.
+Det følger af databeskyttelsesforordningens artikel 28, stk. 3, litra f, at databehandleren skal bistå den dataansvarlige med at sikre overholdelse af forpligtelserne i medfør af artikel 32-36 under hensyntagen til behandlingens karakter og de oplysninger, der er tilgængelige for databehandleren.
+Det følger endvidere af databeskyttelsesforordningens artikel 32, stk. 1, at den dataansvarlige og databehandleren skal gennemføre passende tekniske og organisatoriske foranstaltninger for at sikre vedvarende fortrolighed af behandlingssystemer og -tjenester.
+Det er Datatilsynets opfattelse, at kravet jf. artikel 32 om passende sikkerhed normalt vil inde-
+bære, at dataansvarlige og databehandlere, som led i proceduren for change management/release management for et system skal sikre, at det ændrede system testes for uhensigtsmæssigheder, som ændringen måtte have medført.
+Datatilsynet finder derfor, at Schulz i sin funktion som databehandler for de 26 kommuner ikke har levet op til databeskyttelsesforordningens artikel 28, stk. 3, litra f, jf. artikel 32, idet selskabet ikke har implementeret tilstrækkelige tekniske og organisatoriske sikkerhedsforanstaltninger imod, at personoplysninger ca. 1,5 mio. borgere kommer uvedkommende i hænde.
+På baggrund af ovenstående finder Datatilsynet, at der er grundlag for at udtale kritik af, at Schultz’ behandling af personoplysninger ikke er sket i overensstemmelse med databeskyttelsesforordningens artikel 28, stk. 3, litra f, jf. artikel 32.
+Af skærpende omstændigheder har Datatilsynet lagt vægt på, at
+
+Schultz ikke havde procedurer – hverken manuelle eller tekniske – til at kontrollere, at sikkerhedskomponenten, der skulle sikre adgangskontrollen til Schultz Expose Datawarehouse, blev genaktiveret efter endt opdatering
+hændelsen har et stort omfang, idet der har været/er sket uretmæssig adgang til oplysninger ca. 1,5 mio. borgere.
+
+Af formildende omstændigheder har Datatilsynet lagt vægt på, at
+
+formålet med kommunernes behandling af personoplysningerne er at indsamle ledelsesinformation med henblik på at evaluere kommunens drift, hvorved de potentielle konsekvenser for de registrerede ses at være lave, modsat fx konkret sagsbehandling
+de oplysninger, der uretmæssigt har været adgang til, var pseudonymiserede
+videregivelsen af oplysningerne er sket til fagpersoner, der er indforstået med, at oplysningerne skal behandles med fortrolighed
+Schultz har implementeret den fornødne logning til med sikkerhed at kunne fastlægge, at den reelle tilgang til oplysningerne har været begrænset
+Schultz’ håndtering af bruddet samt opfølgning med kommunerne, efter tilsynets opfattelse, har været hurtig og tilstrækkelig.
+
+ 
+[1]   Europa-Parlamentets og Rådets forordning (EU) 2016/679 af 27. april 2016 om beskyttelse af fysiske personer i forbindelse med behandling af personoplysninger og om fri udveksling af sådanne oplysninger og om ophævelse af direktiv 95/46/EF (generel forordning om databeskyttelse).
+[2]   Schultz har oplyst, at man opererer med to øvrige typer af releases, hvor deaktivering af sikkerhedskomponenten ikke er nødvendig.
+[3]   Et database schema angiver en struktur af de underliggende objekter i en database, herunder tabeller, views, osv.
+[4]   Et script er en samling kildekode skrevet i et script-sprog, som er en type programmeringssprog, hvor koden afvikles løbende af en såkaldt fortolker, modsat kompilerede programmeringssprog, hvor kildekoden kompileres til en eksekverbar fil.
+
+

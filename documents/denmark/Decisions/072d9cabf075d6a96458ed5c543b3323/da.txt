@@ -1,0 +1,90 @@
+TV2’s vurdering af risikoen for de registrerede ved credential stuffing angreb var forkert
+Dato: 18-12-2020
+Afgørelse
+Private virksomheder
+Alvorlig kritik
+Anmeldt brud på persondatasikkerheden
+Behandlingssikkerhed
+Hacking o.l.
+Risikovurdering og konsekvensanalyse
+På baggrund af TV2’s fejlagtige vurdering af risikoen for de registrerede ved behandlingen og de manglende implementerede sikkerhedsforanstaltninger udtalte Datatilsynet alvorlig kritik af, at TV2 ikke levede op til reglerne om behandlingssikkerhed
+
+Journalnummer: 2018-441-0645
+Resumé
+Datatilsynet har truffet afgørelse i en sag, hvor TV2 havde anmeldt en række brud på persondatasikkerheden til tilsynet.
+TV2 havde været udsat for højfrekvente hackerangreb af typen ”credential stuffing” rettet mod registrerede kunders konti.
+Credential stuffing er en angrebsform, hvor loginoplysninger, typisk bestående af lækkede lister over brugernavne og passwords, bruges til at få adgang til bl.a. personoplysninger, gennem omfattende automatiserede loginanmodninger hos en internettjeneste. Det vil sige hackerne på den måde tester om brugernavne og de tilhørende passwords på listerne også giver adgang til den pågældende internettjeneste.
+Højfrekvente hackerangreb betyder, at angrebet sker fra én ip-adresse modsat lavfrekvente, hvor angrebene spredes ud over flere ip-adresser med få loginforsøg pr. adresse fordelt over længere tid, hvilket gør det sværere at opdage angrebet.
+TV2 ønskede ikke forud for angrebet at indføre sikkerhedsforanstaltninger, der gjorde det for besværligt for kunderne at logge ind. 
+Det var TV2’s opfattelse, at formålet med angrebene typisk er at få verificeret adgangskoder til TV2 PLAY-brugerprofiler, så streamingadgange efterfølgende kan sælges ulovligt, hvorfor den alvorligste konsekvens for brugerne ifølge TV2 var, at brugerprofilerne kunne blive misbrugt af andre, og at brugeren skulle skifte adgangskode.
+Det var imidlertid Datatilsynets vurdering, at der er flere – langt mere alvorlige – konsekvenser forbundet med credential stuffing angreb, end dem TV2 havde identificeret. F.eks. kan en liste over verificerede kombinationer af brugernavne og passwords bruges hos andre tjenester, hvor der er adgang til væsentligt flere personoplysninger, herunder betalingsoplysninger. Det er nemlig meget almindeligt, at brugere anvender samme passwords til flere tjenester.
+Det var derfor Datatilsynets opfattelse, at TV2’s vurdering af truslen og sandsynligheden for denne var forkert.
+En dataansvarlig skal ud fra de identificerede risici sikre et passende sikkerhedsniveau og implementere nødvendige tekniske og organisatoriske foranstaltninger.
+Datatilsynet fandt, at TV2 ikke havde implementeret sådanne nødvendige foranstaltninger til at sikre et passende sikkerhedsniveau.
+Datatilsynet lagde navnlig vægt på, at TV2 allerede inden bruddet den 7. september 2018 burde have implementeret automatisk blokering af ip-adresser ved mange mislykkede loginforsøg, der kom fra en eller få ip-adresser.
+Datatilsynet lagde endvidere vægt på, at den manuelle overvågning ikke var tilstrækkelig effektiv.
+På baggrund af TV2’s fejlagtige vurdering af risikoen for de registrerede ved behandlingen og de manglende implementerede sikkerhedsforanstaltninger udtalte Datatilsynet alvorlig kritik af, at TV2 ikke levede op til reglerne om behandlingssikkerhed.
+1. Afgørelse
+Efter en gennemgang af sagen finder Datatilsynet, at der er grundlag for at udtale alvorlig kritik af, at TV2’s behandling af personoplysninger ikke er sket i overensstemmelse med reglerne i databeskyttelsesforordningens[1] artikel 32.
+Nedenfor følger en nærmere gennemgang af sagen og en begrundelse for Datatilsynets afgørelse.
+2. Sagsfremstilling
+Datatilsynet har i perioden fra 10. september 2018 til 8. december 2018 modtaget en række anmeldelser af brud på persondatasikkerheden fra TV2, hvor TV2 har været udsat for højfrekvente hackerangreb af typen ”credential stuffing” rettet mod registrerede kunders konti.
+2.1. TV2s bemærkninger
+TV2 har anført, at der i de omhandlede anmeldelser, fra én IP-adresse blev foretaget et meget stort antal gentagne loginforsøg på TV2’s brugerprofiler. Det blevet konstateret, at der var foretaget en stor mængde succesfulde logins på TV2’s brugerprofiler. Det fremgår endvidere af anmeldelserne, at der fra den samme IP-adresse var et stort antal afviste loginforsøg i samme periode.
+De berørte af angrebet er blevet underrettet om angrebene via e-mail.
+TV2 har anført, at for at logge ind på en brugerprofil skal man bruge et brugernavn, som typisk er en e-mailadresse og et password. Når man er logget ind på en brugerprofil, vil følgende personoplysninger være tilgængelige:
+
+e-mailadresse
+fornavn
+fødselsår
+køn
+brugernavn (f.eks. et pseudonym)
+efternavn
+mobilnummer
+postnummer
+streaminghistorik
+
+Endvidere har TV2 anført, at de mange loginforsøg og succesfulde logins tyder på et såkaldt ”credential stuffing” angreb. Et credential stuffing angreb er en angrebsform hvor loginoplysninger, typisk bestående af lister over brugernavne og/eller e-mailadresser og de korresponderende passwords, benyttes til at opnå uautoriseret adgang til brugerprofiler, gennem omfattende automatiserede loginanmodninger hos en internettjeneste. Listerne med loginoplysninger indeholder som udgangspunkt loginoplysninger fra andre tjenester. Listerne stammer oftest fra tidligere brud på persondatasikkerheden hos andre tjenester.
+TV2 har anført, at før det første angreb den 7. september 2018 var credential stuffing ikke en del af det sædvanlige trusselsbillede for TV2 Play. Dette hænger bl.a. sammen med, at indholdet af TV2 Play på grund af sproget reelt kun er interessant for et dansk publikum. Der har imidlertid siden bruddet den 7. september 2018 været et kraftigt stigende antal forsøg på credential stuffing, hvilket er en tendens der har kunne mærkes i hele branchen.
+Det er TV2’s opfattelse, at formålet med de credential stuffing-forsøg, der har været rettet mod TV 2 PLAY, alene har været at identificere, hvilke brugernavne og kodeord fra den benyttede liste, der kunne give adgang til TV 2 PLAY, således at streamingadgangen har kunnet videresælges illegalt.
+TV2 har vurderet, at konsekvensen for den registrerede af en kompromittering nærmest er ubetydelig. Mange kunder vil formentlig ikke opdage det, hvis der er en uvedkommende person, som benytter deres konto, ligesom en kompromittering ikke vil indebære nogen omkostninger for den registrerede.
+I forhold til hvilke sikkerhedsforanstaltninger der kan implementeres har TV2 endvidere anført, at det er begrænset, hvor omstændelige sikkerhedsforanstaltninger, der kan være forbundet med login. Hvis sikkerhedsforanstaltningerne er for omstændelige eller opleves som forstyrrende for anvendelsen af en – i dette tilfælde – forholdsvis simpel service, undlader kunderne at benytte servicen. TV2 foretager derfor en løbende afvejning af på den ene side, hvilke personoplysninger, servicen giver adgang til og de deraf afledte risici, og på den anden side den betydning, forskellige sikkerhedsforanstaltninger vil have for brugervenligheden.
+TV2s sikkerhedsniveau før bruddet den 7. september 2018 var afmålt i forhold til den vurdering af risikoen der var forbundet med et credential stuffing-forsøg. Der var før bruddet iværksat følgende relevante sikkerhedsforanstaltninger:
+[undtaget fra offentliggørelse]
+Om systemets håndtering af login-forsøg har TV2 oplyst, at:
+[undtaget fra offentliggørelse].
+TV2 havde mulighed for og havde forsøgt at implementere automatisk blokering af loginaktivitet allerede inden den 7. september 2018. Det viste sig imidlertid at være driftsmæssigt problematisk og nærmest uvirksomme, da angriberen i så fald blot skiftede ip-adresse.
+TV2 har vedrørende den manuelle overvågning uddybende beskrevet, at der var etableret realtidsovervågning af loginaktiviteterne. Det betyder, at TV2’s medarbejdere holdte øje med specifikke driftsparametre. Medarbejderne blev underrettet om uregelmæssigheder ved en alarm eller en advarselsmail. Specifikt vedrørende credential stuffing [undtaget fra offentliggørelse].
+Derudover blev der foretaget periodiske gennemgange af aktivitetsloggen, hvilket indebar, at loggen blev analyseret, når der havde været registreret unormal aktivitet. Dette analysearbejde kunne alene udføres bagudrettet, hvorfor formålet med dette bl.a. var at sikre underretning af berørte brugere.
+TV2 har endvidere oplyst, at der har været afholdt workshops blandt andet med henblik på at afdække, hvilke beskyttelsestiltag der kunne etableres foran loginsystemet.
+Endelig har TV2 anført, at TV2 i tiden efter den 7. september 2018 har implementeret nye foranstaltninger, og at disse foranstaltninger er blevet tilpasset fra hændelse til hændelse. Credential stuffing-forsøgene udvikles hele tiden og normalen er nu at angrebene består af forsøg distribueret ud over mange tusinde ip-adresser med ganske få loginforsøg pr. adresse fordelt over mange timer – såkaldte lavfrekvente hackerangreb. Det betyder [undtaget fra offentliggørelse].
+3. Begrundelse for Datatilsynets afgørelse
+3.1. Af databeskyttelsesforordningens artikel 32, stk. 1, fremgår, at den dataansvarlige skal gennemføre tekniske og organisatoriske foranstaltninger, der passer til risiciene af varierende sandsynlighed og alvor for de registreredes rettigheder.
+Der påhviler således den dataansvarlige en pligt til at identificere de risici, den dataansvarliges behandling udgør for de registrerede og til at sikre, at der indføres passende sikkerhedsforanstaltninger, der beskytter de registrerede mod disse risici.
+3.2. Det er Datatilsynets opfattelse, at TV2 ikke i tilstrækkelig grad havde identificeret risiciene, sandsynligheden herfor og konsekvenserne for de registrerede.  
+Når man skal vurdere risici, skal det ske ud fra en samlet vurdering af henholdsvis konsekvensen af og sandsynligheden for at en trussel realiseres.
+TV2 har anført, at formålet med credential stuffing angrebene typisk er at få verificeret adgangskoder til TV2-brugerprofiler, som herefter kan sælges illegalt, hvorfor den alvorligste konsekvens for brugerne er, at deres brugerprofiler bliver misbrugt af andre, og at brugeren skal skifte adgangskode.
+Det er imidlertid Datatilsynets vurdering, at der er flere - langt mere alvorlige - konsekvenser forbundet med credential stuffing angreb, end dem TV2 havde identificeret, da angrebene ikke alene udføres med henblik på at kunne videresælge streamingadgange.
+Det er meget almindeligt, at brugere anvender samme passwords til flere tjenester. Et credential stuffing angreb er derfor en måde at verificere kombinationen af en e-mailadresse eller andet brugernavn og et password, hvorefter en liste over verificerede kombinationer vil være betydeligt mere værd og kunne bruges hos andre tjenester, hvor der dels er adgang til væsentligt flere personoplysninger, herunder betalingsoplysninger, og hvor videresalget af adgangen kan være mere attraktiv.
+At brugere selv bør være opmærksomme på risikoen ved at anvende et password til flere tjenester, kan ikke føre til, at en dataansvarlig ikke skal implementerer passende sikkerhedsforanstaltninger der i forhindrer de mest nærliggende muligheder for at få lavet en sådan verifikation. Ansvaret for sikkerheden og for at der er sikret passende sikkerhed er hos den dataansvarlige og kan ikke flyttes over på de registrerede.
+Derudover finder Datatilsynet, at der for de registrerede er væsentligt mere alvorlige konsekvenser forbundet med verifikationen af kombinationen af en e-mailadresse og et password. Dels giver det angriberen mulighed for at forsøge afpresning af et stort antal brugere. Da der er tale om en lækket e-mailadresse, kan der sendes en e-mail direkte til brugeren, og da angriberen kan anføre et kodeord, som brugeren anvender, vil brugeren være mere tilbøjelig til at tro på det, der bliver skrevet i e-mailen. Dette kan medføre, at brugeren lader sig afpresse for større eller mindre pengebeløb. Herudover giver verifikation af adgangskriterierne en mere troværdig platform ved phising og andre typer angreb der sigter mod, at give angriberen adgang til andre konti, ressourcer eller aktiver.
+Det er derfor Datatilsynets opfattelse, at der er alvorlige konsekvenser forbundet med tab af fortrolighed – og dermed ved credential stuffing angreb – vedrørende de oplysninger, som TV2 behandler, og at der ved angrebsformen er mulighed for potentielle rettighedstab for de registrerede, der ligger udover det konkrete misbrug af deres adgang til de services TV2 udbyder.
+Det er Datatilsynets opfattelse, at TV2’s vurdering af truslen og sandsynligheden for denne var forkert.
+TV2 har anført, at credential stuffing angreb ikke var en del af det sædvanlige trusselsbillede for TV2 forud for den 7. september 2018. Credential stuffing var imidlertid kendt blandt streamingtjenester forud for den 7. september 2018[2]. TV2 burde således have været bekendt med fænomenet og have inddraget dette i vurderingen af risici og hvilke tekniske og organisatoriske foranstaltninger der var nødvendige for at sikre et passende sikkerhedsniveau.
+3.3. En dataansvarlig skal ud fra de identificererede risici sikre et passende sikkerhedsniveau og implementere nødvendige tekniske og organisatoriske foranstaltninger.
+Datatilsynet finder, at TV2 ikke havde implementeret sådanne nødvendige foranstaltninger til at sikre et passende sikkerhedsniveau.
+Datatilsynet har navnlig lagt vægt på, at TV2 allerede inden bruddet den 7. september 2018 burde have implementeret automatisk blokering af ip-adresser ved mange mislykkede login-forsøg der hidrørte fra en eller få IP-adresser.
+TV2 har anført, at de havde forsøgt at implementere automatisk blokering, men at dette viste sig at være driftsmæssigt problematisk, samt at det nærmest var uvirksomt, da angriberen i så fald skiftede ip-adresse.
+Datatilsynet skal i den forbindelse bemærke, at det forhold at en angriber – efter at have mødt modstand ved en sikkerhedsforanstaltning – finder andre metoder ikke kan retfærdiggøre, at sikkerhedsforanstaltningen ikke implementeres. Hvis sikkerhedsforanstaltningen kan have en virkning mod blot én type angreb bør denne implementeres, uanset at den ikke også virker mod andre typer angreb, som angriberen tyer til efter at have mødt sikkerhedsforanstaltningen.
+Datatilsynet har endvidere lagt vægt på, at den manuelle overvågning ikke var tilstrækkelig effektiv.
+TV2 har anført, at der blev udført manuel overvågning ved at holde øje med andelen af afviste loginforsøg der overstiger normalniveauet på skærme mv. samt at en alarm eller advarselsmail underrettede om uregelmæssigheder. Det er imidlertid Datatilsynets opfattelse, at den manuelle overvågning burde have ført til, at man på et tidligere tidspunkt havde opdaget angrebet så det kunne være blevet stoppet.
+Det er Datatilsynets opfattelse, at bestemmelsen om passende sikkerhed medfører, at dataansvarlige særligt ved udbud af tjenester rettet mod offentlig brug og med mange registrerede, skal sikre sig mod de mest oplagte misbrugsscenarier, også de der anvendes ved credentialstuffing. Mange adgangsforsøg mod flere konti fra en eller et fåtal af IP-adresser, fra IP-adresser der geografisk falder udenfor normale brugsscenarier og adgangsforsøg der ikke bliver understøttet af et af efterfølgende normalt brugsmønster skal alle give anledning til en reaktion,
+Såfremt der vælges en organisatorisk foranstaltning på baggrund af fastsatte tærskelværdier, skal denne være ligeså effektiv i afvisningen af de pågældende angreb som en teknisk løsning, også i tidsmæssig henseende.  
+3.4. På baggrund af både TV2’s fejlagtige vurdering af risikoen for de registrerede ved behandlingen og de manglende implementerede sikkerhedsforanstaltninger finder Datatilsynet anledning til at udtale alvorlig kritik af, at TV2 ikke levede op til kravet om at gennemføre passende sikkerhedsforanstaltninger efter databeskyttelsesforordningens artikel 32.
+Datatilsynet har noteret sig, at TV2 efterfølgende har implementeret nye foranstaltninger og dermed forsøger at imødekomme den reelle trussel mod de registreredes rettigheder, som credential stuffing udgør.
+Datatilsynet har endvidere noteret sig, at TV2 løbende har orienteret de berørte brugere via e-mail og opfordret dem til at ændre adgangskode, lige som TV2 har blokeret brugerprofiler, som ikke har ændret adgangskode. Datatilsynet bemærker i den forbindelse, at uanset om den dataansvarlige er forpligtet til at underrette den registrerede som følge af en høj risiko, jf. databeskyttelsesforordningens artikel 34, er det hensigtsmæssigt ved misbrug, at orientere berørte registrerede, når der har været et brud på persondatasikkerheden. Tilsynet skal dog indskærpe, at den information der afgives til de registrerede, reelt beskriver de rettighedstrusler der er, ikke kun den dataansvarliges forretningsrisiko.
+ 
+[1] Europa-Parlamentets og Rådets forordning (EU) 2016/679 af 27. april 2016 om beskyttelse af fysiske personer i forbindelse med behandling af personoplysninger og om fri udveksling af sådanne oplysninger og om ophævelse af direktiv 95/46/EF (generel forordning om databeskyttelse).
+[2]   Se bilag 1 til Bruun & Hjejles udtalelse på vegne af TV2 af 21. juni 2019
+
+

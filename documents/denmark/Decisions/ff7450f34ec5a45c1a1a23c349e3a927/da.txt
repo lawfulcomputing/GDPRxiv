@@ -1,0 +1,71 @@
+Tilsyn med behandlingssikkerhed hos advokatfirma
+Dato: 05-11-2019
+Afgørelse
+Private virksomheder
+
+
+Journalnummer 2019-41-0026
+Resume
+Datatilsynet har i 2019 foretaget et planlagt tilsyn hos et advokatfirma. Tilsynet fokuserede på behandlingssikkerhed, herunder særligt kryptering af e-mails, jf. databeskyttelsesforordningens artikel 32.
+Datatilsynet fandt, at advokatfirmaets behandling af personoplysninger i forhold til fremsendelse af fortrolige og følsomme personoplysninger via e-mail over internettet var i overensstemmelse med reglerne i databeskyttelsesforordningen samt Datatilsynets retningslinjer.
+Af Datatilsynets afsluttende udtalelse fremgår bl.a., at advokatfirmaet anvender end-to-end kryptering med S/MIME certifikater samt fremsendelse med tvungen TLS 1.2, når advokatfirmaet sender e-mails med fortrolige og følsomme personoplysninger til kommuner, virksomheder, klienter, pårørende, etc.
+Herudover fremgår det af udtalelsen, at advokatfirmaet har påvist at have udarbejdet en risikovurdering, hvori der tages stilling til risikoen forbundet med fremsendelse af fortrolige og følsomme personoplysninger over internettet.
+Du kan læse Datatilsynets vejledende tekst om kryptering af e-mails her.
+Afgørelse
+Et advokatfirma var blandt de virksomheder, som Datatilsynet havde udvalgt til tilsyn i foråret 2019.
+Datatilsynets planlagte tilsyn fokuserede på behandlingssikkerhed, herunder særligt kryptering af e-mails, jf. databeskyttelsesforordningens artikel 32.
+Efter anmodning fra Datatilsynet har advokatfirmaet i foråret 2019 i forbindelse med tilsynsbesøget udfyldt et spørgeskema og indsendt dette samt yderligere materiale til tilsynet. Tilsynsbesøget fandt sted den 8. april 2019.
+Efter tilsynet med advokatfirmaet finder Datatilsynet anledning til sammenfattende at konkludere:
+
+At advokatfirmaet – i overensstemmelse med databeskyttelsesforordningens artikel 32 – anvender end-to-end kryptering ved udveksling af S/MIME certifikat over tunnelmail fællesskabet til fremsendelse af fortrolige og følsomme personoplysninger over internettet til kommuner, virksomheder og andre modtagere på den offentlige tunnelliste.
+At advokatfirmaet – i overensstemmelse med databeskyttelsesforordningens artikel 32 – desuden anvender kryptering på transportlaget via tvungen TLS 1.2 til fremsendelse af fortrolige og følsomme personoplysninger til klienter og pårørende etc. over internettet.
+At advokatfirmaet – i overensstemmelse med databeskyttelsesforordningens artikel 5, stk. 2, jf. stk. 1, litra f, jf. artikel 32, stk. 1 og 2 – har påvist at have udarbejdet en risikovurdering, hvori der tages stilling til risikoen forbundet med fremsendelse af fortrolige og følsomme personoplysninger over internettet.
+At advokatfirmaet ikke er bekendt med tilfælde, hvor fortrolige eller følsomme personoplysninger er sendt ukrypteret over internettet siden 1. januar 2019.
+
+På den baggrund anser Datatilsynet tilsynet for afsluttet og foretager sig ikke yderligere i den anledning.
+Nedenfor følger en nærmere gennemgang af Datatilsynets konklusioner.
+1. Brug af kryptering ved transmission af fortrolige og følsomme personoplysninger over internettet
+Advokatfirmaet har forud for tilsynsbesøget oplyst, at advokatfirmaet sender fortrolige og følsomme personoplysninger via e-mail over internettet.
+2. Om krypteringsløsningen
+Advokatfirmaet har oplyst, at den anvendte krypteringsløsning fungerer ved, at al e-mail trafik sendes igennem deres databehandler over en TLS 1.2 forbindelse. Her vil trafikken passere igennem to lag. Det første lag scanner for virus og spam, og det andet lag forsøger at kryptere e-mailen i følgende prioriterede rækkefølge:
+
+Via tunnelmail til modtagerens domæne, så e-mailen afsendes end-to-end krypteret.
+Det undersøges, om modtageren har publiceret et S/MIME certifikat på den offentlige tunnelmailliste, og i så fald krypteres e-mailen ved brug af det pågældende certifikat.
+Det undersøges, om e-mailen kan fremsendes med kryptering på transportlaget via en tvungen TLS 1.2 forbindelse.
+
+Advokatfirmaets databehandler har endvidere oplyst, at der herudover anvendes en ”secure recipients liste” – dvs. en liste over specifikke kompatible modtagerdomæner – hvortil, der automatisk sker end-to-end kryptering.
+3. E-mails til klienter
+Advokatfirmaet har oplyst, at kommunikationen med klienter typisk sker telefonisk, og at e-mail korrespondance med klienter er meget begrænset. I det omfang advokatfirmaet sender fortrolige eller følsomme personoplysninger til klienter, krypteres transmissionen via en tvungen TLS 1.2 forbindelse, hvis en sådan er tilgængelig. E-mails, der sendes krypteret til klienter er typisk e-mails med ordrebekræftelse/prisoplysning/persondatapolitik, som også kan indeholde oplysning om tidspunkt for retsmøder etc.
+Advokatfirmaet har endvidere oplyst, at advokatfirmaet – i det sjældne tilfælde at en e-mail ikke kan sendes krypteret til en klient via den omtalte løsning − foretager en konkret vurdering af, om e-mailen indeholder oplysninger, som vil kunne sendes via almindelig e-mail.
+Endelig har advokatfirmaet oplyst, at advokatfirmaet sender fortrolige og følsomme personoplysninger med almindelig post til klienter, som ikke kan modtage krypteret e-mail.
+3.1. Sammenfatning
+Datatilsynet lægger på baggrund af det af advokatfirmaet oplyste til grund, at advokatfirmaet anvender tvungen TLS, når e-mails indeholdende fortrolige eller følsomme personoplysninger sendes til klienter. Datatilsynet finder således, at advokatfirmaet anvender tilstrækkelig behandlingssikkerhed ved fremsendelse af sådanne e-mails.
+4. E-mails til øvrige modtagere
+Advokatfirmaet har oplyst, at kommunikationen med medier, pårørende og mulige klienter sjældent foregår via e-mail, idet kommunikationen primært foregår telefonisk. I det omfang advokatfirmaet kommunikerer med disse modtagere via e-mail, foregår dette som udgangspunkt via krypteret e-mail.
+Advokatfirmaet har endvidere oplyst, at advokatfirmaet kommunikerer krypteret med politiet og retten via tunnelmail, ligesom det ind imellem kan forekomme, at advokatfirmaet kommunikerer direkte med dommere via tunnelmail.
+Endelig har advokatfirmaet oplyst, at advokatfirmaet også sender e-mails via mobiltelefon. Medarbejderne blev under et personalemøde den 8. december 2018 gjort bekendt med, at der nu kunne sendes krypteret e-mail via telefonen internt i organisationen samt til andre domæner, der har tunnelmail. Advokatfirmaet har oplyst, at advokatfirmaet derfor forudsætter, at medarbejderne kun sender e-mails med fortrolige og følsomme personoplysninger fra telefonen, hvis modtageren har tunnelmail.
+4.1. Sammenfatning
+Datatilsynet lægger på baggrund af det af advokatfirmaet oplyste til grund, at advokatfirmaet primært kommunikerer med medier, pårørende og mulige klienter telefonisk, og at hvis der anvendes e-mail er denne krypteret.
+Endvidere lægger Datatilsynet på baggrund af det af advokatfirmaet oplyste til grund, at advokatfirmaet anvender end-to-end kryptering med S/MIME certifikater via tunnelmail, når e-mails indeholdende fortrolige eller følsomme personoplysninger sendes til professionelle aktører, herunder politiet, domstole og andre modtagere på den offentlige tunnelliste.
+Datatilsynet finder således, at advokatfirmaet anvender tilstrækkelig behandlingssikkerhed ved fremsendelse af sådanne e-mails.
+5. Tilfælde hvor kryptering ikke har været anvendt
+Advokatfirmaet har forud for tilsynsbesøget oplyst, at advokatfirmaet siden 1. januar 2019 har anvendt kryptering i alle tilfælde, når fortrolige og følsomme personoplysninger sendes via e-mail over internettet.
+Advokatfirmaet har hertil tilføjet, at advokatfirmaet stort set ikke har sendt noget over internettet siden 1. januar 2019, som ikke har været krypteret, og at advokatfirmaet ikke er bekendt med tilfælde, hvor fortrolige eller følsomme personoplysninger er sendt ukrypteret over internettet siden 1. januar 2019.
+5.1. Sammenfatning
+Datatilsynet lægger på baggrund af det af advokatfirmaet oplyste til grund, at advokatfirmaet ikke er bekendt med tilfælde, hvor fortrolige og følsomme personoplysninger er sendt ukrypteret over internettet siden 1. januar 2019.
+6. Risikovurdering
+Advokatfirmaet har forud for tilsynsbesøget fremsendt en risikovurdering til tilsynet dateret den 10. marts 2019. Advokatfirmaet har siden – på Datatilsynets anmodning – fremsendt en udgave af risikovurderingen, som var gældende før varslingen af tilsynsbesøget den 28. februar 2019, og som tager højde for fremsendelse af fortrolige og følsomme personoplysninger over internettet.
+Af advokatfirmaets risikovurdering fremgår, at risikoen forbundet med fremsendelse af fortrolige eller følsomme personoplysninger via e-mail er middel. Af risikovurderingen fremgår ligeledes, hvordan denne risiko nedbringes til et passende niveau ved brug af tunnelmail eller tvungen TLS hvis muligt, og ellers ved en vurdering af, om e-mailen kan fremsendes med opportunistisk TLS, eller om der i stedet skal benyttes anonymisering eller fremsendelse med almindelig post.
+Advokatfirmaet har desuden oplyst, at metoden til fremsendelse af e-mails via sikker mail er blevet gennemgået på et personalemøde, at der løbende bliver udsendt instrukser til personalet om brugen af krypteret e-mail, og at advokatfirmaet har en instruks om, at medarbejdere skal orientere en bestemt konsulent i advokatfirmaet, hvis fortrolige og følsomme oplysninger sendes ukrypteret over internettet.
+6.1. Sammenfatning
+Det er Datatilsynets vurdering, at advokatfirmaet i overensstemmelse med databeskyttelsesforordningens artikel 5, stk. 2, jf. stk. 1, litra f, jf. artikel 32, stk. 1 og 2, har påvist at have udarbejdet en risikovurdering, hvori der tages stilling til risikoen forbundet med fremsendelse af fortrolige og følsomme personoplysninger over internettet.
+7. Konklusion
+Efter tilsynet med advokatfirmaet finder Datatilsynet anledning til sammenfattende at konkludere:
+
+At advokatfirmaet – i overensstemmelse med databeskyttelsesforordningens artikel 32 – anvender end-to-end kryptering ved udveksling af S/MIME certifikat over tunnelmail fællesskabet til fremsendelse af fortrolige og følsomme personoplysninger over internettet til kommuner, virksomheder og andre modtagere på den offentlige tunnelliste.
+At advokatfirmaet – i overensstemmelse med databeskyttelsesforordningens artikel 32 – desuden anvender kryptering på transportlaget via tvungen TLS 1.2 til fremsendelse af fortrolige og følsomme personoplysninger til klienter og pårørende etc. over internettet.
+At advokatfirmaet – i overensstemmelse med databeskyttelsesforordningens artikel 5, stk. 2, jf. stk. 1, litra f, jf. artikel 32, stk. 1 og 2 – har påvist at have udarbejdet en risikovurdering, hvori der tages stilling til risikoen forbundet med fremsendelse af fortrolige og følsomme personoplysninger over internettet.
+At advokatfirmaet ikke er bekendt med tilfælde, hvor fortrolige eller følsomme personoplysninger er sendt ukrypteret over internettet siden 1. januar 2019.
+
+
+
