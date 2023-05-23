@@ -229,6 +229,7 @@ class CzechRepublic(DPA):
                         print('\n\t------------ Document: ' + str(iteration) + ' ------------')
                         iteration += 1
                         if to_print:
+                            print('\tDocument Title:\t', document_title)
                             print("\tDocument:\t", document_hash)
                         obsah = document_soup.find('div', class_='obsah')
                         assert obsah
@@ -654,6 +655,7 @@ class CzechRepublic(DPA):
                     print("\tLink URL: " + link_url)
                     iteration += 1
                     if to_print:
+                        print('\tDocument Title:\t', document_title)
                         print("\tDocument:\t", document_hash)
 
                     try:
@@ -743,7 +745,7 @@ class CzechRepublic(DPA):
             for li in ui.find_all('li'):
                 result_link = li.find('a')
                 # s2. Documents
-                document_title = result_link.get_text()
+                document_title = result_link.get_text().strip()
                 document_hash = hashlib.md5(document_title.encode()).hexdigest()
                 if document_hash in existing_docs and overwrite == False:
                     if to_print:
@@ -829,6 +831,7 @@ class CzechRepublic(DPA):
                         print('\n\t------------ Document: ' + str(iteration) + ' ------------')
                         iteration += 1
                         if to_print:
+                            print('\tDocument Title:\t', document_title)
                             print("\tDocument:\t", document_hash)
                         print('\t------------------------')
                         obsah = document_soup.find('div', class_='obsah')
@@ -882,7 +885,7 @@ class CzechRepublic(DPA):
 
                 result_link = li.find('a')
 
-                document_title = result_link.get_text()
+                document_title = result_link.get_text().strip()
                 document_hash = hashlib.md5(document_title.encode()).hexdigest()
                 if document_hash in existing_docs and overwrite == False:
                     if to_print:
@@ -912,6 +915,7 @@ class CzechRepublic(DPA):
                 print('\n\t------------ Document: ' + str(iteration) + ' ------------')
                 iteration += 1
                 if to_print:
+                    print('\tDocument Title:\t', document_title)
                     print("\tDocument:\t", document_hash)
 
                 dpa_folder = self.path
@@ -1009,7 +1013,7 @@ class CzechRepublic(DPA):
                 text_link = document_li.find('a')
                 assert text_link
 
-                document_title = text_link.get_text()
+                document_title = text_link.get_text().strip()
                 document_hash = hashlib.md5(document_title.encode()).hexdigest()
                 if document_hash in existing_docs and overwrite == False:
                     if to_print:
@@ -1045,9 +1049,9 @@ class CzechRepublic(DPA):
 
                 # When we print document info, that means the document is not going to be thrown out
                 print('\n\t------------ Document: ' + str(iteration) + ' ------------')
-                print('\tDocument title: ' + document_title)
                 iteration += 1
                 if to_print:
+                    print('\tDocument Title:\t', document_title)
                     print("\tDocument:\t", document_hash)
 
                 # Now store the text in the appropriate folder
@@ -1104,7 +1108,7 @@ class CzechRepublic(DPA):
             result_link = li.find('a')
             assert result_link
 
-            document_title = result_link.get_text()
+            document_title = result_link.get_text().strip()
             document_hash = hashlib.md5(document_title.encode()).hexdigest()
             if document_hash in existing_docs and overwrite is False:
                 if to_print:
@@ -1140,9 +1144,9 @@ class CzechRepublic(DPA):
 
             # When we print document info, that means the document is not going to be thrown out
             print('\n\t------------ Document: ' + str(iteration) + ' ------------')
-            print('\tDocument title: ' + document_title)
             iteration += 1
             if to_print:
+                print('\tDocument Title:\t', document_title)
                 print("\tDocument:\t", document_hash)
 
             # Now store the text in the appropriate folder
@@ -1241,9 +1245,9 @@ class CzechRepublic(DPA):
 
             # When we print document info, that means the document is not going to be thrown out
             print('\n\t------------ Document: ' + str(iteration) + ' ------------')
-            print('\tDocument title: ' + document_title)
             iteration += 1
             if to_print:
+                print('\tDocument Title:\t', document_title)
                 print("\tDocument:\t", document_hash)
 
             # Now store the text in the appropriate folder
@@ -1304,7 +1308,7 @@ class CzechRepublic(DPA):
             assert result_link
 
             # The titles the page gives are often the same, we add iteration number to title to distinguish
-            document_title = result_link.get_text()
+            document_title = result_link.get_text().strip()
             inspection_date = document_title[-4:]
             if int(inspection_date) < 2018:
                 print('\tSkipping inspections for year: ' + inspection_date)

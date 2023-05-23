@@ -77,7 +77,7 @@ class Portugal(DPA):
         return added_docs
 
     def get_docs_Decisions(self, existing_docs=[], overwrite=False, to_print=True):
-        print("\n======================== Portugal Decision Documents =========================")
+        print("\n======================== Portugal Decision and Opinions Documents =========================")
         urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
         added_docs = []
         pagination = self.update_pagination()

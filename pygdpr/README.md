@@ -111,7 +111,7 @@ SUPPORTED COUNTRIES:     DOCUMENTS TYPES:
         Austria                  Decisions
         Belgium                  Decisions, Annual Reports, Opinions, Guides
         Bulgaria                 Docs (Contains Decisions, Opinions, and Judgements)
-        Croatia                  Decisions, Annual Reports
+        Croatia                  Decisions
         Cyprus                   Decisions, Annual Reports
         Czech Republic           Decisions, Annual Reports, Completed Inspections, Court Rulings, Opinions, Press Releases
         Denmark                  Decisions, Annual Reports, Permissions
@@ -124,7 +124,7 @@ SUPPORTED COUNTRIES:     DOCUMENTS TYPES:
         Hungary                  Decisions, Annual Reports, Notices, Recommendations, Resolutions
         Ireland                  Decisions, Judgements, News, Reports, Blogs, Guidances
         Italy                    Injunctions, Annual Reports, Hearings, Interviews, Newsletters, Publications
-        Luxembourg               Annual Reports, Opinions
+        Luxembourg               Decisions, Annual Reports, Opinions
         Malta                    Guidelines, News Articles
         Netherlands              Decisions, Opinions, Public Disclosures, Reports
         Poland                   Decisions, News
