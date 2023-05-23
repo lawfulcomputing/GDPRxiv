@@ -5,7 +5,7 @@
 
 <br />
 <div align="center">
-  <a href="https://github.com/transientCloud/gdpr-sota">
+  <a href="https://github.com/lawfulcomputing/GDPRxiv/tree/main/pygdpr">
     <img src="images/logo.png" alt="Logo" width="90" height="90">
   </a>
 
@@ -72,15 +72,15 @@ _In a directory:_
 
 1. Clone the repository:
     ```sh
-   git clone https://github.com/transientCloud/gdpr-sota.git
+   git clone https://github.com/lawfulcomputing/GDPRxiv.git
    ```
-2. Move the downloaded WebDriver inside `gdpr-sota/pygdpr/pygdpr/assets` folder:
+2. Move the downloaded WebDriver inside `GDPRxiv/pygdpr/pygdpr/assets` folder:
     ```sh
-   mv <PATH>/chromedriver gdpr-sota/pygdpr/pygdpr/assets/chromedriver
+   mv <PATH>/chromedriver GDPRxiv/pygdpr/pygdpr/assets/chromedriver
    ```
 3. Install project requirements
    ```sh
-   cd gdpr-sota/pygdpr
+   cd GDPRxiv/pygdpr
    pip3 install -r requirements.txt
    ```
    This will install the all the required packages; Thereafter you can simply run the project.
@@ -92,7 +92,7 @@ A file called visitedDocs.txt is always created upon an initial run within a new
 
 Scrape desired documents:
    ```sh
-   cd gdpr-sota/pygdpr
+   cd GDPRxiv/pygdpr
    python gdprCrawler.py --country <country name> --document_type <document type> --path <directory to store documents>
    ```
 The same directory can be used for multiple countries: the scraper automatically organizes documents based on country and document type.
@@ -110,7 +110,7 @@ SUPPORTED COUNTRIES:     DOCUMENTS TYPES:
 
         Austria                  Decisions
         Belgium                  Decisions, Annual Reports, Opinions, Guides
-        Bulgaria                 Decisions, Annual Reports, Opinions, Judgements
+        Bulgaria                 Docs (Contains Decisions, Opinions, and Judgements)
         Croatia                  Decisions, Annual Reports
         Cyprus                   Decisions, Annual Reports
         Czech Republic           Decisions, Annual Reports, Completed Inspections, Court Rulings, Opinions, Press Releases

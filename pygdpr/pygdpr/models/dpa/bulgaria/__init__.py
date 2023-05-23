@@ -60,17 +60,11 @@ class Bulgaria(DPA):
             pass
         return results_response
 
-    def get_docs(self, existing_docs=[], overwrite=False, to_print=True):
-        added_docs = []
-        # call all the get_docs_X() functions
-        added_docs += self.get_docs_DecJudgeOpinion(existing_docs=[], overwrite=False, to_print=True)
-        added_docs += self.get_docs_AnnualReports(existing_docs=[], overwrite=False, to_print=True)
-        return added_docs
 
-    def get_docs_DecJudgeOpinion(self, existing_docs=[], overwrite=False, to_print=True):
+    def get_docs(self, existing_docs=[], overwrite=False, to_print=True):
         urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
         print("\n========================= Bulgaria Decisions, Judgements and Opinions ===========================")
-        existed_docs = []
+        added_docs = []
         source = {
             'host': 'https://www.cpdp.bg',
             'start_path': '/index.php?p=rubric&aid=3'
@@ -125,9 +119,9 @@ class Bulgaria(DPA):
                             print('\tdocument_href: ', document_url)
                             document_hash = hashlib.md5(document_title.encode()).hexdigest()
                             print('\tdocument_hash: ', document_hash)
-                            if document_hash in existed_docs:
+                            if document_hash in added_docs:
                                 continue
-                            existed_docs.append(document_hash)
+                            added_docs.append(document_hash)
                             if document_hash in existing_docs and overwrite == False:
                                 if to_print:
                                     print('\tSkipping existing document:\t', document_hash)
@@ -173,10 +167,10 @@ class Bulgaria(DPA):
                             print('\ndocument_title: ', document_title)
                             print('\tdocument_url: ', document_url)
                             document_hash = hashlib.md5(document_title.encode()).hexdigest()
-                            if document_hash in existed_docs:
+                            if document_hash in added_docs:
                                 continue
                             print('\tdocument_hash: ', document_hash)
-                            existed_docs.append(document_hash)
+                            added_docs.append(document_hash)
                             if document_hash in existing_docs and overwrite == False:
                                 if to_print:
                                     print('\tSkipping existing document:\t', document_hash)
@@ -232,9 +226,9 @@ class Bulgaria(DPA):
                         print('\ndocument title: ', document_title)
                 
                         document_hash = hashlib.md5(document_title.encode()).hexdigest()
-                        if document_hash in existed_docs:
+                        if document_hash in added_docs:
                             continue
-                        existed_docs.append(document_hash)
+                        added_docs.append(document_hash)
                         if document_hash in existing_docs and overwrite == False:
                             if to_print:
                                 print('\tSkipping existing document:\t', document_hash)
@@ -280,8 +274,10 @@ class Bulgaria(DPA):
                             print("\tDirectory path already exists, continue.")
                 print('\n')
                 pagination = self.update_pagination(pagination=pagination, page_soup=document_soup, start_path=href)
-        return existed_docs
+        return added_docs
 
+    # Annual Reports links is stopped
+    '''
     def get_docs_AnnualReports(self, existing_docs=[], overwrite=False, to_print=True):
         urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
         print("\n========================= Bulgaria Annual Reports ===========================")
@@ -369,7 +365,7 @@ class Bulgaria(DPA):
                         print("Directory path already exists, continue.")
         return existed_docs
 
-
+    '''
 
 
 

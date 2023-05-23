@@ -2,7 +2,7 @@
 
 <br />
 <div align="center">
-  <a href="https://github.com/transientCloud/gdpr-sota">
+  <a href="https://github.com/lawfulcomputing/GDPRxiv/">
     <img src="/pygdpr/images/logo.png" alt="Logo" width="90" height="90">
   </a>
 
