@@ -1,0 +1,436 @@
+rJ
+CNPD
+
+Comissão  Nacronãl
+de PÍoteçâo  de  Dados
+
+l. lntroduÇão
+
+AVG  12021  I 401
+
+1
+
+DELTBERAÇÃo/2021t533
+
+i. A Comissão  Nacional  de ProteÇão  de Dados (CNPD)  recebeu mais  de uma dezena  de participaÇôes  relativas
+à operação  censitária a decorrer - Censos  2021 - realizada  pelo lnstituto Nacional  de Estatística, l.P. (lNE), a
+qual em parte se concretiza  através do preenchimento do formulário  disponÍvel online no endereço
+
+httos.//censo s2021.ine.pt/ A maior das participaÇôes  prende-se  com o Íacto de o inquérito obrigar a fornecer
+
+dados  de identiÍicaÇão dos cidadãos,  designadamente  o nome  completo. Contudo, algumas participações
+
+associavam  a obÍigatoriedade  de fornecimento  de dados  identificados  com a transferência  de dados  para uma
+
+empresa  sediada  nos Estados  Unidos  da América.
+
+2. Também nas redes  sociais  a mesma  questão foi colocada,  tendo  óÍgãos  de comunicação  social  relatado
+
+que a inÍormação aíexposta  não era exata.
+
+3. A CNPD,  ao abrigo  dos poderes  conferidos  pelas  alíneas b) e eJ do n.o  1 do artigo  58.0 do Regulamento  (UE)
+
+20161679  do Parlamento  Europeu e do Conselho,  de 27 de abril  de 201 6 (Regulamento  Geral  sobre  a Proteçâo
+de Dados - RGPD), em  conlugação com o disposto  no artigo 3.0, no n.0 2 do artigo 4.0 e da alÍnea b) do n o 1
+do artigo 6.0, todos  da Lei  n.0 58/2019, de I de agosto (a qual tem  poÍ  objeto asseguraÍ  a execuçã0,  na oÍdem
+jurídica  interna,  do RGPD),  procedeu à análise do sítio  na lnternet  do INE  e da plataÍorma  aí disponibilizada,
+
+tendo concluÍdo que esta  entidade recorre a serviços prestados pela empresa Cloudflare. Foi ainda solicitada
+
+informação ao iNE quanto a esta  operação  sobre  os dados  pessoais.
+
+ll. Análise
+i.  Factos  apurados
+
+4. 0 formulário  para  a recolha  de dados dos Censos  2021  é acedido através da infraestrutura  disponibilizada
+
+pela Cloudflare,  lnc. (doravante,  Cloudflare),  uma empresa  sediada  em  São Francisco,  Califórnia, nos Estados
+
+Unidos da AméÍica. Esta empresa  Íornece  vários seÍviços de segurança  na lnternet  e de Content Delivery
+
+Network  (CDN).
+
+5. A CDN consiste numa rede  de servidores  que  tem como  objetivo diminuir a latência  dos  acessos  aos
+servidores - 1.e., o período de tempo que medeia entre a aÇão  do utilizador  e a resposta  a essa açã0. Com
+efeito,  através  de um algoritmo  que  envra a informação simultaneamente para vários  servidores,  escolhe  aquele
+
+que apÍesenta  um tempo de resposta mais curto. com islo,  consegue-se  a entrega da iníormação  mais rápida
+
+e com  maior robustez  do ponto de vista de segurança.
+
+Av.  D. Caíos  l, 134,  1o
+'1200-651  Lisboa
+
+Í (+351) 213 928 400
+F (+351)213 976 832
+
+gerâl@cnpd.pt
+
+www.cnpd.pt
+
+AVGt2021t401
+
+1v
+
+6. A Cloudflare detém  200 (duzentos)  datacenters  localizados em mais  de cem países,  a grande  maioria dos
+quais  não  tem um  nÍvel de proteÇão de dados  adequado,  nos termos  previstos no artigo 4s.o do RGpD.
+
+7. 0 INE recorreu  a serviços prestados pela empresa  Cloudflare  através da subscrição  onlrne  do seu  Busmess
+P/an'.  Este plano disponibiliza  um conjunto  de serviços, estando  o INE  atualmente  a fazer  uso da WAF2,  da
+CDN,  e do Rate lrnrit3.
+
+B. 0 referido plano rege-se  pelo 'self-serve subscription  Agreement'a (contrato  princjpal de prestação  de
+serviços) e pela adenda  relativa ao tÍatamento  de dados  (Data  Processing  Addendum versão  3.0s),  datada  de
+1 de outubro de 2020, a qual é paÍte rntegrante  do contrato  principal (cf. cláusula 6.1 do contrato  principal).
+9.0 INE justificou  a celebração deste contrato  com o objetivo  de '(..) responder  de forma eficaz às
+necessldades  de desempenho  e segurança da informação associadas  à dímensão  e complexidade da operação
+Censos 2021".
+
+I0. Não  obstante a utilizaÇão  deste  serviç0,  não está, nem nunca esteve  em causa  que a informação fornecida
+pelos  cidadãos  através dos Íormulários  do censos  2021 está  alojada  nos seÍvidores do lNE.
+
+11.  Quando o cidadão  acede  ao formulário  do Censos 2021,  é encaminhado  para um dos seÍvidoÍes da
+Cloudflare  de acordo  com o referido algoritmo. Ainda  que  o critério subjacente a este  algoritmo  seja  o da maior
+proximidade dos servidores em relação ao local da origem da invocaçã0,  não há garantia  de que tal suceda,
+uma vez  que  depende  da carga neles  existente  em cada momento.  A infraestrutura  da Cloudflare comunrca
+com o servidor  do INE por TLS.
+
+1 2 0 nome censos2021  .ine.pt  está associado  ao lP 172.67  .41 .182,localizado  nos Estados  Unidos da América,
+estando atribuÍdo à CloudÍlare. 0s clientes  acedem ao sÍtio recorrendo ao protocolo  de comunicação  segura
+HTTPS,  sendo  que o ceÍtificado  associado  é emitido  por  Cloudflare,  tnc  ECC  CA-3,  uma entidade  certificadora
+da própria Cloudflare. Deste  modo,  esta empresa  é detentora tanto da chave  privada  como  da chave  pública,
+
+r Esle  plâno é apresentado  no website  da Cloudflare  como  destinado  a pequenos  negócios  e websites  de comércio  elelrónico,  que  ÍequeÍem
+um desempenho  e  segurança  avançados, e  que dão priorida-de  ao apoio de .orr...  ãta,óni.o.  veÍ
+https://www.cloudÍlare.com/plans/business/
+2 Uma  WAF ajuda  a protegel  as aplicaçôes  web  ao filtrar e monitorizar  o tráfego  HTTP.  PÍotege  dos  ataques  como  cross  slre Reguest  Forgery,
+Cross  S,te Scí,pÍlng, SoL /r.iectior,  entre  outros.
+3 Ráte ,r?itlng protege  contra  ataques  de Oeniâl  ofservice  (DoS),  âtaques de força  bruta e outros  tipos  de comportamenlos malignos.
+I https://www  cloudf  lare.com/terms/
+
+5
+
+DPA  v.3  1 - en 'l oct  2020 odf
+
+f1
+
+P
+
+44
+
+rJ
+CNPD
+
+Comissáo  Nacionâl
+de  Proteção  de  Dados
+
+AVçt2021t401
+
+2
+
+ficando  assim habilitada  à ciÍragem  e decifragem  de todas  as comunicações  entre os cidadãos  que  acedem
+
+ao formulário  e enviam  dados  para  o servador  do lNE.
+
+13. Note-se  que o facto de a chave  de cifragem  utilizada ser da Cloudflare significa  que a cifÍa é aplicada por
+esta entidade,  mantendo-se  durante  o trânsito da informaÇão,  e é por ela, e só por ela, decifrada  - ou seja,
+antes  da entrega  do conjunto  da informação  (os  pacotes  de dados)  ao lNE, a Cloudflare  tem de proceder  à sua
+
+decifragem,  não tendo o INE qualquer intervenção  nesle processo.
+
+14. Aliás,  o INE admite não teÍ controlo  sobre  a transmissão  da informação  entre  os cidadãos e o seu servidoÍ.
+
+Uma  vez dentro  da rede CDN da Cloudflare,  o INE não tem Íorma  de saber  se o tráÍego  está a seÍ dirigido para
+
+servidores  situados no teÍritório de países da União Europeia, ou Íesidentes em  qualquer  outra zona do globo.
+
+15. Até à data  da presente  deliberaqã0,  foram  recolhidos dados  pessoais  de mais  de seis  milhÔes de cidadãos
+
+residentes  em território  nacional.
+
+ii. Apreciação à luz do RGPD
+
+16. Não  sobrando  dúvidas que as iníormaçôes  Íornecidas  pelos  cidadãos  no preenchimento  dos formulários
+Censos 2021  conslituem  dados pessoais,  nos teÍmos  do artigo 4.0,  alínea  1), do RGPD - por corresponderem
+a informações  relativas  a pessoas  singulares  identificadas  -, a operação  censitáÍia  está sujeita  ao RGPD, sendo
+
+o INE o responsável  pelo tratamento,  de acordo  com as alÍneas 2) e 7) do mesmo artigo.
+
+17. Sendo  ainda certo  que algumas  das informações  cabem  na categoria de dados  pessoais  especiais  prevista
+
+no n.o  1 do artigo 9.0 do RGPD,  estando por  isso  o tratamento  de dados  sujeito  a um regrme de proteçâo  mais
+
+rigoroso  e, desde logo, à obrigação  de realizaÇão  de uma  avaliação de impacto sobre  a proteção  de dados
+
+(AIPD), conforme  o n.o 1 e a alínea b.) do n.o  3 do artigo 9.0 do RGPD.
+
+18. Assinala-se  que a AIPD  tem de abranger  todas as operações  sobre  os dados  pessoais,  incluindo, portanto,
+
+a operação  correspondente  ao transporte da informação  para e dos  servidores  da Cloudflare, no ámbito  da
+
+relação  de subcontrataçã0.
+
+19. Quanto  a este ponto, o INE declarou à CNPD  que  '(...) optou  pela  realização  de uma Avaliação  de lmpacto
+sobrc  a Proteção de Dados  apenas  à operação estatística  principal. lsto  ficou  a dever-se  ao facto de os testes
+(2016,2018,2020)  ylsarem apenas testarprocessos  de re colha e funcionalidades  aplicacionais,  e serem, no que
+
+toca às soiuÇões  a plicacionaÍs,  parciais. Por conseguinte  não  permitiam  testar  e avaliat o risco lnerente a lodos
+
+os pÍocessos. Nesse  sentido,  apenas  a operação final  permitiu  realizar uma  avaliação completa  e abrcngente
+
+Av. 0. Carlos  l, 13410
+120M51  Lisboa
+
+Í (+351)213 928 400
+F (1351)  213 976 832
+
+geral@cnpd.  pt
+www.cnpd.pt
+
+AVG/2021/401
+
+2\.
+
+num cenário  em que  as declsÔes  Íomâ das, dado o contexto  pandémico,  foram  sendo alteradas  e otimizadas.  No
+entanto,  os respetivos  conteÚdos não se encontram  ainda  integrados  de forma a serem  disponibitizados  de
+imediato.  Embora  esteja garantido  o acompanhamento  sistemátlco  e contínuo  do EpD e do RS/ aos  Censos
+2021  .',
+
+20. Não  tendo  sido realizada uma avaliação de impacto  quanto  a esta especíÍica  operaçâo sobre os dados
+pessoais, o INE não  concretizou uma  ponderação  dos riscos  para  os diÍeitos  dos titulares  dos dados  e,
+consequentemente,  não adotou quanto a esta operaÇão  qualquer  medida  suplementar  mitigadora  desses
+riscos,  tendo-se  apenas  centrado sobre o desempenho  e a segurança  do sistema, promovendo inclusive  uma
+consulta ao Gabinete  Nacional  de Segurança.
+
+21.  Sobre  esta operação,  o INE não consultou  a CNPD,  o que teria permitido  à CNpD  pronunciar-se e assim
+procurar  acautelar os dareitos  dos titulares  dos dados.
+
+22. No entanto,  mesmo considerando  a finalidade  visada  com  esta operaçã0,  havia  outras  soluções  que
+permitiriam  mitigar  os riscos, garantindo  ao INE  um maior controlo  sobre os dados,  e, desde logo,  limjtar  o
+trânsito  dos dados  pessoais  ao território  dos Estados-Membros  da União Europeia, nâo implicando o seu envio
+paÍa Estados terceiros.
+
+23.  0ra, a opção do INE  implica, como  se demonstraÍá, o trânsito  de dados pessoais por países terceiros em
+relaÇâo à união Europeia  e que não possuem  o nível  de proteção adequado. lmplica  também,  por força  do
+contrato  celebrado,  uma  especÍfica autorização do INE para transferência  de dados pessoais  para os Estados
+Unidos da América  (EUA) e para os demais  países onde estejam localizados  os servidores  utilizados  pela
+cloudflare  (nomeadamente,  África  do sul, china,  Índia,  Jordânia, México,  Rússia,  singapura)
+
+24. Como se descreveu  supÍa,  nos pontos 5 e 1 1, os dados  pessoais  dos cidadãos residentes  em  portugal  são
+enviados  para  servidores  da Cloudflare  situados  em diferentes  países  nâo identificados, nem identificáveis  pelo
+INE  ou pelos titulares dos dados.  Acresce  que  a chave  de cifragem e de decifragem é propriedade  da Cloudflare.
+25 0r4, o contrato  celebrado pelo INE  e a Cloudflare prevê o trânsito dos dados pessoais para  qualquer  um
+dos 200 servidores  por esta  utilizados, bem como a transferência  de dados  pessoais  para  os EUA.
+
+26.  Com  efeito,  nos  termos da DaÍa Processing Addendum  versâo  3.0 (doravante,  DpA),  que, recorda-se, integra
+0 c0ntrato, sâo transferidos  dados  pessoais  do cliente (exportador  de dados)  para a Cloudflare  (importador de
+dados), nos Estados  Unidos da América, utilizando eomo  mecanismo de tÍansfeÍência  internacional  as
+cláusulas  contratuais-tipo  baseadas  na Decisão da Comissão  2010/87lUE, de 5 de fevereiro  de 2010,  aplicáveis
+
+rJ
+CNPD
+
+Comissão  Nacional
+de  PÍotqão dê Dâdos
+
+AVGt2021t401
+
+3
+
+às trânsferências de dados  pessoais  para subcontratantes  estabelecidos em países terceiros6,  as quais  fazem
+
+parte  integrante  da adenda  e sâ0,  nessa  medida,  subscntas pelo cliente (cf. alÍnea  m)  da cláusula 1.1 da DPA)7.
+
+27. A DPA  aplica-se  na medida em que a Cloudflare  tÍata dados  pessoais  submetidos  pelo cliente à CloudÍlare
+
+ou, como  é o caso  do lNE, recolhidos  e tratados  pelo  cliente  utilizador do seÍviç0,  quando  esses  dados  pessoars
+
+estão  sujeitos à Iegislação  de proteção de dados  aplicável.
+
+28.  Assim, ao (sub)contratar  os serviqos  da Cloudflare,  o lNE,  na sua  qualidade  de responsável  pelo  tratamento
+
+e simultaneamente  de cliente, aceitou  as condiÇôes de utilizaÇão do serviç0,  incluindo a adenda aos termos de
+
+tratamento  de dados  pessoais, a qual contém um conÍato entre o responsável  pelo tratamento  (lNE) e a
+
+subcontratante  (Cloudflare)  para  a transferência  de dados  pessoais  paÍa  os Estados  Unidos  da América.
+
+29.  Ainda de acordo  com os termos  da DPA,  o INE concedeu  uma autorizaÇão  geral  à Cloudflare paÍa  que esta
+possa recorrer  a outros  (subJsubcontratantes,  sejam empresas  dentro  ou fora do Grupo  (cláusula  4.2),
+reconhecendo  e aceitando que pudesse ser necessário  para a prestação do serviço  o recurso a (sub-
+)subcontratantes  estabelecidos em  países terceiros  (cláusula  6.4).
+
+30, Se as cláusulas contratuais-tipo  sã0, em geral,  um instrumento legal  para a transferência de dados
+
+pessoais  para países  terceiÍos,  ao abrigo das disposiÇÕes  coniugadas  do artigo 46.0,  n.0 2, alínea  c), e n.o 5, do
+
+RGPD,  é necessário veriÍicar,  todavia,  se a legislação do Estado  terceiro,  que se sobrepõe obviamente  a um
+instrumento  de natureza contratual,  não diminui  ou esvazia as garantias  oferecidas  por essas cláusulas, as
+
+quais têm  precisamente  como objetivo compensar a falta de um nÍvel de proteção  adequado  no país  de destino
+
+dos dados (cf. artigo 44.0 e 46.0 do RGPD)8.
+
+31. De acordo com  o Tribunal  de Justiça da União  Europeia  (TJUE), é ao exportador  de dados que  compete,
+
+caso-a-caso,  com a colaboração  do importador  de dados, verificar  se o país de destino em  concreto  assegura
+
+um  nível  de proteÇão de dados essencialmente equivalente  ao garantido pela  UE, devendo,  se possível,  adotar
+salvaguardas adicionais  que permitam ultrapassar  os obstáculos e garantir que  a proteção dos dados  se
+
+mantéme.  Esta obrigação decorre  igualmente  do cumprimento  do princÍpio da responsabilidade, consagrado
+
+no artigo  5.0,  n.o  2, do RGPD.
+
+ô Conforme  consla  do webs/le  da Cloudflare,  a política  de pÍivacidade  foi revista  em 27 de outubro  de 2020, paÍa  (reÍletir» uma alteÍaÇão do
+instrumenlo  legal  em  que  assenta  a lransferência de dados  pessoais  da União Europêiâ  (UE) para os Estados  Unidos  da Améíica  (EUA), que
+deixou  de ser a decrsâo de adequação  do Escudo de PÍoteÇào da PÍivacidade  (Privacy Sh/e/d.),  invalidada  pelo ÍÍibunal  de Justiça  da União
+Europeia  (TJUE),  em julho  de 2020, no caso Schíems  //, para passarem  a seÍ  as cláusulas  conlíaluaislipo
+7 https://w',^/w.cioudfiare.com/cloudflare 
+8 VeÍ n 0s 92 e 93 do AcóÍdão  Schrems /i, em que o Tribunal  salientou  que  a avaliaqão da existência  de um nÍvel de proteção  essencialmente
+equiva,ente  ao garantido  na UE no paÍs de destino  dos dados  deve ser  feita  independentemente  de ser utilizado  um mecanismo  de
+lransferênciâ  pÍevisto  no Capitulo  V do RGP0.
+q VeÍ n.o 134 do Acórdão  Schrems //.
+
+cuslomer  SCCs odí
+
+Av.  D. CâÍlos  l,  1 34 1 
+120M51  Lisboa
+
+o
+
+T (+3s1)  213 928 400
+F (+35i)  213 976 832
+
+geral@cnpd.pt
+,â/ww.cnpd.pt
+
+AVG/2021/401
+
+3v
+
+I
+
+32. De acordo com a análise  do TJUE no caso  Schrems  //, a legislação dos EUA - que é o paÍs de destino  das
+transferências  internacionais  da Cloudflare ao abrigo das cláusulas contratuals-tipo  - possibilita  ingerências
+nos direitos fundamentais  das pessoas,  baseadas  em Íequisitos  relattvos  à seguranÇa nacional  e ao interesse
+pÚblico,  que podem  resultar  no acesso  a dados  pessoais  transferidos  da UE  para os  EUA e da utilizaÇão desses
+dados  no âmbito de programas  de vigilância,  com base  na Secção 702  da FtSA(Foreign tntelligence  Surveillance
+Áct)  e no Decreto  Executivo  1233310.
+
+33. 0 TJUE  concluiu que tais ingerências não são proporcionais,  à luz do direito  da Uniãg, na medida  em que
+nâo é definido o alcance  das limitações  aos direitos das pessoas,  nâo  existem regras  claras  e precisas  quanto
+à aplicaÇão  dessas  medidas  nem  requisitos mínimos  para proteÇão  contra riscos de abuso,  não se verifica um
+1uÍzo  de necessidade,  e não são  conferidos  direitos  oponÍveis  aos titulares dos dados nem  vias de recurso
+juÍisdicional,  pelo que as limitaçoes  à proteção  de dados  que decorrem da legislação  dos EUA  não satisfazem
+0s requisitos exigidos pela carta dos Direitos Fundamentais  da uElr (cf. artigos 7.0, g.0,47.0  e 52.0, n.o 1).
+
+34.  Poí conseguinte,  só seria possível  realizar  uma  transferência de dados  pessoa  is para  os EUA se a legislaçâo
+aqui  em causa,  e expressamente referrda  pelo  TJUE,  não fosse direta ou rndiretamente  aplicável  à Cloudflare
+ou aos  seus (subJsubcontratantes,  e mesmo  assim  apenas mediante  a adoção  de medidas  suplementares  que
+pudessem demonstradamente  comprovaÍ  que  esta  legislaÇâo  não  seria aplicável ou não teria eÍeito prático
+nas tÍansfeÍências  de dados pessoals.
+
+35. Contudo, os serviços  prestados  pela Cloudflare,  designadamente  aqueles contratados pelo  INE  quando
+subscreveu  o Euslness  P/an, colocam a empresa  diretamente sob  a alçada  da legislaÇão dos EUA que  lhe impôe
+a obrigação  de conceder  acesso  em massa  aos dados  pessoais  por si tratados,  desde  logo enquanto  prestador
+de serviços de comunicaçÔes  eletrónicasr2,  sem prejuízo  de outro tipo de serviços  ser  abrangido igualmente
+por oulras disposiÇões  da legislação norte-americana  de vigilância.
+
+36.  A cloudflare reconhece  no ponto  7 da DpA que,  no seu  papel de subcontratante,  poderá ser objeto  de
+pedidos de acesso a dados pessoais,  poÍ parte de terceiros  no âmbito  de procedimentos  legais, que possam
+Ser  «inconsistentes»  com a lei aplicável  ao seu cliente,  ou seja, o RGpD.  Nesse caso,  existindo conflito  de leis,
+a Cloudflare  declara  que informará de imediato o cliente,  « a menos  que tal notificação seja  tegalmente  proibida»
+(cf. alínea  a) cláusula 7.'l).
+
+r0 VeÍ  n.0 165  do acóídâo  citado,  em que  são citados  os progrâmas  pRlSi.4  e UpSTREAtú
+rr Ver  n.os  i 75-176, 180,185, 191  e]94 do acórdâo  citâdo.
+r2  Cf.  SecÇão  702 da FISA alterada  pelo 50 USC s lBBt  â.
+
+rJ
+CNPD
+
+Comissão  Naciônâl
+de PÍot@  de  Dados
+
+AVG/2021/401
+
+4
+
+37.  Ora é precisamente  o caso desta  legislaÇão  dos EUA que impede as empresas norte-americanas  de
+informarem  os seus  clientes  do acesso realizado pelas  autoridades norteameÍicanas  para Íins de recolha  de
+
+informação sobre  estrangeiros, no contexto  da atividade  de segurança  nacional.
+
+38. Verifica-se,  pois,  que não  há qualquer  garantia  que  os dados  pessoais  dos  cidadãos residentes  em Portugal,
+
+recolhtdos  pelo  INE atrêvés do seu webslte,  no âmbito do Censos 202.l, não sejam acedidos pelas  autoridades
+dos  EUA, por  jntermédio da Cloudflare  devido  aos serviços  por  esta prestados  ao INE e que implicam, conforme
+
+contrato  firmado, a transferência  desses  dados  pessoais  paÍa  os EUA.
+
+39. Nesse  sentido,  não podendo  as cláusulas  contratuais-tipo,  ao abrigo  das quais  os dados  pessoais  são
+
+transferidos  pelo INE para a Cloudflare,  nos EUA,  seÍ respeitadas  no país terceiro de destino,  na medida  em que
+
+estas nã0  vinculam  as autoridades  desse paÍs, não oferecendo assim  as garantias  adequadas exigíveis  pelo
+
+RGPD, está  a CNPD obrigada  a proibir essas transferências  de dados,  de acordo com o prescrato  pelo ÍJUE.r3
+
+40.  Acresce  que,  de acordo  com a mesmâ  juÍisprudênciara,  ainda  que o INE pudesse  demonstÍar  que os dados
+
+pessoais  não foram transferidos  para  os  EUA,  o trânsito  dos dados  sempre  dependeria  da adoção  de medidas
+
+suplementares  adequadas  e suÍicientes, que aqui não se verificam.
+
+41.  Nos termos  do n.0 2 do artigo  5.0 e do artigo  24.0 do RGPD,  recar sobre o INE  a obrigaÇão  de cumprir  os
+
+pÍincípios  e regras de proteção  de dados  pessoais,  bem como de demonstrar a conformidade  dos tratamentos
+
+de dados  pessoais  da sua responsabilidade.
+
+lll. Conclusão
+
+42.  Face ao exposto  e por não existir  outra  medida corÍetiva  suscetível de acautelar  os direitos  dos titulaÍes
+
+dos dados,  a CNPD  delibera,  ao abrigo  da alíneay)  do n.0 2 do artigo  58.0  do RGPD,  ordenar  ao lnstituto  Nacional
+
+de Estatística,  1.P.,  a suspensão  do envio  de dados  pessoais  do Censos 2021  paÍa  os  EUA  e para outros países
+
+lerceiros  sem  um  nível de proteção adequado,  seja  através  da Cloudflare, lnc., ou de outra empresa,  no prazo
+
+máximo de 12 hoÍas.
+
+43.  Deve ainda  a mesma entidade garantir, no âmbito  de eventuais subconÍataçÕes,  que  os subcontratantes
+
+não estejam obrigados a cumprir  uma legislação  que afaste a proteção  conferida  pelo  RGPD.
+
+r3Ver  n.0 107 e 121 do acóÍdâo  citado.
+ra cf.  n.os  63  e '183  do mesmo  acórdão
+
+Av.  D.  Carlos  1,134,10
+1200{51  Lisboa
+
+T (+351)213 928 400
+F (+35',1)  213 976 832
+
+geral@cnpd.pt
+
+r/vww.cnpd.pt
+
+AVG  12021 I 401
+
+4v
+
+44.  Dispensa-se  a audiência,  nos termos da alínea  a.) do n.0 1 do artigo 124.0  do Código do procedimento
+
+Administrativo,  considerando  a urgência da medida corretiva,  tendo em conta  o período  temporal da Íecolha
+online do Censos e que, de outro modo, se manteria  o Íisco para os direitos, liberdades  e garantias  dos
+cidadãos,  potencialmente  mais de quatro  milhões,  que  ainda  não  cumpriram  a obrigação  legal  de resposta  à
+operaÇão  censitária.
+
+Aprovado  na reunião  de 27 de abril  de 2021
+
+Filipa Calvão (Presidente)
+
+

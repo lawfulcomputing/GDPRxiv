@@ -29,13 +29,10 @@ from pygdpr.models.dpa.romania import *
 from pygdpr.models.dpa.slovakia import *
 from pygdpr.models.dpa.sweden import *
 
-path = "/romania"
-dpa = Romania(path)
-dpa.get_docs()
 
-#path = "/poland"
-#dpa = Poland(path)
-#dpa.get_docs_decisions()
+path = "/poland"
+dpa = Poland(path)
+dpa.get_docs_News()
 
 #path = "/germany"
 #dpa = Germany(path)
