@@ -1,0 +1,170 @@
+
+
+
+
+Blockchain (III):  Smart contracts y datos personales
+
+
+
+
+
+14 de Marzo de  2022
+
+Los smart contracts, o contratos inteligentes, son algoritmos que se almacenan en una blockchain y que ejecutan decisiones automatizadas. En la medida en que estas decisiones pueden afectar de manera significativa a las personas físicas o elaborar perfiles de ellas, deben tenerse en cuenta desde el diseño los requisitos establecidos en el artículo 22 del RGPD, e incorporar las garantías y medidas necesarias para proteger los derechos de los interesados.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+Los smart contracts son algoritmos que se ejecutan sin intervención humana en una blockchain o cadena de bloques. Cuando el resultado de los mismos tiene un impacto significativo en las personas físicas, o se elaboren perfiles, han de tenerse en cuenta desde el diseño los requisitos establecidos en el artículo 22 del RGPD. Esto implica que, a la hora de diseñar o seleccionar la blockchain sobre la que se vaya a desplegar un servicio, se tendrán que determinar las condiciones que levanten la prohibición de dicho tratamiento, además de incorporar las garantías y medidas para proteger los derechos de los interesados. Estas medidas incluirán, como mínimo, la intervención humana por el responsable y la posibilidad de que el interesado pueda impugnar dicha decisión automatizada.
+Los smart contracts son una de las aplicaciones más utilizadas y conocidas de la blockchain junto con las criptomonedas. A pesar de su nombre, un smart contract no es más que un programa (un algoritmo) que se almacena en los propios nodos de una blockchain y que ejecuta decisiones automatizadas. Estas decisiones pueden tener carácter financiero, como monedas virtuales que pasan de un usuario a otro, pero también de otro tipo, como gestionar los datos relativos a la identidad digital de una persona física.
+Los smart contracts pueden ser incluidos en la blockchain por sus diseñadores y gestores, pero también puede ser realizados por cualquiera que quiera crear un nuevo servicio sobre una blockchain, por ejemplo, servicios automáticos de apuestas, de compraventa, de notaría, certificaciones de documentos, financieros, inversiones en activos digitales, verificación de identidades digitales, etc.
+En teoría, el smart contract no accede a datos del exterior y la información que utiliza son los datos almacenados en la propia blockchain. Sin embargo, existe un instrumento que permite al smart contract acceder al mundo exterior a la cadena de bloques. Ese instrumento se denomina “oráculo” y permite actualizar los estados internos de la blockchain a partir de información externa a la misma, efectuando para ello una nueva transacción. Algunos “oráculos” funcionan de forma autónoma e incluso son ofrecidos como servicios de terceros. Al efectuar una transacción sobre un smart contract, pueden generarse eventos que dejan un registro con otra información adicional a la propia transacción en la blockchain (logs), que es accesible y puede ser consultada y aprovechada por aplicaciones externas.
+A su vez, en ocasiones, incluso la decisión de cuándo se ejecutan dichos smart contract está fuera del control de persona física alguna. En esos casos, los programas se ejecutarán automáticamente cuando se efectúen transacciones sobre los mismos al detectarse que se ha producido algún evento, como por ejemplo un cambio en la blockchain, fuera de ella, o la ejecución de otra transacción previa.
+Como se ha comentado, el resultado de los smart contracts se refleja en un cambio del estado de la información almacenada en el blockchain, que a su vez se registra de forma automática en la misma cadena de bloques. Estos cambios pueden provocar que se ejecuten otros smart contract en cascada, o incluso podrían hacer que contratos de diferentes servicios o cadenas de bloques se ejecutasen (existiendo siempre una transacción que inicie el proceso).
+Un smart contract está pensado para, una vez desplegado y validado en la blockchain, permanezca invariante, ya que de otra forma produciría una inconsistencia detectable en la cadena. La filosofía que subyace al smart contract es, como manifestó Lawrence Lessig en su libro “Code and Other Laws of Cyberspace” en 1999, “CODE IS LAW”. Esta expresión, que se puede traducir como “el algoritmo es la ley”, pretende eliminar el factor humano en la toma de decisiones y hacerlo descansar únicamente en un programa de ordenador. De esta forma, persigue crear un entorno en el que las leyes y principios humanos, y la ejecución de los mismos humanos, no sea efectiva.
+Sin embargo, y puesto que un smart contract es un programa informático realizado por personas, es susceptible a la existencia de errores de programación, comportamientos inesperados o desconocidos por el programador, o bien la existencia de vulnerabilidades. Además, otros elementos que conforman el entorno de la blockchain, como los oráculos antes nombrados, las DApp (aplicaciones informáticas tradicionales que permiten a las personas interactuar con la blockchain y los smart contracts), los wallets, las oficinas de cambio, etc., pueden ser manipulados para que provoquen errores en los smart contract.
+Esta circunstancia es más habitual de lo que podríamos pensar y puede generar un conjunto de datos fraudulentos que el modelo de gobernanza de la blockchain no contempla corregir. Con relación a esto último, ante errores producidos en contratos inteligentes que han tenido graves consecuencias económicas, sí se han realizado trasgresiones a dicha inmutabilidad en la interpretación de los contratos. Dichas transgresiones han tenido impactos importantes al no prever estas circunstancias, ni disponer de modelos de gobernanza para gestionarlas. Un ejemplo es el conocido como DAO Fork de Ethereum que, debido a una apropiación masiva de activos motivada por un error en la programación, obligó a una intervención humana con la consecuente inconsistencia, y a un conflicto entre los intervinientes en la blockchain, que se materializó en la bifurcación y separación de dicha cadena de bloques en dos redes blockchain distintas, con una criptomoneda diferente para cada una de ellas.
+De lo anteriormente señalado, un smart contract puede producir decisiones automatizadas que podrían tener efectos jurídicos o afectar significativamente al interesado provocando, por ejemplo, pérdidas económicas, pérdidas de derechos sobre bienes digitales o materiales, fraudes de cualquier tipo, etc. A su vez, este tipo de contrato genera y almacena nuevos datos de los interesados en la blockchain que, por ejemplo, podrían usarse para crear un perfil del interesado si se están tratando datos de identidad digital.
+La propia naturaleza del smart contract, cuando se aplica sobre datos de personas físicas, entra dentro del ámbito definido por el artículo 22 del RGPD. Este refiere al derecho de un interesado a no ser objeto de decisiones basadas únicamente en medios automatizados, incluyendo la elaboración de perfiles, cuando esas decisiones tengan efectos jurídicos en él o le afecten significativamente.
+Dicho artículo, en su apartado 2, establece tres excepciones a dicha prohibición: el consentimiento explícito, la celebración o la ejecución de un contrato entre el interesado y un responsable del tratamiento, o la existencia de una ley habilitante. En cualquiera de los casos, es necesario identificar una figura de responsable en la ejecución de dicho smart contract.
+Dada la naturaleza de un smart contract, la sofisticación y complejidad que puede llegar a alcanzar, y el entorno de la blockchain donde se despliega y ejecuta, no se puede asegurar o afirmar de forma inmediata la validez de la celebración de un contrato entre el responsable del tratamiento y el interesado o considerarse como un contrato en sentido jurídico estricto. También es difícil asegurar que siempre pueda materializarse el consentimiento expreso, inequívoco, específico e informado del interesado en el tratamiento de sus datos, para poder considerarlo como una de las excepciones permitidas en el artículo 22 del RGPD.
+Pero incluso aunque estas excepciones sean de aplicación en un caso determinado, el mismo artículo 22 del RGPD obliga al responsable a adoptar medidas para salvaguardar los derechos del interesado. La norma especifica al menos dos salvaguardas de forma expresa y con carácter de mínimos: la intervención humana por el responsable, y que el interesado pueda impugnar esa decisión automatizada. Sin embargo, otras salvaguardas que podrían ser necesarias son las políticas de protección de datos, las medidas de gobernanza del servicio proporcionado, la eficacia más allá del mínimo obligatorio de ejercicio de derechos, así como las medidas de protección desde el diseño, por defecto, medidas de seguridad y de gestión, notificación y comunicación de brechas de datos personales en función del riesgo para los derechos y libertades de los interesados.
+Todas estas cuestiones han de abordarse y documentarse con anterioridad al  despliegue de un servicio basado en blockchain, en el marco de la gestión del riesgo para los derechos y libertades de las personas físicas, en su caso, realizando una evaluación de impacto prevista en el artículo 35 del RGPD y cuando sea necesaria la consulta previa a la autoridad de control prevista en el artículo 36. Por tanto, estas medidas han de realizarse desde el diseño del tratamiento y previamente a su implementación y puesta en producción. Por ello se recomienda revisar las guías elaboradas por la AEPD para aplicar los principios de responsabilidad proactiva que se pueden encontrar en el sección de Innovación y Tecnología, entre otras:
+Guía de Privacidad desde el Diseño.
+Guía de Protección de Datos por Defecto
+Guía de orientaciones y garantías en los procedimientos de anonimización de datos personales.
+Introducción al hash como técnica de seudonimización de datos personales
+Gobernanza y política de protección de datos
+Protección de datos y seguridad 
+Blockchain (II): Conceptos básicos desde la protección de datos
+Blockchain y protección de datos
+
+
+
+
+
+
+
+
+
+Entradas relacionadas
+
+
+
+
+
+
+
+
+18 de Abril de  2022
+Brechas de datos personales: entornos de desarrollo y preproducción 
+
+
+
+
+20 de Noviembre de  2020
+Blockchain (II): Conceptos básicos desde la protección de datos
+
+
+
+
+6 de Julio de  2020
+Los acortadores de URLs y la protección de datos
+
+
+
+
+
+
+
+

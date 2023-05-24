@@ -1,0 +1,141 @@
+
+
+
+
+Cifrado y Privacidad (V): la clave como dato personal
+
+
+
+
+
+3 de Diciembre de  2021
+
+La clave pública de una persona física es un identificador único y su empleo en servicios en línea está asociado, generalmente, a otro tipo de informaciones que permiten identificar y perfilar a la persona titular de dicha clave. Con esas condiciones, la clave pública es un dato personal que identifica unívocamente a una persona y su tratamiento está sujeto a lo establecido en el RGPD.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+A la hora de aplicar criptografía, el uso de una clave es el parámetro determinante. Hay muchas definiciones de qué es una clave. Brevemente, podemos decir que una clave es un parámetro que determina el resultado de un algoritmo criptográfico. Atendiendo a la clave, los sistemas de cifrado se pueden dividir en dos grandes grupos: los cifrados simétricos, donde una única clave cifra y descifra; y los cifrados asimétricos, en los que se precisan de dos claves, una para cifrar, que puede tener carácter público, y otra, para descifrar, que tiene carácter privado y está únicamente en posesión de su legítimo titular. Las dos claves del cifrado asimétrico están vinculadas, pero es muy difícil deducir una de la otra si no se dispone de información adicional.
+Los cifrados asimétricos están diseñados para que una de las claves se desvele y sea de libre acceso, la clave pública, por lo que son muy adecuados para su empleo en Internet. De esta forma, el uso de las claves asimétricas no solo permite el cifrado/descifrado de información, sino también realizar la autenticación de personas, la generación o la verificación de firmas, el intercambio de claves simétricas, etc.
+Las claves públicas pueden ser empleadas por personas, entidades e incluso máquinas para identificarse, autenticarse o intercambiar información. Cuando se trata de claves públicas que corresponden a personas físicas cabría plantearse si estas claves se pueden considerar datos de carácter personal. A este respecto, tanto la autoridad francesa CNIL (Solutions for a responsible use of the blockchain in the context of personal data) como el Parlamento Europeo (Blockchain and the General Data Protection Regulation) ya han manifestado que son datos personales en el marco de tratamientos específicos.
+Para determinar la naturaleza de datos de carácter personal de la clave pública hay que tener en consideración la propia definición de dato personal establecida en el artículo 4:
+
+«datos personales»: toda información sobre una persona física identificada o identificable («el interesado»); se considerará persona física identificable toda persona cuya identidad pueda determinarse, directa o indirectamente, en particular mediante un identificador, como por ejemplo un nombre, un número de identificación, datos de localización, un identificador en línea o uno o varios elementos propios de la identidad física, fisiológica, genética, psíquica, económica, cultural o social de dicha persona
+
+Y el Considerando 30 del RGPD detalle la interpretación de dato personal con relación a los identificadores en línea:
+
+Las personas físicas pueden ser asociadas a identificadores en línea facilitados por sus dispositivos, aplicaciones, herramientas y protocolos, como direcciones de los protocolos de internet, identificadores de sesión en forma de «cookies» u otros identificadores, como etiquetas de identificación por radiofrecuencia. Esto puede dejar huellas que, en particular, al ser combinadas con identificadores únicos y otros datos recibidos por los servidores, pueden ser utilizadas para elaborar perfiles de las personas físicas e identificarlas.
+
+A este respecto, la clave pública es un identificador unívoco por su propia naturaleza pues la probabilidad de que dos personas puedan compartir la cadena de caracteres que constituyen una clave es prácticamente nula. Si no fuera así, el esquema de garantías de seguridad que se construye sobre los sistemas de cifrado a través de Internet no funcionaría.
+Por otro lado, la utilización de la clave pública en tratamientos en línea está íntimamente vinculada a otro tipo de identificadores, como son direcciones IP, identificadores de sesión, cookies, firmas de dispositivos, direcciones de correo y otros. Toda esa información deja su rastro en los ficheros de log o de actividad de los servidores o de agentes intermedios. Más aún, el uso combinado de dichos identificadores, incluyendo la propia clave, permite asociar la actividad realizada desde distintas direcciones o dispositivos.
+La clave pública y la clave privada permitirán perfilar al sujeto en la medida que se utilicen para acreditar que las distintas acciones online se vinculan a un mismo individuo, por ejemplo, en el caso de autenticación o de Blockchain. Este tipo de información puede alcanzar tanta precisión que, en la práctica, ha sido utilizada también para reidentificar con éxito a la persona. De hecho, la reidentificación basada en la actividad se ha convertido en un servicio a disposición de varios actores, como por ejemplo las fuerzas de seguridad.
+En muchas ocasiones, la clave pública la crea materialmente un tercero distinto de la propia persona física a la que se vinculará la clave. Es el caso de las infraestructuras de clave pública (PKI), en el que el proceso de creación y distribución de la clave conlleva la identificación fehaciente y registro de la persona física en el proveedor del servicio o la autoridad de registro designada, además de la inclusión de información personal en un certificado digital. En algunos tratamientos esta identificación fehaciente es obligatoria por ley aunque la clave pública sea generada por el individuo (por ejemplo, en los servicios de cambio de moneda virtual o custodia de monederos electrónicos).
+Por supuesto, la clave pública estará vinculada con el contenido del mensaje y a todos sus posibles metadatos cuando se utilice para firmar electrónicamente un mensaje para garantizar su integridad.
+Finalmente, el usuario de la clave pública tiene que mantener en su poder una clave privada para que funcione correctamente el cifrado asimétrico. Aunque no se pueda deducir una clave de otra, si se puede demostrar la asociación entre ambas claves, ya que lo que se cifra con una de ellas solo se puede descifrar con la otra. Por lo tanto, se puede demostrar la vinculación del usuario con su clave pública en caso de acceso al secreto del usuario, por ejemplo, por una brecha de datos personales o por una acción judicial.
+En definitiva, en aquellos tratamientos en los que sea posible asociar a la clave pública información adicional que permita identificar a la persona, la clave pública actuará como un seudónimo con la consideración de dato personal pues, como se define en el apartado 5 del artículo 4 del RGPD, la información seudonimizada son datos de carácter personal.
+Con relación a temas de cifrado y seudonimización se puede encontrar más material en la página de Innovación y Tecnología de la AEPD, en particular:
+Introducción al hash como técnica de seudonimización de datos personales
+Cifrado y Privacidad IV: Pruebas de conocimiento cero
+Cifrado y Privacidad III: Cifrado Homomórfico
+Cifrado y Privacidad II: El tiempo de vida del dato
+Cifrado y Privacidad: cifrado en el RGPD
+
+
+
+
+
+
+
+
+
+

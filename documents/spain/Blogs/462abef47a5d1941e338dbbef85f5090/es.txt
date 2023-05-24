@@ -1,0 +1,167 @@
+
+
+
+
+Cifrado y Privacidad III: Cifrado Homomórfico
+
+
+
+
+
+22 de Junio de  2020
+
+Avanzando en la serie ‘Cifrado y Privacidad’ este artículo se centra en el cifrado homomórfico. Esta técnica de privacidad por defecto que es adecuada para aquellos casos en que un responsable subcontrata una parte de una actividad a un encargado, y quiere garantizar técnicamente que éste no va a acceder a los datos. Se mostrarán algunos conceptos, esquemas y posibles usos.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+En muchas ocasiones, el tratamiento que realiza un responsable sobre los datos personales de sus clientes se ejecuta sobre servicios prestados por un encargado de tratamiento. El modelo de computación que emplea puede ser el típico cliente-servidor, computación en la nube o un tratamiento distribuido derivado de las nuevas formas de edge-computing. De igual forma, gran parte de los datos recogidos  por las aplicaciones de nuestros  dispositivos personales acaban siendo tratados de forma remota en servidores de terceros.
+En un esquema tradicional, el responsable transmite la información al encargado de forma cifrada, para proteger la confidencialidad durante el tránsito. Una vez que el encargado la ha recibido, la descifra y la trata.
+Figura 1. En el esquema tradicional, la comunicación de los datos Dx se realiza a través de un túnel virtual que protege el acceso a los datos que circulan a través de él mediante cifrado, lo que permite establecer un canal de comunicación confidencial. Los datos, al llegar al encargado, se descifran y se tratan.
+Para asegurar que los requisitos de protección de datos se cumplen en este modelo, se establecen dos tipos de garantías: las legales y las técnicas. Estos dos conjuntos de garantías se complementan para gestionar el riesgo, y deben estar presentes también cuando se tratan los datos fuera del ámbito del responsable o de la persona física que utiliza un servicio remoto.  Las medidas legales vienen establecidas, entre otras fuentes, en el capítulo IV del RGPD, que recoge la relación entre responsable y encargado.
+Las medidas legales por sí solas no ofrecen una garantía absoluta, puesto que pueden verse limitadas por amenazas como son ámbitos jurídicos diferentes, cambios normativos, tratamientos ilegítimos, quiebras del estado de derecho o brechas de seguridad.
+En su auxilio, se pueden aplicar medidas técnicas como soluciones de cifrado que se describen en este post.
+Si se parte del esquema tradicional descrito, lo ideal para minimizar los riesgos sería que el encargado no tuviera la posibilidad de descifrar la información, y que todo su tratamiento pudiera llevarse a cabo sobre los datos cifrados por el responsable. De esta forma, se evitaría que un encargado desleal o un tercero suyo pudiera acceder a los mismos y usarlos para finalidades diferentes. Una forma de conseguir esta protección es mediante el llamado cifrado homomórfico.
+El cifrado homomórfico es una técnica que permite realizar operaciones sobre los datos cifrados y obtener resultados, también cifrados, equivalentes a las operaciones realizadas directamente sobre la información original. En la figura 2 se muestra uno de los posibles casos de uso de esta técnica.
+Figura 2. En este caso, los datos Dx se cifran uno a uno en el responsable, el encargado no necesita descifrarlos sino solo efectuar las operaciones. El símbolo de operación cambia pues se emplea un operador equivalente que produzca resultados equivalentes.
+Existen tres tipos de cifrado homomórfico: completo o FHE (Full Homomorphic Encryption), medio o SHE (Somewhat Homomorphic Encryption ), y parcial cuando el tipo de operaciones es limitado, o PHE (Partial Homomorphic Encryption ).
+El cifrado homomórfico es una medida muy interesante de Privacidad por Defecto, especialmente para el tratamiento de categorías especiales de datos, al evitar que el encargado acceda de facto al contenido de la información. Además, tiene ventajas operativas, como eliminar la necesidad de establecer una relación de claves entre responsable y encargado, con lo que la gestión del sistema de cifrado no es necesario que se exponga al exterior.
+Incluso un cifrado homomórfico limitado, como el PHE, puede tener aplicaciones inmediatas en mejorar la privacidad. Un caso de uso concreto podría ser la recogida de datos de dispositivos de la Internet de las Cosas (IoT) con el propósito de obtener valores agregados. En ese caso, los puntos intermedios de agregación podrían recibir los datos individuales cifrados y sumarlos, el punto final de recogida de los agregados solo recibiría valores acumulados cifrados. Un esquema muy similar se puede utilizar, por ejemplo,  para contabilizar votos electrónicos.
+Figura 3. En este caso de uso, los sensores cifran cada una de las lecturas con una clave que solo comparten con el destino. Varios niveles de agregadores (en la figura solo un capa) pueden tratar y/o acumular los valores de distintos sensores. Estos elementos intermedios pueden realizar un tratamiento sin acceso a los datos originales. Solo en el destino se encuentra también la clave que permite el acceso al resultado final.
+El empleo del cifrado homomórfico abre nuevas ventanas de oportunidad para la explotación de datos con mayores garantías, como son los servicios basados en IoT, Cloud Computing y aprendizaje automático o Machine Learning.
+Sin embargo, esta técnica tiene todavía algunos problemas y no está exenta de riesgos. Por ahora, el tratamiento con cifrado homomórfico es computacionalmente muy costoso, pero esa circunstancia tiene cada vez un impacto menor por la evolución tecnológica y el incremento de la potencia de los sistemas. Asimismo, estas técnicas  crean textos de mayor tamaño, lo que implica un mayor coste de comunicación. Este problema es también cada vez menos importante por el elevado ancho de banda de los enlaces de datos.
+Como otro riesgo a valorar, el utilizar una misma clave sobre los datos que han de ser tratados puede suponer una vulnerabilidad del sistema de cifrado. Este problema se agrava cuando se procesa un gran volumen de información y es accesible durante un tiempo prolongado. Para mitigarlo, sigue siendo imprescindible utilizar una capa adicional de cifrado en las comunicaciones, y además es necesario minimizar la información cifrada con la misma clave, que se debe restringir a los grupos de datos que operan entre sí.
+Para un cifrado homomórfico parcial o PHE es posible utilizar esquemas de cifrado asimétrico como por ejemplo RSA.
+Figura 4. Sea Dx un dato, E la función de cifrado y Cx el dato cifrado. El cifrado RSA eleva a un valor “k” módulo un valor “n” para cifrar. En el texto anterior podemos ver que la multiplicación del texto cifrado equivale a cifrar el resultado de la multiplicación de los datos originales.
+También existen esquemas de cifrado que permiten un cifrado homomórfico completo o FHE, como son los reticulares (lattice). Estos esquemas tienen la capacidad de introducir un nivel de ruido a lo largo del conjunto de operaciones realizadas. Esta característica, que en algunas aplicaciones puede parecer una desventaja, puede combinarse con las técnicas de privacidad diferencial para ofrecer un nivel adicional de privacidad.
+Probablemente en un futuro muy cercano empezaremos a ver implementaciones prácticas de la criptografía homomórfica. Serán un ejemplo más de cómo las técnicas de cifrado pueden ayudar a mantener la privacidad de los datos.
+
+
+
+
+
+
+
+
+
+Entradas relacionadas
+
+
+
+
+
+
+
+
+26 de Julio de  2022
+Empleo de datos biométricos: Evaluación desde la perspectiva de protección de datos
+
+
+
+
+18 de Abril de  2022
+Brechas de datos personales: entornos de desarrollo y preproducción 
+
+
+
+
+14 de Marzo de  2022
+Blockchain (III):  Smart contracts y datos personales
+
+
+
+
+
+
+
+

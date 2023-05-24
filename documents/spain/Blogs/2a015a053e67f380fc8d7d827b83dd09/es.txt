@@ -1,0 +1,126 @@
+
+
+
+
+Cifrado y Privacidad II: El tiempo de vida del dato
+
+
+
+
+
+22 de Enero de  2020
+
+En el marco de un tratamiento, a la hora de seleccionar un sistema de cifrado hay que tener en cuenta que las opciones disponibles tienen distintas características, por lo que es necesario analizar y elegir el sistema más adecuado para el producto o servicio en el que se va a integrar.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+Cada tratamiento tendrá unos requerimientos particulares en relación con el sistema de cifrado. Por ejemplo, un sistema de pago por visión de eventos deportivos tendrá importantes restricciones de latencia; los procesos de venta en línea precisan un establecimiento ágil del canal seguro; el cifrado integrado en tarjetas inteligentes tendrá limitaciones de memoria; el de sistemas móviles tendrá restricciones de consumo; los desarrolladores de apps buscarán soluciones open-source y multiplataforma; la protección de materias clasificadas requiere de sistemas de cifrado certificados; el cifrado de los discos duros un elevando rendimiento; los servicios de firma necesitan cifrado asimétrico; la protección de grandes volúmenes de datos requieren cifrado simétrico,  etc. En definitiva, el sistema de cifrado integrado en un tratamiento ha de cumplir con los requisitos derivados de los objetivos de negocio.
+Un parámetro de capital importancia a la hora de elegir el sistema de cifrado es la fortaleza de este, es decir, la dificultad o cantidad de trabajo requerido para romper un sistema criptográfico. La fortaleza determina la probabilidad de que el sistema pueda ser comprometido dentro de un marco temporal. Cuanto mayor sea la fortaleza del sistema de cifrado mayor será la probabilidad de que la información cifrada permanezca confidencial durante más tiempo, siempre teniendo en cuenta el avance de la tecnología.
+Los requisitos de fortaleza del sistema de cifrado difieren de unas aplicaciones a otras. Existen casos, como el de operaciones financieras a corto plazo, en los que la confidencialidad debería garantizarse por algunos días, incluso sólo algunas horas. Información relativa a fusiones, planes de marketing o lanzamientos de productos tienen requisitos de garantía de confidencialidad por algunas semanas o meses. Por otro lado, secretos políticos y diplomáticos han de permanecer confidenciales durante años, incluso por muchos años. La vida del mensaje, entendida como el periodo de tiempo en que es relevante mantener el mensaje confidencial, es distinta para cada tratamiento y es el criterio relevante para determinar los requisitos de fortaleza del sistema de cifrado.
+Una fortaleza elevada en el sistema de cifrado es un requisito muy costoso, además, cuando más exigente es ese requisito, más complicado es evaluarlo y entrará en mayor medida en conflicto con el cumplimiento de otros requisitos que el mismo tratamiento precisa, que entre otros son: latencia, tiempo de establecimiento, consumo, recursos, rendimiento, portabilidad, usabilidad, coste, etc.
+En el caso de que se utilicen técnicas de cifrado para añadir garantías de protección adicionales al tratamiento de datos personales hay que plantearse qué fortaleza se necesita y, para ello, hay que tener presente cuál es la vida del mensaje desde el punto de vista del RGPD, es decir, el tiempo de vida del dato. Como define el RGPD en el artículo 4.1, un dato personal tiene dicha naturaleza mientras sea información sobre una persona física identificada o identificable, por lo tanto, estamos hablando de requisitos de fortaleza muy elevados (pensemos en los datos recogidos actualmente de menores).
+En el caso de que la garantía principal sobre la que descansa un tratamiento sea el cifrado de los datos personales, es necesario realizar la validación de la fortaleza del sistema de cifrado. Existen análisis para dar una estimación de la fortaleza de ciertos sistemas de cifrado, normalmente realizados con muchas limitaciones, ya que solo contemplan el algoritmo, la relación con la longitud de la clave y el modelo de ataque más elemental. Incluso teniendo en cuenta dichas limitaciones de análisis, algoritmos como DES, por ejemplo, se revelan como inadecuados para la protección de información de carácter personal a largo plazo. A la hora de validar el sistema de cifrado es importante tener en cuenta que es mucho más que la verificación del algoritmo, es imprescindible incluir, entre otros, la verificación de los procedimientos de relación de claves; de la entropía y el pre-proceso de los datos; de los protocolos de comunicación; el análisis de la implementación concreta de todos estos elementos y, finalmente, la revisión de los aspectos organizativos de la gestión del sistema y el material de cifra.
+Esta validación ha de realizarse “desde el diseño” y estar el sistema de cifrado integrado en el tratamiento tal y como se establece en la Guía de Privacidad desde el Diseño publicada en la AEPD.    
+Este post sobre criptografía y privacidad está relacionado con otra entrada publicada anteriormente en el blog de la AEPD titulada ‘Cifrado y Privacidad: cifrado en el RGPD’.
+ 
+
+
+
+
+
+
+
+
+
+

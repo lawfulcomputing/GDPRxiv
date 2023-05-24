@@ -1,0 +1,171 @@
+
+
+
+
+Brechas de seguridad: protégete ante el ransomware
+
+
+
+
+
+17 de Septiembre de  2019
+
+El ransomware es una ciberamenaza con gran impacto sobre datos de carácter personal tanto en el sector de las pymes como para grandes empresas. Te contamos cómo protegerte.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+Desde la Agencia Española de Protección de Datos queremos concienciar sobre la necesidad de tomar medidas técnicas y organizativas para evitar que se produzcan brechas de seguridad. Este fomento de la concienciación se realiza en el marco del principio de responsabilidad activa de Reglamento General de Protección de Datos, especialmente en el caso de usuarios particulares y pymes que con frecuencia suelen disponer de menos recursos para dedicar a estas cuestiones.
+Aún así, a pesar de aplicar las medias de seguridad oportunas, las brechas de seguridad pueden ocurrir, por lo que las organizaciones deben estar preparadas para ser capaces de detectarlas y actuar para minimizar y evitar el daño a los derechos y libertades de las personas. Con este objetivo la AEPD publicó la Guía para la Gestión y Notificación de Brechas de Seguridad.
+Una de las medidas en las que se materializa el principio de responsabilidad activa del RGPD es en la obligación de notificar las brechas de seguridad a la autoridad de control, a menos que sea improbable que la quiebra suponga un riesgo para los derechos y libertades de los afectados, dentro de las 72 horas siguientes a que el responsable sea consciente de que el hecho se ha producido.
+Además, en los casos en que sea probable un alto riesgo para los derechos o libertades de los afectados, también se les deberá comunicar la brecha a estos. El objetivo de la comunicación a los afectados es permitir que puedan tomar medidas para protegerse de las consecuencias.
+Para la notificación de brechas de seguridad, la AEPD pone a disposición de los responsables de tratamiento un formulario en su Sede Electrónica.
+Un 10% de las notificaciones de brechas de seguridad recibidas en la AEPD durante 2018 desde el 25 de mayo de 2018 (fecha de aplicación del RGPD) indican que el motivo de la brecha es el cifrado de equipos mediante algún tipo de ransomware, y en ocasiones el vector de ataque es el acceso mediante servicios de escritorio remoto.
+Por eso, queremos mostrar el caso concreto de uno de los tipos de brecha de seguridad que se ha notificado a la AEPD con especial incidencia en el sector privado y dar recomendaciones para reducir el riesgo de sufrir una brecha de este tipo.
+Es habitual que usuarios de pymes y grandes empresas necesiten tener acceso desde internet a un servidor o cualquier otro equipo de su red para ejecutar determinadas aplicaciones, realizar tareas de mantenimiento o de soporte. A veces, también necesitan proporcionar acceso a otras organizaciones que les prestan un servicio determinado.
+Desde Windows NT 4.0, Microsoft incorpora el protocolo de escritorio remoto (Remote Desktop Protocol - RDP) que proporciona acceso remoto a la interfaz gráfica del equipo y permite resolver la necesidad anteriormente descrita. Es un servicio habitualmente usado en servidores que tienen instalado el sistema operativo Windows, aunque también se utiliza en otros sistemas operativos, para evitar tener que desplazarse físicamente donde se encuentra el equipo.
+Conociendo la dirección de internet del equipo (IP o nombre DNS) y con unas credenciales válidas, se puede acceder a la interfaz gráfica del equipo que tenga habilitado el servicio y que por defecto utiliza el puerto de comunicaciones 3389 TCP. 
+Una práctica no recomendada, pero muy habitual por su sencillez de implementación, es redirigir los puertos en el router del proveedor de internet para permitir ese acceso remoto a algún equipo de la organización. Al permitir esta conectividad se está exponiendo un servicio normalmente protegido sólo por usuario y contraseña.
+En un entorno controlado de pruebas en el que se simulen las condiciones anteriormente descritas, se puede comprobar que en menos de una hora la exposición del servicio es detectada y se realizan cientos de ataques por fuerza bruta.
+
+La forma  en la que se produce este ataque es tradicionalmente mediante phishing, en el que a través del envío de un correo suplantando al emisor se remite un malware como fichero adjunto que acabará cifrando los archivos del equipo.En los últimos años han cobrado una especial importancia los ataques de tipo ransomware en los que se busca cifrar información para posteriormente solicitar un rescate por la contraseña de descifrado. Aunque parezca una actividad en descenso, sigue siendo una gran amenaza a tener en cuenta especialmente en el caso de las pymes, uno de sus grandes objetivos.
+Pero en la actualidad también se utilizan otras técnicas, como por ejemplo algunos ransomware como Crysis/Dharma o Matrix cuyo vector de entrada es precisamente el protocolo de escritorio remoto. Utilizando buscadores como SHODAN, encuentran equipos accesibles que tengan contraseñas débiles y usuarios por defecto habilitados como “invitado”, “backup”, etc. Una vez acceden al equipo proceden a deshabilitar sistemas de protección como instantáneas de volumen o puntos de restauración y cifran toda la información del sistema pidiendo un rescate para entregar la contraseña de descifrado.
+Cuando se sufre un ataque de este tipo se suele pensar únicamente en que se ha sufrido una brecha de disponibilidad hasta que se consigue recuperar la información, habitualmente desde las copias de respaldo, si se dispone de ellas. Pero no siempre se tiene en cuenta que han sido comprometidos diferentes cuentas de usuario que pueden pertenecer a un dominio, que se ha podido acceder a otros equipos de la organización y conseguir credenciales diferentes a las del servidor afectado, además se desconoce si el malware ha podido enviar alguna información almacenada en nuestros sistemas hacia el exterior.
+La primera medida preventiva a llevar a cabo para evitar estos ataques es no exponer los servicios de escritorio remoto directamente a internet mediante la redirección de puertos, al considerarse una práctica insegura.
+Sería recomendable establecer al menos un servicio como Remote Desktop Gateway, o mejor aún implementar un sistema de red privada virtual (Virtual Private Network - VPN) en la que se consoliden los accesos desde el exterior. De esta manera tendremos un único sistema expuesto que es el que deberemos vigilar con mayor diligencia. Además, no debemos olvidar recomendaciones básicas como deshabilitar cuentas de usuario innecesarias o credenciales simples, tener los sistemas actualizados e implementar sistemas de doble autenticación.
+Como medida correctiva, disponer de copias de seguridad de los datos es la medida más eficaz.
+Para mayor información sobre medidas preventivas y cómo actuar ante un ransomware que haya cifrado tus dispositivos, desde la Agencia Española de Protección de Datos te recomendamos consultar la guía sobre Ransomware publicada por INCIBE, el informe de buenas prácticas  del CCN-CERT y las recomendaciones de medidas de seguridad ante ransomware también del CCN-CERT .
+Otros enlaces de interés:
+2018 Data Breach Investigations Report - Verizon
+Ransomware: an enterprise perspective - ESET
+El 'ransomware', otra gran amenaza para las pymes - Expansión
+Matrix: A low-key tageted ransomware - Sophos
+
+
+
+
+
+
+
+
+Entradas relacionadas
+
+
+
+
+
+
+
+
+18 de Abril de  2022
+Brechas de datos personales: entornos de desarrollo y preproducción 
+
+
+
+
+18 de Febrero de  2021
+Privacidad en reuniones online
+
+
+
+
+15 de Diciembre de  2020
+Brechas de seguridad: Ransomware y gestión del riesgo 
+
+
+
+
+
+
+
+

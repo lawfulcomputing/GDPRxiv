@@ -1,0 +1,161 @@
+
+
+
+
+Cifrado y Privacidad IV: Pruebas de conocimiento cero
+
+
+
+
+
+4 de Noviembre de  2020
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+Las pruebas de conocimiento cero o ZKP (del inglés zero-knowledge proof) dan nombre a un conjunto de técnicas que permiten la implementación de dos medidas establecidas en el art. 25 del RGPD: la minimización y la limitación en la accesibilidad a los datos. La particularidad de las ZKP es que permiten demostrar que se dispone de una determinada información sin que se exponga dicha información. Son, por lo tanto, una herramienta para implementar el principio de minimización en contextos distribuidos, como servicios de Internet en general, cloud computing, blockchain, etc.
+
+
+
+Supongamos que una persona usuaria de 19 años quiere acreditar que es mayor de 16 años a un servicio de Internet, a través de la red, sin revelar su verdadera edad ni su identidad. Para ello se podría ejecutar el siguiente procedimiento:
+Ante un tercero de confianza, dicha persona acredita su edad. Genera un número aleatorio, llamado N, que no tenga que ver con su edad y que guarda de forma confidencial.
+A partir de ese número se genera otro, denominado PRUEBA, que se obtiene de aplicar sobre N una función hash tantas veces como la diferencia entre la edad actual y la mayoría de edad sumando 1. Es decir:
+PRUEBA = Hash 1+edad-16 (N)
+En este caso PRUEBA = Hash 4 (N) = Hash(Hash(Hash(Hash(N))))
+El valor PRUEBA obtenido se almacena en un servidor del tercero de confianza en una dirección accesible desde Internet con una URL construida con valores aleatorios, por ejemplo, URL (XXXX).
+La persona usuaria conserva el valor N y la dirección URL (XXXX). Mientras, en el servidor del tercero de confianza queda almacenado el valor PRUEBA accesible desde Internet en la dirección URL (XXXX) y desvinculado de la identidad personal del usuario.
+Más tarde, dicha persona quiere acreditar ante un servicio de Internet que es realmente mayor de 16 años. Para ello envía al servicio de Internet dos datos:
+La dirección URL (XXXX),
+Su edad codificada de forma no legible de la siguiente forma: EDADhash = Hash 1+edad(N).
+Es decir, no calcula el hash de su edad, sino que realiza el hash del valor N que estableció al principio, pero tantas veces como años tiene la persona usuaria más uno. En nuestro ejemplo, realizaría el hash del valor N que conserva de forma confidencial 20 veces:
+EDADhash = Hash 20 (N).
+El servicio de Internet, haciendo uso de la URL (XXXX) proporcionada por la persona usuaria, consigue el valor PRUEBA allí almacenado. A continuación, a dicho valor le aplica la función hash tantas veces como la edad mínima que hay que demostrar, en este caso 16 años:
+VERIFICA = Hash 16 (PRUEBA) = Hash 16 (Hash 4 (N)) = Hash 20 (N) = EDADhash
+Por lo tanto, el servicio de Internet (en este caso llamado “verificador”) al comprobar que el valor VERIFICA coincide con el valor EDADhash puede establecer que la persona usuaria (en este caso llamada “probador”) es mayor de 16 años. Esto lo ha conseguido sin que esta persona revele su edad concreta al servicio de Internet, ni sus datos de identidad y sin que dicha información viaje a través de la red. Este es un ejemplo de prueba de conocimiento zero, o ZKP, cuyo funcionamiento se puede comprobar en esta página web.
+
+Ejemplo práctico del algoritmo tomando como valor inicial N=12345667
+El anterior protocolo se puede considerar que es una ZKP porque se cumple con tres requisitos:
+Completitud (o integridad): si la declaración es correcta el verificador (servicio de Internet en este caso) tiene una seguridad razonable de lo que dice el probador (la persona usuaria) es cierto.
+Solidez (o robustez): si la declaración es falsa, es muy improbable que el probador pueda engañar al verificador.
+Conocimiento cero: si la declaración es correcta el verificador no puede inferir información adicional sobre el probador, en este caso la persona usuaria.
+Las ZKP se basan en técnicas criptográficas, que a su vez se fundamentan en la utilización de algoritmos y funciones de muy difícil reversibilidad, como pueden ser cifrados, funciones hash o la utilización de aritmética modular. Por lo tanto, son pruebas que permiten dar una certeza probabilista, no absoluta, sobre si la información es correcta o no. A la hora de aplicar una ZKP en el diseño de un tratamiento es necesario evaluar si dicha incertidumbre alcanza valores lo suficientemente bajos para que el riesgo sea asumible en el marco de dicho tratamiento concreto.
+Las debilidades de los sistemas ZKP, como el mostrado en el ejemplo, derivan de la diferencia que siempre se va a encontrar entre el concepto teórico y la aplicación práctica. Es decir, el riesgo para los derechos y libertades surge de la distancia que existe entre el planteamiento de algoritmos y procedimientos, y la implementación real de estos en un contexto técnico, organizativo y legal concreto.
+La implementación concreta de un sistema como el mostrado podría tener, entre otras, las siguientes debilidades:
+La vinculación realizada en el tercero confiable entre la URL(XXXX) y la identificación del sujeto.
+El perfilado que podría realizar el tercero en base a la URL(XXXX) y el conjunto de servicios de Internet que reclaman acceso a la misma.
+Elección de valores vulnerables en la construcción de la URL.
+La debilidad en la robustez o aleatoriedad de los valores iniciales, en este caso la semilla inicial N (en otros tipos de ZKP en búsqueda de números primos).
+Los metadatos asociados a los intercambios de información entre el sujeto, el tercero confiable y, sobre todo, el servicio de Internet.
+El cruce de metadatos o huella del dispositivo entre distintos servicios de Internet.
+El análisis de la información de tráfico en el acceso a la persona usuaria, tercero y servicios de Internet.
+El compromiso del terminal de la persona usuaria o brechas de seguridad en los servidores del tercero.
+La falta de aplicación del principio de minimización de datos en los servidores del tercero o los servicios de Internet accedidos.
+En definitiva, estas debilidades surgen de la de carencia de una gestión de riesgos para los derechos y libertades más allá del concepto que tenga en cuenta también el diseño y la implementación de los ZKP. Estas debilidades pueden verse a su vez acentuadas por la carencia de acciones de revisión y supervisión (art.24.1 del RGPD), como pueden ser las auditorías, que son imprescindibles en el despliegue y  en la puesta a producción a gran escala y en contextos concretos.
+Existen muchos tipos de ZKP y no existe una sistemática en el desarrollo de este tipo de soluciones. Incluso hay métodos de ZKP no vinculados a tratamiento digital y que se emplean para comprender intuitivamente este concepto.
+Las ZKP se pueden categorizar en las que son interactivas, o que precisan que para cada verificación se interactúe con el sujeto/probador. También en ZKP no-interactivas (NIZK, ZK-SNARK o ZK-STARK), en las que el servicio/verificador puede comprobar la veracidad por sí mismo, sin necesidad de interaccionar con el probador. Estas últimas son más interesantes por ser más escalables. También se pueden clasificar en aquellas orientadas específicamente para comparaciones, como la comprobación de valores en determinados rangos (Zero Knowledge Range Proofs o ZKRP) o la inclusión en conjuntos (Zero Knowledge Set Membership o ZKSM).
+Las ZKP son una herramienta que permiten la implementación de dos medidas establecidas en el art. 25 del RGPD: la minimización y la limitación en la accesibilidad de los datos. Estas medidas hay que implementarlas tanto por defecto como desde el diseño. Las aplicaciones de esta técnica son muy diversas: comprobación de límites de edad, comprobación de condiciones como nacionalidad, voto electrónico, compras, subastas, confidencialidad en las transacciones, análisis de provisiones de fondos, demostrar solvencia financiera, privacidad en blockchain, etc. Como en el ejemplo mostrado, la ZKP no elimina la información personal, de hecho, existe un identificador único, la dirección URL(XXXX), asociada a un sujeto, pero sí pueden ser potentes herramientas de seudonimización.
+Finalmente, se aconseja seguir las recomendaciones elaboradas por la AEPD para aplicar los principios de minimización que se pueden encontrar en la página de Innovación y Tecnología, en particular:
+Guía de Privacidad desde el Diseño
+Guía de Protección de Datos por Defecto
+ 
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,173 @@
+
+
+
+
+Blockchain (II): Conceptos básicos desde la protección de datos
+
+
+
+
+
+20 de Noviembre de  2020
+
+Blockchain es una técnica de almacenamiento distribuido de información, en la que no existe una gestión centralizada de la misma. Dicha técnica hace uso de políticas de consenso para validar la información incluida y de políticas de detección de integridad de los datos originalmente registrados.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+Las técnicas de almacenamiento de información distribuida se pueden emplear para garantizar la disponibilidad de los datos. Los modelos tradicionales de distribución son jerárquicos: un nodo central determina qué información, cuándo y dónde se va a almacenar, así como quién va a tener acceso a ella y con qué nivel de privilegios. Ese nodo central controla la interacción con los servicios (propios o ajenos) distribuidos en distintas localizaciones y/o entidades. Este es el caso de servicios tradicionales de almacenamiento en la nube, como Dropbox, Google Drive, …
+Las técnicas de almacenamiento distribuido evolucionaron para permitir otros tipos de servicios, apoyándose en el aumento de la conectividad y la potencia de los ordenadores. Gracias a dichos avances se desarrollaron las técnicas de intercambio de información par-a-par o P2P (Peer to Peer). En éstas, todos los nodos de la red son nodos jerárquicamente iguales que almacenan y comparten información de forma distribuida sin necesidad de una gestión centralizada (o intermediario). Un ejemplo de este modelo era eMule, en el que las personas intervinientes podían participar libre y dinámicamente sin necesidad de intermediarios. En este modelo también había generadores de contenidos o nodos que solo almacenaban información. Esta configuración garantiza la disponibilidad de la información en un modo abierto y no permisionado al que cualquiera puede sumarse. Sin embargo, no implementa una política para validar la información a almacenar, ni mecanismos para determinar si dicha información ha sido alterada en uno o varios nodos, es decir, para determinar la integridad de la información.
+Blockchain es una técnica de almacenamiento distribuido de información que, dependiendo de la configuración escogida, puede trabajar en una aproximación P2P y formar una red de nodos descentralizada. Utiliza determinadas estrategias, llamadas algoritmos de consenso, para validar la información que almacena cada nodo participante e implementa un mecanismo para detectar alteraciones en la información registrada.
+Blockchain descansa básicamente en los siguientes elementos:
+Una política de participación que establece en qué condiciones y con qué rol se interviene en la red.
+Una política de almacenamiento distribuido de la información.
+Una política de intercambio de datos.
+Una política de consenso para validar la nueva información en el sistema.
+Una política de gestión de la integridad de la información.
+Las políticas enumeradas se apoyan en elementos de gobernanza (que definen quién puede acceder o participar en la red, con qué permisos, qué niveles de servicio se proporcionan, estrategias de validación de los bloques, trazabilidad de la información, etc.) y en elementos tecnológicos (comunicación P2P, cifrado, hash, etc. y sus implementaciones concretas). Hasta ahora, estos elementos no se consensuan de forma distribuida, sino que son establecidos, de facto o de ley, por alguna entidad o comité.
+En el caso de Blockchain, el registro de la información se realiza a través de bloques de datos físicamente independientes. Cada nuevo bloque está relacionado con el bloque inmediatamente anterior al incluir entre sus datos el hash del bloque previo. De esta forma, todos los bloques están encadenados de forma virtual y de ahí el nombre de cadena de bloques.
+Esta forma de organización de la información confiere a Blockchain una de sus principales propiedades: detección de la integridad de los datos registrados. No es posible añadir, eliminar o modificar la información almacenada en un bloque sin que se produzca un cambio en el valor del hash utilizado como vínculo en el bloque siguiente.
+
+Figura 1 – Enlace entre bloques
+Esta propiedad, muchas veces descrita como ‘inmutabilidad’, garantiza la detección de fallos en la integridad de los bloques almacenados. Sin embargo, no significa que los datos contenidos en cualquiera de los bloques, o los bloques mismos, sean permanentes, sino que no podrán ser alterados o eliminados sin dejar traza o constancia de ello. Para realizar una modificación en los bloques gestionando la integridad sería necesario la implementación de una política de trazabilidad de los nodos que los almacenan y una política de consenso entre todas las personas participantes para ejecutar y/o aceptar dicha alteración. Por tanto, cuando se habla de la ‘inmutabilidad’ de Blockchain esta ha de ser entendida de forma relativa.
+Blockchain no es un tratamiento en sí mismo sino una técnica de proceso distribuido de información sobre la cual se pueden implementar distintos tratamientos y modelos de negocio. Existen muchas implementaciones distintas de la tecnología Blockchain que pueden diferir radicalmente entre ellas. A su vez, sobre las mismas, se pueden construir muchos modelos de negocio distintos y realizar tratamientos muy diferentes de forma simultánea. De hecho, Blockchain es un caso particular de una técnica de almacenamiento de información más genérica denominada registro distribuido o DLT (Distributed Ledger Tecnology).
+Sin duda, el caso de éxito de empleo de Blockchain más conocido y el primero desarrollado, es Bitcoin. Bitcoin se remonta a 2008 cuando alguien, bajo el seudónimo de Satoshi Nakamoto, publicó un documento en el que se establecía la gobernanza, las técnicas y tecnologías a emplear en el funcionamiento de la primera criptomoneda basada en tecnología Blockchain.
+Bitcoin hace uso de las características distribuidas de Blockchain para implementar un modelo de negocio sin intermediación, es decir, sin ningún tipo de entidad reguladora central. Por lo tanto, Bitcoin no está sometido a ninguna legislación ni control oficial, aunque sí sometido a las normas de facto definidas por las personas desarrolladoras del proyecto. La idea de estos era desarrollar un sistema de pago descentralizado, sin intermediarios ni intervención de terceras partes confiables, en el que esa confianza al realizar las transacciones entre personas intervinientes que no se conocen se implementase a través de las garantías establecidas en el propio modelo.
+Bitcoin concreta y amplia los elementos típicos de Blockchain para poder implementar dicho modelo de negocio:
+Una política de participación no permisionada por la que las personas intervinientes pueden entrar y salir libremente sin que existan restricciones a la hora de procesar las transacciones o crear los bloques (Blockchain no permisionada).
+Una política de almacenamiento distribuido de elementos de información denominados transacciones en la propia cadena de bloques.
+Una política de intercambio de datos P2P por la que no existen requisitos de acceso a la red, no hay trazabilidad de la comunicación de datos y donde cualquier nodo participante puede formar parte de ella (Blockchain pública).
+Una política de consenso para validar la información incorporada a la cadena basada en la resolución de problemas complejos (Prueba de Trabajo)
+Una política de gestión de la integridad de la información sin contemplar la actualización de esta.
+Una política de recompensas para las personas intervinientes que construyen nuevos bloques.
+Una política de ejecución automática de decisiones que, en base a unas condiciones prestablecidas, permite que se ejecute un acuerdo definido por las partes (Contratos inteligentes).
+Un ecosistema de interacción entre el mundo virtual y el real: oficinas de cambio o exchanges, monederos o wallets, aplicaciones descentralizadas o DApps, etc.
+Bitcoin no sería un tratamiento en sí mismo. Como se ha señalado anteriormente, es un modelo de negocio definido por unas reglas de facto: unos elementos de gobernanza y unos elementos tecnológicos. Las personas participantes que deciden libremente participar en el negocio Bitcoin se sujetan y aceptan las reglas ad-hoc definidas para ejecutar los distintos tratamientos. En definitiva, se comportan como cualquier otra persona que participe en cualquier mercado, ya sea financiero, telecomunicaciones, marketing, turismo, etc., donde se ha se ha de cumplir la normativa sectorial (de facto, legal, tecnológica, etc.) para intervenir en el mismo. En definitiva, Bitcoin define un modelo de mercado financiero virtual.
+A pesar de ser la más famosa, Bitcoin no es la única criptomoneda que existe. Ethereum, Ripple, Dash, Zcash o Monero son ejemplos de criptomonedas, cada una con sus propias características, algunas implementadas sobre blockchains existentes y otras creadas desde cero. Y es posible encontrar entidades participando en varias de ellas simultáneamente.
+Tampoco puede pasarse por alto que Blockchain ha despertado el interés por sus posibilidades más allá de la criptomoneda. Los modelos que se pueden implementar utilizando tecnología Blockchain son tan singulares como lo sea la imaginación de las personas desarrolladoras y se pueden implementar de tantas formas y con tantas particularidades que pretender dar una respuesta genérica a las bondades y problemas que plantea su uso en un tratamiento sería un error.
+Entre el amplio abanico de posibles usos en otros ámbitos y sectores más allá del financiero están: la gestión de cadenas de suministro, la tokenización de activos, la trazabilidad e inventario de bienes, la gestión de una identidad digital, sistemas de identificación de fraude, votación, registros de propiedad o desarrollo de servicios financieros entre muchos otros.
+Antes de construir tratamientos sobre Blockchain se recomienda revisar las guías elaboradas por la AEPD para aplicar los principios de responsabilidad proactiva que se pueden encontrar en el microsite de Innovación y Tecnología, entre otras:
+Guía de Privacidad desde el Diseño
+Guía de Protección de Datos por Defecto
+Guía de orientaciones y garantías en los procedimientos de anonimización de datos personales
+Introducción al hash como técnica de seudonimización de datos personales
+Gobernanza y política de protección de datos
+Protección de datos y seguridad
+
+
+
+
+
+
+
+
+
+Entradas relacionadas
+
+
+
+
+
+
+
+
+14 de Marzo de  2022
+Blockchain (III):  Smart contracts y datos personales
+
+
+
+
+
+
+
+

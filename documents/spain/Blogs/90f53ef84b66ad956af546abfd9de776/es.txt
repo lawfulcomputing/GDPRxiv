@@ -1,0 +1,175 @@
+
+
+
+
+HTTPS: Cifrado en la web
+
+
+
+
+
+20 de Abril de  2021
+
+En la actualidad, la mayoría de los sitios web utilizan HTTPS por defecto y se ha convertido en una herramienta indispensable para la privacidad, ya que permite el cifrado de las comunicaciones extremo a extremo
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+En la gran mayoría de ocasiones que se navega por Internet a través de un navegador web o una app en un dispositivo móvil, se utilizan conexiones cifradas mediante el protocolo de comunicaciones HTTPS (HyperText Transfer Protocol Secure o HTTP sobre TLS). Esta técnica se aplicó inicialmente para asegurar las comunicaciones en medios de pago o banca online. En la actualidad, la mayoría de los sitios web utilizan HTTPS por defecto y se ha convertido en una herramienta indispensable para la privacidad, ya que permite el cifrado de las comunicaciones extremo a extremo, es decir, entre las dos partes que se comunican.
+HTTP (Hypertext Transfer Protocol) es el protocolo usado en Internet para las comunicaciones entre los navegadores o Apps y los servidores web. Creado en la década de 1990 y actualizado en el 2000, en su configuración original no contaba con medidas que aseguraran la confidencialidad de las comunicaciones, al igual que todos los protocolos creados en esa época. Una forma de resolver esta carencia es a través de la tecnología de VPN (red privada virtual) que permite tunelizar y cifrar estos protocolos inseguros a través de herramientas de terceros.
+Una actualización de HTTP, publicada en 2015 y conocida como HTTP2, sí tenía en cuenta el cifrado de las comunicaciones de extremo a extremo, pero de forma opcional. La versión HTTP3, publicada recientemente, entre otras mejoras, incluye el cifrado de las comunicaciones como una medida obligatoria. De momento, representa sólo el 7% de uso en Internet, pero se espera una adopción muy rápida de este protocolo ya que contribuirá positivamente a la privacidad en Internet.  
+En paralelo a la evolución de HTTP, y para suplir las carencias originales de HTTP, la empresa Netscape desarrolló el protocolo SSL (Secure Socket Layer), un añadido para trabajar con HTTP, que permite realizar el cifrado de la información transmitida y asegurar tanto la integridad como la confidencialidad.
+Adoptado como estándar de facto en el cifrado de las comunicaciones en Internet a través de integración con HTTP, SSL ha pasado a denominarse TLS (Transport Layer Security). TLS 1.0 se implementó en 1999 y, posteriormente, para hacer frente a diferentes problemas de seguridad, ha tenido varias actualizaciones. En la actualidad se encuentra en la versión TLS1.3 que es el estándar usado por la nueva versión HTTP3.
+Las aplicaciones de HTTP sobre TLS, o HTTPS, proporcionan confidencialidad e integridad en las comunicaciones, y autenticidad en cuanto a que podemos confirmar que accedemos al servidor escrito en la barra de direcciones del navegador. Sin embargo, no hay que olvidar que existen ataques como el phishing. Dichos ataques incluyen un enlace que redirige a un dominio fraudulento, con una dirección engañosa, incluso con un certificado válido para ese dominio. Estos ataques pretenden obtener datos personales con finalidades no legítimas suplantando la web de la entidad legítima.
+Para asegurar la compatibilidad con herramientas no actualizadas, los sitios web suelen permitir conexiones con protocolos que no incorporan garantías adecuadas. Desde los organismos de ciberseguridad no se recomienda usar versiones anteriores a TLS1.2 por considerarse inseguros. Los administradores de los sitios web deberán configurar los servidores para que sólo acepten las últimas versiones de TLS. Además, también es recomendable realizar comprobaciones de las vulnerabilidades de TLS. Para ello, las personas usuarias pueden emplear herramientas, ya sean online o instalables de forma local, como testssl.sh que permiten auditar la seguridad de nuestro servidor respecto al uso de HTTPS.
+Las personas usuarias pueden cerciorarse de no usar protocolos inseguros en nuestros navegadores. A continuación, se proporcionan pautas de configuración para los navegadores más comunes:
+Chrome/Edge
+Para Chrome/Edge en las propiedades de internet, en las opciones avanzadas desmarcando las versiones más antiguas.
+Firefox
+En firefox escribiendo about:config, buscar tls (3 se refiere a TLS1.2 y 4 a TLS1.3)
+
+Con estas configuraciones se evita el acceso a una página web con versiones de cifrado que no proporcionan el mismo nivel de seguridad a nuestras comunicaciones que TLS 1.2 o TLS 1.3.
+Actualmente la mayoría de los navegadores avisan a la persona usuaria cuando se está utilizando una conexión considerada como insegura. Por ejemplo, véase en las siguientes figuras la comparación entre la advertencia del navegador al utilizar TLS 1.3 (segura) o TLS 1.0 (insegura).
+ 
+
+Conexión segura por defecto
+ 
+ 
+
+Conexión no segura (forzando cifrado débil en el navegador).
+ 
+Puede obtener más información en el sitio web Innovación y Tecnología de esta Agencia, así como en nuestro blog:
+Minimizar riesgos seguimiento en internet
+Privacidad en DNS
+Guía de compra segura en Internet
+ 
+
+
+
+
+
+
+
+
+
+Entradas relacionadas
+
+
+
+
+
+
+
+
+3 de Agosto de  2021
+Por un sharenting responsable, también en verano
+
+
+
+
+21 de Mayo de  2021
+IoT (III) Domótica. Internet de las Cosas: riesgos y recomendaciones
+
+
+
+
+11 de Enero de  2021
+IoT (II): Del Internet de las Cosas al Internet de los Cuerpos
+
+
+
+
+
+
+
+

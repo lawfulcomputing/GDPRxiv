@@ -1,0 +1,172 @@
+
+
+
+
+Identificación en servicios de pago online
+
+
+
+
+
+29 de Diciembre de  2020
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+Los pagos electrónicos han ido avanzando considerablemente, extendiéndose su uso debido al impacto de las medidas adoptadas en relación con la pandemia del coronavirus.  Algunos de los riesgos para la protección de datos pueden derivarse de los métodos para autenticar la identidad de la persona pagadora, la vulnerabilidad de los dispositivos móviles y los posibles tratamientos adicionales que se podrían producir en determinadas implementaciones.
+Los servicios de pago están regulados mediante el Real Decreto-ley 19/2018, de 23 de noviembre, de servicios de pago y otras medidas urgentes en materia financiera, que transpone la directiva PSD2.
+La tradicional forma de acceder a los servicios online a través de unas credenciales basadas exclusivamente en usuario y contraseña se han mostrado insuficientes, como demuestra la historia reciente con numerosos ejemplos de brechas de seguridad. Algunas han tenido como resultado la filtración de millones de credenciales y otras se han materializado por tener contraseñas demasiado sencillas.
+Por ello, la seguridad que proporciona la utilización de un único factor de autenticación ha sido considerada como demasiado limitada y se ha establecido normativamente la necesidad de introducir una autenticación fuerte, es decir, una autenticación basada en al menos dos factores de los siguientes: algo que se sabe, algo que se tiene y algo que se es.
+Con este objetivo la PSD2 introduce el requisito de implementar la autenticación reforzada de la clientela (SCA), basada en un segundo factor de autenticación que proporciona una manera robusta de identificación. En este sentido, a la tradicional combinación de usuario y contraseña, se podría añadir algo que se tiene, como por ejemplo un certificado digital, un dispositivo criptográfico que genera un número único (One-Time-Password u OTP) para cada persona usuaria del tamaño de un llavero, una línea de telefonía para recibir SMS o una app en un dispositivo móvil. La tarjeta de coordenadas no forma parte de este conjunto de opciones ya que la Autoridad Bancaria Europea en su Dictamen de Noviembre de 2019, donde se identifican los mecanismos que son válidos, las descarta, así como los detalles impresos en la propia tarjeta tipo CVV.
+La operativa para proporcionar un segundo factor de autenticación se ha centrado fundamentalmente en estrategias basadas en el teléfono móvil de la persona usuaria, bien mediante OTP o mediante el uso de apps. Esta aproximación pretendía aprovechar la facilidad de despliegue, ya que el dispositivo lo proporcionaba la propia persona usuaria, además de permitir a la entidad financiera, en el caso de la App, desplegar productos y servicios adicionales.
+En el caso de las OTP, viene siendo habitual que al realizar la operación financiera se envíe al número de teléfono móvil, que previamente se ha dado de alta en la cuenta, un mensaje SMS con un código (OTP) que se debe introducir en la web o app donde se esté realizando la compra o en el servicio bancario en el que se esté efectuando una transacción. De esta manera, el doble factor se consigue al conocer los datos bancarios y disponer del número de teléfono móvil donde recibir la contraseña de un solo uso.
+El protocolo que se utiliza para enviar los SMS denominado SS7 fue desarrollado hace más de 40 años sin tener la seguridad como uno de sus objetivos y que recientemente ha sido noticia por brechas de seguridad relacionadas con sus vulnerabilidades. Por otro lado, las diferentes debilidades de esta forma de identificarse pueden verse reflejadas en noticias en las que se alerta de operaciones bancarias realizadas por un tercero que ha tenido acceso a cuentas bancarias de forma online. El proceso es el siguiente:
+En primer lugar consiguen nuestro usuario y contraseña, ya sea por una brecha de seguridad sufrida en otro proveedor en el que estamos reutilizando esas credenciales o al haber sufrido un phishing en el que nos han robado esta información al haber intentado acceder a una web falsa del banco.
+Una vez que tienen nuestro usuario y contraseña, se dirigen a la operadora telefónica suplantando nuestra identidad. Para ello pueden utilizar datos que tengamos publicados abiertamente en redes sociales o datos afectados por brechas de seguridad, por ejemplo, una imagen de un documento oficial que hayamos enviado a otro servicio web.
+Superados los mecanismos de verificación del operador, nuestra identidad ha sido suplantada, pudiendo solicitar un duplicado de nuestra tarjeta SIM para rápidamente realizar las operaciones fraudulentas en nuestra cuenta bancaria. Esta técnica se denomina SIM Swapping y si nos quedamos sin cobertura en un sitio en el que no debería suceder esto, puede que estemos sufriendo este fraude.
+Para intentar combatir este tipo de fraudes, entidades bancarias y grandes compañías de internet han empezado a aplicar alternativas al envío de OTPs vía SMS mediante la opción de enviar dichos códigos a través de notificaciones en Apps propias instaladas en dispositivos móviles verificados. En caso de duplicado de la tarjeta SIM el mensaje con el código seguiría llegando a la App instalada en el dispositivo original vía Internet, en lugar de un SMS al dispositivo del atacante. Sin embargo, la amenaza puede persistir mientras esta migración no se complete o si los procedimientos para cambios en el dispositivo de confianza son débiles por estar basados en contraseñas, preguntas de seguridad o SMS.
+La directiva PSD2 no establece cuáles son los mecanismos técnicos concretos que son válidos para la autenticación reforzada de clientes; son las directrices de la Autoridad Bancaria Europea las que presentan una lista no exhaustiva con las distintas alternativas válidas para cada uno de los factores de autenticación. Una de ellas es el envío de OTP en Apps instaladas en dispositivos vinculados, pero hay otras que podrían ofrecerse a la clientela como, por ejemplo, la posesión de un certificado digital o un determinado token hardware/software, y que pueden minimizar los riesgos relativos a la protección de datos.
+Por un lado, el teléfono móvil es un dispositivo que tiene la mayoría de la población, pero no todas las personas tienen un smartphone o tienen la soltura necesaria para emplear determinadas aplicaciones. Además, esta aproximación obliga a tener que facilitar un número móvil al darse de alta en el servicio. Para aquellos que sí utilizan el dispositivo móvil de forma habitual, es decir, que exponen su terminal de forma habitual porque lo llevan permanentemente, lo han de mostrar para otros servicios y lo conectan habitualmente a Internet, supone tener que poner en riesgo de forma constante el segundo factor de autenticación.
+Por otro lado, la utilización de terminales móviles y apps puede exponer a la persona usuaria a tratamientos adicionales, derivados del empleo por la persona responsable o terceros de información personal obtenida de forma directa o a través de identificadores únicos vinculados al terminal móvil, así como el  tratamiento de información personal mediante las librerías o SDKs  en apps preinstaladas.
+Cuando las aplicaciones móviles introduzcan nuevos tratamientos de datos personales, la persona responsable ha de contar con la legitimidad necesaria para ello. En particular, cuando dicha legitimidad solo pueda basarse en el consentimiento, no pueden imponerse tratamientos adicionales, bajo la responsabilidad de las entidades o de terceros, como una condición para acceder a los servicios financieros.
+Además, deberán gestionar adecuadamente los riesgos para los derechos y libertades de las personas interesadas y evitar incluir tratamientos de datos personales accesorios que puedan tener un impacto negativo en la privacidad de la ciudadanía y vulnerar el principio de minimización establecido en el RGPD.
+Como recomendaciones para las personas usuarias, en primer lugar, hay que resaltar que no se deben reutilizar las mismas contraseñas en distintos servicios y evitar las contraseñas sencillas o poco robustas. Estas personas han de ser cautelosas a la hora de acceder a la página web del banco o tiendas online, evitando hacerlo desde enlaces suministrados por mensajes o correos electrónicos. También se debe limitar la información que publicamos en Internet y ser conscientes de los posibles tratamientos que se pueden realizar con esta información.
+Es importante mantener actualizado y protegido contra malware el dispositivo que utilicemos para realizar operaciones financieras, así como instalar únicamente las Apps imprescindibles y siempre de repositorios oficiales (tiendas de aplicaciones oficiales en el caso de dispositivos móviles).  Si observamos que el móvil se queda sin cobertura en la línea telefónica mientras que otros móviles cercanos si la tienen, podemos haber sido víctima de un ataque tipo SIM swapping, por lo que debemos ponernos en contacto urgentemente con nuestro proveedor telefónico.
+Finalmente, en caso de materializarse un fraude se debe acudir lo antes posible a interponer una denuncia en la Policía o Guardia Civil y poner los hechos en conocimiento de nuestra entidad bancaria y la compañía telefónica que nos da servicio.
+Puede ampliar información sobre protección de datos y privacidad en Internet en el sitio web Innovación y Tecnología de esta Agencia, así como en nuestro blog:
+Riesgos para la privacidad al iniciar sesión con tus cuentas de redes sociales en otras aplicaciones
+Privacidad de grupo
+Los acortadores de URLs y la protección de datos
+Brechas de seguridad: el correo electrónico y las plataformas de productividad online
+Protección de datos y seguridad
+
+
+
+
+
+
+
+
+
+Entradas relacionadas
+
+
+
+
+
+
+
+
+28 de Octubre de  2020
+Riesgos para la privacidad al iniciar sesión con tus cuentas de redes sociales en otras aplicaciones
+
+
+
+
+3 de Junio de  2020
+Brechas de seguridad: el correo electrónico y las plataformas de productividad online 
+
+
+
+
+12 de Marzo de  2020
+Campañas de phishing sobre el COVID-19
+
+
+
+
+
+
+
+

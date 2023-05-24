@@ -1,0 +1,177 @@
+
+
+
+
+IoT (III) Domótica. Internet de las Cosas: riesgos y recomendaciones
+
+
+
+
+
+21 de Mayo de  2021
+
+Cada vez es más habitual encontrar elementos del hogar que se han transformado en dispositivos inteligentes con conectividad a Internet. Tanto es así, que es habitual ver este tipo de dispositivos en los catálogos de tiendas de muebles e incluso supermercados, incorporándose a los hogares rápidamente. Por ello, es necesario prestar atención y entender los riesgos para la privacidad que podrían implicar, y que se ven incrementados cuando se hace un uso inadecuado.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+La gama de dispositivos IoT domóticos está evolucionando constantemente. De forma continua surgen nuevos productos orientados a proporcionar servicios más confortables en el hogar, que pueden manejarse desde Apps instalas en dispositivos móviles o integrados en asistentes de voz.
+El IoT supone una evolución de la domótica tradicional, en la que los dispositivos incorporan una capa de inteligencia y conectividad que permite que se adapten mejor a las necesidades domésticas. Algunos ejemplos son persianas motorizadas, sensores de temperatura y humedad, controladores de climatización, bombillas inteligentes, cerraduras electrónicas, interruptores o centralitas de alarma.  
+La mayoría de estos dispositivos están diseñados para que su gestión o uso precise conectividad a Internet y acceso a servicios en la nube. Los riesgos para la privacidad que se derivan van más allá de los problemas de seguridad. Este modelo de IoT supone la comunicación y gestión de datos personales por terceros, y el tratamiento de datos personales adicionales, como son metadatos de comunicación.
+Un dispositivo IoT genera una gran cantidad de datos que son enviados y tratados por distintos servicios en Internet para satisfacer las solicitudes de las personas usuarias. Sin embargo, podrían utilizarse para muchas otras finalidades, como por ejemplo la elaboración de perfiles de comportamiento. De esta forma, el riesgo para la ciudadanía es mayor cuanto mayor es el número de servicios que tratan estos datos personales. Es más, la integración de dispositivos de distintos fabricantes podría aumentar dicho riesgo, por ejemplo, cuando se ha de utilizar una App distinta en la que hay que registrarse para cada fabricante.
+Un ejemplo de materialización del riesgo, en este caso debido a una brecha de seguridad, ocurrió en 2016 cuando se produjo el ataque DDoS más dañino de la historia debido a la falta de actualizaciones de seguridad en estos dispositivos. Otros ejemplos podrían ser el secuestro de los dispositivos del hogar y su control por parte de terceros o las brechas de datos personales.
+Dispositivos como mirillas o cerraduras que se controlan desde Apps instaladas en móviles implica el tratamiento de imágenes, vídeo, audio e información sobre los hábitos de las personas. Esta información, junto con otros datos de las personas, puede utilizarse para la generación de perfiles y diversas finalidades adicionales.
+Los dispositivos inteligentes implementan distintas formas de conectividad. Las más habituales son:
+Conexión distribuida: los dispositivos se conectan directamente a un router wifi, que realiza la función de gateway hacia la nube del fabricante, gestionado mediante su propia App. La conexión es individual, utilizando protocolos como HTTP o HTTPS. Ejemplos de estos dispositivos suelen ser las cámaras IP, algunos enchufes inteligentes o mirillas electrónicas.
+Conexión centralizada: los dispositivos se conectan a través de un hub o gateway que centraliza las comunicaciones, siendo dicho hub el único dispositivo que se conecta a Internet directamente. En este caso las comunicaciones suelen utilizar protocolos inalámbricos específicos de domótica como Zigbee y Z-wave, y en menor medida Bluetooth.
+
+IoT III (blog)- Conexión distribuida
+ 
+
+IoT III (blog)- Conexión centralizada
+Dada la diversidad de opciones disponibles, es habitual que en una misma vivienda se incorporen dispositivos de diferentes fabricantes, lo que produce una mezcla heterogénea de las configuraciones anteriores.
+En un futuro inmediato se espera la adopción masiva de dispositivos IoT conectados, a través de 5G, a la nube del fabricante, y a la que se deberá acceder a través de una App. Esta nueva forma de conectar los dispositivos IoT podría suponer nuevos riesgos para la privacidad de las personas. Puede obtener más información sobre los riesgos de 5G en la Nota Técnica: Introducción a las tecnologías 5G y sus riesgos para la privacidad.
+
+IoT III (blog)- Conexión IoT a través de 5G
+A nivel de comunicaciones internas en los dispositivos domóticos, tanto Zigbee como Z-Wave son los estándares más utilizados por los diferentes fabricantes, incluso algunos dispositivos incorporan ambas tecnologías. Estos protocolos también suelen estar incluidos como una funcionalidad en altavoces inteligentes o SmartTVs permitiendo su integración completa con el resto de dispositivos IoT del hogar. Zigbee y Zwave cuentan con bastantes años de uso y evolución, pero no están libres de vulnerabilidades, malas implementaciones o configuraciones.
+Zigbee es un estándar abierto ideado para que los dispositivos consuman poca energía. Dicho estándar Minimiza los envíos de información, pasando la mayoría del tiempo en estado latente captando datos, y permite disponer de hasta 65.000 dispositivos como sensores de temperatura, de puertas o ventanas que con una simple pila de botón puede dar servicio durante años. También existen otros dispositivos como enchufes inteligentes, motores de puertas o bombillas que utilizan este protocolo a través de la red eléctrica. Los dispositivos de nuestro hogar conforman una red Zigbee. Opera a 2,4GHz intercambiando información con el gateway. La cobertura inalámbrica es de hasta 20 metros. Además, los dispositivos conectados a la red eléctrica funcionan como repetidores para los dispositivos de batería.
+Z-Wave es un estándar propietario similar a Zigbee. Algunas diferencias son el número de dispositivos en una red que pasa a 232, la frecuencia para Europa es 868MHz y la cobertura inalámbrica es de hasta 100 metros de distancia. También cuenta con una arquitectura en la que los dispositivos enchufados a la red eléctrica dan servicio a los dispositivos de batería.
+Es importante que las personas tomen conciencia de que los dispositivos inteligentes son algo más que un electrodoméstico tradicional. Van a interactuar en la realización de las labores cotidianas de las personas realizando un gran número de tratamientos de datos. A la hora de adquirirlos debe adoptarse una actitud crítica y exigente hacia las garantías de privacidad. El criterio de selección no solo ha de basarse en el precio o las características principales que se ofertan. La persona usuaria debe comprobar que ofrezcan las suficientes garantías sobre sus datos personales.
+Los fabricantes y desarrolladores deben aplicar medidas de protección de datos por defecto y desde el diseño. Los tratamientos que realicen deben ser de acuerdo con los principios del RGPD, prestando especial atención a la seguridad de los tratamientos, las posibles transferencias internacionales de datos, la transparencia en las finalidades para las que se tratarán los datos personales, la elaboración de perfiles y las decisiones automáticas individualizadas. En particular, debe evitarse el uso de protocolos que utilizan claves de cifrado por defecto, y que son públicas, o la posibilidad de añadir dispositivos a la red de forma automática, sin control de la persona interesada.
+Puede ampliar información sobre protección de datos y privacidad en Internet en el sitio web Innovación y Tecnología de esta Agencia, así como en nuestro blog:
+IoT (I): Qué es IoT y cuáles son sus riesgos
+IoT (II): Del Internet de las Cosas al Internet de los Cuerpos
+Vehículos conectados
+Privacidad de grupo
+Protección de datos y seguridad
+ 
+
+
+
+
+
+
+
+
+
+Entradas relacionadas
+
+
+
+
+
+
+
+
+29 de Septiembre de  2022
+Metaverso y privacidad
+
+
+
+
+3 de Agosto de  2021
+Por un sharenting responsable, también en verano
+
+
+
+
+20 de Abril de  2021
+HTTPS: Cifrado en la web
+
+
+
+
+
+
+
+

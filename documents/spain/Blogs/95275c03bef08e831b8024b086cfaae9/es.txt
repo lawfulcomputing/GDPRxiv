@@ -1,0 +1,175 @@
+
+
+
+
+Brechas de datos personales: entornos de desarrollo y preproducción 
+
+
+
+
+
+18 de Abril de  2022
+
+Las grandes brechas de datos personales no siempre ocurren en los sistemas más importantes de una organización sino en sistemas secundarios que albergan una gran cantidad de información o pueden ser la puerta de entrada a otros sistemas. Este es el caso de los entornos de pruebas, preproducción o desarrollo, donde en ocasiones se realizan tratamientos de datos personales sin haber aplicado las medidas técnicas y organizativas adecuadas al riesgo para los derechos y libertades de los interesados, o que quedan olvidados y expuestos a Internet y acaban siendo la puerta de acceso a otros entornos con datos personales.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+La ingeniería de sistemas establece la conveniencia de trabajar con varios entornos diferenciados: habitualmente, desarrollo, preproducción y producción. De forma general, lo recomendable es trabajar en el entorno de desarrollo, realizar las pruebas en el entorno de preproducción y finalmente desplegar aplicaciones y servicios en el entorno de producción. Desde la óptica de protección de datos, hay que tener en cuenta esta diferenciación y limitar la exposición de datos personales reales, y/o que estén en los sistemas de producción, en las fases de desarrollo y pruebas por el riesgo que puede suponer para los derechos y libertades de las personas.
+Todavía es habitual encontrar entornos de desarrollo y preproducción en los que las medidas técnicas y organizativas orientadas a implementar las medidas y garantías establecidas en el Reglamento General de Protección de Datos (RGPD) se relajan, o que quedan expuestos a internet sin medidas de seguridad o abandonados y en desuso por lo que las medidas de seguridad pronto quedan obsoletas. Pero tampoco hay que olvidar que en algunos casos se empleen datos reales para pruebas de depuración de errores en labores de mantenimiento y/o desarrollo.
+Con la aplicación del RGPD y la LOPDGDD, la situación respecto al uso de datos personales para pruebas en general, y en particular en entornos de desarrollo, se puede resumir brevemente a continuación.
+En primer lugar, el RGPD en su artículo 32 Seguridad del tratamiento, establece que el responsable y el encargado de tratamiento aplicarán medidas técnicas y organizativas apropiadas para garantizar un nivel de seguridad adecuado al riesgo para los derechos y libertades de los interesados. Luego el responsable y el encargado deben determinar las medidas de seguridad apropiadas con respecto al uso de datos personales reales en entornos de preproducción y pruebas. Además, deben establecer estas medidas teniendo en cuenta el nivel de riesgo específicamente con relación a la protección de datos, de igual forma que han de tener en cuenta los riesgos para la organización, como en cualquier entorno de producción.
+En esta misma línea, el Supervisor Europeo de Protección de Datos (EDPS) en sus directrices “Guidelines on the protection of personal data in IT governance and IT management of EU institutions” indica:
+
+80 En la fase de prueba, debe evitarse el muestreo de datos personales reales, ya que dichos datos no pueden utilizarse para fines para los que no fueron recogidos y su uso en entornos de prueba puede dar lugar a que personas no autorizadas dispongan de datos personales.
+81 Siempre que sea posible, deben utilizarse datos de prueba creados artificialmente, o datos de prueba derivados de datos reales, de modo que se conserve su estructura pero no contengan datos personales reales. Diversas técnicas de este tipo se han aplicado con éxito.
+82 Cuando un análisis minucioso y prudente muestra que los datos de prueba generados no pueden proporcionar suficiente garantía de la validez de las pruebas, debe tomarse una decisión exhaustiva y documentada, que defina qué datos reales se utilizarán en la prueba, lo más limitado como sea posible, las salvaguardias técnicas y organizativas adicionales que se establezcan en el entorno de las pruebas. Las categorías especiales de datos sólo pueden utilizarse en las pruebas de datos reales con el consentimiento explícito de las personas afectadas.
+
+Y pone como ejemplo:
+
+Ejemplo: en caso de errores en la operación del sistema, se debe evitar el uso de datos personales reales para la depuración del código. En cualquier caso, si es necesario, se debe obtener una autorización del responsable y tanto el proceso de autorización como las acciones de depuración deben registrarse y auditarse. De todos modos, se debe minimizar la cantidad de datos personales utilizados para las pruebas y se debe aplicar una política estricta de "need-to-know".
+
+Conforme al principio de minimización de datos y el principio de protección de datos desde el diseño y por defecto, cuando sea posible debe evitarse la utilización de datos personales en entornos de desarrollo y preproducción, o cualquier otro entorno de pruebas.
+Además, las pruebas de software con datos personales son, o forman parte de, tratamientos de datos personales y el responsable del tratamiento debe cumplir con todas las obligaciones que se desprenden del RGPD.
+Aunque no siempre es posible, en muchos casos la utilización de datos sintéticos evita el tratamiento de datos personales en pruebas de desarrollo. Existen servicios, algunos de ellos libres y de código abierto, para la generación de datos sintéticos de todo tipo bien conocidos en el sector.
+Por tanto, cuando sea estrictamente necesario la utilización de datos personales en entornos de preproducción deberá documentarse mediante un análisis de necesidad y proporcionalidad, y en todo caso aplicar las medidas técnicas y organizativas que sean necesarias conforme al artículo 32 del RGPD y de acuerdo con el riesgo del tratamiento.
+El riesgo en el entorno de preproducción podría ser el mismo que el riesgo del tratamiento en el entorno de producción. Pero también puede suceder que ese riesgo sea más elevado, ya que es habitual contar con otros encargados de tratamiento en las labores de desarrollo, utilizar sistemas en la nube de proveedores diferentes a los entornos de producción, tener una mayor incertidumbre sobre la fiabilidad del código, llevar a cabo pruebas con nuevas tecnologías, etc. Por todo esto, los entornos de pruebas deberán de contar con medidas técnicas y organizativas de igual calado y, en todo caso, apropiadas para los riesgos específicos a la privacidad con independencia del contexto en el que fueran tratados, pues tal y como se señalaba por el grupo de trabajo del artículo 29, hoy Comité Europeo de Protección de Datos, en su declaración sobre el papel del enfoque de riesgos en el marco normativo de la protección de datos (WP218): "… Los interesados deben tener el mismo nivel de protección, independientemente del tamaño de la organización o la cantidad de datos que procesa. Por lo tanto, el Grupo de Trabajo considera que todos los responsables deben actuar de conformidad con la ley, aunque esto se puede hacer de manera escalable". Es decir, el contexto en el que tenga lugar un determinado tratamiento de datos no exime a los responsables de sus obligaciones a fin de proporcionar a los interesados el nivel de protección adecuado en cada caso con independencia de dicho contexto (desarrollo, preproducción o producción), y ello incluye el análisis de necesidad, proporcionalidad y de las bases jurídicas aplicables, además del resto de obligaciones exigidas en la normativa de protección de datos.
+No aplicar la medidas técnicas y organizativas adecuadas al nivel de riesgo para los derechos y libertades en todos los entornos supone una vulneración del artículo 32 del RGPD e incluso puede suponer una vulneración de otros principios como los principios de finalidad, necesidad y proporcionalidad.
+En relación con temas de brechas y datos personales puedes encontrar más material en la página de Innovación y Tecnología de la AEPD, en particular:
+Brechas de seguridad: Ransomware y gestión del riesgo
+Brechas de seguridad: el correo electrónico y las plataformas de productividad online
+Brechas de seguridad: El Top 5 de las medidas técnicas que debes tener en cuenta
+Brechas de seguridad: comunicación a los interesados
+Brechas de seguridad: protégete ante la pérdida o robo de un dispositivo portátil
+Brechas de seguridad de datos personales: qué son y cómo actuar
+Brechas de seguridad: protégete ante el ransomware
+ 
+
+
+
+
+
+
+
+
+Entradas relacionadas
+
+
+
+
+
+
+
+
+29 de Septiembre de  2022
+Metaverso y privacidad
+
+
+
+
+26 de Julio de  2022
+Empleo de datos biométricos: Evaluación desde la perspectiva de protección de datos
+
+
+
+
+14 de Marzo de  2022
+Blockchain (III):  Smart contracts y datos personales
+
+
+
+
+
+
+
+
