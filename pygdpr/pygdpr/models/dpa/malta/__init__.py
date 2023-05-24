@@ -74,14 +74,68 @@ class Malta(DPA):
     def get_docs(self, existing_docs=[], overwrite=False, to_print=True):
         added_docs = []
         # call all the get_docs_X() functions
+        added_docs += self.get_docs_Decisions(existing_docs=[], overwrite=False, to_print=True)
         added_docs += self.get_docs_Guidelines(existing_docs=[], overwrite=False, to_print=True)
         added_docs += self.get_docs_NewsArticles(existing_docs=[], overwrite=False, to_print=True)
 
         return added_docs
 
+    def get_docs_Decisions(self, existing_docs=[], overwrite=False, to_print=True):
+        print("\n======================== Malta Decisions  =========================")
+        added_docs = []
+        page_url = 'https://idpc.org.mt/decisions/'
+
+        document_hash = hashlib.md5(page_url.encode()).hexdigest()
+        print('document_hash: ', document_hash)
+        if to_print:
+            print('Page:\t', page_url)
+        page_source = self.get_source(page_url=page_url)
+        if page_source is None:
+            sys.exit("Couldn't connect to base url")
+        results_soup = BeautifulSoup(page_source.text, 'html.parser')
+        assert results_soup
+        body = results_soup.find('div', id = 'el-bb99f0d8')
+        assert body
+
+        dpa_folder = self.path
+        document_folder = dpa_folder + '/' + 'Decisions' + '/' + document_hash
+        data = []
+
+        try:
+            os.makedirs(document_folder)
+            for all_tables in body.find_all('div', class_='vce-shortcode'):
+                table = all_tables.find('table', class_='tablepress')
+                tbody = table.find('tbody', class_='row-hover')
+
+                for tr in tbody.find_all('tr'):
+                    year = tr.find('td', class_='column-1').get_text()
+                    document_title = tr.find('td', class_='column-3').get_text()
+                    print("\nDocument Title:\t", document_title)
+                    print("\tYear:\t", year)
+                    items = {}
+                    items['title'] = document_title
+                    items['md5'] = document_hash
+                    items['releaseDate'] = year
+                    items['url'] = page_url
+                    # print("items: ", items)
+                    data.append(items)
+
+            with open(document_folder + '/' + 'en' + '.txt', 'w') as f:
+                f.write(body.get_text())
+            with open(document_folder + '/' + 'metadata.json', 'w') as f:
+
+                json.dump(data, f, indent=4, sort_keys=True, ensure_ascii=False)
+            added_docs.append(document_hash)
+        except FileExistsError:
+            print("\tDirectory path already exists, continue.")
+
+        return added_docs
+
+
     def get_docs_Guidelines(self, existing_docs=[], overwrite=False, to_print=True):
         print("\n======================== Malta Guidelines =========================")
         added_docs = []
+        data = []
 
         page_url = 'https://idpc.org.mt/for-organisations/guidelines/'
         if to_print:

@@ -76,7 +76,7 @@ def scrape(country, document_type, path, overwrite):
         Ireland                  Decisions, Judgements, News, Reports, Blogs, Guidances
         Italy                    Injunctions, Annual Reports, Hearings, Interviews, Newsletters, Publications
         Luxembourg               Decisions, Annual Reports, Opinions
-        Malta                    Guidelines, News Articles
+        Malta                    Decisions, Guidelines, News Articles
         Netherlands              Decisions, Opinions, Public Disclosures, Reports
         Poland                   Decisions, News
         Portugal                 Decisions, Guidelines, Reports
