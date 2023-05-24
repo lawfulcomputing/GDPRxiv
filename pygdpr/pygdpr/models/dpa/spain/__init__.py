@@ -72,6 +72,9 @@ class Spain(DPA):
             page_source.raise_for_status()
         except requests.exceptions.HTTPError as error:
             pass
+        except requests.exceptions.ConnectionError as error:
+            print("\tError:", error)
+            pass
         return page_source
 
     def get_docs(self, existing_docs=[], overwrite=False, to_print=True):
@@ -318,7 +321,7 @@ class Spain(DPA):
         print("\n======================== Spain Guides =========================")
 
         added_docs = []
-        pagination = self.update_pagination(new_page_type="new_page_guides", start_path='/es/guias-y-herramientas/guias')
+        pagination = self.update_pagination(new_page_type="new_page_guides", start_path='es/guias-y-herramientas/guias')
 
         iteration = 1
         while pagination.has_next():
@@ -327,6 +330,8 @@ class Spain(DPA):
                 print('\nNEW PAGE: ' + page_url)
 
             page_source = self.get_source(page_url=page_url)
+            if page_source == None:
+                return added_docs
             page_soup = BeautifulSoup(page_source.text, 'html.parser')
             assert page_soup
 
@@ -398,6 +403,9 @@ class Spain(DPA):
                     if to_print:
                         print(error)
                     pass
+                except requests.exceptions.ConnectionError as error:
+                    if to_print:
+                        print("\tError:", error)
                 if document_response is None:
                     continue
 

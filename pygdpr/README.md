@@ -97,7 +97,7 @@ Scrape desired documents:
    ```
 The same directory can be used for multiple countries: the scraper automatically organizes documents based on country and document type.
 
-Example commands:
+Example command:
 ```sh
  python gdprCrawler.py --country "Austria" --document_type "Decisions" --path "<Your Path>/GDPRxiv/downloaded_documents"
 ```
@@ -116,7 +116,7 @@ SUPPORTED COUNTRIES:     DOCUMENTS TYPES:
         Czech Republic           Decisions, Annual Reports, Completed Inspections, Court Rulings, Opinions, Press Releases
         Denmark                  Decisions, Annual Reports, Permissions
         EDPB (Agency)            Decisions, Annual Reports, Guidelines, Letters, Opinions, Recommendations
-        Estonia                  Instructions, Prescriptions, Annual Reports,
+        Estonia                  Instructions, Prescriptions, Annual Reports
         Finland                  Docs (Contains Advice, Decisions, Guides, Notices)
         France                   Decisions, Notices, Guidelines, Reports
         Germany                  Docs (Contains documents from all the Germany States and Federal DPA)
@@ -130,7 +130,7 @@ SUPPORTED COUNTRIES:     DOCUMENTS TYPES:
         Poland                   Decisions, News
         Portugal                 Decisions, Guidelines, Reports
         Romania                  Docs (Contains Decisions, Reports)
-        Slovakia                 Fines, Opinions, Reports
+        Slovakia                 Fines (Contains Reports), Opinions
         Slovenia                 Guidelines, Opinions, Reports
         Spain                    Blogs, Decisions, Guides, Infographics, Reports
         Sweden                   Decisions, Guidances, Publications

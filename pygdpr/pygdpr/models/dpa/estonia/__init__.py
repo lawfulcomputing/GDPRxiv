@@ -17,6 +17,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from pygdpr.policies.webdriver_exec_policy import WebdriverExecPolicy
+import time
 
 class Estonia(DPA):
     def __init__(self, path=os.curdir):
@@ -92,6 +93,7 @@ class Estonia(DPA):
 
                 print('\n------------ Document: ' + str(iteration) + '-------------')
                 iteration += 1
+                time.sleep(2)
 
                 document_href = document.get('href')
                 if document_href.startswith('https'):
@@ -206,7 +208,7 @@ class Estonia(DPA):
         field_item = field_name_body.find('div', class_='field-item even')
         tbody = field_item.find('tbody')
         for tr in tbody.find_all('tr'):
-
+            time.sleep(2)
             year_list = []
             for td in tr.find_all('td'):
 
@@ -225,7 +227,7 @@ class Estonia(DPA):
             year = year_list[-1]
             if year < '2018':
                 continue
-            print('document_title:', document_title)
+            print('\ndocument_title:', document_title)
             if document_href.startswith('https'):
                 document_url = document_href
             else:
@@ -278,7 +280,7 @@ class Estonia(DPA):
         field_item = field_name_field.find('div', class_='field-item even')
         tbody = field_item.find('tbody')
         for tr in tbody.find_all('tr', class_='odd'):
-
+            time.sleep(2)
             year_str = tr.find('td', class_='extended-file-field-table-date').get_text()
             document_section = tr.find('td', class_='extended-file-field-table-filename')
             document_url = document_section.find('a').get('href')
@@ -287,7 +289,7 @@ class Estonia(DPA):
             document_hash = hashlib.md5(document_title.encode()).hexdigest()
             if year < '2018':
                 continue
-            print('document_title:', document_title)
+            print('\ndocument_title:', document_title)
             print('\tdocument_url:', document_url)
             print('\tdocument_hash: ',document_hash)
 
@@ -353,6 +355,7 @@ class Estonia(DPA):
         block_views = region_content.find('div', class_='block-views')
         view_content = block_views.find('div', class_='view-content')
         for div in view_content.find_all('div', class_='views-row'):
+            time.sleep(2)
             document = div.find('div', class_='views-field-title')
             title = document.get_text()
             document_href = document.find('a').get('href')
@@ -415,6 +418,7 @@ class Estonia(DPA):
         driver_doc = webdriver.Chrome(options=options, executable_path=exec_path)
         driver_doc.get(page_url)
         for i in range(1, 3):
+            time.sleep(2)
             document = driver_doc.find_element_by_xpath('//*[@id="block-aastaraamat-main-menu"]/ul/li[3]/ul/li['+str(i)+']/a')
             document_href = document.get_attribute("href")
             page_source = self.get_source(page_url=document_href)

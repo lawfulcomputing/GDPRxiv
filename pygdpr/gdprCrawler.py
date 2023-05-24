@@ -67,7 +67,7 @@ def scrape(country, document_type, path, overwrite):
         Czech Republic           Decisions, Annual Reports, Completed Inspections, Court Rulings, Opinions, Press Releases
         Denmark                  Decisions, Annual Reports, Permissions
         EDPB (Agency)            Decisions, Annual Reports, Guidelines, Letters, Opinions, Recommendations
-        Estonia                  Instructions, Prescriptions, Annual Reports,
+        Estonia                  Instructions, Prescriptions, Annual Reports
         Finland                  Docs (Contains Advice, Decisions, Guides, Notices)
         France                   Decisions, Notices, Guidelines, Reports
         Germany                  Docs (Contains documents from all the Germany States and Federal DPA)
@@ -81,7 +81,7 @@ def scrape(country, document_type, path, overwrite):
         Poland                   Decisions, News
         Portugal                 Decisions, Guidelines, Reports
         Romania                  Docs (Contains Decisions, Reports)
-        Slovakia                 Fines, Opinions, Reports
+        Slovakia                 Fines (Contains Reports), Opinions
         Slovenia                 Guidelines, Opinions, Reports
         Spain                    Blogs, Decisions, Guides, Infographics, Reports
         Sweden                   Decisions, Guidances, Publications
@@ -207,84 +207,86 @@ def scrape(country, document_type, path, overwrite):
     # Call appropriate method for desired document type (Note that these are all encompassing, but DPA type will
     # differentiate)
     added_docs = []
-    try:
-        if document_type == "Decisions":
-            if country == "Czech Republic":
-                added_docs += dpa.get_docs_DecisionOfPresident(existing_docs=[], overwrite=False, to_print=True)
-                added_docs += dpa.get_docs_DecisionMakingActivites(existing_docs=[], overwrite=False, to_print=True)
-            elif country == "Sweden":
-                added_docs = dpa.get_docs_decisionsAndJudgements(existing_docs=[], overwrite=False, to_print=True)
-            else:
-                added_docs = dpa.get_docs_Decisions(existing_docs=existing_docs, overwrite=overwrite)
-        elif document_type == "Guidelines":
-            added_docs = dpa.get_docs_Guidelines(existing_docs=existing_docs, overwrite=overwrite)
-        elif document_type == "Annual Reports":
-            added_docs = dpa.get_docs_AnnualReports(existing_docs=existing_docs, overwrite=overwrite)
-        elif document_type == "Recommendations":
-            added_docs = dpa.get_docs_Recommendations(existing_docs=existing_docs, overwrite=overwrite)
-        elif document_type == "Opinions":
-            added_docs = dpa.get_docs_Opinions(existing_docs=existing_docs, overwrite=overwrite)
-        elif document_type == "Letters":
-            added_docs = dpa.get_docs_Letters(existing_docs=existing_docs, overwrite=overwrite)
-        elif document_type == "Guides":
-            added_docs = dpa.get_docs_Guides(existing_docs=existing_docs, overwrite=overwrite)
-        elif document_type == "Permissions":
-            added_docs = dpa.get_docs_Permissions(existing_docs=existing_docs, overwrite=overwrite)
-        elif document_type == "Instructions":
-            added_docs = dpa.get_docs_Instructions(existing_docs=existing_docs, overwrite=overwrite)
-        elif document_type == "Prescriptions":
-            added_docs = dpa.get_docs_Prescriptions(existing_docs=existing_docs, overwrite=overwrite)
-        elif document_type == "Notices":
-            added_docs = dpa.get_docs_Notices(existing_docs=existing_docs, overwrite=overwrite)
-        elif document_type == "Resolutions":
-            added_docs = dpa.get_docs_Resolutions(existing_docs=existing_docs, overwrite=overwrite)
-        elif document_type == "Interviews":
-            added_docs = dpa.get_docs_Interviews(existing_docs=existing_docs, overwrite=overwrite)
-        elif document_type == "Publications":
-            added_docs = dpa.get_docs_Publications(existing_docs=existing_docs, overwrite=overwrite)
-        elif document_type == "Newsletters":
-            added_docs = dpa.get_docs_Newsletters(existing_docs=existing_docs, overwrite=overwrite)
-        elif document_type == "Injunctions":
-            added_docs = dpa.get_docs_Injunctions(existing_docs=existing_docs, overwrite=overwrite)
-        elif document_type == "Hearings":
-            added_docs = dpa.get_docs_Hearings(existing_docs=existing_docs, overwrite=overwrite)
-        elif document_type == "Judgements":
-            added_docs = dpa.get_docs_Judgements(existing_docs=existing_docs, overwrite=overwrite)
-        elif document_type == "Reports":
-            added_docs = dpa.get_docs_Reports(existing_docs=existing_docs, overwrite=overwrite)
-        elif document_type == "Enforcements":
-            added_docs = dpa.get_docs_Enforcements(existing_docs=existing_docs, overwrite=overwrite)
-        elif document_type == "Guidances":
-            added_docs = dpa.get_docs_Guidances(existing_docs=existing_docs, overwrite=overwrite)
-        elif document_type == "Blogs":
-            added_docs = dpa.get_docs_Blogs(existing_docs=existing_docs, overwrite=overwrite)
-        elif document_type == "Infographics":
-            added_docs = dpa.get_docs_Infographics(existing_docs=existing_docs, overwrite=overwrite)
-        elif document_type == "Tutorials":
-            added_docs = dpa.get_docs_Tutorials(existing_docs=existing_docs, overwrite=overwrite)
-        elif document_type == "Public Disclosures":
-            added_docs = dpa.get_docs_publicDisclosure(existing_docs=existing_docs, overwrite=overwrite)
-        elif document_type == "News Articles":
-            added_docs = dpa.get_docs_NewsArticles(existing_docs=existing_docs, overwrite=overwrite)
-        elif document_type == "Inspection Reports":
-            added_docs = dpa.get_docs_InspectionReports(existing_docs=existing_docs, overwrite=overwrite)
-        elif document_type == "Violations":
-            added_docs = dpa.get_docs_Violations(existing_docs=existing_docs, overwrite=overwrite)
-        elif document_type == "News":
-            added_docs = dpa.get_docs_News(existing_docs=existing_docs, overwrite=overwrite)
-        elif document_type == "Press Releases":
-            added_docs = dpa.get_docs_PressReleases(existing_docs=existing_docs, overwrite=overwrite)
-        elif document_type == "Court Rulings":
-            added_docs = dpa.get_docs_CourtRulings(existing_docs=existing_docs, overwrite=overwrite)
-        elif document_type == "Completed Inspections":
-            added_docs = dpa.get_docs_CompletedInspections(existing_docs=existing_docs, overwrite=overwrite)
-        elif document_type == "Docs":
-            added_docs = dpa.get_docs(existing_docs=existing_docs, overwrite=overwrite)
+    #try:
+    if document_type == "Decisions":
+        if country == "Czech Republic":
+            added_docs += dpa.get_docs_DecisionOfPresident(existing_docs=[], overwrite=False, to_print=True)
+            added_docs += dpa.get_docs_DecisionMakingActivites(existing_docs=[], overwrite=False, to_print=True)
+        elif country == "Sweden":
+            added_docs = dpa.get_docs_decisionsAndJudgements(existing_docs=[], overwrite=False, to_print=True)
         else:
-            sys.exit("'document_type' argument doesn't match an existing document type. Use --help for more info.")
-            pass
-    except:
-        print("'document_type' argument doesn't match an existing document type. Stop")
+            added_docs = dpa.get_docs_Decisions(existing_docs=existing_docs, overwrite=overwrite)
+    elif document_type == "Fines":
+        added_docs += dpa.get_docs_fineAndReports(existing_docs=[], overwrite=False, to_print=True)
+    elif document_type == "Guidelines":
+        added_docs = dpa.get_docs_Guidelines(existing_docs=existing_docs, overwrite=overwrite)
+    elif document_type == "Annual Reports":
+        added_docs = dpa.get_docs_AnnualReports(existing_docs=existing_docs, overwrite=overwrite)
+    elif document_type == "Recommendations":
+        added_docs = dpa.get_docs_Recommendations(existing_docs=existing_docs, overwrite=overwrite)
+    elif document_type == "Opinions":
+        added_docs = dpa.get_docs_Opinions(existing_docs=existing_docs, overwrite=overwrite)
+    elif document_type == "Letters":
+        added_docs = dpa.get_docs_Letters(existing_docs=existing_docs, overwrite=overwrite)
+    elif document_type == "Guides":
+        added_docs = dpa.get_docs_Guides(existing_docs=existing_docs, overwrite=overwrite)
+    elif document_type == "Permissions":
+        added_docs = dpa.get_docs_Permissions(existing_docs=existing_docs, overwrite=overwrite)
+    elif document_type == "Instructions":
+        added_docs = dpa.get_docs_Instructions(existing_docs=existing_docs, overwrite=overwrite)
+    elif document_type == "Prescriptions":
+        added_docs = dpa.get_docs_Prescriptions(existing_docs=existing_docs, overwrite=overwrite)
+    elif document_type == "Notices":
+        added_docs = dpa.get_docs_Notices(existing_docs=existing_docs, overwrite=overwrite)
+    elif document_type == "Resolutions":
+        added_docs = dpa.get_docs_Resolutions(existing_docs=existing_docs, overwrite=overwrite)
+    elif document_type == "Interviews":
+        added_docs = dpa.get_docs_Interviews(existing_docs=existing_docs, overwrite=overwrite)
+    elif document_type == "Publications":
+        added_docs = dpa.get_docs_Publications(existing_docs=existing_docs, overwrite=overwrite)
+    elif document_type == "Newsletters":
+        added_docs = dpa.get_docs_Newsletters(existing_docs=existing_docs, overwrite=overwrite)
+    elif document_type == "Injunctions":
+        added_docs = dpa.get_docs_Injunctions(existing_docs=existing_docs, overwrite=overwrite)
+    elif document_type == "Hearings":
+        added_docs = dpa.get_docs_Hearings(existing_docs=existing_docs, overwrite=overwrite)
+    elif document_type == "Judgements":
+        added_docs = dpa.get_docs_Judgements(existing_docs=existing_docs, overwrite=overwrite)
+    elif document_type == "Reports":
+        added_docs = dpa.get_docs_Reports(existing_docs=existing_docs, overwrite=overwrite)
+    elif document_type == "Enforcements":
+        added_docs = dpa.get_docs_Enforcements(existing_docs=existing_docs, overwrite=overwrite)
+    elif document_type == "Guidances":
+        added_docs = dpa.get_docs_Guidances(existing_docs=existing_docs, overwrite=overwrite)
+    elif document_type == "Blogs":
+        added_docs = dpa.get_docs_Blogs(existing_docs=existing_docs, overwrite=overwrite)
+    elif document_type == "Infographics":
+        added_docs = dpa.get_docs_Infographics(existing_docs=existing_docs, overwrite=overwrite)
+    elif document_type == "Tutorials":
+        added_docs = dpa.get_docs_Tutorials(existing_docs=existing_docs, overwrite=overwrite)
+    elif document_type == "Public Disclosures":
+        added_docs = dpa.get_docs_publicDisclosure(existing_docs=existing_docs, overwrite=overwrite)
+    elif document_type == "News Articles":
+        added_docs = dpa.get_docs_NewsArticles(existing_docs=existing_docs, overwrite=overwrite)
+    elif document_type == "Inspection Reports":
+        added_docs = dpa.get_docs_InspectionReports(existing_docs=existing_docs, overwrite=overwrite)
+    elif document_type == "Violations":
+        added_docs = dpa.get_docs_Violations(existing_docs=existing_docs, overwrite=overwrite)
+    elif document_type == "News":
+        added_docs = dpa.get_docs_News(existing_docs=existing_docs, overwrite=overwrite)
+    elif document_type == "Press Releases":
+        added_docs = dpa.get_docs_PressReleases(existing_docs=existing_docs, overwrite=overwrite)
+    elif document_type == "Court Rulings":
+        added_docs = dpa.get_docs_CourtRulings(existing_docs=existing_docs, overwrite=overwrite)
+    elif document_type == "Completed Inspections":
+        added_docs = dpa.get_docs_CompletedInspections(existing_docs=existing_docs, overwrite=overwrite)
+    elif document_type == "Docs":
+        added_docs = dpa.get_docs(existing_docs=existing_docs, overwrite=overwrite)
+    else:
+        sys.exit("'document_type' argument doesn't match an existing document type. Use --help for more info.")
+        pass
+    #except:
+    #    print("'document_type' argument doesn't match an existing document type. \nIf not, a random connection error occurs, please try again. ")
 
     # Iterate through added_docs and add hashes to visitedDocs.txt
     for document_hash in added_docs:

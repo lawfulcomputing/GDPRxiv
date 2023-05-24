@@ -87,7 +87,7 @@ class France(DPA):
     def get_docs_Decisions(self, existing_docs=[], overwrite=False, to_print=True):
         existed_docs = []
         pagination = self.update_pagination()
-        print("\n========================= France Decision Documents ===========================")
+        print("\n========================= France Decision and Deliberations ===========================")
         iterator = 1
         dict_hashcode = {}
         '''
@@ -334,10 +334,13 @@ class France(DPA):
                 time.sleep(5)
                 result_link = views_row.find('a')
                 document_href = result_link.get('href')
-                print("document_href: ", document_href)
+
                 document_title = result_link.get_text().strip()
-                print("\tdocument_title: ", document_title)
+                print("\nDocument Title: ", document_title)
+                print("\tdocument_href: ", document_href)
+
                 document_hash = hashlib.md5(document_title.encode()).hexdigest()
+                print("\tdocument hash: ", document_hash)
                 if document_hash in existing_docs and overwrite == False:
                     if to_print:
                         print('\tSkipping existing document:\t', document_hash)
@@ -399,10 +402,12 @@ class France(DPA):
                 result_link = views_row.find('a')
                 document_href = result_link.get('href')
 
-                print("document_href: ", document_href)
                 document_title = result_link.get_text().strip()
-                print("\tdocument_title: ", document_title)
+                print("\nDocument Title: ", document_title)
+                print("\tdocument_href: ", document_href)
+
                 document_hash = hashlib.md5(document_title.encode()).hexdigest()
+                print("\tdocument hash: ", document_hash)
                 if document_hash in existing_docs and overwrite == False:
                     if to_print:
                         print('\tSkipping existing document:\t', document_hash)
@@ -465,10 +470,12 @@ class France(DPA):
                 document_href = result_link.get('href')
                 host = "https://www.cnil.fr"
                 document_url = host + document_href
-                print("document_url: ", document_url)
+
                 document_title = result_link.get_text()
-                print("\tdocument_title: ", document_title)
+                print("\nDocument Title: ", document_title)
+                print("\tdocument_url: ", document_url)
                 document_hash = hashlib.md5(document_title.encode()).hexdigest()
+                print("\tdocument hash: ", document_hash)
                 if document_hash in existing_docs and overwrite == False:
                     if to_print:
                         print('\tSkipping existing document:\t', document_hash)

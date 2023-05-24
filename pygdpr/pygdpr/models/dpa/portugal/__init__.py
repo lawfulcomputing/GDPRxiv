@@ -42,7 +42,7 @@ class Portugal(DPA):
             previous_year = ['2021', '2020', '2019', '2018']
             for i in range(len(previous_year)):
                  start_path = start_path[:-4] + previous_year[i]
-                 print('previous_year: ', host + start_path)
+                 # print('previous_year: ', host + start_path)
                  pagination.add_item(host + start_path)
         # Add next page
         else:

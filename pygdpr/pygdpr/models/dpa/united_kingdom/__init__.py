@@ -191,7 +191,6 @@ class UnitedKingdom(DPA):
                     json.dump(metadata, f, indent=4, sort_keys=True)
                 existed_docs.append(document_hash)
                 existed_date.append(date)
-                print('\n')
             except FileExistsError:
                 print("\tDirectory path already exists, continue.")
 
@@ -337,7 +336,6 @@ class UnitedKingdom(DPA):
                         json.dump(metadata, f, indent=4, sort_keys=True)
                     existed_docs.append(document_hash)
                     hashcode_with_date[document_hash] = date
-                    print('\n')
                 except FileExistsError:
                     print("\tDirectory path already exists, continue.")
             # s0. Pagination

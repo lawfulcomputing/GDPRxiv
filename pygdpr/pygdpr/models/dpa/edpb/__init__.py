@@ -166,7 +166,7 @@ class EDPB(DPA):
                 document_hash = document_hash + '-' + date_part
 
             if to_print:
-                print("\tDocument:\t", document_hash)
+                print("\tDocument:", document_hash)
 
             document_response = None
             try:
@@ -1222,7 +1222,7 @@ class EDPB(DPA):
 
                     # This usually means the document page is blank
                     if col_sm_2 is None:
-                        print("\nUnable to parse data on document page")
+                        print("\tUnable to parse data on document page")
                         continue
 
                     document_a = col_sm_2.find('a')

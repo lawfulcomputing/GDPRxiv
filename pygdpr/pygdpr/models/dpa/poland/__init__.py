@@ -67,6 +67,7 @@ class Poland(DPA):
 
     def get_docs_Decisions(self, existing_docs=[], overwrite=False, to_print=True):
         print("\n======================== Poland Decision Documents =========================")
+        urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
         iteration = 1
         existed_docs = []
         pagination = self.update_pagination()

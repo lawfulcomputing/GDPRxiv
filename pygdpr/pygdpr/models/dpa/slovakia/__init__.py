@@ -67,7 +67,7 @@ class Slovakia(DPA):
         added_docs = []
         # call all the get_docs_X() functions
         added_docs += self.get_docs_fineAndReports(existing_docs=[], overwrite=False, to_print=True)
-        added_docs += self.get_docs_opinions(existing_docs=[], overwrite=False, to_print=True)
+        added_docs += self.get_docs_Opinions(existing_docs=[], overwrite=False, to_print=True)
         return added_docs
 
     def get_docs_fineAndReports(self, existing_docs=[], overwrite=False, to_print=True):
@@ -155,7 +155,7 @@ class Slovakia(DPA):
                     print("\tDirectory path already exists, continue.")
         return existed_docs
 
-    def get_docs_opinions(self, existing_docs=[], overwrite=False, to_print=True):
+    def get_docs_Opinions(self, existing_docs=[], overwrite=False, to_print=True):
         print("\n======================== Slovakia Opinions =========================")
         iteration = 1
         existed_docs = []
@@ -194,7 +194,7 @@ class Slovakia(DPA):
                 iteration += 1
 
                 document_title = result_link.get_text()
-                print('\tdocument_title:\t', document_title)
+
                 document_hash = hashlib.md5(document_title.encode()).hexdigest()
                 if document_hash in existing_docs and overwrite == False:
                     if to_print:
@@ -204,8 +204,7 @@ class Slovakia(DPA):
                 assert document_href
                 host = "https://dataprotection.gov.sk"
                 document_url = host + document_href
-                if to_print:
-                    print("\tDocument:\t", document_hash)
+
                 document_response = None
                 try:
                     document_response = requests.request('GET', document_url)
@@ -229,10 +228,12 @@ class Slovakia(DPA):
                         number += 1
                         assert len(field_file) > 0
                         article_url = field_file.find('a').get('href')
-                        print('\tarticle_url: ', article_url)
+
                         file_number = ('_' + str(number)) if number > 0 else ''
                         # article is a docx file. Downloaded location "/documents/docx_files"
                         if article_url.endswith('.docx'):
+                            continue
+                            '''
                             # set a download path. Use selenium to download it
                             exec_path = WebdriverExecPolicy().get_system_path()
                             options = webdriver.ChromeOptions()
@@ -258,7 +259,12 @@ class Slovakia(DPA):
                             with open(
                                     document_folder + '/' + self.language_code + '.txt', 'w') as f:
                                 f.write(document_content)
+                            '''
                         else:
+                            print('\tdocument_title:\t', document_title)
+                            if to_print:
+                                print("\tDocument:\t", document_hash)
+                                print('\tarticle_url: ', article_url)
                             document_response = None
                             try:
                                 document_response = requests.request('GET', article_url)
