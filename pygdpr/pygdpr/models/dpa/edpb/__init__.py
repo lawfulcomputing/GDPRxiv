@@ -43,7 +43,7 @@ class EDPB(DPA):
 
             next_page_tag = pagination_heading.find('li', class_='pager__item--next')
             if next_page_tag is None:
-                print("\nupdate_pagination: Couldn't find next page button")
+                print("\nupdate_pagination: Couldn't find next page button. Stop")
             else:
                 assert next_page_tag
                 page_a = next_page_tag.find('a')
@@ -423,7 +423,7 @@ class EDPB(DPA):
 
                     if field_item is None:
                         field_item = article.find('div', class_='text-formatted')
-                        print('doc 5 should be here')
+                        # print('doc 5 should be here')
 
                     field_a = field_item.find('a')
                     assert field_a
@@ -1222,7 +1222,7 @@ class EDPB(DPA):
 
                     # This usually means the document page is blank
                     if col_sm_2 is None:
-                        print("Unable to parse data on document page")
+                        print("\nUnable to parse data on document page")
                         continue
 
                     document_a = col_sm_2.find('a')

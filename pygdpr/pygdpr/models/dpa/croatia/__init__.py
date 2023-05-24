@@ -106,8 +106,9 @@ class Croatia(DPA):
                 # s2. Documents
                 document_title = result_link.get_text()
                 document_hash = hashlib.md5(document_title.encode()).hexdigest()
-                print("document_title: ", document_title)
+                print("\nDocument Title:\t", document_title)
                 print("\tDocument_hash:\t", document_hash)
+                print("\tDate:\t", date)
                 if document_hash in existing_docs and overwrite == False:
                     if to_print:
                         print('\tSkipping existing document:\t', document_hash)

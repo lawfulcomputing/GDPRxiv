@@ -408,6 +408,7 @@ class CzechRepublic(DPA):
     # Does date checking
     def get_docs_AnnualReports(self, existing_docs=[], overwrite=False, to_print=True):
         print("\n========================= Czech Republic Annual Reports ===========================")
+        print("\n\tLarge pdf file, needs longer time to run")
         added_docs = []
 
         page_url = 'https://www.uoou.cz/vyrocni-zprava/ds-2089/archiv=0&p1=2087'
@@ -462,7 +463,7 @@ class CzechRepublic(DPA):
                 return added_docs
 
             # When we print document stuff, that means the document is not going to be thrown out
-            print('\n\t------------ Document: ' + str(iteration) + ' ------------')
+            print('\n------------ Document: ' + str(iteration) + ' ------------')
             iteration += 1
             if to_print:
                 print("\tDocument:\t", document_hash)
@@ -1323,7 +1324,7 @@ class CzechRepublic(DPA):
             else:
                 document_url = document_href
 
-            print('URL for Checks: ' + inspection_date + ' is ' + document_url)
+            print('URL for Checks ' + inspection_date + ' is: ' + document_url)
 
             document_response = None
             try:

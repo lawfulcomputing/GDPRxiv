@@ -98,7 +98,7 @@ class Cyprus(DPA):
                 host = "http://www.dataprotection.gov.cy"
                 document_url = host + document_href
                 document_response = None
-                print(document_url)
+                # print(document_url)
                 try:
                     document_response = requests.request('GET', document_url)
                     document_response.raise_for_status()
@@ -129,9 +129,9 @@ class Cyprus(DPA):
                         file_title = section[i].text
                         if len(file_title) == 0:
                             file_title = document_title
-                        print('file_title: ', file_title)
+                        print('\nDocument Title: ', file_title)
                         file_hash = hashlib.md5(file_title.encode()).hexdigest()
-                        print('\tfile_hash: ', file_hash)
+                        print('\tDocument hash: ', file_hash)
 
                         if file_hash in existing_docs and overwrite == False:
                             if to_print:
@@ -200,7 +200,7 @@ class Cyprus(DPA):
                 assert result_link
                 # s2. Documents
                 document_title = result_link.get_text()
-                print("document_title: ", document_title)
+                print("\nDocument Title:\t", document_title)
                 document_hash = hashlib.md5(document_title.encode()).hexdigest()
                 if document_hash in existing_docs and overwrite == False:
                     if to_print:
@@ -216,7 +216,7 @@ class Cyprus(DPA):
                 if date < '2018':
                     continue
                 if to_print:
-                    print("\tDocument:\t", document_hash)
+                    print("\tDocument hash:\t", document_hash)
                 dpa_folder = self.path
 
                 document_folder = dpa_folder + '/' + 'Annual Reports' + '/' + document_hash

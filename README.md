@@ -37,7 +37,7 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 For any queries, please feel free to raise issues or contact the authors.
 <!--- Put Research Group Info here - email@example.com --->
 
-Project Link: [https://github.com/transientCloud/gdpr-sota](https://github.com/transientCloud/gdpr-sota)
+Project Link: [https://github.com/lawfulcomputing/GDPRxiv](https://github.com/lawfulcomputing/GDPRxiv)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 

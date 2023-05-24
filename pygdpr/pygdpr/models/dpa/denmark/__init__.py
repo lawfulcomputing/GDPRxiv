@@ -141,7 +141,7 @@ class Denmark(DPA):
                     #print('date_str: ', date_str)
                     tmp = datetime.datetime.strptime(date_str, '%d-%m-%Y')
                     date = datetime.date(tmp.year, tmp.month, tmp.day)
-                    print("\tdate: ", date)
+
                     if ShouldRetainDocumentSpecification().is_satisfied_by(date) is False:
                         print('\tNo satisfied by date\t', date)
                         continue
@@ -151,7 +151,7 @@ class Denmark(DPA):
                     assert document
                     document_url = document.get_attribute("href")
                     assert document_url
-                    print("document_url: ", document_url)
+
                     document_title = document.text
                     document_hash = hashlib.md5(document_title.encode()).hexdigest()
 
@@ -172,7 +172,10 @@ class Denmark(DPA):
                     document_folder = dpa_folder + '/' + 'Decisions' + '/' + document_hash
                     try:
                         os.makedirs(document_folder)
-                        print('\tdocument_title: ', document_title)
+                        print('\nDocument Title:\t', document_title)
+                        print("\tdocument_hash:\t", document_hash)
+                        print("\tdocument_url:\t", document_url)
+                        print("\tdate:\t", date_str)
                         exec_path = WebdriverExecPolicy().get_system_path()
                         options = webdriver.ChromeOptions()
                         options.add_argument('headless')
@@ -255,16 +258,17 @@ class Denmark(DPA):
             document_folder = dpa_folder + '/' + 'Decisions_2' + '/' + document_hash
             try:
                 os.makedirs(document_folder)
-                print("document_title: ", document_title)
-                print("\tdocument_hash: ", document_hash)
+                print("\nDocument Title:\t", document_title)
+                print("\tdocument_hash:\t", document_hash)
                 date_str = content.find_element_by_class_name('date').text
                 date_str = date_str.strip().split(' ')[-1]
                 tmp = datetime.datetime.strptime(date_str, '%d-%m-%Y')
                 date = datetime.date(tmp.year, tmp.month, tmp.day)
+                print("\tdate:\t", date_str)
                 if ShouldRetainDocumentSpecification().is_satisfied_by(date) is False:
                     print('\tNo satisfied by date\t', date)
                     continue
-                print("\tdocument_url: ", document_url)
+                print("\tdocument_url:\t", document_url)
 
                 document_text = content.text
                 with open(document_folder + '/' + self.language_code + '.txt', 'w') as f:
@@ -334,7 +338,7 @@ class Denmark(DPA):
                     assert document
                     document_url = document.get_attribute("href")
                     assert document_url
-                    print("document_url: ", document_url)
+
                     document_title = document.text
                     document_hash = hashlib.md5(document_title.encode()).hexdigest()
 
@@ -353,7 +357,10 @@ class Denmark(DPA):
                     document_folder = dpa_folder + '/' + 'Permissions' + '/' + document_hash
                     try:
                         os.makedirs(document_folder)
-                        print('\tdocument_title: ', document_title)
+                        print("\n\tDocument Title:\t", document_title)
+                        print("\tdocument_hash:\t", document_hash)
+                        print("\tdocument_url:\t", document_url)
+                        print("\tdate:\t", date)
                         exec_path = WebdriverExecPolicy().get_system_path()
                         options = webdriver.ChromeOptions()
                         options.add_argument('headless')
@@ -419,10 +426,10 @@ class Denmark(DPA):
             document = div.find('h2', class_='heading')
             document_href = document.find('a').get('href')
             document_url = host + document_href
-            print('document_href: ', document_url)
-            document_title = document.find('a').get_text()
-            print('document_title: ', document_title)
 
+            document_title = document.find('a').get_text()
+            print('\n\tDocument Title: ', document_title)
+            print('\tdocument_href: ', document_url)
             exec_path = WebdriverExecPolicy().get_system_path()
             options = webdriver.ChromeOptions()
             options.add_argument('headless')
@@ -439,8 +446,8 @@ class Denmark(DPA):
                 article_href = text.find('a').get('href')
                 article_url = host + article_href
                 article_title = text.find('a').get_text()
-                print('\tarticle_url\t ', article_url)
-                print('\tarticle_title\t ', article_title)
+                print('\t\tarticle_url\t ', article_url)
+                print('\t\tarticle_title\t ', article_title)
                 article_hash = hashlib.md5(article_title.encode()).hexdigest()
                 # add date
                 if article_hash in existing_docs and overwrite == False:
@@ -483,13 +490,16 @@ class Denmark(DPA):
                 #print('year: ', year)
                 article_href = option.get('data-href')
                 article_url = host + article_href
-                print('article_url: ', article_url)
+
                 article_title = article_href.split('/')[-1]
-                print('article_title: ', article_title)
+                print('\n\tDocument Title: ', article_title)
+                print('\tDocument url: ', article_url)
+
                 article_hash = hashlib.md5(article_title.encode()).hexdigest()
+                print("\nDocument hash: ", article_hash)
                 if article_hash in existing_docs and overwrite == False:
                     if to_print:
-                        print('\tSkipping existing document:\t', document_title)
+                        print('\tSkipping existing document:\t', article_title)
                 try:
                     article_response = requests.request('GET', article_url)
                     article_response.raise_for_status()

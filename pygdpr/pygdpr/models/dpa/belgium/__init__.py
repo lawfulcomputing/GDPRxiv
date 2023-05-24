@@ -407,7 +407,7 @@ class Belgium(DPA):
                         document_text = page_body.get_text()
                     else:
                         date_str = document_title.split(' du ')[-1]
-                        print("date_str:", date_str)
+                        print("\ndate:", date_str)
                         tmp = dateparser.parse(date_str, languages=[self.language_code])
                         if tmp is None:
                             media_date = media.find('span', class_="media-date")
