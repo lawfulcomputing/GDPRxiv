@@ -30,9 +30,9 @@ from pygdpr.models.dpa.slovakia import *
 from pygdpr.models.dpa.sweden import *
 
 
-path = "/poland"
-dpa = Poland(path)
-dpa.get_docs_News()
+path = "/lithuania"
+dpa = Lithuania(path)
+dpa.get_docs_Guidelines()
 
 #path = "/germany"
 #dpa = Germany(path)
