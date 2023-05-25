@@ -77,7 +77,7 @@ def scrape(country, document_type, path, overwrite):
         Italy                    Injunctions, Annual Reports, Hearings, Interviews, Newsletters, Publications
         Luxembourg               Decisions, Annual Reports, Opinions
         Malta                    Decisions, Guidelines, News Articles
-        Netherlands              Decisions, Opinions, Public Disclosures, Reports
+        Netherlands              Decisions, Opinions, Public Disclosures
         Poland                   Decisions, News
         Portugal                 Decisions, Guidelines, Reports
         Romania                  Docs (Contains Decisions, Reports)
@@ -162,7 +162,7 @@ def scrape(country, document_type, path, overwrite):
         path = path + "/hungary"
         dpa = Hungary(path=path)
     elif country == "Ireland":
-        path = path + "ireland"
+        path = path + "/ireland"
         dpa = Ireland(path=path)
     elif country == "Italy":
         path = path + "/italy"

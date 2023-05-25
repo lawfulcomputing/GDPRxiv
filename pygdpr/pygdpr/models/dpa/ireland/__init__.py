@@ -114,7 +114,7 @@ class Ireland(DPA):
         added_docs += self.get_docs_Decisions(existing_docs=[], overwrite=False, to_print=True)
         added_docs += self.get_docs_Judgements(existing_docs=[], overwrite=False, to_print=True)
         added_docs += self.get_docs_Blogs(existing_docs=[], overwrite=False, to_print=True)
-        added_docs += self.get_docs_Publications(existing_docs=[], overwrite=False, to_print=True)
+        added_docs += self.get_docs_Reports(existing_docs=[], overwrite=False, to_print=True)
         added_docs += self.get_docs_Guidances(existing_docs=[], overwrite=False, to_print=True)
 
         return added_docs
@@ -133,7 +133,7 @@ class Ireland(DPA):
                 print('Page:\t', page_url)
             page_zero = 'https://www.dataprotection.ie/en/news-media/latest-news?page=0'
             if page_url == page_zero:
-                print('page_url == page_zero')
+                # print('page_url == page_zero')
                 continue
 
             page_source = self.get_source(page_url=page_url)
@@ -703,8 +703,8 @@ class Ireland(DPA):
 
     # Doesn't include financial accounts
     # This scraper method doesn't use update_pagination and update_pagination_noStart
-    def get_docs_Publications(self, existing_docs=[], overwrite=False, to_print=True):
-        print("\n========================= Ireland Publications ===========================")
+    def get_docs_Reports(self, existing_docs=[], overwrite=False, to_print=True):
+        print("\n========================= Ireland Reports ===========================")
         added_docs = []
 
         page_url = "https://www.dataprotection.ie/en/dpc-guidance/publications/annual-reports"
@@ -795,8 +795,6 @@ class Ireland(DPA):
             #print(pdf_url)
 
             # Now try to open the pdf_url
-            if to_print:
-                print("\tPDF Document:\t", document_hash)
             pdf_response = None
             try:
                 pdf_response = requests.request('GET', pdf_url)

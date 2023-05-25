@@ -59,7 +59,6 @@ class UnitedKingdom(DPA):
 
         return pagination
 
-
     def get_source(self, page_url=None, driver=None):
         assert (page_url is not None)
         results_response = None
@@ -151,6 +150,11 @@ class UnitedKingdom(DPA):
                 document_response.raise_for_status()
             except requests.exceptions.HTTPError as error:
                 pass
+            except requests.exceptions.ConnectionError as error:
+                if to_print:
+                    print("\tError:", error)
+                pass
+
             if document_response is None:
                 continue
 
@@ -267,6 +271,11 @@ class UnitedKingdom(DPA):
                     document_response.raise_for_status()
                 except requests.exceptions.HTTPError as error:
                     pass
+                except requests.exceptions.ConnectionError as error:
+                    if to_print:
+                        print("\tError:", error)
+                    pass
+
                 if document_response is None:
                     continue
 
@@ -398,7 +407,7 @@ class UnitedKingdom(DPA):
                         print('\tAlready exist, skip:\t', document_hash)
                     continue
 
-                print('document_title:\t', document_title)
+                print('\ndocument_title:\t', document_title)
                 print('\tdate:\t', date)
                 document_href = result_link.get_attribute('href')
                 assert document_href
@@ -417,6 +426,7 @@ class UnitedKingdom(DPA):
                     if to_print:
                         print("\tError:", error)
                     pass
+
                 if document_response is None:
                     continue
 

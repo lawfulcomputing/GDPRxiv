@@ -170,6 +170,11 @@ class Spain(DPA):
                     if to_print:
                         print(error)
                     pass
+                except requests.exceptions.ConnectionError as error:
+                    if to_print:
+                        print("\tError:", error)
+                    pass
+
                 if document_response is None:
                     continue
 
@@ -283,6 +288,11 @@ class Spain(DPA):
                     if to_print:
                         print(error)
                     pass
+                except requests.exceptions.ConnectionError as error:
+                    if to_print:
+                        print("\tError:", error)
+                    pass
+
                 if document_response is None:
                     continue
 
@@ -406,6 +416,7 @@ class Spain(DPA):
                 except requests.exceptions.ConnectionError as error:
                     if to_print:
                         print("\tError:", error)
+
                 if document_response is None:
                     continue
 
@@ -518,6 +529,7 @@ class Spain(DPA):
                 print('\tDocument URL: ' + document_url)
 
                 document_response = None
+
                 try:
                     document_response = requests.request('GET', document_url)
                     document_response.raise_for_status()
@@ -525,6 +537,11 @@ class Spain(DPA):
                     if to_print:
                         print(error)
                     pass
+                except requests.exceptions.ConnectionError as error:
+                    if to_print:
+                        print("\tError:", error)
+                    pass
+
                 if document_response is None:
                     continue
 
@@ -645,6 +662,11 @@ class Spain(DPA):
                     if to_print:
                         print(error)
                     pass
+                except requests.exceptions.ConnectionError as error:
+                    if to_print:
+                        print("\tError:", error)
+                    pass
+
                 if document_response is None:
                     continue
 

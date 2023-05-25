@@ -26,7 +26,7 @@ class Luxembourg(DPA):
 
     # Passing this method a page parse object causes it to find ALL links to next page buttons visible at bottom of page
     # The visible page buttons only change every 5 page flips, so need to check that duplicates aren't being added
-    def update_pagination(self, pagination=None, page_soup=None, driver=None, start_path="Decisions"):
+    def update_pagination(self, pagination=None, page_soup=None, driver=None, start_path=None):
         source = {
             "host": "https://cnpd.public.lu",
             "start_path_opinion": "/fr/decisions-avis.html?b=0",
@@ -53,7 +53,7 @@ class Luxembourg(DPA):
                 # If existing_pages contains the link already, don't add it again
                 if pagination.has_link(page_link):
                     continue
-                print("\nLINK ADDED TO PAGINATION OBJECT: " + host + page_href)
+                # print("\nLINK ADDED TO PAGINATION OBJECT: " + host + page_href)
                 pagination.add_item(page_link)
         return pagination
 
@@ -82,7 +82,7 @@ class Luxembourg(DPA):
         print("\n======================== Luxembourg Decision Documents =========================")
         added_docs = []
         # Starting url is set to page 1, instead of the generic url (which lacks page specifier but starts at page 1)
-        pagination = self.update_pagination()
+        pagination = self.update_pagination(start_path="Decisions")
 
         iteration = 1
         while pagination.has_next():
@@ -92,8 +92,10 @@ class Luxembourg(DPA):
             page_source = self.get_source(page_url=page_url)
             if page_source is None:
                 continue
+
             results_soup = BeautifulSoup(page_source.text, 'html.parser')
             assert results_soup
+
             search_results = results_soup.find('ol', class_='search-results')
             assert search_results
             # s1. Results
@@ -118,12 +120,9 @@ class Luxembourg(DPA):
 
                 print('\tDocument Date: ' + date.strftime('%d/%m/%Y'))
 
-                '''
                 if ShouldRetainDocumentSpecification().is_satisfied_by(date) is False:
                     print("\tSkipping outdated document: " + date.strftime('%d/%m/%Y'))
                     continue
-                '''
-
                 article_title = li.find('h2', class_='article-title')
                 assert article_title
                 result_link = article_title.find('a')
@@ -204,6 +203,7 @@ class Luxembourg(DPA):
                     added_docs.append(document_hash)
                 except FileExistsError:
                     print("\tDirectory path already exists, continue.")
+
             # s0. Pagination
             pagination = self.update_pagination(pagination=pagination, page_soup=results_soup)
 
@@ -225,6 +225,7 @@ class Luxembourg(DPA):
                 continue
             results_soup = BeautifulSoup(page_source.text, 'html.parser')
             assert results_soup
+
             search_results = results_soup.find('ol', class_='search-results')
             assert search_results
             # s1. Results
@@ -247,11 +248,9 @@ class Luxembourg(DPA):
 
                 print('\tDocument Date: ' + date.strftime('%d/%m/%Y'))
 
-                '''
                 if ShouldRetainDocumentSpecification().is_satisfied_by(date) is False:
                     print("\tSkipping outdated document: " + date.strftime('%d/%m/%Y'))
                     continue
-                '''
 
                 article_title = li.find('h2', class_='article-title')
                 assert article_title
@@ -333,6 +332,7 @@ class Luxembourg(DPA):
                     added_docs.append(document_hash)
                 except FileExistsError:
                     print("\tDirectory path already exists, continue.")
+        
             # s0. Pagination
             pagination = self.update_pagination(pagination=pagination, page_soup=results_soup, start_path="Opinions")
 

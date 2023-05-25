@@ -126,7 +126,7 @@ SUPPORTED COUNTRIES:     DOCUMENTS TYPES:
         Italy                    Injunctions, Annual Reports, Hearings, Interviews, Newsletters, Publications
         Luxembourg               Decisions, Annual Reports, Opinions
         Malta                    Decisions, Guidelines, News Articles
-        Netherlands              Decisions, Opinions, Public Disclosures, Reports
+        Netherlands              Decisions, Opinions, Public Disclosures
         Poland                   Decisions, News
         Portugal                 Decisions, Guidelines, Reports
         Romania                  Docs (Contains Decisions, Reports)

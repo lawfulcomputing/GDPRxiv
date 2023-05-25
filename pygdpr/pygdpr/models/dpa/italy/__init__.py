@@ -241,7 +241,7 @@ class Italy(DPA):
 
                 # Try to download pdf instead
                 except:
-                    print("\tFailed to get text directly from page -> attempting to download pdf")
+                    # print("\tFailed to get text directly from page -> attempting to download pdf")
                     pdf_section = document_soup.find('section', id='content')
                     assert pdf_section
 
@@ -330,11 +330,7 @@ class Italy(DPA):
         # Get p tags starting at third one in html layout
         p_all = testo.find_all('p', recursive=False)[3:]
 
-        iteration = 1
         for p in p_all:
-
-            print('\n------------- Document ' + str(iteration) + ' ------------')
-            iteration +=1
 
             result_link = p.find('a')
             # Some p tag contain html for additional header separating the document links.
@@ -346,11 +342,11 @@ class Italy(DPA):
 
             title_date = p.find('em').get_text()
             assert title_date
-            print(title_date)
 
             # Some of the titles are identical in the html since the date is separate by another tag.
             # So concatenate this date back on to get a unique document title.
             document_title = result_link.get_text() + title_date
+            print('\nDocument Title: ', document_title)
             document_hash = hashlib.md5(document_title.encode()).hexdigest()
             if document_hash in existing_docs and overwrite is False:
                 if to_print:
@@ -1109,13 +1105,14 @@ class Italy(DPA):
             document_title = p.get_text()
             print('\tDocument Title: ' + document_title)
 
-            document_year = document_title[-4:]
+            document_year = document_title[-4:].strip()
             #print('\tDocument Year: ' + document_year)
-
+            if not document_year[-1].isdigit:
+                document_year = document_title[-5:-1]
             try:
                 if int(document_year) < 2018:
                     print('Remaining documents are outdated')
-                    break
+                    return added_docs
             except ValueError:
                 print("\tCouldn't parse document_year to integer")
 
