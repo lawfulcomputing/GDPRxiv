@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="de" dir="ltr" class="no-js">
+<head>
+
+<meta charset="utf-8">
+<!-- 
+	Umsetzung: Talleux & Zöllner GbR - http://www.talleux-zoellner.de
+
+	This website is powered by TYPO3 - inspiring people to share!
+	TYPO3 is a free open source Content Management Framework initially created by Kasper Skaarhoj and licensed under GNU/GPL.
+	TYPO3 is copyright 1998-2022 of Kasper Skaarhoj. Extensions are copyright of their respective owners.
+	Information and contribution at https://typo3.org/
+-->
+
+
+
+<title>Working Papers der Internationalen Arbeitsgruppe für Datenschutz in der Technologie (Berlin Group): Berliner Beauftragte für Datenschutz und Informationsfreiheit</title>
+<meta http-equiv="x-ua-compatible" content="IE=edge" />
+<meta name="generator" content="TYPO3 CMS" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="robots" content="index,follow" />
+<meta name="description" content="Internetseite der Berliner Beauftragten für Datenschutz und Informationsfreiheit" />
+
+
+<link rel="stylesheet" type="text/css" href="/typo3temp/assets/css/d42b6e1bdf.css?1610663305" media="all">
+<link rel="stylesheet" type="text/css" href="/typo3conf/ext/bds_website/Resources/Public/assets/css/font-awesome.min.css?1597828342" media="all">
+<link rel="stylesheet" type="text/css" href="/typo3conf/ext/bds_website/Resources/Public/assets/css/flaticon.css?1597828342" media="all">
+<link rel="stylesheet" type="text/css" href="/typo3conf/ext/bds_website/Resources/Public/assets/css/bootstrap.min.css?1597828342" media="all">
+<link rel="stylesheet" type="text/css" href="/typo3conf/ext/bds_website/Resources/Public/assets/css/animate.css?1597828342" media="all">
+<link rel="stylesheet" type="text/css" href="/typo3conf/ext/bds_website/Resources/Public/assets/css/owl.carousel.css?1597828342" media="all">
+<link rel="stylesheet" type="text/css" href="/typo3conf/ext/bds_website/Resources/Public/assets/css/owl.theme.css?1597828342" media="all">
+<link rel="stylesheet" type="text/css" href="/typo3conf/ext/bds_website/Resources/Public/assets/css/owl.transitions.css?1597828342" media="all">
+<link rel="stylesheet" type="text/css" href="/typo3conf/ext/bds_website/Resources/Public/assets/css/jquery.fancybox.css?1597828342" media="all">
+<link rel="stylesheet" type="text/css" href="/typo3conf/ext/bds_website/Resources/Public/assets/css/style.css?1652690575" media="all">
+
+
+
+
+
+<script type="text/javascript">
+/*<![CDATA[*/
+/*_scriptCode*/
+
+			/* decrypt helper function */
+		function decryptCharcode(n,start,end,offset) {
+			n = n + offset;
+			if (offset > 0 && n > end) {
+				n = start + (n - end - 1);
+			} else if (offset < 0 && n < start) {
+				n = end - (start - n - 1);
+			}
+			return String.fromCharCode(n);
+		}
+			/* decrypt string */
+		function decryptString(enc,offset) {
+			var dec = "";
+			var len = enc.length;
+			for(var i=0; i < len; i++) {
+				var n = enc.charCodeAt(i);
+				if (n >= 0x2B && n <= 0x3A) {
+					dec += decryptCharcode(n,0x2B,0x3A,offset);	/* 0-9 . , - + / : */
+				} else if (n >= 0x40 && n <= 0x5A) {
+					dec += decryptCharcode(n,0x40,0x5A,offset);	/* A-Z @ */
+				} else if (n >= 0x61 && n <= 0x7A) {
+					dec += decryptCharcode(n,0x61,0x7A,offset);	/* a-z */
+				} else {
+					dec += enc.charAt(i);
+				}
+			}
+			return dec;
+		}
+			/* decrypt spam-protected emails */
+		function linkTo_UnCryptMailto(s) {
+			location.href = decryptString(s,3);
+		}
+		
+
+/*]]>*/
+</script>
+
+
+		   <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+		   <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+            <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+            <![endif]--><title>Arbeitspapiere der Berlin Group - Berliner Beauftragte f&uuml;r Datenschutz und Informationsfreiheit</title>		<link rel="shortcut icon" type="image/png" href="/typo3conf/ext/bds_website/Resources/Public/assets/images/favicon.png">
+		<link rel="apple-touch-icon" href="/typo3conf/ext/bds_website/Resources/Public/assets/images/apple-touch-icon.png">
+		<link rel="apple-touch-icon" sizes="72x72" href="/typo3conf/ext/bds_website/Resources/Public/assets/images/apple-touch-icon-72x72.png">
+		<link rel="apple-touch-icon" sizes="114x114" href="/typo3conf/ext/bds_website/Resources/Public/assets/images/apple-touch-icon-114x114.png">
+		<link rel="apple-touch-icon" sizes="144x144" href="/typo3conf/ext/bds_website/Resources/Public/assets/images/apple-touch-icon-144x144.png">
+
+</head>
+<body>
+
+
+
+		<div class="page-wrapper cpage even-grey">
+			<div class="preloader">
+				<div>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+				</div>
+			</div>
+			<header class="site-header header-BlnBDI nav-down">
+	<div class="logo-header">
+		<div class="container">
+			<div class="navbar-header">
+				<a href="/" class="navbar-brand" alt="BlnBDI Logo"><img src="/typo3conf/ext/bds_website/Resources/Public/assets/images/BlnBDI_logo.svg"  alt="BlnBDI Logo"></a>
+			</div>
+			<div class="search-mini-cart">
+				<div class="search header-search-area">
+					<div class="header-search-field">
+						
+
+
+	<form method="post" class="form" id="tx_indexedsearch" action="/suche?tx_indexedsearch_pi2%5Baction%5D=search&amp;tx_indexedsearch_pi2%5Bcontroller%5D=Search&amp;cHash=4fdc909fb2952f8d0ae2f2c8d97c006b">
+<div>
+<input type="hidden" name="tx_indexedsearch_pi2[__referrer][@extension]" value="IndexedSearch" />
+<input type="hidden" name="tx_indexedsearch_pi2[__referrer][@vendor]" value="TYPO3\CMS" />
+<input type="hidden" name="tx_indexedsearch_pi2[__referrer][@controller]" value="Search" />
+<input type="hidden" name="tx_indexedsearch_pi2[__referrer][@action]" value="form" />
+<input type="hidden" name="tx_indexedsearch_pi2[__referrer][arguments]" value="YTowOnt983c2cf2f0b366db0d04517fa9540f7845a7cf77a" />
+<input type="hidden" name="tx_indexedsearch_pi2[__referrer][@request]" value="a:4:{s:10:&quot;@extension&quot;;s:13:&quot;IndexedSearch&quot;;s:11:&quot;@controller&quot;;s:6:&quot;Search&quot;;s:7:&quot;@action&quot;;s:4:&quot;form&quot;;s:7:&quot;@vendor&quot;;s:9:&quot;TYPO3\CMS&quot;;}4208f0387ce72fa946e42ccb1ad22c4d99dc9e22" />
+<input type="hidden" name="tx_indexedsearch_pi2[__trustedProperties]" value="a:1:{s:6:&quot;search&quot;;a:15:{s:9:&quot;_sections&quot;;i:1;s:13:&quot;_freeIndexUid&quot;;i:1;s:7:&quot;pointer&quot;;i:1;s:3:&quot;ext&quot;;i:1;s:10:&quot;searchType&quot;;i:1;s:14:&quot;defaultOperand&quot;;i:1;s:9:&quot;mediaType&quot;;i:1;s:9:&quot;sortOrder&quot;;i:1;s:5:&quot;group&quot;;i:1;s:11:&quot;languageUid&quot;;i:1;s:4:&quot;desc&quot;;i:1;s:15:&quot;numberOfResults&quot;;i:1;s:14:&quot;extendedSearch&quot;;i:1;s:5:&quot;sword&quot;;i:1;s:12:&quot;submitButton&quot;;i:1;}}6449f06f4d80d6754883c9d11e6e96e371d1ecb2" />
+</div>
+
+		<div class="clearfix">
+			<div class="tx-indexedsearch-hidden-fields">
+				<input type="hidden" name="tx_indexedsearch_pi2[search][_sections]" value="0" />
+				<input id="tx_indexedsearch_freeIndexUid" type="hidden" name="tx_indexedsearch_pi2[search][_freeIndexUid]" value="_" />
+				<input id="tx_indexedsearch_pointer" type="hidden" name="tx_indexedsearch_pi2[search][pointer]" value="0" />
+				<input type="hidden" name="tx_indexedsearch_pi2[search][ext]" value="" />
+				<input type="hidden" name="tx_indexedsearch_pi2[search][searchType]" value="1" />
+				<input type="hidden" name="tx_indexedsearch_pi2[search][defaultOperand]" value="0" />
+				<input type="hidden" name="tx_indexedsearch_pi2[search][mediaType]" value="-1" />
+				<input type="hidden" name="tx_indexedsearch_pi2[search][sortOrder]" value="rank_flag" />
+				<input type="hidden" name="tx_indexedsearch_pi2[search][group]" value="" />
+				<input type="hidden" name="tx_indexedsearch_pi2[search][languageUid]" value="0" />
+				<input type="hidden" name="tx_indexedsearch_pi2[search][desc]" value="" />
+				<input type="hidden" name="tx_indexedsearch_pi2[search][numberOfResults]" value="10" />
+				<input type="hidden" name="tx_indexedsearch_pi2[search][extendedSearch]" value="" />
+			</div>
+			<input placeholder="Suchbegriff" class="form-control tx-indexedsearch-searchbox-sword" id="tx-indexedsearch-searchbox-sword" type="text" name="tx_indexedsearch_pi2[search][sword]" value="" />
+				<button class="btn tx-indexedsearch-searchbox-button" id="tx-indexedsearch-searchbox-button-submit" type="submit" name="tx_indexedsearch_pi2[search][submitButton]" value="Suchen"><i class="fi flaticon-magnifying-glass"></i></button>
+		</div>
+	</form>
+
+
+
+
+
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<nav class="navigation navbar navbar-default">
+		<div class="container">
+			<div class="navbar-header-border">
+				<div class="navbar-header mobile-nav">
+					<a href="/" class="navbar-brand" alt="BlnBDI Logo"><img src="/typo3conf/ext/bds_website/Resources/Public/assets/images/BlnBDI_logo.svg"  alt="BlnBDI Logo"></a>
+					<button type="button" class="open-btn">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+				</div>
+				<div id="navbar" class="navbar-collapse collapse navigation-menu-holder navbar-left">
+					<button class="close-navbar"><i class="fa fa-close"></i></button>
+					<ul class="nav navbar-nav"><li class="sub-menu"><a href="/ueber-uns">Über uns</a><ul class="sub-current"><li><a href="/ueber-uns/zur-person">Zur Person</a></li><li><a href="/ueber-uns/aufgaben">Aufgaben</a></li><li><a href="/ueber-uns/organisation">Organisation</a></li><li><a href="/ueber-uns/stellenausschreibungen">Stellenausschreibungen</a></li><li><a href="/ueber-uns/presse">Presse</a></li><li><a href="/ueber-uns/kontakt">Kontakt</a></li></ul></li><li class="sub-menu"><a href="/buergerinnen-und-buerger">Bürgerinnen und Bürger</a><ul class="sub-current"><li><a href="/buergerinnen-und-buerger/rechte">Rechte</a></li><li><a href="/buergerinnen-und-buerger/selbstdatenschutz">Selbstdatenschutz</a></li><li><a href="/buergerinnen-und-buerger/medienkompetenz">Medienkompetenz</a></li><li><a href="/buergerinnen-und-buerger/beratung">Beratung</a></li><li><a href="/buergerinnen-und-buerger/beschwerde">Beschwerde</a></li></ul></li><li class="sub-menu"><a href="/themen">Themen</a><ul class="sub-current"><li><a href="/themen/arbeit">Arbeit</a></li><li><a href="/themen/behoerden">Behörden</a></li><li><a href="/themen/finanzen">Finanzen</a></li><li><a href="/themen/gesundheit">Gesundheit</a></li><li><a href="/themen/internet">Internet</a></li><li><a href="/themen/justiz-und-inneres">Justiz und Inneres</a></li><li><a href="/themen/kinder-und-jugend">Kinder und Jugend</a></li><li><a href="/themen/medien">Medien</a></li><li><a href="/themen/soziales">Soziales</a></li><li><a href="/themen/telekommunikation">Telekommunikation</a></li><li><a href="/themen/unternehmen">Unternehmen</a></li><li><a href="/themen/videoueberwachung">Videoüberwachung</a></li><li><a href="/themen/werbung">Werbung</a></li><li><a href="/themen/wohnen">Wohnen</a></li></ul></li><li class="sub-menu"><a href="/datenschutz">Datenschutz</a><ul class="sub-current"><li><a href="/datenschutz/rechtliche-grundlagen">Rechtliche Grundlagen</a></li><li><a href="/datenschutz/datenschutz-grundverordnung">Datenschutz-Grundverordnung</a></li><li><a href="/datenschutz/gremien">Gremien</a></li><li><a href="/datenschutz/datenschutzbeauftragte">Datenschutzbeauftragte</a></li><li><a href="/themen/unternehmen/datenschutz-folgenabschaetzung">Datenschutz-Folgenabschätzung</a></li><li><a href="/themen/unternehmen/datenpanne">Datenpanne</a></li></ul></li><li class="sub-menu"><a href="/informationsfreiheit">Informationsfreiheit</a><ul class="sub-current"><li><a href="/informationsfreiheit/rechtliche-grundlagen">Rechtliche Grundlagen</a></li><li><a href="/informationsfreiheit/gremien">Gremien</a></li></ul></li><li class="sub-menu"><a href="/infothek" class="current">Infothek</a><ul class="sub-current"><li><a href="/infothek/publikationen">Publikationen</a></li><li><a href="/infothek/pressemitteilungen">Pressemitteilungen</a></li><li><a href="/infothek/mastodon">Mastodon</a></li><li><a href="/infothek/beschluesse-der-dsk">Beschlüsse der DSK</a></li><li><a href="/infothek/beschluesse-der-ifk">Beschlüsse der IFK</a></li><li class="sub-menu"><a href="/infothek/arbeitspapiere-der-berlin-group" class="current">Arbeitspapiere der Berlin Group</a></li><li><a href="/infothek/kurzpapiere-zur-ds-gvo">Kurzpapiere zur DS-GVO</a></li><li><a href="/infothek/leitlinien-zur-ds-gvo">Leitlinien zur DS-GVO</a></li><li><a href="/infothek/orientierungshilfen">Orientierungshilfen</a></li></ul></li><li class="sub-menu"><a href="/infothek-und-service">Service</a><ul class="sub-current"><li><a href="/infothek-und-service/stichwortverzeichnis">Stichwortverzeichnis</a></li><li><a href="/infothek-und-service/adressen">Adressen</a></li><li><a href="/themen/unternehmen/start-ups">Start-up-Schule</a></li><li><a href="/datenschutz/datenschutzbeauftragte/meldung-von-datenschutzbeauftragten">Datenschutzbeauftragte:n melden oder löschen</a></li><li><a href="/themen/unternehmen/datenpanne/datenpannenformular">Datenpanne melden</a></li><li><a href="/buergerinnen-und-buerger/beschwerde/einreichen-einer-beschwerde">Beschwerde einreichen</a></li></ul></li><li class="hidden-md hidden-lg"><a href="/suche">Suche</a></li><ul>
+				</div>
+			</div>
+		</div>
+	</nav>
+
+</header>
+			<section class="page-title-wrapper">
+				
+						<div class="container nopadding">
+    <div class="img-holder">
+        <div class="column-color blue">
+            
+                
+                        <img class="img img-responsive" alt="Gestapelte Broschüren" src="/fileadmin/_processed_/8/a/csm_BlnBDI_Working-Papers_46569646a6.jpeg" width="1000" height="427" />
+                    
+            
+            <div class="grid-overlay"></div>
+        </div>
+    </div>
+</div>
+
+					
+				<div class="breadcrumb-wrapper">
+	<div class="container">
+		<ol class="breadcrumb"><li><a href="/">Home</a></li><li><a href="/infothek">Infothek</a></li><li>Arbeitspapiere der Berlin Group</li></ol>
+	</div>
+</div>
+
+			</section>
+			<!--TYPO3SEARCH_begin-->
+			
+				
+<section class="causes-single-wrapper section-padding-top bgcount" id="c590"><div class="container"><div class="row content"><div class="col col-md-12 col-lg-12"><div class="about-blnbdi"><span>Infothek</span><h2>Working Papers der Internationalen Arbeitsgruppe für Datenschutz in der Technologie (Berlin Group)</h2></div><div id="c589"><p>Die Internationale Arbeitsgruppe für Datenschutz in der Technologie (bis 2019 Internationale Arbeitsgruppe für Datenschutz in der Telekommunikation), auch Berlin Group genannt, hat seit 1983 eine Vielzahl von Empfehlungen in Form von Arbeitspapieren, so genannten Working Papers, zur Verbesserung des Datenschutzes in der Telekommunikation und im Internet verabschiedet. Zu Ihrer Information finden Sie diese hier zum Download als PDF.</p><p>&nbsp;</p></div></div></div></div></section>
+
+
+
+<section class="causes-single-wrapper section-padding-top bgcount" id="c1044"><div class="container bt-dotted"><div class="row content"><div class="col col-md-12 col-lg-12"><div class="about-blnbdi"><div class="download-list"><h3>2021</h3><ul><li><div class="dsk-date">Working Paper – Written Procedure prior to 67th (Virtual) Meeting on April 24th, 2021</div><a href="/fileadmin/user_upload/pdf/publikationen/working-paper/2021/2021-IWGDPT-Working_Paper_Data_Portability.pdf" download>
+                                    Data Portability (English) <span class="badge"><i
+                                        class="fa fa-file-pdf-o"></i></span></a></li><li><div class="dsk-date">Working Paper – Written Procedure prior to 67th (Virtual) Meeting on April 24th, 2021</div><a href="/fileadmin/user_upload/pdf/publikationen/working-paper/2021/2021-IWGDPT-Working_Paper_tracking_eco_system.pdf" download>
+                                    Risks Emerging From the Tracking and Targeting Ecosystem in the Digital Advertising Market (English) <span class="badge"><i
+                                        class="fa fa-file-pdf-o"></i></span></a></li><li><div class="dsk-date">Arbeitspapier – Schriftliches Verfahren vor der 67. (virtuellen) Sitzung am 24. April 2021</div><a href="/fileadmin/user_upload/pdf/publikationen/working-paper/2021/2021-IWGDPT-Working_Paper_Risiken_Tracking.pdf" download>
+                                    Risiken im Zusammenhang mit dem Tracking- und Targeting-Ökosystem im digitalen Werbemarkt (Deutsch) <span class="badge"><i
+                                        class="fa fa-file-pdf-o"></i></span></a></li></ul></div></div></div></div></div></section>
+
+
+
+<section class="causes-single-wrapper section-padding-top bgcount" id="c957"><div class="container bt-dotted"><div class="row content"><div class="col col-md-12 col-lg-12"><div class="about-blnbdi"><div class="download-list"><h3>2019</h3><ul><li><div class="dsk-date">Working Paper – Bled (Slovenia), April 9th/10th, 2019</div><a href="/fileadmin/user_upload/pdf/publikationen/working-paper/2019/2019-IWGDPT-Working_Paper_Smart_Devices.pdf" download>
+                                    Smart Devices for Children (English) <span class="badge"><i
+                                        class="fa fa-file-pdf-o"></i></span></a></li><li><div class="dsk-date">Working Paper – Bled (Slovenia), April 9th/10th, 2019</div><a href="/fileadmin/user_upload/pdf/publikationen/working-paper/2019/2019-IWGDPT-Working_Paper_Online_Services_for_Children.pdf" download>
+                                    Online Services for Children (English) <span class="badge"><i
+                                        class="fa fa-file-pdf-o"></i></span></a></li></ul></div></div></div></div></div></section>
+
+
+
+<section class="causes-single-wrapper section-padding-top bgcount" id="c817"><div class="container bt-dotted"><div class="row content"><div class="col col-md-12 col-lg-12"><div class="about-blnbdi"><div class="download-list"><h3>2018</h3><ul><li><div class="dsk-date">Working Paper – Queenstown (New Zealand), November 29th/30th, 2018</div><a href="/fileadmin/user_upload/pdf/publikationen/working-paper/2018/2018-IWGDPT-Working_Paper_Wide_Area_Location_Tracking.pdf" download>
+                                    Wide Area Location Tracking (English) <span class="badge"><i
+                                        class="fa fa-file-pdf-o"></i></span></a></li><li><div class="dsk-date">Working Paper – Queenstown (New Zealand), November 29th/30th, 2018</div><a href="/fileadmin/user_upload/pdf/publikationen/working-paper/2018/2018-IWGDPT-Working_Paper_Artificial_Intelligence.pdf" download>
+                                    Privacy and Artificial Intelligence (English) <span class="badge"><i
+                                        class="fa fa-file-pdf-o"></i></span></a></li><li><div class="dsk-date">Working Paper – Budapest (Hungary), April 9th/10th, 2018</div><a href="/fileadmin/user_upload/pdf/publikationen/working-paper/2018/2018-IWGDPT-Working_Paper_Connected_Vehicles.pdf" download>
+                                    Connected Vehicles (English) <span class="badge"><i
+                                        class="fa fa-file-pdf-o"></i></span></a></li><li><div class="dsk-date">Arbeitspapier – Budapest (Ungarn), 9./10. April 2018</div><a href="/fileadmin/user_upload/pdf/publikationen/working-paper/2018/2018-IWGDPT-Working_Paper_Connected_Vehicles-de.pdf" download>
+                                    Vernetzte Fahrzeuge (Deutsch) <span class="badge"><i
+                                        class="fa fa-file-pdf-o"></i></span></a></li><li><div class="dsk-date">Working Paper – Budapest (Hungary), April 9th/10th, 2018</div><a href="/fileadmin/user_upload/pdf/publikationen/working-paper/2018/2018-IWGDPT_Working_Paper_Cross-border_data_requests.pdf" download>
+                                    Standards for Data Protection and Personal Privacy in Cross-Border Data Requests for Criminal Law Enforcement Purposes (English) <span class="badge"><i
+                                        class="fa fa-file-pdf-o"></i></span></a></li><li><div class="dsk-date">Arbeitspapier – Budapest (Ungarn), 9./10. April 2018</div><a href="/fileadmin/user_upload/pdf/publikationen/working-paper/2018/2018-IWGDPT_Working_Paper_Cross-border_data_requests-de.pdf" download>
+                                    Standards für den Datenschutz und den Schutz der Privatsphäre bei grenzüberschreitenden Datenanforderungen zu Strafverfolgungszwecken (Deutsch) <span class="badge"><i
+                                        class="fa fa-file-pdf-o"></i></span></a></li></ul></div></div></div></div></div></section>
+
+
+
+<section class="causes-single-wrapper section-padding-top bgcount" id="c778"><div class="container bt-dotted"><div class="row content"><div class="col col-md-12 col-lg-12"><div class="about-blnbdi"><div class="download-list"><h3>2017</h3><ul><li><div class="dsk-date">Working Paper – Paris (France), November 27th/28th, 2017</div><a href="/fileadmin/user_upload/pdf/publikationen/working-paper/2017/2017-IWGDPT_Working_Paper_Firmware_Updates-en.pdf" download>
+                                    Updating Firmware of Embedded Systems in the Internet of Things (English) <span class="badge"><i
+                                        class="fa fa-file-pdf-o"></i></span></a></li><li><div class="dsk-date">Arbeitspapier – Paris (Frankreich), 27./28. November 2017</div><a href="/fileadmin/user_upload/pdf/publikationen/working-paper/2017/2017-IWGDPT_Working_Paper_Firmware_Updates-de.pdf" download>
+                                    Aktualisierung der Firmware eingebetteter Systeme im Internet der Dinge (Deutsch) <span class="badge"><i
+                                        class="fa fa-file-pdf-o"></i></span></a></li><li><div class="dsk-date">Working Paper – Paris (France), November 27th/28th, 2017</div><a href="/fileadmin/user_upload/pdf/publikationen/working-paper/2017/2017-IWGDPT_Working_Paper_WHOIS_ICANN-en.pdf" download>
+                                    Privacy and Data Protection Issues with Regard to Registrant Data and the WHOIS Directory at ICANN 1 (English) <span class="badge"><i
+                                        class="fa fa-file-pdf-o"></i></span></a></li><li><div class="dsk-date">Arbeitspapier – Paris (Frankreich), 27./28. November 2017</div><a href="/fileadmin/user_upload/pdf/publikationen/working-paper/2017/2017-IWGDPT_Working_Paper_WHOIS_ICANN-de.pdf" download>
+                                    Fragen der Privatsphäre und des Datenschutzes im Zusammenhang mit Daten von Registranten und dem WHOIS-Verzeichnis bei ICANN 1 (Deutsch) <span class="badge"><i
+                                        class="fa fa-file-pdf-o"></i></span></a></li><li><div class="dsk-date">Working Paper – Washington D.C. (U.S.A.), April 24th/25th, 2017</div><a href="/fileadmin/user_upload/pdf/publikationen/working-paper/2017/2017-IWGDPT_Working_Paper_E-Learning_Platforms-en.pdf" download>
+                                    E-Learning Platforms (English) <span class="badge"><i
+                                        class="fa fa-file-pdf-o"></i></span></a></li><li><div class="dsk-date">Arbeitspapier – Washington D.C. (USA), 24./25. April 2017</div><a href="/fileadmin/user_upload/pdf/publikationen/working-paper/2017/2017-IWGDPT_Working_Paper_E-Learning_Platforms-de.pdf" download>
+                                    E-Learning-Plattformen (Deutsch) <span class="badge"><i
+                                        class="fa fa-file-pdf-o"></i></span></a></li><li><div class="dsk-date">Working Paper – Washington D.C. (U.S.A.), April 24th/25th, 2017</div><a href="/fileadmin/user_upload/pdf/publikationen/working-paper/2017/2017-IWGDPT_Working_Paper_Govern_Intelligence_Gathering-en.pdf" download>
+                                    Towards International Principles or Instruments to Govern Intelligence Gathering (English) <span class="badge"><i
+                                        class="fa fa-file-pdf-o"></i></span></a></li><li><div class="dsk-date">Arbeitspapier – Washington D.C. (USA), 24./25. April 2017</div><a href="/fileadmin/user_upload/pdf/publikationen/working-paper/2017/2017-IWGDPT_Working_Paper_Govern_Intelligence_Gathering-de.pdf" download>
+                                    Internationale Grundsätze oder Instrumente zur Regulierung der nachrichtendienstlichen Informationsbeschaffung (Deutsch) <span class="badge"><i
+                                        class="fa fa-file-pdf-o"></i></span></a></li></ul></div></div></div></div></div></section>
+
+
+
+<section class="causes-single-wrapper section-padding-top bgcount" id="c779"><div class="container bt-dotted"><div class="row content"><div class="col col-md-12 col-lg-12"><div class="about-blnbdi"><div class="download-list"><h3>2016</h3><ul><li><div class="dsk-date">Working Paper – Berlin (Germany), November 22nd/23rd, 2016</div><a href="/fileadmin/user_upload/pdf/publikationen/working-paper/2016/23112016_en.pdf" download>
+                                    Biometrics in Online Authentication (English) <span class="badge"><i
+                                        class="fa fa-file-pdf-o"></i></span></a></li><li><div class="dsk-date">Arbeitspapier – Berlin (Deutschland), 22./23. November 2016</div><a href="/fileadmin/user_upload/pdf/publikationen/working-paper/2016/23112016_de.pdf" download>
+                                    Biometrie in der Online-Authentifizierung (Deutsch) <span class="badge"><i
+                                        class="fa fa-file-pdf-o"></i></span></a></li><li><div class="dsk-date">Working Paper – Oslo (Norway), April 24th/25th, 2016</div><a href="/fileadmin/user_upload/pdf/publikationen/working-paper/2016/25042016_en.pdf" download>
+                                    Update on Privacy and Security Issues in Internet Telephony (VoIP) and Related Communication Technologies (English) <span class="badge"><i
+                                        class="fa fa-file-pdf-o"></i></span></a></li><li><div class="dsk-date">Arbeitspapier – Oslo (Norwegen), 24./25. April 2016</div><a href="/fileadmin/user_upload/pdf/publikationen/working-paper/2016/25042016_de.pdf" download>
+                                    Aktualisierung zu Datenschutz und Datensicherheit in der Internettelefonie (Voice over IP, VoIP) und verwandten Kommunikationstechnologien (Deutsch) <span class="badge"><i
+                                        class="fa fa-file-pdf-o"></i></span></a></li></ul></div></div></div></div></div></section>
+
+
+
+<section class="causes-single-wrapper section-padding-top bgcount" id="c780"><div class="container bt-dotted"><div class="row content"><div class="col col-md-12 col-lg-12"><div class="about-blnbdi"><div class="download-list"><h3>2015</h3><ul><li><div class="dsk-date">Working Paper – Berlin (Germany), October 13th/14th, 2015</div><a href="/fileadmin/user_upload/pdf/publikationen/working-paper/2015/14102015_en.pdf" download>
+                                    Location Tracking from Communications of Mobile Devices (English) <span class="badge"><i
+                                        class="fa fa-file-pdf-o"></i></span></a></li><li><div class="dsk-date">Arbeitspapier – Berlin (Deutschland), 13./14. Oktober 2015</div><a href="/fileadmin/user_upload/pdf/publikationen/working-paper/2015/14102015_de.pdf" download>
+                                    Verfolgung des Aufenthaltsortes auf der Basis von Meldungen von Mobilfunkgeräten (Deutsch) <span class="badge"><i
+                                        class="fa fa-file-pdf-o"></i></span></a></li><li><div class="dsk-date">Working Paper – Berlin (Germany), October 13th/14th, 2015</div><a href="/fileadmin/user_upload/pdf/publikationen/working-paper/2015/14102015_en_2.pdf" download>
+                                    Intelligent Video Analytics (English) <span class="badge"><i
+                                        class="fa fa-file-pdf-o"></i></span></a></li><li><div class="dsk-date">Arbeitspapier – Berlin (Deutschland), 13./14. Oktober 2015</div><a href="/fileadmin/user_upload/pdf/publikationen/working-paper/2015/14102015_de_2.pdf" download>
+                                    Intelligente Video-Analysetechnik (Deutsch) <span class="badge"><i
+                                        class="fa fa-file-pdf-o"></i></span></a></li><li><div class="dsk-date">Working Paper – Seoul (Republic of Korea), April 27th/28th, 2015</div><a href="/fileadmin/user_upload/pdf/publikationen/working-paper/2015/28042015_en.pdf" download>
+                                    Transparency Reporting: Promoting Accountability When Governments Access Personal Data Held by Companies (English) <span class="badge"><i
+                                        class="fa fa-file-pdf-o"></i></span></a></li><li><div class="dsk-date">Arbeitspapier – Seoul (Republik Korea), 27./28. April 2015</div><a href="/fileadmin/user_upload/pdf/publikationen/working-paper/2015/28042015_de.pdf" download>
+                                    Transparenzberichte: Förderung der Rechenschaftspflicht staatlicher Stellen beim Zugriff auf personenbezogene Daten, die sich im Besitz von Unternehmen befinden (Deutsch) <span class="badge"><i
+                                        class="fa fa-file-pdf-o"></i></span></a></li><li><div class="dsk-date">Working Paper – Seoul (Republic of Korea), April 27th/28th, 2015</div><a href="/fileadmin/user_upload/pdf/publikationen/working-paper/2015/28042015_en_2.pdf" download>
+                                    Privacy and Wearable Computing Devices (English) <span class="badge"><i
+                                        class="fa fa-file-pdf-o"></i></span></a></li><li><div class="dsk-date">Arbeitspapier – Seoul (Republik Korea), 27./28. April 2015</div><a href="/fileadmin/user_upload/pdf/publikationen/working-paper/2015/28042015_de_2.pdf" download>
+                                    Datenschutz bei tragbaren Endgeräten (Wearables) (Deutsch)  <span class="badge"><i
+                                        class="fa fa-file-pdf-o"></i></span></a></li></ul></div></div></div></div></div></section>
+
+
+
+<section class="causes-single-wrapper section-padding-top bgcount" id="c781"><div class="container bt-dotted"><div class="row content"><div class="col col-md-12 col-lg-12"><div class="about-blnbdi"><div class="download-list"><h3>2014</h3><ul><li><div class="dsk-date">Working Paper – Berlin (Germany), October 14th/15th, 2014</div><a href="/fileadmin/user_upload/pdf/publikationen/working-paper/2014/15102014_en.pdf" download>
+                                    Privacy and Security Risks with the Use of “Own Devices” in Corporate Networks (English) <span class="badge"><i
+                                        class="fa fa-file-pdf-o"></i></span></a></li><li><div class="dsk-date">Arbeitspapier – Berlin (Deutschland), 14./15. Oktober 2014</div><a href="/fileadmin/user_upload/pdf/publikationen/working-paper/2014/15102014_de.pdf" download>
+                                    Datenschutz- und Datensicherheitsrisiken bei der Nutzung von privaten Endgeräten in Unternehmensnetzwerken (Deutsch) <span class="badge"><i
+                                        class="fa fa-file-pdf-o"></i></span></a></li><li><div class="dsk-date">Working Paper – Skopje (North Macedonia), May 5th/6th, 2014</div><a href="/fileadmin/user_upload/pdf/publikationen/working-paper/2014/06052014_en.pdf" download>
+                                    Big Data and Privacy, Privacy Principles Under Pressure in the Age of Big Data Analytics (English) <span class="badge"><i
+                                        class="fa fa-file-pdf-o"></i></span></a></li></ul></div></div></div></div></div></section>
+
+
+
+<section class="causes-single-wrapper section-padding-top bgcount" id="c782"><div class="container bt-dotted"><div class="row content"><div class="col col-md-12 col-lg-12"><div class="about-blnbdi"><div class="download-list"><h3>2013</h3><ul><li><div class="dsk-date">Working Paper – Berlin (Germany), September 2nd/3rd, 2013</div><a href="/fileadmin/user_upload/pdf/publikationen/working-paper/2013/2013-WP-Privacy_and_Aerial_Surveillance.pdf" download>
+                                    Privacy and Aerial Surveillance (English) <span class="badge"><i
+                                        class="fa fa-file-pdf-o"></i></span></a></li><li><div class="dsk-date">Arbeitspapier – Berlin (Deutschland), 2./3. September 2013</div><a href="/fileadmin/user_upload/pdf/publikationen/working-paper/2013/2013-WP-Datenschutz_Ueberwachung_aus_der Luft.pdf" download>
+                                    Datenschutz bei Überwachung aus der Luft (Deutsch) <span class="badge"><i
+                                        class="fa fa-file-pdf-o"></i></span></a></li><li><div class="dsk-date">Working Paper – Berlin (Germany), September 2nd/3rd, 2013</div><a href="/fileadmin/user_upload/pdf/publikationen/working-paper/2013/2013-WP-Human_Right.pdf" download>
+                                    The Human Right to Telecommunications Secrecy (English) <span class="badge"><i
+                                        class="fa fa-file-pdf-o"></i></span></a></li><li><div class="dsk-date">Arbeitspapier – Berlin (Deutschland), 2./3. September 2013</div><a href="/fileadmin/user_upload/pdf/publikationen/working-paper/2013/2013-WP-Recht_vertrauliche_Telekommunikation.pdf" download>
+                                    Das Recht auf vertrauliche Telekommunikation (Deutsch) <span class="badge"><i
+                                        class="fa fa-file-pdf-o"></i></span></a></li><li><div class="dsk-date">Working Paper – Prague (Czech Republic), April 15th/16th, 2013</div><a href="/fileadmin/user_upload/pdf/publikationen/working-paper/2013/2013-WP-Personal_Data_Web.pdf" download>
+                                    Recommendations on the Publication of Personal Data on the Web, Website Contents Indexing and the Protection of Privacy (English) <span class="badge"><i
+                                        class="fa fa-file-pdf-o"></i></span></a></li><li><div class="dsk-date">Arbeitspapier – Prag (Tschechien), 15./16. April 2013</div><a href="/fileadmin/user_upload/pdf/publikationen/working-paper/2013/2013-WP-Personenbezogene_Daten_Web.pdf" download>
+                                    Empfehlungen zur Veröffentlichung personenbezogener Daten im Web, der Indexierung des Inhalts von Websites und dem Schutz der Privatsphäre (Deutsch) <span class="badge"><i
+                                        class="fa fa-file-pdf-o"></i></span></a></li><li><div class="dsk-date">Working Paper – Prague (Czech Republic), April 15th/16th, 2013</div><a href="/fileadmin/user_upload/pdf/publikationen/working-paper/2013/2013-WP-Webtracking-en.pdf" download>
+                                    Web Tracking and Privacy: Respect for Context, Transparency and Control Remains Essential (English) <span class="badge"><i
+                                        class="fa fa-file-pdf-o"></i></span></a></li><li><div class="dsk-date">Arbeitspapier – Prag (Tschechische Republik), 15./16. April 2013</div><a href="/fileadmin/user_upload/pdf/publikationen/working-paper/2013/2013-WP-Webtracking-de.pdf" download>
+                                    Webtracking und Privatsphäre: Die Beachtung von Kontext, Transparenz und Kontrolle bleibt unverzichtbar (Deutsch) <span class="badge"><i
+                                        class="fa fa-file-pdf-o"></i></span></a></li></ul></div></div></div></div></div></section>
+
+
+
+<section class="causes-single-wrapper section-padding-top bgcount" id="c783"><div class="container bt-dotted"><div class="row content"><div class="col col-md-12 col-lg-12"><div class="about-blnbdi"><div class="download-list"><h3>2012</h3><ul><li><div class="dsk-date">Sopot Memorandum – Sopot (Poland), April 23rd/24th, 2012</div><a href="/fileadmin/user_upload/pdf/publikationen/working-paper/2012/2012-WP-Sopot_Memorandum-en.pdf" download>
+                                    Cloud Computing – Privacy and Data Protection Issues (English) <span class="badge"><i
+                                        class="fa fa-file-pdf-o"></i></span></a></li><li><div class="dsk-date">Sopot Memorandum – Sopot (Polen), 23./24. April 2012</div><a href="/fileadmin/user_upload/pdf/publikationen/working-paper/2012/2012-WP-Sopot_Memorandum-de.pdf" download>
+                                    Cloud Computing – Fragen des Schutzes der Privatsphäre und des Datenschutzes (Deutsch) <span class="badge"><i
+                                        class="fa fa-file-pdf-o"></i></span></a></li></ul></div></div></div></div></div></section>
+
+
+
+<section class="causes-single-wrapper section-padding-top bgcount" id="c784"><div class="container bt-dotted"><div class="row content"><div class="col col-md-12 col-lg-12"><div class="about-blnbdi"><div class="download-list"><h3>2011</h3><ul><li><div class="dsk-date">Working Paper – Berlin (Germany), September 12th/13th, 2011</div><a href="/fileadmin/user_upload/pdf/publikationen/working-paper/2011/2011-WP-Smart_Metering-en.pdf" download>
+                                    Privacy by Design and Smart Metering: Minimize Personal Information to Maintain Privacy (English) <span class="badge"><i
+                                        class="fa fa-file-pdf-o"></i></span></a></li><li><div class="dsk-date">Arbeitspapier – Berlin (Deutschland), 12./13. September 2011</div><a href="/fileadmin/user_upload/pdf/publikationen/working-paper/2011/2011-WP-Smart_Metering-de.pdf" download>
+                                    Privacy by Design und Smart Metering: Minimierung personenbezogener Informationen zur Wahrung der Privatsphäre (Deutsch) <span class="badge"><i
+                                        class="fa fa-file-pdf-o"></i></span></a></li><li><div class="dsk-date">Working Paper – Berlin (Germany), September 12th/13th, 2011</div><a href="/fileadmin/user_upload/pdf/publikationen/working-paper/2011/2011-WP-Micropayment-en.pdf" download>
+                                    Privacy and Electronic Micropayment on the Internet (English) <span class="badge"><i
+                                        class="fa fa-file-pdf-o"></i></span></a></li><li><div class="dsk-date">Arbeitspapier – Berlin (Deutschland), 12./13. September 2011</div><a href="/fileadmin/user_upload/pdf/publikationen/working-paper/2011/2011-WP-Micropayment-de.pdf" download>
+                                    Datenschutz und elektronisches Micropayment im Internet (Deutsch) <span class="badge"><i
+                                        class="fa fa-file-pdf-o"></i></span></a></li><li><div class="dsk-date">Working Paper – Montreal (Canada), April 4th/5th, 2011</div><a href="/fileadmin/user_upload/pdf/publikationen/working-paper/2011/2011-WP-EDR_on_vehicles.pdf" download>
+                                    Event Data Recorders (EDR) on Vehicles – Privacy and Data Protection Issues for Governments and Manufacturers (English) <span class="badge"><i
+                                        class="fa fa-file-pdf-o"></i></span></a></li><li><div class="dsk-date">Arbeitspapier – Montreal (Kanada), 4./5. April 2011</div><a href="/fileadmin/user_upload/pdf/publikationen/working-paper/2011/2011-WP-Datenaufzeichnung_in_Fahrzeugen.pdf" download>
+                                    Datenaufzeichnung in Fahrzeugen (Event Data Recording, EDR) – Fragestellungen zu Datenschutz und zum Schutz der Privatsphäre für Regierungen und Hersteller (Deutsch) <span class="badge"><i
+                                        class="fa fa-file-pdf-o"></i></span></a></li></ul></div></div></div></div></div></section>
+
+
+
+<section class="causes-single-wrapper section-padding-top bgcount" id="c785"><div class="container bt-dotted"><div class="row content"><div class="col col-md-12 col-lg-12"><div class="about-blnbdi"><div class="download-list"><h3>2010</h3><ul><li><div class="dsk-date">Working Paper – Berlin (Germany), September 6th/7th, 2010</div><a href="/fileadmin/user_upload/pdf/publikationen/working-paper/2010/2010-WP-Mobile_Processing_security.pdf" download>
+                                    Mobile Processing of Personal Data and Security (English) <span class="badge"><i
+                                        class="fa fa-file-pdf-o"></i></span></a></li><li><div class="dsk-date">Arbeitspapier – Berlin (Deutschland), 6./7. September 2010</div><a href="/fileadmin/user_upload/pdf/publikationen/working-paper/2010/2010-WP_Mobile_Verarbeitung_und_Datensicherheit.pdf" download>
+                                    Mobile Verarbeitung personenbezogener Daten und Datensicherheit (Deutsch) <span class="badge"><i
+                                        class="fa fa-file-pdf-o"></i></span></a></li><li><div class="dsk-date">Working Paper – Berlin (Germany), September 6th/7th, 2010</div><a href="/fileadmin/user_upload/pdf/publikationen/working-paper/2010/2010-WP-Deep_Packet_Inspection-en.pdf" download>
+                                    The Use of Deep Packet Inspection for Marketing Purposes (English) <span class="badge"><i
+                                        class="fa fa-file-pdf-o"></i></span></a></li><li><div class="dsk-date">Arbeitspapier – Berlin (Deutschland), 6./7. September 2010</div><a href="/fileadmin/user_upload/pdf/publikationen/working-paper/2010/2010-WP-Deep_Packet_Inspection-de.pdf" download>
+                                    Die Nutzung von Deep-Packet-Inspection zu Marketingzwecken (Deutsch)  <span class="badge"><i
+                                        class="fa fa-file-pdf-o"></i></span></a></li><li><div class="dsk-date">Working Paper – Granada (Spain), April 15th/16th, 2010</div><a href="/fileadmin/user_upload/pdf/publikationen/working-paper/2010/2010-Granada_Charta-en.pdf" download>
+                                    The Granada Charter of Privacy in a Digital World (English) <span class="badge"><i
+                                        class="fa fa-file-pdf-o"></i></span></a></li><li><div class="dsk-date">Arbeitspapier – Granada (Spanien), 15./16. April 2010</div><a href="/fileadmin/user_upload/pdf/publikationen/working-paper/2010/2010-Granada_Charta-de.pdf" download>
+                                    Die Granada-Charta des Datenschutzes in einer digitalen Welt (Deutsch) <span class="badge"><i
+                                        class="fa fa-file-pdf-o"></i></span></a></li><li><div class="dsk-date">Working Paper – Berlin (Germany), September 7th/8th, 2009, revised and updated Granada (Spain), April 15th/16th, 2010</div><a href="/fileadmin/user_upload/pdf/publikationen/working-paper/2010/2010-WP-Reuse_Email_Accounts.pdf" download>
+                                    Working Paper on Privacy Risks in the Re-Use of E-Mail Accounts and Similar Information Society Services (English) <span class="badge"><i
+                                        class="fa fa-file-pdf-o"></i></span></a></li><li><div class="dsk-date">Arbeitspapier – Berlin (Deutschland), 7./8. September 2009, überarbeitet und aktualisiert Granada (Spanien), 15./16. April 2010</div><a href="/fileadmin/user_upload/pdf/publikationen/working-paper/2010/2010-WP-Wiederverwendung_Email_Accounts.pdf" download>
+                                    Risiken für die Privatsphäre im Zusammenhang mit der Wiederverwendung von E-Mail-Accounts und ähnlichen Diensten der Informationsgesellschaft (Deutsch) <span class="badge"><i
+                                        class="fa fa-file-pdf-o"></i></span></a></li></ul></div></div></div></div></div></section>
+
+
+
+<section class="causes-single-wrapper section-padding-top bgcount" id="c786"><div class="container bt-dotted"><div class="row content"><div class="col col-md-12 col-lg-12"><div class="about-blnbdi"><div class="download-list"><h3>2009</h3><ul><li><div class="dsk-date">Recommendation – Sofia (Bulgaria), March 12th/13th, 2009</div><a href="/fileadmin/user_upload/pdf/publikationen/working-paper/2009/2009-Recommendation_E-Waste.pdf" download>
+                                    Data Protection and E-Waste (English) <span class="badge"><i
+                                        class="fa fa-file-pdf-o"></i></span></a></li><li><div class="dsk-date">Empfehlung – Sofia (Bulgarien), 12./13. März 2009</div><a href="/fileadmin/user_upload/pdf/publikationen/working-paper/2009/2009-Empfehlung-Elektronik_Abfall.pdf" download>
+                                    Datenschutz und Elektronik-Abfall (E-Waste) (Deutsch) <span class="badge"><i
+                                        class="fa fa-file-pdf-o"></i></span></a></li><li><div class="dsk-date">Sofia Memorandum – Sofia (Bulgaria), March 12th/13th, 2009</div><a href="/fileadmin/user_upload/pdf/publikationen/working-paper/2009/2009-Sofia_Memorandum-en.pdf" download>
+                                    Report and Guidance on Road Pricing (English) <span class="badge"><i
+                                        class="fa fa-file-pdf-o"></i></span></a></li><li><div class="dsk-date">Sofia-Memorandum – Sofia (Bulgarien), 12./13. März 2009</div><a href="/fileadmin/user_upload/pdf/publikationen/working-paper/2009/2009-Sofia_Memorandum-de.pdf" download>
+                                    Bericht und Empfehlungen zu Mautsystemen (Deutsch) <span class="badge"><i
+                                        class="fa fa-file-pdf-o"></i></span></a></li></ul></div></div></div></div></div></section>
+
+
+
+<section class="causes-single-wrapper section-padding-top bgcount" id="c787"><div class="container bt-dotted"><div class="row content"><div class="col col-md-12 col-lg-12"><div class="about-blnbdi"><div class="download-list"><h3>2008</h3><ul><li><div class="dsk-date">Rome Memorandum – Rome (Italy), March 3rd/4th, 2008</div><a href="/fileadmin/user_upload/pdf/publikationen/working-paper/2008/2008-Rome_Memorandum-en.pdf" download>
+                                    Report and Guidance on Privacy in Social Network Services (English) <span class="badge"><i
+                                        class="fa fa-file-pdf-o"></i></span></a></li><li><div class="dsk-date">Rom-Memorandum – Rom (Italien), 3./4. März 2008</div><a href="/fileadmin/user_upload/pdf/publikationen/working-paper/2008/2008-Rom_Memorandum-de.pdf" download>
+                                    Bericht und Empfehlung zum Datenschutz in sozialen Netzwerkdiensten (Deutsch) <span class="badge"><i
+                                        class="fa fa-file-pdf-o"></i></span></a></li><li><div class="dsk-date">Recommendation – Rome (Italy), March 3rd/4th, 2008</div><a href="/fileadmin/user_upload/pdf/publikationen/working-paper/2008/2008-Recommendation_Cybercrime-en.pdf" download>
+                                    The Implementation and Application of the Council of Europe Convention No. 185 on Cybercrime (a.k.a. Budapest Convention) (English)  <span class="badge"><i
+                                        class="fa fa-file-pdf-o"></i></span></a></li><li><div class="dsk-date">Empfehlung – Rom (Italien), 3./4. März 2008</div><a href="/fileadmin/user_upload/pdf/publikationen/working-paper/2008/2008-Empfehlung_Cybercrime-de.pdf" download>
+                                    Umsetzung und Anwendung der Europaratskonvention Nr. 185 zur Computerkriminalität (sog. Budapest-Konvention) <span class="badge"><i
+                                        class="fa fa-file-pdf-o"></i></span></a></li></ul></div></div></div></div></div></section>
+
+
+
+<section class="causes-single-wrapper section-padding-top bgcount" id="c788"><div class="container bt-dotted"><div class="row content"><div class="col col-md-12 col-lg-12"><div class="about-blnbdi"><div class="download-list"><h3>2007</h3><ul><li><div class="dsk-date">Working Paper – Berlin (Germany), September 4th/5th, 2007</div><a href="/fileadmin/user_upload/pdf/publikationen/working-paper/2007/2007-IWGDPT-digit_en.pdf" download>
+                                    Privacy Issues in the Distribution of Digital Media Content and Digital Television (English) <span class="badge"><i
+                                        class="fa fa-file-pdf-o"></i></span></a></li><li><div class="dsk-date">Arbeitspapier – Berlin (Deutschland), 4./5. September 2007</div><a href="/fileadmin/user_upload/pdf/publikationen/working-paper/2007/2007-IWGDPT-digit_de.pdf" download>
+                                     Datenschutz bei der Verbreitung digitaler Medieninhalte und beim digitalen Fernsehen (Deutsch) <span class="badge"><i
+                                        class="fa fa-file-pdf-o"></i></span></a></li><li><div class="dsk-date">Working Paper – Berlin (Germany), September 4th/5th, 2007</div><a href="/fileadmin/user_upload/pdf/publikationen/working-paper/2007/2007-IWGDPT-e-ticket_en.pdf" download>
+                                    E-Ticketing in Public Transport (English) <span class="badge"><i
+                                        class="fa fa-file-pdf-o"></i></span></a></li><li><div class="dsk-date">Arbeitspapier – Berlin (Deutschland), 4./5. September 2007</div><a href="/fileadmin/user_upload/pdf/publikationen/working-paper/2007/2007-IWGDPT-e-ticket_de.pdf" download>
+                                    E-Ticketing in öffentlichen Verkehrsmitteln (Deutsch) <span class="badge"><i
+                                        class="fa fa-file-pdf-o"></i></span></a></li><li><div class="dsk-date">Working Paper – St. Peter Port/Guernsey (Großbritannien), April 12th/13th, 2007</div><a href="/fileadmin/user_upload/pdf/publikationen/working-paper/2007/2007-IWGDPT-Cross-Border_Telemarketing_en.pdf" download>
+                                    Cross-Border Telemarketing (English) <span class="badge"><i
+                                        class="fa fa-file-pdf-o"></i></span></a></li><li><div class="dsk-date">Arbeitspapier – St. Peter Port/Guernsey (Großbritannien), 12./13. April 2007</div><a href="/fileadmin/user_upload/pdf/publikationen/working-paper/2007/2007-IWGDPT-cross-border_de.pdf" download>
+                                    Grenzüberschreitendes Telemarketing (Deutsch) <span class="badge"><i
+                                        class="fa fa-file-pdf-o"></i></span></a></li></ul></div></div></div></div></div></section>
+
+
+
+<section class="causes-single-wrapper section-padding-top bgcount" id="c789"><div class="container bt-dotted"><div class="row content"><div class="col col-md-12 col-lg-12"><div class="about-blnbdi"><div class="download-list"><h3>2006</h3><ul><li><div class="dsk-date">Working Paper – Berlin (Germany), September 5th/6th, 2006</div><a href="/fileadmin/user_upload/pdf/publikationen/working-paper/2006/2006-IWGDPT-Working_Paper_Trusted_Computing-en.pdf" download>
+                                    Trusted Computing, Associated Digital Rights Management Technologies, and Privacy – Some Issues for Governments and Software Developers (English) <span class="badge"><i
+                                        class="fa fa-file-pdf-o"></i></span></a></li><li><div class="dsk-date">Arbeitspapier – Berlin (Deutschland), 5./6. September 2006</div><a href="/fileadmin/user_upload/pdf/publikationen/working-paper/2006/2006-IWGDPT-Working_Paper_Trusted_Computing-de.pdf" download>
+                                    Trusted Computing, damit zusammenhängende Technologien zur digitalen Rechteverwaltung, und die Privatsphäre: Einige Fragestellungen für Regierungen und Softwareentwickler (Deutsch) <span class="badge"><i
+                                        class="fa fa-file-pdf-o"></i></span></a></li><li><div class="dsk-date">Working Paper – Berlin (Germany), September 5th/6th, 2006</div><a href="/fileadmin/user_upload/pdf/publikationen/working-paper/2006/2006-IWGDPT-Working_Paper_VoIP-en.pdf" download>
+                                    Privacy and Security in Internet Telephony (VoIP) (English) <span class="badge"><i
+                                        class="fa fa-file-pdf-o"></i></span></a></li><li><div class="dsk-date">Arbeitspapier – Berlin (Deutschland), 5./6. September 2006</div><a href="/fileadmin/user_upload/pdf/publikationen/working-paper/2006/2006-IWGDPT-Working_Paper_VoIP-de.pdf" download>
+                                    Datenschutz und Datensicherheit bei der Internet-Telefonie (VoIP) (Deutsch) <span class="badge"><i
+                                        class="fa fa-file-pdf-o"></i></span></a></li><li><div class="dsk-date">Working Paper – Washington D.C. (U.S.A.), April 6th/7th, 2006</div><a href="/fileadmin/user_upload/pdf/publikationen/working-paper/2006/2006-IWGDPT-Working_Paper_Health_Records-en.pdf" download>
+                                    Online Availability of Electronic Health Records (English) <span class="badge"><i
+                                        class="fa fa-file-pdf-o"></i></span></a></li><li><div class="dsk-date">Arbeitspapier – Washington D.C. (USA), 6./7. April 2006</div><a href="/fileadmin/user_upload/pdf/publikationen/working-paper/2006/2006-IWGDPT-Working_Paper_Health_Records-de.pdf" download>
+                                    Online-Verfügbarkeit elektronischer Gesundheitsdaten (Deutsch) <span class="badge"><i
+                                        class="fa fa-file-pdf-o"></i></span></a></li><li><div class="dsk-date">Common Position – updated Washington D.C. (U.S.A.), April 6th/7th, 2006</div><a href="/fileadmin/user_upload/pdf/publikationen/working-paper/2006/2006-IWGDPT-Common_Position_Search_Engines-en.pdf" download>
+                                    Data Protection and Search Engines on the Internet (English) <span class="badge"><i
+                                        class="fa fa-file-pdf-o"></i></span></a></li><li><div class="dsk-date">Gemeinsamer Standpunkt – aktualisiert Washington D.C. (USA), 6./7. April 2006</div><a href="/fileadmin/user_upload/pdf/publikationen/working-paper/2006/2006-IWGDPT-Common_Position_Search_Engines-de.pdf" download>
+                                    Datenschutz bei Suchmaschinen im Internet (Deutsch) <span class="badge"><i
+                                        class="fa fa-file-pdf-o"></i></span></a></li></ul></div></div></div></div></div></section>
+
+
+
+<section class="causes-single-wrapper section-padding-top bgcount" id="c790"><div class="container bt-dotted"><div class="row content"><div class="col col-md-12 col-lg-12"><div class="about-blnbdi"><div class="download-list"><h3>2005</h3><ul><li><div class="dsk-date">Working Paper – Berlin (Germany), September 6th/7th, 2005</div><a href="/fileadmin/user_upload/pdf/publikationen/working-paper/2005/2005-IWGDPT-Working_Paper_Cybercafes-en.pdf" download>
+                                    Web Browser Caching of Personal Information in Commercial and Public Multi-User Web Access Environments (e. g. Cybercafés)  <span class="badge"><i
+                                        class="fa fa-file-pdf-o"></i></span></a></li><li><div class="dsk-date">Arbeitspapier – Berlin (Deutschland), 6./7. September 2005</div><a href="/fileadmin/user_upload/pdf/publikationen/working-paper/2005/2005-IWGDPT-Working_Paper_Cybercafes-de.pdf" download>
+                                    Web-Browser-Caching (Zwischenspeicherung) von personenbezogenen Daten bei öffentlichen Internet-Zugängen (z. B. Internet-Cafés) (Deutsch) <span class="badge"><i
+                                        class="fa fa-file-pdf-o"></i></span></a></li><li><div class="dsk-date">Working Paper – updated Berlin (Germany), September 6th/7th, 2005</div><a href="/fileadmin/user_upload/pdf/publikationen/working-paper/2005/2005-IWGDPT-Working_Paper_Web-based_Telemedicine-en.pdf" download>
+                                    Web-based Telemedicine (English) <span class="badge"><i
+                                        class="fa fa-file-pdf-o"></i></span></a></li><li><div class="dsk-date">Arbeitspapier – aktualisiert Berlin (Deutschland), 6./7. September 2005</div><a href="/fileadmin/user_upload/pdf/publikationen/working-paper/2005/2005-IWGDPT-Working_Paper_Web-based_Telemedicine-de.pdf" download>
+                                    Netzwerkbasierte Telemedizin (Deutsch) <span class="badge"><i
+                                        class="fa fa-file-pdf-o"></i></span></a></li><li><div class="dsk-date">Second Working Paper – Madeira (Portugal), March 31st/April 1st, 2005</div><a href="/fileadmin/user_upload/pdf/publikationen/working-paper/2005/2005-IWGDPT-Second_Working_Paper_Online_Voting-en.pdf" download>
+                                    Data Protection and Online Voting in Parliamentary and other Governmental Elections (English) <span class="badge"><i
+                                        class="fa fa-file-pdf-o"></i></span></a></li><li><div class="dsk-date">Zweites Arbeitspapier – Madeira (Portugal), 31. März/1. April 2005</div><a href="/fileadmin/user_upload/pdf/publikationen/working-paper/2005/2005-IWGDPT-Second_Working_Paper_Online_Voting-de.pdf" download>
+                                    Datenschutz bei Online-Wahlen in Parlamentswahlen und Wahlen zu anderen staatlichen Gremien (Deutsch) <span class="badge"><i
+                                        class="fa fa-file-pdf-o"></i></span></a></li></ul></div></div></div></div></div></section>
+
+
+
+<section class="causes-single-wrapper section-padding-top bgcount" id="c791"><div class="container bt-dotted"><div class="row content"><div class="col col-md-12 col-lg-12"><div class="about-blnbdi"><div class="download-list"><h3>2004</h3><ul><li><div class="dsk-date">Working Paper – Berlin (Germany), November 18th/19th, 2004</div><a href="/fileadmin/user_upload/pdf/publikationen/working-paper/2004/2004-IWGDPT-Working_Paper_Cyber_Security_Curricula-en.pdf" download>
+                                    Cyber Security Curricula Integrating National, Cultural and Jurisdictional (including Privacy) Imperatives (English) <span class="badge"><i
+                                        class="fa fa-file-pdf-o"></i></span></a></li><li><div class="dsk-date">Arbeitspapier – Berlin (Deutschland), 18./19. November 2004</div><a href="/fileadmin/user_upload/pdf/publikationen/working-paper/2004/2004-IWGDPT-Working_Paper_Cyber_Security_Curricula-de.pdf" download>
+                                    Lehrpläne zur Internetsicherheit unter Berücksichtigung nationaler, kultureller und rechtlicher (einschließlich datenschutzrechtlicher) Anforderungen (Deutsch) <span class="badge"><i
+                                        class="fa fa-file-pdf-o"></i></span></a></li><li><div class="dsk-date">Working Paper – Berlin (Germany), November 18th/19th, 2004</div><a href="/fileadmin/user_upload/pdf/publikationen/working-paper/2004/2004-IWGDPT-Working_Paper_Cyber_Fraud-en.pdf" download>
+                                    Means and Procedures to Combat Cyber-Fraud in a Privacy-Friendly Way (English) <span class="badge"><i
+                                        class="fa fa-file-pdf-o"></i></span></a></li><li><div class="dsk-date">Arbeitspapier – Berlin (Deutschland), 18./19. November 2004</div><a href="/fileadmin/user_upload/pdf/publikationen/working-paper/2004/2004-IWGDPT-Working_Paper_Cyber_Fraud-de.pdf" download>
+                                    Mittel und Verfahren der datenschutzfreundlichen Bekämpfung des Online-Betrugs (Deutsch) <span class="badge"><i
+                                        class="fa fa-file-pdf-o"></i></span></a></li><li><div class="dsk-date">Common Position – updated Berlin (Germany), November 18th/19th, 2004</div><a href="/fileadmin/user_upload/pdf/publikationen/working-paper/2004/2004-IWGDPT-Common_Position_Location_information-en.pdf" download>
+                                    Privacy and Location Information in Mobile Communication Services (English) <span class="badge"><i
+                                        class="fa fa-file-pdf-o"></i></span></a></li><li><div class="dsk-date">Gemeinsamer Standpunkt – aktualisiert Berlin (Deutschland), 18./19. November 2004</div><a href="/fileadmin/user_upload/pdf/publikationen/working-paper/2004/2004-IWGDPT-Common_Position_Location_information-de.pdf" download>
+                                    Datenschutz und Aufenthaltsinformationen in mobilen Kommunikationsdiensten (Deutsch) <span class="badge"><i
+                                        class="fa fa-file-pdf-o"></i></span></a></li><li><div class="dsk-date">Working Paper – Buenos Aires (Argentinia), April 14th/15th, 2004</div><a href="/fileadmin/user_upload/pdf/publikationen/working-paper/2004/2004-IWGDPT-Working_Paper_On-line_Publications-en.pdf" download>
+                                    Freedom of Expression and Right to Privacy Regarding On-line Publications (English) <span class="badge"><i
+                                        class="fa fa-file-pdf-o"></i></span></a></li><li><div class="dsk-date">Arbeitspapier – Buenos Aires (Argentinien), 14./15. April 2004</div><a href="/fileadmin/user_upload/pdf/publikationen/working-paper/2004/2004-IWGDPT-Working_Paper_On-line_Publications-de.pdf" download>
+                                    Meinungsäußerungsfreiheit und Persönlichkeitsrecht bei Online-Publikationen (Deutsch) <span class="badge"><i
+                                        class="fa fa-file-pdf-o"></i></span></a></li><li><div class="dsk-date">Working Paper – Buenos Aires (Argentinia), April 14th/15th, 2004</div><a href="/fileadmin/user_upload/pdf/publikationen/working-paper/2004/2004-IWGDPT-Privacy_Risks_Wireless_Networks-en.pdf" download>
+                                    Potential Privacy Risks Associated with Wireless Networks (English) <span class="badge"><i
+                                        class="fa fa-file-pdf-o"></i></span></a></li><li><div class="dsk-date">Working Paper – Buenos Aires (Argentinia), April 14th/15th, 2004</div><a href="/fileadmin/user_upload/pdf/publikationen/working-paper/2004/2004-IWGDPT-Working_Paper_Images_Sounds_Multimedia_Messaging_Services-en.pdf" download>
+                                    Privacy and Processing of Images and Sounds by Multimedia Messaging Services (English) <span class="badge"><i
+                                        class="fa fa-file-pdf-o"></i></span></a></li><li><div class="dsk-date">Working Paper – Buenos Aires (Argentinia), April 14th/15th, 2004</div><a href="/fileadmin/user_upload/pdf/publikationen/working-paper/2004/2004-IWGDPT-Working_Paper_ISO_Privacy_Standard-en.pdf" download>
+                                    On a Future ISO Privacy Standard (English) <span class="badge"><i
+                                        class="fa fa-file-pdf-o"></i></span></a></li><li><div class="dsk-date">Arbeitspapier – Buenos Aires (Argentinien), 14./15. April 2004</div><a href="/fileadmin/user_upload/pdf/publikationen/working-paper/2004/2004-IWGDPT-Working_Paper_ISO_Privacy_Standard-de.pdf" download>
+                                    Zu einem zukünftigen ISO-Datenschutzstandard (Deutsch) <span class="badge"><i
+                                        class="fa fa-file-pdf-o"></i></span></a></li></ul></div></div></div></div></div></section>
+
+
+
+<section class="causes-single-wrapper section-padding-top bgcount" id="c792"><div class="container bt-dotted"><div class="row content"><div class="col col-md-12 col-lg-12"><div class="about-blnbdi"><div class="download-list"><h3>2003</h3><ul><li><div class="dsk-date">Working Paper – Berlin (Germany), September 2nd/3rd, 2003</div><a href="/fileadmin/user_upload/pdf/publikationen/working-paper/2003/2003-IWGDPT-Working_Paper_ENUM-en.pdf" download>
+                                    Potential Privacy Risks Associated with the Introduction of the ENUM Service (English) <span class="badge"><i
+                                        class="fa fa-file-pdf-o"></i></span></a></li><li><div class="dsk-date">Arbeitspapier – Berlin (Deutschland), 2./3. September 2003</div><a href="/fileadmin/user_upload/pdf/publikationen/working-paper/2003/2003-IWGDPT-Working_Paper_ENUM-de.pdf" download>
+                                    Potentielle Datenschutzrisiken im Zusammenhang mit der Einführung des ENUM-Service (Deutsch) <span class="badge"><i
+                                        class="fa fa-file-pdf-o"></i></span></a></li><li><div class="dsk-date">Working Paper – Berlin (Germany), September 2nd/3rd, 2003</div><a href="/fileadmin/user_upload/pdf/publikationen/working-paper/2003/2003-IWGDPT-Working_Paper_IDS-en.pdf" download>
+                                    Intrusion Detection Systems (IDS) (English) <span class="badge"><i
+                                        class="fa fa-file-pdf-o"></i></span></a></li><li><div class="dsk-date">Arbeitspapier – Berlin (Deutschland), 2./3. September 2003</div><a href="/fileadmin/user_upload/pdf/publikationen/working-paper/2003/2003-IWGDPT-Working_Paper_IDS-de.pdf" download>
+                                    Intrusion-Detection-Systeme (IDS) (Deutsch) <span class="badge"><i
+                                        class="fa fa-file-pdf-o"></i></span></a></li></ul></div></div></div></div></div></section>
+
+
+
+<section class="causes-single-wrapper section-padding-top bgcount" id="c793"><div class="container bt-dotted"><div class="row content"><div class="col col-md-12 col-lg-12"><div class="about-blnbdi"><div class="download-list"><h3>2002</h3><ul><li><div class="dsk-date">Working Paper – Auckland (New Zealand), March 26th/27th, 2002</div><a href="/fileadmin/user_upload/pdf/publikationen/working-paper/2002/2002-IWGDPT-Working_Paper_Telecommunications_Surveillance-en.pdf" download>
+                                    Telecommunications Surveillance (English) <span class="badge"><i
+                                        class="fa fa-file-pdf-o"></i></span></a></li><li><div class="dsk-date">Arbeitspapier – Auckland (Neuseeland), 26./27. März 2002</div><a href="/fileadmin/user_upload/pdf/publikationen/working-paper/2002/2002-IWGDPT-Working_Paper_Telecommunications_Surveillance-de.pdf" download>
+                                    Überwachung der Telekommunikation (Deutsch) <span class="badge"><i
+                                        class="fa fa-file-pdf-o"></i></span></a></li><li><div class="dsk-date">Working Paper – Auckland (New Zealand), March 26th/27th, 2002</div><a href="/fileadmin/user_upload/pdf/publikationen/working-paper/2002/2002-IWGDPT-Working_Paper_childrens_privacy-en.pdf" download>
+                                    Childrens’ Privacy On Line: The Role of Parental Consent (English) <span class="badge"><i
+                                        class="fa fa-file-pdf-o"></i></span></a></li><li><div class="dsk-date">Arbeitspapier – Auckland (Neuseeland), 26./27. März 2002</div><a href="/fileadmin/user_upload/pdf/publikationen/working-paper/2002/2002-IWGDPT-Working_Paper_childrens_privacy-de.pdf" download>
+                                    Schutz der Privatsphäre von Kindern im Netz: Die Rolle der elterlichen Einwilligung (Deutsch) <span class="badge"><i
+                                        class="fa fa-file-pdf-o"></i></span></a></li><li><div class="dsk-date">Working Paper – Auckland (New Zealand), March 26th/27th, 2002</div><a href="/fileadmin/user_upload/pdf/publikationen/working-paper/2002/2002-IWGDPT-Working_Paper_ipv6-en.pdf" download>
+                                    The Use of Unique Identifiers in Telecommunication Terminal Equipment: The Example of IPv6 (English) <span class="badge"><i
+                                        class="fa fa-file-pdf-o"></i></span></a></li><li><div class="dsk-date">Arbeitspapier – Auckland (Neuseeland), 26./27. März 2002</div><a href="/fileadmin/user_upload/pdf/publikationen/working-paper/2002/2002-IWGDPT-Working_Paper_ipv6-de.pdf" download>
+                                    Nutzung eindeutiger Identifikatoren in Telekommunikationsendgeräten: Das Beispiel IPv6 (Deutsch) <span class="badge"><i
+                                        class="fa fa-file-pdf-o"></i></span></a></li></ul></div></div></div></div></div></section>
+
+
+
+<section class="causes-single-wrapper section-padding-top bgcount" id="c794"><div class="container bt-dotted"><div class="row content"><div class="col col-md-12 col-lg-12"><div class="about-blnbdi"><div class="download-list"><h3>2001</h3><ul><li><div class="dsk-date">Working Paper – Berlin (Germany), August 28th, 2001</div><a href="/fileadmin/user_upload/pdf/publikationen/working-paper/2001/2001-IWGDPT-Working_Paper_Online_Voting-en.pdf" download>
+                                    Data Protection and Online Voting in Parliamentary and other Governmental Elections (English) <span class="badge"><i
+                                        class="fa fa-file-pdf-o"></i></span></a></li><li><div class="dsk-date">Arbeitspapier – Berlin (Deutschland), 28. August 2001</div><a href="/fileadmin/user_upload/pdf/publikationen/working-paper/2001/2001-IWGDPT-Working_Paper_Online_Voting-de.pdf" download>
+                                    Datenschutz und internetgestützte Stimmabgabe bei Wahlen zu Parlamenten und anderen staatlichen Einrichtungen (Deutsch) <span class="badge"><i
+                                        class="fa fa-file-pdf-o"></i></span></a></li><li><div class="dsk-date">Working Paper – Berlin (Germany), August 28th, 2001</div><a href="/fileadmin/user_upload/pdf/publikationen/working-paper/2001/2001-IWGDPT-Working_Paper_public-key_infrastructures-en.pdf" download>
+                                    Data Protection Aspects of Digital Certificates and Public-Key Infrastructures (English) <span class="badge"><i
+                                        class="fa fa-file-pdf-o"></i></span></a></li><li><div class="dsk-date">Arbeitspapier – Berlin (Deutschland), 28. August 2001</div><a href="/fileadmin/user_upload/pdf/publikationen/working-paper/2001/2001-IWGDPT-Working_Paper_public-key_infrastructures-de.pdf" download>
+                                    Datenschutzaspekte digitaler Zertifikate und Public-Key-Infrastrukturen (Deutsch) <span class="badge"><i
+                                        class="fa fa-file-pdf-o"></i></span></a></li></ul></div></div></div></div></div></section>
+
+
+
+<section class="causes-single-wrapper section-padding-top bgcount" id="c591"><div class="container bt-dotted"><div class="row content"><div class="col col-md-12 col-lg-12"><div class="about-blnbdi"><div class="download-list"><h3>2000</h3><ul><li><div class="dsk-date">Common Position – Berlin (Germany), September 13th/14th, 2000</div><a href="/fileadmin/user_upload/pdf/publikationen/working-paper/2000/2000-IWGDPT-Ten_Commandments_Privacy_Internet-en.pdf" download>
+                                    Incorporation of Telecommunications-Specific Principles in Multilateral privacy Agreements Ten Commandments to Protect Privacy in the Internet World (English) <span class="badge"><i
+                                        class="fa fa-file-pdf-o"></i></span></a></li><li><div class="dsk-date">Gemeinsamer Standpunkt – Berlin (Deutschland), 13./14. September 2000</div><a href="/fileadmin/user_upload/pdf/publikationen/working-paper/2000/2000-IWGDPT-Ten_Commandments_Privacy_Internet-de.pdf" download>
+                                    Aufnahme telekommunikationsspezifischer Prinzipien in multilaterale Abkommen zum Datenschutz (Deutsch) <span class="badge"><i
+                                        class="fa fa-file-pdf-o"></i></span></a></li><li><div class="dsk-date">Common Position – Berlin (Germany), September 13th/14th, 2000</div><a href="/fileadmin/user_upload/pdf/publikationen/working-paper/2000/2000-IWGDPT-Common_Position_cyber-crime-en.pdf" download>
+                                    Data Protection Aspects in the Draft Convention on Cyber-Crime of the Council of Europe (English) <span class="badge"><i
+                                        class="fa fa-file-pdf-o"></i></span></a></li><li><div class="dsk-date">Gemeinsamer Standpunkt – Berlin (Deutschland), 13./14. September 2000</div><a href="/fileadmin/user_upload/pdf/publikationen/working-paper/2000/2000-IWGDPT-Common_Position_cyber-crime-de.pdf" download>
+                                    Datenschutzaspekte des Entwurfs einer Konvention zur Datennetzkriminalität des Europarates (Deutsch) <span class="badge"><i
+                                        class="fa fa-file-pdf-o"></i></span></a></li><li><div class="dsk-date">Common Position – Crete (Greece), May 4th/5th, 2000</div><a href="/fileadmin/user_upload/pdf/publikationen/working-paper/2000/2000-IWGDPT-Common_Position_Publication_Personal_Data_public_available-en.pdf" download>
+                                    Privacy and Data Protection Aspects of the Publication of Personal Data Contained in Publicly Available Documents on the Internet (English) <span class="badge"><i
+                                        class="fa fa-file-pdf-o"></i></span></a></li><li><div class="dsk-date">Gemeinsamer Standpunkt – Kreta (Griechenland), 4./5. Mai 2000</div><a href="/fileadmin/user_upload/pdf/publikationen/working-paper/2000/2000-IWGDPT-Common_Position_Publication_Personal_Data_public_available-de.pdf" download>
+                                    Datenschutzaspekte der Veröffentlichung personenbezogener Daten aus öffentlich zugänglichen Dokumenten im Internet (Deutsch) <span class="badge"><i
+                                        class="fa fa-file-pdf-o"></i></span></a></li><li><div class="dsk-date">Common Position – Crete (Greece), May 4th/5th, 2000</div><a href="/fileadmin/user_upload/pdf/publikationen/working-paper/2000/2000-IWGDPT-Common_Position_Registration_Domain_Names-en.pdf" download>
+                                    Privacy and Data Protection Aspects of the Registration of Domain Names on the Internet (English) <span class="badge"><i
+                                        class="fa fa-file-pdf-o"></i></span></a></li><li><div class="dsk-date">Gemeinsamer Standpunkt – Kreta (Griechenland), 4./5. Mai 2000</div><a href="/fileadmin/user_upload/pdf/publikationen/working-paper/2000/2000-IWGDPT-Common_Position_Registration_Domain_Names-de.pdf" download>
+                                    Datenschutzaspekte bei der Registrierung von Domain-Namen im Internet (Deutsch) <span class="badge"><i
+                                        class="fa fa-file-pdf-o"></i></span></a></li><li><div class="dsk-date">Common Position – Crete (Greece), May 4th/5th, 2000</div><a href="/fileadmin/user_upload/pdf/publikationen/working-paper/2000/2000-IWGDPT-Common_Position_Online_Profiles_Internet-en.pdf" download>
+                                    Online Profiles on the Internet (English) <span class="badge"><i
+                                        class="fa fa-file-pdf-o"></i></span></a></li><li><div class="dsk-date">Gemeinsamer Standpunkt – Kreta (Griechenland), 4./5. Mai 2000</div><a href="/fileadmin/user_upload/pdf/publikationen/working-paper/2000/2000-IWGDPT-Common_Position_Online_Profiles_Internet-de.pdf" download>
+                                    Online-Profile im Internet (Deutsch) <span class="badge"><i
+                                        class="fa fa-file-pdf-o"></i></span></a></li><li><div class="dsk-date">Common Position – Crete (Greece), May 4th/5th, 2000</div><a href="/fileadmin/user_upload/pdf/publikationen/working-paper/2000/2000-IWGDPT-Common_Position_Copyright-en.pdf" download>
+                                    Privacy and Copyright Management (English) <span class="badge"><i
+                                        class="fa fa-file-pdf-o"></i></span></a></li><li><div class="dsk-date">Gemeinsamer Standpunkt – Kreta (Griechenland), 4./5. Mai 2000</div><a href="/fileadmin/user_upload/pdf/publikationen/working-paper/2000/2000-IWGDPT-Common_Position_Copyright-de.pdf" download>
+                                    Datenschutz und Urheberrechts-Management (Deutsch) <span class="badge"><i
+                                        class="fa fa-file-pdf-o"></i></span></a></li><li><div class="dsk-date">Common Position – Crete (Greece), May 4th/5th, 2000</div><a href="/fileadmin/user_upload/pdf/publikationen/working-paper/2000/2000-IWGDPT-Common_Position_Infomediaries-en.pdf" download>
+                                    Infomediaries – A Privacy-Friendly Business Model? (English) <span class="badge"><i
+                                        class="fa fa-file-pdf-o"></i></span></a></li><li><div class="dsk-date">Gemeinsamer Standpunkt – Kreta (Griechenland), 4./5. Mai 2000</div><a href="/fileadmin/user_upload/pdf/publikationen/working-paper/2000/2000-IWGDPT-Common_Position_Infomediaries-de.pdf" download>
+                                    Infomediaries (Informationsmakler) – Eine datenschutzfreundliche Geschäftsidee? (Deutsch) <span class="badge"><i
+                                        class="fa fa-file-pdf-o"></i></span></a></li><li><div class="dsk-date">Common Position – Crete (Greece), May 4th/5th, 2000</div><a href="/fileadmin/user_upload/pdf/publikationen/working-paper/2000/2000-IWGDPT-Common_Position_fraud_detection_Telecommunications-en.pdf" download>
+                                    The Detection of Fraud in Telecommunications (English) <span class="badge"><i
+                                        class="fa fa-file-pdf-o"></i></span></a></li><li><div class="dsk-date">Gemeinsamer Standpunkt – Kreta (Griechenland), 4./5. Mai 2000</div><a href="/fileadmin/user_upload/pdf/publikationen/working-paper/2000/2000-IWGDPT-Common_Position_fraud_detection_Telecommunications-de.pdf" download>
+                                    Missbrauchserkennung in der Telekommunikation (Deutsch) <span class="badge"><i
+                                        class="fa fa-file-pdf-o"></i></span></a></li></ul></div></div></div></div></div></section>
+
+
+			
+			<!--TYPO3SEARCH_end-->
+			
+			        <section class="">
+        	<div class="container bt-dotted-tag">
+        		<div class="row content">
+        			<div class="col col-md-12 col-lg-12">
+        				<div class="back-to-site">
+        					<div>
+        						<span>zurück zur Seite:</span><ul class="tag"><li><a href="/infothek">Infothek</a></li></ul>       </div>
+       				</div>
+
+       			</div>
+       		</div>
+       	</div>
+       </section>
+			<footer class="site-footer">
+	<div class="container">
+		<div class="row">
+			<div class="col col-md-5 col-sm-6">
+				<div class="widget about-widget">
+					<div class="footer-logo">
+						<img src="/typo3conf/ext/bds_website/Resources/Public/assets/images/BlnBDI_logo_footer.svg" alt="BlnBDI Logo" class="img img-responsive">
+					</div>
+					
+<div id="c3"><p>Friedrichstr. 219<br> 10969 Berlin<br> Eingang: Puttkamerstr. 16-18<br><br><a href="tel:+4930138890">Tel.: +49 30 13889-0</a><br> Fax: +49 30 2155050<br> E-Mail: mailbox@datenschutz-berlin.de</p></div>
+
+
+				</div>
+			</div>
+			<div class="col col-md-2 col-sm-2">
+				<div class="widget first-about-widget">
+					
+<div id="c4"><header><h3 class="">
+				Informationen
+			</h3></header><ul><li><a href="/barrierefreiheit">Barrierefreiheit</a></li><li><a href="/datenschutzerklaerung">Datenschutz</a></li><li><a href="/disclaimer">Disclaimer</a></li><li><a href="/impressum">Impressum</a></li><li><a href="/ueber-uns/kontakt">Kontakt</a></li><li><a href="/sichere-e-mail">Sichere E-Mail</a></li></ul></div>
+
+
+				</div>
+			</div>
+			<div class="col col-md-5 col-sm-4">
+				<div class="widget about-widget">
+					
+<div id="c5"><header><h3 class="">
+				Pressekontakt
+			</h3></header><p>Pressesprecher: Simon Rebiger</p><ul><li><a href="tel:+493013889319">Tel.: +49 30 13889-900</a></li><li>Fax:&nbsp;+49 30 2155050</li><li>E-Mail: presse@datenschutz-berlin.de</li></ul></div>
+
+
+				</div>
+			</div>
+		</div>
+	</div>
+</footer>
+
+			<div id="footer-note">
+	<div class="container">
+		<div class="row">
+			<div class="col col-md-12 col-sm-12">
+				<div class="berlin-logo">
+					<img src="/typo3conf/ext/bds_website/Resources/Public/assets/images/berlin_white.svg" alt="Logo des Hauptstadtportals berlin.de" class="img img-responsive">
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+		</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+	<script id="powermail_conditions_container" data-condition-uri="https://www.datenschutz-berlin.de/infothek/arbeitspapiere-der-berlin-group?type=3132"></script>
+
+<script src="/typo3conf/ext/bds_website/Resources/Public/assets/js/jquery.min.js?1597828342" type="text/javascript"></script>
+<script src="/typo3conf/ext/bds_website/Resources/Public/assets/js/bootstrap.min.js?1597828342" type="text/javascript"></script>
+<script src="/typo3conf/ext/bds_website/Resources/Public/assets/js/jquery-plugin-collection.js?1597828342" type="text/javascript"></script>
+<script src="/typo3conf/ext/bds_website/Resources/Public/assets/js/jquery.matchHeight-min.js?1597828342" type="text/javascript"></script>
+<script src="/typo3conf/ext/bds_website/Resources/Public/assets/js/script.js?1597828342" type="text/javascript"></script>
+<script src="/typo3conf/ext/powermail/Resources/Public/JavaScript/Libraries/jquery.datetimepicker.min.js?1637146349" type="text/javascript"></script>
+<script src="/typo3conf/ext/powermail/Resources/Public/JavaScript/Libraries/parsley.min.js?1637146349" type="text/javascript"></script>
+<script src="/typo3conf/ext/powermail/Resources/Public/JavaScript/Powermail/Tabs.min.js?1637146349" type="text/javascript"></script>
+<script src="/typo3conf/ext/powermail/Resources/Public/JavaScript/Powermail/Form.min.js?1637146349" type="text/javascript"></script>
+<script src="/typo3conf/ext/powermail_cond/Resources/Public/JavaScript/PowermailCondition.min.js?1542389828" type="text/javascript"></script>
+
+
+		<noscript>
+            <style>
+                .blog-grids .entry-body .btn-news {
+                    position: relative;
+                    bottom: 60px;
+                    right: inherit;
+                    display: table-row;
+                }
+
+                .blog-grids .entry-meta ul {
+                    overflow: hidden;
+                    -webkit-transition: all 0.4s;
+                    -moz-transition: all 0.4s;
+                    -o-transition: all 0.4s;
+                    -ms-transition: all 0.4s;
+                    transition: all 0.4s;
+                    position: relative;
+                    display: table-row;
+                }
+
+                .navbar-header-border input[type=checkbox] {
+                    width: 40px;
+                    height: 35px;
+                    border: 0;
+                    padding: 5px 10px;
+                    outline: 0;
+                    position: absolute;
+                    right: 15px;
+                    top: 16px;
+                    z-index: 21;
+                    display: block;
+                    cursor: pointer;
+
+                    opacity: 0; /* hide this */
+
+                    -webkit-touch-callout: none;
+                }
+
+                .navbar-header-border input[type=checkbox]:checked ~ .navbar-left {
+                    margin-top: 65px !important;
+                    right: -330px !important;
+                    transform: translate(-100%, 0) !important;
+                }
+
+                .close-navbar {
+                    display: none;
+                }
+
+                .navbar-header button span {
+                    -webkit-transform: rotate(0deg);
+                    -moz-transform: rotate(0deg);
+                    -o-transform: rotate(0deg);
+                    transform: rotate(0deg);
+                    -webkit-transition: .5s ease-in-out;
+                    -moz-transition: .5s ease-in-out;
+                    -o-transition: .5s ease-in-out;
+                    transition: .5s ease-in-out;
+                    cursor: pointer;
+                }
+
+                .navbar-header-border input[type=checkbox]:checked ~ .mobile-nav button span:nth-child(2) {
+                    margin-top: 0px;
+                    -webkit-transform: rotate(135deg);
+                    -moz-transform: rotate(135deg);
+                    -o-transform: rotate(135deg);
+                    transform: rotate(135deg);
+                }
+
+                .navbar-header-border input[type=checkbox]:checked ~ .mobile-nav button span:nth-child(3) {
+                    opacity: 0;
+                    left: -60px;
+                }
+
+                .navbar-header-border input[type=checkbox]:checked ~ .mobile-nav button span:nth-child(4) {
+                    margin-top: -14px;
+                    -webkit-transform: rotate(-135deg);
+                    -moz-transform: rotate(-135deg);
+                    -o-transform: rotate(-135deg);
+                    transform: rotate(-135deg);
+                }
+
+                @media (max-width: 991px) {
+                    .site-header #navbar {
+                        transform-origin: 0% 0%;
+                        transform: translate(100%, 0);
+                    }
+
+                }
+
+            </style>
+        </noscript>
+
+</body>
+</html>
