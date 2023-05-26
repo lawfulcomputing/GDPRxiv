@@ -23,15 +23,11 @@
 With the introduction of the Europeans Union's General Data Protection Regulation (GDPR), there has been an explosion in the number of legal 
 documents pertaining to case reviews, analyses, legal decisions, etc... that mark the enforcement of the GDPR.
 Additionally, these documents are spread across over 30 Data Protection (DPA) and Supervisory Authorities. As a result, it is 
-cumbersome for researchers/legal teams to access and download a large quantity of GDPR documents at once.
+cumbersome for researchers/legal teams to access this knowledge base.
 
 To address this, we have created GDPRxiv Crawler, a command-line tool that allows users to efficiently filter and
 download GDPR documents. Users may select their desired DPA and document_type, and GDPRxiv Crawler will scrape the web
 and download all up-to-date documents. 
-
-Of course, it is impossible to entirely keep up with DPA website redesigns and newly added document categories. 
-However, we hope that this tool will eliminate the bulk of the workload and allow users to focus on more important tasks.
-
 
 
 ### Built With
