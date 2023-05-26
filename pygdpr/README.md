@@ -48,10 +48,10 @@ However, we hope that this tool will eliminate the bulk of the workload and allo
 1. Python >=3.8 is required.
 
 
-3. WebDriver is required. The code has been tested on Mac, download [ChromeDriver](https://chromedriver.chromium.org/downloads).
+2. WebDriver is required to run Selenium. The code use ChromeDriver, and it support Windows/macOS/Linux OS. Download link: [ChromeDriver](https://chromedriver.chromium.org/downloads).
 
 
-5. It is strongly recommended that users utilize a virtual environment when installing. 
+3. It is strongly recommended that users utilize a virtual environment when installing. 
 See below to create and activate one.
 
 _In a directory:_
