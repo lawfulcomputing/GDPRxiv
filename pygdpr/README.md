@@ -95,7 +95,7 @@ The same directory can be used for multiple countries: the scraper automatically
 
 Example command:
 ```sh
- python gdprCrawler.py --country "Austria" --document_type "Decisions" --path "<Your Path>/GDPRxiv/downloaded_documents"
+python gdprCrawler.py --country "Austria" --document_type "Decisions" --path "<Your Path>/GDPRxiv/downloaded_documents"
 ```
 &nbsp; 
 
