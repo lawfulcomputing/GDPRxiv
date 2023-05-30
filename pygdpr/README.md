@@ -48,7 +48,7 @@ and download all up-to-date documents.
 
 
 3. It is strongly recommended that users utilize a virtual environment when installing. 
-See below to create and activate one.
+The instructions are tested and run on macOS and Linux.
 
 _In a directory:_
 1. venv:
