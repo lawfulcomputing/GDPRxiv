@@ -48,6 +48,7 @@ class Romania(DPA):
 
     def get_docs(self, existing_docs=[], overwrite=False, to_print=True):
         print("\n===================== Romania Decisions & Reports ====================")
+
         iteration = 1
         added_docs = []
         dict_hashcode = {}
@@ -124,12 +125,14 @@ class Romania(DPA):
                 dpa_folder = self.path
 
                 # solve documents with same title and same date issue
-                if document_hash not in dict_hashcode:
-                    dict_hashcode[document_hash] = 1
-                else:
+                date_part = date_str.replace('/', '_')
+                document_hash = document_hash + '-' + date_part
+                if document_hash in dict_hashcode:
                     dict_hashcode[document_hash] = dict_hashcode[document_hash] + 1
+                    document_hash = document_hash + '-' + str(dict_hashcode[document_hash])
+                else:
+                    dict_hashcode[document_hash] = 1
 
-                document_hash = document_hash + '-' + str(dict_hashcode[document_hash])
                 if to_print:
                     print("\tDocument:\t", document_hash)
                     print("\tdate_str: ", date_str)

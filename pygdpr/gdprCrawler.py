@@ -132,7 +132,7 @@ def scrape(country, document_type, path, overwrite):
         path = path + "/croatia"
         dpa = Croatia(path=path)
     elif country == "Cyprus":
-        path = path + "/cyrpus"
+        path = path + "/cyprus"
         dpa = Cyprus(path=path)
     elif country == "Czech Republic":
         path = path + "/czech_republic"

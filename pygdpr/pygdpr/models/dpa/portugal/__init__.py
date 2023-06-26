@@ -28,7 +28,7 @@ class Portugal(DPA):
     def update_pagination(self, pagination=None, page_soup=None, driver=None):
         source = {
             "host": "https://www.cnpd.pt",
-            "start_path": "/decisoes/historico-de-decisoes/?year=2022"
+            "start_path": "/decisoes/historico-de-decisoes/?year=2023"
         }
         host = source['host']
         start_path = source['start_path']
@@ -39,7 +39,7 @@ class Portugal(DPA):
             pagination.add_item(host + start_path)
 
             # add previous year links
-            previous_year = ['2021', '2020', '2019', '2018']
+            previous_year = ['2022', '2021', '2020', '2019', '2018']
             for i in range(len(previous_year)):
                  start_path = start_path[:-4] + previous_year[i]
                  # print('previous_year: ', host + start_path)

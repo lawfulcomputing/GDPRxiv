@@ -55,14 +55,14 @@ class France(DPA):
             pagination = Pagination()
             pagination.add_item(host + start_path)
         else:
-            pager_load_more = page_soup.find('ul', class_='pager-load-more')
+            pager_load_more = page_soup.find('ul', class_='pagination js-pager__items')
             if pager_load_more is not None:
-                pager_next = pager_load_more.find('li', class_='pager-next')
+                pager_next = pager_load_more.find('li', class_='pager__item--next')
                 page_link = pager_next.find('a')
                 if page_link is not None:
                     page_href = page_link.get('href')
                     pagination = Pagination()
-                    pagination.add_item(host + page_href)
+                    pagination.add_item(host + start_path + page_href)
         return pagination
 
     def get_source(self, page_url=None, driver=None):
@@ -117,6 +117,7 @@ class France(DPA):
         while pagination.has_next():
             page_url = pagination.get_next()
             page_source = self.get_source(page_url=page_url)
+            print("new page: ", page_url)
             if page_source is None:
                 continue
             # s1. Results
@@ -177,9 +178,9 @@ class France(DPA):
                 # print('date:', tmp.year, tmp.month, tmp.day)
                 date = datetime.date(tmp.year, tmp.month, tmp.day)
                 if ShouldRetainDocumentSpecification().is_satisfied_by(date) is False:
-                    print("Before GDPR , stop.")
+                    print("\tBefore GDPR")
                     # break
-                    return existed_docs
+                    continue
                 print("\tdate: ", date)
 
                 document_hash = hashlib.md5(document_title.encode()).hexdigest()
@@ -219,7 +220,7 @@ class France(DPA):
                     dict_hashcode[document_hash] = date_part
                 except FileExistsError:
                     print("\tDirectory path already exists, continue.")
-                
+
             # s0. Pagination
             pagination = self.update_pagination(pagination=pagination, page_soup=results_soup)
         return existed_docs
