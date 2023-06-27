@@ -351,6 +351,7 @@ class UnitedKingdom(DPA):
             pagination = self.update_pagination(pagination=pagination, page_soup=results_soup)
         return existed_docs
 
+
     def get_docs_Enforcements(self, existing_docs=[], overwrite=False, to_print=True):
         print("\n======================== United Kingdom Enforcements=========================")
         existed_docs = []
@@ -412,7 +413,9 @@ class UnitedKingdom(DPA):
                 document_href = result_link.get_attribute('href')
                 assert document_href
                 host = "https://ico.org.uk"
-                document_url = host + document_href
+                # document_url = host + document_href
+
+                document_url = document_href
                 print('\tdocument_url:\t', document_url)
                 if to_print:
                     print("\tDocument:\t", document_hash)
@@ -456,7 +459,10 @@ class UnitedKingdom(DPA):
                             print("\t\tfile_title: ", title)
                             article_url = articles.find('a').get('href')
                             if article_url is not None:
-                                file_url = host + article_url
+                                if article_url.startswith('https'):
+                                    file_url = article_url
+                                else:
+                                    file_url = host + article_url
                                 print("\t\tfile_url: ", file_url)
                                 file_response = None
                                 try:
