@@ -119,7 +119,7 @@ class Italy(DPA):
         return added_docs
 
     def get_docs_Interviews(self, existing_docs=[], overwrite=False, to_print=True):
-        print("\n========================= Italy Decision Documents ===========================")
+        print("\n========================= Italy Interviews ===========================")
         added_docs = []
 
         page_url = 'https://www.garanteprivacy.it/home/stampa-comunicazione/interviste'

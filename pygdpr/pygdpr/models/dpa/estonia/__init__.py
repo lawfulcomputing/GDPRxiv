@@ -338,51 +338,44 @@ class Estonia(DPA):
     def get_docs_AnnualReports(self, existing_docs=[], overwrite=False, to_print=True):
         print("\n========================= Estonia Annual Reports ===========================")
         existed_docs = []
-        page_url = 'https://aastaraamat.aki.ee/'
+        # page_url = 'https://aastaraamat.aki.ee/'
+        page_url = 'https://aastaraamat.aki.ee/arhiiv/aastaraamatud-2001-2022'
         page_source = self.get_source(page_url=page_url)
         if page_source is None:
             print('page not exist')
         results_soup = BeautifulSoup(page_source.text, 'html.parser')
         assert results_soup
 
-        # get the newest annual report
+        # get the annual report
         region_content = results_soup.find('div', class_='region region-content')
-        block_core = region_content.find('div', class_='block-core')
-        document_title = block_core.get_text().strip()
-        print('document_title: ', document_title)
-        document_hash = hashlib.md5(document_title.encode()).hexdigest()
-        year = document_title.split()[-1].strip()
-        block_views = region_content.find('div', class_='block-views')
-        view_content = block_views.find('div', class_='view-content')
-        for div in view_content.find_all('div', class_='views-row'):
+        text_formatted = region_content.find('div', class_='text-formatted')
+
+        for div in text_formatted.find_all('li'):
             time.sleep(2)
-            document = div.find('div', class_='views-field-title')
-            title = document.get_text()
-            document_href = document.find('a').get('href')
-            if title != 'Aastaraamatu PDF':
-                continue
-            document_url = page_url + document_href
-            document_source = self.get_source(page_url=document_url)
-            if document_source is None:
-                print('page not exist')
-            document_soup = BeautifulSoup(document_source.text, 'html.parser')
-            assert document_soup
-            node_content = document_soup.find('div', class_='node__content')
-            text_formatted = node_content.find('div', class_='text-formatted')
-            article_href = text_formatted.find('a').get('href')
-            article_url = page_url + article_href
-            print('\turl: ', article_url)
+            document_title = div.find('a').get_text().strip()
+            print('document_title: ', document_title)
+            document_href = div.find('a').get('href')
+            host = 'https://aastaraamat.aki.ee'
+            document_url = host + document_href
+            document_hash = hashlib.md5(document_title.encode()).hexdigest()
+            year = document_title.split()[-1].strip()
+            print('\tdocument_hash: ', document_hash)
+            print('\tdocument_year: ', year)
+
             if document_hash in existing_docs and overwrite == False:
                 if to_print:
                     print('\tSkipping existing document:\t', document_hash)
                 continue
+            if year == '2017':
+                print('\tBefore GDPR adopt, stop')
+                return existed_docs
             dpa_folder = self.path
             document_folder = dpa_folder + '/' + 'Annual Reports' + '/' + document_hash
             # document_folder = dpa_folder + '/estonia' + '/' + 'Annual Reports' + '/' + document_hash
             try:
                 os.makedirs(document_folder)
                 try:
-                    document_response = requests.request('GET', article_url)
+                    document_response = requests.request('GET', document_url)
                     document_response.raise_for_status()
                 except requests.exceptions.HTTPError as error:
                     if to_print:
@@ -405,107 +398,6 @@ class Estonia(DPA):
                         'md5': document_hash,
                         'releaseDate': year,
                         'url': document_url
-                    }
-                    json.dump(metadata, f, indent=4, sort_keys=True, ensure_ascii=False)
-                existed_docs.append(document_hash)
-            except FileExistsError:
-                print("Directory path already exists, continue.")
-
-        # older annual reports
-        exec_path = WebdriverExecPolicy().get_system_path()
-        options = webdriver.ChromeOptions()
-        options.add_argument('headless')
-        driver_doc = webdriver.Chrome(options=options, executable_path=exec_path)
-        driver_doc.get(page_url)
-        for i in range(1, 3):
-            time.sleep(2)
-            document = driver_doc.find_element_by_xpath('//*[@id="block-aastaraamat-main-menu"]/ul/li[3]/ul/li['+str(i)+']/a')
-            document_href = document.get_attribute("href")
-            page_source = self.get_source(page_url=document_href)
-            if page_source is None:
-                print('page not exist')
-            document_soup = BeautifulSoup(page_source.text, 'html.parser')
-            assert document_soup
-            region_content = document_soup.find('div', class_='region region-content')
-            block_core = region_content.find('div', class_='block-core')
-            document_title = block_core.get_text().strip()
-            year_str = document_title.split()[-1].strip()
-            # 2019 annual report
-            if year_str == '2019':
-                year = year_str
-                print('document_title: ', document_title)
-                print('\turl: ', document_href)
-                document_hash = hashlib.md5(document_title.encode()).hexdigest()
-                block_views = region_content.find('div', class_='block-views')
-                view_content = block_views.find('div', class_='view-content')
-                for div in view_content.find_all('div', class_='views-row'):
-                    document = div.find('div', class_='views-field-title')
-                    title = document.get_text()
-                    document_href = document.find('a').get('href')
-                    if title != 'Aastaraamatu PDF':
-                        continue
-                    document_url = page_url + document_href
-                    document_source = self.get_source(page_url=document_url)
-                    if document_source is None:
-                        print('page not exist')
-                    document_soup = BeautifulSoup(document_source.text, 'html.parser')
-                    assert document_soup
-                    node_content = document_soup.find('div', class_='node__content')
-                    text_formatted = node_content.find('div', class_='text-formatted')
-                    article_href = text_formatted.find('a').get('href')
-                    article_url = page_url + article_href
-                if document_hash in existing_docs and overwrite == False:
-                    if to_print:
-                        print('\tSkipping existing document:\t', document_hash)
-                    continue
-            # older than 2019
-            else:
-                block_system = region_content.find('div', class_='block-system')
-                node_content = block_system.find('div', class_='node__content')
-                for li in node_content.find('ul').find('li'):
-                    article_title = li.get_text().strip()
-                    document_title = article_title
-                    year = article_title.split()[-1].strip()
-                    if year < '2018':
-                        continue
-                    article_href = li.get('href')
-                    document_hash = hashlib.md5(article_title.encode()).hexdigest()
-                    print('document_title: ',  article_title)
-                    article_url = page_url + article_href
-                    print('\turl: ', article_url)
-                    if document_hash in existing_docs and overwrite == False:
-                        if to_print:
-                            print('\tSkipping existing document:\t', document_hash)
-                        continue
-            dpa_folder = self.path
-            document_folder = dpa_folder + '/' + 'Annual Reports' + '/' + document_hash
-            # document_folder = dpa_folder + '/estonia' + '/' + 'Annual Reports' + '/' + document_hash
-            try:
-                os.makedirs(document_folder)
-                try:
-                    document_response = requests.request('GET', article_url)
-                    document_response.raise_for_status()
-                except requests.exceptions.HTTPError as error:
-                    if to_print:
-                        print(error)
-                    pass
-                if document_response is None:
-                    continue
-                document_content = document_response.content
-                with open(document_folder + '/' + self.language_code + '.pdf', 'wb') as f:
-                    f.write(document_content)
-                with open(document_folder + '/' + self.language_code + '.txt', 'w') as f:
-                    document_text = PDFToTextService().text_from_pdf_path(
-                        document_folder + '/' + self.language_code + '.pdf')
-                    f.write(document_text)
-                with open(document_folder + '/' + 'metadata.json', 'w') as f:
-                    metadata = {
-                        'title': {
-                                self.language_code: document_title
-                        },
-                        'md5': document_hash,
-                        'releaseDate': year,
-                        'url': article_url
                     }
                     json.dump(metadata, f, indent=4, sort_keys=True, ensure_ascii=False)
                 existed_docs.append(document_hash)

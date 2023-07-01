@@ -191,8 +191,6 @@ class Hungary(DPA):
             assert results_soup
             pd_category = results_soup.find('div', class_='pd-category')
             for pd_filebox in pd_category.find_all('div', class_='pd-filebox'):
-                print("\n------------ Document " + str(iterator) + " ------------")
-                iterator += 1
 
                 pd_filenamebox = pd_filebox.find('div', class_='pd-filenamebox')
                 pd_filename = pd_filenamebox.find('div', class_='pd-filename')
@@ -206,6 +204,9 @@ class Hungary(DPA):
                 date = datetime.date(tmp.year, tmp.month, tmp.day)
                 if ShouldRetainDocumentSpecification().is_satisfied_by(date) is False:
                     continue
+
+                print("\n------------ Document " + str(iterator) + " ------------")
+                iterator += 1
                 print('\tDocument Title:\t', document_title)
                 print('\tdate:\t', date)
                 if document_hash in existing_docs and overwrite == False:

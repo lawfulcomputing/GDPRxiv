@@ -331,7 +331,7 @@ class Spain(DPA):
         print("\n======================== Spain Guides =========================")
 
         added_docs = []
-        pagination = self.update_pagination(new_page_type="new_page_guides", start_path='es/guias-y-herramientas/guias')
+        pagination = self.update_pagination(new_page_type="new_page_guides", start_path='/es/guias-y-herramientas/guias')
 
         iteration = 1
         while pagination.has_next():

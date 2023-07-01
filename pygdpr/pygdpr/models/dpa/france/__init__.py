@@ -268,6 +268,10 @@ class France(DPA):
                     if to_print:
                         print(error)
                     pass
+                except requests.exceptions.ConnectionError as error:
+                    if to_print:
+                        print(error)
+                    pass
                 if document_response is None:
                     continue
                 document_soup = BeautifulSoup(document_response.text, 'html.parser')
@@ -354,6 +358,10 @@ class France(DPA):
                     if to_print:
                         print(error)
                     pass
+                except requests.exceptions.ConnectionError as error:
+                    if to_print:
+                        print(error)
+                    pass
                 if document_response is None:
                     continue
                 document_content = document_response.content
@@ -421,6 +429,10 @@ class France(DPA):
                     if to_print:
                         print(error)
                     pass
+                except requests.exceptions.ConnectionError as error:
+                    if to_print:
+                        print(error)
+                    pass
                 if document_response is None:
                     continue
                 document_content = document_response.content
@@ -481,35 +493,40 @@ class France(DPA):
                     if to_print:
                         print('\tSkipping existing document:\t', document_hash)
                     continue
-                document_response = None
-                try:
-                    # document_response = requests.request('GET', document_href, timeout=1000)
-                    document_response = requests.get(document_url, timeout=1000)
-                    document_response.raise_for_status()
-                except requests.exceptions.HTTPError as error:
-                    if to_print:
-                        print(error)
-                    pass
-                if document_response is None:
-                    continue
-                document_soup = BeautifulSoup(document_response.text, 'html.parser')
-                assert document_soup
-
-                main_wrapper = document_soup.find('div', class_='main-wrapper')
-                content = main_wrapper.find('div', class_='region region-content')
-                date_str = content.find('div', class_='ctn-gen-auteur').get_text()
-                tmp = dateparser.parse(date_str, languages=[self.language_code])
-                # print('date:', tmp.year, tmp.month, tmp.day)
-                date = datetime.date(tmp.year, tmp.month, tmp.day)
-                if ShouldRetainDocumentSpecification().is_satisfied_by(date) is False:
-                    print("This document was published before the GDPR release")
-                    continue
-                print("\tdate: ", date)
                 dpa_folder = self.path
                 document_folder = dpa_folder + '/' + 'Reports' + '/' + document_hash
                 try:
                     os.makedirs(document_folder)
-                
+
+                    document_response = None
+                    try:
+                        # document_response = requests.request('GET', document_href, timeout=1000)
+                        document_response = requests.get(document_url, timeout=1000)
+                        document_response.raise_for_status()
+                    except requests.exceptions.HTTPError as error:
+                        if to_print:
+                            print(error)
+                        pass
+                    except requests.exceptions.ConnectionError as error:
+                        if to_print:
+                            print("\tError:", error)
+                        pass
+                    if document_response is None:
+                        continue
+                    document_soup = BeautifulSoup(document_response.text, 'html.parser')
+                    assert document_soup
+
+                    main_wrapper = document_soup.find('div', class_='main-wrapper')
+                    content = main_wrapper.find('div', class_='region region-content')
+                    date_str = content.find('div', class_='ctn-gen-auteur').get_text()
+                    tmp = dateparser.parse(date_str, languages=[self.language_code])
+                    # print('date:', tmp.year, tmp.month, tmp.day)
+                    date = datetime.date(tmp.year, tmp.month, tmp.day)
+                    if ShouldRetainDocumentSpecification().is_satisfied_by(date) is False:
+                        print("This document was published before the GDPR release")
+                        continue
+                    print("\tdate: ", date)
+
                     main_text = content.get_text()
                     # print(main_text)
                     with open(

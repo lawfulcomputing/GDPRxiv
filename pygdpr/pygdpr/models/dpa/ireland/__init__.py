@@ -469,7 +469,7 @@ class Ireland(DPA):
                         #print('ShouldRetainDocumentSpecification is false')
                         continue
 
-                    print('Document Title:\t', document_title)
+                    print('\nDocument Title:\t', document_title)
                     document_href = articles.get('href')
                     document_hash = hashlib.md5(document_title.encode()).hexdigest()
                     dpa_folder = self.path
@@ -582,9 +582,8 @@ class Ireland(DPA):
                             }
                             json.dump(metadata, f, indent=4, sort_keys=True, ensure_ascii=False)
                         existed_docs.append(document_hash)
-                        print('\n')
                     except FileExistsError:
-                        print("\nDirectory path already exists, continue.")
+                        print("\tDirectory path already exists, continue.")
         return existed_docs
 
     def get_docs_Blogs(self, existing_docs=[], overwrite=False, to_print=True):
