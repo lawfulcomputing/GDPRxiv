@@ -1,0 +1,143 @@
+
+
+
+
+Inteligencia Artificial: principio de exactitud en los tratamientos 
+
+
+
+
+
+31 de Mayo de  2023
+
+En un tratamiento que incorpora un sistema de IA es necesario evaluar la exactitud de los datos de entrada, ya que no hacerlo podría introducir sesgos y comprometer el rendimiento no solo del algoritmo sino de todo el tratamiento.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+El comportamiento de un algoritmo, entre otros los algoritmos de inteligencia artificial (IA), podría verse comprometido por la inexactitud de los datos de entrada utilizados en la ejecución del mismo, no solo por los datos utilizados en su desarrollo. Por lo tanto, en un tratamiento que incorpora un sistema de IA es necesario evaluar la exactitud de los datos de entrada, ya que podría introducir sesgos y comprometer el rendimiento no solo del algoritmo, sino de todo el tratamiento. Deben incluirse salvaguardias adecuadas que eviten la inexactitud de los datos de entrada y protejan del impacto de datos inexactos, con estrategias "desde el diseño" en la ejecución del tratamiento, y su efectividad debe revisarse y actualizarse cuando sea necesario.
+Image by Peggy und Marco Lachmann-Anke from Pixabay
+Con el fin de avanzar en la línea de publicaciones de la AEPD sobre inteligencia artificial, vamos a ilustrar el principio de exactitud del RGPD (Art. 5.1.d) analizando un caso real.
+Los familiares de una mujer de avanzada edad la llevaron al hospital, pues parecía estar en una situación crítica. En el ingreso, los familiares respondían rápidamente a las preguntas realizadas en el registro. Una de las preguntas era "¿Es una persona dependiente?". Dicha persona vivía con los familiares, y ellos respondieron "Sí". A continuación, se ejecutó el algoritmo de evaluación dentro del tratamiento (en el sentido del Art.4.2 del RGPD) de triaje. Como resultado, la paciente fue trasladada para suministrarle únicamente cuidados paliativos. En ese momento, uno de los familiares, que era un científico prominente, se dio cuenta de un error en lo que estaba sucediendo. La pregunta fue malinterpretada por los familiares, en parte debido al uso de un eufemismo, ya que la pregunta podría haber sido: "¿Se encuentra inhabilitada?". No era el caso, ya que vivía con sus familiares, pero era una mujer independiente que dirigía su propia vida. Es más, esa respuesta fue clave en la decisión del proceso de triaje.
+¿Qué debían hacer, cuando la decisión ya estaba tomada y nadie atendía sus reclamaciones? Gracias a sus contactos, el profesor pudo ‘hackear’ el algoritmo, la mujer fue sometida a una cirugía inmediata que le salvó la vida y volvió a su vida normal en una semana.
+El triaje es una parte esencial del sistema de emergencias, que debe optimizar los recursos y que salva vidas. En este caso, el tratamiento de triaje recopiló algunos datos para ofrecer una orientación en las decisiones de los profesionales de la salud. Sin embargo, en la ejecución real del tratamiento de triaje en este caso algo salió mal. Veamos qué podríamos aprender desde el punto de vista del RGPD que podría ser útil en el uso de algoritmos, en particular aquellos basados en sistemas de IA integrados en tratamientos de datos personales.
+Del caso presentado, se podrían destacar dos puntos clave. En primer lugar, todo el tratamiento de datos personales va más allá de tan solo la ejecución de un algoritmo. En segundo lugar, una implementación adecuada del principio de exactitud (artículo 5.1.d) del RGPD) es esencial en la ejecución del algoritmo y en el desempeño de todo el tratamiento.
+En cuanto al primer punto, es importante tener en cuenta que la evaluación de una sola operación dentro del tratamiento (por ejemplo, el algoritmo de evaluación) no es equivalente a la evaluación de todo el tratamiento. En este caso, la evaluación del algoritmo dentro del tratamiento de triaje debería ser solo una parte de toda la evaluación, que incluye operaciones como la recopilación de datos, la verificación de los mismos, la participación humana y la forma en que se ejecutan, revisan e impugnan las decisiones.
+Con respecto al principio de exactitud, podemos identificar varios puntos clave derivados de este ejemplo desde el punto de vista del RGPD:
+La falta de definición de los datos de entrada a un algoritmo podría dar lugar a errores o sesgos que no forman parte del algoritmo en sí.
+El principio de exactitud debe aplicarse en los datos de entrada, los datos de salida e incluso en los datos intermedios de todo tratamiento.
+La definición precisa de cada dato de entrada (su semántica) debe establecerse "por diseño" y documentarse adecuadamente. Aún más, el rango de valores (por ejemplo, "sí / no", "0 a 10" o "alto / medio / bajo") debe definirse y evaluarse para determinar su adecuación al contexto.
+El impacto de cada dato de entrada en el resultado final debe evaluarse "por diseño", para cada fin específico, mediante la realización de un análisis del algoritmo implementado, mediante las pruebas de verificación de los requisitos y mediante las pruebas de validación en el contexto de la operación.
+Los datos de entrada podrían recopilarse manualmente de los interesados. En tal caso, los interesados (y los que recopilan datos) deben conocer y comprender la semántica de los datos y el impacto de su respuesta. En el caso expuesto, se deberían haber planteado las preguntas de la forma que garantizase obtener los datos de entrada exactos y necesarios para el tratamiento de triaje, y los interesados (los familiares en este caso) deberían entender lo que se preguntó y cómo su respuesta podría cambiar el resultado del mismo.
+Los datos de entrada a un algoritmo dentro del tratamiento podrían recopilarse de otras fuentes, como bases de datos, sensores como cámaras, lectores de huellas dactilares o IoB. Los datos pueden sufrir varias transformaciones desde la etapa de recopilación hasta la ejecución del algoritmo, que también forman parte del tratamiento. Todas esas operaciones forman parte del tratamiento, junto con el algoritmo.
+“Se adoptarán todas las medidas razonables para que se supriman o rectifiquen sin dilación los datos personales que sean inexactos con respecto a los fines para los que se tratan” (artículo 5.1.d) del RGPD), es decir, para cada fin específico y durante el funcionamiento del tratamiento.
+El algoritmo más preciso puede fallar porque otro elemento del tratamiento no funciona correctamente. Incluso un algoritmo menos preciso puede funcionar lo suficientemente bien si durante el diseño se incluyen las garantías adecuadas para evitar gestionar posibles errores.
+De este caso se pueden derivar dos consecuencias importantes. En primer lugar, el diseño de todo el tratamiento implica más elementos que simplemente "el algoritmo". En segundo lugar, el diseñador de todo el tratamiento debe aceptar que la "perfección" no existe. Por lo tanto, se deben implementar medidas en el tratamiento que “se revisarán y actualizarán cuando sea necesario” (artículo 24.1 del RGPD) y, principalmente cuando la actividad de tratamiento “produzca efectos jurídicos en él o le afecte significativamente de modo similar” (artículo 22.1 del RGPD) deben implementarse “medidas adecuadas para salvaguardar los derechos y libertades y los intereses legítimos del interesado, como mínimo [pero no exclusivamente] el derecho a obtener intervención humana por parte del responsable, a expresar su punto de vista y a impugnar la decisión” (artículo 22.3 del RGPD).
+Finalmente, nos gustaría señalar que en este caso no hemos precisado si el algoritmo de triaje se implementó de manera manual o automática. En el caso de medios automáticos, podría ser implementado por un desarrollo de software tradicional o mediante las técnicas de aprendizaje automático (Machine Learning). Pero es importante tener en cuenta que, aunque los humanos a veces ejecutan algoritmos de forma automática, al menos con ellos se puede dialogar.
+Este post está relacionado con otros materiales editados por  la División de Innovación y Tecnología de la AEPD, como:
+Artículo del blog Inteligencia Artificial: Sistema vs. tratamiento, medios vs. finalidad
+Artículo del blog Federated Learning: Inteligencia Artificial sin comprometer la privacidad
+Adecuación al RGPD de tratamientos que incorporan Inteligencia Artificial
+Requisitos para Auditorías de Tratamientos que incluyan IA
+10 Malentendidos sobre el Machine Learning (Aprendizaje Automático)
+Mapa de referencia para tratamientos que incluyen Inteligencia Artificial
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,141 @@
+
+
+
+
+Anonimización (III): el riesgo de la reidentificación 
+
+
+
+
+
+23 de Febrero de  2023
+
+El proceso de anonimización es un tratamiento que requiere aplicar los principios de responsabilidad proactiva. Esto supone que el responsable ha de garantizar, con un análisis objetivo, que el conjunto de datos anonimizados no es reidentificable. Sin embargo, hay que contar con que podría quedar una probabilidad residual de reidentificación. Por ello es necesario analizar el impacto que podría tener la reidentificación sobre las personas, establecer si procede implementar medidas adicionales para reducir el riesgo para los interesados, evaluar la necesidad y proporcionalidad del tratamiento de anonimización, y concluir si el proceso ofrece garantías suficientes para proteger los derechos fundamentales.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+Foto de Chris Yang en Unsplash.
+La anonimización es un tratamiento de datos personales que genera, a partir de un conjunto de datos personales, un nuevo conjunto de información anónima. Como todo tratamiento, ha de cumplir los principios del RGPD, entre ellos el de responsabilidad proactiva. Esto implica que el responsable ha de tomar las medidas adecuadas para ejecutar el tratamiento de anonimización con las garantías necesarias y, en particular, tiene que plantearse qué riesgo supone para las personas que el proceso de anonimización se pueda revertir.
+El tratamiento de anonimización no es un proceso trivial. El responsable ha de emplear profesionales adecuados, con conocimientos en el estado del arte de las técnicas de anonimización, y también con experiencia en los ataques de reidentificación. Tras un tratamiento de anonimización “accountable” y apropiado para el conjunto de datos, hay que determinar mediante análisis y pruebas prácticas que no es posible reidentificar el conjunto de datos. Para ello hay que considerar condiciones del peor caso, como intentos de reidentificación por personas internas o externas, con acceso a datos auxiliares, incluso los disponibles por medios ilegales, por órdenes judiciales o por agencias de información, además de considerar de que se cuenta con los recursos adecuados y extrapolando la posible evolución de las técnicas conocidas. Si en esas condiciones se puede reidentificar todo o parte del conjunto de datos no cabe hablar de riesgo de reidentificación, simplemente dicho conjunto de datos no es anónimo.
+Sin embargo, siempre habrá que asumir una probabilidad residual de reidentificación. Esta probabilidad residual significa aceptar que la infalibilidad total y absoluta no existe. En cualquier caso, al responsable del tratamiento sí se le puede exigir lo expresado en el párrafo anterior: aplicación de la responsabilidad proactiva con medidas apropiadas para garantizar el cumplimiento teniendo en cuenta la naturaleza, contexto, ámbito, fines y riesgos para los derechos y libertades, además de su revisión y actualización.
+Por ejemplo, cuando se publicaron los datos anonimizados de las carreras de los taxis de Nueva York, con sus orígenes, destinos, tiempos y abonos, no se incluía ningún tipo de información de los pasajeros. Por lo tanto, se asumió que eran datos anónimos. Además, los identificadores de los taxis estaban enmascarados con un hash. Esto último fue un error, ya en su momento bien conocido, pues recuperar la información enmascarada por el hash para los 173 millones de carreras requirió menos de una hora. Sin embargo, con relación a los pasajeros de los taxis, había una fuente de información adicional con la que no se había contado: las fotos que Google publicaba de celebridades tomando un taxi. En las fotos se veía el identificador del taxi y, ya roto el hash, se pudieron determinar destinos, y los abonos realizados, de numerosas personalidades. Este es un claro ejemplo de reidentificación, de la materialización de una probabilidad residual y de lo importante que es la experiencia en anonimización. Aplicar una visión simplificada del proceso de anonimización, con automatismos, sin análisis objetivos, y obviando una fase de validación del resultado final supone faltar a las obligaciones de responsabilidad proactiva.
+La vida de un dato personal es tan larga como la del sujeto de los datos. Pensemos, entonces, en la trascendencia de los datos de salud de los menores. Asumiendo que en ese largo periodo de tiempo hay una probabilidad residual de reidentificación, es necesario determinar cuál sería el impacto que, en el caso de una reidentificación, podrían sufrir los interesados en sus derechos y libertades. Este análisis ha de tener en cuenta no sólo si se pudieran desvelar categorías especiales de datos, sino todas las consecuencias que para los derechos fundamentales pudiera acarrear el que se desvele cierta información personal. Por ejemplo, para ciertas personas supervivientes de violencia de género, el que se desvele su domicilio o sus patrones de geolocalización puede suponer un riesgo muy alto para su vida.
+Si existe un impacto lo suficientemente importante para los derechos de las personas, teniendo en cuenta que hay que asumir la existencia de una probabilidad residual de reidentificación, será necesario tomar ciertas medidas para reducir el riesgo para los interesados.
+La primera clase de medidas que se pueden ejecutar son aquellas que reducen el impacto de la reidentificación. Un ejemplo de reducción del impacto es la eliminación de ciertos registros o atributos más sensibles del conjunto de datos. Con relación al ejemplo de las personas supervivientes de violencia de género expuesto anteriormente, si se conoce que en el conjunto de datos original hay registros relativos a personas cuya reidentificación tuviera más impacto, se podría reducir el posible impacto eliminando dichos registros. Por otro lado, si se identifican atributos que en caso de reidentificación podrían tener más impacto, se podrían emplear técnicas específicas de minimización (generalizar/difuminar/agregar/reducir la frecuencia de recogida, eliminar…)  sobre los mismos.
+La segunda clase de medidas son aquellas que reducen aún más esa probabilidad residual de reidentificación que por defecto se ha de asumir que existe. Un ejemplo son aquellas que incluyen garantías jurídicas más allá de las obligaciones del RGPD, como podría ser limitar por contrato el ámbito de difusión de los datos anónimos (por ejemplo, sólo entre un grupo de investigadores) o establecer requisitos y limitaciones de conservación, que son el tipo de garantías comunes para reducir otra clase de riesgos en datos no personales.
+Ante un determinado riesgo para los derechos y libertades, si no es posible que se mitigue de forma suficiente, ya sea porque no es posible reducir el impacto, porque las garantías adicionales para reducir la probabilidad residual no son eficaces, o bien porque el conjunto de datos que así se distribuye no cumple con los requisitos de utilidad, habrá que plantearse si la anonimización es el camino más adecuado para conseguir el objetivo que se está buscando.
+En definitiva, un tratamiento de anonimización ha de generar un conjunto de datos que se evalúe como anónimo, mediante un proceso de calidad contrastada en el que consiga una evidencia razonable de imposibilidad de reidentificación. El responsable ha de evaluar el impacto de una reidentificación sobre los derechos fundamentales de las personas titulares de esos datos. A su vez, asumiendo que siempre queda una probabilidad residual de reidentificación, debe evaluar el riesgo de reidentificación que corren las personas y aplicar medidas adicionales si es necesario reducir ese riesgo. Si un tratamiento de anonimización no puede generar un conjunto de datos con los requisitos de utilidad necesarios, dicho tratamiento no cumplirá con el presupuesto de necesidad al que están obligados todos los tratamientos legitimados por el art. 6.1.b al 6.1.f del RGPD. Si, por otro lado, el riesgo de reidentificación no cumple con criterios de proporcionalidad, entonces habrá que buscar otras alternativas a realizar la anonimización.
+Mas materiales sobre anonimización en la sección Innovación y Tecnología de la web de la AEPD, como:
+
+10 Malentendidos relacionados con la anonimización 
+Introducción al hash como técnica de seudonimización de datos personales 
+La K-anonimidad como medida de privacidad 
+Anonimización y seudonimización
+Anonimización y seudonimización (II): la privacidad diferencial
+Orientaciones y garantías en los procedimientos de Anonimización de datos personales 
+ART.29 WP: Dictamen 05/2014 sobre técnicas de anonimización
+PDPC SINGAPURE: Guía Básica de Anonimización versión en español [mar 2022]
+PDPC SINGAPURE: Herramienta Básica de Anonimización versión en español [mar 2022]
+
+ 
+
+
+
+
+
+
+
+
+
+

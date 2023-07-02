@@ -1,0 +1,146 @@
+
+
+
+
+Análisis de comportamiento de usuarios (UEBA) y protección de datos
+
+
+
+
+
+15 de Marzo de  2023
+
+En los últimos años se ha extendido el uso de técnicas denominadas User and Entity Behavior Analytics (UEBA), de análisis del comportamiento de usuarios y entidades. Este tipo de técnicas tienen multitud de aplicaciones que siempre tienen algo en común: registrar el comportamiento de usuarios en el pasado, modelar este comportamiento en el presente y, si es posible, predecir cuál va a ser en el futuro.
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+Foto de Luke Chesser en Unsplash
+Las técnicas UEBA utilizadas en los servicios de Internet recopilan cantidades masivas de datos de usuarios o entidades y aplican, casi siempre, técnicas de aprendizaje automático (machine learning) o de inteligencia artificial para generar modelos de comportamiento. Los usuarios son siempre personas, las entidades pueden ser animales, vehículos, dispositivos móviles, sensores, etc. La aplicación de estas técnicas depende del dominio de aplicación concreto, ya que puede que interese analizar el comportamiento individual de las personas o su comportamiento desde la perspectiva social (interrelación, comunicación, distancia y desplazamiento).
+DOMINIOS DE APLICACIÓN
+Podemos resumir los dominios de aplicación más significativos de estas técnicas en tres grandes categorías:
+1.    Optimización de servicios y marketing: Este es quizás el dominio más extendido en la actualidad, principalmente, en páginas web y aplicaciones móviles. En este contexto, las soluciones UEBA permiten modelar el comportamiento de los usuarios y de sus dispositivos mientras navegan, o usan una aplicación, extrayendo información sobre cómo la utilizan, dónde fijan su atención, dónde invierten más tiempo, etc. Esto se consigue grabando las sesiones, dibujando mapas de calor o identificando el viaje del usuario. Esta información permite diseñar los interfaces para ubicar cada elemento donde sea más eficiente o productivo (la publicidad, por ejemplo) o clasificar a los usuarios en grupos que permitan personalizar las iniciativas de marketing. Existen otros ejemplos dentro de este dominio de aplicación como pueden ser los que intentan optimizar el uso de las redes de comunicaciones (incluidas las 5G o del Internet de las Cosas), las redes de transporte (especialmente en ciudades inteligentes) o las redes eléctricas.
+2.    Ciberseguridad: Este dominio está evolucionando de manera exponencial. En este caso, el objetivo suele ser prevenir amenazas, detectando situaciones de comportamiento diferente al habitual por parte de empleados y usuarios externos, inferir la posible amenaza de su comportamiento y de esta manera realizar una actuación sobre el individuo. También permite detectar anomalías en una red por una infección por malware o en el uso de una cuenta de usuario que ha sufrido una suplantación de identidad.
+3.    Salud y seguridad de las personas: En este caso, las aplicaciones van dirigidas a la detección de comportamientos potencialmente anómalos o inesperados, que pudieran ser indicativos de diferentes tipos de enfermedades físicas o mentales. También se puede emplear para prevenir accidentes laborales (analizando el comportamiento del trabajador en su puesto, por ejemplo) o de tráfico (analizando el comportamiento del conductor).
+
+CUMPLIMIENTO DE LA NORMATIVA DE PROTECCIÓN DE DATOS
+En cualquiera de estos dominios se produce un tratamiento de datos personales. Las soluciones UEBA pueden ser muy intrusivas, al tratar habitualmente datos personales y construir perfiles de comportamiento que permiten identificar a los usuarios, categorizarlos y tomar acciones en consecuencia.
+Estas técnicas raramente incorporan estrategias típicas de protección de datos desde el diseño y por defecto. Por ejemplo, no se suele aplicar el principio de minimización, ya que estas soluciones tienen como principio el recopilar y tratar toda la información posible sobre las acciones del individuo en el entorno digital, por si pueden servir en algún momento. Por el mismo motivo, no se suelen aplicar técnicas de generalización o menor granularidad, ya que buscan asociar datos de la mayor precisión a un usuario y, de esta forma, identificar el perfil de usuario para clasificarlo en, por ejemplo, lo que el sistema considera comportamientos sospechosos. La anonimización, seudonimización y la agregación de datos también suelen descartarse al no aplicarse estrategias específicas de privacidad para aprendizaje automático o inteligencia artificial.
+Cuando se tratan datos personales, los principios establecidos en el RGPD son de obligado cumplimiento, incluyendo el principio de transparencia. En muchos casos los usuarios no son informados de que se están utilizando este tipo de técnicas, la profundidad del tratamiento (por ejemplo, que se revele si son diestros o zurdos, sus rutinas o hábitos, su estado de ánimo o de salud, sus perfiles o categorizaciones, etc.), ni del impacto potencial que una brecha de datos puede llegar a tener.
+La conservación de los datos debe limitarse en el tiempo al logro de los fines que persigue el tratamiento. El cumplimiento de este principio de conservación debe analizarse antes de la puesta en marcha de un tratamiento de este tipo.
+Igualmente, los derechos de los usuarios cuyos datos se están tratando deben ser garantizados, incluyendo el derecho de acceso, rectificación y, cuando sea aplicable, el derecho de oposición.
+En alguno de los dominios presentados, esta tecnología podría implicar decisiones individuales automatizadas en el sentido del artículo 22 del RGPD, en cuyo caso debe igualmente garantizarse el derecho de las personas a no ser objeto exclusivamente de esas decisiones automatizadas.
+También es necesario considerar que, en alguno de los dominios como por ejemplo el de servicios y marketing, la recogida de datos para aplicar UEBA podría implicar la utilización de cookies o tecnologías similares, en cuyo deben aplicarse los requisitos del artículo 22.4 de la LSSI en cuanto a la obtención del consentimiento y la información de los interesados.
+Además, en gran cantidad de aplicaciones los proveedores de las soluciones que realizan el tratamiento UEBA no están en el Espacio Económico Europeo, lo que puede implicar que los responsables de los servicios de Internet que las implementan están realizando transferencias internacionales de datos que únicamente pueden hacerse si se cumplen con las garantías establecidas en el RGPD.
+Como en cualquier tratamiento de datos personales, deben gestionarse adecuadamente los riesgos para los derechos y libertades de las personas, y en aquellos casos en los que el tratamiento pueda considerarse de alto riesgo, es obligatoria una evaluación de impacto en protección de datos. En particular, el artículo 35.3.a del RGPD establece que la evaluación de impacto en protección de datos será obligatoria en aquellos casos en los que se produzca una evaluación sistemática y exhaustiva de aspectos personales de las personas que se base en un tratamiento automatizado, como la elaboración de perfiles, y sobre cuya base se tomen decisiones que produzcan efectos jurídicos para las personas o les afecten significativamente de forma similar. Es decir, lo que es el marco de tratamiento de las técnicas de UEBA.
+Corresponde al responsable de tratamiento valorar la necesidad de esta evaluación de impacto en cada caso, antes de la puesta en marcha del tratamiento.
+Puede encontrar más material relacionado con esta temática en la página de Innovación y Tecnología de la AEPD, en particular:
+
+Guía gestión del riesgo y evaluación de impacto en tratamientos de datos personales
+Lista de tipos de tratamientos que requieren EIPD (art. 35.4 RGPD)
+Privacidad desde el diseño: Computación segura multiparte, compartición aditiva de secretos
+Anonimización y seudonimización (II): la privacidad diferencial
+Anonimización y seudonimización
+Metaverso y privacidad
+
+
+
+
+
+
+
+
+
+
+
