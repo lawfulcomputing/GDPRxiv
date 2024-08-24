@@ -31,10 +31,12 @@ class France(DPA):
         country_code='FR'
         super().__init__(country_code, path)
 
-    def update_pagination(self, pagination=None, page_soup=None, driver=None, start_path="decisions"):
+    def update_pagination(self, pagination=None, page_soup=None, 
+                          driver=None, start_path="decisions"):
         source = {
             "host": "https://www.cnil.fr",
-            "start_path_decisions": "/fr/deliberations",
+            # "start_path_decisions": "/fr/deliberations",
+            "start_path_decisions": "/fr/les-sanctions-prononcees-par-la-cnil", #   <--- the page where all the sanctions are exposed, even without links to Legifrance
             "start_path_notices": "/thematique/cnil/mises-en-demeure",
             "start_path_guidelines": "/fr/decisions/lignes-directrices-recommandations-CNIL",
             "start_path_recommendation": "/fr/decisions/lignes-directrices-recommandations-CNIL?field_scald_collection_tid=1466",
@@ -55,9 +57,11 @@ class France(DPA):
             pagination = Pagination()
             pagination.add_item(host + start_path)
         else:
-            pager_load_more = page_soup.find('ul', class_='pagination js-pager__items')
+            pager_load_more = page_soup.find('ul', 
+                                             class_='pagination js-pager__items')
             if pager_load_more is not None:
-                pager_next = pager_load_more.find('li', class_='pager__item--next')
+                pager_next = pager_load_more.find('li', 
+                                                  class_='pager__item--next')
                 page_link = pager_next.find('a')
                 if page_link is not None:
                     page_href = page_link.get('href')
@@ -90,6 +94,7 @@ class France(DPA):
         print("\n========================= France Decision and Deliberations ===========================")
         iterator = 1
         dict_hashcode = {}
+
         '''
         added_docs_set = set()
         url = "https://sandbox-oauth.piste.gouv.fr/api/oauth/token"
@@ -114,112 +119,164 @@ class France(DPA):
         }
         response = requests.request("GET", url, data=payload, headers=headers, timeout=1000)
         '''
-        while pagination.has_next():
+        while pagination.has_next():  #   <--- this loop is not necessary as there is only one page, but it's not doing any harm
             page_url = pagination.get_next()
             page_source = self.get_source(page_url=page_url)
             print("new page: ", page_url)
             if page_source is None:
+                print("Page source is None ¯\_(ツ)_/¯")
                 continue
             # s1. Results
             results_soup = BeautifulSoup(page_source.text, 'html.parser')
+            # print("Soup results : ", results_soup)
             # print(results_soup)
             assert results_soup
-            view_content = results_soup.find('div', class_='view-content')
-            assert view_content
-            for views_row in view_content.find_all('div', class_='views-row'):
-                time.sleep(2)
-                result_link = views_row.find('a')
-                document_href = result_link.get('href')
+            # view_content = results_soup.find('div', class_='view-content')
+            view_content = results_soup.find_all('tbody')    # For each year a tab is present inside those 'tbody' tags
+            
+            assert view_content  # list of all the tabulars
+            
+            for tab in view_content:                  # Loop through each tab
+                for views_row in tab.find_all('tr'):  # Loop through each sanction 
 
-                print('\n------------ Document: ' + str(iterator) + ' ------------')
-                iterator += 1
+                     # There's a particular tab in the page where the title row of a 
+                     # tab is inside a 'tbody' tag, but as it is just a row containing 
+                     # strings inside <th> tags, it makes the loop run through a bug.
+                     # Hence the try here :
+                    try :
+                        str(views_row).split("<td>")[1]
+                    except:
+                        continue
 
-                # use selenium to bypass incapsula protection
-                exec_path = WebdriverExecPolicy().get_system_path()
-                options = webdriver.ChromeOptions()
-                options.add_argument('headless')
-                driver_doc = webdriver.Chrome(options=options, executable_path=exec_path)
-                driver_doc.get(document_href)
-                document_soup = BeautifulSoup(driver_doc.page_source, 'html.parser')
-                '''
-                document_response = None
-                try:
-                    document_response = requests.request('GET', document_href, timeout=1000)
-                    document_response.raise_for_status()
-                except requests.exceptions.HTTPError as error:
-                    if to_print:
-                        print(error)
-                    pass
-                if document_response is None:
-                    continue
-                document_soup = BeautifulSoup(document_response.text, 'html.parser')
-                # print(document_soup) will show "Request unsuccessful. Incapsula incident ID..."
-                '''
-                assert document_soup
-                # print(document_soup)
 
-                main_container = document_soup.find('div', class_='container main-container')
-                if main_container is None:
-                    print("\tNo content available in this doc")
-                    continue
-                head_code_page = main_container.find('div', class_='head-code-page')
-                assert head_code_page
+                    # If public decision is set to true (which is the case when the 
+                    # Legifrance link is here)we don't do anything different than 
+                    # what was already implemented.
 
-                if head_code_page.find('h1', class_='main-title') is None:
-                    print("\tNo content available in this doc")
-                    continue
-                document_title = head_code_page.find('h1', class_='main-title').get_text()
-                print("\tDocument Title", document_title)
-                print("\tdocument_href: ", document_href)
+                    public_decision = False 
+                    
+                                        
+                    '''
+                    document_response = None
+                    try:
+                        document_response = requests.request('GET', document_href, timeout=1000)
+                        document_response.raise_for_status()
+                    except requests.exceptions.HTTPError as error:
+                        if to_print:
+                            print(error)
+                        pass
+                    if document_response is None:
+                        continue
+                    document_soup = BeautifulSoup(document_response.text, 'html.parser')
+                    # print(document_soup) will show "Request unsuccessful. Incapsula incident ID..."
+                    '''
 
-                date_text = document_title.split()[-3:]
-                date_str = ' '.join(date_text)
-                tmp = dateparser.parse(date_str, languages=[self.language_code])
-                # print('date:', tmp.year, tmp.month, tmp.day)
-                date = datetime.date(tmp.year, tmp.month, tmp.day)
-                if ShouldRetainDocumentSpecification().is_satisfied_by(date) is False:
-                    print("\tBefore GDPR")
-                    # break
-                    continue
-                print("\tdate: ", date)
+                    # links to legifrance - not always present
+                    print('\n------------ Document: ' + str(iterator) + ' ------------')
 
-                document_hash = hashlib.md5(document_title.encode()).hexdigest()
-                if document_hash in existing_docs and overwrite is False:
-                    if to_print:
-                        print('\tSkipping existing document:\t', document_hash)
-                    continue
+                    iterator += 1
+                    result_link = views_row.find('a')
+                    if result_link: # Here we find a LegiFrance link 
+                        public_decision = True
+                        document_href = result_link.get('href')
+                        print("\nLegifrance link found")
+                        # use selenium to bypass incapsula protection
+                        exec_path = WebdriverExecPolicy().get_system_path()
+                        options = webdriver.ChromeOptions()
+                        options.add_argument('headless')
+                        driver_doc = webdriver.Chrome(options=options, executable_path=exec_path)
+                        driver_doc.get(document_href)
+                        document_soup = BeautifulSoup(driver_doc.page_source, 'html.parser')
 
-                # documents have the same hashcode, but different dates
-                date_part = str(date).replace('-', '_')
-                if document_hash in dict_hashcode:
-                    document_hash = document_hash + '-' + date_part
+                        assert document_soup
+                        # print(document_soup)
 
-                print('\tdocument_hash: ', document_hash)
+                        main_container = document_soup.find('div', class_='container main-container')
+                        if main_container is None:
+                            print("\tNo content available in this doc")
+                            continue
+                        head_code_page = main_container.find('div', class_='head-code-page')
+                        assert head_code_page
 
-                dpa_folder = self.path
-                document_folder = dpa_folder + '/' + 'Decisions & Deliberations' + '/' + document_hash
-                try:
-                    os.makedirs(document_folder)
-                    main_content = document_soup.find('div', class_='main-col cnil')
-                    main_text = main_content.get_text()
-                    # print(main_text)
-                    with open(
-                            document_folder + '/' + self.language_code + '.txt', 'w') as f:
-                        f.write(main_text)
-                    with open(document_folder + '/' + 'metadata.json', 'w') as f:
-                        metadata = {
-                            'title': {
-                                self.language_code: document_title
-                            },
-                            'md5': document_hash,
-                            'releaseDate': date.strftime('%d/%m/%Y'),
-                            'url': document_href
-                        }
-                        json.dump(metadata, f, indent=4, sort_keys=True, ensure_ascii=False)
-                    existed_docs.append(document_hash)
-                    dict_hashcode[document_hash] = date_part
-                except FileExistsError:
-                    print("\tDirectory path already exists, continue.")
+                        if head_code_page.find('h1', class_='main-title') is None:
+                            print("\tNo content available in this doc")
+                            continue
+                        document_title = head_code_page.find('h1', class_='main-title').get_text()
+                        print("\tDocument Title", document_title)
+                        print("\tdocument_href: ", document_href)
+
+                        date_text = document_title.split()[-3:]
+                        date_str = ' '.join(date_text)
+
+                    else :
+                        print("\nNo link found")
+                                           
+                        td_list = views_row.find_all('td')
+
+                        date = td_list[0].text.strip()
+                        type_organisme = td_list[1].text.strip()
+                        manquements = td_list[2].text.strip()
+                        decision_adoptee = td_list[3].text.strip()
+                        # print("DATE: ", date)
+                        # print("TYPE D'ORGANISME: ", type_organisme)
+                        # print("MANQUEMENTS PRINCIPAUX / THEME: ", manquements)
+                        # print("DECISION ADOPTEE: ", decision_adoptee)
+                        entreprise_hash = hashlib.md5(type_organisme.encode()).hexdigest()
+                        document_title = "Délibération du " + date + " - " + entreprise_hash
+                        print("\nDocument title : ", document_title)
+                        document_href = "https://www.cnil.fr/fr/les-sanctions-prononcees-par-la-cnil"
+                        date_str = date
+            
+                    tmp = dateparser.parse(date_str, languages=[self.language_code])
+                    # print('date:', tmp.year, tmp.month, tmp.day)
+                    date = datetime.date(tmp.year, tmp.month, tmp.day)
+                    if ShouldRetainDocumentSpecification().is_satisfied_by(date) is False:
+                        print("\tBefore GDPR")
+                        # break
+                        continue
+                    print("\tdate: ", date)
+
+                    document_hash = hashlib.md5(document_title.encode()).hexdigest()
+                    if document_hash in existing_docs and overwrite is False:
+                        if to_print:
+                            print('\tSkipping existing document:\t', document_hash)
+                        continue
+
+                    # documents have the same hashcode, but different dates
+                    date_part = str(date).replace('-', '_')
+                    if document_hash in dict_hashcode:
+                        document_hash = document_hash + '-' + date_part
+
+                    print('\tdocument_hash: ', document_hash)
+
+                    dpa_folder = self.path
+                    document_folder = dpa_folder + '/' + 'Decisions & Deliberations' + '/' + document_hash
+                    try:
+                        os.makedirs(document_folder)
+                        if public_decision:
+                            main_content = document_soup.find('div', class_='main-col cnil')
+                            main_text = main_content.get_text()
+                        else : 
+                            main_text = "DATE: " + str(date) + " TYPE D'ORGANISME: " + type_organisme + " MANQUEMENTS PRINCIPAUX / THEME: " + manquements + " DECISION ADOPTEE: " + decision_adoptee
+                            # print(main_text)
+                        with open(
+                                document_folder + '/' + self.language_code + '.txt', 'w') as f:
+                            f.write(main_text)
+                        with open(document_folder + '/' + 'metadata.json', 'w') as f:
+                            metadata = {
+                                'title': {
+                                    self.language_code: document_title
+                                },
+                                'md5': document_hash,
+                                'releaseDate': date.strftime('%d/%m/%Y'),
+                                'url': document_href
+                            }
+                            json.dump(metadata, f, indent=4, sort_keys=True, ensure_ascii=False)
+                        existed_docs.append(document_hash)
+                        dict_hashcode[document_hash] = date_part
+                        
+                    except FileExistsError:
+                        print("\tDirectory path already exists, continue.")
 
             # s0. Pagination
             pagination = self.update_pagination(pagination=pagination, page_soup=results_soup)
