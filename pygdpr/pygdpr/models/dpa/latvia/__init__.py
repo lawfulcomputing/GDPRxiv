@@ -326,6 +326,7 @@ class Latvia(DPA):
         if to_print:
             print('Page:\t', page_url)
         page_source = self.get_source(page_url=page_url)
+        print(page_source)
         results_soup = BeautifulSoup(page_source.text, 'html.parser')
         assert results_soup
         block_content = results_soup.find('div', class_='block-ministry-content')
@@ -334,16 +335,17 @@ class Latvia(DPA):
         for accordion in content.find_all('div', class_='accordion'):
             card_year = accordion.find('button', class_='btn btn-link')
             year = card_year.get_text().strip().split('.')[0]
-            print("year: ", year)
+            print("\nDocument Title: ", year)
             card_body = accordion.find('div', class_='card-body')
             document_href = card_body.find('a').get('href')
             document_url = host + document_href
-            print('document_url: ', document_url)
+            print('\tdocument_url: ', document_url)
             assert document_url
 
             # no title, so use year to be the title
             document_title = year
             document_hash = hashlib.md5(document_title.encode()).hexdigest()
+            print("\tdocument_hash: ", document_hash)
             if document_hash in existing_docs and overwrite == False:
                 if to_print:
                     print('\tSkipping existing document:\t', document_hash)
@@ -359,7 +361,9 @@ class Latvia(DPA):
             if document_response is None:
                 continue
             document_content = document_response.content
-            dpa_folder = self.path
+
+            dpa_folder = "/Users/chensun/PycharmProjects/GDPRxiv/documents/latvia"
+            #dpa_folder = self.path
             document_folder = dpa_folder + '/' + 'Violations' + '/' + document_hash
             # document_folder = dpa_folder + '/latvia' + '/' + 'Violations' + '/' + document_hash
             try:

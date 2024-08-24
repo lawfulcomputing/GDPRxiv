@@ -183,7 +183,9 @@ class Netherlands(DPA):
                             print('Failed to convert PDF to text')
                     with open(document_folder + '/' + 'metadata.json', 'w') as f:
                         metadata = {
-                            'title': document_title,
+                             'title': {
+                                self.language_code: document_title
+                            },
                             'md5': document_hash,
                             'releaseDate': date.strftime('%d/%m/%Y'),
                             'url': file_url
