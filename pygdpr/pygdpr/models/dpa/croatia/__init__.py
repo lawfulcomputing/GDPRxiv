@@ -129,7 +129,13 @@ class Croatia(DPA):
                     document_soup = BeautifulSoup(driver_doc.page_source, 'html.parser')
                     assert document_soup
                     et_pb_post_content = document_soup.find('div', class_='et_pb_post_content')
-                    assert et_pb_post_content
+
+                    if not et_pb_post_content:
+                        print("Warning: No content found for et_pb_post_content")
+                        # Handle the situation where no content is found
+                        continue  # or some other appropriate action
+
+                    #assert et_pb_post_content
                     document_text = et_pb_post_content.get_text()
 
                     with open(document_folder + '/' + self.language_code + '.txt', 'w') as f:
