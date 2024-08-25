@@ -209,7 +209,7 @@ class France(DPA):
                         date_str = ' '.join(date_text)
 
                     else :
-                        print("\nNo link found")
+                        #print("\nNo link found")
                                            
                         td_list = views_row.find_all('td')
 

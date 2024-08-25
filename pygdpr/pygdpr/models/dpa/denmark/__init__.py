@@ -55,10 +55,12 @@ class Denmark(DPA):
                     # so we replace it to the correct link
                     current_page = page_url
                     page_string = current_page.split('&PageNumber=')
-                    if page_string[0][-2].isdigit():
-                        page_url = page_string[0][:-2] + page_string[1]
-                    else:
-                        page_url = page_string[0][:-1]+page_string[1]
+                    print(page_string)
+                    page_url = page_string[0]
+                    #if page_string[0][-2].isdigit():
+                    #    page_url = page_string[0][:-2] + page_string[1]
+                    #else:
+                    #    page_url = page_string[0][:-1]+page_string[1]
             except NoSuchElementException:
                 pass
 
@@ -68,6 +70,7 @@ class Denmark(DPA):
             options.add_argument('headless')
             driver = webdriver.Chrome(options=options, executable_path=exec_path)
             driver.get(page_url)
+            time.sleep(3)
             pagination = Pagination()
             pagination.add_item(driver)
         return pagination
@@ -122,7 +125,7 @@ class Denmark(DPA):
 
                 if page_number in page_list:
                     continue
-                #print('page_number: ', page_number)
+                print('page_number: ', page_number)
                 exec_path = WebdriverExecPolicy().get_system_path()
                 options = webdriver.ChromeOptions()
                 options.add_argument('headless')
@@ -155,21 +158,28 @@ class Denmark(DPA):
                     document_title = document.text
                     document_hash = hashlib.md5(document_title.encode()).hexdigest()
 
+                    if document_hash == 'f6f5d1c1aac10df8b34cb91a25498ebc':
+                        print('here')
+                        # conner case
+                        document_hash = document_hash + '-' + document_url.split('/')[-1]
+
                     if document_hash in existing_docs and overwrite == False:
                         if to_print:
                             print('\tSkipping existing document:\t', document_hash)
                         continue
+
                     if document_hash in dict_hashcode.keys() and dict_hashcode[document_hash] == date:
                         if date_str == '17-05-2018':
                             print ('\t Last document')
                             return existed_docs
                         print('\tSkipping existing document:\t', document_hash)
                         continue
+
                     if document_hash in dict_hashcode:
-                        # documents have the same hashcode, but different dates
                         document_hash = document_hash + '-' + date_str
                     dpa_folder = self.path
                     document_folder = dpa_folder + '/' + 'Decisions' + '/' + document_hash
+
                     try:
                         os.makedirs(document_folder)
                         print('\nDocument Title:\t', document_title)
@@ -228,8 +238,9 @@ class Denmark(DPA):
         results_response = requests.request('GET', source_url)
         results_content = results_response.content
         results_soup = BeautifulSoup(results_content, 'html.parser')
-        web_page = results_soup.find('div', class_='web-page')
-        rich_text = web_page.find('div', class_='rich-text')
+        rich_text = results_soup.find(id='gb_ContentPlaceHolderDefault_mainGrid_ctl03')
+
+        #rich_text = web_page.find('div', class_='rich-text')
         print("\n========================= Denmark Decisions_2 Documents ===========================")
 
         for li in rich_text.find('ul').find_all('li'):
@@ -355,6 +366,7 @@ class Denmark(DPA):
 
                     dpa_folder = self.path
                     document_folder = dpa_folder + '/' + 'Permissions' + '/' + document_hash
+
                     try:
                         os.makedirs(document_folder)
                         print("\n\tDocument Title:\t", document_title)

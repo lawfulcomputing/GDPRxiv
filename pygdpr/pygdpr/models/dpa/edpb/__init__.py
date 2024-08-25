@@ -941,7 +941,7 @@ class EDPB(DPA):
             document_soup = BeautifulSoup(document_response.text, 'html.parser')
             assert document_soup
 
-            article = document_soup.find('article', role='article')
+            article = document_soup.find('article', class_='node node--type-edpb-publication node--promoted node--view-mode-full clearfix pb-3 pb-lg-5')
             assert article
 
             # Check if there is 'final document version' notice that has a link -> if so, use this link
@@ -1155,7 +1155,13 @@ class EDPB(DPA):
                 document_soup = BeautifulSoup(document_response.text, 'html.parser')
                 assert document_soup
 
-                article = document_soup.find('article', role='article')
+                class_options = [
+                    'node node--type-edpb-publication node--view-mode-full clearfix pb-3 pb-lg-5',
+                    'node node--type-edpb-publication node--promoted node--view-mode-full clearfix pb-3 pb-lg-5',
+                ]
+
+                # Find the article tag that matches either class
+                article = document_soup.find('article', class_=lambda x: x in class_options)
                 assert article
 
                 # Check if there is 'final document version' notice that has a link -> if so, use this link
@@ -1368,7 +1374,7 @@ class EDPB(DPA):
             document_soup = BeautifulSoup(document_response.text, 'html.parser')
             assert document_soup
 
-            article = document_soup.find('article', role='article')
+            article = document_soup.find('article', class_='node node--type-edpb-publication node--promoted node--view-mode-full clearfix pb-3 pb-lg-5')
             assert article
 
             col_sm_2 = article.find_all('div', class_='col-sm-2')
