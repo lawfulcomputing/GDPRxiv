@@ -1,0 +1,1764 @@
+Trygghetsmätning  
+i offentliga miljöer  
+med hjälp av IoT-teknik
+
+Slutrapport från Integritetsskyddsmyndighetens  
+regulatoriska sandlåda om dataskydd
+
+Diarienummer 
+IMY-2023-15495
+
+1(28)
+
+Diarienummer: 
+IMY-2023-15495 
+
+Datum: 
+2024-02-08 
+
+Trygghetsmätning i offentliga miljöer 
+med hjälp av IoT-teknik – slutrapport 
+från Integritetsskyddsmyndighetens 
+regulatoriska sandlåda om dataskydd 
+
+ 
+
+Innehållsförteckning 
+
+2. 
+
+Sammanfattning .................................................................................................. 3 
+Inledning ................................................................................................... 5 
+1. 
+Regulatorisk sandlåda – en form av försöksverksamhet .............. 5 
+1.1 
+1.2 
+IMY:s första pilotprojekt ................................................................ 7 
+Permanent del av IMY:s verksamhet och namnbyte .................... 7 
+1.3 
+1.4 
+Urval och arbetsprocess i det andra pilotprojektet ....................... 7 
+Projektet ”Trygghetsmätning i offentliga miljöer med hjälp av IoT-teknik” 9 
+2.1       Kort om deltagarna ....................................................................... 9 
+2.2       Kort om det aktuella pilotprojektet ................................................ 9 
+2.3       Trafikkontorets ändamål med den tänkta behandlingen .............. 9 
+2.4       Vad är sakernas internet (Internet of Things, IoT)? .................... 11 
+2.5       Trygghetsskapande åtgärder ..................................................... 11 
+2.6       De rättsliga frågeställningarna i pilotprojektet ............................ 12 
+2.7       Avgränsningar i pilotprojektet och annan upplysning ................. 12 
+Beskrivning av tekniken i det aktuella projektet ...................................... 13 
+3.1 
+LiDAR ......................................................................................... 13 
+3.1.1  Kort om kantberäkning ............................................................... 14 
+3.1.2    Kort om den AI-teknik som är tänkt att användas ...................... 14 
+3.2 
+Tekniska specifikationer ............................................................. 15 
+Kan uppgifter som samlas in via LiDAR-sensorer utgöra 
+
+4. 
+personuppgiftsbehandling enligt dataskyddsförordningen? .............................. 16 
+4.1 
+Personuppgifter .......................................................................... 16 
+4.1.1  Vad är personuppgifter? ............................................................. 16 
+4.1.2 
+IMY:s kommentarer .................................................................... 16 
+
+3. 
+
+Postadress: 
+Box 8114 
+104 20 Stockholm 
+Webbplats: 
+www.imy.se 
+E-post: 
+imy@imy.se 
+Telefon: 
+08-657 61 00 
+
+ 
+
+Integritetsskyddsmyndigheten 
+ 
+
+Diarienummer: IMY-2023-15495 
+Datum: 2024-02-08 
+ 
+
+2(28)
+
+ 
+
+Behandling av personuppgifter ................................................... 17 
+4.2 
+4.2.1  Vad är en behandling? ............................................................... 17 
+4.2.2 
+IMY:s kommentarer .................................................................... 17 
+4.3 
+Känsliga personuppgifter ............................................................ 17 
+4.3.1  Vad är känsliga personuppgifter? ............................................... 17 
+4.3.2 
+IMY:s kommentarer .................................................................... 17 
+4.4  Möjliga spår att undersöka vidare ............................................... 17 
+Hur relaterar användning av LiDAR-sensorer till 
+
+5. 
+kamerabevakningslagen? ................................................................................. 19 
+
+Rör det sig om varaktig eller regelbundet upprepad 
+
+Omfattas LiDAR-teknik av begreppet ”kamerabevakning” i 
+
+5.1 
+kamerabevakningslagen? ...................................................................... 19 
+5.1.1   TV-kamera, annat optisk-elektroniskt instrument eller därmed 
+jämförbar utrustning ............................................................................... 19 
+5.1.2    IMY:s kommentarer .................................................................... 20 
+5.2 
+personbevakning? .................................................................................. 21 
+5.2.1   Varaktig eller regelbundet upprepad personbevakning ............... 21 
+5.2.2   IMY:s kommentarer ..................................................................... 21 
+5.2.3   Möjliga spår att undersöka vidare ............................................... 22 
+5.3     Tillståndspliktig bevakning – Vilka överväganden behöver göras 
+och hur påverkas bedömningen av ny teknik? ....................................... 23 
+5.3.1    Är användning av LiDAR-sensorer på en offentlig plats 
+tillståndspliktig? ...................................................................................... 23 
+5.3.2    Ändamål som särskilt ska beaktas vid en tillståndsprövning ...... 23 
+5.3.3    IMY:s kommentarer .................................................................... 24 
+5.4       Kamerabevakningslagen håller på att ses över ......................... 25 
+Reflektioner om regulatorisk sandlåda som arbetssätt .......................... 26 
+Reflektioner om att tillämpa dataskyddsregelverket på ny teknik ........... 28 
+
+ 
+
+6. 
+7. 
+
+ 
+
+ 
+
+Integritetsskyddsmyndigheten 
+ 
+
+Diarienummer: IMY-2023-15495 
+Datum: 2024-02-08 
+ 
+
+3(28)
+
+ 
+
+Sammanfattning 
+
+• 
+
+• 
+
+• 
+
+• 
+
+• 
+
+• 
+
+Komplexa samhällsutmaningar kräver innovativa lösningar. Sverige står inför 
+stora samhällsutmaningar, bland annat klimatförändringar och demografiska 
+förändringar, där ny och befintlig teknik ofta kommer att betraktas som 
+nyckelverktyg för att möta dessa utmaningar. Artificiell intelligens (AI), sakernas 
+internet (Internet of Things, IoT) och annan innovativ teknik ger nya verktyg för att 
+bidra till trygghet, hälsa, välfärd och tillväxt. 
+ 
+Tempot i teknikutvecklingen utmanar samhällets arbetssätt. För att hantera 
+taktproblemet mellan snabb, teknologisk utveckling och trögrörliga regulatoriska 
+processer kan användningen av regulatoriska sandlådor vara ett viktigt 
+arbetssätt. Det finns ingen allmänt vedertagen definition av vad arbetssättet 
+innebär, men kärnan handlar om att innovatörer och till exempel 
+tillsynsmyndigheter arbetar tillsammans för att tolka och tillämpa regelverk på 
+innovativa produkter och tjänster. Dessa regulatoriska sandlådor syftar till att öka 
+rättslig förutsebarhet, främja innovation och underlätta för exempelvis startup- och 
+småföretag. 
+ 
+Integritetsskyddsmyndigheten (IMY) har under sommaren och hösten 2023 
+genomfört sitt andra pilotprojekt inom myndighetens regulatoriska 
+sandlåda. Med regulatorisk sandlåda avser IMY fördjupad vägledning om hur 
+dataskyddsregelverket bör tolkas och tillämpas. Kännetecknande för arbetssättet 
+är att IMY tillsammans med den aktuella verksamheten identifierar de rättsliga 
+frågor som vägledningen ska fokusera på. Vägledning ges därefter muntligt vid 
+flera tillfällen under några månaders tid i form av workshops eller andra 
+dialogbaserade former. Arbetet utmynnar i en publik rapport där resonemang och 
+bedömningar sammanfattas för att möjliggöra ett lärande för fler. 
+ 
+Projektet ”Trygghetsmätning i offentliga miljöer med hjälp av IoT-teknik” är 
+IMY:s andra pilotprojekt. Deltagarna i detta projekt har varit Trafikkontoret i 
+Stockholms stad, Internet of Things Sverige och Kista Science City AB. Projektet 
+handlar om Trafikkontorets önskan att använda LiDAR-sensorer för att på ett 
+enhetligt och systematiserat sätt ta fram data om andelen kvinnor, män 
+respektive barn som rör sig på ett offentligt torg. Trygghetsundersökningar visar 
+nämligen att kvinnor undviker platser de upplever som otrygga. Därav kommer 
+hypotesen att platser där kvinnor och barn vistas upplevs tryggare än andra. 
+Genom att få en representativ lägesbild över vilka grupper som uppehåller sig på 
+en viss plats, kan Trafikkontoret planera och vidta trygghetsskapande åtgärder för 
+att främja kvinnor och barn om de skulle vara underrepresenterade på platsen. 
+ 
+LiDAR-sensorer är en form av IoT-teknik. En LiDAR-sensor skickar ut infraröda 
+laserpulser för att mäta avståndet till ett objekt och skapar sedan en 
+tredimensionell punktkarta. Ju fler ljuspunkter som träffar ett objekt som befinner 
+sig inom sensorns upptagningsområde, desto mer detaljerade punktmoln kan fås 
+rörande just det objektet. Inom ramen för pilotprojektet är de utdata som en 
+LiDAR-sensor genererar tänkt att utgöra indata till en AI-algoritm. Denna algoritm 
+ska sedan kunna klassificera om en individ, som befinner sig inom LiDAR-
+sensors upptagningsområde, är en kvinna, en man eller ett barn. 
+ 
+Vägledningen i pilotprojektet har fokuserat på två rättsliga frågeställningar. 
+Utöver dessa två frågeställningar finns andra juridiska frågor som behöver 
+beaktas, men som inte analyserats inom ramen för projektet. 
+
+Integritetsskyddsmyndigheten 
+ 
+
+Diarienummer: IMY-2023-15495 
+Datum: 2024-02-08 
+ 
+
+4(28)
+
+ 
+
+• 
+
+• 
+
+• 
+
+• 
+
+Fråga 1. Kan uppgifter som samlas in via LiDAR-sensorer utgöra 
+personuppgiftsbehandling enligt dataskyddsförordningen? IMY finner att det 
+är mycket som talar för att det finns identifierare i de utdata som en LiDAR-sensor 
+genererar och att dessa data skulle kunna utgöra personuppgifter enligt 
+dataskyddsförordningen. IMY finner vidare att den process som sker när en 
+LiDAR-sensor genererar utdata typiskt sett utgör en behandling enligt 
+dataskyddsförordningen. Likaså är det mycket som talar för att det även sker en 
+personuppgiftsbehandling när AI-algoritmen utför beräkningar baserat på LiDAR-
+sensorns utdata. 
+ 
+Fråga 2. Hur relaterar användning av LiDAR-sensorer till 
+kamerabevakningslagen? IMY finner att LiDAR-sensorer typiskt sett omfattas 
+av begreppet ”annat optiskt-elektroniskt instrument” i kamerabevakningslagen. 
+Det är mycket som talar för att det kan vara möjligt att urskilja och identifiera 
+personer utifrån exempelvis kroppsrörelser, kroppskonstitution och klädsel i de 
+utdata som en LiDAR-sensor genererar. Om bevakning sker på en offentlig plats 
+och aktören är en myndighet framstår det därmed som troligt att det skulle bli 
+fråga om en sådan upprepad personbevakning som faller in under 
+kamerabevakningslagens tillämpningsområde. IMY konstaterar att ett 
+användande av LiDAR-sensorer för det ändamål som är aktuellt i projektet inte 
+självklart är ett sådant ändamål som särskilt ska beaktas enligt 
+kamerabevakningslagen vid bedömningen av bevakningsintresset. IMY finner 
+dock att tekniken kan bidra till att begränsa integritetsintrånget, särskilt vid en 
+jämförelse med traditionella bevakningskameror. 
+ 
+IMY har nu slutfört två pilotprojekt i sin regulatoriska sandlåda och beslutat 
+att göra arbetssättet till en permanent del av verksamheten. Under 2024 
+kommer IMY att genomföra nya projekt under både våren och hösten. 
+Erfarenheterna visar att detta arbetssätt är givande för såväl innovationsaktörer 
+som tillsynsmyndigheter men också för samhället i stort genom att det kan främja 
+utveckling av ny teknik och samtidigt bidra till att säkerställa dataskyddet. Många 
+offentliga organisationer har kontaktat IMY för att lära sig mer om den 
+regulatoriska sandlådan. IMY har även samarbetat och delat erfarenheter med 
+andra dataskyddsmyndigheter i Europa. Enligt den kommande AI-förordningen 
+krävs att medlemsstater etablerar regulatoriska sandlådor för AI och IMY 
+förväntas vara involverad som nationell dataskyddsmyndighet. Trots skillnader i 
+reglering kommer IMY:s erfarenheter att vara värdefulla. 
+ 
+Ett tvärfunktionellt arbete är avgörande för att framgångsrikt driva 
+innovation och samtidigt säkerställa ett gott dataskydd. Utifrån pilotprojektet 
+gör IMY några generella reflektioner kring det tvärfunktionella arbetssätt som 
+behövs i innovationsprocesser. En viktig erfarenhet är att det, för att kunna göra 
+relevanta rättsliga bedömningar, krävs en förhållandevis djup förståelse för 
+tekniken. Att ha en god pedagogisk förmåga är därför nödvändigt för både 
+tekniker och jurister. Strukturer och verktyg för att säkerställa en gemensam 
+förståelse kan underlätta arbetet. Det kan också vara en fördel att löpande gå 
+tillbaka till, och vid behov justera eller komplettera, de rättsliga frågeställningar 
+som behöver utredas. 
+
+ 
+
+Integritetsskyddsmyndigheten 
+ 
+
+Diarienummer: IMY-2023-15495 
+Datum: 2024-02-08 
+ 
+
+5(28)
+
+ 
+
+1.  Inledning 
+
+Sverige står inför stora samhällsutmaningar inom en rad områden. Klimatförändringar, 
+säkerhetshot, energiförsörjning och demografiska förändringar är exempel på 
+företeelser som i grunden har förändrat, och kommer att fortsätta förändra, välfärdens 
+förutsättningar. 
+
+Gemensamt för samtidens samhällsutmaningar är att ny teknik, eller befintlig teknik 
+som används på nya sätt eller i ny skala, ofta kommer att vara en del av lösningen. 
+Teknikutvecklingen går framåt i hög fart och erbjuder ständigt nya möjligheter. 
+Artificiell intelligens (AI), sakernas internet (Internet of Things, IoT), kvantdatorer och 
+annan innovativ teknik ger nya verktyg för att bidra till trygghet, hälsa, välfärd och 
+tillväxt. 
+
+I Sverige diskuteras allt mer intensivt hur den offentliga förvaltningen ska kunna möta 
+de komplexa samhällsutmaningarna och dra nytta av ny eller befintlig teknik fullt ut. 
+Tempot i teknikutvecklingen utmanar samhällets välbekanta arbetssätt, strukturer, 
+ledarskap, roller och reglering. I internationell litteratur används ofta begreppet 
+taktproblemet (eng. pacing problem) för att beskriva skillnaden i hastighet mellan den 
+exponentiella teknikutvecklingen och den ofta trögrörliga regulatoriska processen. I 
+Sverige har till exempel myndigheten Tillväxtanalys belyst utmaningarna med att 
+reglera teknisk innovation.1 
+
+I innovationssystemet finns en stark vilja att göra rätt och att utveckla hållbara 
+lösningar, men samtidigt en genuin osäkerhet om hur regelverken ska tillämpas på ny 
+teknik. Risken finns att försiktighetsprincipen tar överhand och bromsar 
+innovationskraften. För tillsynsmyndigheter som Integritetsskyddsmyndigheten (IMY) 
+är en av de främsta utmaningarna att hinna förstå och analysera den nya tekniken som 
+de befintliga reglerna ska tillämpas på. 
+
+1.1  Regulatorisk sandlåda – en form av försöksverksamhet 
+Bland annat OECD menar att en viktig del av vägen framåt handlar om att stärka 
+innovationsförmågan i offentlig sektor.2 I Sverige har Kommittén för teknologisk 
+innovation och etik (Komet) varit en stark röst för att förändringstakten i offentlig sektor 
+behöver påskyndas för att Sverige fullt ut ska kunna dra nytta av digitaliseringens 
+möjligheter. Ett av de utvecklingsspår som Komet har föreslagit är att i större 
+utsträckning driva försöksverksamheter.3 
+
+Regulatorisk sandlåda är en särskild form av försöksverksamhet där utvecklare och till 
+exempel tillsynsmyndigheter arbetar tillsammans för att tolka hur regelverket kan 
+tillämpas i praktiken på innovativa produkter och tjänster. Avsikten är bland annat att 
+öka den rättsliga förutsebarheten, förkorta tiden till att aktörens produkt eller tjänst når 
+marknaden och underlätta för startup- och småföretag. Regulatorisk sandlåda kallas 
+ibland också för sandbox, testbädd, växthus eller drivhus. 
+
+Inom EU har bland annat ministerrådet lyft fram regulatoriska sandlådor som ett sätt 
+att bidra till innovation och tillväxt för företag.4 Den nyligen överenskomna AI-
+
+ 
+1  Utmaningar vid reglering av teknisk innovation – möjliga policyåtgärder, Tillväxtanalys rapport 2022:04. 
+2  OECD Declaration on Public Sector Innovation, OECD/LEGAL/0450. 
+3  Förnya taktiken i takt med tekniken – förslag för en ansvarsfull, innovativ och samverkande förvaltning, SOU 
+2022:68. 
+4  Europeiska unionens råd. Antagna rådsslutsatser om regulatoriska sandlådor och experimentklausuler som verktyg 
+för ett innovationsvänligt, framtidssäkrat och motståndskraftigt regelverk som hanterar omvälvande utmaningar i en 
+digital tidsålder. Bryssel den 16 november 2020. Rådet definierade regulatoriska sandlådor som ett strukturerat 
+
+Integritetsskyddsmyndigheten 
+ 
+
+Diarienummer: IMY-2023-15495 
+Datum: 2024-02-08 
+ 
+
+6(28)
+
+ 
+
+förordningen kommer också att innehålla bestämmelser om inrättandet av 
+regulatoriska sandlådor som ett sätt att främja och underlätta utvecklingen av 
+innovativa AI-system.5 
+
+På dataskyddsområdet har IMY:s systermyndigheter i Storbritannien, Norge och 
+Frankrike under de senaste åren bedrivit regulatoriska sandlådor där vägledning ges 
+om tillämpningen av dataskyddsförordningen6, vanligtvis förkortad GDPR. För dessa 
+dataskyddsmyndigheter har det inte funnits någon särskild reglering för 
+försöksverksamheten eller några undantagsbestämmelser från gällande 
+dataskyddsregelverk. 
+
+Grundtanken med en regulatorisk sandlåda på dataskyddsområdet är att 
+tillsynsmyndigheten ger utforskande, dialogbaserad vägledning till innovationsaktörer i 
+utbyte mot att arbetet sammanfattas i en publik rapport som möjliggör lärande för fler. 
+Därmed utvecklas praktiska exempel i gråzonsfrågor, det vill säga frågor där praxis 
+eller annan vägledning saknas, inom områden där både tekniken och juridiken är 
+komplicerad, relativt ny och oprövad. Samtidigt bidrar arbetssättet till att öka 
+tillsynsmyndighetens förståelse för ny teknik och hur den kan tillämpas. Att 
+tillsynsmyndigheterna kan följa med i teknikutvecklingen och förstå hur ny teknik 
+fungerar är en förutsättning för att de sedan ska kunna applicera juridiken på ett 
+adekvat och ändamålsenligt sätt. 
+
+Med regulatorisk sandlåda avser IMY fördjupad vägledning om hur gällande 
+dataskyddsregelverk bör tolkas och tillämpas. Inget undantag ges från reglerna 
+i dataskyddsförordningen eller dess kompletterande lagstiftning. 
+
+Kännetecknande för arbetssättet är att: 
+
+ 
+
+ 
+
+ 
+
+IMY och innovationsaktörerna tillsammans identifierar de rättsliga frågor 
+som vägledningen ska fokusera på, 
+vägledning ges muntligt vid flera tillfällen under några månaders tid i form 
+av workshops eller andra dialogbaserade former, och 
+resonemang och bedömningar från vägledningen sammanfattas och 
+publiceras i en rapport för att möjliggöra lärande för många. 
+
+ 
+
+ 
+
+ 
+sammanhang för experiment som gör det möjligt att i en verklig miljö testa innovativa tekniker, produkter, tjänster eller 
+metoder (för närvarande särskilt i samband med digitalisering) under en begränsad period och i en begränsad del av 
+en sektor eller ett område som står under myndighetstillsyn för att säkerställa att det finns lämpliga skyddsåtgärder. 
+5  https://www.consilium.europa.eu/en/press/press-releases/2023/12/09/artificial-intelligence-act-council-and-
+parliament-strike-a-deal-on-the-first-worldwide-rules-for-ai/ 
+6  Europaparlamentets och rådets förordning (EU) 2016/679 av den 27 april 2016 om skydd för fysiska personer med 
+avseende på behandling av personuppgifter och om det fria flödet av sådana uppgifter och om upphävande av 
+direktiv 95/46/EG (allmän dataskyddsförordning). 
+
+Integritetsskyddsmyndigheten 
+ 
+
+Diarienummer: IMY-2023-15495 
+Datum: 2024-02-08 
+ 
+
+7(28)
+
+ 
+
+1.2  IMY:s första pilotprojekt 
+I mars 2023 avslutades det första pilotprojektet i IMY:s regulatoriska sandlåda. 
+Deltagarna i projektet var vårdgivarna Region Halland och Sahlgrenska 
+Universitetssjukhuset. Även AI Sweden, som är Sveriges nationella center för 
+tillämpad AI, var involverade och bistod med sina gedigna kunskaper inom artificiell 
+intelligens. Temat för projektet var decentraliserad AI inom hälso- och sjukvården. 
+Vårdgivarna ville utvärdera möjligheterna att gemensamt träna och utbyta 
+maskininlärningsmodeller med hjälp av federerad maskininlärning. IMY:s resonemang 
+och bedömningar avseende projektet finns sammanfattade i rapporten Federerad 
+maskininlärning mellan två vårdgivare (dnr IMY-2023-2602). Rapporten finns 
+publicerad på IMY:s webbplats.7 
+
+1.3  Permanent del av IMY:s verksamhet och namnbyte 
+Fler och fler innovatörer vill ha vägledning om dataskydd för att bygga in ett starkt 
+dataskydd i sina produkter eller tjänster redan från början. Genom att driva en 
+regulatorisk sandlåda kan IMY närma sig gråzonsfrågor på ett tidigare stadium och på 
+ett annat sätt än genom exempelvis myndighetens tillsynsverksamhet. Erfarenheterna 
+från IMY:s pilotprojekt har också varit mycket positiva. Från 2024 har vägledning 
+genom den regulatoriska sandlådan därför blivit en permanent del av IMY:s 
+verksamhet. Under året kommer IMY att genomföra två nya projekt: ett som påbörjas 
+under våren och ett som påbörjas under hösten. 
+
+Under det första pilotprojektet använde IMY begreppet regulatorisk testverksamhet. 
+IMY har därefter valt att byta namn till regulatorisk sandlåda då detta är ett begrepp 
+som är mer etablerat inom innovationssystemet. Det senare används också av IMY:s 
+systermyndigheter i exempelvis Norge och Storbritannien för sina motsvarande 
+försöksverksamheter.8 Namnbytet innebär dock inte att IMY har förändrat arbetssättet 
+utan det är fortfarande detsamma sedan den första piloten. 
+
+1.4  Urval och arbetsprocess i det andra pilotprojektet 
+Valet av innovationsprojekt till den andra piloten skedde efter att olika verksamheter 
+lämnat in spontanförfrågningar till IMY såsom Läkemedelsverket, Internet of Things 
+Sverige (IoT Sverige) och Sjyst data! (ett samverkans- och innovationsprojekt om 
+dataskydd och integritet som drivs av RISE). 
+
+För att kunna delta i pilotprojektet behövde följande kriterier vara uppfyllda: 
+
+ 
+
+ 
+
+ 
+
+ 
+
+projektet var i en så tidig fas att den tänkta personuppgiftsbehandlingen inte 
+redan hade påbörjats, 
+projektet hade kommit tillräckligt långt för att kunna definiera relativt konkreta 
+rättsliga frågeställningar, 
+projektet matchade IMY:s planering i tid och kunde avsätta resurser för ett 
+antal workshops under sommaren och hösten 2023, och 
+de aktuella verksamheterna accepterade att IMY:s pilotprojekt skulle utmynna 
+i en publik slutrapport. 
+
+Flertalet av de projekt som presenterades för IMY uppfyllde ovanstående kriterier. 
+
+En av de främsta anledningarna till att IMY bedriver en regulatorisk sandlåda är för att 
+myndigheten på ett snabbare sätt ska kunna tillskansa sig kunskaper inom ny teknik, 
+ 
+7  https://www.imy.se/publikationer/slutrapport-om-imys-pilotprojekt-med-regulatorisk-testverksamhet-om-dataskydd/ 
+8  Datatilsynet i Norge använder begreppet sandkassen (sv. sandlådan) och Information Commissioner’s Office (ICO) 
+i Storbritannien använder begreppet regulatory sandbox (sv. regulatorisk sandlåda). 
+
+Integritetsskyddsmyndigheten 
+ 
+
+Diarienummer: IMY-2023-15495 
+Datum: 2024-02-08 
+ 
+
+8(28)
+
+ 
+
+framför allt inom områden där tekniken har fått, eller inom kort kommer att få, stor 
+betydelse i samhället. Sakernas internet (Internet of Things, IoT) är ett av de 
+teknikområden där mycket har hänt på kort tid, och något som IMY lyfte fram som ett 
+särskilt riskområde i Integritetsskyddsrapport 2020 (Rapportnummer: 2021:1). IoT är 
+även ett av de teknikområden där antalet beviljade patent har ökat allra mest under de 
+senaste åren.9 Användningen av olika IoT-produkter i samhället har också ökat 
+markant. Det var mot denna bakgrund som IMY valde ett av projekten ur IoT Sveriges 
+portfölj till att bli det andra pilotprojektet i IMY:s regulatoriska sandlåda. Temat för det 
+aktuella projektet är trygghetsmätning i offentliga miljöer med hjälp av IoT-teknik. 
+Deltagarna i pilotprojektet har varit IoT Sverige, Kista Science City AB och 
+Trafikkontoret i Stockholms stad. 
+
+Det praktiska arbetet i pilotprojektet har bestått av tre faser: 
+
+•  Uppstartsfasen. Under juni 2023 hölls inledande möten för att förstå det 
+
+aktuella innovationsprojektet och med vilka förväntningar och förutsättningar 
+de olika deltagarna gick in i den regulatoriska sandlådan. IMY och deltagarna 
+valde ut de frågeställningar som vägledningen skulle fokusera på. 
+Uppstartsfasen inkluderade också ett gemensamt pressmeddelande10 och 
+gemensamma aktiviteter under Almedalsveckan. 
+
+•  Vägledningsfasen. Huvuddelen av arbetet genomfördes i form av en serie 
+
+workshops under perioden augusti–oktober 2023. Dialog fördes kring de 
+rättsliga frågeställningarna och IMY gav löpande muntlig vägledning. Ett par 
+särskilda mötestillfällen ägnades åt fördjupade genomlysningar av den 
+aktuella tekniken. Vid det avslutande mötet reflekterade IMY och deltagarna 
+också tillsammans kring arbetssättet med regulatorisk sandlåda, vad som 
+fungerat bra och vad som kan utvecklas. Totalt medverkade ett 15-tal 
+personer från IMY, IoT Sverige, Kista Science City och Trafikkontoret i 
+arbetet. 
+
+•  Rapportfasen. Under november 2023–januari 2024 har IMY arbetat med att 
+
+sammanställa denna slutrapport där arbetet och de rättsliga övervägandena 
+från pilotprojektet beskrivs. IoT Sverige, Kista Science City och Trafikkontoret 
+har hjälpt till att granska rapporten. 
+
+ 
+
+ 
+
+ 
+9  Integritetsskyddsrapport 2020 s. 61 (https://patentscope.wipo.int/search/en/search.jsf [sökningen genomfördes med 
+inställningen ”Any Field”]). 
+10  https://www.imy.se/nyheter/trygghetsprojekt-vagleds-i-grazonsfragor-om-dataskydd/ 
+
+Integritetsskyddsmyndigheten 
+ 
+
+Diarienummer: IMY-2023-15495 
+Datum: 2024-02-08 
+ 
+
+9(28)
+
+ 
+
+2.   Projektet ”Trygghetsmätning i offentliga miljöer med 
+
+hjälp av IoT-teknik” 
+
+2.1 Kort om deltagarna 
+Internet of Things Sverige (IoT Sverige) är ett strategiskt innovationsprogram som 
+syftar till att skapa samhällsnytta genom ökad användning av sakernas internet i 
+offentlig sektor. IoT Sverige ger stöd och finansierar innovativa IoT-projekt inom 
+offentlig sektor över hela landet. IoT Sverige samordnas av Uppsala universitet och 
+programmet finansieras gemensamt av Vinnova, Energimyndigheten och Formas. 
+
+Kista Science City AB är en icke-vinstdrivande verksamhet som arbetar med 
+utvecklingen av ny teknik och fungerar som en innovationsarena där näringsliv, 
+akademi och samhälle möts för att tillsammans driva utvecklingen framåt. Genom 
+samverkan, program och projekt arbetar Kista Science City med företagens utveckling 
+och kompetensförsörjning. Kista Science City är ett dotterbolag till stiftelsen Electrum. 
+
+Trafikkontoret i Stockholms stad (Trafikkontoret) ansvarar för att de offentliga 
+rummen inom kommunen är trygga och attraktiva med effektiva transportlösningar och 
+god framkomlighet. De förtroendevalda i Stockholms stads trafiknämnd beslutar om 
+hur kommunen ska arbeta inom de olika områdena. Trafikkontoret ansvarar sedan för 
+att genomföra trafiknämndens beslut. 
+
+2.2 Kort om det aktuella pilotprojektet 
+Pilotprojektet handlar om Trafikkontorets önskan att använda så kallade LiDAR-
+sensorer11 för att ta fram data om andelen kvinnor, män respektive barn12 som rör sig 
+på Jan Stenbecks torg i stadsdelen Kista. 
+
+Trafikkontorets ambition är att kunna få en lägesbild över hur befolkningsmixen, det vill 
+säga fördelningen mellan antalet män, kvinnor och barn, ser ut vid olika tidpunkter på 
+den aktuella platsen genom ett automatiserat tillvägagångssätt. 
+
+Trafikkontoret har i dagsläget inte installerat några LiDAR-sensorer på Jan Stenbecks 
+torg och det är heller inte givet att så kommer att ske. Genom IMY:s pilotprojekt har 
+Trafikkontoret fått vägledning om det finns förutsättningar enligt gällande 
+dataskyddsregelverk att kunna gå vidare med dessa planer. 
+
+2.3 Trafikkontorets ändamål med den tänkta behandlingen 
+En av de första dataskyddsrättsliga frågor som behöver besvaras i alla 
+innovationsprocesser är vilket ändamål den tänkta personuppgiftsbehandlingen har.13 
+Trafikkontoret har beskrivit ändamålet på följande sätt: 
+
+För att kunna skapa attraktiva, levande och trygga offentliga platser behöver 
+kommunen återkommande över tid mäta de indikatorer som kännetecknar 
+sådana platser. Detta behövs för att veta vilka platser som är attraktiva, 
+levande och trygga, men också för att veta vilka som inte är det för att kunna 
+rikta åtgärder samt följa upp med insatser. 
+
+ 
+11  Läs mer under avsnitt 3.1 nedan. 
+12  Med barn avses i detta sammanhang individer upp till 12 år, enligt Trafikkontoret. 
+13  Läs mer på IMY:s webbplats (https://www.imy.se/verksamhet/dataskydd/innovationsportalen/ar-det-ni-tankt-gora-
+ar-forenligt-med-gdpr/). 
+
+Integritetsskyddsmyndigheten 
+ 
+
+Diarienummer: IMY-2023-15495 
+Datum: 2024-02-08 
+ 
+
+10(28)
+
+ 
+
+Att mäta kompositionen av människor, och specifikt andelen kvinnor och barn, 
+som uppehåller sig på en viss plats ger en god bild av om platsen är attraktiv 
+och trygg för alla. 
+
+Trafikkontoret har uppgett att syftet med datainsamlingen inte är att förebygga eller 
+utreda brott på platsen, utan istället att undersöka om och när kvinnor och barn 
+använder sig av området. Trygghetsundersökningar visar att kvinnor undviker platser 
+de upplever som otrygga, därav kommer hypotesen att platser där kvinnor och barn 
+vistas upplevs tryggare än andra. Det har medfört att många städer i västvärlden 
+mäter andelen kvinnor och barn vid olika tidpunkter som en indikator på hur trygg eller 
+otrygg en plats upplevs.14 Genom att få en representativ lägesbild över vilka grupper 
+som uppehåller sig på en viss plats, kan Trafikkontoret planera och vidta 
+trygghetsskapande åtgärder för att främja kvinnor och barn om de skulle vara 
+underrepresenterade på platsen. 
+
+Att ta fram lägesbilder över hur befolkningsmixen ser ut på olika offentliga platser är 
+något som Trafikkontoret har gjort vid tre tillfällen (1995, 1996 och 2022). 
+Trafikkontoret har också gjort ett antal mätningar på ad hoc-basis. Sådana mätningar 
+har då skett helt manuellt genom att konsulter, studenter eller medarbetare sänts ut för 
+att räkna på plats. Trafikkontoret har uppgett att denna manuella metod är 
+resursintensiv och kostsam. Trafikkontorets ambition är att istället kunna mäta 
+befolkningsmixen på ett mer enhetligt och systematiskt sätt. Genom att göra mätningar 
+före och efter olika insatser, samt att följa hur utvalda platser nyttjas av invånare över 
+tid, skulle Trafikkontoret kunna vidta riktade och lämpliga åtgärder för att skapa en 
+tryggare stadsmiljö. Önskemålet inom ramen för detta pilotprojekt är att kunna 
+genomföra mätningarna på Jan Stenbecks torg under vissa tidsintervaller mellan 
+kl. 07.00 och 22.00 två dagar per månad. 
+
+Bild 1. Jan Stenbecks torg i Kista (Stockholms kommun). 
+
+ 
+14  Brottsförebyggande rådet 2023: Nationella trygghetsundersökningen; Listerborn, C. 2002: Trygg stad; diskurser om 
+kvinnors rädsla i forskning, policyutveckling och lokal praktik. (Doktorsavhandling, Chalmers tekniska högskola, 
+Göteborg). 
+
+ 
+
+Integritetsskyddsmyndigheten 
+ 
+
+Diarienummer: IMY-2023-15495 
+Datum: 2024-02-08 
+ 
+
+11(28)
+
+ 
+
+2.4 Vad är sakernas internet (Internet of Things, IoT)? 
+Sakernas internet, eller Internet of Things (IoT), är ett brett begrepp som vanligtvis 
+används för att beskriva nätverk av smarta enheter som känner av eller interagerar 
+med omgivningen. Enheterna i nätverket kan kontinuerligt samla in information, 
+reagera på den och kommunicera både med människor och med andra enheter. 
+Vardagsföremål såsom vitvaror, högtalare, termostater, belysningar, tv-apparater, 
+elektroniska lås och larm, kläder eller bilar, men också utrustning och sensorer i 
+industri, infrastruktur eller vården kan innehålla IoT-teknik.15 Utvecklingen går mot att 
+IoT används inom allt fler samhällsområden och på allt fler geografiska platser för att 
+samla in data och effektivisera arbetsflöden med mera. 
+
+Inom ramen för ”smarta städer” blir uppkopplade apparater och sensorer i det 
+offentliga rummet allt vanligare. De bakomliggande syftena med att samla in data kan 
+exempelvis vara att effektivisera och automatisera olika typer av kontroller och 
+mätningar. Exempel på användningsområden finns bland annat i transportsektorn där 
+det kan handla om att koppla ihop fordon med smarta telefoner och andra fordon. IoT-
+sensorer används också i väg- och järnvägsnätet och i kollektivtrafiken för ökad 
+trafiksäkerhet, fordonsdiagnostik med mera. På fastigheter kan sensorer till exempel 
+samla in data för effektivare hantering av säkerhet, ljus och diagnostik. Uppkopplade 
+enheter kan också finnas i mätutrustning i smarta elnät och i transport- och 
+vattensystem. Genom att enheterna är anslutna till ett nätverk kan de fjärrstyras av 
+människor eller av andra maskiner. De kan också skicka data som används för 
+mätningar, diagnoser och automatisk styrning. 
+
+2.5 Trygghetsskapande åtgärder 
+Trafikkontoret vill mäta befolkningsmixen på den aktuella platsen och med hjälp av 
+denna information utforma lämpliga trygghetsskapande åtgärder med syfte att jämna 
+ut eventuella snedfördelningar mellan olika grupper. Syftet är med andra ord inte att 
+förebygga brottslighet. I detta sammanhang kan lagen (2023:196) om kommuners 
+ansvar för brottsförebyggande arbete nämnas. Lagen trädde i kraft den 1 juli 2023 och 
+syftar till att säkerställa att kommuner utifrån ett kunskapsbaserat underlag tar ställning 
+till behovet av brottsförebyggande åtgärder och även tar visst ansvar för samordningen 
+av det brottsförebyggande arbetet inom kommunen.16 Enligt 4 § ska kommunerna ta 
+fram en lägesbild över brottsligheten inom kommunens geografiska område. 
+Lägesbilden ska bland annat innehålla en kartläggning av brottsligheten och annan 
+information av betydelse i sammanhanget. Av 5 § framgår att kommuner, med 
+lägesbilden som underlag, ska besluta om en plan för vilka åtgärder som kommunen 
+avser att vidta för att förebygga brott (åtgärdsplan). 
+
+Begreppet brottsförebyggande åtgärder definieras inte i lagen om kommuners ansvar 
+för brottsförebyggande arbete. Det är ett svårdefinierat begrepp som saknar en allmänt 
+vedertagen definition.17 Enligt förarbetena till lagen kan begreppet även omfatta vissa 
+trygghetsskapande åtgärder.18 Det är dock oklart till vilken grad. Det är exempelvis inte 
+givet om Trafikkontorets tilltänkta datainsamling gällande hur befolkningsmixen ser ut 
+på en viss offentlig plats kan anses utgöra en sådan åtgärd som omfattas av lagen. 
+Samma sak gäller för de trygghetsskapande åtgärder som staden skulle vidta för att 
+minska en eventuell snedfördelning mellan kvinnor, män och barn på platsen. 
+
+ 
+15  https://iotsverige.se/iot-sa-funkar-det 
+16  Se 3 § lagen om kommuners ansvar för brottsförebyggande arbete. 
+17  Prop. 2022/23:43 s. 15. 
+18  Prop. 2022/23:43 s. 15. 
+
+Integritetsskyddsmyndigheten 
+ 
+
+Diarienummer: IMY-2023-15495 
+Datum: 2024-02-08 
+ 
+
+12(28)
+
+ 
+
+2.6 De rättsliga frågeställningarna i pilotprojektet 
+IMY, IoT Sverige, Kista Science City och Trafikkontoret enades om att i det aktuella 
+pilotprojektet fokusera på två rättsliga frågeställningar: 
+
+1.  Kan uppgifter som samlas in via LiDAR-sensorer utgöra 
+
+personuppgiftsbehandling enligt dataskyddsförordningen? 
+
+2.  Hur relaterar användning av LiDAR-sensorer till kamerabevakningslagen 
+
+(2018:1200)? 
+
+I avsnitt 4–5 nedan följer en redogörelse avseende de två rättsliga frågeställningarna. 
+
+2.7 Avgränsningar i pilotprojektet och annan upplysning 
+I projekt som detta uppstår en rad olika dataskyddsrättsliga frågeställningar som en 
+verksamhet behöver analysera. Inom ramen för det här pilotprojektet har det inte 
+funnits utrymme att hantera samtliga rättsfrågor. De frågeställningar som valts ut och 
+utretts har bedömts ha stor relevans för framdriften i det aktuella projektet, men också 
+vara relevanta för andra aktörer såsom andra kommuner som överväger att samla in 
+data på motsvarande sätt som Trafikkontoret önskar göra. Det bör framhållas att det är 
+varje personuppgiftsansvarigs skyldighet att se till att dess personuppgiftsbehandling 
+är förenlig med dataskyddsförordningen och kompletterande nationell rätt. 
+
+I detta pilotprojekt har IMY analyserat LiDAR-teknik. De bedömningar som IMY har 
+gjort, och som redogörs för nedan, kan inte nödvändigtvis appliceras direkt på annan 
+teknik som till exempel radarteknik, ljussensorer eller rörelsesensorer. 
+
+Denna slutrapport innehåller en redogörelse för IMY:s uppfattning i rättsliga frågor där 
+det saknas vägledande domstolspraxis eller vägledning från Europeiska 
+dataskyddsstyrelsen19 (EDPB). Bedömningarna görs mot bakgrund av nuvarande 
+rättsläge och kan komma att ändras om det skulle komma ny lagstiftning, 
+domstolspraxis eller vägledning från EDPB. 
+
+ 
+
+ 
+
+ 
+
+ 
+19  https://www.imy.se/verksamhet/dataskydd/dataskydd-pa-eu-niva/edbp/ 
+
+Integritetsskyddsmyndigheten 
+ 
+
+Diarienummer: IMY-2023-15495 
+Datum: 2024-02-08 
+ 
+
+13(28)
+
+ 
+
+3.  Beskrivning av tekniken i det aktuella projektet 
+
+3.1  LiDAR 
+För att uppnå syftet med projektet, det vill säga att mäta befolkningsmixen på den 
+aktuella platsen, önskar projektdeltagarna förstå om LiDAR-sensorer är ett bättre 
+alternativ ur integritetssynpunkt jämfört med traditionell kamera. LiDAR är en 
+förkortning av engelskans light detection and ranging och kallas ibland även LADAR 
+eller laseravståndsmätning. 
+
+LiDAR-teknik har länge använts inom landskapsmodellering och i bygg- och 
+konstruktionsbranschen. Idag används den också i autonoma fordon och fordon med 
+avancerade säkerhetssystem. Många mobiltelefoner har inbyggd LiDAR-teknik i olika 
+former, bland annat används en liknande teknik för ansiktsidentifiering. LiDAR är 
+närbesläktat med andra tekniker, framför allt radar (eng. radio detecting and ranging) 
+och sonar (eng. sound navigation and ranging). LiDAR är dock baserat på pulser av 
+laserljus istället för radio- eller ljudvågor. 
+
+På ett översiktligt plan fungerar LiDAR på följande sätt. LiDAR-sensorn beräknar 
+avståndet till ett objekt (såsom en person, en skylt eller ett träd) genom att skicka ut 
+infraröda laserpulser (ljuskällan) och mäter sedan tiden det tar för pulserna att 
+reflekteras tillbaka till ljusmottagaren i sensorn. LiDAR-sensorn skickar ut dessa 
+laserpulser med ett mycket kort tidsintervall samtidigt som den roterar, eller tiltar, 
+ljuskällan i ett konformat mönster för att skapa ett så kallat punktmoln. Laserpulserna 
+utgörs av osynligt ljus i våglängder som ligger i spektrumet kring 900 nanometer20 
+(nm). Hur en LiDAR-sensor fungerar på ett övergripande plan illustreras genom bilden 
+nedan. 
+
+Bild 2. En förenklad bild av hur en LiDAR-sensor fungerar. Sensorn sänder ut laserpulser i 
+sin omgivning. När en laserpuls träffar ett objekt (till exempel en person eller ett träd) 
+reflekteras den tillbaka till ljusmottagaren i sensorn. 
+
+ 
+
+ 
+20  https://it-ord.idg.se/ord/nanometer/ 
+
+Integritetsskyddsmyndigheten 
+ 
+
+Diarienummer: IMY-2023-15495 
+Datum: 2024-02-08 
+ 
+
+14(28)
+
+ 
+
+LiDAR-sensorer genererar vanligtvis utdata21 i form av tredimensionella punktkartor. 
+Beroende på upplösningen hos sensorn kan den skapa en mycket exakt 3D-modell av 
+både omgivningen och objekten på en plats. När man talar om en LiDAR-sensors 
+upplösning avses framför allt avståndet mellan respektive ljuspunkt, men även det 
+maximala avståndet som sensorn kan detektera ett objekt på. 
+
+Vad gäller avståndet mellan varje ljuspunkt, mäts det i antalet grader mellan respektive 
+punkt (både vertikalt och horisontellt). Vanliga upplösningar idag ligger i spannet 0,1–
+0,4 grader. En lägre siffra innebär ett kortare avstånd mellan respektive ljuspunkt, 
+vilket medför en högre upplösning och en bättre detaljrikedom. Även sensorns synfält 
+(eng. field of view) mäts i grader (både vertikalt och horisontellt). Vilken LiDAR-sensor 
+man väljer att använda är därmed av stor betydelse. I korthet innebär detta att ju fler 
+ljuspunkter som träffar ett objekt som befinner sig inom sensorns upptagningsområde, 
+desto mer detaljerade punktmoln (utdata) kan fås rörande just det objektet. 
+Motsvarande gäller objektets placering i förhållande till sensorn – ju närmare objektet 
+befinner sig, desto fler ljuspunkter träffar objektet. En LiDAR-sensor har ett maximalt 
+avstånd för detektionens räckvidd (detektionsräckvidd) vid vilket sensorn kan detektera 
+och mäta objekt. Detektionsräckviddens maximala avstånd skiljer sig åt mellan olika 
+typer av LiDAR-sensorer. 
+
+Sensorns uppdateringsfrekvens, det vill säga antalet punkter som samlas in av ett 
+LiDAR-system under en given tidsperiod, mäts i hertz (Hz). En högre 
+uppdateringsfrekvens innebär att fler punkter samlas in per sekund, vilket resulterar i 
+ett tätare och mer granulärt punktmoln. En högre uppdateringsfrekvens innebär att en 
+större mängd data per tidsenhet samlas in. 
+
+För att bedöma om personer kan anses vara identifierbara utifrån ett juridiskt 
+perspektiv, är framför allt följande egenskaper hos en LiDAR-sensor avgörande: 
+
+1.  upplösning i form av antalet ljuspunkter som träffar ett objekt, 
+2.  avståndet till objektet och sensorns detektionsräckvidd, 
+3.  sensorns uppdateringsfrekvens, och 
+4.  sensorns synfält. 
+
+3.1.1  Kort om kantberäkning 
+Kantberäkning eller kantdatorsystem22 (eng. edge computing) innebär att 
+beräkningskraften flyttas ut i nätverkets utkant, det vill säga till kantnoder eller 
+sensorer. Det innebär att data inte behöver skickas via nätverket till en central server 
+där beräkningen eller bearbetningen av aktuella data sedan sker. Kantberäkning 
+medför att vissa, och ibland krävande, bearbetningar av data kan göras direkt i, eller i 
+nära anslutning till, sensorerna. 
+
+I det aktuella pilotprojektet avser deltagarna att använda kantbaserad teknik. 
+Bearbetningen av de data som LiDAR-sensorerna genererar är således tänkt att ske 
+direkt i, eller i nära anslutning till, sensorerna. 
+
+3.1.2 Kort om den AI-teknik som är tänkt att användas 
+De utdata som en LiDAR-sensor genererar ska utgöra indata till en AI-algoritm. Denna 
+algoritm ska sedan kunna klassificera om en individ, som befinner sig inom LiDAR-
+sensorns upptagningsområde, är en kvinna, en man eller ett barn. Med hjälp av dessa 
+
+ 
+21  https://it-ord.idg.se/ord/utdata/ 
+22  https://it-ord.idg.se/ord/kantdatorsystem/ 
+
+Integritetsskyddsmyndigheten 
+ 
+
+Diarienummer: IMY-2023-15495 
+Datum: 2024-02-08 
+ 
+
+15(28)
+
+ 
+
+uppgifter kan Trafikkontoret skapa sig en lägesbild över hur befolkningsmixen på det 
+aktuella torget ser ut. 
+
+AI-algoritmen finns ännu inte på marknaden, men enligt deltagarna är det tekniskt sett 
+möjligt att ta fram en sådan modell. För att algoritmen ska fungera på ett 
+ändamålsenligt sätt behöver de utdata som LiDAR-sensorerna genererar sparas under 
+en viss tid för att undvika alltför omfattande dubbelräkningar av individer som befinner 
+sig på platsen. Det bör understrykas att de dataskyddsrättsliga frågor som aktualiseras 
+i samband med framtagningen av ifrågavarande algoritm ligger utanför detta projekt. 
+Det är inte tänkt att någon av projektdeltagarna ska ta fram algoritmen själv utan det 
+ska istället ske genom externa leverantörer på marknaden. 
+
+3.2  Tekniska specifikationer 
+I projektet avser deltagarna att använda sig av 1–3 kantbaserade LiDAR-sensorer med 
+en upplösning av 0,1 grader (både horisontellt och vertikalt). Sensorerna är tänkta att 
+placeras på en höjd av 4–8 meter över marknivå och med en maximal 
+detektionsräckvidd på 250 meter. Synfältet är 115x25 grader (HxV). De utdata som 
+genereras av en sensor med den aktuella upplösningen illustreras nedan i form av en 
+2D-figur. Det bör nämnas att utdata från en sensor i praktiken formar ett rörligt 3D-
+moln där även djupdata registreras. AI-algoritmen ska sedan klassificera om en individ 
+som fångas av sensorn är en kvinna, en man eller ett barn. Dessa uppgifter skickas 
+därefter till Trafikkontoret som då får data över hur befolkningsmixen ser ut på den 
+aktuella platsen. Algoritmen ska utföra klassificeringen, det vill säga databehandlingen, 
+direkt i eller i nära anslutning till sensorn. 
+
+ 
+
+ 
+
+Bild 3. InnovizOne Automotive grade LiDAR. Urklipp från videomaterial som illustrerar de 
+utdata som vald LiDAR-sensor med upplösning om 0,1x0,1 grader genererar. 
+Sammanfattningsvis är användningen av den teknik som beskrivs ovan tänkt 
+att ske i följande steg. 
+ 
+
+1.  LiDAR-sensorn skickar ut infraröda laserpulser mot objekt som befinner sig 
+upp till 250 meter bort. Laserpulserna reflekteras sedan tillbaka till sensorn. 
+ 
+
+2.  LiDAR-sensorn beräknar avståndet till objektet och genererar utdata i form 
+
+av en 3D-modell av omgivningen. 
+ 
+
+3.  Den kantbaserade beräkningen med AI-algoritmen sker direkt i, eller i nära 
+anslutning till, LiDAR-sensorn. AI-algoritmen klassificerar de individer som 
+befinner sig inom sensorns upptagningsområde i någon av grupperna: 
+kvinna, man eller barn. 
+ 
+
+4.  AI-algoritmens utdata ger statistik över antalet kvinnor, män och barn. 
+
+Denna statistik skickas sedan till Trafikkontoret över internet. 
+
+Integritetsskyddsmyndigheten 
+ 
+
+Diarienummer: IMY-2023-15495 
+Datum: 2024-02-08 
+ 
+
+16(28)
+
+ 
+
+4.  Kan uppgifter som samlas in via LiDAR-sensorer utgöra 
+
+personuppgiftsbehandling enligt 
+dataskyddsförordningen? 
+
+4.1  Personuppgifter 
+
+4.1.1  Vad är personuppgifter? 
+I artikel 4.1 i dataskyddsförordningen definieras begreppet personuppgifter. Enligt 
+förordningen är personuppgifter varje upplysning som avser en identifierad eller 
+identifierbar fysisk person. Med en identifierbar fysisk person avses att en person 
+direkt eller indirekt kan identifieras, till exempel genom en eller flera faktorer som är 
+specifika för den fysiska personens fysiska, fysiologiska, genetiska, psykiska, 
+ekonomiska, kulturella eller sociala identitet. 
+
+Personuppgifter kan delas in i två underkategorier: direkta respektive indirekta 
+personuppgifter. En direkt personuppgift kan vara ett namn eller ett personnummer. En 
+indirekt personuppgift kan däremot vara nästan vad som helst som på något sätt kan 
+kopplas till en fysisk person (även kallad identifierare). Av skäl 26 i 
+dataskyddsförordningen framgår att man, vid bedömningen av om en person är 
+identifierbar, bör beakta alla hjälpmedel som rimligen kan komma att användas av den 
+personuppgiftsansvarige eller någon annan för att direkt eller indirekt identifiera en 
+person. Detta innebär att den personuppgiftsansvarige inte själv behöver förfoga över 
+samtliga uppgifter som skulle kunna göra identifieringen möjlig. Däremot krävs att det 
+finns en rimlig sannolikhet att den personuppgiftsansvarige eller någon annan kommer 
+att kunna identifiera personen. 
+
+När det gäller bilder, filmsekvenser och liknande är det inte bara ansiktsdrag som kan 
+identifiera en person. Det kan även vara möjligt att identifiera en person genom 
+exempelvis kroppsbyggnad, kroppsrörelser och gångstil. Begreppet personuppgifter 
+har en vid innebörd och innefattar all slags information som direkt eller indirekt kan 
+knytas till en person som är i livet.23 
+
+4.1.2   IMY:s kommentarer 
+Mot bakgrund av det material (tekniska beskrivningar, bilder och videoklipp) som 
+deltagarna har presenterat i pilotprojektet, finner IMY att det är mycket som talar för att 
+det finns identifierare i de data som aktuella LiDAR-sensorer genererar och att dessa 
+data skulle kunna utgöra personuppgifter enligt artikel 4.1 i dataskyddsförordningen. I 
+bland annat ett videoklipp som IMY tagit del av illustreras de data som LiDAR-sensorn 
+genererar. Där går det på ett tydligt sätt att skönja personer (se bild 3 ovan). Dessa 
+personer skulle, baserat på bland annat klädsel, kroppsrörelser och kroppsformer, 
+sannolikt kunna identifieras av andra som på ett eller annat sätt är bekanta med dem. 
+
+Vad gäller AI-algoritmens utdata rör det sig endast om statistiska uppgifter om antalet 
+kvinnor, män och barn som befinner sig på platsen inom ett visst tidsspann. Uppgifter 
+som inte kan härledas till en viss individ utgör inte personuppgifter enligt 
+dataskyddsförordningen. 
+
+ 
+23  https://www.imy.se/verksamhet/dataskydd/det-har-galler-enligt-gdpr/introduktion-till-gdpr/personuppgifter/ 
+
+Integritetsskyddsmyndigheten 
+ 
+
+Diarienummer: IMY-2023-15495 
+Datum: 2024-02-08 
+ 
+
+17(28)
+
+ 
+
+4.2  Behandling av personuppgifter 
+
+4.2.1   Vad är en behandling? 
+Behandling av personuppgifter definieras i artikel 4.2 i dataskyddsförordningen. Med 
+behandling avses i princip allt som kan göras med uppgifterna. Det kan till exempel 
+vara att samla in, registrera, lagra, analysera, lämna ut eller radera dem. Begreppet 
+behandling har i likhet med begreppet personuppgifter en vid innebörd. Nästintill all 
+hantering av personuppgifter är att betrakta som en behandling utifrån ett 
+dataskyddsrättsligt perspektiv. Det kan noteras att begreppet behandling inte är 
+avhängigt av hur lång tid personuppgiftsbehandlingen pågår. Det innebär att även 
+behandlingar som pågår under en mycket kort tid utgör en personuppgiftsbehandling 
+enligt dataskyddsförordningen. 
+
+4.2.2  IMY:s kommentarer 
+IMY finner att den process som sker när en LiDAR-sensor genererar utdata (det vill 
+säga skapar de rörliga 3D-punktmolnen) typiskt sett utgör en 
+personuppgiftsbehandling enligt dataskyddsförordningen. Vidare är det mycket som 
+talar för att det även skulle ske en personuppgiftsbehandling när en AI-algoritm utför 
+beräkningar baserat på en LiDAR-sensors utdata för att klassificera om en individ som 
+befinner sig inom sensorns upptagningsområde är en kvinna, en man eller ett barn. 
+
+4.3  Känsliga personuppgifter 
+
+4.3.1  Vad är känsliga personuppgifter? 
+Av artikel 9.1 i dataskyddsförordningen framgår att behandling av särskilda kategorier 
+av personuppgifter (så kallade känsliga personuppgifter) är förbjuden. Förbudet gäller 
+inte om behandlingen har stöd i något av undantagen i artikel 9.2, till exempel om den 
+registrerade gett sitt uttryckliga samtycke till behandlingen eller behandlingen är 
+nödvändig av hänsyn till ett viktigt allmänt intresse på grundval av nationell rätt. 
+Känsliga personuppgifter är bland annat uppgifter om hälsa, sexuella läggning och 
+biometriska uppgifter som används för att entydigt identifiera en person. Biometriska 
+uppgifter definieras i artikel 4.14 i förordningen som ”personuppgifter som erhållits 
+genom en särskild teknisk behandling som rör en fysisk persons fysiska, fysiologiska 
+eller beteendemässiga kännetecken och som möjliggör eller bekräftar identifieringen 
+av denna fysiska person, såsom ansiktsbilder eller fingeravtrycksuppgifter”. 
+
+Enligt skäl 51 i dataskyddsförordningen bör dock inte behandling av foton systematiskt 
+anses utgöra behandling av känsliga personuppgifter. Foton är biometriska uppgifter 
+endast om de behandlas med särskild teknik som möjliggör identifiering eller 
+autentisering av en person. 
+
+4.3.2  IMY:s kommentarer 
+IMY har noterat att de utdata som en LiDAR-sensor genererar skulle kunna innehålla 
+biometriska uppgifter i form av ansiktsformer. Inom ramen för detta pilotprojekt har IMY 
+dock inte fått några indikationer på att den aktuella AI-algoritmen ska kunna göra 
+något annat än att klassificera om en viss individ är en kvinna, en man eller ett barn. 
+Algoritmen ska således inte kunna identifiera en enskild person. Mot bakgrund av 
+detta är det mycket som talar för att de utdata som LiDAR-sensorn genererar inte 
+automatiskt innebär behandling av biometriska uppgifter. 
+
+4.4  Möjliga spår att undersöka vidare 
+Under de förutsättningar som varit aktuella i projektet är det mycket som talar för att 
+användningen av LiDAR-sensorerna kan komma att innebära att personuppgifter 
+
+Integritetsskyddsmyndigheten 
+ 
+
+Diarienummer: IMY-2023-15495 
+Datum: 2024-02-08 
+ 
+
+18(28)
+
+ 
+
+behandlas. Det betyder dock inte att samma resonemang är applicerbart för alla 
+former av användningar eller mätningar som sker med hjälp av LiDAR-sensorer eller 
+motsvarande teknik. Val av sensor är av stor betydelse. En sensor med en sådan låg 
+upplösning att personer inte kan identifieras faller utanför dataskyddsförordningens 
+tillämpningsområde. Samma resonemang kan föras om sensorn är placerad på ett så 
+pass långt avstånd i förhållande till de individer som fångas av sensorn. Val av sensor 
+är därför något som noga bör undersökas innan användningen påbörjas. Om samma 
+resultat kan uppnås genom en sensor med lägre upplösning och kortare räckvidd24, 
+bör en sådan sensor användas. Motsvarande resonemang kan också föras kring 
+kantberäkning. Att behandlingen av data sker direkt i, eller i nära anslutning till, 
+sensorn minskar riskerna med behandlingen i jämförelse med data som skickas till en 
+central server via ett öppet nätverk. 
+
+En annan aspekt att uppmärksamma är LiDAR-teknikens förutsättningar att behandla 
+biometriska uppgifter, något som bör beaktas innan användning påbörjas. Ytterligare 
+en faktor än den tekniska utvecklingen. En sensor med låg upplösning som idag inte 
+har kapacitet att identifiera enskilda individer skulle möjligen kunna göra det inom en 
+snar framtid med beaktande av processorers ökade beräkningskraft och förfinade 
+algoritmer. 
+
+ 
+
+ 
+
+ 
+24  Läs mer under avsnitt 3.1 ovan. 
+
+Integritetsskyddsmyndigheten 
+ 
+
+Diarienummer: IMY-2023-15495 
+Datum: 2024-02-08 
+ 
+
+19(28)
+
+ 
+
+5.  Hur relaterar användning av LiDAR-sensorer till 
+
+kamerabevakningslagen? 
+
+Kamerabevakning som sker i Sverige regleras framför allt av dataskyddsförordningen 
+och kamerabevakningslagen. Dataskyddsförordningen utgör den grundläggande 
+regleringen för den personuppgiftsbehandling som sker genom kamerabevakning och 
+där finns bland annat bestämmelser om grundläggande principer, rättslig grund, 
+informationsskyldighet och de registrerades rättigheter. 
+
+Kamerabevakningslagen kompletterar dataskyddsförordningen. Den reglerar vissa 
+frågor om kamerabevakning där dataskyddsförordningen lämnat utrymme för 
+nationella regler, till exempel tillståndsplikt för viss kamerabevakning. Det är IMY som 
+ansvarar för att besluta om tillstånd till sådan kamerabevakning. Alla som bedriver 
+kamerabevakning behöver dock inte ansöka om tillstånd. 
+
+Tillstånd krävs om kamerabevakningen innebär varaktig eller regelbundet upprepad 
+personbevakning på en plats dit allmänheten har tillträde och förutsatt att bevakningen 
+ska bedrivas av en myndighet eller någon annan än en myndighet vid utförande av en 
+uppgift av allmänt intresse som följer av lag eller annan författning, kollektivavtal eller 
+beslut som har meddelats med stöd av lag eller annan författning. 
+
+I nuvarande projekt önskar deltagarna att använda LiDAR-sensorer, en teknik som 
+IMY inte tidigare har bedömt inom ramen för myndighetens tillstånds- eller 
+tillsynsverksamhet. En av huvudfrågorna i projektet har varit hur den aktuella tekniken 
+förhåller sig till kamerabevakningslagen, och mer specifikt om den aktuella 
+bevakningen kan omfattas av tillståndskravet i lagen. 
+
+För att kunna bedöma om bevakning med LiDAR-sensorer omfattas av 
+kamerabevakningslagen och om bevakningen – under de förutsättningar som 
+föreligger i projektet – kan vara tillståndspliktig eller inte, behöver flera frågor besvaras. 
+Nedan följer en genomgång av de olika faktorer som behöver beaktas för att avgöra 
+om en bevakning är tillståndspliktig, följt av ett generellt resonemang kring de 
+avvägningar som behöver göras vid bedömningen av om bevakningen är tillåten eller 
+inte. 
+
+5.1  Omfattas LiDAR-teknik av begreppet ”kamerabevakning” i 
+
+kamerabevakningslagen? 
+
+I 3 § kamerabevakningslagen finns en definition av begreppet kamerabevakning. Med 
+kamerabevakning avses att en tv-kamera, ett annat optisk-elektroniskt instrument eller 
+en därmed jämförbar utrustning, utan att manövreras på platsen, används på ett sätt 
+som innebär varaktig eller regelbundet upprepad personbevakning. 
+
+5.1.1  TV-kamera, annat optisk-elektroniskt instrument eller därmed jämförbar 
+utrustning 
+Första frågan som behöver besvaras är om den teknik som deltagarna önskar 
+använda, det vill säga LiDAR-sensorer, omfattas av den utrustning som anges i 
+kamerabevakningslagen, nämligen tv-kamera, annat optisk-elektroniskt instrument 
+eller därmed jämförbar utrustning. 
+
+Vad gäller den utrustning som omfattas av lagens definition är avgränsningen inte ny 
+utan infördes redan i lagen (1990:484) om övervakningskameror m.m. Det främsta 
+syftet med att införa en ny lag om övervakningskameror var vid den tiden att anpassa 
+
+Integritetsskyddsmyndigheten 
+ 
+
+Diarienummer: IMY-2023-15495 
+Datum: 2024-02-08 
+ 
+
+20(28)
+
+ 
+
+den rättsliga regleringen till den tekniska utvecklingen.25 Vid införandet ville man ha en 
+skrivning som var teknikneutral och som i möjligaste mån var obunden av den tekniska 
+utvecklingen. Skrivningen skulle även omfatta teknik som kunde utvecklas i framtiden. 
+Avgränsningen fångar därmed ett brett spektrum av teknisk utrustning. 
+
+I efterföljande lagar om kameraövervakning har lagstiftaren inte ansett det nödvändigt 
+att ändra vilken utrustning som ska omfattas av det materiella tillämpningsområdet. En 
+anledning till detta har varit att avgränsningen inte lett till några särskilda 
+tillämpningssvårigheter. Avgränsningen har också bedömts vara ändamålsenlig för att 
+kunna fånga in sådan teknik som inte finns idag, men som kan komma att utvecklas i 
+framtiden.26 
+
+I förarbetena27 har man utvecklat vad som avses med respektive begrepp: 
+
+  Övervakning med tv-kamera var vid tiden för 1990-års lag om 
+
+övervakningskameror den vanligast förekommande utrustningen för 
+personövervakning. Att begreppet fortfarande finns kvar i den nu gällande 
+kamerabevakningslagen beror på att det anses vara ett inarbetat begrepp 
+som ofta används vid skyltning om kamerabevakning.28 
+
+ 
+  Begreppet optisk-elektroniskt instrument innefattar två termer som var 
+för sig har en särskild innebörd. Med termen optisk avses all registrering 
+som kan ske med instrument inom det elektromagnetiska 
+våglängdsspektrumet för optisk strålning29. Med uttrycket elektroniskt 
+förstås att förmedlingen av bilder, visningen av bilder på en monitor eller 
+lagringen av bilder sker genom elektronisk påverkan. Med andra ord 
+avses med begreppet optisk-elektroniskt instrument sådan utrustning med 
+vilken en bildupptagning kan överföras elektroniskt till en bildskärm eller 
+lagras i ett datorminne eller på ett annat elektroniskt medium. 
+
+ 
+  Med uttrycket därmed jämförbar utrustning avses till exempel 
+
+instrument som kan utnyttja elektromagnetisk strålning såsom röntgen 
+och radiofrekvent strålning.30 
+
+5.1.2  IMY:s kommentarer 
+Som framgår av den tekniska beskrivningen av LiDAR-sensorer i avsnitt 3.1 ovan, 
+beräknar en sensor avståndet till ett objekt genom att skicka ut infraröda laserpulser 
+och mäter sedan tiden det tar för pulserna att reflekteras tillbaka till ljusmottagaren i 
+sensorn. LiDAR-sensorn genererar därefter utdata i form av ett rörligt punktmoln i 3D-
+format som i det aktuella projektet ska förmedlas genom elektronisk inverkan. 
+
+En LiDAR-sensor använder sig av våglängder i spektrumet runt 900 nm. IMY 
+konstaterar att de laserpulser som en LiDAR-sensor sänder ut kan inordnas i det 
+elektromagnetiska våglängdsspektrumet för optisk strålning. Med optisk strålning 
+menas vanligtvis den delmängd av det elektromagnetiska spektrumet som sträcker sig 
+från våglängden cirka 100 nm upp till cirka 1 mm, vilket inbegriper ultraviolett strålning 
+(UV), synlig strålning (ljus) och infraröd strålning (värme).31 Mot denna bakgrund, och i 
+
+ 
+25  Prop. 1989/90:119 s. 1. 
+26  SOU 2017:55 s. 210. 
+27  Prop. 1989/90:119 s. 39 f. 
+28  SOU 2017:55 s. 210. 
+29  Se SOU 2018:92 s.61 för översiktsbild av vilka våglängder som ingår i det elektromagnetiska våglängdsspektrumet 
+för optisk strålning. 
+30  Prop. 1989/90:119 s. 39. 
+31  SP Rapport 2013:36 s. 7. Artificiell optisk strålning i svensk industri (https://www.diva-
+portal.org/smash/get/diva2:962758/FULLTEXT01.pdf). 
+
+Integritetsskyddsmyndigheten 
+ 
+
+Diarienummer: IMY-2023-15495 
+Datum: 2024-02-08 
+ 
+
+21(28)
+
+ 
+
+enlighet med vad som framgår av förarbeten gällande den utrustning som 
+kamerabevakningslagen ska omfatta, finner IMY att LiDAR-sensorer typiskt sett 
+omfattas av begreppet annat optisk-elektroniskt instrument i kamerabevakningslagen. 
+
+5.2  Rör det sig om varaktig eller regelbundet upprepad personbevakning? 
+För att en bevakning ska omfattas av kamerabevakningslagens materiella 
+tillämpningsområde är det inte tillräckligt att den tekniska utrustningen omfattas av 
+kamerabevakningslagen. Ytterligare en förutsättning är att tekniken används på ett sätt 
+som innebär varaktig eller regelbundet upprepad personbevakning. 
+
+5.2.1  Varaktig eller regelbundet upprepad personbevakning 
+Begreppet personbevakning är ett snävare begrepp än begreppet personuppgifter (se 
+avsnitt 4.1.1 ovan). Med personbevakning menas att människor kan identifieras 
+genom bevakningen. Enligt förarbetena till kamerabevakningslagen krävs att man utan 
+större osäkerhet kan skilja de personer som iakttas från andra personer för att 
+möjlighet till identifiering ska anses föreligga. Så är till exempel fallet om hela personen 
+eller personens ansikte syns tydligt. Även sådant som utmärkande klädsel, speciella 
+kroppsrörelser eller särskild kroppskonstitution kan möjliggöra identifiering.32 Det 
+innebär att kamerabevakning som enbart används för att läsa av bilars 
+registreringsnummer, men som inte filmar människor, inte är att anse som 
+personbevakning. Däremot kan det utgöra en personuppgiftsbehandling enligt 
+dataskyddsförordningen. 
+
+För att kamerabevakningslagen ska vara tillämplig krävs dessutom att 
+personbevakningen är varaktig eller regelbundet upprepad. Med varaktig 
+personbevakning avses till exempel bevakning under en längre tid av en plats där 
+människor vanligtvis vistas. Det kan röra sig om bevakning på ett torg, i ett kommunalt 
+färdmedel, i ett väntrum eller i en butik. 
+
+Med regelbundet upprepad personbevakning avses personbevakning som sker vid 
+flertalet tillfällen och med en viss regelbundenhet. Bevakning som sker vid tillfällen 
+som är utspridda över tid kan betraktas som regelbunden om det är fråga om en 
+systematisk användning av bevakningsutrustning.33 Det innebär att till exempel 
+kameror som är monterade intill en gångstig i skogen kan omfattas av 
+kamerabevakningslagens tillämpningsområde om människor med viss regelbundenhet 
+passerar längs stigen trots att det inte sker i någon större omfattning. 
+
+Syftet med användningen av kamerautrustningen saknar betydelse för frågan om 
+kamerabevakningslagens tillämplighet.34 Även om syftet med bevakningen inte är att 
+bevaka människor kan lagen ändå bli tillämplig om människor under en längre tid, eller 
+åtminstone någorlunda regelbundet, kommer in i kamerans upptagningsområde och 
+gör det möjligt att direkt eller indirekt identifiera dem. 
+
+5.2.2  IMY:s kommentarer 
+I projektet har IMY fått ta del av bland annat bilder och videoklipp som visar sekvenser 
+av utdata från en LiDAR-sensor med motsvarande upplösning som deltagarna önskar 
+använda. I de bilder (se bild 3 i avsnitt 3 ovan) och videoklipp som IMY tagit del av har 
+LiDAR-sensorerna i vissa fall varit monterade på ett fordon i rörelse och i andra fall 
+fast monterade på en höjd av 4–8 meter över marken. De människor som har fångats 
+av sensorn har befunnit sig på olika avstånd på 5–30 meter från sensorn. Deltagarna i 
+ 
+32  Prop. 2017/18:231 s. 41 och 137. 
+33  Prop. 2017/18:231 s. 137. 
+34  Prop. 2017/18:231 s. 137. 
+
+Integritetsskyddsmyndigheten 
+ 
+
+Diarienummer: IMY-2023-15495 
+Datum: 2024-02-08 
+ 
+
+22(28)
+
+ 
+
+projektet har uppgett att det kommer att vara möjligt att ta del av utdata direkt från 
+LiDAR-sensorn, innan en behandling med hjälp av AI-algoritmen kommer att ske, till 
+exempel under kalibrering och installation. Dessa faktorer behöver beaktas vid 
+bedömningen av huruvida människor kan vara möjliga att identifiera. 
+
+Vid en jämförelse med traditionella bevakningskameror konstaterar IMY inledningsvis 
+att de utdata som en typisk LiDAR-sensor genererar gör det svårare för det mänskliga 
+ögat att identifiera en persons ansikte, framför allt om personen befinner sig lite längre 
+bort från sensorn. Det kan därmed vara svårt att skilja en person från en annan. Här 
+finns det dock anledning att uppmärksamma att de utdata som en typisk LiDAR-sensor 
+genererar är punktmoln i 3D-format, det vill säga att bilderna innehåller djupdata, vilket 
+kan göra det möjligt att skapa preciserade 3D-modeller av de individer som befinner 
+sig inom sensorns upptagningsområde. 
+
+Utifrån förutsättningarna i projektet konstaterar IMY att det kan vara svårt att identifiera 
+människor genom att urskilja individers ansikten i de utdata som LiDAR-sensorn 
+genererar, särskilt då bevakningen är tänkt att ske på ett relativt långt avstånd. IMY 
+finner däremot att det – utifrån det material som IMY har tagit del av – kan vara möjligt 
+att urskilja och identifiera personer utifrån exempelvis kroppsrörelser, 
+kroppskonstitutioner och utmärkande klädsel. IMY finner därför att det är mycket som 
+talar för att det är fråga om personbevakning i de utdata som LiDAR-sensorerna 
+genererar. 
+
+På platsen där LiDAR-sensorerna är tänkta att användas, det vill säga Jan Stenbecks 
+torg i Kista, rör sig ett stort antal människor. Trafikkontorets önskemål är att kunna 
+genomföra mätningarna på torget under vissa tidsintervaller mellan kl. 07.00 och 22.00 
+två dagar per månad. IMY konstaterar att mätningarna därmed kommer att ske 
+regelbundet. Det framstår därmed som troligt att det skulle kunna bli fråga om en 
+sådan upprepad personbevakning som faller in under kamerabevakningslagens 
+tillämpningsområde. 
+
+5.2.3  Möjliga spår att undersöka vidare 
+Under de förutsättningar som varit aktuella i projektet har IMY kommit fram till att 
+användningen av LiDAR-sensorer kan innebära personbevakning. Det betyder dock 
+inte att samma bedömning är giltig för alla former av bevakningar eller mätningar med 
+LiDAR-sensorer eller motsvarande teknik. 
+
+Hur bevakningen anordnas kan påverka bedömningen av om det är personbevakning 
+eller inte. En faktor som kan påverka är LiDAR-sensorns placering i avstånd samt 
+vinkel till de objekt som träffas av sensorns laserpulser. Eftersom identifiering av 
+människor i huvudsak bedöms kunna ske utifrån kroppsrörelser och 
+kroppskonstitution, och med hänsyn till att utdata från LiDAR-sensorn får sämre 
+upplösning ju längre ifrån objektet som sensorn är, kan det vid ett visst avstånd vara 
+svårt att identifiera personer genom LiDAR-sensorns utdata.35 Detta bedömer IMY är 
+en betydande skillnad jämfört med traditionella bevakningskameror som många 
+gånger ger möjlighet att identifiera människor även på längre avstånd. Ytterligare en 
+faktor som påverkar är LiDAR-sensorns upplösning, synfält och räckvidd (läs mer 
+under avsnitt 3.1 och 4.4 ovan). 
+
+ 
+35  Det kan dock noteras att ändamålet med den tilltänkta användningen av LiDAR-sensorerna i det aktuella 
+pilotprojektet är att identifiera om en person är en kvinna, en man eller ett barn. För att uppnå detta syfte kommer det 
+troligtvis att krävas relativt tydliga data av de personer som fångas av en LiDAR-sensor. 
+
+Integritetsskyddsmyndigheten 
+ 
+
+Diarienummer: IMY-2023-15495 
+Datum: 2024-02-08 
+ 
+
+23(28)
+
+ 
+
+5.3  Tillståndspliktig bevakning – Vilka överväganden behöver göras och hur 
+
+påverkas bedömningen av ny teknik? 
+
+5.3.1  Är användning av LiDAR-sensorer på en offentlig plats tillståndspliktig? 
+Enligt 7 § kamerabevakningslagen krävs det tillstånd till kamerabevakning av en plats 
+dit allmänheten har tillträde om bevakningen ska bedrivas av en myndighet eller någon 
+annan än en myndighet vid utförande av en uppgift av allmänt intresse som följer av 
+lag eller annan författning, kollektivavtal eller beslut som har meddelats med stöd av 
+lag eller annan författning. Med myndigheter avses samtliga statliga och kommunala 
+organ med undantag för riksdagen och kommun- och regionfullmäktige. 
+Tillståndskravet gäller för alla myndigheter oavsett vilken typ av verksamhet som 
+kamerabevakningen används i och oavsett vad syftet med bevakningen är.36 Det är 
+IMY som ansvarar för tillståndsbeslut enligt kamerabevakningslagen. 
+
+Stockholms stads trafiknämnd skulle vara personuppgiftsansvarig för den tilltänka 
+bevakningen med LiDAR-sensorer. Trafiknämnden är en myndighet i 
+kamerabevakningslagens mening. Vidare är LiDAR-sensorerna tänkta att användas på 
+en plats dit allmänheten har tillträde. Under sådana förhållanden är det troligt att 
+bevakningen skulle bedömas vara tillståndspliktig. 
+
+5.3.2  Ändamål som särskilt ska beaktas vid en tillståndsprövning 
+Syftet med den andra rättsliga frågeställningen i projektet har varit att bedöma hur 
+användning av LiDAR-teknik förhåller sig till kamerabevakningslagen. Det är viktigt att 
+understryka att IMY endast kan ge vägledning inom ramen för den regulatoriska 
+sandlådan och inte bindande besked om att en viss personuppgiftsbehandling genom 
+kamerabevakning kommer att vara tillåten eller inte. Det finns dock anledning att på ett 
+generellt plan resonera kring de överväganden som ska göras enligt 
+kamerabevakningslagen utifrån de syften och den teknik som är aktuell i pilotprojektet. 
+
+Tillstånd till kamerabevakning ska ges om intresset av sådan bevakning väger tyngre 
+än den enskildes intresse av att inte bli bevakad. Det framgår av 8 § första stycket 
+kamerabevakningslagen. Av andra stycket i samma bestämmelse anges att det vid 
+bedömningen av intresset av kamerabevakning särskilt ska beaktas om bevakningen 
+behövs för något av de särskilda ändamål som framgår av lagrummet. De ändamål 
+som särskilt ska beaktas är om bevakning behövs för att: 
+
+förebygga, förhindra eller upptäcka brottslig verksamhet eller utreda eller 
+lagföra brott på en brottsutsatt plats eller på en annan plats där det av särskild 
+anledning finns risk för angrepp på någons liv, hälsa eller trygghet eller på 
+egendom, 
+förebygga, förhindra eller upptäcka störningar av allmän ordning och säkerhet 
+eller begränsa verkningarna av sådana störningar, 
+
+3.  utöva kontrollverksamhet, 
+4. 
+
+förebygga, förhindra eller upptäcka olyckor eller begränsa verkningarna av 
+inträffade olyckor, eller 
+tillgodose andra därmed jämförliga ändamål. 
+
+1. 
+
+2. 
+
+5. 
+
+Om bevakningen sker för något av dessa ändamål innebär det att bevakningsintresset 
+anses väga tyngre än annars. 
+
+Vid bedömningen av den enskildes intresse av att inte bli bevakad ska det särskilt 
+beaktas hur bevakningen ska utföras, om teknik som främjar skyddet av den enskildes 
+ 
+36  Prop. 2017/18:231 s. 141. 
+
+Integritetsskyddsmyndigheten 
+ 
+
+Diarienummer: IMY-2023-15495 
+Datum: 2024-02-08 
+ 
+
+24(28)
+
+ 
+
+personliga integritet ska användas och vilket område som ska bevakas (8 § tredje 
+stycket kamerabevakningslagen). 
+
+5.3.3  IMY:s kommentarer 
+Det kan konstateras att de ändamål som särskilt ska beaktas vid tillståndsprövningen 
+är ändamål som traditionellt sett förknippas med kamerabevakning. Majoriteten av de 
+tillståndsansökningar som IMY får in avser också bevakning för sådana ändamål. Det 
+handlar till exempel om kamerabevakning för att förebygga brott och olyckor. Med ny, 
+bättre och billigare teknik har dock kamerabevakning för andra, mindre traditionella, 
+ändamål blivit vanligare. Exempelvis används kameror idag i syfte att styra trafikljus 
+och mäta trafikflöden. 
+
+Detta projekt handlar om Trafikkontorets önskemål att använda LiDAR-sensorer för att 
+ta fram statistik över antalet kvinnor, män och barn som rör sig på Jan Stenbecks torg i 
+Kista. Med hjälp av denna statistik kan Trafikkontoret bedöma vilka åtgärder som 
+behöver vidtas för att skapa offentliga platser som upplevs som attraktiva, levande och 
+trygga. Det är därmed inte givet att den tilltänkta bevakningens ändamål faller in under 
+de ändamål som särskilt ska beaktas enligt 8 § andra stycket kamerabevakningslagen. 
+
+Även om kamerabevakningen inte ska ske för något sådant ändamål, kan det ändå 
+vara möjligt att få tillstånd till bevakningen. Detta förutsätter dock att ändamålet är 
+berättigat och att intresset av kamerabevakningen väger tyngre än den enskildes 
+intresse av att inte bli bevakad. Det kan också behövas mer ingående överväganden 
+av behovet av kamerabevakning i förhållande till integritetsriskerna och hur dessa 
+risker kan minskas.37 
+
+Mätningarna ska ske på ett torg i anslutning till ett köpcentrum, en plats där det tidvis 
+vistas ett stort antal personer. Vissa kommer endast att passera över torget men det 
+finns även bänkar och andra sittytor samt uteserveringar där personer kan komma att 
+vistas under en längre tid. Det är alltså fråga om en plats där integritetsintresset som 
+utgångspunkt väger tungt, eftersom ett stort antal människor kan komma att bli föremål 
+för bevakningen. För att bevakning på en sådan plats ska vara tillåten krävs antingen 
+att bevakningsintresset väger tungt eller att integritetsriskerna med bevakningen kan 
+minimeras. 
+
+Som tidigare konstaterats genererar LiDAR-sensorer utdata där det typiskt sett kan 
+vara svårare att identifiera människor med blotta ögat jämfört med traditionell 
+kamerabevakning. I projektet ska databehandlingen dessutom ske direkt i, eller i nära 
+anslutning till, sensorn (se avsnitt 3.1.1 ovan). Utdata från sensorn, där identifiering av 
+människor kan vara möjlig, ska raderas när uppgifterna har behandlats i AI-algoritmen. 
+Utdata från AI-algoritmen ska endast bestå av uppgifter om antalet kvinnor, män och 
+barn som befinner sig på den aktuella platsen, det vill säga endast statistiska data som 
+inte innehåller personuppgifter. 
+
+Att personuppgifter endast kommer att behandlas under en kort stund och sedan 
+raderas är en faktor som kan påverka bedömningen av integritetsintresset, en kortare 
+tid minskar generellt sett integritetsriskerna. Uppgifterna kommer dock att behöva 
+sparas åtminstone en viss tid för att undvika dubbelräkning när en person uppehåller 
+sig på platsen. Att behandlingen ska ske direkt i, eller i nära anslutning till, LiDAR-
+sensorn innebär också att riskerna för integritetsintrång minskar jämfört med om 
+personuppgifter istället hade skickats via exempelvis internet till en central server. Att 
+
+ 
+37  Prop. 2017/18:231 s. 144. 
+
+Integritetsskyddsmyndigheten 
+ 
+
+Diarienummer: IMY-2023-15495 
+Datum: 2024-02-08 
+ 
+
+25(28)
+
+ 
+
+utdata från LiDAR-sensorn endast kommer att granskas vid kalibrering och installation, 
+och inte vid normal drift, kan också vara en faktor som inverkar på riskerna för 
+integritetsintrång. 
+
+Sammantaget kan IMY konstatera att den valda tekniken kan bidra till att begränsa 
+integritetsintrånget, särskilt vid en jämförelse med traditionella bevakningskameror. 
+Som IMY har noterat i avsnitt 4.3 ovan skulle utdata som en LiDAR-sensor genererar 
+kunna innehålla biometriska uppgifter i form av ansiktsformer. Om sådana uppgifter 
+skulle användas vid en bevakning för att till exempel identifiera enskilda individer, kan 
+det bli fråga om en behandling av känsliga personuppgifter. Detta är en aspekt som 
+ökar integritetsriskerna och som användaren av tekniken bör beakta innan 
+bevakningen påbörjas. För att behandling av känsliga personuppgifter ska vara tillåten 
+krävs att det finns stöd för behandlingen i något av undantagen i artikel 9.2 i 
+dataskyddsförordningen. Exempel på undantag är om den registrerade gett sitt 
+uttryckliga samtycke eller behandlingen är nödvändig av hänsyn till ett viktigt allmänt 
+intresse på grundval av nationell rätt. Det bör dock framhållas att den AI-algoritm som 
+diskuterats inom ramen för detta pilotprojekt inte ska kunna identifiera enskilda 
+individer. 
+
+5.4 Kamerabevakningslagen håller på att ses över 
+I mars 2023 initierade regeringen en kamerabevakningsutredning vars syfte är att 
+föreslå åtgärder för att underlätta kamerabevakning för kommuner, regioner och andra 
+än myndigheter som utför en uppgift av allmänt intresse. Uppdraget inkluderar bland 
+annat att kartlägga behovet av förenklade regler vid kamerabevakning genom att 
+överväga att ta bort tillståndskravet för bland annat myndigheter enligt 
+kamerabevakningslagen. Vidare ska behovet av utökade möjligheter till 
+kamerabevakning för att bekämpa brott och upprätthålla ordning och säkerhet 
+analyseras. Utredningen ska vara klar senast den 15 april 2024.38 När denna 
+slutrapport publiceras är det ännu inte klart vilka slutsatser eller åtgärdsförslag som 
+utredningen kommer fram till. 
+
+Den 21 december 2023 fick utredningen ett tilläggsdirektiv som utvidgar uppdraget till 
+att även lämna förslag för att underlätta för Polismyndighetens hantering inför 
+påbörjandet av en kamerabevakning och förslag som innebär att myndigheten i fler fall 
+ska undantas från kravet på upplysning och rätten till information vid 
+kamerabevakning.39 
+
+ 
+
+ 
+
+ 
+38  2023 års kamerabevakningsutredning. Lättnader för kamerabevakning i vissa verksamheter, dir. 2023:40. 
+39  Tilläggsdirektiv till 2023 års kamerabevakningsutredning, dir. 2023:182. 
+
+Integritetsskyddsmyndigheten 
+ 
+
+Diarienummer: IMY-2023-15495 
+Datum: 2024-02-08 
+ 
+
+26(28)
+
+ 
+
+6.  Reflektioner om regulatorisk sandlåda som arbetssätt 
+
+IMY har nu genomfört två pilotprojekt i den regulatoriska sandlådan. Under hösten 
+2023 beslutades att den regulatoriska sandlådan ska bli en permanent del av IMY:s 
+verksamhet. Under 2024 ska två nya projekt genomföras. Enligt IMY:s erfarenheter 
+skapar detta arbetssätt nytta och lärande både för aktuella verksamheter och 
+tillsynsmyndigheter. 
+
+Alltsedan IMY började bedriva sin regulatoriska sandlåda har många offentliga 
+verksamheter hört av sig till myndigheten för att lära sig mer om arbetssättet. IMY har 
+bland annat föreläst för och haft dialog med Energimarknadsinspektionen, eSAM, 
+Myndigheten för samhällsskydd och beredskap (MSB), E-hälsomyndigheten, 
+Transportstyrelsen och Vinnova. Vidare har IMY regelbundna möten tillsammans med 
+de andra europeiska dataskyddsmyndigheterna som bedriver regulatoriska sandlådor i 
+syfte att diskutera pågående projekt och utbyta erfarenheter. 
+
+Enligt den kommande AI-förordningen ska medlemsstaterna inrätta regulatoriska 
+sandlådor för AI. I den mån ett AI-system, som är föremål för den regulatoriska 
+sandlådan för AI, inbegriper behandling av personuppgifter ska den nationella 
+dataskyddsmyndigheten knytas till driften. Det är således sannolikt att IMY, i egenskap 
+av nationell dataskyddsmyndighet, kommer att bli involverad i flertalet sådana projekt. 
+Även om de regulatoriska sandlådor som regleras av den kommande AI-förordningen 
+inte nödvändigtvis kommer att bedrivas på samma sätt som IMY:s regulatoriska 
+sandlåda, har IMY nu fått värdefull kunskap om hur man kan bedriva projekt på nya, 
+utforskande sätt. 
+
+IMY ser att den regulatoriska sandlådan skapar nytta inte bara för oss själva, utan 
+framför allt för innovatörer, för myndigheter som tolkar och tillämpar regelverk samt för 
+samhället i stort. 
+
+För innovatörer är nyttan att de får bättre, mer och tidig vägledning samt stöd kring 
+hur dataskyddsregelverket bör tolkas och tillämpas. Tid kan sparas och risker 
+reduceras, vilket innebär att verksamheterna snabbare och på ett säkrare sätt kan dra 
+nytta av modern teknik. Genom att resonemang och bedömningar dokumenteras och 
+delas får också fler än de som deltagit i ett projekt i den regulatoriska sandlådan 
+vägledning och kan dra nytta av lärdomarna från arbetet. 
+
+För IMY är det stora mervärdet en ökad kunskap om och förståelse för innovativ teknik 
+och de rättsliga frågor och utmaningar som uppstår i tillämpningen av den. För IMY:s 
+del har detta pilotprojekt bland annat bidragit till en fördjupad förståelse för hur LiDAR-
+teknik fungerar. Det har också gett viktiga insikter om hur vi som tillsynsmyndighet kan 
+utveckla och förbättra arbetet med att ge vägledning och stöd till innovationsaktörer. 
+
+På samhällsnivå bedöms den regulatoriska sandlådan vara ett konkret sätt att främja 
+innovation och utveckling av ny teknik och samtidigt bidra till att säkerställa dataskydd 
+och informationssäkerhet. Arbetssättet är inte ensamt lösningen, men det kan vara en 
+pusselbit för att förbättra Sveriges konkurrenskraft, öka takten i vår digitala omställning 
+och bidra till hållbara tekniklösningar som medborgarna kan känna tillit till. 
+
+Teknikutvecklingen går i hög fart och lagstiftningen har inte sällan svårt att följa med i 
+utvecklingen. Arbetet i regulatoriska sandlådor kan leda till att behov av att förändra 
+gällande regelverk identifieras snabbare och att lagstiftaren uppmärksammas på detta 
+
+Integritetsskyddsmyndigheten 
+ 
+
+Diarienummer: IMY-2023-15495 
+Datum: 2024-02-08 
+ 
+
+27(28)
+
+ 
+
+i ett tidigare skede. På detta sätt kan regulatoriska sandlådor skapa bättre 
+förutsättningar för lagstiftningsarbetet att hänga med i den tekniska utvecklingen. 
+
+En risk som IMY identifierat med begreppet regulatorisk sandlåda är att det hos vissa 
+verksamheter kan finnas missuppfattningar eller orealistiska förväntningar kring vad 
+detta arbetssätt innebär. Så har inte varit fallet i detta pilotprojekt, men i dialog med 
+andra har vi ibland stött på den felaktiga bilden att IMY:s regulatoriska sandlåda är 
+förenad med dispens från gällande regler. 
+
+Det kan också finnas en risk att verksamheter som är intresserade av att delta i ett 
+projekt i den regulatoriska sandlådan har en förväntan om att deltagandet alltid 
+kommer resultera i att den önskade personuppgiftsbehandlingen, på något sätt, kan 
+genomföras. Detta är inte givet utan IMY skulle också kunna komma fram till att det är 
+tveksamt om det finns rättsliga möjligheter att genomföra den tänkta 
+personuppgiftsbehandlingen. Det är också viktigt att understryka att IMY endast kan 
+ge vägledning inom ramen för den regulatoriska sandlådan och inte bindande besked 
+om att en viss personuppgiftsbehandling kommer att vara tillåten eller inte.  
+
+För IMY, och andra myndigheter som överväger att bedriva egna regulatoriska 
+sandlådor, är det därmed en viktig uppgift att tydligt kommunicera vad arbetssättet 
+innebär och vad deltagarna kan förvänta sig. 
+
+ 
+
+ 
+
+Integritetsskyddsmyndigheten 
+ 
+
+Diarienummer: IMY-2023-15495 
+Datum: 2024-02-08 
+ 
+
+28(28)
+
+ 
+
+7.  Reflektioner om att tillämpa dataskyddsregelverket på ny 
+
+teknik 
+
+Utifrån arbetet i pilotprojektet går det att göra några generella reflektioner om att 
+praktiskt arbeta med innovation och ny teknik och samtidigt säkerställa ett gott 
+dataskydd. Dessa reflektioner bedöms som relevanta även när innovationsprocessen 
+sker inom en och samma verksamhet. 
+
+  Ett tvärfunktionellt arbete, där juridisk och teknisk kompetens har ett nära 
+
+samarbete med företrädare för kärnverksamheten, är helt avgörande för 
+framgång. 
+
+  En förhållandevis djup förståelse för tekniken är nödvändig för att kunna 
+
+göra relevanta rättsliga bedömningar. Att juristerna tidigt i processen 
+uppnår förståelse för hur den aktuella tekniken fungerar är ofta nödvändigt för 
+att till exempel kunna bedöma grundläggande dataskyddsrättsliga frågor. 
+  Precis som teknikerna behöver utbilda juristerna i hur tekniken fungerar, 
+
+behöver juristerna ha god pedagogisk förmåga att förklara 
+dataskyddsregelverket och hur det är uppbyggt. För att kunna bygga in ett 
+gott dataskydd kan de som utvecklar tekniken till exempel behöva ha 
+förståelse för dataskyddsregelverkets grundläggande principer, att varje 
+personuppgiftsbehandling behöver stödjas på en rättslig grund, att ha inbyggt 
+dataskydd som en utgångspunkt etc. En skicklig dataskyddsjurist behöver 
+därför utveckla en god pedagogisk förmåga. 
+
+  Utöver att jurister behöver förstå tekniken och teknikerna förstå juridiken 
+
+behövs strukturer och verktyg för att säkerställa en gemensam förståelse 
+i arbetsgruppen. Enkla men konkreta metoder kan vara att till exempel 
+gemensamt identifiera och definiera nyckelbegrepp i en ordlista, att avsluta 
+möten med att sammanfatta, att föra gemensamma minnesanteckningar och 
+att vara noga med att ge tid för kontrollfrågor. 
+
+  De övergripande rättsliga frågeställningarna kan sannolikt identifieras när 
+
+arbetet inleds. En central del av det juridiska arbetet är dock att löpande gå 
+tillbaka till, och vid behov justera, de rättsliga frågeställningarna som 
+behöver utredas. Är frågorna som inledningsvis ställdes fortfarande 
+relevanta? Vilka bestämmelser i dataskyddsförordningen kan vara tillämpliga? 
+Finns annan lagstiftning som också behöver beaktas? 
+
+  Det kan vara en god idé att löpande i processen överväga om det finns fler, 
+
+interna eller externa, intressenter som behöver involveras. Det kan 
+handla om andra expertmyndigheter, men även interna funktioner för till 
+exempel arkiv, inköp, upphandling eller säkerhet. Det kan också vara relevant 
+att hämta in stöd, vägledning eller inspiration från experter inom ett visst 
+teknikområde. 
+
+
