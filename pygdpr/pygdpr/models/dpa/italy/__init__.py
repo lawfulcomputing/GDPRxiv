@@ -356,6 +356,7 @@ class Italy(DPA):
             print('\tDocument Hash: ' + document_hash)
 
             document_href = result_link.get('href')
+            host = "https://www.garanteprivacy.it"
             if document_href.startswith('http') and document_href.startswith(host) is False:
                 continue
             document_url = document_href
