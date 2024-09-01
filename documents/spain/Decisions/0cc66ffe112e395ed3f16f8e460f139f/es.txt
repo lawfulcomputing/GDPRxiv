@@ -1,0 +1,984 @@
+1/16
+
+ Expediente N.º: EXP202309152
+
+RESOLUCIÓN DE ARCHIVO DE ACTUACIONES
+
+De las actuaciones practicadas por la Agencia Española de Protección de Datos y
+teniendo como base los siguientes
+
+HECHOS
+
+PRIMERO:   Con fecha 03/11/2021 tiene entrada en la AEPD oficio de la Comisión
+Nacional de los Mercados y la Competencia (CNMC) que adjunta el “Acuerdo por el
+que   se   remite   a   la   Agencia   Española   de   Protección   de   Datos   las   actuaciones
+practicadas en relación con posibles usos fraudulentos del SIPS” aprobado por la Sala
+de Supervisión Regulatoria de la CNMC.  La CNMC nos traslada el resultado de las
+actuaciones   practicadas,   en   su   labor   de   supervisión   del   mercado   minorista   de
+electricidad y de gas natural, en relación con posibles usos fraudulentos del sistema de
+información de puntos 
+de suministro (SIPS) por parte de agentes comercializadores y otras empresas que no
+son agentes de los sistemas eléctrico y gasista, un total de 18 mercantiles. La CNMC,
+en tanto que analiza su posible respuesta a los casos detectados de forma que pueda
+ser   corregida   esta   situación,   da   traslado   de   los   mismos   a   la  Agencia,   para   su
+información y para que, en el ejercicio de sus funciones,  pueda llevar a cabo las
+actuaciones que estime pertinentes desde la perspectiva de la normativa de protección
+de   datos,   en   la   medida   en   que   podrían  estar   afectados   puntos   de   suministro   de
+titularidad de personas físicas.
+
+La CNMC ha detectado 4 casos distintos de posible fraude:
+
+• CASO PRIMERO.- Indicios de comercialización o utilización de los datos del SIPS a
+través de anuncios en webs o información remitida a la CNMC, en 7 entidades, en su
+mayoría no comercializadores de energía.
+
+• CASO SEGUNDO.- Se observa entre los agentes que descargan mensualmente la
+base de datos completa del SIPS eléctrico, la existencia de 3 comercializadores que
+gestionan pocos o ningún punto de suministro.
+
+• CASO TERCERO.- Se aprecian indicios de una posible utilización no acorde con la
+finalidad del SIPS en el análisis de los datos obtenidos de las consultas individuales de
+comercializadores autorizados a través de API, por presentar un número muy elevado
+de consultas, muy superior al volumen de operaciones de switching registrado en un
+periodo determinado de tiempo, e incluso al número de puntos de suministro que
+forman parte de su cartera de clientes. También resulta llamativo el número elevado de
+direcciones IP diferentes utilizado por algunos comercializadores. Se incluye en un
+Excel aparte que acompaña al Anexo, información de la relación de direcciones IP de
+7  comercializadores,  con  el  número  de  consultas  realizadas,  que,  por   su elevado
+volumen, podría ser indicativo de una posible comunicación y/o comercialización de la
+
+C/ Jorge Juan, 6
+28001 – Madrid
+
+www.aepd.es
+sedeagpd.gob.es
+
+2/16
+
+información contenida en el SIPS, o de un uso de las credenciales OAuth de acceso al
+SIPS por terceros.
+
+•   CASO   CUARTO.-   Se   ha   descubierto   en   un   comercializador   la   utilización   de   la
+información del SIPS en procedimientos automatizados de contratación web, lo que
+permite a cualquier usuario de la herramienta conocer, entre otros datos, información
+parcial del CUPS asociada a una dirección de un consumidor junto con su potencia
+contratada.
+
+En   fecha   31   de   marzo   de   2022   la   directora   de   la   AEPD   acuerda   iniciar   una
+investigación de oficio que permita recopilar los elementos de juicio necesarios para
+conocer con certeza si se han producido actuaciones contrarias a la normativa de
+protección de datos personales, si bien, teniendo en cuenta el amplio alcance de los
+supuestos   planteados   por   la   CNMC   y   la   necesidad   de   acompasarlo   con   las
+capacidades y recursos de que dispone la AEPD.
+En   fecha   05/07/2023   la   Directora   de   la   AEPD   acuerda   iniciar   actuaciones   de
+investigación abarcando el tercero de los escenarios descritos por la CNMC, esto es,
+la   actividad   anómala   de   comercializadores   en   su   acceso   autorizado   al   SIPS,   por
+número de consultas o multiplicidad de direcciones IP de origen, que podría apuntar a
+una   comercialización   de   los   datos   o   a   un   uso   de   las   credenciales   por   terceros,
+centrando las mismas en la entidad ELECTRICIDAD ELEIA S.L. con CIF B88181441
+(en lo sucesivo ELEIA).
+
+SEGUNDO: A la vista de los hechos, en fase de actuaciones previas, por los Servicios
+de Inspección de esta Agencia se ha tenido conocimiento de los siguientes hechos que
+se reflejan en el Informe de Actuaciones Previas de Inspección:
+Situación advertida por la CNMC
+- En escrito fechado el 28/10/2021 la Sala de Supervisión Regulatoria de la CNMC
+traslada a esta Agencia posibles casos de utilización fraudulenta detectados durante
+su labor de supervisión del mercado minorista de electricidad y de gas natural. 
+En el marco del tercero de los escenarios descritos la CNMC aprecia, en el análisis de
+los datos obtenidos de las consultas individuales de comercializadores en su acceso
+autorizado a la API del servicio web de la CNMC, indicios de una posible utilización no
+acorde con la finalidad del SIPS, por presentarse un número elevado de peticiones y
+de   direcciones   IP   diferentes   utilizadas   por   algunos   comercializadores.   La   CNMC
+señala que ELEIA:
+Este comercializador eléctrico (código (...)) realizó, en el período de estudio (segundo
+trimestre de 2021) 252.473 consultas desde X direcciones IP diferentes, y su switching
+fue   de   (…)   puntos   de   suministro.   En   julio   de   2021   gestionaba   (…)   puntos   de
+suministro eléctrico.
+ CNS_DE_1061_21_anexo,   que   incluye
+Asimismo,   la   CNMC   aporta   un   Excel,
+información de la relación de direcciones IP de ELEIA con el número de peticiones
+realizadas   a   través   de   la  API   del   servicio   web   de   la   CNMC   durante   el   segundo
+trimestre de 2021.
+
+C/ Jorge Juan, 6
+28001 – Madrid
+
+www.aepd.es
+sedeagpd.gob.es
+
+3/16
+
+2º TRIMESTRE 2021
+
+IP
+
+Nº de peticiones
+
+(…)
+(…)
+(…)
+(…)
+(…)
+(…)
+(…)
+(…)
+
+Total
+
+192.866
+27.497
+17.299
+8.675
+5.949
+147
+24
+16
+
+252.473
+
+-   En   fecha   28/06/2022,   en   el   marco   de   las   actuaciones   de   investigación
+***PROCEDIMIENTO.1,  la   CNMC   aporta   a   esta   Agencia   el   oficio,   fechado   el
+09/03/2022,   por   el   que   solicita   a   ELEIA  aclaración   de   las   consultas   individuales
+realizadas durante el año 2.021, y el escrito de la respuesta de ELEIA a las cuestiones
+planteadas por la CNMC, fechado el 29/03/2.022. 
+A continuación, se reproduce un extracto de la información aportada:
+
+“A estos efectos se les requiere para que, en el plazo de diez días hábiles,
+remitan la documentación solicitada, así como respuesta a las siguientes
+cuestiones…:
+
+I. Justificación   detallada   del   uso   de   la   información   que   descargan
+mensualmente del  SIPS de la CNMC respecto a su actividad  de
+comercializador eléctrico. En particular, aclaren los motivos por los
+que realizan un número de consultas tan elevado y el destino de la
+información   descargada   mediante   sus   consultas   a   las   bases   de
+datos del SIPS.
+
+II. Copia del código de conducta suscrito indicado en el artículo 7.3 del
+Real   Decreto   1435/2002,   así   como   de   las   garantías   de
+confidencialidad de la información contenida en las bases de datos
+descargadas. Incluyan copia fidedigna del documento relacionado.
+
+III. Confirmen   o   desmientan   si   comparten   y/o   ceden   a   terceros   la
+información del SIPS y/o sus credenciales y autorización de acceso.
+En   caso   afirmativo,   especifiquen   el   tipo   de   relación   existente   e
+indiquen desde cuando se están realizando estas prácticas.
+
+ Respuesta de ELEIA
+PRIMERO.   -   ALTA   SISTEMA   DE   INFORMACIÓN   DE   PUNTOS   DE
+SUMINISTRO
+ELEIA  es   una   sociedad   cuyo   objeto   social   contempla,   entre   otros,   el
+desarrollo de actividades de comercialización de electricidad al cliente o
+
+C/ Jorge Juan, 6
+28001 – Madrid
+
+www.aepd.es
+sedeagpd.gob.es
+
+4/16
+
+consumidor   final   conforme   a   lo   establecido   en   la   legislación   vigente1,
+compañía debidamente autorizada para el ejercicio de su actividad por el
+Ministerio de Industria, Turismo y Comercio.
+En el marco de su actividad, con fecha 3 de julio de 2019, ELEIA solicitó el
+correspondiente alta en el sistema de Sistema de Información de Puntos
+de Suministro (en adelante, “SIPS”) a través del trámite establecido. 
+La solicitud de alta se realizó efectivamente por representante legal de
+ELEIA, quien garantizaba expresamente el “cumplimiento a la normativa
+aplicable a la protección de datos de carácter personal respecto de los
+datos recibidos y (…) la confidencialidad de la información de los datos
+(…),   adoptando,   para   ello,   las   medidas   precisas   y   necesarias   en   los
+procesos del tratamiento”.
+Se comprueba que la IP que figura en el justificante de registro de entrada
+en la sede de la CNMC es (...).
+La solicitud fue aprobada por la CNMC con fecha 4 de julio  de 2019,
+habilitándose por tanto a ELEIA al acceso a las bases de datos de puntos
+de suministro y al entorno de PRODUCCIÓN del SIPS v2.
+SEGUNDO.   –   Justificación   detallada   del   uso   de   la   información   que
+descargan mensualmente del SIPS de la CNMC respecto a su actividad de
+comercializador eléctrico. En particular, aclaren los motivos por los que
+realizan un número de consultas tan elevado y el destino de la información
+descargada mediante sus consultas a las bases de datos del SIPS. 
+(…)
+ELEIA, en el ejercicio de su actividad, ha solicitado alta a las bases de
+datos de puntos de suministro para:
+
+1. El acceso y descarga de las tarifas, los consumos y/u otros datos
+registrados con el fin de elaborar ofertas personalizadas dirigidas
+tanto los propios clientes de la compañía (por ejemplo, con motivo de
+la renovación) como a aquellos potenciales clientes que lo solicitan. 
+2. Por   su   parte,   ELEIA   también   realiza   regularmente   estudios   de
+“pricing” de su cartera activa de clientes, analizando los precios y/o
+tarifas ofertadas, los precios y/o tarifas facturadas, o el consumo del
+punto de suministro en cuestión. 
+
+[…]
+Por   el   contrario,   ELEIA,   en   ejercicio   de   sus   derechos   como   empresa
+comercializadora de energía, y con el fin de disponer de los datos más
+actualizados   posibles   contenidos   en   el   SIPS,   realiza   actualmente
+invocaciones con carácter mensual a la API del servicio facilitado por la
+CNMC   (identificado   con   la   IP   número  (...))   mediante  certificado   del
+representante   legal   de   la   compañía   y   token   facilitado   por   la   propia
+Comisión.
+
+1  Entre otras, Ley 24/2013, de 26 de diciembre, del Sector Eléctrico (en adelante, Ley 24/2013) y Real Decreto
+1955/2000, de 1 de diciembre, por el que se regulan las actividades de transporte, distribución, comercialización,
+suministro y procedimientos de autorización de instalaciones de energía eléctrica (en adelante, RD 1955/2000).
+
+C/ Jorge Juan, 6
+28001 – Madrid
+
+www.aepd.es
+sedeagpd.gob.es
+
+5/16
+
+Como se acaba de apuntar, ELEIA accede los días XX de cada mes a las
+12 de la noche para descarga de los ficheros nuevos y/o actualizados, y
+que se corresponderían con los datos del mes anterior. […]
+De acuerdo con lo expuesto, todo el uso y/o tratamiento de la información
+es interno, contando con medidas de índole técnica y organizativas para
+garantizar   la   confidencialidad,   integridad,   disponibilidad   y   resiliencia
+permanentes  de  los   sistemas  y  servicios  de  tratamiento  y  restaurar la
+disponibilidad en caso de incidente físico o técnico. 
+(…)
+Por lo que respecta al año 2021, donde se indica que “se han registrado
+desde 20 direcciones IP diferentes, 380.436 consultas individuales sobre
+consumos y 202.691 consultas individuales sobre puntos de suministro
+eléctrico”, efectivamente se realizaron un mayor número de conexiones
+para la descarga de los ficheros y consulta de dicha base de datos, pero
+siempre   y   en   todo   caso   para   los   fines   anteriormente   descritos,   y   sin
+contravenir disposición o norma al respecto.
+(…)
+En definitiva, ELEIA mantiene un estricto control sobre los accesos, no ha
+comunicado, facilitado ni utilizado la información con otros fines a los aquí
+expuestos, y mantiene su deber de confidencialidad, así como garantiza
+que las personas autorizadas para tratar la información se comprometan,
+de forma expresa y por escrito, a respetar la confidencialidad y deber de
+secreto y a cumplir las medidas de seguridad correspondientes.
+TERCERO. – Copia del código de conducta suscrito indicado en el artículo
+7.3   del   Real   Decreto   1435/2022,   así   como   de   las   garantías   de
+confidencialidad   de   la   información   contenida   en   las   bases   de   datos
+descargadas. Incluyan copia fidedigna del documento relacionado.
+Que ELEIA es una compañía que forma parte del Grupo ACS y, como tal,
+se encuentra expresamente adherida al Código de Conducta y Protocolos
+aprobados por el órgano de gobierno de la empresa matriz y aplicables a
+las   distintas   divisiones,   filiales   o   UTE’s   en   las   que   se   encuentran
+sociedades del Grupo.
+En particular, según se expone en el Código de Conducta, “promovemos y
+reconocemos entre nuestras personas aquellos comportamientos acordes
+con la ética y el cumplimiento de las normas, con independencia de su
+categoría profesional y la empresa del Grupo donde se desenvuelven”.
+(…)
+Y  aportan:
+ Como …, Modelo del compromiso de confidencialidad firmado por todo
+
+el personal de ELEIA; y
+
+ Como …., Manual de Usuario de Protección de Datos y Seguridad de la
+Información, elaborado junto con nuestro Delegado de Protección de
+Datos (en adelante, “DPO”), en el que se establecen normas sobre
+cómo tratar la información por el personal de ELEIA a fin de garantizar
+la confidencialidad, seguridad e integridad de la misma.
+
+www.aepd.es
+sedeagpd.gob.es
+
+C/ Jorge Juan, 6
+28001 – Madrid
+
+6/16
+
+CUARTO. – Confirmen o desmientan si comparten y/o ceden a terceros la
+información del SIPS y/o sus credenciales y autorización de acceso. En
+caso afirmativo, especifiquen el tipo de relación existente e indiquen desde
+cuando están realizando estas prácticas.
+Que ELEIA no comparte ni cede a terceros la información del SIPS y/o sus
+credenciales y autorización de acceso.
+ELEIA, por su parte, ha suscrito un Contrato de prestación de Servicios
+con AUDINFOR SYSTEM S.L. (en adelante, AUDINFOR), siendo uno de
+los servicios ofrecidos “Base de Datos del SIPS”, que consiste en:
+
+
+La descarga de los datos del SIPS una vez al mes, su depósito en una
+Base de Datos de consulta accesibles desde SIGE (sistema de gestión
+de ELEIA).
+De esta manera se evita invocar al SIPS de manera individualizada y/o
+recurrente. 
+
+
+
+ Buscador, en SIGE, en el momento de la contratación de un código de
+CUPS   para   autocompletar   los   campos   de   potencias   y   consumos
+anuales contra esa copia del SIPS.
+La consulta de los datos de un CUPS para poder ofrecer una oferta
+personalizada en base a su potencia, tarifa y consumo contra esa copia
+del SIPS.
+La consulta de los datos de un CUPS para poder ofrecer una oferta
+personalizada en base a su potencia, tarifa y consumo contra esa copia
+del SIPS.
+
+
+
+(…).
+
+Respecto de las direcciones IP identificadas por la CNMC
+- En relación con las direcciones IP de ELEIA identificadas por la CNMC con el número
+de consultas realizadas durante el segundo trimestre de 2021, se procede a identificar,
+en el marco de las actuaciones de investigación, al proveedor de servicios de Internet
+a través del sitio web del Centro de Coordinación Regional de Internet para Europa,
+Diligencia IPs, obteniéndose los siguientes resultados:
+
+IP
+
+Proveedor de servicios de Internet 
+
+(...)
+(...)
+(...)
+(...)
+(...)
+(...)
+(...)
+
+(...)
+(...)
+(...)
+(...)
+(...)
+(...)
+(...)
+
+C/ Jorge Juan, 6
+28001 – Madrid
+
+www.aepd.es
+sedeagpd.gob.es
+
+7/16
+
+- En fechas 9 y 29/02/2024 se solicita a (...) los datos identificativos y domicilio del
+titular   de   la   asignación   de   las   direcciones   IP  que   le   corresponden   en   las   fechas
+facilitadas por la CNMC. 
+
+En fechas 20/02/2024 y 19/03/2024 tiene entrada en la sede electrónica de la AEPD la
+respuesta. A continuación, se muestra el resultado:
+
+IP
+
+Fecha
+
+Tipología IP
+
+(...)
+(...)
+(...)
+
+19-04-2021
+23-04-2021
+30-04-2021
+
+Dinámica
+Dinámica
+Dinámica
+
+En relación a los datos de identificación de las IPs  (...),  (...)  y  (...)  en las fechas
+indicadas, esta mercantil ha comprobado que no es posible facilitar estos datos puesto
+que no se dispone de los mismos al tener el sistema informático un tiempo limitado de
+almacenamiento de doce meses según la Ley de Conservación de Datos 25/2007. 
+- En fechas 14 y 26/02/2024 y 12/04/2024 se solicita a (...) los datos identificativos del
+titular   de   la   asignación   de   las   direcciones   IP  que   le   corresponden   en   las   fechas
+facilitadas por la CNMC. 
+En fechas 20/02/2024, 18/03/2024 y 22/04/2024 tienen entrada en la sede electrónica
+de la AEPD sus respuestas. A continuación, se muestra el resultado:
+
+IP
+
+(...)
+(...)
+
+(...)
+
+(...)
+
+Fecha
+
+Actualidad
+
+2, 7, 8, 10, 28, 29 y 30 de junio de 2021
+
+12, 15, 16, 19 y 26 de abril de 2021
+
+5 de mayo de 2021
+
+14, 15, 17, 18 y 25 de 2021
+
+Tipología
+
+Estática
+Dinámica
+
+Dinámica
+
+Dinámica
+
+
+
+La asignación de direcciones IP es dinámica (…) 
+
+ Respecto a esta tipología de direcciones IP (dinámicas), la información
+solicitada se almacena durante el plazo de un año en aplicación de la
+Ley 25/2007 de 18 de octubre, de conservación de datos relativos a las
+comunicaciones electrónicas y a las redes públicas de comunicaciones,
+por   lo   que   no   consta   la   mencionada   información,   al   exceder   el
+mencionado plazo. 
+
+ Actualmente  (en fecha 5 de marzo de 2024), la dirección IP  (...)  se
+encuentra asignada a COBRA INSTALACIONES Y SERVICIOS S.A., tal
+como   refleja   el   Registro   Regional   de   Internet   para   Europa,   Oriente
+Medio y Asia Central de direcciones IP que es conocido por sus siglas
+RIPE, el cual es de acceso público. No obstante, lo anterior, desde (...)
+
+C/ Jorge Juan, 6
+28001 – Madrid
+
+www.aepd.es
+sedeagpd.gob.es
+
+8/16
+
+no se puede determinar la fecha desde la cual esta dirección IP está
+asignada a dicho cliente. 
+
+
+
+(…)
+Respecto al acceso de ELEIA al servicio web de la CNMC
+En el marco de las actuaciones de investigación, en fecha 01/03/2024, se solicita a
+ELEIA información relativa al acceso a la API del servicio web de la CNMC durante el
+año 2021.
+En fecha 03/04/2024 se solicita a ELEIA ampliación de la información aportada. A
+continuación, se recogen los aspectos más relevantes de la información aportada:
+
+-
+
+La   licencia   que   la   CNMC   otorga   a   ELEIA  es   utilizada   durante   2021   y,   en
+particular, durante el segundo trimestre por una única persona de ELEIA, esto
+es, la persona con la condición de usuario asignado en el departamento de
+Gestión de la Energía para realizar  el proceso de cálculo de precios. Esta
+persona   formaba   parte   de   la   plantilla   de   ELEIA  y   dispuso   de   un   equipo
+informático   portátil   corporativo   para   cumplir   con   sus   funciones   desde   el
+07/01/2020 hasta el 15/08/2021.
+
+- ELEIA dispone de una dirección IP fija de salida a Internet identificada con el
+número (...) que se corresponde con la conexión que (...) da al Grupo Cobra.
+Con respecto al resto de las direcciones IP  identificadas por la CNMC en el
+Excel CNS_DE_1061_21_anexo, no las identifica como propias o relacionadas
+con ELEIA o el Grupo Cobra.
+
+- ELEIA tiene suscrito un contrato de prestación de servicios con AUDINFOR
+SYSTEM   S.L.   (en   lo   sucesivo   AUDINFOR),   siendo   uno   de   los   servicios
+ofrecidos “Base de Datos del SIPS” que consiste en:
+
+
+
+La descarga de los datos del SIPS una vez al mes, para su depósito en
+una Base de Datos de consulta accesibles desde SIGE (Sistema de
+Gestión de ELEIA). 
+AUDINFOR accede al SIPS como encargado de tratamiento utilizando
+las credenciales únicas entregadas por la CNMC a ELEIA. 
+ELEIA  subraya  que  la  CNMC   entrega  unas   credenciales   únicas  por
+“entidad comercializadora autorizada” no por usuario. Para explicar la
+forma   en   la   que   cumple   con   sus   obligaciones   en   materia   de
+confidencialidad,   remite   al   escrito   “Respuesta   de   ELEIA”,   cuyo
+contenido se ha reproducido parcialmente en este Informe.
+
+ Buscador, en SIGE, en el momento de la contratación de un código de
+CUPS   para   autocompletar   los   campos   de   potencias   y   consumos
+anuales contra esa copia del SIPS. 
+La consulta de los datos de un CUPS para poder ofrecer una oferta
+personalizada en base a su potencia, tarifa y consumo contra esa copia
+del SIPS. 
+
+
+
+- En el año 2021, en ELEIA se realizan las tareas de cálculo de precios mediante
+el   proceso   de   evaluar   cada   uno   de   los   Códigos   Universales   de   Punto   de
+www.aepd.es
+sedeagpd.gob.es
+
+C/ Jorge Juan, 6
+28001 – Madrid
+
+9/16
+
+Suministro (CUPS) de la Compañía. Para ello se consultan en el SIPS los
+datos de consumo necesarios y se multiplican por el precio obteniendo así
+unos datos para gestión de la energía. Esta operativa supone que por cada
+CUPS de ELEIA hay una llamada/consulta al SIPS.
+
+Actualmente, el proceso vigente para el cálculo de precios se realiza descargándose
+en un entorno seguro de ELEIA, una vez al mes, la base de datos correspondiente a
+los CUPS de la Compañía desde el SIPS cuando esta información se publica en dicho
+sistema de manera que se utilice en todo momento información actualizada.
+Respecto del contrato suscrito con AUDINFOR
+El contrato, fechado el 27/08/2019 y con una vigencia de 24 meses, tiene por objeto la
+prestación, por parte de AUDINFOR, del servicio relativo al software de gestión de
+comercialización de energía SIGE y, a continuación, se reproducen las cláusulas 4, 5 y
+6:
+
+4. Los datos ubicados en las BBDD necesarios para el correcto funcionamiento
+de las plataformas utilizadas  son propiedad de CLIENTE  y tratados por el
+PROVEEDOR únicamente en base a los términos del presente contrato y sus
+anexos.   Dichos   datos   quedan   protegidos   según   la   normativa   vigente:
+REGLAMENTO (UE) 2016/679 DEL PARLAMENTO EUROPEO Y DEL CONSEJO de
+27 de abril de 2016 (Reglamento General de Protección de Datos - RGPD), y
+las leyes y reglamentos nacionales que la desarrollen. Reglamento General de
+Protección de Datos RGPD) y siguiendo los protocolos de seguridad de la
+información que marca la reconocida norma ISO/IEC.27001:2013 de Seguridad
+de la Información, en la cual está certificado  AUDINFOR. Con motivo de dar
+cumplimiento legal según el RGPD, y al compromiso que el PROVEEDOR
+adquiere como encargado de tratamiento de datos personales por cuenta del
+CLIENTE,   se  establece   el  Anexo   RGPD  de   cláusulas  para   el  encargo   del
+tratamiento de datos personales.
+
+5. Tal y como marca la cláusula anterior, los datos ubicados en las BBDD son
+propiedad del CLIENTE y en caso de extinción del contrato por cualquier causa
+el PROVEEDOR entregará inmediatamente en formato xls toda la información
+al CLIENTE.
+
+6. El   PROVEEDOR   garantiza   expresamente   que   dará   cumplimiento   a   la
+normativa aplicable en materia de protección de datos de carácter personal
+respecto   de   los   datos   tratados   y   que   mantendrá   en   todo   momento   la
+confidencialidad, integridad y disponibilidad de los mismos en el ejercicio de
+sus   funciones   como   Encargado   del   Tratamiento,   adoptando,   para   ello,   las
+medidas precisas y necesarias en los procesos del tratamiento, que sean de su
+exclusiva responsabilidad. El PROVEEDOR se compromete formar y trasladar
+al   personal   bajo   su   responsabilidad   que   haga   uso   de   la   información,   su
+carácter confidencial y su sujeción a la normativa de protección de datos de
+carácter   personal,   así   como   a   poner   con   carácter   inmediato   los   medios
+técnicos   y   organizativos   necesarios   para   asegurar   el   respeto   a   tales
+condiciones (Ver cláusulas en Anexo RGPD).
+
+En el Anexo del contrato ANEXO RGPD/LOPDGDD. ENCARGO DE TRATAMIENTO
+DE DATOS PERSONALES  se recogen las cláusulas mediante las que se habilita a
+AUDINFOR, encargado del tratamiento, para tratar por cuenta de ELEIA, responsable
+
+C/ Jorge Juan, 6
+28001 – Madrid
+
+www.aepd.es
+sedeagpd.gob.es
+
+10/16
+
+del   tratamiento,   los   datos   de   carácter   necesario   para   prestar   el   servicio   de
+implantación de software y mantenimiento SIGE…
+
+(…) 
+
+FUNDAMENTOS DE DERECHO
+
+I
+
+Competencia
+
+De acuerdo con las funciones que el artículo 57.1 a), f) y h) del Reglamento
+(UE)   2016/679   (Reglamento   general   de   protección   de   datos,   en   adelante   RGPD)
+confiere a cada autoridad de control y según lo dispuesto en los artículos 47 y 48.1 de
+la Ley Orgánica 3/2018, de 5 de diciembre, de Protección de Datos Personales y
+garantía de los derechos digitales (en lo sucesivo LOPDGDD), es competente para
+resolver estas actuaciones de investigación la Directora de la Agencia Española de
+Protección de Datos.
+
+Asimismo,   el   artículo   63.2   de   la   LOPDGDD   determina   que: 
+
+"Los
+procedimientos tramitados por la Agencia Española de Protección de Datos se regirán
+por lo dispuesto en el Reglamento (UE) 2016/679, en la presente ley orgánica, por las
+disposiciones   reglamentarias   dictadas   en   su   desarrollo   y,   en   cuanto   no   las
+contradigan,   con   carácter   subsidiario,   por   las   normas   generales   sobre   los
+procedimientos administrativos."
+
+II
+
+Análisis del caso
+
+1. El artículo 6 del RGPD, bajo la rúbrica “Licitud del tratamiento”, detalla en su
+
+apartado 1 los supuestos en los que el tratamiento de datos es considerado lícito:
+
+“1. El tratamiento sólo será lícito si cumple al menos una de las siguientes
+
+condiciones: 
+
+a)   el   interesado   dio   su   consentimiento   para   el   tratamiento   de   sus   datos
+personales para uno o varios fines específicos;
+b) el tratamiento es necesario para la ejecución de un contrato en el que el
+interesado   es   parte   o   para   la   aplicación   a   petición   de   este   de   medidas
+precontractuales;
+c) el tratamiento es necesario para el cumplimiento de una obligación legal
+aplicable al responsable del tratamiento;
+d) el tratamiento es necesario para proteger intereses vitales del interesado o
+de otra persona física;
+e) el tratamiento es necesario para el cumplimiento de una misión realizada en
+interés público o en el ejercicio de poderes públicos conferidos al responsable
+del tratamiento;
+f)   el   tratamiento   es   necesario   para   la   satisfacción   de   intereses   legítimos
+perseguidos por el responsable del tratamiento o por un tercero, siempre que
+sobre dichos intereses no prevalezcan los intereses o los derechos y libertades
+fundamentales del interesado que requieran la protección de datos personales,
+en particular cuando el interesado sea un niño.
+
+C/ Jorge Juan, 6
+28001 – Madrid
+
+www.aepd.es
+sedeagpd.gob.es
+
+11/16
+
+Lo   dispuesto   en   la   letra   f)   del   párrafo   primero   no   será   de   aplicación   al
+tratamiento realizado por las autoridades públicas en el ejercicio de sus funciones.”
+
+También el RGPD en su artículo 5 establece los principios que deben presidir el
+
+tratamiento de los datos personales y, en su apartado 1 señala que:
+
+“1. Los datos personales serán: 
+
+a) tratados de manera lícita, leal y transparente con el interesado (<<licitud,
+lealtad y transparencia>>).
+(…)”
+
+Y en su apartado 2, establece que:
+
+“2. El responsable del tratamiento será responsable del cumplimiento de lo
+dispuesto   en   el   apartado   1   y   capaz   de   demostrarlo   (<<responsabilidad
+
+proactiva>>).”
+
+Por   tanto,   todo   tratamiento   de   datos   personales   tiene   que   respetar   los
+principios que lo presiden, relacionados en el artículo 5.1 del RGPD, entre ellos el de
+licitud que se desarrolla posteriormente en el artículo 6.1 del RGPD. 
+
+De lo señalado en este último precepto se desprende que el tratamiento de
+datos requiere la existencia de una base jurídica que lo legitime y, de conformidad con
+el mismo, además del consentimiento, existen otras posibles bases que legitiman el
+tratamiento de datos sin necesidad de contar con la autorización de su titular, en
+particular, cuando sea necesario para la ejecución de un contrato en el que el afectado
+es  parte  o para la  aplicación,   a  petición  de  este,  de  medidas  precontractuales,  o
+cuando sea necesario para la satisfacción de intereses legítimos perseguidos por el
+responsable del tratamiento o por un tercero, siempre que sobre dichos intereses no
+prevalezcan los intereses o los derechos y libertades fundamentales del afectado que
+requieran   la   protección   de   tales   datos.   El   tratamiento   también   se   considera   lícito
+cuando   sea   necesario   para   el   cumplimiento   de   una   obligación   legal   aplicable   al
+responsable del tratamiento, para proteger intereses vitales del afectado o de otra
+persona física o para el cumplimiento de una misión realizada en interés público o en
+el ejercicio de poderes públicos conferidos al responsable del tratamiento.
+
+2. En lo que se refiere a las comercializadoras de energía tanto el acceso como
+el tratamiento de los datos de carácter personal contenidos en el SIPS encuentran su
+base de legitimidad en la letra e) del artículo 6.1 del RGPD:
+
+“(…)
+e) el tratamiento es necesario para el cumplimiento de una misión realizada en
+interés público o en el ejercicio de poderes públicos conferidos al responsable
+del tratamiento”
+(…)”
+
+Según el artículo 6.1.f) de la Ley 24/2013, de 26 de diciembre, del Sector
+
+Eléctrico:
+
+C/ Jorge Juan, 6
+28001 – Madrid
+
+www.aepd.es
+sedeagpd.gob.es
+
+12/16
+
+“f)   Los   comercializadores,   que   son   aquellas   sociedades   mercantiles,   o
+sociedades cooperativas de consumidores y usuarios, que, accediendo a las redes de
+transporte o distribución, adquieren energía para su venta a los consumidores, a otros
+sujetos del sistema o para realizar operaciones de intercambio internacional en los
+términos establecidos en la presente ley.
+
+Reglamentariamente   se   establecerá   el   procedimiento   y   requisitos   para   ser
+
+comercializador de referencia”.
+
+Por tanto, para el ejercicio de la actividad de comercialización, los interesados
+deberán realizar la comunicación de inicio de actividad que especificará el ámbito
+territorial en que se van a desarrollar la actividad, ante la Dirección General de Política
+Energética y Minas del Ministerio de Energía, Turismo y Agenda Digital. 
+
+Dicha comunicación se presentará acompañada de la declaración responsable
+sobre el cumplimiento de los requisitos para el ejercicio de la actividad. La Dirección
+General de Política Energética y Minas da traslado de la comunicación realizada por el
+interesado a la CNMC, quien la publica en su página web y mantiene actualizado con
+una   periodicidad   al   menos   mensual,   un   listado   que   incluye   a   todos   los
+comercializadores.
+
+En caso de que un comercializador incumpla alguno de los requisitos exigidos
+para el ejercicio de su actividad, el Ministerio para la Transición Ecológica y el Reto
+Demográfico   podrá   iniciar   un   procedimiento   de   inhabilitación   que   finalice   con   la
+extinción de la habilitación para actuar como comercializador, lo que comunica a la
+CNMC.
+
+Asimismo,   se   señalan   las   obligaciones   que   deben   cumplir   los
+comercializadores en relación con el carácter confidencial de la información relativa a
+los puntos de suministro. Conforme a la normativa vigente, los datos del SIPS tienen
+carácter confidencial.
+
+Para la consulta o descarga de la información del SIPS, los comercializadores
+deben solicitar previamente a la CNMC el alta en el sistema de gestión de las bases
+de datos de puntos de suministro de electricidad y gas, a través del trámite establecido
+a  tal  efecto.   Esta  solicitud   debe   ser   analizada   y  validada   por   la  CNMC   antes  de
+proporcionar el acceso.
+
+ 
+El   acceso   a   la   información   del   SIPS   de   la   CNMC   solo   se   permite   a   las
+comercializadoras   de   energía   que   se   encuentran   inscritas   en   el   listado   de
+comercializadores que figura en la página web de la CNMC a través de una interfaz de
+programación de aplicaciones (API).
+
+3. En cuanto al SIPS, la AEPD se ha pronunciado sobre el carácter de los datos
+del SIPS eléctrico señalando que “el Sistema de información de Puntos de Suministro
+incorpora   datos   de   carácter   personal,   dado   que   a   partir   del  Código  de  punto  de
+suministro   es   posible   identificar   al   consumidor   al   que   se   refiere   la   información,
+pudiéndose así vincular todo el contenido del sistema con dicho consumidor”. 
+
+C/ Jorge Juan, 6
+28001 – Madrid
+
+www.aepd.es
+sedeagpd.gob.es
+
+13/16
+
+El SIPS es una base de datos técnicos, de consumo y comerciales de cada uno
+de los puntos de suministro que se encuentran conectados a cada distribuidor de
+electricidad o de gas natural.
+
+Tanto la estructura como el acceso al SIPS están regulados en el artículo 7 del
+
+Real Decreto 1435/2002, de 27 de diciembre para el sector eléctrico
+
+Los comercializadores, y demás sujetos que hagan uso de la información que
+figura en las bases de datos de puntos de suministro de las empresas distribuidoras, a
+tenor de lo contemplado en artículo 7 del Real Decreto 1435/2002 y en el artículo
+46.1.k) de la Ley 24/2013, de 26 de diciembre, del Sector Eléctrico, deberán suscribir
+un código de conducta y garantizar la confidencialidad de la información contenida en
+las mismas.
+
+4. En fecha 03/11/2021 la CNMC traslado a la AEPD el documento “Acuerdo
+por el que se remite a la Agencia Española de Protección de Datos las actuaciones
+practicadas en relación con posibles usos fraudulentos del SIPS” aprobado por la Sala
+de   Supervisión   Regulatoria   de   la   CNMC   en   el   que   daba   a   entender   una   posible
+utilización fraudulenta del Sistema de Información de los Puntos de Suministro (SIPS).
+
+La   CNMC   señalaba   que,   a   través   del   análisis   de   los   datos   de   accesos
+registrados y de la recepción de avisos procedentes de comercializadores y usuarios,
+se   habían   identificado   una   serie   de   escenarios   que   sugerían   posibles   usos
+fraudulentos del SIPS que pueden tener impacto en el derecho a la protección de los
+datos   personales.   De   manera   resumida,   la   CNMC   se   refería   a   cuatro   posibles
+escenarios eran los siguientes:
+
+Una vez analizada la información facilitada, se consideró la oportunidad de
+realizar investigaciones que permitieran recopilar elementos de juicio necesarios para
+conocer si se habían producido actuaciones contrarias a la normativa en materia de
+protección   de   datos   de   carácter   personal,   asumiendo   y   teniendo   en   cuenta   las
+capacidades y recursos de la AEPD.
+
+En el caso examinado, las investigaciones se han centrado en el tercero de los
+escenarios   descritos,   es   decir,   comercializadores   autorizados   que   presentan   un
+número   muy   elevado   de   consultas,   muy   superior   al   volumen   de   operaciones   de
+switching  registrado   en   un   periodo   determinado   de   tiempo,   incluso   al   número   de
+puntos de suministro que forman parte de su cartera de clientes. Asimismo, el número
+elevado   de   direcciones   IP   diferentes   utilizadas,   que   por   su   elevado   volumen   de
+accesos, podría ser indicativo de una posible comunicación y/o comercialización de la
+información contenida en el SIPS, o de un uso de las credenciales de acceso al SIPS
+por terceros.
+
+La   entidad   investigada   es   un   comercializador   eléctrico   con   código   (...)   de
+acceso a través de la API de la CNMC al SIPS, que exhibía indicios de utilización
+fraudulenta, incongruente con la finalidad atribuida al SIPS como consecuencia del
+elevado número de consultas y de direcciones IPs utilizadas en los accesos a la base
+de datos.
+
+C/ Jorge Juan, 6
+28001 – Madrid
+
+www.aepd.es
+sedeagpd.gob.es
+
+14/16
+
+Como   se   señalaba   la   entidad   solicito   el   03/07/2019   el   alta   en   el   SIPS   de
+acuerdo con los tramites establecidos y la IP que figura en el registro de la CNMC
+coincide   con   una   de   las   que   figuran   en   la   información   transmitida   por   el   citado
+organismo.
+
+Así, figura en la información aportada por la CNMMC detalle de las consultas
+realizadas  durante el  segundo  trimestre de  2021,  a través  de cada  una de  las 8
+direcciones IPs desde las que se llevaron a cabo. Manifiesta no  compartir  ni ceder a
+terceros la información contenida en el SIPS ni sus credenciales y autorización de
+acceso; en cuanto al mayor volumen de consultas realizado en el segundo trimestre de
+2021 ha manifestado que se realizó un mayor número de conexiones para la descarga
+de los ficheros y consulta de dicha base de datos, pero para los fines descritos y sin
+contravenir en ningún momento disposición o norma al respecto; mantiene contrato de
+encargo con la empresa  AUDINFOR, siendo uno de los servicios ofrecidos “Base de
+Datos del SIPS”, consistiendo en la descarga de los datos del SIPS una vez al mes,
+actualizando  los  datos y así  evitar  invocar   al  SIPS de  manera  individualizada  y/o
+recurrente.
+
+En cuanto a las direcciones IPs identificadas por la CNMC durante el segundo
+trimestre de 2021, se procedió a identificar a los proveedores de servicios de Internet,
+siendo estos (...) y (...);  el primero respondió que no era posible facilitar datos al tener
+el sistema informático un tiempo limitado de almacenamiento de doce meses y, el
+segundo, respondió en similares términos salvo con relación a una sola de las IPs, que
+es la que figuraba en el registro de la CNMC, estando asignada en la actualidad al
+Grupo Cobra sin poder determinar la fecha desde la cual está asignada a dicho cliente.
+
+En respuesta al inspector actuante la entidad ha señalado que dispone de una
+dirección IP fija de salida a Internet identificada con la que (...) asigna al Grupo Cobra
+y en relación con el resto de las direcciones IP identificadas por la CNMC, no las
+identifica como propias o relacionadas con ella.
+
+Pues   bien,   de   la   documentación   obrante   en   el   expediente   y   de   las
+manifestaciones realizadas por la CNMV, por la entidad investigada en las respuestas
+a   los   requerimientos   de   la   CNMC   y   de   la   inspectora   actuante   no   se   acredita   ni
+evidencia la existencia de conductas que afecten o vulneren la normativa en materia
+de protección de datos de carácter personal.
+
+En   este   sentido   conviene   recordar   que,   tal   y   como   se   ha   pronunciado
+reiteradamente el Tribunal Constitucional entre otras en SSTC 120/1994 y 76/1990, el
+derecho fundamental a la presunción de inocencia tiene plena virtualidad en el marco
+del Derecho Administrativo Sancionador. Así en la STC 76/1990 el Alto Tribunal señala
+que  “…   la   presunción   de   inocencia   rige   sin   excepciones   en   el   ordenamiento
+sancionador y ha de ser respetada en la imposición de cualesquiera sanciones, sean
+penales, sean administrativas en general o tributarias en particular”. 
+
+Expone   también   el  Tribunal   Constitucional   en   la   Sentencia   76/1990   que   el
+derecho a la presunción de inocencia comporta “que la sanción esté basada en actos
+o medios probatorios de cargo o incriminadores de la conducta reprochada; que la
+carga de la prueba corresponda a quien acusa, sin que nadie esté obligado a probar
+su  propia  inocencia;  y que  cualquier  insuficiencia  en  el  resultado  de  las  pruebas
+
+C/ Jorge Juan, 6
+28001 – Madrid
+
+www.aepd.es
+sedeagpd.gob.es
+
+15/16
+
+practicadas, libremente valorado por el órgano sancionador, debe traducirse en un
+pronunciamiento absolutorio”. 
+
+Por otra parte, la Sentencia del Tribunal Constitucional de 20/02/1989 afirma
+que  “Nuestra doctrina y jurisprudencia penal han venido sosteniendo que, aunque
+ambos puedan considerarse como manifestaciones de un genérico favor rei, existe
+una   diferencia   sustancial   entre   el   derecho   a   la   presunción   de   inocencia,   que
+desenvuelve su eficacia cuando existe una falta absoluta de pruebas o cuando las
+practicadas no reúnen las garantías procesales y el principio jurisprudencial in dubio
+pro reo que pertenece al momento de la valoración o apreciación probatoria, y que ha
+de  juzgar   cuando,  concurre  aquella  actividad  probatoria   indispensable,   exista  una
+duda racional sobre la real concurrencia de los elementos objetivos y subjetivos que
+integran el tipo penal de que se trate.” 
+
+Centrándonos en los hechos sobre los que versa la investigación llevada a
+cabo y tras el  examen de los documentos aportados, se verifica que no existe prueba
+de la que resulte que la entidad investigada haya incurrido en infracción del RGPD,
+hechos   provenientes   de   un   primer   análisis   propiciado   por   el   elevado   número   de
+accesos y consultas,  desproporcionadas e ilógicas a través de la API de la CNMC,
+muy   superior   al   volumen   de   operaciones   de  switching  normal   para   un   periodo
+determinado de tiempo o al número de CUPS que forman parte de su cartera de
+clientes y, acrecentado por el elevado número de direcciones IPs utilizadas para llevar
+a cabo los accesos, expresivo de una posible o presunta comercialización fraudulenta
+de la información obtenida del SIPS. 
+              
+
+Sin embargo, las circunstancias anteriormente expresadas no constituyen ni
+evidencian la existencia de prueba de la posible comisión por la entidad investigada de
+la vulneración del RGPD. Esto, porque en el marco de la fase de actuaciones previas
+de   investigación   se   procedió   a   identificar   a   los   proveedores   de   los   servicios   de
+Internet, donde se incluían las direcciones IPs a través de las que se realizaban los
+accesos a través de la API a la base de datos del SIPS, no permitiendo deducir que,
+que con excepción de una sola de ellas que figuraba en el registro de la CNMC como
+de la comercializadora, pertenecieran también a esta, de manera que el resultado no
+tuvo la trascendencia probatoria que se requería a los efectos acreditar una actuación
+fraudulenta por parte de la comercializadora. 
+
+Por   tanto,   no   se   han   aportado   ni   incorporado   al   expediente   elementos
+probatorios   que   permitan   establecer   de   forma   fehaciente   que   la   parte   reclamada
+vulnerara la normativa en materia de protección de datos. Así las cosas, en aplicación
+del principio de presunción de inocencia, que impide imponer una sanción en el caso
+de que exista una falta de pruebas respecto de un hecho concreto y determinante, no
+procede   activar   un   procedimiento   sancionador,   al   no   estar   acreditada   vulneración
+alguna del RGPD.
+
+III
+
+Conclusión
+
+En   base   a   lo   señalado   en   fundamento   anterior,   no   se   han   encontrado
+evidencias que acrediten la existencia de infracción en el ámbito competencial de la
+Agencia Española de Protección de Datos. 
+C/ Jorge Juan, 6
+28001 – Madrid
+
+www.aepd.es
+sedeagpd.gob.es
+
+16/16
+
+Todo ello sin perjuicio de las posibles actuaciones posteriores que esta Agencia
+pudiera   llevar   a   cabo,   aplicando   los   poderes   de   investigación   y   correctivos   que
+ostenta.
+
+Así pues, al no haber sido posible atribuir la responsabilidad por el tratamiento
+
+de acuerdo con lo señalado, 
+
+Por   la   Directora   de   la   Agencia   Española   de   Protección   de   Datos,  SE
+
+ACUERDA:
+
+PRIMERO: PROCEDER AL ARCHIVO de las presentes actuaciones.
+
+SEGUNDO: NOTIFICAR la presente resolución a ELECTRICIDAD ELEIA, S.L. con
+CIF B88181441. 
+
+De   conformidad   con   lo   establecido   en   el   artículo   50   de   la   LOPDGDD,   la
+
+presente Resolución se hará pública una vez haya sido notificada a los interesados. 
+
+Contra   esta   resolución,   que   pone   fin   a   la   vía   administrativa   según   lo
+preceptuado por el art. 114.1.c) de la Ley 39/2015, de 1 de octubre, del Procedimiento
+Administrativo   Común   de   las  Administraciones   Públicas,   y   de   conformidad   con   lo
+establecido en los arts. 112 y 123 de la citada Ley 39/2015, de 1 de octubre, los
+interesados   podrán   interponer,   potestativamente,   recurso   de   reposición   ante   la
+Directora de la Agencia Española de Protección de Datos en el plazo de un mes a
+contar   desde   el   día   siguiente   a   la   notificación   de   esta   resolución   o   directamente
+recurso contencioso administrativo ante la Sala de lo Contencioso-administrativo de la
+Audiencia Nacional, con arreglo a lo dispuesto en el artículo 25 y en el apartado 5 de
+la disposición adicional cuarta de la Ley 29/1998, de 13 de julio, reguladora de la
+Jurisdicción Contencioso-Administrativa, en el plazo de dos meses a contar desde el
+día siguiente a la notificación de este acto, según lo previsto en el artículo 46.1 de la
+referida Ley.
+
+Mar España Martí
+Directora de la Agencia Española de Protección de Datos
+
+C/ Jorge Juan, 6
+28001 – Madrid
+
+www.aepd.es
+sedeagpd.gob.es
+
+

@@ -47,9 +47,9 @@ class Spain(DPA):
             pagination.add_item(host + start_path)
         else:
             assert page_soup is not None
-            pager = page_soup.find('nav', class_='pager')
+            pager = page_soup.find('nav', attrs={'aria-label': 'Paginación'})
             assert pager
-            pager_items = pager.find('ul', class_='pager__items')
+            pager_items = pager.find('ul', class_='js-pager__items')
             assert pager_items
 
             li = pager_items.find('li', class_='pager__item--next')
@@ -93,8 +93,9 @@ class Spain(DPA):
         print("\n======================== Spain Decision Documents =========================")
 
         added_docs = []
-        pagination = self.update_pagination(new_page_type='new_page_decisions', start_path='/es/informes-y-resoluciones/resoluciones?f%5B0%5D=ley_tipificacion_de_la_gravedad%3AReglamento%20General%20de%20Protecci%C3%B3n%20de%20Datos')
-
+        #pagination = self.update_pagination(new_page_type='new_page_decisions', start_path='/es/informes-y-resoluciones/resoluciones?f%5B0%5D=ley_tipificacion_de_la_gravedad%3AReglamento%20General%20de%20Protecci%C3%B3n%20de%20Datos')
+        pagination = self.update_pagination(new_page_type='new_page_decisions',
+                                            start_path='/es/informes-y-resoluciones/resoluciones?f%5B0%5D=ley_tipificacion_de_la_gravedad%3AReglamento%20General%20de%20Protección%20de%20Datos&page=39')
         iteration = 1
         while pagination.has_next():
             page_url = pagination.get_next()
@@ -105,14 +106,15 @@ class Spain(DPA):
             page_soup = BeautifulSoup(page_source.text, 'html.parser')
             assert page_soup
 
-            view_content = page_soup.find('div', class_='view-content')
+            view_content = page_soup.find('div', class_='view-content row')
             assert view_content
 
-            for views_row in view_content.find_all('div', class_='views-row'):
-                time.sleep(2)
-                views_field_title = views_row.find('div', class_='views-field-title')
+            for views_row in view_content.find_all('article', class_='node node--type-resolucion-reclamacion node--view-mode-teaser clearfix'):
+
+                views_field_title = views_row.find('div', class_='field field--name-fichero field--type-entity-reference field--label-above')
                 assert views_field_title
                 result_link = views_field_title.find('a')
+
                 if result_link is None:
                     continue
 
@@ -136,7 +138,7 @@ class Spain(DPA):
                 document_url = host + document_href
 
                 print('\tDocument URL: ' + document_url)
-                views_field_field_advertise_on = views_row.find('div', class_='views-field-field-advertise-on')
+                views_field_field_advertise_on = views_row.find('div', class_='field field--name-fecha-firma field--type-datetime field--label-inline')
                 assert views_field_field_advertise_on
                 time_ = views_field_field_advertise_on.find('time')
                 assert time_
@@ -224,7 +226,7 @@ class Spain(DPA):
             page_soup = BeautifulSoup(page_source.text, 'html.parser')
             assert page_soup
 
-            view_content = page_soup.find('div', class_='view-content')
+            view_content = page_soup.find('div', class_='view-content row')
             assert view_content
 
             for views_row in view_content.find_all('div', class_='views-row'):
