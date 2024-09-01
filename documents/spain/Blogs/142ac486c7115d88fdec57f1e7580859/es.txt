@@ -1,0 +1,163 @@
+ 
+
+
+
+Sistema de Inteligencia Artificial: ¿solo un algoritmo o varios algoritmos?
+
+
+
+
+22 de Noviembre de  2023
+
+
+
+
+
+Todos los algoritmos que componen la IA deben ser evaluados en relación con el posible impacto en los derechos y libertades de los interesados.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Imagen de Gerd Altmann en Pixabay.Un sistema de Inteligencia Artificial (IA) está formado por diferentes elementos: interfaces, sensores, comunicaciones… y al menos un modelo de IA donde estará el algoritmo de IA. Sin embargo, la implementación dicho modelo en el sistema de IA es más que, por ejemplo, un algoritmo de red neuronal. Por lo general, dicho modelo de la IA se configurará mediante la combinación de varios algoritmos. Todos estos algoritmos deberán ser evaluados en relación con el posible impacto en los derechos y libertades de los interesados. De hecho, también debe evaluarse teniendo en cuenta el resto de los elementos que forman el sistema de IA. Toda la evaluación debe tener en cuenta la intervención humana en la toma de decisiones que configuran dichos algoritmos, con el fin de cumplir con los requisitos de transparencia y explicabilidad del sistema de IA.Un sistema de IA se caracteriza, entre otros elementos que lo componen, por la inclusión de un modelo de IA. En la propuesta de AIA (Reglamento de la Ley de IA de la UE, por sus siglas en inglés) y en otros foros se señala la importancia de la transparencia y explicabilidad de los sistemas de IA. En el caso de modelos de IA implementados con redes neuronales y el aprendizaje automático, se destacan las dificultades para hacerlo.En pocas palabras, podemos decir que una red neuronal se representa como una red de nodos (o neuronas) interconectados. Un resumen de la forma en que funciona cada nodo es que suman los valores de entrada y si el resultado alcanza un umbral, genera una salida u otra. El nodo se configura con un valor de offset y un conjunto de parámetros o ‘pesos’ vinculados a cada entrada del nodo. Un peso es un número que se utiliza para equilibrar la influencia de cada entrada en el cálculo de la salida del nodo.
+
+Figura 1: Representación clásica de una red neuronal, y un detalle del nodo típico (la neurona)
+
+La figura anterior tiene una finalidad didáctica. Un conjunto de nodos no existe físicamente. El algoritmo de la red neuronal podría ser tan simple como el siguiente código:	Resultado_intermedio = entrada  
+	Para i desde 2 hasta numero_capas
+ 		Para j desde 1 hasta numero_nodos_por_capa
+   		Resultado_intermedio(j) = activacion(Resultado_intermedio,pesos(i,j));
+	Resultado = Resultado_intermedio;
+El código anterior podría representar una red neuronal de cualquier tamaño: desde un nodo hasta millones de nodos, ajustando el número de capas y el número de nodos por capa. Por supuesto, ese código podría ser más complejo para mejorar el rendimiento. Lo que marca la diferencia en una red neuronal son los pesos asignados en las entradas de cada nodo (consideremos el offset incluido). Redes neuronales, con la misma topología (número de entradas, número de capas, etc.), podrían llevar a cabo tareas completamente diferentes en función de la configuración de los pesos. Todo funciona porque la red neuronal se comporta como una "máquina universal", es decir, la red neuronal podría llevar a cabo muchas tareas diferentes dependiendo de la matriz de pesos. Se podría hacer una analogía con un sistema informático. Un ordenador también es una "máquina universal", y la tarea que ejecuta depende del programa que se ejecuta en él. Por supuesto, el tipo de ordenador podría marcar la diferencia en la forma en que se ejecuta un programa. Sin embargo, la explicación de cómo se estructura un ordenador no da suficiente información sobre la tarea y el rendimiento del programa que se ejecuta en él. La matriz de pesos en una red neuronal desempeña el papel de un programa en un ordenador. Si se cambian los pesos, la red neuronal llevará a cabo una función diferente. En un ordenador, el programador escribe el código en base a unas decisiones que debe documentar. Por lo tanto, en un modelo basado en redes neuronales debemos explicar cómo se ha establecido la matriz de pesos correcta.La matriz de pesos en una red neuronal no la establece un programador, sino a través de un proceso de aprendizaje automático. Sin embargo, la red neuronal no aprende por sí misma, solo procesa las entradas y los pesos en cada nodo para obtener un resultado. Se necesitan otros algoritmos para ajustar la matriz de pesos. Y esos algoritmos no suelen ser algoritmos de redes neuronales.El primer conjunto de algoritmos que ajustan la matriz de pesos son aquellos que evalúan si el comportamiento de la red neuronal es lo suficientemente bueno con respecto a algunas métricas. Llamemos a ese algoritmo la Función de Coste. 
+
+Figura 2: Un modelo completo de IA de un proceso de aprendizaje automático con red neuronal típico
+
+Para cada entrada en la red neuronal, la función de coste evalúa la calidad de la salida resultante. En el caso del aprendizaje supervisado, el resultado se valorará en función de una referencia conocida. En el caso de aprendizaje no supervisado, este algoritmo podría ser aún más complejo. El conjunto de datos de entrenamiento no se compone de una sola entrada, sino de un conjunto de entradas, y en Machine Learning debe haber un gran número de entradas. Los resultados de cada entrada individual deben llevar su propia evaluación y se debe obtener una conclusión de todos los resultados. De esta conclusión se indica si la red neuronal está funcionando correctamente o si es necesario actualizar la matriz de pesos. La función de coste debe realizar diferentes tareas: análisis del resultado con relación a una métrica, procesar todos los resultados parciales para obtener información sobre el rendimiento actual de la red neuronal y proporcionar información para el algoritmo de aprendizaje. Todos esos algoritmos pueden ser desde muy simples hasta muy complicados. La forma en que se configura el algoritmo de la función de coste tendrá un impacto en la forma en que se configura la matriz de pesos, es decir, en el comportamiento de la red neuronal.Una vez que el algoritmo de la función de coste llega a la conclusión de que la matriz de pesos debe actualizarse, la clave es cómo actualizar esa matriz. Esto se lleva a cabo mediante el Algoritmo de Aprendizaje. Este algoritmo necesita información sobre cómo hacer dicha actualización: parte de la información proviene del Algoritmo de Función de Coste, otra de los parámetros de configuración del Algoritmo de Aprendizaje (tasa de aprendizaje, momentum, dropout, etc.), otra debe ser generada por el propio Algoritmo de Aprendizaje, y otra depende del tipo de red neuronal. Por lo general, el algoritmo de aprendizaje no es una red neuronal.Es más, muchos sistemas de Machine Learning utilizarán más de un algoritmo de aprendizaje en las diferentes fases de desarrollo. Por ejemplo, la IA generativa utilizan un Algoritmo de Aprendizaje en la fase de preentrenamiento, otro diferente en el Ajuste Fino Supervisado y otro en el Aprendizaje Reforzado a partir del Retroalimentación Humana (o RLHF, por sus siglas en inglés), al menos.No podemos olvidar que el humano que interviene en este ciclo tiene un rol importante en la ejecución de este tipo de algoritmos. En un caso, podría depender de un "único" humano que decide la configuración de los parámetros, los pesos iniciales y las métricas de dichos algoritmos. Y en otro caso, podría requerir la intervención de miles de personas, por ejemplo, para el etiquetado de los datos de entrada, o en el caso de la fase RLHF de la IA generativa, que necesitará la tasa de la implicación de tantas personas como sea posible. Todas estas personas tomarán decisiones que influyan en el comportamiento final del sistema de IA, incluida la posible aparición de sesgos.Todos los algoritmos implicados en el proceso de aprendizaje desempeñarán un papel más crítico cuando se utilicen más allá de la fase de desarrollo. Es decir, cuando el sistema de IA se reentrena durante la fase de operación del sistema de IA cambiando dinámicamente la matriz de pesos, lo que equivaldría a cambiar su programación.Ésta es una introducción meramente didáctica a este tema. En el mundo real hay que tener en cuenta más factores. Con el mismo conjunto de datos de entrenamiento, pero con un algoritmo de función de coste diferente, algoritmos de aprendizaje diferentes e intervenciones humanas, el sistema de IA resultante podría tener un rendimiento diferente, incluso podrá llegar a realizar funciones diferentes. La conclusión es que la evaluación de la red neuronal y la matriz de pesos no dan suficiente información sobre el rendimiento de la red neuronal. Incluso, es importante tener en cuenta que se necesita más que la evaluación de los datos de entrenamiento y verificación, es necesario evaluar los diferentes algoritmos involucrados en el proceso de aprendizaje y cómo interactúan, las decisiones tomadas para configurar los parámetros de todos estos algoritmos y la intervención del humano en las decisiones en el proceso de aprendizaje. Todos estos son elementos que necesitan ser explicados. Este artículo está relacionado con otro material publicado por la División de Innovación Tecnológica de la AEPD, como son, entre otros, los siguientes:•    Artículo del blog: Inteligencia Artificial: Transparencia•    Artículo del blog: Inteligencia Artificial: principio de exactitud en los tratamientos•    Artículo del blog: Inteligencia Artificial: Sistema vs. tratamiento, medios vs. finalidad•    Artículo del blog: Federated Learning: Inteligencia Artificial sin comprometer la privacidad•    Adecuación al RGPD de tratamientos que incorporan Inteligencia Artificial•    Requisitos para Auditorías de Tratamientos que incluyan IA•    10 Malentendidos sobre el Machine Learning (Aprendizaje Automático) •    Mapa de referencia para tratamientos que incluyen Inteligencia Artificial 
+
+
+
+
+
+Entradas relacionadas
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Datos sintéticos y protección de datos 
+
+
+
+
+2 de Noviembre de  2023
+
+
+
+
+
+
+Leer más
+
+
+
+
+
+
+
+
+
+

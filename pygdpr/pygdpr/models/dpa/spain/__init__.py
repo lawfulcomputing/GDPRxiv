@@ -93,9 +93,8 @@ class Spain(DPA):
         print("\n======================== Spain Decision Documents =========================")
 
         added_docs = []
-        #pagination = self.update_pagination(new_page_type='new_page_decisions', start_path='/es/informes-y-resoluciones/resoluciones?f%5B0%5D=ley_tipificacion_de_la_gravedad%3AReglamento%20General%20de%20Protecci%C3%B3n%20de%20Datos')
-        pagination = self.update_pagination(new_page_type='new_page_decisions',
-                                            start_path='/es/informes-y-resoluciones/resoluciones?f%5B0%5D=ley_tipificacion_de_la_gravedad%3AReglamento%20General%20de%20Protección%20de%20Datos&page=39')
+        pagination = self.update_pagination(new_page_type='new_page_decisions', start_path='/es/informes-y-resoluciones/resoluciones?f%5B0%5D=ley_tipificacion_de_la_gravedad%3AReglamento%20General%20de%20Protecci%C3%B3n%20de%20Datos')
+
         iteration = 1
         while pagination.has_next():
             page_url = pagination.get_next()
@@ -229,9 +228,10 @@ class Spain(DPA):
             view_content = page_soup.find('div', class_='view-content row')
             assert view_content
 
-            for views_row in view_content.find_all('div', class_='views-row'):
-                time.sleep(2)
-                views_field_title = views_row.find('div', class_='views-field-title')
+            for views_row in view_content.find_all('article',
+                                                   class_='node node--type-informe-juridico node--view-mode-teaser clearfix'):
+                views_field_title = views_row.find('div',
+                                                   class_='field field--name-fichero field--type-entity-reference field--label-above')
                 assert views_field_title
                 result_link = views_field_title.find('a')
                 if result_link is None:
@@ -257,7 +257,7 @@ class Spain(DPA):
                 document_url = host + document_href
 
                 print('\tDocument URL: ' + document_url)
-                views_field_field_advertise_on = views_row.find('div', class_='views-field-field-advertise-on')
+                views_field_field_advertise_on = views_row.find('div', class_='field field--name-fecha-publicacion field--type-datetime field--label-hidden field__item')
                 assert views_field_field_advertise_on
                 time_ = views_field_field_advertise_on.find('time')
                 assert time_
@@ -347,16 +347,17 @@ class Spain(DPA):
             page_soup = BeautifulSoup(page_source.text, 'html.parser')
             assert page_soup
 
-            view_content = page_soup.find('div', class_='view-content')
+            view_content = page_soup.find('div', class_='view-content row')
             assert view_content
 
-            for views_row in view_content.find_all('div', class_='views-row'):
-                time.sleep(2)
-                views_field_title = views_row.find('div', class_='views-field-title')
+            for views_row in view_content.find_all('article',
+                                                   class_='node node--type-recurso-multimedia node--view-mode-teaser clearfix'):
+                views_field_title = views_row.find('div',
+                                                   class_='field field--name-fichero field--type-entity-reference field--label-hidden field__item')
                 assert views_field_title
                 document_title = views_field_title.get_text()
 
-                views_field_advertise = views_row.find('div', class_='views-field-field-advertise-on')
+                views_field_advertise = views_row.find('div', class_='field field--name-fecha-publicacion field--type-datetime field--label-hidden field__item')
                 assert views_field_advertise
 
                 views_time = views_field_advertise.find('time')
@@ -366,10 +367,9 @@ class Spain(DPA):
                 tmp = datetime.datetime.strptime(date_str, '%Y-%m-%d')
                 date = datetime.date(tmp.year, tmp.month, tmp.day)
 
-                result_link = views_row.find('a')
+                result_link = views_field_title.find('a')
                 if result_link is None:
                     continue
-
                 # document_title = result_link.get_text()
 
                 print('\n------------ Document ' + str(iteration) + ' ------------')
@@ -594,17 +594,20 @@ class Spain(DPA):
             page_soup = BeautifulSoup(page_source.text, 'html.parser')
             assert page_soup
 
-            view_content = page_soup.find('div', class_='view-content')
+            view_content = page_soup.find('div', class_='view-content row')
             assert view_content
 
-            for li in view_content.find_all('li'):
-                time.sleep(2)
+            for views_row in view_content.find_all('article',
+                                                   class_='node node--type-blog node--view-mode-teaser clearfix'):
 
-                views_field_title = li.find('div', class_='views-field-title')
+                views_field_title = views_row.find('div',
+                                                   class_='field field--name-title field--type-string field--label-hidden')
                 assert views_field_title
 
-                # Find the document date
-                views_field_advertise = li.find('div', class_='views-field-field-advertise-on')
+                document_title = views_field_title.get_text()
+
+                views_field_advertise = views_row.find('div',
+                                                       class_='field field--name-fecha-publicacion field--type-datetime field--label-hidden field__item')
                 assert views_field_advertise
 
                 views_time = views_field_advertise.find('time')
@@ -615,11 +618,10 @@ class Spain(DPA):
                 date = datetime.date(tmp.year, tmp.month, tmp.day)
 
                 # Get the document result link
-                result_link = views_field_title.find('a')
+                result_link = views_row.find('a', class_='more-link')
                 if result_link is None:
                     continue
-
-                document_title = result_link.get_text()
+                #document_title = result_link.get_text()
 
                 print('\n------------ Document ' + str(iteration) + ' ------------')
                 iteration += 1
@@ -679,7 +681,7 @@ class Spain(DPA):
                 main_content = document_soup.find('main')
                 assert main_content
 
-                layout_wrapper = main_content.find('div', class_='layout-wrapper')
+                layout_wrapper = main_content.find('div', class_='container layout-settings-wrapper')
                 assert layout_wrapper
 
                 document_text = layout_wrapper.get_text()
