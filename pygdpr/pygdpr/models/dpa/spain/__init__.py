@@ -469,16 +469,18 @@ class Spain(DPA):
             page_soup = BeautifulSoup(page_source.text, 'html.parser')
             assert page_soup
 
-            view_content = page_soup.find('div', class_='view-content')
+            view_content = page_soup.find('div', class_='view-content row')
             assert view_content
 
-            for views_row in view_content.find_all('div', class_='views-row'):
-                time.sleep(2)
-                views_field_title = views_row.find('div', class_='views-field-title')
+            for views_row in view_content.find_all('article',
+                                                   class_='node node--type-recurso-multimedia node--view-mode-teaser clearfix'):
+                views_field_title = views_row.find('div',
+                                                   class_='field field--name-fichero field--type-entity-reference field--label-hidden field__item')
                 assert views_field_title
 
-                # Find the document date
-                views_field_advertise = views_row.find('div', class_='views-field-field-advertise-on')
+
+                views_field_advertise = views_row.find('div',
+                                                       class_='field field--name-fecha-publicacion field--type-datetime field--label-hidden field__item')
                 assert views_field_advertise
 
                 views_time = views_field_advertise.find('time')
