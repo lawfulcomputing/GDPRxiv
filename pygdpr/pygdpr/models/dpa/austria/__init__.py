@@ -28,7 +28,7 @@ class Austria(DPA):
         to_date = datetime.datetime.now().strftime('%d.%m.%Y')
         source = {
             "host": "https://www.ris.bka.gv.at",
-            "start_path": f"/Ergebnis.wxe?Abfrage=Dsk&Entscheidungsart=Undefined&Organ=Undefined&SucheNachRechtssatz=True&SucheNachText=True&GZ=&VonDatum=25.05.2018&BisDatum=25.05.2021&Norm=&ImRisSeitVonDatum=&ImRisSeitBisDatum=&ImRisSeit=Undefined&ResultPageSize=100&Suchworte=&Position=1",
+            "start_path": f"/Ergebnis.wxe?Abfrage=Dsk&Entscheidungsart=Undefined&Organ=Undefined&SucheNachRechtssatz=True&SucheNachText=True&GZ=&VonDatum=01.01.2018&BisDatum=17.06.2025&Norm=&ImRisSeitVonDatum=&ImRisSeitBisDatum=&ImRisSeit=Undefined&ResultPageSize=100&Suchworte=&Position=1",
         }
         host = source['host']
         start_path = source['start_path']
