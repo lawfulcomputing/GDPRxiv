@@ -17,6 +17,9 @@ from pygdpr.policies.gdpr_policy import GDPRPolicy
 from pygdpr.services.pdf_to_text_service import PDFToTextService
 import docx2txt
 from selenium import webdriver
+from selenium.webdriver.chrome.service import Service
+from selenium.webdriver.common.by import By
+
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
@@ -34,7 +37,7 @@ class UnitedKingdom(DPA):
         source = {
             "host": "https://ico.org.uk",
             "start_path_Reports": "/action-weve-taken/audits-and-overview-reports/?facet_type=&facet_sector=&facet_date=custom&date_from=01%2F05%2F2018&date_to=",
-            "start_path_Enforcements": "/action-weve-taken/enforcement/"
+            "start_path_Enforcements": "/action-weve-taken/enforcement"
         }
         host = source['host']
         if start_path != "Reports":
@@ -376,16 +379,24 @@ class UnitedKingdom(DPA):
             exec_path = WebdriverExecPolicy().get_system_path()
             options = webdriver.ChromeOptions()
             options.add_argument('headless')
-            driver_doc = webdriver.Chrome(options=options, executable_path=exec_path)
+            service = Service(executable_path=exec_path)
+            driver_doc = webdriver.Chrome(service=service, options=options)
+
+            #driver_doc = webdriver.Chrome(options=options, executable_path=exec_path)
             driver_doc.get(page_url)
-            resultlist = driver_doc.find_element_by_class_name('resultlist')
+
+            #resultlist = driver_doc.find_element_by_class_name('resultlist')
+            wait = WebDriverWait(driver_doc, 20)
+            wait.until(lambda driver: driver.find_element(By.ID, "filter-page-results").text.strip() != "")
+
+            resultlist = driver_doc.find_element(By.ID, "filter-page-results")
 
             # s1. Results
-            for itemlink in resultlist.find_elements_by_class_name('itemlink'):
+            for itemlink in resultlist.find_elements(By.TAG_NAME, 'li'):
                 time.sleep(2)
-                result_link = itemlink.find_element_by_tag_name('a')
+                result_link = itemlink.find_element(By.TAG_NAME,'a')
                 assert result_link
-                text_small = itemlink.find_element_by_class_name('text-small')
+                text_small = itemlink.find_element(By.CLASS_NAME,'text-neutral-600')
                 assert text_small
                 date_str = text_small.text.split(',')[0].strip()
                 notice_type = text_small.text.split(',')[1].strip()
@@ -395,7 +406,7 @@ class UnitedKingdom(DPA):
                 if ShouldRetainDocumentSpecification().is_satisfied_by(date) is False:
                     continue
                 # s2. Documents
-                h2 = result_link.find_element_by_class_name('h3')
+                h2 = result_link.find_element(By.TAG_NAME, 'h4')
                 assert h2
                 document_title = h2.text.strip()
 
@@ -500,7 +511,9 @@ class UnitedKingdom(DPA):
                                     prefs = {"download.default_directory": document_folder}
                                     options.add_argument('headless')
                                     options.add_experimental_option("prefs", prefs)
-                                    driver_doc = webdriver.Chrome(options=options, executable_path=exec_path)
+                                    service = Service(executable_path=exec_path)
+                                    driver_doc = webdriver.Chrome(service=service, options=options)
+                                    #driver_doc = webdriver.Chrome(options=options, executable_path=exec_path)
                                     # open google search, and put the document_url into search box, and press enter
 
                                     driver_doc.get(document_url)
