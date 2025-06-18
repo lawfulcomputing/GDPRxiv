@@ -14,6 +14,7 @@ from pygdpr.specifications import pdf_file_extension_specification
 from pygdpr.models.common.pagination import Pagination
 from pygdpr.specifications.should_retain_document_specification import ShouldRetainDocumentSpecification
 from selenium import webdriver
+from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
@@ -41,7 +42,7 @@ class Croatia(DPA):
             pagination = Pagination()
             wp_pagenavi = page_soup.find('div', class_='wp-pagenavi')
             if wp_pagenavi is not None:
-                for a in wp_pagenavi.find_all('a', class_='page'):
+                for a in wp_pagenavi.find_all('a', class_='nextpostslink'):
                     page_link = a.get('href')
                     # print("page_link was added:", page_link)
                     pagination.add_item(page_link)
@@ -52,7 +53,9 @@ class Croatia(DPA):
         exec_path = WebdriverExecPolicy().get_system_path()
         options = webdriver.ChromeOptions()
         options.add_argument('headless')
-        driver = webdriver.Chrome(options=options, executable_path=exec_path)
+        service = Service(executable_path=exec_path)
+        driver = webdriver.Chrome(service=service, options=options)
+        #driver = webdriver.Chrome(options=options, executable_path=exec_path)
         driver.get(page_url)
         page_source = driver.page_source
         return page_source
@@ -124,7 +127,9 @@ class Croatia(DPA):
                     exec_path = WebdriverExecPolicy().get_system_path()
                     options = webdriver.ChromeOptions()
                     options.add_argument('headless')
-                    driver_doc = webdriver.Chrome(options=options, executable_path=exec_path)
+                    service = Service(executable_path=exec_path)
+                    driver_doc = webdriver.Chrome(service=service, options=options)
+                    #driver_doc = webdriver.Chrome(options=options, executable_path=exec_path)
                     driver_doc.get(document_url)
                     document_soup = BeautifulSoup(driver_doc.page_source, 'html.parser')
                     assert document_soup
