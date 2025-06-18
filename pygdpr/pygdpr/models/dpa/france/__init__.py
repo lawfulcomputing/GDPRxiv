@@ -17,6 +17,7 @@ from pygdpr.models.common.pagination import Pagination
 from pygdpr.policies.gdpr_policy import GDPRPolicy
 from striprtf.striprtf import rtf_to_text
 from selenium import webdriver
+from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
@@ -184,7 +185,9 @@ class France(DPA):
                         exec_path = WebdriverExecPolicy().get_system_path()
                         options = webdriver.ChromeOptions()
                         options.add_argument('headless')
-                        driver_doc = webdriver.Chrome(options=options, executable_path=exec_path)
+                        service = Service(executable_path=exec_path)
+                        driver_doc = webdriver.Chrome(service=service, options=options)
+                        #driver_doc = webdriver.Chrome(options=options, executable_path=exec_path)
                         driver_doc.get(document_href)
                         document_soup = BeautifulSoup(driver_doc.page_source, 'html.parser')
 
