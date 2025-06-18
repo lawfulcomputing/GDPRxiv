@@ -70,9 +70,12 @@ class Finland(DPA):
             page_soup = BeautifulSoup(page_source.text, 'html.parser')
             ul = page_soup.find('ul', class_='results')
             for li in ul.find_all('li', class_='list__item'):
+
                 span_date = li.find('span', class_='date')
                 assert span_date
-                date_str = span_date.get_text()
+                date_str = span_date.get_text().strip()
+                date_str = date_str.split(':')[1]
+                print(date_str)
                 tmp = datetime.datetime.strptime(date_str, '%d.%m.%Y')
                 date = datetime.date(tmp.year, tmp.month, tmp.day)
 
@@ -189,9 +192,8 @@ class Finland(DPA):
                                     print("\tDownloading Finlex text: " + url)
                                     text_soup = BeautifulSoup(text_response.text, 'html.parser')
                                     assert text_soup
+                                    body = text_soup.find('article', class_='styles_article__dGRKM')
 
-                                    body = text_soup.find('div', id='main-content')
-                                    # print(body)
                                     assert body
                                     body_text = body.get_text()
                                     body_text = body_text.lstrip()
