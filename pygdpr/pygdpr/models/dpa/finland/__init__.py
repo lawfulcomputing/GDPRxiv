@@ -75,7 +75,6 @@ class Finland(DPA):
                 assert span_date
                 date_str = span_date.get_text().strip()
                 date_str = date_str.split(':')[1]
-                print(date_str)
                 tmp = datetime.datetime.strptime(date_str, '%d.%m.%Y')
                 date = datetime.date(tmp.year, tmp.month, tmp.day)
 
