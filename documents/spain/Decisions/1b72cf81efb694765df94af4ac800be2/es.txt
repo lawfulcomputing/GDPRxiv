@@ -1,0 +1,1334 @@
+1/23
+
+
+
+Expediente N.º: EXP202309151
+RESOLUCIÓN DE ARCHIVO DE ACTUACIONES
+
+De las actuaciones practicadas por la Agencia Española de Protección de Datos y
+teniendo como base los siguientes
+HECHOS
+PRIMERO: La Comisión Nacional de los Mercados y de la Competencia (CNMC) en
+fecha 03/11/2021 traslada a la Agencia Española de Protección de Datos (AEPD) el
+resultado de las actuaciones practicadas en su labor de supervisión del mercado
+minorista de electricidad y de gas natural, donde comunica una posible utilización
+fraudulenta de las bases de datos de puntos de suministro (SIPS) de gas y electricidad
+desde el punto de vista de la normativa de protección de datos personales.
+SEGUNDO: En fecha 31/03/2022 la directora de la AEPD acuerda iniciar una
+investigación de oficio que permita recopilar los elementos de juicio necesarios para
+conocer con certeza si se han producido actuaciones contrarias a la normativa de
+protección de datos personales, si bien, teniendo en cuenta el amplio alcance de los
+supuestos planteados por la CNMC y la necesidad de acompasarlo con las
+capacidades y recursos de que dispone la AEPD, la investigación se centra en el
+primero de los escenarios descritos por la CNMC, esto es, la existencia de
+proveedores de software que integran en sus paquetes la información del SIPS y la
+ponen a disposición de sus clientes, que pueden no ser comercializadores
+autorizados.
+Una vez finalizado el expediente referido, en fecha de 05/07/ 2023 la directora de la
+AEPD acuerda iniciar nuevas actuaciones de investigación que abarcan el tercero de
+los escenarios descritos por la CNMC, esto es, la actividad anómala de
+comercializadores en su acceso autorizado al SIPS, por número de consultas o
+multiplicidad de direcciones IP de origen, que podría apuntar a una comercialización
+de los datos o a un uso de las credenciales por terceros. La necesidad de evaluar las
+implicaciones en materia de protección de datos personales requiere la apertura de
+una investigación para verificar estos extremos y, en su caso, la adecuada observancia
+de la normativa, respecto de la entidad LUVON ENERGÍA, S.L.
+Marco normativo
+El SIPS se define en la regulación vigente como una base de datos técnicos, de
+consumo y comerciales de cada uno de los puntos de suministro 1 que se encuentran
+conectados a cada distribuidora de electricidad o de gas natural. La regulación
+1
+
+No obstante, la información del SIPS es asimétrica en las regulaciones de gas y de electricidad. Así, incluye para
+cada CUPS, consumos mensuales (tres últimos años en electricidad y dos últimos años en gas) e información técnica
+de los puntos de suministro. Adicionalmente en el SIPS gasista figuran los datos del titular del punto de suministro, su
+dirección, y la dirección del punto de suministro. Si embargo, en el SIPS eléctrico, estos tres datos fueron suprimidos
+en 2015.
+C/ Jorge Juan, 6
+28001 – Madrid
+
+www.aepd.es
+sedeagpd.gob.es
+
+2/23
+
+establece que la CNMC pueda poder poner esta información a disposición de los
+comercializadores que la demanden.
+La estructura y el acceso al SIPS se encuentran regulados en el artículo 7 del Real
+Decreto 1435/2002, de 27 de diciembre para el sector eléctrico y en el artículo 43 del
+Real Decreto 1434/2002, de 27 de diciembre para el sector del gas natural.
+Conforme a lo dispuesto en el Real Decreto 1011/2009, de 19 de junio, por el que se
+regula la Oficina de Cambios de Suministrador (en adelante, OCSUM), la información
+del SIPS era suministrada desde ese año por la OCSUM, una vez que esta
+información era recabada de los distribuidores correspondientes.
+Conforme a lo dispuesto en la Disposición transitoria 3ª de la Ley 24/2013, de 26 de
+diciembre, del Sector Eléctrico la CNMC asumió las funciones de OCSUM el 1 de julio
+de 2014. Entre estas funciones se encontraban la entrega de las bases de datos de
+puntos de suministro a los comercializadores de energía eléctrica y gas natural que las
+soliciten.
+La extinta OCSUM recibía estas bases de datos con diferentes formatos de los
+distribuidores, porque hasta entonces estaba regulado el contenido, pero no el formato
+de dichas bases de datos, lo que constituía una barrera de acceso a la información por
+parte de los comercializadores, que se tenían que enfrentar a tantos formatos como
+distribuidores existen.
+En septiembre de 2014, se emitió un primer formato básico sin apenas restricciones
+para el envío de información. Con posterioridad, en julio de 2016, se elaboró un
+segundo formato estándar. En paralelo, en esa fecha, también se adaptó el sistema de
+entrega/recepción de información al nuevo procedimiento de la CNMC, que utiliza una
+aplicación API en su página web. Todo ello, con el fin de facilitar el acceso al SIPS de
+electricidad y de gas a todos los comercializadores registrados, independientes y de
+empresas verticalmente integradas.
+La legislación específica en materia de energía eléctrica establece en el artículo 7.3
+del Real Decreto 1435/2002, de 27 de diciembre, por el que se regulan las condiciones
+básicas de los contratos de adquisición de energía y de acceso a las redes en baja
+tensión, que «los comercializadores que hayan presentado la comunicación de inicio
+de actividad y declaración responsable, figuren en el listado publicado por la Comisión
+Nacional de los Mercados y la Competencia y cumplan en todo momento con los
+requisitos exigidos para ejercer la actividad, podrán acceder gratuitamente a las bases
+de datos de puntos de suministro de cada empresa distribuidora. […] Los
+comercializadores, y demás sujetos que hagan uso de la información que figura en las
+bases de datos de puntos de suministro de las empresas distribuidoras, a tenor de lo
+contemplado en la presente disposición y en el artículo 46.1.k) de la Ley 24/2013, de
+26 de diciembre, del Sector Eléctrico, deberán suscribir un código de conducta y
+garantizar la confidencialidad de la información contenida en las mismas». El artículo
+46.1.k) de la Ley 24/2013, de 26 de diciembre, del Sector Eléctrico, establece que, en
+relación con el punto de suministro, es obligación de las empresas comercializadoras
+«Preservar el carácter confidencial de la información de la que tenga conocimiento en
+el desempeño de su actividad, cuando de su divulgación puedan derivarse problemas
+de índole comercial, sin perjuicio de la obligación de información a las
+Administraciones Públicas».
+C/ Jorge Juan, 6
+28001 – Madrid
+
+www.aepd.es
+sedeagpd.gob.es
+
+3/23
+
+Por su parte, el artículo 43.5 del Real Decreto 1434/2002, de 27 de diciembre, por el
+que se regulan las actividades de transporte, distribución, comercialización, suministro
+y procedimientos de autorización de instalaciones de gas natural establece las
+condiciones del SIPS, expresando, que «Los comercializadores inscritos en la sección
+correspondiente del Registro Administrativo de Distribuidores, Comercializadores y
+Consumidores Directos en Mercado, así como la Oficina de Cambios de
+Suministrador, de acuerdo con la norma reguladora de su funcionamiento, podrán
+acceder gratuitamente a las bases de datos de puntos de suministro de cada empresa
+distribuidora. Los comercializadores que hagan uso de la información que figura en las
+bases de datos de puntos de suministro de las empresas distribuidoras, a tenor de lo
+contemplado en la presente disposición, deberán garantizar la confidencialidad de la
+información contenida en las mismas. Aquellos a quienes se refiera dicha información
+tendrán derecho de acceso a sus datos contenidos en este registro de forma gratuita
+y, además, podrán prohibir por escrito a los distribuidores la difusión de los datos que
+señalen expresamente».
+En este sentido, la CNMC publicó en el BOE con fecha 14 de julio de 2014 una
+resolución de creación de un fichero automatizado de datos de carácter personal, para
+su inscripción en la AEPD.
+En el marco del expediente EXP202201449 la CNMC remite, a solicitud de la AEPD,
+información sobre determinadas cuestiones relativas al procedimiento que utiliza la
+CNMC
+para la
+gestión del
+SIPS.
+Entrada
+con n.º de
+registro
+REGAGE23e00009023957 que se incluye en la Diligencia Referencias.
+Asimismo, la AEPD se ha pronunciado sobre el carácter de los datos del SIPS
+eléctrico, señalando que “el Sistema de Información de Puntos de Suministro
+incorpora datos de carácter personal, dado que a partir del Código de punto de
+suministro es posible identificar al consumidor al que se refiere la información,
+pudiéndose así vincular todo el contenido del sistema con dicho consumidor”. Informe
+de la AEPD con número de referencia 29528/2015 y 236230/2015 que se incluye en la
+Diligencia Referencias.
+En definitiva, la CNMC en el marco de sus competencias pone a disposición de los
+comercializadores los datos incluidos en el SIPS, datos considerados de carácter
+personal.
+Situación advertida por la CNMC
+- En escrito fechado el 28 de octubre de 2021 la Sala de Supervisión Regulatoria de la
+CNMC traslada a esta Agencia posibles casos de utilización fraudulenta detectados
+durante su labor de supervisión del mercado minorista de electricidad y de gas natural.
+Entrada con n.º de registro O00007128e2100045079.
+En el marco del tercero de los escenarios descritos la CNMC aprecia, en el análisis de
+los datos obtenidos de las consultas individuales realizadas a la API del servicio web
+de la CNMC por comercializadores autorizados, indicios de una posible utilización no
+acorde con la finalidad del SIPS, por presentarse un número elevado de peticiones y
+de direcciones IP diferentes utilizadas por algunos comercializadores. La CNMC
+señala que LUVON:
+
+C/ Jorge Juan, 6
+28001 – Madrid
+
+www.aepd.es
+sedeagpd.gob.es
+
+4/23
+
+Este comercializador eléctrico (código (...)) realizó, en el período de estudio
+(segundo trimestre de 2021) 288.158 consultas desde 13 direcciones IP diferentes, y
+su switching fue de 1.424 puntos de suministro. En julio de 2021 gestionaba 11.875
+puntos de suministro eléctrico.
+Asimismo, la CNMC aporta un Excel, CNS_DE_1061_21_anexo, que incluye
+información de la relación de direcciones IP de LUVON con el número de consultas
+realizadas a través de la API del servicio web de la CNMC durante el segundo
+trimestre de 2021.
+2º TRIMESTRE 2021
+IP
+(...)
+
+283.600
+
+(...)
+
+1.534
+
+(...)
+
+934
+
+(...)
+
+694
+
+(...)
+
+649
+
+(...)
+
+565
+
+(...)
+
+61
+
+(...)
+
+50
+
+(...)
+
+47
+
+(...)
+
+10
+
+(...)
+
+10
+
+(...)
+
+3
+
+(...)
+
+1
+
+TOTAL
+
+-
+
+N.º de peticiones
+
+288.158
+
+En fecha 28/06/2022 en el marco de las actuaciones de investigación
+***PROCEDMIENTO.1 la CNMC aporta a esta Agencia el oficio, fechado el
+09/03/2022, por el que solicita a LUVON aclaración de las consultas
+individuales realizadas durante el año 2021, y el escrito de la respuesta de
+LUVON a las cuestiones planteadas por la CNMC, fechado el 25/03/2022.
+
+A continuación, se reproduce un extracto de la información aportada:
+
+Oficio de la CNMC
+En su labor de supervisión de los mercados energéticos, la Comisión Nacional
+de los Mercados y la Competencia (CNMC) ha encontrado una serie de
+indicios que, junto a información recibida de los agentes del mercado eléctrico
+y gasista, determinan la existencia de una posible utilización fraudulenta de la
+información personal contenida en el Sistema de Información de Puntos de
+Suministro (SIPS) de esta Comisión, por el comercializador LUVON ENERGÍA,
+S.L. con NIF B93400836.
+C/ Jorge Juan, 6
+28001 – Madrid
+
+www.aepd.es
+sedeagpd.gob.es
+
+5/23
+
+El procedimiento de alta de su solicitud de acceso al SIPS fue registrado a
+través de la Sede Electrónica de la CNMC, incluyendo un formulario donde el
+solicitante D. A.A.A. con NIF ***NIF.1, actuando en nombre y representación
+del comercializador, garantizaba expresamente que dará cumplimiento a la
+normativa aplicable a la protección de datos de carácter personal respecto de
+los datos recibidos y que mantendrá en todo momento la confidencialidad de la
+información de los datos que ha descargado, adoptando, para ello, las medidas
+precisas y necesarias en los procesos del tratamiento, que son de su exclusiva
+responsabilidad.
+Se ha detectado una actividad inusual en el número de consultas individuales
+que realizan a través de la API de la CNMC, muy alejada de los valores medios
+registrados por comercializadores con su volumen de switching y actividad
+comercial relacionada con el SIPS. Concretamente, durante el año 2021 se
+han registrado desde diferentes direcciones IP, 799.797 consultas individuales
+sobre consumos y 44.509 consultas individuales sobre puntos de suministro
+eléctricos.
+Poniendo como ejemplo un caso más concreto de los registros de consultas a
+la base de datos del SIPS utilizando el certificado o credenciales de acceso
+concedidos al comercializador, durante 2021 se registraron 537.653 peticiones
+individuales de información sobre puntos de suministro eléctrico a través del
+servicio API desde la dirección IP (...), se registraron 49.332 peticiones desde
+la dirección IP (...) mediante máquina alojada en el dominio ***URL.1 y 40.703
+peticiones desde la dirección IP (...) mediante máquina alojada en el dominio
+***URL.2.
+[…]
+A estos efectos se les requiere para que, en el plazo de diez días hábiles,
+remitan la documentación solicitada, así como respuesta a las siguientes
+cuestiones…:
+o
+Justificación detallada del uso de la información que descargan
+mensualmente del SIPS de la CNMC respecto a su actividad de
+comercializador eléctrico. En particular, aclaren los motivos por los que
+realizan un número de consultas tan elevado y el destino de la
+información descargada mediante sus consultas a las bases de datos
+del SIPS.
+o
+Justificación detallada del uso de la información que descargan
+mensualmente del SIPS de la CNMC respecto a su actividad de
+comercializador gasista.
+o
+Copia del código de conducta suscrito indicado en el artículo
+7.3 del Real Decreto 1435/2022, así como de las garantías la
+confidencialidad de la información contenida en las bases de datos
+descargadas. Incluyan copia fidedigna del documento relacionado.
+o
+Confirmen o desmientan la relación de LUVON ENERGÍA, S.L.
+con (…)., así como si permiten a terceros utilizar sus credenciales y
+autorización de acceso para descarga del SIPS o la realización de
+consultas a través de la API de la CNMC. En caso de permitir a
+terceros el uso de sus credenciales, especifiquen claramente quien o
+C/ Jorge Juan, 6
+28001 – Madrid
+
+www.aepd.es
+sedeagpd.gob.es
+
+6/23
+
+quienes utilizan o han utilizado sus permisos de acceso, o han
+accedido a los datos que han descargado de la base de datos del
+SIPS de la CNMC.
+o
+Informe justificativo del volumen tan elevado de consultas
+realizadas durante 2021 y la relación con su actividad de
+comercializador eléctrico.
+o
+Información del dispositivo que identifica las IP (...), (...), (...),
+(...), (...), (...), (…), (…), (…), (...), (…), (…), (…), (…), (…), (...), (...) y
+(...), desde las que se han registrado consultas a la base de datos del
+SIPS utilizando sus derechos de acceso. En particular, informen sobre
+la pertenencia o no a la comercializadora, el DNS y su titularidad final
+si se encuentra en un servidor, y el uso de la información descargada
+por cada IP.
+
+
+Respuesta de LUVON
+
+PRIMERA. - (…) Cabe informar de que el proveedor de sistemas y
+mantenimiento del ERP de LUVON ENERGÍA es ***EMPRESA.1., con CIF (...)
+y domicilio social en ***DIRECCIÓN.1. A su vez ***EMPRESA.1. es partner de
+***EMPRESA.2 con CIF (...) y domicilio en ***DIRECCIÓN.2 España.
+Se aportan como documentos n.º 1 y 2 los contratos suscritos entre LUVON y
+***EMPRESA.1.
+En cuanto a la justificación detallada del uso de la información descargada,
+debemos exponer lo siguiente:
+Hasta el 11 de noviembre de 2021, aproximadamente, el ERP de LUVON,
+diseñado bajo tecnología PHP, tenía desarrollado un servicio para conectarse
+con la API SIPS de la CNMC, tanto para consultar sus endpoints de consumo
+como los de información del suministro, tanto para gas como para energía
+eléctrica. En un momento de evolución de la aplicación, ésta necesitó hacer
+consultas para actualizar los consumos anuales estimados de los clientes
+activos. De ahí que cada vez que un contrato recibía un fichero con los peajes
+(XML F1), se consultaba la API para recalcular y actualizar el consumo en el
+último año móvil y se guardaba en la herramienta. Esto fue lo que provocó el
+incremento en el uso de la API, porque al importar 2000 F1, por ejemplo, en un
+día, provocaba que al día siguiente se hicieran 2000 peticiones para actualizar
+los consumos anuales de esos contratos.
+Esta forma de operar provocó bloqueos de acceso a la CNMC, que hacían que
+no tuviéramos acceso a la base de datos, por lo que esta parte se puso en
+contacto con la CNMC, en un primer momento, para conocer el origen del
+bloqueo, desconocido para LUVON en aquel momento y para solicitar el
+desbloqueo de las IPs. Cada vez que la CNMC procedía a desbloquearlas, se
+volvían a bloquear éstas o unas nuevas (IPs dinámicas). Nuestro partner
+***EMPRESA.1., utiliza IPs dinámicas, que, como saben, estas son asignadas
+de forma temporal y aleatoria por el proveedor del sistema.
+
+C/ Jorge Juan, 6
+28001 – Madrid
+
+www.aepd.es
+sedeagpd.gob.es
+
+7/23
+
+Se aportan como documentos n.º 3 y 4 los correos electrónicos intercambiados
+entre la CNMC y LUVON.
+A raíz de estos bloqueos y mientras manteníamos conversaciones con la
+CNMC se intentaron varias formas de acceso que no sobrepasasen los límites
+de consultas estipulados, acabando siempre nuestros accesos bloqueados.
+SEGUNDA. – Como ninguna de estas pruebas dio resultado, se planteó la
+creación de una herramienta propia, aislada del ERP que realizase una sola
+petición a la API para cada .zip publicado y se descargase la información
+completa para que el ERP consultase sobre este y no sobre la propia API, de
+manera que las peticiones que realizó LUVON desde entonces, fueron sobre
+los datos descargados. Este software fue desarrollado e implementado
+alrededor del 11 de noviembre de 2021, lo que provocó que el exceso de
+peticiones sobre la API de la CNMC ya no existiese.
+Se aporta como documento n.º 6 la factura del desarrollo e implantación de la
+herramienta con fecha de vencimiento el 26/11/2021.
+TERCERA. - Se aporta como documento n.º 7 el Reglamento de régimen
+interno y buenas conductas, cuyo artículo 30 es relativo al cumplimiento de la
+normativa sobre la protección de datos y en el Anexo se recoge el deber de
+confidencialidad y la protección de datos de carácter personal.
+CUARTO. – Por último, deseamos poner de manifiesto que esta parte no tiene
+ningún tipo de relación con ***EMPRESA.3. ni con la empresa
+***EMPRESA.4.
+LUVON manifiesta:
+Las IPs dinámicas son asignadas aleatoriamente a diferentes usuarios
+de forma temporal, de manera que, la IP que atribuyen a
+***EMPRESA.4 fue suya hasta el 2013, fecha en la que dieron de baja
+el servicio con ***EMPRESA.2 y en 2021 fue asignada, de forma
+temporal, a ***EMPRESA.1.. No disponemos todavía de la respuesta de
+***EMPRESA.3, a pesar de haberles requerido la información a través
+de llamadas telefónicas y correo electrónico, pero esta parte puede
+intuir que ha sucedido exactamente lo mismo, que esta IP ha sido
+utilizada por ellos en algún momento y que en 2021 fue asignada a
+***EMPRESA.1. de forma temporal.
+Se aporta como documento n.º 8 correos electrónicos intercambiados entre
+LUVON y ***EMPRESA.4, y como documento n.º 9 un correo electrónico
+enviado por LUVON a ***EMPRESA.3.
+QUINTO. – Identificación del dispositivo que identifica las IPs expuestas: Al hilo
+de lo expuesto en los apartados anteriores, no es posible conocer, el histórico
+de las IPs asignadas a nuestro partner, o al menos, esto es lo que nos
+aseguran desde ***EMPRESA.1., ya que habrían tenido que ser decenas a lo
+largo del año 2021 y no disponen de un registro de las mismas.
+Estas IPs no pertenecen a la comercializadora pero sí han sido utilizadas,
+durante el año 2021 por ***EMPRESA.1. y su titularidad es de ***EMPRESA.2..
+Se identifica una, la (...), que se localiza en Cuba, que encontramos la
+C/ Jorge Juan, 6
+28001 – Madrid
+
+www.aepd.es
+sedeagpd.gob.es
+
+8/23
+
+explicación en uno de los socios de la empresa ***EMPRESA.1., viaja allí con
+frecuencia.
+Por otro lado, ***EMPRESA.1. tiene su domicilio en Galapagar, Madrid, pero
+nos aseguran que sus trabajadores pueden desempeñar sus tareas desde
+cualquier parte del mundo.
+SEXTO. - Luvon Energía, SL, declara responsablemente que se ha ceñido
+estrictamente a su código de conducta y que no ha proporcionado las claves de
+acceso a la base de datos del SIPs de la CNMC a ningún tercero, salvo a
+***EMPRESA.1. en virtud de su relación comercial por el acuerdo en el desarrollo de
+su ERP y, siempre, tras la firma de la cláusula de confidencialidad alojada en el
+contrato de mantenimiento firmado entre las partes y que se adjunta a este
+comunicado. Asimismo, Luvon Energía no ha hecho uso distinto al de una
+comercializadora de energía eléctrica y de gas, de la información contenida en la base
+de datos del SIPs de la CNMC.
+Respecto de las direcciones IPs identificadas por la CNMC
+En relación con las direcciones IP de LUVON identificadas por la CNMC con el número
+de consultas realizadas durante el segundo trimestre de 2021 en el Excel
+CNS_DE_1061_21_anexo que aporta a esta Agencia junto con el escrito fechado el 28
+de octubre de 2021; se procede a identificar, en el marco de las actuaciones de
+investigación, al proveedor de servicios de Internet a través del sitio web del Centro de
+Coordinación Regional de Internet para Europa, Diligencia IPs, obteniéndose los
+siguientes resultados:
+IP
+
+Proveedor de servicios de
+internet
+
+(...)
+
+***EMPRESA.2
+
+(...)
+
+***EMPRESA.2
+
+(...)
+
+***EMPRESA.5
+
+(...)
+
+***EMPRESA.6
+
+(...)
+
+***EMPRESA.5
+
+(...)
+
+-
+
+(...)
+
+***EMPRESA.5
+
+(...)
+
+***EMPRESA.5
+
+(...)
+
+***EMPRESA.5
+
+(...)
+
+***EMPRESA.5
+
+(...)
+
+***EMPRESA.7
+
+(...)
+
+***EMPRESA.5
+
+(...)
+
+-
+
+Para las direcciones IP (...) y (...) los resultados los arroja el Registro Regional de
+Internet para América, ARIN.
+C/ Jorge Juan, 6
+28001 – Madrid
+
+www.aepd.es
+sedeagpd.gob.es
+
+9/23
+
+En relación con las direcciones IP adicionales que se recogen en el oficio que, en
+fecha 9 de marzo de 2022, la CNMC envía a LUVON para solicitarle aclaración de las
+consultas realizadas durante 2021; se procede a identificar, en el marco de las
+actuaciones de investigación, al proveedor de servicios de Internet a través del sitio
+web del Centro de Coordinación Regional de Internet para Europa, Diligencia IPs,
+obteniéndose los siguientes resultados:
+
+-
+
+IP
+
+N.º de
+peticiones
+
+(...)
+
+49.332
+
+(...)
+
+40.703
+
+Fecha
+
+Proveedor de servicios
+de internet
+
+Durante 2021 (la CNMC
+no especifica períodos)
+
+***EMPRESA.2
+
+En fechas 9 de febrero de 2024 y 6 de marzo de 2024 se solicita a
+***EMPRESA.2 los datos identificativos y domicilio del titular de la asignación
+de las direcciones IP que le pertenecen de las que la CNMC traslada a esta
+Agencia en el Excel CNS_DE_1061_21_anexo en las fechas que indica.
+
+En fechas 26 de febrero de 2024 y 18 de marzo de 2024 tienen entrada en la sede
+electrónica de la AEPD las respuestas. Entradas con n.º de registro
+REGAGE24e00014897044 y REGAGE24e00020805079. A continuación, se presenta
+el resultado:
+IP
+(...)
+
+Fechas
+Desde 01-04-2021 hasta 21-06-2021
+30-06-2021
+8, 11, 19, 21 y 24 – 30 de abril de 2021
+
+(...)
+
+Titular
+
+***EMPRESA.1.
+
+2, 3, 6 – 12 y 21 – 28 de mayo de 2021
+2 – 4, 8, 10, 11, 14, 15, 17, 21, 22, 24 –
+30 de junio de 2021
+
+Respecto de las direcciones IP adicionales que la CNMC referencia en el oficio
+fechado el 9 de marzo de 2022 que remite a LUVON, sin especificar los
+períodos de 2021 en que se llevaron a cabo las consultas a la API de la CNMC,
+y que también se incluyeron en los requerimientos anteriores, ***EMPRESA.2
+traslada en su respuesta a la AEPD:
+En relación con el titular de la IP (...) en el plazo de tiempo por ustedes indicado
+“durante el año 2021”, confirmarles que, en dicho período, esta IP se encontraba
+asociada a diferentes servicios, tal y como les indicamos a continuación:
+ Asignada el 2019-10-29 hasta el 2021-03-05 a un Servidor utilizado
+internamente por ***EMPRESA.2 para la realización de pruebas
+internas y testeo de aplicaciones. Dicho servidor no se encuentra
+asociado a ningún servicio prestado a ningún cliente de ***EMPRESA.2
+C/ Jorge Juan, 6
+28001 – Madrid
+
+www.aepd.es
+sedeagpd.gob.es
+
+10/23
+
+y la máquina a la que se encontraba asociada esta IP en dicha fecha,
+se encuentra de baja.
+ Asignada el 2021-03-11 hasta el 2021-04-14 a un Servidor utilizado
+internamente por ***EMPRESA.2 para la realización de pruebas
+internas y testeo de aplicaciones. Dicho servidor no se encuentra
+asociado a ningún servicio prestado a ningún cliente de ***EMPRESA.2
+y la máquina a la que se encontraba asociada esta IP en dicha fecha,
+se encuentra dada de baja.
+ Asignada el 2021-07-22 hasta el 2021-08-03 a una máquina virtual
+dada de alta dentro de un Servidor Cludbuilder contratado con
+***EMPRESA.2 por el cliente: ***EMPRESA.8
+ Asignada el 2021-10-11 hasta el 2021-11-03 a una máquina virtual dada
+de alta dentro de un Servidor Cloudbuilder contratado con
+***EMPRESA.2 por el cliente: ***EMPRESA.1.
+ Asignada el 2021-11-22 hasta el 2024-01-11 a una máquina virtual dada
+de alta dentro de un Servidor Cloudbuilder contratado con
+***EMPRESA.2 por el cliente: ***EMPRESA.3.
+En relación con el titular de la IP (...) en el plazo de tiempo por ustedes
+indicado “durante el año 2021”, confirmarles que, en dicho período, esta IP se
+encontraba asociada a diferentes servicios, tal y como les indicamos a
+continuación:
+ Asignada el 2013-07-25 hasta el 2021-07-12 a una máquina virtual
+(cd26796) dada de alta dentro de un Servidor Cloudbuilder (cdc02102)
+contratado con ***EMPRESA.2, por el cliente cuyos datos le facilitamos
+a continuación:
+Nombre: B.B.B.
+Empresa: (…)
+[…]
+ Asignada el 2021-07-20 hasta el 2021-07-26 a una máquina virtual
+(cd121117) dada de alta dentro de un Servidor Cloudbuilder (cdc01169)
+contratado con ***EMPRESA.2, por el cliente ***EMPRESA.8
+ Asignada el 2021-09-30 hasta el 2021-10-11 a una máquina virtual
+(cd113619) dada de alta dentro de un Servidor Cloudbuilder (cdc02699)
+contratado con ***EMPRESA.2, por el cliente ***EMPRESA.1.
+-
+
+En fechas 9 y 15 de febrero de 2024 y 25 de marzo de 2024 se solicita a
+***EMPRESA.5 los datos identificativos y domicilio del titular actual de la
+asignación de las direcciones IP que le pertenecen de las que la CNMC
+traslada a esta Agencia en el Excel CNS_DE_1061_21_anexo en las fechas
+que indica.
+
+C/ Jorge Juan, 6
+28001 – Madrid
+
+www.aepd.es
+sedeagpd.gob.es
+
+11/23
+
+En fechas 14 y 20 de febrero de 2024 y 8 de abril de 2024 tienen entrada en la sede
+electrónica de la AEPD las respuestas.
+P
+(...)
+
+Fechas
+
+Titular
+
+16, 22 y 23 de junio de 2021
+
+IP dinámica
+
+12 – 16, 19 – 22 y 27 – 29 de
+abril de 2021
+10, 11, 13, 14, 17 – 20, 25 –
+28 de mayo de 2021
+
+(...)
+
+***EMPRESA.1.
+
+8, 9, 11, 15 – 23 y 25 de junio
+de 2021
+(...)
+
+6 y 7 de abril de 2021
+
+IP dinámica
+
+(...)
+
+17, 19 y 20 de mayo de 2021
+
+IP dinámica
+
+13, 15 y 17 de mayo de 2021
+
+IP dinámica
+
+13 de junio de 2021
+
+IP dinámica
+
+29 de junio de 2021
+
+IP dinámica
+
+27 de mayo de 2021
+
+IP dinámica
+
+8, 9 y 17 de junio de 2021
+
+IP dinámica
+
+(...)
+(...)
+(...)
+
+La dirección IP respecto a la que disponemos los datos facilitados
+consiste en una IP estática, contratada para uso exclusivo de una
+empresa.
+Las restantes direcciones IP relacionadas son dinámicas, las cuales son
+asignadas a diversos usuarios. Respecto a esta tipología de direcciones
+IP, la información solicitada se almacena durante el plazo de un año en
+aplicación de la Ley 25/2007 de 18 de octubre de conservación de
+datos relativos a las comunicaciones electrónicas y a las redes públicas
+de telecomunicaciones.
+-
+
+En fechas 9 de febrero de 2024 y 26 de marzo de 2024 se solicita a
+***EMPRESA.6 los datos identificativos y domicilio del titular de la asignación
+de la dirección IP que le pertenece de las que la CNMC traslada a esta Agencia
+en el Excel CNS_DE_1061_21_anexo en las fechas que indica.
+IP
+
+Fechas
+15, 20 y 28 de abril de 2021
+
+(...)
+
+7, 20, 22 – 28 de mayo de 2021
+1, 4, 7, 8, 14 – 18 de junio 2021
+
+En fechas 28 de febrero de 2024 y 11 de abril de 2024 tienen entrada en la sede
+electrónica de la AEPD las respuestas. Entradas con número de registro
+REGAGE24e00015371376 y REGAGE24e00026834365 donde se señala que la
+C/ Jorge Juan, 6
+28001 – Madrid
+
+www.aepd.es
+sedeagpd.gob.es
+
+12/23
+
+dirección IP (...) es dinámica y que una vez transcurridos doce meses no custodia la
+información sobre titularidad, por lo que no le es posible facilitar la información
+solicitada.
+-
+
+En fecha 9 de febrero de 2024 se solicita a ***EMPRESA.7 los datos
+identificativos y domicilio del titular de la asignación de la dirección IP que le
+pertenece de las que la CNMC traslada a esta Agencia en el Excel
+CNS_DE_1061_21_anexo en las fechas que indica.
+En fecha 13 de febrero de 2024 tiene entrada en la sede electrónica de la
+AEPD su respuesta donde indica que, actualmente, la IP (...) corresponde a
+LUVON.
+
+Respecto del procedimiento que utiliza la CNMC para la gestión del SIPS
+En el marco del PS/XXXXX/202X esta Agencia recaba de la CNMC la siguiente
+información:
+La CNMC no habilita exclusivamente a una persona para el acceso. El
+representante del comercializador garantiza que se dará cumplimiento a la
+normativa de protección de datos, pero no asume que la descarga la haya de
+hacer él personalmente. El SOLICITANTE puede acceder y realizar la carga de
+las BBDD utilizando su Certificado Digital, pero también CNMC entrega una
+pareja de claves para que el personal de la empresa, utilizando sistemas
+informáticos, pueda realizar la consulta de modo automático.
+[…]
+En definitiva, acceder a la descarga de las BBDD se podrá realizar
+directamente por el personal de la empresa, respetando la normativa de
+protección de datos. Ahora bien, queda dentro del ámbito de protección de
+datos las posibles relaciones que existan entre la comercializadora y la
+empresa de servicios informáticos de gestión de sus BBDD y los presumibles
+encargos de tratamiento (en el sentido que a éstos da el RGPD) y acuerdos de
+confidencialidad firmados entre ambas.
+Entrada con n.º de registro REGAGE23e00068526709 que se incluye en la
+Diligencia Referencias.
+Respecto del acceso de LUVON al servicio web de la CNMC
+En el marco de las actuaciones de investigación, en fecha 7 de marzo de 2024, se
+solicita a LUVON información relativa al acceso a la API del servicio web de la CNMC
+durante el año 2021.
+En fecha 8 de abril de 2024 tiene entrada en la sede electrónica de la AEPD la
+respuesta donde LUVON indica que el proveedor de sistemas y mantenimiento del
+ERP de LUVON ENERGÍA, por aquel entonces, era ***EMPRESA.1. A su vez,
+***EMPRESA.1. era partner de ***EMPRESA.2, proveedor de dominios y hostings,
+siendo este último propietario de todas las IPs. Asimismo, aporta la información que
+facilitó a la CNMC, y que ha sido reproducida en el presente informe bajo el epígrafe
+Situación advertida por la CNMC. Respuesta de LUVON, y los contratos suscritos
+entre LUVON y ***EMPRESA.1.
+En fecha 27 de mayo de 2024, se solicita a ***EMPRESA.1. información relativa al
+acceso a la API del servicio web de la CNMC durante el año 2021. En fecha 3 de junio
+C/ Jorge Juan, 6
+28001 – Madrid
+
+www.aepd.es
+sedeagpd.gob.es
+
+13/23
+
+de 2024 tiene entrada en la sede electrónica de la AEPD su respuesta donde
+manifiesta:
+Nuestro trabajo consistía exclusivamente en la programación de código de
+conexión API para su CRM, siguiendo las instrucciones proporcionadas sobre
+el funcionamiento del API en ese momento y cómo debía conectarse para
+acceder a la lectura de la información SIPS de los clientes y las bases de
+datos.
+El servicio en el CRM fue diseñado y comprobado para funcionar en sus
+servidores, pero para que esto fuera posible, era necesario ingresar un usuario
+y una contraseña en su aplicación.
+[…]
+En fecha 5 de junio de 2024 se solicita a LUVON ampliación de la información
+aportada, se le envía nuevo requerimiento para que aporte la siguiente información:
+-
+
+Número de usuarios autorizados a acceder a la API del servicio web de la
+CNMC durante el año 2021 y, en particular, durante el segundo trimestre,
+indicando si eran trabajadores de LUVON o de ***EMPRESA.1. Acreditación
+documental.
+
+En cualquier caso, justificación del número de usuarios autorizados, explicación de los
+dispositivos desde los que podían acceder a la API y localización geográfica.
+Acreditación documental de los compromisos de confidencialidad.
+-
+
+Explicación del motivo de la evolución de la aplicación (indicando cuándo se
+produjo) que provocó el incremento en el uso de la API de la CNMC durante el
+año 2021. Indicación de las fechas, durante el año 2021 y hasta la actualidad,
+en las que la CNMC ha bloqueado el acceso al SIPS a LUVON.
+
+-
+
+Explicación de cómo LUVON accede actualmente a la API del servicio web de
+la CNMC y realiza las consultas a las bases de datos del SIPS.
+
+La fecha de acuse de recibo del requerimiento es 10 de junio de 2024 y en fecha 24 de
+junio de 2024 tiene entrada en la sede electrónica de esta Agencia la respuesta, donde
+LUVON manifiesta:
+-
+
+PRIMERA. - El proveedor de sistemas y mantenimiento del ERP de LUVON,
+por aquel entonces, era ***EMPRESA.1. (…) A su vez, ***EMPRESA.1. era
+partner de ***EMPRESA.2, proveedor de dominios y hostings, siendo este
+último el propietario de todas las IPs relacionadas. […]
+
+-
+
+SEGUNDA. - En cuanto al número de usuarios autorizados a acceder a la API.
+El Administrador Único, como representante de la sociedad, era el único
+usuario autorizado a efectos de la CNMC. Se adjunta correo de la CNMC
+donde se da de alta la empresa. Autorización que fue cedida a su partner
+***EMPRESA.1. mediante los contratos ya remitidos a la AEPD en la anterior
+comunicación y se adjuntan nuevamente.
+Se aporta el correo electrónico que LUVON recibe de la CNMC por el que se le
+habilita el acceso al SIPS. Documento ALTA_API_CNMC de la entrada con n.º
+de registro REGAGE24e00047006778.
+En cuanto a las ubicaciones, LUVON tenía dos centros de trabajo, uno situado
+en la ciudad de Leganés (domicilio social y fiscal) y otro en la ciudad de Vigo y
+
+C/ Jorge Juan, 6
+28001 – Madrid
+
+www.aepd.es
+sedeagpd.gob.es
+
+14/23
+
+estas eran las únicas ubicaciones desde donde LUVON podía acceder a la
+herramienta. Los dispositivos desde donde se accedía a la aplicación eran los
+equipos para el proceso de información propiedad de la empresa ubicados en
+estos centros de trabajo, es decir, desde los ordenadores.
+En cuanto a la explicación del motivo de la evolución de la aplicación. LUVON
+es conocedor de la forma de actuar de su aplicación cuando se encuentra
+bloqueado su acceso a la API de la CNMC alrededor del día 13 de junio de
+2021. Se adjunta hilo de mails intercambiados con la CNMC exponiendo esta
+circunstancia.
+Se aporta el correo que LUVON remite a la CNMC relativo a problemas para
+acceder al SIPS. Documento Mail conocimiento bloqueo de la entrada con n.º
+de registro REGAGE24e00047006778.
+Hasta el 11 de noviembre de 2021, aproximadamente, el ERP de LUVON,
+diseñado bajo tecnología PHP, tenía desarrollado un servicio para conectarse
+con la API SIPS de la CNMC, tanto para consultar sus endpoints de consumo
+como los de información del suministro, tanto para gas como para energía
+eléctrica. En un momento de evolución de la aplicación, esta necesitó hacer
+consultas para actualizar los consumos anuales estimados de los clientes
+activos. De ahí que cada vez que un contrato recibía un fichero con los peajes
+(XML F1), se consultaba la API para recalcular y actualizar el consumo en el
+último año móvil y se guardaba en la herramienta.
+Esto fue lo que provocó el incremento en el uso de la API, porque al importar
+2000 F1, por ejemplo, en un día, provocaba que al día siguiente se hicieran
+2000 peticiones para actualizar los consumos anuales de esos contratos. Los
+F1 (facturas de distribuidoras) se recibían cientos a diario, por lo que
+provocaba que, con la llegada de cada una de ellas, el ERP enviase una
+petición a la CNMC, es decir, lo hacía el ERP de forma automática desde
+alguna IP propiedad de ***EMPRESA.2 y cedida a ***EMPRESA.1., no lo hacía
+ninguna persona relacionada con LUVON.
+Esta forma de operar provocó bloqueos de acceso a la CNMC, que hacían que
+no tuviéramos acceso a la base de datos, por lo que esta parte se puso en
+contacto con la CNMC, en un primer momento, para conocer el origen del
+bloqueo, desconocido para LUVON en aquel momento y para solicitar el
+desbloqueo de las IPs. Cada vez que la CNMC procedía a desbloquearlas, se
+volvían a bloquear estas o unas nuevas (IPs dinámicas). Nuestro partner
+***EMPRESA.1., utiliza IPs dinámicas, que, como saben, estas son asignadas
+de forma temporal y aleatoria por el proveedor del sistema.
+A raíz de estos bloqueos y mientras se mantenían conversaciones con la
+CNMC, se intentaron varias formas de acceso que no sobrepasasen los límites
+de consultas estipulados, acabando siempre nuestros accesos bloqueados.
+Como ninguna de estas pruebas dio resultado, LUVON le exigió a su partner,
+***EMPRESA.1. que idease un sistema con el que no se sobrepasase el límite
+estipulado de la CNMC. Por lo que se planteó la creación de una herramienta
+propia, aislada del ERP que realizase una sola petición a la API para cada .zip
+publicado y se descargase la información completa para que el ERP consultase
+sobre este y no sobre la propia API, de manera que las peticiones que realizó
+LUVON desde entonces, fueron sobre los datos descargados. Este software
+C/ Jorge Juan, 6
+28001 – Madrid
+
+www.aepd.es
+sedeagpd.gob.es
+
+15/23
+
+fue desarrollado e implementado alrededor del 11 de noviembre de 2021, lo
+que provocó que el exceso de peticiones sobre la API de la CNMC ya no
+existiese.
+Actualmente, LUVON, que tenga conocimiento, sigue utilizando este sistema
+de descargas, que, desde su implantación, no experimentó ningún problema
+similar al ahora nos ocupa y declara que el sistema de peticiones a la API de la
+CNMC fue ideado por ***EMPRESA.1. y no tiene ni control ni conocimiento
+previo de cómo se programa la herramienta para que arroje la información
+requerida en el ERP.
+Asimismo, declara responsablemente que se ha ceñido estrictamente a su
+código de conducta y que no ha proporcionado las claves de acceso a la base
+de datos del SIPs de la CNMC a ningún tercero, salvo a ***EMPRESA.1. en
+virtud de su relación comercial por el acuerdo en el desarrollo de su ERP y,
+siempre, tras la firma de la cláusula de confidencialidad alojada en el contrato
+de mantenimiento.
+Respecto de los contratos suscritos con ***EMPRESA.1
+-
+
+Contrato de Prestación de Servicios Informáticos de Programación y Desarrollo
+de la Aplicación.
+El contrato tiene por objeto el desarrollo a medida de una aplicación Web para
+la comercialización de gas para gestionar los contratos, el consumo de gas y la
+facturación de los potenciales clientes de LUVON.
+En el contrato se detallan las acciones y fases a desarrollar, así como el tiempo
+máximo para la finalización y entrega al cliente. Estableciéndose como fecha
+de comienzo de los trabajos el 1 de diciembre de 2019 y que se desarrollarán
+hasta el 25 de mayo de 2020.
+La cláusula 6 y el Anexo 1 del contrato son relativos a la confidencialidad y
+protección de datos.
+
+-
+
+Contrato de Mantenimiento y Asistencia Informáticos.
+El contrato tiene por objeto la prestación por parte de ***EMPRESA.1. de los
+siguientes servicios:
+ Mantenimiento de incidencias del CRM de LUVON
+ Desarrollos elementales que no impliquen funcionalidades.
+El contrato entra en vigor al día siguiente de su firma, 16 de marzo de 2020, y
+tiene una duración de 1 año, prorrogable por plazos anuales de forma
+automática, siempre y cuando ninguna de las partes hubiera notificado a la
+otra, con al menos 30 días hábiles de antelación la no prórroga del contrato.
+En el punto 7. Confidencialidad y Protección de Datos se recoge que en el
+supuesto de que el prestador tuviera acceso a datos de carácter personal
+responsabilidad del cliente, será considerado encargado del tratamiento de
+dicha información. El prestador tratará los datos a los que tiene acceso
+conforme a las instrucciones del cliente, no aplicándolos o utilizándolos con
+fines distintos a los establecidos en el presente contrato, ni los comunicará, ni
+siquiera para su conservación, a ningún tercero.
+
+C/ Jorge Juan, 6
+28001 – Madrid
+
+www.aepd.es
+sedeagpd.gob.es
+
+16/23
+
+FUNDAMENTOS DE DERECHO
+I
+Competencia
+De acuerdo con las funciones que el artículo 57.1 a), f) y h) del Reglamento
+(UE) 2016/679 (Reglamento general de protección de datos, en adelante RGPD)
+confiere a cada autoridad de control y según lo dispuesto en los artículos 47 y 48.1 de
+la Ley Orgánica 3/2018, de 5 de diciembre, de Protección de Datos Personales y
+garantía de los derechos digitales (en lo sucesivo LOPDGDD), es competente para
+resolver estas actuaciones de investigación la Directora de la Agencia Española de
+Protección de Datos.
+Asimismo, el artículo 63.2 de la LOPDGDD determina que: "Los
+procedimientos tramitados por la Agencia Española de Protección de Datos se regirán
+por lo dispuesto en el Reglamento (UE) 2016/679, en la presente ley orgánica, por las
+disposiciones reglamentarias dictadas en su desarrollo y, en cuanto no las
+contradigan, con carácter subsidiario, por las normas generales sobre los
+procedimientos administrativos."
+II
+Análisis del caso
+1. El artículo 6 del RGPD, bajo la rúbrica “Licitud del tratamiento”, detalla en su
+apartado 1 los supuestos en los que el tratamiento de datos es considerado lícito:
+“1. El tratamiento sólo será lícito si cumple al menos una de las siguientes
+condiciones:
+a) el interesado dio su consentimiento para el tratamiento de sus datos
+persona-les para uno o varios fines específicos;
+b) el tratamiento es necesario para la ejecución de un contrato en el que el interesado es parte o para la aplicación a petición de este de medidas
+precontrac-tuales;
+c) el tratamiento es necesario para el cumplimiento de una obligación legal aplicable al responsable del tratamiento;
+d) el tratamiento es necesario para proteger intereses vitales del interesado o
+de otra persona física;
+e) el tratamiento es necesario para el cumplimiento de una misión realizada en
+interés público o en el ejercicio de poderes públicos conferidos al responsable
+del tratamiento;
+f) el tratamiento es necesario para la satisfacción de intereses legítimos perseguidos por el responsable del tratamiento o por un tercero, siempre que sobre
+dichos intereses no prevalezcan los intereses o los derechos y libertades fundamentales del interesado que requieran la protección de datos personales, en
+particular cuando el interesado sea un niño.
+Lo dispuesto en la letra f) del párrafo primero no será de aplicación al
+tratamien-to realizado por las autoridades públicas en el ejercicio de sus
+funciones.”
+C/ Jorge Juan, 6
+28001 – Madrid
+
+www.aepd.es
+sedeagpd.gob.es
+
+17/23
+
+También el RGPD en su artículo 5 establece los principios que deben presidir el
+tratamiento de los datos personales y, en su apartado 1 señala que:
+“1. Los datos personales serán:
+a) tratados de manera lícita, leal y transparente con el interesado (<<licitud,
+lealtad y transparencia>>).
+(…)”
+Y en su apartado 2, establece que:
+“2. El responsable del tratamiento será responsable del cumplimiento de lo dispuesto en el apartado 1 y capaz de demostrarlo (<<responsabilidad proactiva>>).”
+Por tanto, todo tratamiento de datos personales tiene que respetar los
+principios que lo presiden, relacionados en el artículo 5.1 del RGPD, entre ellos el de
+licitud que se desarrolla posteriormente en el artículo 6.1 del RGPD.
+De lo señalado en este último precepto se desprende que el tratamiento de
+datos requiere la existencia de una base jurídica que lo legitime y, de conformidad con
+el mismo, además del consentimiento, existen otras posibles bases que legitiman el
+tra-tamiento de datos sin necesidad de contar con la autorización de su titular, en
+particular, cuando sea necesario para la ejecución de un contrato en el que el afectado
+es parte o para la aplicación, a petición de este, de medidas precontractuales, o
+cuando sea nece-sario para la satisfacción de intereses legítimos perseguidos por el
+responsable del tra-tamiento o por un tercero, siempre que sobre dichos intereses no
+prevalezcan los in-tereses o los derechos y libertades fundamentales del afectado que
+requieran la pro-tección de tales datos. El tratamiento también se considera lícito
+cuando sea necesario para el cumplimiento de una obligación legal aplicable al
+responsable del tratamiento, para proteger intereses vitales del afectado o de otra
+persona física o para el cumpli-miento de una misión realizada en interés público o en
+el ejercicio de poderes públicos conferidos al responsable del tratamiento.
+2. En lo que se refiere a las comercializadoras de energía tanto el acceso como
+el tratamiento de los datos de carácter personal contenidos en el SIPS encuentran su
+base de legitimidad en la letra e) del artículo 6.1 del RGPD:
+“(…)
+e) el tratamiento es necesario para el cumplimiento de una misión realizada en
+interés público o en el ejercicio de poderes públicos conferidos al responsable
+del tratamiento”
+(…)”
+Según el artículo 6.1.f) de la Ley 24/2013, de 26 de diciembre, del Sector
+Eléctrico:
+“f) Los comercializadores, que son aquellas sociedades mercantiles, o sociedades cooperativas de consumidores y usuarios, que, accediendo a las redes de
+transporte o distribución, adquieren energía para su venta a los consumidores, a otros
+sujetos del sistema o para realizar operaciones de intercambio internacional en los
+términos establecidos en la presente ley.
+Reglamentariamente se establecerá el procedimiento y requisitos para ser comercializador de referencia”.
+
+C/ Jorge Juan, 6
+28001 – Madrid
+
+www.aepd.es
+sedeagpd.gob.es
+
+18/23
+
+Por tanto, para el ejercicio de la actividad de comercialización, los interesados
+deberán realizar la comunicación de inicio de actividad que especificará el ámbito territorial en que se van a desarrollar la actividad, ante la Dirección General de Política
+Energética y Minas del Ministerio de Energía, Turismo y Agenda Digital.
+Dicha comunicación se presentará acompañada de la declaración responsable
+sobre el cumplimiento de los requisitos para el ejercicio de la actividad. La Dirección
+General de Política Energética y Minas da traslado de la comunicación realizada por el
+interesado a la CNMC, quien la publica en su página web y mantiene actualizado con
+una periodicidad al menos mensual, un listado que incluye a todos los comercializadores.
+En caso de que un comercializador incumpla alguno de los requisitos exigidos
+para el ejercicio de su actividad, el Ministerio para la Transición Ecológica y el Reto
+Demográfico podrá iniciar un procedimiento de inhabilitación que finalice con la
+extinción de la habilitación para actuar como comercializador, lo que comunica a la
+CNMC.
+Asimismo, se señalan las obligaciones que deben cumplir los
+comercializadores en relación con el carácter confidencial de la información relativa a
+los puntos de suministro. Conforme a la normativa vigente, los datos del SIPS tienen
+carácter confidencial.
+Para la consulta o descarga de la información del SIPS, los comercializadores
+deben solicitar previamente a la CNMC el alta en el sistema de gestión de las bases
+de datos de puntos de suministro de electricidad y gas, a través del trámite establecido
+a tal efecto. Esta solicitud debe ser analizada y validada por la CNMC antes de
+proporcionar el acceso.
+El acceso a la información del SIPS de la CNMC solo se permite a las comercializadoras de energía que se encuentran inscritas en el listado de comercializadores
+que figura en la página web de la CNMC a través de una interfaz de programación de
+aplicaciones (API).
+3. En cuanto al SIPS, la AEPD se ha pronunciado sobre el carácter de los datos
+del SIPS eléctrico señalando que “el Sistema de información de Puntos de Suministro
+incorpora datos de carácter personal, dado que a partir del Código de punto de
+suministro es posible identificar al consumidor al que se refiere la información,
+pudiéndose así vincular todo el contenido del sistema con dicho consumidor”.
+El SIPS es una base de datos técnicos, de consumo y comerciales de cada uno
+de los puntos de suministro que se encuentran conectados a cada distribuidor de
+electricidad o de gas natural.
+Tanto la estructura como el acceso al SIPS están regulados en el artículo 7 del
+Real Decreto 1435/2002, de 27 de diciembre para el sector eléctrico.
+Los comercializadores, y demás sujetos que hagan uso de la información que
+figura en las bases de datos de puntos de suministro de las empresas distribuidoras, a
+tenor de lo contemplado en artículo 7 del Real Decreto 1435/2002 y en el artículo
+46.1.k) de la Ley 24/2013, de 26 de diciembre, del Sector Eléctrico, deberán suscribir
+C/ Jorge Juan, 6
+28001 – Madrid
+
+www.aepd.es
+sedeagpd.gob.es
+
+19/23
+
+un código de conducta y garantizar la confidencialidad de la información contenida en
+las mismas.
+4. En fecha 03/11/2021 la CNMC traslado a la AEPD el documento “Acuerdo
+por el que se remite a la Agencia Española de Protección de Datos las actuaciones
+practicadas en relación con posibles usos fraudulentos del SIPS” aprobado por la Sala
+de Supervisión Regulatoria de la CNMC en el que daba a entender una posible
+utilización fraudulenta del Sistema de Información de los Puntos de Suministro (SIPS).
+La CNMC señalaba que, a través del análisis de los datos de accesos
+registrados y de la recepción de avisos procedentes de comercializadores y usuarios,
+se habían identificado una serie de escenarios que sugerían posibles usos
+fraudulentos del SIPS que podían tener impacto en el derecho a la protección de los
+datos personales. De manera resumida, la CNMC se refería a cuatro escenarios
+posibles.
+Una vez analizada la información facilitada, se consideró la oportunidad de
+realizar investigaciones que permitieran recopilar elementos de juicio necesarios para
+conocer si se habían producido actuaciones contrarias a la normativa en materia de
+protección de datos de carácter personal, asumiendo y teniendo en cuenta las
+capacidades y recursos de la AEPD.
+En el caso examinado, las investigaciones se han centrado en el tercero de los
+escenarios descritos, es decir, comercializadores autorizados que presentan un
+número elevado de consultas, superior al volumen de operaciones de switching
+registrado en un periodo determinado de tiempo, incluso al número de puntos de
+suministro que forman parte de su cartera de clientes. Igualmente, un número anormal
+de direcciones IPs utilizadas, que por su volumen de accesos, podría ser indicativo de
+un uso de las credenciales de acceso al SIPS por parte de terceros no autorizados o
+de una posible comercialización de la información obtenida y contenida en el SIPS.
+La CNMC señala que la entidad LUVON es un comercializador eléctrico con
+código (...) de acceso a través de la API de la CNMC al SIPS, que podría exhibir
+indicios de utilización fraudulenta como consecuencia de su elevado número de
+consultas y de direcciones IPs utilizadas en los accesos a la base de datos.
+Y aporta cuadro de Excel que incluye información de la relación de direcciones
+IP con el número de consultas realizadas a través de la API del servicio web de la
+CNMC durante el segundo trimestre de 2021.
+La entidad investigada ha señalado que, durante el año 2021, y en particular
+durante el segundo trimestre de 2021, había un usuario de LUVON autorizado para
+acceder a la API del servicio web de la CNMC, su administrador único.
+Asimismo manifiesta que en fechas 01/12/ 2019 y 16/03/ 2020 suscribió
+contrato de prestación de servicios informáticos y de mantenimiento y asistencia
+informáticos, respectivamente, con ***EMPRESA.1; el segundo contrato incluye
+cláusula de confidencialidad; en el punto 7, Confidencialidad y Protección de Datos,
+estableciendo que el prestador tratará los datos a los que tiene acceso conforme a las
+instrucciones del cliente, no aplicándolos o utilizándolos con fines distintos a los
+C/ Jorge Juan, 6
+28001 – Madrid
+
+www.aepd.es
+sedeagpd.gob.es
+
+20/23
+
+establecidos en el presente contrato, ni los comunicará, ni siquiera para su
+conservación, a ningún tercero.
+La entidad manifiesta que se ha ceñido a su código de conducta y que no ha
+proporcionado las claves de acceso a la base de datos del SIPS de la CNMC a ningún
+tercero, salvo a su encargado en virtud de su relación comercial y tras la firma de la
+cláusula de confidencialidad.
+Respecto al número de consultas al SIPS, la investigada ha señalado que
+hasta el 11/11/2021 su forma de operar provocó bloqueos de acceso a la CNMC que
+hacían que no tuvieran acceso a la base de datos, por lo que se pusieron en contacto
+con la CNMC para conocer el origen del bloqueo. El bloqueo se debía a que se
+sobrepasaban los límites de consultas estipulados.
+Cada vez que se solicitaba el desbloqueo al acceso y la CNMC procedía a
+desbloquear las direcciones IP desde las que se efectuaban las consultas, éstas o
+unas nuevas se volvían a bloquear, por tratarse las direcciones IP utilizadas
+dinámicas.
+La investigada intentó varias formas de acceso y como ninguna de las pruebas
+puestas en práctica dio resultado se planteó la creación de una herramienta propia que
+realizase una sola petición a la API de la CNMC para cada zip publicado y se
+descargase la información completa, para que el ERP de la mercantil consultase sobre
+ésta y no sobre la propia API, de forma que las peticiones que realiza desde entonces
+son sobre los datos descargados.
+Ese nuevo software fue desarrollado por su encargado del tratamiento
+***EMPRESA.1. e implementado el 11/11/2021; actualmente sigue utilizando este
+sistema de descargas que desde su implantación no ha experimentado ningún
+problema.
+En el marco de la investigación desarrollada, se pretende identificar al
+proveedor de servicios de Internet de cada una de las direcciones IP identificadas por
+la CNMC en documento Excel aportado con la relación de direcciones IP y el número
+de peticiones realizadas en el segundo trimestre de 2021.
+No obstante, para dos de las direcciones IPs (...) y (...) aportadas el Registro
+Regional de Internet para Europa no arroja resultados, puesto que los mismos
+corresponden al Registro Regional de Internet para América, ARIN.
+Se procede a identificar a los proveedores de servicios de Internet a través del
+sitio web del Centro de Coordinación Regional de Internet para Europa; así, las IPs (...)
+y (...) pertenecen a ***EMPRESA.2 a quien se solicita los datos identificativos y
+domicilio del titular de la asignación de las direcciones IPs señalando que estuvieron
+asignadas a lo largo del año 2021 a distintos titulares en distintos períodos, uno de los
+cuales es ***EMPRESA.1.
+Las IPs dinámicas (...), (...), (...), (…), (...) , (...) y (...) pertenecen a
+***EMPRESA.5, se le solicita datos identificativos del titular actual de la asignación,
+señalando que la última estaba asignada a ***EMPRESA.1; pero en relación con las
+C/ Jorge Juan, 6
+28001 – Madrid
+
+www.aepd.es
+sedeagpd.gob.es
+
+21/23
+
+IPs dinámicas manifiestan lo indicado anteriormente que transcurridos doce meses no
+custodian la información sobre titularidad.
+En cuanto a la IP (...) pertenece a ***EMPRESA.6 quien es dinámica y que
+transcurridos doce meses no custodia la información sobre titularidad.
+Examinada la documentación obrante en el expediente, no se ha podido
+acreditar la existencia de conducta que vulnere la normativa en materia de protección
+de datos de carácter personal y los indicios de una utilización no acorde con la
+finalidad del SIPS por mostrar un inusual y elevado número de direcciones IPs que
+daban lugar a un número elevado de peticiones y accesos a través de la API del
+servicio web de la CNMC, trasladados por este Organismo en su escrito de fecha no
+han podido ser confirmados.
+De todas las direcciones IPs aportadas por la CNMC en Excel, que incluía
+información de la relación de direcciones IPs de LUVON la mayoría de ellas no consta
+que le tuviera asignadas su titularidad durante el periodo solicitado a cada uno de los
+proveedores de servicios de Internet a quienes pertenecían las mismas.
+En este sentido conviene recordar que, tal y como se ha pronunciado
+reiteradamente el Tribunal Constitucional entre otras en SSTC 120/1994 y 76/1990, el
+derecho fundamental a la presunción de inocencia tiene plena virtualidad en el marco
+del Derecho Administrativo Sancionador. Así en la STC 76/1990 el Alto Tribunal señala
+que “… la presunción de inocencia rige sin excepciones en el ordenamiento
+sancionador y ha de ser respetada en la imposición de cualesquiera sanciones, sean
+penales, sean administrativas en general o tributarias en particular”.
+Expone también el Tribunal Constitucional en la Sentencia 76/1990 que el derecho a la presunción de inocencia comporta “que la sanción esté basada en actos o
+medios probatorios de cargo o incriminadores de la conducta reprochada; que la carga
+de la prueba corresponda a quien acusa, sin que nadie esté obligado a probar su
+propia inocencia; y que cualquier insuficiencia en el resultado de las pruebas
+practicadas, libremente valorado por el órgano sancionador, debe traducirse en un
+pronunciamiento absolutorio”.
+Por otra parte, la Sentencia del Tribunal Constitucional de 20/02/1989 afirma
+que “Nuestra doctrina y jurisprudencia penal han venido sosteniendo que, aunque
+ambos puedan considerarse como manifestaciones de un genérico favor rei, existe
+una diferencia sustancial entre el derecho a la presunción de inocencia, que
+desenvuelve su eficacia cuando existe una falta absoluta de pruebas o cuando las
+practicadas no reúnen las garantías procesales y el principio jurisprudencial in dubio
+pro reo que pertenece al momento de la valoración o apreciación probatoria, y que ha
+de juzgar cuan-do, concurre aquella actividad probatoria indispensable, exista una
+duda racional sobre la real concurrencia de los elementos objetivos y subjetivos que
+integran el tipo penal de que se trate.”
+Centrándonos en los hechos sobre los que versa la investigación llevada a
+cabo y tras el examen de la documentación aportada, se verifica que no existe
+evidencias de la que se deduzca que la entidad investigada haya incurrido en
+infracción del RGPD, como consecuencia de aquellos hechos derivados del análisis
+C/ Jorge Juan, 6
+28001 – Madrid
+
+www.aepd.es
+sedeagpd.gob.es
+
+22/23
+
+auspiciado por el elevado número de consultas a través de la API de la CNMC, muy
+superior al volumen de operaciones de switching normal para un periodo determinado
+de tiempo y, que en cierta forma figuraría avalado por el número de direcciones IPs
+utilizadas, expresivo de una presunta comercialización fraudulenta de la información
+obtenida del SIPS.
+Sin embargo, las circunstancias anteriormente expresadas no constituyen ni
+evidencian la existencia de prueba alguna de la posible comisión por la entidad
+investigada de la vulneración del RGPD. Esto, porque en el marco de la fase de
+actuaciones previas de investigación se procedió a identificar a los proveedores de los
+servicios de Internet, donde se incluían las direcciones IPs identificadas por la CNMC
+en el Excel aportado a través de las que se realizaban los accesos a través de la API a
+la base de datos del SIPS, no permitiendo deducir una actividad fraudulenta por parte
+de la comercializadora, de manera que el resultado obtenido de las investigaciones
+llevadas a cabo tuviera la trascendencia probatoria que se requería a los efectos
+acreditar una actuación ilícita por parte de la comercializadora.
+Por tanto, no se han aportado ni incorporado al expediente elementos
+probatorios que permitan establecer de manera fehaciente que la entidad investigada
+vulnerara la normativa en materia de protección de datos. Así las cosas, en aplicación
+del principio de presunción de inocencia, que impide imponer una sanción en el caso
+de que exista ausencia de pruebas respecto de un hecho concreto y determinante, no
+procede activar un procedimiento sancionador, al no estar acreditada vulneración
+alguna del RGPD.
+IV
+Conclusión
+Por lo tanto, en base a lo indicado en los párrafos anteriores, no se han
+encontrado evidencias que acrediten la existencia de infracción en el ámbito
+competencial de la Agencia Española de Protección de Datos.
+Todo ello sin perjuicio de las posibles actuaciones posteriores que esta Agencia
+pudiera llevar a cabo, aplicando los poderes de investigación y correctivos que
+ostenta.
+Así pues, al no haber sido posible atribuir la responsabilidad de los tratamientos
+de acuerdo con lo señalado,
+Por la Directora de la Agencia Española de Protección de Datos, SE
+ACUERDA:
+PRIMERO: PROCEDER AL ARCHIVO de las presentes actuaciones.
+SEGUNDO: NOTIFICAR la presente resolución a LUVÓN ENERGÍA, S.L.
+De conformidad con lo establecido en el artículo 50 de la LOPDGDD, la
+presente Resolución se hará pública una vez haya sido notificada a los interesados.
+
+C/ Jorge Juan, 6
+28001 – Madrid
+
+www.aepd.es
+sedeagpd.gob.es
+
+23/23
+
+Contra esta resolución, que pone fin a la vía administrativa según lo
+preceptuado por el art. 114.1.c) de la Ley 39/2015, de 1 de octubre, del Procedimiento
+Administrativo Común de las Administraciones Públicas, y de conformidad con lo
+establecido en los arts. 112 y 123 de la citada Ley 39/2015, de 1 de octubre, los
+interesados podrán interponer, potestativamente, recurso de reposición ante la
+Directora de la Agencia Española de Protección de Datos en el plazo de un mes a
+contar desde el día siguiente a la notificación de esta resolución o directamente
+recurso contencioso administrativo ante la Sala de lo Contencioso-administrativo de la
+Audiencia Nacional, con arreglo a lo dispuesto en el artículo 25 y en el apartado 5 de
+la disposición adicional cuarta de la Ley 29/1998, de 13 de julio, reguladora de la
+Jurisdicción Contencioso-Administrativa, en el plazo de dos meses a contar desde el
+día siguiente a la notificación de este acto, según lo previsto en el artículo 46.1 de la
+referida Ley.
+Mar España Martí
+Directora de la Agencia Española de Protección de Datos
+
+C/ Jorge Juan, 6
+28001 – Madrid
+
+www.aepd.es
+sedeagpd.gob.es
+
+

@@ -1,0 +1,1060 @@
+1/19
+
+
+
+Expediente N.º: EXP202309170
+RESOLUCIÓN DE ARCHIVO DE ACTUACIONES
+
+De las actuaciones practicadas por la Agencia Española de Protección de Datos y
+teniendo como base los siguientes
+HECHOS
+PRIMERO: Con fecha 03/11/2021 tiene entrada en la AEPD oficio de la Comisión
+Nacional de los Mercados y la Competencia (CNMC) que adjunta el “Acuerdo por el
+que se remite a la Agencia Española de Protección de Datos las actuaciones
+practicadas en relación con posibles usos fraudulentos del SIPS” aprobado por la Sala
+de Supervisión Regulatoria de la CNMC. La CNMC traslada el resultado de las
+actuaciones practicadas, en su labor de supervisión del mercado minorista de
+electricidad y de gas natural, en relación con posibles usos fraudulentos del sistema de
+información de puntos de suministro (SIPS) por parte de agentes comercializadores y
+otras empresas que no son agentes de los sistemas eléctrico y gasista, un total de 18
+mercantiles. La CNMC, en tanto que analiza su posible respuesta a los casos
+detectados de forma que pueda ser corregida esta situación, da traslado de los
+mismos a la Agencia, para su información y para que, en el ejercicio de sus funciones,
+pueda llevar a cabo las actuaciones que estime pertinentes desde la perspectiva de la
+normativa de protección de datos, en la medida en que podrían estar afectados puntos
+de suministro de titularidad de personas físicas.
+La CNMC ha detectado 4 casos distintos de posible fraude:
+• CASO PRIMERO.- Indicios de comercialización o utilización de los datos del SIPS a
+través de anuncios en webs o información remitida a la CNMC, en 7 entidades, en su
+mayoría no comercializadores de energía.
+• CASO SEGUNDO.- Se observa entre los agentes que descargan mensualmente la
+base de datos completa del SIPS eléctrico, la existencia de 3 comercializadores que
+gestionan pocos o ningún punto de suministro.
+• CASO TERCERO.- Se aprecian indicios de una posible utilización no acorde con la
+finalidad del SIPS en el análisis de los datos obtenidos de las consultas individuales de
+comercializadores autorizados a través de API, por presentar un número muy elevado
+de consultas, muy superior al volumen de operaciones de switching registrado en un
+periodo determinado de tiempo, e incluso al número de puntos de suministro que
+forman parte de su cartera de clientes. También resulta llamativo el número elevado de
+direcciones IP diferentes utilizado por algunos comercializadores. Se incluye en un
+Excel aparte que acompaña al Anexo, información de la relación de direcciones IP de
+7 comercializadores, con el número de consultas realizadas, que, por su elevado
+volumen, podría ser indicativo de una posible comunicación y/o comercialización de la
+información contenida en el SIPS, o de un uso de las credenciales OAuth de acceso al
+SIPS por terceros.
+C/ Jorge Juan, 6
+28001 – Madrid
+
+www.aepd.es
+sedeagpd.gob.es
+
+2/19
+
+• CASO CUARTO.- Se ha descubierto en un comercializador la utilización de la
+información del SIPS en procedimientos automatizados de contratación web, lo que
+permite a cualquier usuario de la herramienta conocer, entre otros datos, información
+parcial del CUPS asociada a una dirección de un consumidor junto con su potencia
+contratada.
+En fecha 31 de marzo de 2022 la directora de la AEPD acuerda iniciar una
+investigación de oficio que permita recopilar los elementos de juicio necesarios para
+conocer con certeza si se han producido actuaciones contrarias a la normativa de
+protección de datos personales, si bien, teniendo en cuenta el amplio alcance de los
+supuestos planteados por la CNMC y la necesidad de acompasarlo con las
+capacidades y recursos de que dispone la AEPD.
+En fecha 05/07/2023 la Directora de la AEPD acuerda iniciar actuaciones de
+investigación abarcando el tercero de los escenarios descritos por la CNMC, esto es,
+la actividad anómala de comercializadores en su acceso autorizado al SIPS, por
+número de consultas o multiplicidad de direcciones IP de origen, que podría apuntar a
+una comercialización de los datos o a un uso de las credenciales por terceros,
+centrando la misma en la entidad INTEGRACION EUROPEA DE ENERGIA, S.A. con
+CIF A74340464 (en lo sucesivo INTEGRA).
+SEGUNDO: A la vista de los hechos, en fase de actuaciones previas, por los Servicios
+de Inspección de esta Agencia se ha tenido conocimiento de los siguientes hechos que
+se reflejan en el Informe de Actuaciones Previas de Inspección:
+Situación advertida por la CNMC
+- En escrito fechado el 28/10/2021 la Sala de Supervisión Regulatoria de la CNMC
+traslada a esta Agencia posibles casos de utilización fraudulenta detectados durante
+su labor de supervisión del mercado minorista de electricidad y de gas natural.
+En el marco del tercero de los escenarios descritos la CNMC aprecia, en el análisis de
+los datos obtenidos de las consultas individuales de comercializadores en su acceso
+autorizado a la API del servicio web de la CNMC, indicios de una posible utilización no
+acorde con la finalidad del SIPS, por presentarse un número elevado de peticiones y
+de direcciones IP diferentes utilizadas por algunos comercializadores. La CNMC
+señala que INTEGRA.
+Este comercializador eléctrico (código R2-469) realizó, en el período de estudio 96.285
+consultas desde 4 direcciones IP diferentes, y su switching fue de 2.188 puntos de
+suministro. En julio de 2021 gestionaba 23.157 puntos de suministro eléctrico.
+Asimismo, la CNMC aporta un documento formato Excel, que incluye información de la
+relación de direcciones IP de INTEGRA con el número de peticiones realizadas a
+través de la API del servicio web de la CNMC durante el segundo trimestre de 2021.
+- En fecha 28/06/2022 en el marco de las actuaciones de investigación (...) la CNMC
+aporta a esta Agencia el oficio, fechado el 09/03/2022, por el que solicita a INTEGRA
+aclaración de las consultas individuales realizadas durante el año 2021, y el escrito de
+C/ Jorge Juan, 6
+28001 – Madrid
+
+www.aepd.es
+sedeagpd.gob.es
+
+3/19
+
+la respuesta de INTEGRA, fechado el 25/03/2022, a las cuestiones planteadas por la
+CNMC.
+
+
+Respuesta de INTEGRA
+
+I. Funcionamiento del sistema
+(…).
+(…):
+o
+
+(…).
+
+o
+
+(…):
+
+
+(…).
+
+
+
+(…).
+
+
+
+(…).
+
+
+
+(…).
+
+Es decir, siempre se lanza la doble consulta, de datos y de consumo, tal y como se ha
+señalado.
+En estas consultas individuales, si ninguna de las operaciones ha devuelto datos (es
+decir, la CNMC no tiene datos para ese CUPS o el proceso de carga ha resultado en
+error) se permite a los sistemas volver a consultar la información para dicho CUPS las
+veces que se consideren oportunas, es decir, no se almacena en esta caché la
+ausencia de dato como un valor válido para evitar las sucesivas consultas contra la
+API individualizada de la CNMC.
+(…).
+Consideraciones Generales:
+Sobre la mención a 71 descargas completas de los ficheros. Sin querer poner en duda
+la información aportada por este Organismo en el punto primero de su oficio,
+encontramos desmesurada la cifra de 71 descargas completas de los ficheros en un
+año, dado que el tiempo de carga aproximado de estos ficheros en nuestros sistemas
+es de cinco días, y el proceso requiere bastante supervisión y ampliación temporal de
+nuestros recursos (servidores y servidores de BBDD) con el coste asociado, por lo que
+realmente no se ajusta la cifra señalada a nuestros estándares establecidos.
+Sobre a la referencia de consultas desde diferentes IPs. Al respecto, como se dijo,
+únicamente se realizan las operaciones o bien, en caso de descargas completas de
+ficheros, desde las IPs fijas de las oficinas centrales de la dicente o desde la IP de los
+dispositivos de los responsables de desarrollo de la misma, o bien, en caso de
+consultas individuales desde la máquina (servidor), siendo en este caso las IPs
+variables, pero las consultas siempre se lanzan desde la misma máquina (servidor),
+titularidad de la dicente y alojada, como se dijo, en AWS.
+Sobre el incremento de consultas individuales en el mes de Julio de 2021. Al respecto
+indicar que, debido al cambio en las tarifas que se produce en junio de 2021, una de
+las actuaciones que se acometieron por la dicente fue el reperfilado del consumo
+C/ Jorge Juan, 6
+28001 – Madrid
+
+www.aepd.es
+sedeagpd.gob.es
+
+4/19
+
+horario de todos los CUPS gestionados por la misma respecto al SIPS para su
+programa de cálculo de la demanda para la gestión de la compra ante el Operador del
+Mercado.
+Dentro de este contexto, el cambio normativo dio lugar a una carga de trabajo tal a
+nuestro departamento de desarrollo no fue posible que desde el mismo se realizara la
+carga manual de la BBDD completa del SIPS, por el motivo antes mencionado de que
+la descarga manual y su carga en nuestros sistemas supone cinco días, con continua
+supervisión a fin de que no de error. Por este motivo se optó por lanzar las consultas
+de los CUPS contra la API, como consultas individuales, de forma secuencial en un
+corto espacio de tiempo, lo que dio lugar al "bloqueo" de la IP de la máquina (servidor)
+en la que está albergado el servicio propio de consulta de SIPS (antes mentado)
+motivando la conversación por email con … para solventar dicho bloqueo.
+(…)
+Una vez recibida la información se actuó en consecuencia, se modificó la forma de
+consulta, sin recibir más comunicaciones al respecto, hasta el presente requerimiento.
+Pero, ante tal comunicación, para asegurarnos de que no se realizan peticiones extras
+o no controladas, se ha implementado, además, un servicio de log de las peticiones
+realizadas a través de la API individual.
+De la implementación de un sistema de monitorización de consultas. Como se decía,
+esta situación se optó por controlar las consultas individualizadas que se fueran a
+lanzar desde nuestros sistemas, mediante la implantación de un sistema de
+monitorización, que está en activo desde el 28 de julio de 2021, pudiendo confirmar
+que en base a nuestra información desde dicha fecha hasta la actualidad las consultas
+individuales que constan lanzadas por esta parte ascienden a 90.745, destacando que
+muchas de ellas se repiten sobre mismos CUPS, ya sea por el motivo antes explicado,
+relativo a si el CUPS debe ser identificado con 20 o 22 dígitos, por inexistencia de
+información, por renovación de la información de consumo etc.
+De la prestación de servicios llevada a cabo por la dicente a otras comercializadoras.
+Además de la actividad de comercialización, Integra Energía tiene como actividad la
+prestación de servicios a otras comercializadoras que podría incluir la representación
+de las mismas en el mercado, la gestión de la compra ante el Operador, que puede
+incluir la estimación de la compra, y la facturación a los clientes finales. Por estos
+motivos, la dicente puede llevar a cabo las consultas antes informadas para el cálculo
+de la compra y para la facturación a los clientes de dichas comercializadoras, en su
+caso.
+Respuesta a la/s cuestión/es planteada/s en el Punto I:
+Uso de la información descargada o destino de la misma. La consulta de SIPS se
+utiliza:
+
+
+C/ Jorge Juan, 6
+28001 – Madrid
+
+Para el cálculo de la demanda para la compra de energía. Con
+el objeto de elaborar la previsión de demanda de la cartera de
+clientes, el programa desarrollado para ello, utiliza como
+referencia el último dato de consumo disponible de cada Punto
+de Suministro. Esta previsión de demanda se calcula para cada
+día y para las 24 horas del día.
+www.aepd.es
+sedeagpd.gob.es
+
+5/19
+
+(…)
+
+
+Para la facturación. Según el sistema de facturación
+desarrollado, si llegada la fecha de la emisión de la factura de
+cada CUPS, el sistema comprueba si existe XML de la
+distribuidora para el periodo a facturar y, en caso contrario,
+lanza la consulta a la máquina (navegador) en donde está
+alojada la información de la descarga completa de los ficheros y,
+como se dijo, en caso de que la información sobre el CUPS a
+facturar no está actualizada, según los criterios establecidos,
+esta máquina lanza automáticamente la consulta individual,
+aportando al sistema la información obtenida a fin de que el
+programa de facturación utilice la misma para el cálculo de la
+energía a facturar. Nuevamente no existe una “persona” en
+concreto que acceda a dicha información, la misma únicamente
+se pone a disposición, en este caso, del programa destinado a
+la facturación. Hemos de destacar una especialidad que ha
+ocurrido en el año 2021 y es que el programa no sólo se nutrió
+de la información del año 2020, si no que se incluyó la del 2019
+a fin de tener en cuenta el impacto en el cambio en los hábitos
+de consumo de los clientes a raíz de la pandemia, y que ello no
+afectara a la facturación e intentar ser lo más precisos posibles
+en los cálculos de las facturas.
+
+
+
+Para la confección de ofertas, estudios de potencia o de cambio
+de tarifa. Partiendo de la obligación de toda comercializadora de
+informar y asesorar a los consumidores sobre la tarifa y potencia
+a contratar más conveniente a sus necesidades, se abre la
+posibilidad de que, por parte del comercial asignado, se consulte
+a través del sistema interno los consumos del cliente, con objeto
+de realizar estos estudios de potencia, cambio de tarifa o
+nuevas ofertas. De esta manera, si el sistema dispone de estos
+datos actualizados los comparte y en caso contrario lanzaría la
+consulta individual de la forma ya reiterada.
+
+Motivos del número de consultas. Si bien ello ya se desprende de lo hasta ahora
+manifestado, diferenciaremos entre descargas completas de los ficheros y consultas
+individuales.
+
+C/ Jorge Juan, 6
+28001 – Madrid
+
+
+
+Descargas completas: Como hemos dicho, para esta parte le
+resultaría realmente gravoso realizar 71 descargas completas
+de los ficheros y su carga en nuestro sistema en el periodo de
+un año, por cuanto cada una de ellas le conllevaría 5 días, lo
+que daría lugar a que constantemente se estaría en proceso de
+descarga/carga, algo inasumible para la dicente. Sin ánimo de
+reiterarnos, la descarga completa de los ficheros se realiza cada
+3-4 meses con el único ánimo de mantener la información
+actualizada.
+
+
+
+Consultas individuales: Entiende esta parte que, el posible
+incremento desproporcionado del número de consultas tiene su
+www.aepd.es
+sedeagpd.gob.es
+
+6/19
+
+origen en aquellos procesos en los que, por no disponer de
+tiempo o recursos para acometer las descargas completas de
+los ficheros en momentos puntuales, se lanzaron las consultas a
+través de la API. Ello, fundamentalmente provocado por la
+adaptación de todos nuestros procesos a la modificación de las
+tarifas, que ha estresado nuestra actividad en el departamento
+de desarrollo ante las múltiples actuaciones a llevar a cabo.
+Especial mención merece, que la modificación de las tarifas
+supuso el reperfilado de los consumos de todos los CUPS,
+destinado a nutrir nuestro sistema de cálculo de la compra, que
+como se dijo se trató de realizar mediante este sistema de
+consultas individualizadas.
+Muestra de que el incremento ha sido puntual, es que según se desprende de nuestro,
+reiterado, sistema de monitorización de las consultas, desde el 28 de julio de 2021
+hasta la actualidad, únicamente se han realizado 90.745 consultas y de las mismas
+estimamos que unas 12.000 pueden obedecer a repeticiones de consultas sobre
+CUPS, a su vez repetidos, por fallo en el primer intento ya sea por error en la solicitud
+(CUPS erróneo, por ejemplo), en el proceso (caída del sistema, por ejemplo) o en el
+resultado (no existe información, por ejemplo). Cifras que distan mucho del límite de
+consultas/hora que se nos había trasladado.
+II Código de Conducta
+Se aporta el Código Ético desarrollado en el ámbito de implantación del Compliance
+Penal en el año 2017. INTEGRA manifiesta:
+Si bien, en la actualidad nos encontramos en proceso de actualización tanto de lo
+referente a la implantación del Compliance Penal, así como del Código de
+Conducta/Ético ante los compromisos ante la sociedad que se están adquiriendo,
+relativos a la sostenibilidad, eficiencia y energías renovables, entre otros. No en vano,
+recientemente, la dicente ha obtenido el certificado AENOR de Estrategia de
+Sostenibilidad y Contribución a los ODS 2030, lo que le “obliga” a adaptar su Código
+de Conducta a la nueva situación y compromisos, lo que se encuentra en proceso de
+implantación, de lo que se le dará cumplida información en un breve espacio de
+tiempo.
+Garantías de Confidencialidad
+Como decimos, las descargas completas de los ficheros únicamente se realizan
+manualmente por los responsables del departamento de desarrollo de la dicente,
+empleados que firman un compromiso de confidencialidad.
+(…)
+En cuanto a la información de las consultas individuales, como se dijo se utiliza para
+incluirla o bien en los cálculos de la compra de la energía o para la facturación, si
+fuera necesario, por lo que son consultas que lanza directamente el sistema si el
+mismo detecta que la información que se utiliza para ello es considerada
+desactualizada, sin que en estos casos se haga un uso exclusivo de la información por
+C/ Jorge Juan, 6
+28001 – Madrid
+
+www.aepd.es
+sedeagpd.gob.es
+
+7/19
+
+parte de una persona concreta, si bien todos nuestros trabajadores firman el
+compromiso de confidencialidad adjuntado.
+En el caso de consultas sobre potenciales clientes sobre los que puntualmente se
+pueda solicitar información del SIPS a los efectos ya mentados de poder ofertar a los
+consumidores la tarifa y potencia más conveniente a sus necesidades, el sistema
+requiere al solicitante el CUPS sobre el que se precisa la información, si bien estos
+comerciales que pudieran recibir el informe sobre los consumos a fin de elaborar la
+oferta igualmente firman el mismo compromiso de confidencialidad.
+Igualmente, los comerciales externos asumen su compromiso de confidencialidad y
+firman un contrato de Encargado de Tratamiento, a fin de preservar los datos a los que
+tienen acceso en el ejercicio de sus funciones.
+(…)
+Se han implantado, entre otras, las medidas tanto organizativas como técnicas
+aplicadas a los datos de carácter personal de los que la dicente es responsable del
+tratamiento:
+
+
+(…).
+
+
+
+(…).
+
+
+
+(…).
+
+
+
+(…).
+
+
+
+(…).
+
+
+
+(…).
+
+
+
+(…).
+
+
+
+(…).
+
+
+
+(…).
+
+
+
+(…).
+
+
+
+(…).
+
+
+
+(…).
+
+En cuanto a las medidas técnicas de seguridad, actualmente se disponen de las
+siguientes medidas:
+
+C/ Jorge Juan, 6
+28001 – Madrid
+
+o
+
+(…).
+
+o
+
+(…).
+
+o
+
+(…).
+
+o
+
+(…).
+
+o
+
+(…).
+
+o
+
+(…).
+
+o
+
+(…).
+www.aepd.es
+sedeagpd.gob.es
+
+8/19
+
+o
+
+(…).
+
+o
+
+(…).
+
+o
+
+(…).
+
+o
+
+(…).
+
+o
+
+(…).
+
+o
+
+(…).
+
+o
+
+(…).
+
+o
+
+(…).
+
+o
+
+(…).
+
+o
+
+(…).
+
+o
+
+(…).
+
+o
+
+(…).
+
+o
+
+(…).
+
+o
+
+(…).
+
+o
+
+(…).
+
+o
+
+(…).
+
+o
+
+(…).
+
+o
+
+(…).
+
+o
+
+(…).
+
+o
+
+(…).
+
+o
+
+(…).
+
+o
+
+(…).
+
+o
+
+(…).
+
+o
+
+(…).
+
+o
+
+(…).
+
+o
+
+(…).
+
+o
+
+(…).
+
+o
+
+(…).
+
+o
+
+(…).
+
+III. Se desmiente que se comparta o se ceda la información obtenida del SIPS a
+terceros ajenos a la organización de la dicente.
+(…)
+Respecto de las direcciones IPs identificadas por la CNMC
+C/ Jorge Juan, 6
+28001 – Madrid
+
+www.aepd.es
+sedeagpd.gob.es
+
+9/19
+
+En relación con las direcciones IPs de INTEGRA identificadas por la CNMC con el
+número de consultas realizadas durante el segundo trimestre de 2021, se procede a
+identificar, en el marco de las actuaciones de investigación, al proveedor de servicios
+de internet a través del sitio web del Centro de Coordinación Regional de Internet para
+Europa, Diligencia IPs, obteniéndose los siguientes resultados:
+IP
+
+Proveedor de servicios de internet
+
+***IP.1
+
+-
+
+***IP.2
+
+Nostravant S.L.L.
+
+***IP.3
+
+Orange S.A.
+
+***IP.4
+
+Orange S.A.
+
+Para la dirección IP ***IP.1 los resultados los arroja el Registro Regional de Internet
+para América, ARIN.
+- Se solicita a Nostravant. los datos identificativos y domicilio del titular de la
+asignación de la IP ***IP.2 en las fechas facilitadas por la CNMC.
+En su respuesta de Nostravant, manifiesta:
+(…)
+SEGUNDO. – Que, se quiere manifestar, que la titular de la dirección IP es la sociedad
+NOSTRAVANT
+En cuanto al usuario de la dirección IP es un cliente de una de las Franquicias de la
+marca AKIWIFI (titularidad de NOSTRAVANT).
+La Franquicia aludida (Franquicia SIERO AKIWIFI) se denomina JOLROM TELECOM,
+S.L. con NIF B74431503 y domicilio en (...) FRESNEDA (LUGONES), ASTURIAS.
+La mercantil NOSTRAVANT opera bajo la marca AKIWIFI en todo el territorio nacional
+a través de prestación directa por nuestra sociedad, y a través de franquicias en
+determinadas localidades/provincias de España.
+(…)
+TERCERO. – Que a los efectos de identificar el usuario de la dirección IP en los
+rangos horarios comunicados, estos son los siguientes:
+A.A.A.
+(…)
+- En fecha 09/02/2024 y 23/04/2024 se solicita a Orange los datos identificativos y
+domicilio del titular actual de la asignación de las direcciones IP relacionadas en la
+tabla que anterior que le corresponden, así como la fecha en la que ese titular la
+C/ Jorge Juan, 6
+28001 – Madrid
+
+www.aepd.es
+sedeagpd.gob.es
+
+10/19
+
+adquirió. En fecha 26/02/2024 y 08/05/2024 tiene entrada en la sede electrónica de la
+AEPD su respuesta donde manifiesta:
+(…)
+Dado que en el marco de las actuaciones de investigación (…) Orange traslada que su
+sistema informático tiene un tiempo limitado de almacenamiento de doce meses según
+la Ley 25/2007, de 18 de octubre, de conservación de datos relativos a las
+comunicaciones electrónicas y a las redes públicas de comunicaciones, no se reitera
+la solicitud informando de las fechas de conexión de las direcciones IP que
+corresponden al segundo trimestre de 2021.
+Respecto del procedimiento que utiliza la CNMC para la gestión del SIPS
+En el marco del (…) esta Agencia recaba de la CNMC la siguiente información:
+La CNMC no habilita exclusivamente a una persona para el acceso. El representante
+del comercializador garantiza que se dará cumplimiento a la normativa de protección
+de datos, pero no asume que la descarga la haya de hacer él personalmente. El
+SOLICITANTE puede acceder y realizar la carga de las BBDD utilizando su Certificado
+Digital, pero también CNMC entrega una pareja de claves para que el personal de la
+empresa, utilizando sistemas informáticos, pueda realizar la consulta de modo
+automático.
+(…)
+En definitiva, acceder a la descarga de las BBDD se podrá realizar directamente por el
+personal de la empresa, respetando la normativa de protección de datos. Ahora bien,
+queda dentro del ámbito de protección de datos las posibles relaciones que existan
+entre la comercializadora y la empresa de servicios informáticos de gestión de sus
+BBDD y los presumibles encargos de tratamiento (en el sentido que a éstos da el
+RGPD) y acuerdos de confidencialidad firmados entre ambas.
+Respecto del acceso de INTEGRA al servicio web de la CNMC
+En el marco de las actuaciones de investigación se solicita a INTEGRA información
+relativa al acceso a la API del servicio de la CNMC durante el año 2021. En fecha
+22/03/2024 tiene entrada en la sede electrónica de la AEPD la respuesta.
+En fecha 01/04/2024 se solicita a INTEGRA ampliación de la información aportada y
+en fecha 12/04/2024 tiene entrada en la sede electrónica de esta Agencia la respuesta.
+A continuación, se recogen los aspectos más relevantes de la información aportada:
+- Se acredita que INTEGRA solicita a la CNMC el alta en la base de datos de puntos
+de suministro (SIPS).
+- INTEGRA indica que, durante el año 2021, en particular, durante el segundo trimestre
+del año 2021, son tres los usuarios autorizados para acceder a la API del servicio web
+de la CNMC, todos ellos miembros del equipo de desarrollo para pruebas de INTEGRA
+y, por tanto, trabajadores de la empresa. Se identifican los tres usuarios autorizados y
+se especifica que los dispositivos desde los que acceden son propiedad de INTEGRA.
+- INTEGRA manifiesta que durante el segundo trimestre de 2021 tenía contrato con los
+siguientes proveedores de servicios de internet:
+o
+C/ Jorge Juan, 6
+28001 – Madrid
+
+(…)
+www.aepd.es
+sedeagpd.gob.es
+
+11/19
+
+o
+
+(…)
+
+(…)
+Respecto de la dirección IP ***IP.2, INTEGRA manifiesta que no le pertenece y que, ni
+en sus archivos ni en sus sistemas constan los datos del titular de la dirección IP
+identificado por NOSTRAVANT en el marco de las presentes actuaciones de
+investigación.
+- En relación con el bloqueo del acceso al SIPS a INTEGRA por parte de la CNMC,
+INTEGRA señala:
+Debido a un cambio normativo en junio de 2021 todas las comercializadoras de
+electricidad debían adaptarse a las nuevas tarifas, y para ello, una de las actuaciones
+que se acometieron por la dicente fue el reperfilado del consumo horario de todos los
+CUPS gestionados por la misma, respecto al SIPS, para su programa de cálculo de la
+demanda de energía para la gestión de la compra de la misma ante el Operador del
+Mercado. Dentro de este contexto, el cambio normativo dio lugar a una carga de
+trabajo tal, a nuestro departamento de desarrollo, que no fue posible que desde el
+mismo se realizara la carga manual de la BBDD completa del SIPS, por el motivo de
+que la descarga manual de toda la base de datos, en una sola petición, y su carga en
+nuestros sistemas supone cinco días, con continua supervisión a fin de que no de
+error. Por este motivo se optó por lanzar las consultas de los CUPS contra la API de
+consultas individuales puesta a disposición por la CNMC, de forma secuencial en un
+corto espacio de tiempo, de ahí el alto número de las mismas, teniendo en cuenta que
+hay que realizar dos por cada CUPS diferenciando una sobre los datos y otra sobre el
+consumo. Esta forma de consulta, individual por cada CUPS, es lo que dio lugar al alto
+número y, seguramente, al "bloqueo" de la IP de la máquina (servidor) en la que está
+albergado el servicio propio de consulta de SIPS y motivando la conversación por
+email con …para solventar dicho bloqueo.
+Se constata en la página web de la CNMC, https://www.cnmc.es/la-nueva-factura-dela-luz, que, a partir del 01/06/2021 aplica la nueva estructura de la factura de la luz. En
+cumplimiento de la normativa europea se introduce la separación de la tarifa en dos
+componentes: peajes y cargos. Diligencia Nueva Tarifa.
+Se aporta el mail que INTEGRA recibe de la CNMC en fecha 28/07/2021, fecha en la
+que ocurrió el bloqueo.
+INTEGRA añade que, una vez recibida la información, modificó la forma de consulta
+sin recibir más comunicaciones al respecto e implementó un servicio de log de las
+peticiones realizadas a través de la API individual, como ya informó en su respuesta a
+la CNMC de fecha el 25/03/2022.
+FUNDAMENTOS DE DERECHO
+
+C/ Jorge Juan, 6
+28001 – Madrid
+
+www.aepd.es
+sedeagpd.gob.es
+
+12/19
+
+I
+Competencia
+De acuerdo con las funciones que el artículo 57.1 a), f) y h) del Reglamento
+(UE) 2016/679 (Reglamento general de protección de datos, en adelante RGPD)
+confiere a cada autoridad de control y según lo dispuesto en los artículos 47 y 48.1 de
+la Ley Orgánica 3/2018, de 5 de diciembre, de Protección de Datos Personales y
+garantía de los derechos digitales (en lo sucesivo LOPDGDD), es competente para
+resolver estas actuaciones de investigación la Directora de la Agencia Española de
+Protección de Datos.
+Asimismo, el artículo 63.2 de la LOPDGDD determina que: "Los
+procedimientos tramitados por la Agencia Española de Protección de Datos se regirán
+por lo dispuesto en el Reglamento (UE) 2016/679, en la presente ley orgánica, por las
+disposiciones reglamentarias dictadas en su desarrollo y, en cuanto no las
+contradigan, con carácter subsidiario, por las normas generales sobre los
+procedimientos administrativos."
+II
+Análisis del caso
+1. El artículo 6 del RGPD, bajo la rúbrica “Licitud del tratamiento”, detalla en su
+apartado 1 los supuestos en los que el tratamiento de datos es considerado lícito:
+“1. El tratamiento sólo será lícito si cumple al menos una de las siguientes
+condiciones:
+a) el interesado dio su consentimiento para el tratamiento de sus datos
+personales para uno o varios fines específicos;
+b) el tratamiento es necesario para la ejecución de un contrato en el que el
+interesado es parte o para la aplicación a petición de este de medidas
+precontractuales;
+c) el tratamiento es necesario para el cumplimiento de una obligación legal
+aplicable al responsable del tratamiento;
+d) el tratamiento es necesario para proteger intereses vitales del interesado o
+de otra persona física;
+e) el tratamiento es necesario para el cumplimiento de una misión realizada en
+interés público o en el ejercicio de poderes públicos conferidos al responsable
+del tratamiento;
+f) el tratamiento es necesario para la satisfacción de intereses legítimos
+perseguidos por el responsable del tratamiento o por un tercero, siempre que
+sobre dichos intereses no prevalezcan los intereses o los derechos y libertades
+fundamentales del interesado que requieran la protección de datos personales,
+en particular cuando el interesado sea un niño.
+Lo dispuesto en la letra f) del párrafo primero no será de aplicación al
+tratamiento realizado por las autoridades públicas en el ejercicio de sus funciones.”
+C/ Jorge Juan, 6
+28001 – Madrid
+
+www.aepd.es
+sedeagpd.gob.es
+
+13/19
+
+También el RGPD en su artículo 5 establece los principios que deben presidir el
+tratamiento de los datos personales y, en su apartado 1 señala que:
+“1. Los datos personales serán:
+a) tratados de manera lícita, leal y transparente con el interesado (<<licitud,
+lealtad y transparencia>>).
+(…)”
+Y en su apartado 2, establece que:
+“2. El responsable del tratamiento será responsable del cumplimiento de lo
+dispuesto en el apartado 1 y capaz de demostrarlo (<<responsabilidad proactiva>>).”
+Por tanto, todo tratamiento de datos personales tiene que respetar los
+principios que lo presiden, relacionados en el artículo 5.1 del RGPD, entre ellos el de
+licitud que se desarrolla posteriormente en el artículo 6.1 del RGPD.
+De lo señalado en este último precepto se desprende que el tratamiento de
+datos requiere la existencia de una base jurídica que lo legitime y, de conformidad con
+el mismo, además del consentimiento, existen otras posibles bases que legitiman el
+tratamiento de datos sin necesidad de contar con la autorización de su titular, en
+particular, cuando sea necesario para la ejecución de un contrato en el que el afectado
+es parte o para la aplicación, a petición de este, de medidas precontractuales, o
+cuando sea necesario para la satisfacción de intereses legítimos perseguidos por el
+responsable del tratamiento o por un tercero, siempre que sobre dichos intereses no
+prevalezcan los intereses o los derechos y libertades fundamentales del afectado que
+requieran la protección de tales datos. El tratamiento también se considera lícito
+cuando sea necesario para el cumplimiento de una obligación legal aplicable al
+responsable del tratamiento, para proteger intereses vitales del afectado o de otra
+persona física o para el cumplimiento de una misión realizada en interés público o en
+el ejercicio de poderes públicos conferidos al responsable del tratamiento.
+2. En lo que se refiere a las comercializadoras de energía tanto el acceso como
+el tratamiento de los datos de carácter personal contenidos en el SIPS encuentran su
+base de legitimidad en la letra e) del artículo 6.1 del RGPD:
+“(…)
+e) el tratamiento es necesario para el cumplimiento de una misión realizada en
+interés público o en el ejercicio de poderes públicos conferidos al responsable
+del tratamiento”
+(…)”
+Según el artículo 6.1.f) de la Ley 24/2013, de 26 de diciembre, del Sector
+Eléctrico:
+
+C/ Jorge Juan, 6
+28001 – Madrid
+
+www.aepd.es
+sedeagpd.gob.es
+
+14/19
+
+“f) Los comercializadores, que son aquellas sociedades mercantiles, o
+sociedades cooperativas de consumidores y usuarios, que, accediendo a las
+redes de transporte o distribución, adquieren energía para su venta a los
+consumidores, a otros sujetos del sistema o para realizar operaciones de
+intercambio internacional en los términos establecidos en la presente ley.
+Reglamentariamente se establecerá el procedimiento y requisitos para ser
+comercializador de referencia”.
+Por tanto, para el ejercicio de la actividad de comercialización, los interesados
+deberán realizar la comunicación de inicio de actividad que especificará el ámbito
+territorial en que se van a desarrollar la actividad, ante la Dirección General de Política
+Energética y Minas del Ministerio de Energía, Turismo y Agenda Digital.
+Dicha comunicación se presentará acompañada de la declaración responsable
+sobre el cumplimiento de los requisitos para el ejercicio de la actividad. La Dirección
+General de Política Energética y Minas da traslado de la comunicación realizada por el
+interesado a la CNMC, quien la publica en su página web y mantiene actualizado con
+una periodicidad al menos mensual, un listado que incluye a todos los
+comercializadores.
+En caso de que un comercializador incumpla alguno de los requisitos exigidos
+para el ejercicio de su actividad, el Ministerio para la Transición Ecológica y el Reto
+Demográfico podrá iniciar un procedimiento de inhabilitación que finalice con la
+extinción de la habilitación para actuar como comercializador, lo que comunica a la
+CNMC.
+Asimismo, se señalan las obligaciones que deben cumplir los
+comercializadores en relación con el carácter confidencial de la información relativa a
+los puntos de suministro. Conforme a la normativa vigente, los datos del SIPS tienen
+carácter confidencial.
+Para la consulta o descarga de la información del SIPS, los comercializadores
+deben solicitar previamente a la CNMC el alta en el sistema de gestión de las bases
+de datos de puntos de suministro de electricidad y gas, a través del trámite establecido
+a tal efecto. Esta solicitud debe ser analizada y validada por la CNMC antes de
+proporcionar el acceso.
+El acceso a la información del SIPS de la CNMC solo se permite a las
+comercializadoras de energía que se encuentran inscritas en el listado de
+comercializadores que figura en la página web de la CNMC a través de una interfaz de
+programación de aplicaciones (API).
+3. En cuanto al SIPS, la AEPD se ha pronunciado sobre el carácter de los datos
+del SIPS eléctrico señalando que “el Sistema de información de Puntos de Suministro
+incorpora datos de carácter personal, dado que a partir del Código de punto de
+C/ Jorge Juan, 6
+28001 – Madrid
+
+www.aepd.es
+sedeagpd.gob.es
+
+15/19
+
+suministro es posible identificar al consumidor al que se refiere la información,
+pudiéndose así vincular todo el contenido del sistema con dicho consumidor”.
+El SIPS es una base de datos técnicos, de consumo y comerciales de cada uno
+de los puntos de suministro que se encuentran conectados a cada distribuidor de
+electricidad o de gas natural.
+Tanto la estructura como el acceso al SIPS están regulados en el artículo 7 del
+Real Decreto 1435/2002, de 27 de diciembre para el sector eléctrico.
+Los comercializadores, y demás sujetos que hagan uso de la información que
+figura en las bases de datos de puntos de suministro de las empresas distribuidoras, a
+tenor de lo contemplado en artículo 7 del Real Decreto 1435/2002 y en el artículo
+46.1.k) de la Ley 24/2013, de 26 de diciembre, del Sector Eléctrico, deberán suscribir
+un código de conducta y garantizar la confidencialidad de la información contenida en
+las mismas.
+4. En fecha 03/11/2021 la CNMC traslado a la AEPD el documento “Acuerdo
+por el que se remite a la Agencia Española de Protección de Datos las actuaciones
+practicadas en relación con posibles usos fraudulentos del SIPS” aprobado por la Sala
+de Supervisión Regulatoria de la CNMC en el que daba a entender una posible
+utilización fraudulenta del Sistema de Información de los Puntos de Suministro (SIPS).
+La CNMC señalaba que, a través del análisis de los datos de accesos
+registrados y de la recepción de avisos procedentes de comercializadores y usuarios,
+se habían identificado una serie de escenarios que sugerían posibles usos
+fraudulentos del SIPS que podían tener impacto en el derecho a la protección de los
+datos personales. De manera resumida, la CNMC se refería a cuatro escenarios
+posibles.
+Una vez analizada la información facilitada, se consideró la oportunidad de
+realizar investigaciones que permitieran recopilar elementos de juicio necesarios para
+conocer si se habían producido actuaciones contrarias a la normativa en materia de
+protección de datos de carácter personal, asumiendo y teniendo en cuenta las
+capacidades y recursos de la AEPD.
+En el caso examinado, las investigaciones se han centrado en el tercero de los
+escenarios descritos, es decir, comercializadores autorizados que presentan un
+número elevado de consultas, superior al volumen de operaciones de switching
+registrado en un periodo determinado de tiempo, incluso al número de puntos de
+suministro que forman parte de su cartera de clientes. Igualmente, un número anormal
+de direcciones IPs utilizadas, que por su volumen de accesos, podría ser indicativo de
+un uso de las credenciales de acceso al SIPS por parte de terceros no autorizados o
+de una posible comercialización de la información obtenida y contenida en el SIPS.
+
+C/ Jorge Juan, 6
+28001 – Madrid
+
+www.aepd.es
+sedeagpd.gob.es
+
+16/19
+
+La entidad INTEGRA es un comercializador eléctrico con código R2-469 de
+acceso a través de la API de la CNMC al SIPS, que podría exhibir indicios de
+utilización fraudulenta con la finalidad atribuida al SIPS como consecuencia de su
+elevado número de consultas y de direcciones IPs utilizadas en los accesos a la base
+de datos.
+En el marco de esas actuaciones de investigación, se identifica al proveedor de
+servicios de Internet de cada una de las direcciones IP identificadas por la CNMC en
+documento Excel aportado con la relación de direcciones IP y el número de peticiones
+del segundo trimestre de 2021.
+La entidad investigada había solicitado el 03/07/2019 el alta en el SIPS de
+acuerdo con los tramites establecidos por el organismo regulador.
+Asimismo, ha manifestado no compartir ni ceder a terceros la información
+contenida en el SIPS; en cuanto al número de consultas al SIPS señala que se vio
+incrementado fundamentalmente por la adaptación de sus procesos a la modificación
+de las tarifas que se produjo en junio de 2021; durante el segundo trimestre del año
+2021, acredita que fueron tres los usuarios autorizados para acceder a la API del
+servicio web de la CNMC, todos miembros del equipo de desarrollo de la entidad y
+trabajadores de la empresa sometidos al deber de confidencialidad.
+Aporta la normativa de protección de datos que firma el personal y
+colaboradores que incluye, entre otros aspectos, la confidencialidad y deber de secreto
+por parte del trabajador/colaborador en relación con cualquier información a la que
+tenga acceso al desempeñar sus funciones con la entidad.
+Si bien la comercializadora indica que en 2021 tenía contrato con los
+proveedores de servicios de internet: Amazon y Orange, en el documento aportado por
+la CNMC donde figuran las direcciones IPs identificadas por el regulador durante el
+segundo trimestre de 2021, se procedió a identificar a los proveedores de servicios de
+Internet, siendo estos Amazon, Orange y Nostravant.
+Orange trasladó que utilizaba un sistema de asignación de direcciones IP
+dinámicas y que su sistema informático tiene un tiempo limitado de almacenamiento
+de doce meses según la Ley 25/2007, por lo que en el marco de las presentes
+actuaciones de investigación no ha podido facilitar los datos identificativos de los
+titulares de las direcciones IPs asignadas durante el segundo trimestre de 2021.
+Por su parte, Nostravant identifica a un particular con domicilio en Asturias
+como titular de la dirección IP aportada y, mientras que la comercializadora señalaba
+que no le pertenecía y que, ni en sus archivos ni en sus sistemas constaban datos del
+titular de la dirección IP identificado por Nostravant.
+Pues bien, de la documentación obrante en el expediente y de las
+manifestaciones realizadas por la CNMV, por la entidad investigada en las respuestas
+C/ Jorge Juan, 6
+28001 – Madrid
+
+www.aepd.es
+sedeagpd.gob.es
+
+17/19
+
+ofrecidas tanto a los requerimientos de la CNMC como a la inspectora actuante no se
+acredita la existencia de conducta que afecte a la normativa en materia de protección
+de datos de carácter personal.
+En este sentido conviene recordar que, tal y como se ha pronunciado
+reiteradamente el Tribunal Constitucional entre otras en SSTC 120/1994 y 76/1990, el
+derecho fundamental a la presunción de inocencia tiene plena virtualidad en el marco
+del Derecho Administrativo Sancionador. Así en la STC 76/1990 el Alto Tribunal señala
+que “… la presunción de inocencia rige sin excepciones en el ordenamiento
+sancionador y ha de ser respetada en la imposición de cualesquiera sanciones, sean
+penales, sean administrativas en general o tributarias en particular”.
+Expone también el Tribunal Constitucional en la Sentencia 76/1990 que el
+derecho a la presunción de inocencia comporta “que la sanción esté basada en actos
+o medios probatorios de cargo o incriminadores de la conducta reprochada; que la
+carga de la prueba corresponda a quien acusa, sin que nadie esté obligado a probar
+su propia inocencia; y que cualquier insuficiencia en el resultado de las pruebas
+practicadas, libremente valorado por el órgano sancionador, debe traducirse en un
+pronunciamiento absolutorio”.
+Por otra parte, la Sentencia del Tribunal Constitucional de 20/02/1989 afirma
+que “Nuestra doctrina y jurisprudencia penal han venido sosteniendo que, aunque
+ambos puedan considerarse como manifestaciones de un genérico favor rei, existe
+una diferencia sustancial entre el derecho a la presunción de inocencia, que
+desenvuelve su eficacia cuando existe una falta absoluta de pruebas o cuando las
+practicadas no reúnen las garantías procesales y el principio jurisprudencial in dubio
+pro reo que pertenece al momento de la valoración o apreciación probatoria, y que ha
+de juzgar cuan-do, concurre aquella actividad probatoria indispensable, exista una
+duda racional sobre la real concurrencia de los elementos objetivos y subjetivos que
+integran el tipo penal de que se trate.”
+Centrándonos en los hechos sobre los que versa la investigación llevada a
+cabo y tras el examen de los documentos aportados, se verifica que no existe prueba
+de la que resulte que la entidad investigada haya incurrido en infracción del RGPD,
+hechos provenientes de un primer análisis propiciado por el elevado número de
+consultas a través de la API de la CNMC, muy superior al volumen de operaciones de
+switching normal para un periodo determinado de tiempo y, que en cierta forma
+figuraría avalado por el número de direcciones IPs utilizadas, expresivo de una
+presunta comercialización fraudulenta de la información obtenida del SIPS.
+Sin embargo, las circunstancias anteriormente expresadas no constituyen ni
+evidencian la existencia de prueba alguna de la posible comisión por la entidad
+investigada de la vulneración del RGPD. Esto, porque en el marco de la fase de
+actuaciones previas de investigación se procedió a identificar a los proveedores de los
+servicios de Internet, donde se incluían las direcciones IPs identificadas por la CNMC
+en el Excel aportado a través de las que se realizaban los accesos a través de la API a
+C/ Jorge Juan, 6
+28001 – Madrid
+
+www.aepd.es
+sedeagpd.gob.es
+
+18/19
+
+la base de datos del SIPS, no permitiendo deducir una actividad fraudulenta por parte
+de la comercializadora, de manera que el resultado obtenido de las investigaciones
+llevadas a cabo tuviera la trascendencia probatoria que se requería a los efectos
+acreditar una actuación ilícita por parte de la comercializadora.
+Por tanto, no se han aportado ni incorporado al expediente elementos
+probatorios que permitan establecer de forma fehaciente que la parte reclamada
+vulnerara la normativa en materia de protección de datos. Así las cosas, en aplicación
+del principio de presunción de inocencia, que impide imponer una sanción en el caso
+de que exista una falta de pruebas respecto de un hecho concreto y determinante, no
+procede activar un procedimiento sancionador, al no estar acreditada vulneración
+alguna del RGPD.
+IV
+Conclusión
+Por lo tanto, en base a lo indicado en los párrafos anteriores, no se han
+encontrado evidencias que acrediten la existencia de infracción en el ámbito
+competencial de la Agencia Española de Protección de Datos.
+Todo ello sin perjuicio de las posibles actuaciones posteriores que esta Agencia
+pudiera llevar a cabo, aplicando los poderes de investigación y correctivos que
+ostenta.
+Así pues, al no haber sido posible atribuir la responsabilidad de los tratamientos
+de acuerdo con lo señalado,
+Por la Directora de la Agencia Española de Protección de Datos, SE
+ACUERDA:
+PRIMERO: PROCEDER AL ARCHIVO de las presentes actuaciones.
+SEGUNDO: NOTIFICAR la presente resolución a INTEGRACIÓN EUROPEA DE
+ENERGÍA, S.A. con CIF A74340464.
+De conformidad con lo establecido en el artículo 50 de la LOPDGDD, la
+presente Resolución se hará pública una vez haya sido notificada a los interesados.
+Contra esta resolución, que pone fin a la vía administrativa según lo
+preceptuado por el art. 114.1.c) de la Ley 39/2015, de 1 de octubre, del Procedimiento
+Administrativo Común de las Administraciones Públicas, y de conformidad con lo
+establecido en los arts. 112 y 123 de la citada Ley 39/2015, de 1 de octubre, los
+interesados podrán interponer, potestativamente, recurso de reposición ante la
+Directora de la Agencia Española de Protección de Datos en el plazo de un mes a
+contar desde el día siguiente a la notificación de esta resolución o directamente
+recurso contencioso administrativo ante la Sala de lo Contencioso-administrativo de la
+Audiencia Nacional, con arreglo a lo dispuesto en el artículo 25 y en el apartado 5 de
+C/ Jorge Juan, 6
+28001 – Madrid
+
+www.aepd.es
+sedeagpd.gob.es
+
+19/19
+
+la disposición adicional cuarta de la Ley 29/1998, de 13 de julio, reguladora de la
+Jurisdicción Contencioso-Administrativa, en el plazo de dos meses a contar desde el
+día siguiente a la notificación de este acto, según lo previsto en el artículo 46.1 de la
+referida Ley.
+Mar España Martí
+Directora de la Agencia Española de Protección de Datos
+
+C/ Jorge Juan, 6
+28001 – Madrid
+
+www.aepd.es
+sedeagpd.gob.es
+
+
