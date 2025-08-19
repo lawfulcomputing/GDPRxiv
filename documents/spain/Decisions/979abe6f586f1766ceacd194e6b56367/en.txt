@@ -1,0 +1,750 @@
+1/44  
+  
+File No.: PS/00328/2022  
+IMI Reference: A56ID 305831 - A60DD 517918 - Case Register 397199  
+RESOLUTION OF SANCTIONING PROCEDURE  
+From the procedure conducted by the Spanish Agency for Data Protection and based on the following  
+
+BACKGROUND  
+FIRST: A.A.A. (hereinafter, the complainant) filed a complaint on December 29, 2020, with the data protection authority of Saxony, Saxon Data Protection Commissioner (hereinafter, SA Saxon). The complaint is directed against THE MAIL TRACK COMPANY, S.L. with NIF B66095670 (hereinafter MAILTRACK). The grounds for the complaint are as follows:  
+The company offers free software for tracking emails so that the sender of an email is informed through the program that the recipient has opened it and when. Additionally, such emails provide a link to the homepage of mailtrack.io. If the recipient forwards the email, elements are inserted within the email, which could transfer their data to third parties.  
+The complainant has received several emails that implement MAILTRACK software and believes that the sender, with the help of MAILTRACK software, transfers data to third parties without their consent. Furthermore, they consider that neither the link appearing in the email nor MAILTRACK's privacy policy sufficiently informs about what data is transferred to the sender of the email nor about the processing carried out on the data.  
+Along with the complaint, the following is provided:  
+- Extract of HTML code, which the complainant indicates is the signature footer that appears in an email they received that uses the MAILTRACK service. This extract of code includes the following links to external content:  
+- The following link to the homepage of the MAILTRACK website: ***URL.1  
+- Links to the following images:  
+1. ***URL.2  
+2. ***URL.3  
+C/ Jorge Juan, 6  
+www.aepd.es  
+28001 – Madrid  
+sedeagpd.gob.es  
+
+2/44  
+SECOND: Through the “Internal Market Information System” (hereinafter IMI System), regulated by Regulation (EU) No. 1024/2012 of the European Parliament and of the Council, of October 25, 2012 (IMI Regulation), whose objective is to promote cross-border administrative cooperation, mutual assistance among Member States, and the exchange of information, the aforementioned complaint was transmitted on June 24, 2021, and was registered with the Spanish Agency for Data Protection (AEPD) on June 25, 2021. The transfer of this complaint to the AEPD is carried out in accordance with the provisions of Article 56 of Regulation (EU) 2016/679 of the European Parliament and of the Council, of April 27, 2016, regarding the Protection of Natural Persons with regard to the Processing of Personal Data and the Free Movement of such Data (hereinafter, GDPR), taking into account its cross-border nature and that this Agency is competent to act as the lead supervisory authority, given that MAILTRACK has its registered office and sole establishment in Spain.  
+The data processing carried out affects individuals in several Member States. According to the information incorporated into the IMI System, in accordance with the provisions of Article 60 of the GDPR, it acts as an “interested supervisory authority,” in addition to the data protection authority of Saxony (Germany), the authorities of Mecklenburg-Western Pomerania, Hesse, Bavaria, Berlin, Baden-Württemberg (all of which are federal states of Germany), the Netherlands, Sweden, Slovakia, Poland, Norway, Italy, Ireland, Hungary, France, Finland, Estonia, Denmark, and Austria. All of them under Article 4.22 of the GDPR, given that the individuals residing in the territory of these supervisory authorities are substantially affected or are likely to be substantially affected by the processing subject to this procedure.  
+THIRD: On August 10, 2021, in accordance with Article 64.3 of Organic Law 3/2018, of December 5, on the Protection of Personal Data and Guarantee of Digital Rights (hereinafter, LOPDGDD), the complaint filed by the complainant was admitted for processing.  
+FOURTH: The General Subdirectorate of Data Inspection proceeded to carry out preliminary investigative actions to clarify the facts in question, by virtue of the functions assigned to supervisory authorities in Article 57.1 and the powers granted in Article 58.1 of Regulation (EU) 2016/679 (General Data Protection Regulation, hereinafter GDPR), and in accordance with the provisions established in Title VII, Chapter I, Section Two, of the LOPDGDD, being aware of the following aspects:  
+On May 11, 2022, the Mailtrack extension was added to the Chrome web browser, and the account “***EMAIL.1” was connected to the MAILTRACK service; access was made to the Gmail account “***EMAIL.1” and an email was sent to the account “***EMAIL.2”. Subsequently, in the Firefox web browser, access was made to the Gmail account “***EMAIL.2” and, after initiating the monitoring of the network connections of this browser, that email was opened, obtaining, among other things, the following relevant information:  
+1. Upon opening the email received in the Gmail account “***EMAIL.2”, it is observed that several HTTP requests are made from the web browser, including the following:  
+C/ Jorge Juan, 6  
+www.aepd.es  
+28001 – Madrid  
+sedeagpd.gob.es
+3/44  
+1.1. GET request for the image https://s3.amazonaws.com/mailtrack-signature/sender-notified-72.gif made through Google's image proxy, with the following content in HAR format:  
+"request": {  
+          "bodySize": 0,  
+          "method": "GET",  
+          "url": ***URL.4,  
+          "httpVersion": "HTTP/2",  
+          "headers": [  
+            {  
+              "name": "Host",  
+              "value": "***URL.5"  
+            },  
+            {  
+              "name": "User-Agent",  
+              "value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:100.0) Gecko/20100101 Firefox/100.0"  
+            },  
+            {  
+              "name": "Accept",  
+              "value": "image/avif,image/webp,*/*"  
+            },  
+            {  
+              "name": "Accept-Language",  
+              "value": "es-ES,es;q=0.8,en-US;q=0.5,en;q=0.3"  
+            },  
+            {  
+              "name": "Accept-Encoding",  
+              "value": "gzip, deflate, br"  
+            },  
+            {  
+              "name": "Referer",  
+              "value": "***URL.6"  
+            },  
+            {  
+              "name": "Connection",  
+              "value": "keep-alive"  
+            },  
+            {  
+              "name": "Sec-Fetch-Dest",  
+              "value": "image"  
+            },  
+            {  
+              "name": "Sec-Fetch-Mode",  
+              "value": "no-cors"  
+            },  
+            {  
+              "name": "Sec-Fetch-Site",  
+              "value": "cross-site"  
+            }  
+          ],  
+          "cookies": [],  
+          "queryString": [],  
+          "headersSize": 537  
+        },  
+1.2. GET request for the image ***URL.7 made through Google's image proxy, with the following content in HAR format:  
+"request": {  
+          "bodySize": 0,  
+          "method": "GET",  
+          "url": "***URL.8",  
+          "httpVersion": "HTTP/2",  
+          "headers": [  
+            {  
+              "name": "Host",  
+              "value": "ci4.googleusercontent.com"  
+            },  
+            {  
+              "name": "User-Agent",  
+              "value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:100.0) Gecko/20100101 Firefox/100.0"  
+            },  
+            {  
+              "name": "Accept",  
+              "value": "image/avif,image/webp,*/*"  
+            },  
+            {  
+              "name": "Accept-Language",  
+              "value": "es-ES,es;q=0.8,en-US;q=0.5,en;q=0.3"  
+            },  
+            {  
+              "name": "Accept-Encoding",  
+              "value": "gzip, deflate, br"  
+            },  
+            {  
+              "name": "Referer",  
+              "value": "https://mail.google.com/"  
+            },  
+            {  
+              "name": "Connection",  
+              "value": "keep-alive"  
+            },  
+            {  
+              "name": "Sec-Fetch-Dest",  
+              "value": "image"  
+            },  
+            {  
+              "name": "Sec-Fetch-Mode",  
+              "value": "no-cors"  
+            },  
+            {  
+              "name": "Sec-Fetch-Site",  
+              "value": "cross-site"  
+            }  
+          ],  
+          "cookies": [],  
+          "queryString": [],  
+          "headersSize": 562  
+        }  
+2. The email received by "***EMAIL.2" contains a link to the URL "***URL.9". When clicking on this link, the homepage of the MAILTRACK website appears. Scrolling to the bottom of the homepage of the MAILTRACK website, several links appear, among which is the link "Privacy", which leads to the privacy policy of MAILTRACK.  
+On May 12, 2022, a search is conducted on the website https://archive.org/web/ for the historical privacy policy of the website https://mailtrack.io, obtaining the following result:  
+3. The content of the webpage ***URL.10 (which contains the privacy policy of Mailtrack in English) from January 2, 2021, at 3:35 AM, within which it is indicated that the last time it was modified was in September 2020.  
+4. The content of the webpage ***URL.11 (which contains the privacy policy of Mailtrack in Spanish) from January 22, 2021, at 7:31 AM, within which it is indicated that the last time it was modified was in September 2020.  
+5. In the privacy policy of Mailtrack in Spanish from January 22, 2021, at 7:31 AM, the following information appears regarding the processing of personal data carried out by MAILTRACK on behalf of its users as data processor:  
+3.1. This Section details the processing of personal data by THE MAIL TRACK COMPANY on behalf of the Users, as data processor, that is, when the purposes and means for processing the data are decided by the User and THE MAIL TRACK COMPANY only accesses the data for the provision of the Service and on behalf of the User.  
+The Service may involve access and processing by THE MAIL TRACK COMPANY of personal data processed by the User and developed within the Service in relation to each email sent by the User through the Service ("Access Data"). In these cases, THE MAIL TRACK COMPANY will act as data processor and will process such personal data only on behalf of the User and not for its own purposes.  
+The Access Data will include:  
+- Information necessary to identify the emails sent through the Service:  
+  - information of the recipients;  
+C/ Jorge Juan, 6  
+www.aepd.es  
+28001 – Madrid  
+sedeagpd.gob.es
+6/44  
+o  
+subject of the email;  
+o  
+body of the email, only when necessary to provide the Service and as described below; and  
+o  
+date and time when the email was sent.  
+  
+Information provided by the Service:  
+o  
+confirmation of receipt;  
+o  
+confirmation of opening;  
+o  
+body of the email, only when necessary to provide the Service and as described below;  
+o  
+timestamp of each email opening;  
+o  
+history of the times (number, date, and time) when the recipient has opened the received email;  
+o  
+browser and operating system used by the recipient who opened the email;  
+o  
+number of links included in the email;  
+o  
+text and URL of such links;  
+o  
+number of clicks made on each of them by the recipient;  
+o  
+timestamp of each click on the email; and  
+o  
+browser and operating system used by the person who clicked on the email.  
+Access Data is the only information that THE MAIL TRACK COMPANY will have access to in order to provide the Service. The authorizations for Gmail and the connection to your Google account detailed in the Terms and Conditions of the Service are technically necessary for the provision of the Service by THE MAIL TRACK COMPANY and to provide the email tracking service, but do not imply access by THE MAIL TRACK COMPANY to any data or information of the User other than the Access Data. For better understanding, here is the breakdown of the use of the aforementioned permissions by THE MAIL TRACK COMPANY:  
+  
+Basic permissions to access the metadata of your email, such as labels and headers. The Service needs this permission to identify your emails and correctly assign the opened status (double check mark).  
+  
+Insert the email into your inbox: this permission is necessary to add email alerts to your Gmail inbox when your emails are opened.  
+  
+Review and manage your basic email settings: the Service needs to know your settings (e.g., alias, design style) to function properly.  
+  
+Manage mailbox labels: double check marks on mobile devices are added as labels. The Service needs this permission to add labels (check marks) to your emails and update them when they are opened.  
+  
+Read, send, delete, and manage your email: The campaign service makes a copy of your email for each recipient and uses "send permission from the Gmail API" to send and individually track a copy of this email. The Service needs to delete the tracking pixel from your sent emails, for the  
+C/ Jorge Juan, 6  
+www.aepd.es  
+28001 – Madrid  
+sedeagpd.gob.es
+7/44  
+that when it opens its own emails, it does not produce an auto-opening. No one at THE MAIL TRACK COMPANY will read your emails, THE MAIL TRACK COMPANY will never send emails on your behalf, and will never share the content of your emails.  
+  
+Review and update of your data on various websites (All usergooglecontent.com sites, all mailtrack.io sites, mail.google.com, mailtrack.io): the Service modifies the Gmail and Google Inbox websites in order to display the double check marks, as well as the Mailtrack website.  
+As detailed in the previous permissions, some of them are never used by THE MAIL TRACK COMPANY, but Google's permission system does not have sufficient granularity to select only those that THE MAIL TRACK COMPANY actually needs.  
+THE MAIL TRACK COMPANY guarantees that:  
+  
+only automated software uses the above permissions;  
+  
+no one at THE MAIL TRACK COMPANY reads your emails;  
+  
+THE MAIL TRACK COMPANY will never send emails on your behalf;  
+  
+THE MAIL TRACK COMPANY will never share the content of your emails with third parties;  
+  
+THE MAIL TRACK COMPANY will never share your browsing data with third parties;  
+  
+THE MAIL TRACK COMPANY does not store the body of your emails.  
+The processing of the mentioned personal data is carried out solely for the provision of the Service within the terms and duration indicated in the Terms of Service.  
+3.2. Consequently, THE MAIL TRACK COMPANY:  
+(i) will not process the Access Data for purposes other than the provision of the Service requested by the User and will not transfer such data, not even for storage, to unauthorized third parties;  
+(ii) will process the Access Data following documented instructions from the User. When THE MAIL TRACK COMPANY becomes aware that the instructions given by the User violate data protection regulations, THE MAIL TRACK COMPANY will immediately inform the User;  
+(iii) will promptly notify the User if it becomes aware of any data breach and will provide all details of the relevant breach;  
+(iv) will ensure that authorized persons within THE MAIL TRACK COMPANY who process the Access Data have committed to respecting confidentiality or are subject to an appropriate legal obligation of confidentiality;  
+(v) taking into account the nature of the processing, will assist the User with appropriate technical and organizational measures, to the extent possible, in complying with the User's obligation to respond to requests for the exercise of the data subject's rights established in Chapter III of the GDPR;  
+(vi) will adopt all necessary measures in accordance with Article 32 of the GDPR (security of processing);  
+(vii) will assist the User in complying with its obligations under Articles 32 to 36 of the GDPR, taking into account the nature of the processing and the  
+C/ Jorge Juan, 6  
+www.aepd.es  
+28001 – Madrid  
+sedeagpd.gob.es
+8/44  
+information that THE MAIL TRACK COMPANY has, including, among other things:  
+a.  
+at the User's choice, THE MAIL TRACK COMPANY will delete or return all Access Data to the User once the Service has ended, unless applicable regulations require data storage; and  
+b.  
+will make available to the User all necessary information to demonstrate compliance with the obligations established in Article 28 of the GDPR, and will allow and contribute to audits, including inspections, conducted by the User or by another auditor authorized by the User.  
+3.3 THE MAIL TRACK COMPANY will not subcontract third parties for processing operations that may involve access to the Access Data without the User's authorization.  
+In this regard, the following subprocessors will be considered authorized by the User:  
+- Amazon Web Services, Inc. as the provider of the Service hosting, through servers located in Ireland.  
+- Google Services: Google Apps, Google APIs, Google Analytics, Webmaster Tools, and Google Forms.  
+- HelpScout, for customer service provision.  
+- Logentries for server log storage.  
+3.4. THE MAIL TRACK COMPANY will ensure the confidentiality of the Access Data, even after the termination of the Service.  
+3.5. The User is responsible for processing the Access Data in the context of the GDPR. The User will be the sole entity defining the purposes and means for processing the Access Data, so that THE MAIL TRACK COMPANY, in no case can it be understood that THE MAIL TRACK COMPANY processes the Access Data for its own purposes, when it only uses it for the provision of the Service and acting on behalf of the User. Consequently, the User must comply with the applicable obligations under data protection regulations, including legitimization on an appropriate legal basis for processing the personal data of the recipients of the emails sent using the Service. The User, and not THE MAIL TRACK COMPANY, will be solely responsible for compliance with such obligations.  
+3.6. The User acknowledges and agrees that the use of the Service and the processing of the Access Data as a result thereof is the result of their own free decision and that they have understood and verified that the conditions of the Service and the processing of the Access Data are carried out in accordance with their interests.  
+In a consultation made to the monitoring service of Axesor (***URL.12) on May 13, 2022, it is noted that THE MAIL TRACK COMPANY SL had sales of 3,445,699 euros and a number of employees of 23.  
+FIFTH: On July 20, 2022, the Director of the AEPD adopted a draft decision to initiate sanctioning proceedings. This draft decision, which was notified to MAILTRACK in accordance with the rules established in Law 39/2015, of October 1, on the Common Administrative Procedure of Public Administrations (LPACAP), was received on July 21, 2022, as stated in the acknowledgment of receipt in the file.  
+C/ Jorge Juan, 6  
+www.aepd.es  
+28001 – Madrid  
+sedeagpd.gob.es
+9/44  
+Following the process established in Article 60 of the GDPR, on July 28, 2022, this draft decision was transmitted through the IMI system, and the interested authorities were informed that they had four weeks from that moment to submit relevant and justified objections. The processing period of this sanctioning procedure was automatically suspended during these four weeks, in accordance with the provisions of Article 64.4 of the LOPDGDD.  
+Within the timeframe provided for this purpose, the supervisory authority of Saxony, with the participation of the authorities of Berlin and Mecklenburg-Western Pomerania (Germany), submitted its relevant and justified objections for the purposes of Article 60 of the GDPR.  
+SIXTH: On February 14, 2023, the authority of Saxony provided this Agency with the emails received by the complainant in which the MAILTRACK service was used, which were incorporated into the file by diligence dated February 21, 2023.  
+SEVENTH: On March 16, 2023, the Director of the AEPD adopted a revised draft decision to initiate the sanctioning procedure. Following the process established in Article 60 of the GDPR, on March 16, 2023, this revised draft decision was transmitted through the IMI system, and the interested authorities were informed that they had two weeks from that moment to submit relevant and justified objections. The processing period of this sanctioning procedure was automatically suspended during these two weeks, in accordance with the provisions of Article 64.4 of the LOPDGDD.  
+Within the established timeframe for this purpose, the interested supervisory authorities did not submit relevant and justified objections in this regard, so it is considered that all authorities agree with this revised draft decision and are bound by it, in accordance with the provisions of paragraph 6 of Article 60 of the GDPR.  
+EIGHTH: On March 31, 2023, the Director of the Spanish Agency for Data Protection agreed to initiate sanctioning proceedings against MAILTRACK, in accordance with the provisions of Articles 63 and 64 of the LPACAP, for the alleged infringement of Articles 13 and 14 of the GDPR, classified under Article 83.5 of that regulation; for the alleged infringement of Article 6 of the GDPR, classified under Article 83.5 of that regulation; and for the alleged infringement of Article 5.1.a) of the GDPR, classified under Article 83.5 of that regulation, in which it was indicated that MAILTRACK had a period of ten days to present allegations.  
+This initiation agreement, which was notified to MAILTRACK in accordance with the rules established in Law 39/2015, of October 1, on the Common Administrative Procedure of Public Administrations (LPACAP), was recorded on April 4, 2023, as evidenced by the acknowledgment of receipt in the file.  
+NINTH: On April 12, 2023, MAILTRACK submitted a document requesting an extension of the deadline to present allegations and for a copy of the file.  
+C/ Jorge Juan, 6  
+www.aepd.es  
+28001 – Madrid  
+sedeagpd.gob.es
+10/44  
+TENTH: On April 14, 2023, the instructing body of the procedure agreed to deny the requested extension of the deadline, in accordance with the provisions of Article 32.1 of the LPACAP, and a copy of the file was sent to MAILTRACK. The aforementioned agreement and the copy of the file were notified to MAILTRACK on April 17, 2023, as evidenced by the acknowledgment of receipt in the file.  
+ELEVENTH: On April 20, 2023, a written submission from MAILTRACK was received by this Agency, in due time and form, in which it presented allegations against the initiation agreement, which, in summary, stated that it is a data processor regarding the communications of its users with the recipients, as it does not determine the means and purposes of the processing, concluding that it is not responsible for the processing of data related to communications made by users. The alleged infringements do not apply as it is subject to Articles 28 and 29 of the GDPR.  
+TWELFTH: On September 27, 2022, the instructing body of the sanctioning procedure formulated a proposal for resolution, in which it proposed that the Director of the AEPD sanction THE MAIL TRACK COMPANY, S.L., with NIF B66095670, for the infringement of Articles 13 and 14 of the GDPR, classified under Article 83.5 of the GDPR, with a fine of €20,000 (twenty thousand euros), for the infringement of Article 6 of the GDPR, classified under Article 83.5 of the GDPR, with a fine of €30,000 (thirty thousand euros), and for the alleged infringement of Article 5.1.a) of the GDPR, classified under Article 83.5 of the GDPR, with a fine of €50,000 (fifty thousand euros). This proposal for resolution, which was notified to MAILTRACK in accordance with the rules established in Law 39/2015, of October 1, on the Common Administrative Procedure of Public Administrations (LPACAP), was collected on May 2, 2023, as evidenced by the acknowledgment of receipt in the file.  
+THIRTEENTH: On May 16, 2023, a written submission from MAILTRACK was received by this Agency, in due time and form, in which it presented allegations against the proposal for resolution. In summary, the allegations presented by MAILTRACK during the hearing procedure reproduce the arguments made in the allegations phase, considering that MAILTRACK is a data processor and not responsible, as it does not determine the purposes and means of the processing, a condition that corresponds to the user of its service, who can choose among the different services and functionalities offered in the MAILTRACK tool according to their interest. According to MAILTRACK, it does not establish relationships with the affected parties other than on behalf of the user who uses its tool, and there is no basis or evidence to assert otherwise. Finally, MAILTRACK considers that the GDPR continues to apply to controllers or processors linked to processing affected by the "domestic exception," so it is possible that the domestic exception and a data processor may coexist.  
+FOURTEENTH: On May 22, 2023, the Director of the AEPD adopted a draft resolution of the sanctioning procedure. Following the process established in Article 60 of the GDPR, on May 22, 2023, this draft resolution was transmitted through the IMI system, and the interested authorities were informed that they had four weeks from that moment to formulate relevant and justified objections. The processing period of this sanctioning procedure was automatically suspended during these four weeks, in accordance with the provisions of Article 64.5 of the LOPDGDD. Within the established timeframe, the interested control authorities did not present relevant and justified objections in this regard, so it is considered that all authorities agree with this draft decision of resolution and are bound by it, in accordance with the provisions of paragraph 6 of Article 60 of the GDPR.  
+From the actions taken in this procedure and the documentation in the file, the following has been established:  
+PROVEN FACTS  
+FIRST: On October 15, 2020, an email was sent from the address ***EMAIL.5 with the subject “[Helpdesk] Ask for help.” At the bottom of this email, the legend “Sender notified by Mailtrack” (in English, the original legend) is observed.  
+SECOND: On November 24, 2020, an email was sent from the address ***EMAIL.5 with the subject “[Helpdesk] Internet suspension.” At the bottom of this email, the legend “Sender notified by Mailtrack” (in English, the original legend) is observed.  
+THIRD: In its complaint dated December 29, 2020, the complainant claims to have received emails implementing MAILTRACK software, which, as a signature footer, contain an HTML code excerpt with the following links to external content:  
+- Link to the homepage of the MAILTRACK website: ***URL.1  
+- Links to the following images:  
+1. ***URL.2  
+2. ***URL.3  
+FOURTH: The privacy policy of the website ***URL.4 as of January 22, 2021, indicated the following content:  
+A) Preliminary information before the table of contents of the privacy policy  
+“(…) Last modification: September 2020.  
+(…)  
+(…)  
+C/ Jorge Juan, 6  
+www.aepd.es  
+28001 – Madrid  
+sedeagpd.gob.es  
+
+12/44  
+(…)  
+B) Processing of personal data as data controller  
+C) Regarding the data of the recipients of the emails processed by MAILTRACK:  
+C/ Jorge Juan, 6  
+www.aepd.es  
+28001 – Madrid  
+sedeagpd.gob.es  
+
+13/44  
+D) Regarding the data subject to processing and the relationship between MAILTRACK and the user of its services:  
+C/ Jorge Juan, 6  
+www.aepd.es  
+28001 – Madrid  
+sedeagpd.gob.es
+14/44  
+E) Lastly, it is stated regarding the exclusion of the MAILTRACK service:  
+FIFTH: On May 11, 2022, this Agency conducts the following checks:  
+- After clearing the cache, cookies, and other stored data from the Google Chrome web browser version 101.0.4951.64 (Official Build) (64-bit), and after forcing the browser to download the latest version of the mailtrack.io webpage hosted on the remote server by pressing the key combination Control + F5, the option “Install Free” is clicked, and the extension “Tracking for Gmail and Mail Merge – Mailtrack” is added to Chrome. Next, Mailtrack is connected to the Gmail account “***EMAIL.1” via the “Connect with Google” button that appears on the screen (entering the account name and password for this Gmail account). Permission is granted to Mailtrack to “Read, compose, send, and permanently delete emails from Gmail” in the account “***EMAIL.1”, and the “Free” plan is selected. After completing the installation of Mailtrack, access is made to the Gmail account “***EMAIL.1”, where a message indicates that Mailtrack is installed, and an email is sent to the address “***EMAIL.2” with the title “mailtrack test email”.  
+- Next, the Mozilla Firefox web browser version 100.0 (64-bit) is opened. After clearing the cookies, site data, and cached data stored in the web browser, and after forcing the browser to download the latest version of the webpage www.gmail.com hosted on the remote server by pressing the key combination Control + F5, the user logs into the Gmail account “***EMAIL.2” and observes that the email previously sent from the account “***EMAIL.1” with the title “mailtrack test email” appears in the “Inbox”.  
+- Subsequently, in the Google Chrome browser, access is made to the Gmail account “***EMAIL.1” and it is observed that in the “Sent” mailbox, the email just sent to “***EMAIL.2” with the title “mailtrack test email” is marked as sent but not yet read.  
+- In the Firefox browser, the user “***EMAIL.2” accesses the email received from the account “***EMAIL.1” with the title “mailtrack test email”. The following “GET” messages are sent:  
+The two “GET” requests that appear correspond to two images:  
+C/ Jorge Juan, 6  
+www.aepd.es  
+28001 – Madrid  
+sedeagpd.gob.es  
+
+15/44  
+- The image ***URL.13, 72x72 pixels with the following shape:  
+- The image ***URL.14, 1x1 pixel.  
+- In the Google Chrome browser (where the Gmail account “***EMAIL.1” was logged in), it is then observed that in the “Sent” mailbox of Gmail, the double check of the email that was sent to “***EMAIL.2” with the title “mailtrack test email” has changed.  
+- In the Firefox browser (where the Gmail account “***EMAIL.2” was logged in), access is made to the link to “Mailtrack” that appeared in the signature footer of the email received from the account “***EMAIL.1” with the title “mailtrack test email”. After clicking on this “Mailtrack” link (which points to the address “***URL.15”), the homepage of the Mailtrack website opens. It is observed that at the bottom of this page there is a link called “Privacy”, which points to the URL ***URL.16:  
+SIXTH: As of June 16, 2022, the webpage “***URL.17” explains how to avoid being tracked by the MAILTRACK service, with the following content:  
+C/ Jorge Juan, 6  
+www.aepd.es  
+28001 – Madrid  
+sedeagpd.gob.es  
+
+16/44  
+SEVENTH: The privacy policy of the website ***URL.18 as of April 20, 2023 indicates the following content:  
+A) Information prior to the table of contents of the privacy policy  
+“(…) Last modification: April 2023”.  
+The box prior to the table of contents of the privacy policy has been removed.  
+B) Processing of personal data as data controller  
+(...)  
+C) Regarding the data of the recipients of the emails processed by MAILTRACK:  
+D) Regarding the data subject to processing and the relationship between MAILTRACK and the user of its services:  
+C/ Jorge Juan, 6  
+www.aepd.es  
+28001 – Madrid  
+sedeagpd.gob.es  
+
+17/44  
+E) Lastly, it is stated regarding the exclusion of the MAILTRACK service:  
+(...)  
+EIGHTH: MAILTRACK offers an email tracking tool that allows senders to know whether their emails have been opened or not, through a pixel-based tracking system. The tool is offered as an extension in the Chrome browser for Gmail users.  
+MAILTRACK provides software, with a free version for tracking emails so that the sender of an email is informed through the program that the recipient has opened it and when. Additionally, such emails provide a link to the homepage of mailtrack.io. From this homepage, one can access the privacy policy by scrolling to the bottom of the page and clicking on the link called “Privacy”. MAILTRACK also offers paid versions, which allow the sender of the emails to hide the legend indicating that such emails were sent using the Mailtrack tool.  
+C/ Jorge Juan, 6  
+www.aepd.es  
+28001 – Madrid  
+sedeagpd.gob.es
+19/44  
+NINTH: On April 24, 2023, the website ***URL.19 shows the following content:  
+TENTH: In the year 2021, THE MAIL TRACK COMPANY SL had sales of 3,445,699 euros and had 23 employees.  
+LEGAL GROUNDS  
+I  
+Competence and Applicable Regulations  
+In accordance with the provisions of Article 58.2 of Regulation (EU) 2016/679 of the European Parliament and of the Council of April 27, 2016, concerning the protection of natural persons with regard to the processing of personal data and the free movement of such data (GDPR), and as established in Articles 47, 48.1, 64.2, and 68.1 and 68.2 of the LOPDGDD, the Director of the Spanish Data Protection Agency is competent to adopt this revised draft decision.  
+Furthermore, Article 63.2 of the LOPDGDD states: “The procedures processed by the Spanish Data Protection Agency shall be governed by the provisions of Regulation (EU) 2016/679, by this organic law, by the regulatory provisions issued for its development, and, as long as they do not contradict them, subsidiarily by the general rules on administrative procedures.”  
+II  
+Preliminary Issues  
+C/ Jorge Juan, 6  
+www.aepd.es  
+28001 – Madrid  
+sedeagpd.gob.es  
+
+20/44  
+In the present case, in accordance with the provisions of Articles 4.1 and 4.2 of the GDPR, there is evidence of the processing of personal data, since MAILTRACK, as verified from the actions carried out by this Agency and from MAILTRACK's own Privacy Policy, collects information from users and recipients, as well as their behavior regarding the opening and reading of emails sent through the tool. Furthermore, this is a cross-border processing, given that MAILTRACK is established in Spain, although it provides services to other countries in the European Union.  
+According to its Privacy Policy, MAILTRACK would carry out this activity in its capacity as a data processor, attributing the role of data controller to the user of its service. Thus, in clause 3.5 of its Privacy Policy, it states: “The User is the data controller of the Access Data in the context of the GDPR,” which would imply that the natural or legal person contracting the service provided by MAILTRACK would assume the role of data controller, determining the purposes and means, adding that the user of its service “must comply with the applicable obligations under data protection regulations, including legitimization on an appropriate legal basis for the processing of the personal data of the recipients of the emails sent using the Service.”  
+However, the wording of the privacy policy and the legal status of an actor as "controller" or "processor" must, in principle, be determined by their actual activities in a specific situation, rather than by the formal designation of an actor as "controller" or "processor" (for example, in a contract), as established in the “EDPB Guidelines 07/2020 on the concepts of controller and processor in the GDPR” approved by the European Data Protection Board.  
+In this case, MAILTRACK actually defines the means of the processing in question, as it provides the tool “as is,” without any indication that the user can give any instructions in this regard. According to the entity's privacy policy, the user is the one who defines the purposes and means of the processing, but this is a formal statement since the user cannot give instructions to MAILTRACK on important aspects of the processing such as the retention period of the data, so it cannot be stated that MAILTRACK processes personal data solely following documented instructions from the controller.  
+Therefore, MAILTRACK is actually the data controller of the personal data of users and recipients, despite the wording of the privacy policy. In this regard, Article 33.2 of the LOPDGDD states: “The entity that, in its own name and without evidence of acting on behalf of another, establishes relationships with the affected parties shall be considered the data controller and not the processor, even if there is a contract or legal act with the content established in Article 28.3 of Regulation (EU) 2016/679.”  
+The GDPR provides, in Article 56.1, for cases of cross-border processing, as foreseen in Article 4.23), in relation to the competence of the authority of  
+C/ Jorge Juan, 6  
+www.aepd.es  
+28001 – Madrid  
+sedeagpd.gob.es
+21/44  
+principal authority, which, without prejudice to the provisions of Article 55, the supervisory authority of the main establishment or the only establishment of the controller or the processor shall be competent to act as the main supervisory authority for cross-border processing carried out by such controller or processor in accordance with the procedure established in Article 60. In the case examined, as stated, MAILTRACK has its sole establishment in Spain, therefore the Spanish Data Protection Agency is competent to act as the main supervisory authority.  
+For its part, Article 13 of the GDPR regulates the information that must be provided when personal data is obtained from the data subject, Article 6 of the GDPR lists the cases that allow for the lawful processing of personal data, and Article 5.1.a) of the GDPR recognizes the principles of lawfulness, fairness, and transparency in the processing of personal data.  
+
+III  
+Response to the allegations made against the initiation agreement and in the hearing process with the data subject  
+In relation to the allegations made against the initiation agreement of the present sanctioning procedure, a response is provided according to the order presented by MAILTRACK:  
+1.- “BRIEF DESCRIPTION OF THE FUNDAMENTAL ASPECTS OF THE PROCEDURE FOR SUBSEQUENT ALLEGATIONS”  
+In this case, MAILTRACK states that “in this complaint, it is only alleged that MAILTRACK's privacy policy does not inform about data processing, which, as will be seen later, does not reflect reality,” which is not true, as the complainant questions the lawfulness of the processing, having not given their consent (Article 6.1.a) of the GDPR) for the sending of their personal data in the emails received, without any other condition of Article 6.1 of the GDPR being met. Furthermore, the complainant also questions MAILTRACK's privacy policy, stating, “I do not see your privacy policy as information 'designed to be precise, transparent, comprehensible, and easily accessible.'” In summary, the complainant expresses their opposition to their personal data being processed without their consent through the use of MAILTRACK's service and states that they do not feel sufficiently informed about the privacy policy.  
+For all the above reasons, this allegation is dismissed.  
+2.- “MAILTRACK IS A PROCESSOR OF THE DATA RELATING TO THE COMMUNICATIONS OF ITS USERS WITH THE RECIPIENTS.”  
+In this regard, MAILTRACK makes the following conclusions:  
+C/ Jorge Juan, 6  
+www.aepd.es  
+28001 – Madrid  
+sedeagpd.gob.es
+22/44  
+"In light of the explanations in points 1) and 2) above, we understand that it is established that, as stated by the EDPB in the Guidelines, MAILTRACK does not determine the means and purposes of the processing, which means that it does not decide, respectively, how (i.e., what means will be used to achieve it) and why (i.e., 'for what purpose' or 'for what end') the processing of the data of the recipients of the emails sent through its service takes place.  
+In fact, if we adhere to the questions that the EDPB establishes as fundamental to determine this issue:  
+'Why is the processing taking place?  
+Who has decided that the processing should be carried out for a specific purpose?'  
+We understand that, in both cases, it is undeniable that the answer is directed to the user of MAILTRACK's services and not to MAILTRACK. We also cannot consider that there is joint participation between the user and MAILTRACK in determining the purposes and means of processing, as this requires a common decision or a convergence of decisions, which does not occur in this case, since these are issues that depend exclusively on the user, without decisive influence from MAILTRACK, and in no case are they jointly defined purposes or of a common nature. In fact, there is no benefit, interest, or purpose of MAILTRACK in the processing, beyond the mere provision of the service.  
+On the other hand, regarding this issue, the AEPD considers that it is an argument for MAILTRACK to be held responsible for the processing of the data of the recipients, the fact that its privacy policy grants the status of data controller to all users, indicating that this is contrary to the GDPR (paragraph 9 of the Legal Basis VII – Lawfulness of Processing of the Document):  
+'Mailtrack grants the status of data controller to all its users. Thus, any user of Mailtrack would be responsible, including individuals, which makes it obvious that this circumstance is not in line with the intention of the GDPR.' We have the impression that this reference is linked to Article 2.2 of the GDPR, which establishes that this regulation:  
+'does not apply to the processing of personal data: (...) c) carried out by a natural person in the course of activities which are exclusively personal or domestic; (...).'  
+It is true that MAILTRACK's privacy policy does not refer to the domestic exception of the GDPR, but we do not understand why this issue can be a basis for arguing that MAILTRACK is responsible for the processing if, as we have clarified abundantly in this section, it does not define either the means or the purposes of the processing of the data of the recipients, regardless of the nature of the user who actually defines them. That is to say, even if the user is excluded from the scope of application of the GDPR, MAILTRACK remains a data processor and fulfills its obligations as such.  
+In conclusion, compliance with the GDPR is shaped under the duty/right binomial, in which, applied to the specific case, the data controller (the user) has the right to decide the fate of the information in which it acts as controller and the processor (MAILTRACK) assumes the obligation to comply with the instructions regarding the processing of the data that will be subject to processing for the provision of the service."  
+C/ Jorge Juan, 6  
+www.aepd.es  
+28001 – Madrid  
+sedeagpd.gob.es
+23/44  
+service. Configuring MAILTRACK as the data processor would ultimately break the general principle that a technology service provider is only responsible for the service it offers and should not assume responsibility for the unlawful acts or irregularities that, in this case, are carried out by the users of the service.  
+For all the above reasons, we understand that it is clear that MAILTRACK acts as a data processor, processing the personal data of the communications transmitted through its service on behalf of the data controller, which would be the user who contracts said service. This is for the following reasons:  
+1. MAILTRACK processes the data of the recipients at the request of the user and not on its own initiative. The processing of such data by MAILTRACK occurs because it is provided by the user when using the service. In fact, MAILTRACK would not access the personal data of the recipients if the user did not use the service by indicating those recipients.  
+2. The user of MAILTRACK is the one who decides the purpose for which the data of the recipients is collected and processed, a circumstance that is completely unknown to MAILTRACK (so much so that it would be impossible for MAILTRACK to foresee the different purposes pursued by its users regarding the recipients of their emails).  
+3. Only the user of the MAILTRACK service knows and controls the circumstances under which the personal data of the recipients is collected and whether they have obtained their consent, if there is a contractual relationship, or if there is a legitimate interest.  
+4. Access by MAILTRACK to the personal data of the recipients is necessary to provide the service to the user.  
+5. MAILTRACK accesses the personal data of the recipients of the emails exclusively to fulfill the user's purposes, as it uses them only for the provision of the service and not for any purpose of its own. Once the service is completed, MAILTRACK deletes or returns the personal data of the recipients, as indicated by the user, in compliance with the provisions of Article 28 of the GDPR.  
+In summary, MAILTRACK acts as a data processor because, in the processing of communications to recipients, it acts merely as a service provider "on behalf of and for the account of" the user-controller, without allocating that information to any type of its own purpose.  
+In this case, MAILTRACK disputes the legal status of data controller in the provision of its service. However, as stated in the initial agreement, one cannot speak of a data processor if there is no data controller. MAILTRACK argues that, according to its privacy policy, the mere use of its service grants the status of data controller to all its users, which it understands to be an interpretation in accordance with the provisions of Article 4.7) of the GDPR.  
+In light of this reasoning, it should be noted that, in its capacity as a service provider to businesses and citizens, MAILTRACK determines the purposes and means of data processing in the provision of its service. This reasoning has also been made in a similar case by the Austrian Supreme Court, which, applying the...  
+C/ Jorge Juan, 6  
+www.aepd.es  
+28001 – Madrid  
+sedeagpd.gob.es
+24/44  
+According to the principles of the CJEU, not all users of a social media platform qualify as data controllers in accordance with Article 4.7) of the GDPR, as this would make all users data controllers (see the Austrian Supreme Court, Decision of 6/23/2021-6 Ob 56/21, BeckRS 2021, 19302, para. 138, ***URL.20).  
+The violation of the rights and freedoms that may be caused to the recipients of the emails, given the certain possibility, as occurs in the facts reported by the claimant, that users of the MAILTRACK service do not have adequate guarantees regarding the processing of their data constitutes a violation of the GDPR; as stated in Recital 7 of the GDPR: “Natural persons should have control over their own personal data.”  
+The interpretation that MAILTRACK makes of Article 4.7) of the GDPR, excluding service providers that are not intermediaries from the responsibility for processing, represents a misinterpretation of the GDPR, Directive 2000/31, and Law 34/2022, of July 11, on information society services and electronic commerce (LSSI).  
+The latter defines intermediary services as: “b) ‘Intermediary service’: an information society service that facilitates the provision or use of other information society services or access to information. Intermediary services include the provision of Internet access services, the transmission of data over telecommunications networks, the temporary copying of web pages requested by users, hosting data, applications, or services provided by others on one's own servers, and the provision of tools for searching, accessing, and collecting data or links to other websites.” In this case, MAILTRACK is not one of those services.  
+MAILTRACK is considered a data controller as it defines the purposes and means of the processing. It defines the purposes of the cookie that is installed to provide its email tracking service, establishing what data is collected and for what purpose it is processed. A distinction must be made between the purposes of the emails set by the users and the purposes of the tracking determined by MAILTRACK. Furthermore, it defines the means of processing in that it establishes the configuration of the cookie that is installed on the devices of the email recipients, constituting an “essential means,” as defined in the Guidelines 07/2020 on the concepts of “data controller” and “data processor” in the GDPR, approved by the European Data Protection Board, which distinguishes between essential means and non-essential means: “Regarding the determination of means, a distinction can be made between essential means and non-essential means. Essential means are those closely linked to the purpose and scope of the processing, such as the type of personal data processed (‘What data will be processed?’), the duration of the processing (‘How long will the data be processed?’), the categories of recipients (‘Who will have access to the data?’), and the categories of data subjects (‘To whom do the processed personal data belong?’). In addition to being related to the purpose of the processing, essential means are closely linked to the question of whether the processing is lawful, necessary, and proportionate. Non-essential means are related to more...  
+C/ Jorge Juan, 6  
+www.aepd.es  
+28001 – Madrid  
+sedeagpd.gob.es
+25/44  
+practical aspects of the processing itself, such as the choice of a particular type of hardware or software or the decision on the details of security measures, which may be left to the data processor."  
+In the present case, it can be highlighted that it is MAILTRACK that decides on the purposes as indicated above and also decides on the means, as it determines which categories of data will be processed, who the recipients of this data are (the users of the system), and the duration of the processing since there are no instructions from the users in this regard. It is not denied that it is the users who specifically determine who will be the recipients of the emails; therefore, it cannot be ruled out that there may be cases of shared responsibility, but this circumstance does not occur when the user is an individual protected by the domestic exception.  
+In the case at hand, the recipient of the emails is expressed in this sense in their complaint (translated into Spanish): "I am addressing you as the competent authority in data protection matters because the product 'Mailtrack' of the Spanish company 'THE MAIL TRACK COMPANY' has violated my rights (especially, adequate information and consent), and I suspect that this is a violation of the GDPR," having not been informed that their data would be sent nor having been asked for prior consent.  
+For all the above reasons, this allegation is dismissed.  
+2.- "THE ALLEGED INFRINGEMENTS DO NOT PROCEED."  
+In this case, MAILTRACK merely argues that the infringements of Articles 13 and 14 of the GDPR, as well as that of Article 6 of said regulation, are undermined because the users of its service are the data controllers. In the response to the previous allegation, it has been justified why MAILTRACK is considered a data processor.  
+Regarding the infringement of the principle of fairness and transparency of Article 5 of the GDPR, from the consultation of the privacy policy, it is determined that the complaining party could not have avoided their data being processed, as MAILTRACK acknowledges that the link to the tool that would have prevented the data of the email recipients from continuing to be processed was not functioning: "It is true that the references in the privacy policy to the tool for excluding the processing of the recipient's data had become outdated, as this tool had ceased to be operational because advances in the technologies involved in the service prevented it from functioning properly."  
+It is only due to the initiation of this procedure that MAILTRACK's privacy policy is modified, and in the current version provided along with the allegations, information is given on how the recipients of the emails can prevent their data from being processed without their consent. Therefore, at the time of the complaint, there was no effective technical means for the data of the complaining party to be processed by the users of MAILTRACK's service.  
+C/ Jorge Juan, 6  
+www.aepd.es  
+28001 – Madrid  
+sedeagpd.gob.es
+26/44  
+MAILTRACK's arguments in this regard: “the mechanism for excluding the processing of data reported by MAILTRACK, voluntarily and without being obliged to do so, should be understood as a measure that acts as an additional guarantee in favor of the rights of the data subjects to oppose the processing of their personal data.”  
+However, Article 28, “General Obligations of the Controller and Processor,” of the LOPDGDD establishes that both controllers and processors must determine the appropriate technical and organizational measures to ensure that the processing is compliant with the GDPR, taking into account, in particular, the greater risks that may arise when the processing could deprive the affected individuals of their rights and freedoms or could hinder their exercise of control over their personal data, as occurs in the emails received by the claimant, in which their data was sent. Therefore, this is not a decision that MAILTRACK can adopt voluntarily, but rather a legal obligation.  
+Furthermore, as already stated in the initiation agreement, MAILTRACK cannot place the burden on the recipients of the emails to adopt behaviors to prevent the processing of their data, as these individuals would have to perform a series of cumbersome operations (such as installing a cookie on all browsers and every time the cookies of the relevant browser are deleted, or disabling images in emails), which are not within the understanding of any user, and moreover, this information is not even easily accessible. All of this is contrary to the definition provided by Guidelines 4/2019 regarding Article 25 Data Protection by Design and by Default, approved by the European Data Protection Board, according to which, “fairness is a general principle that requires that personal data not be processed in a manner that is unjustifiably detrimental, unlawfully discriminatory, unexpected, or misleading to the data subject.”  
+For all the above reasons, this allegation is dismissed.  
+A resolution proposal has been formulated by the instructor of this procedure, and during the hearing process, MAILTRACK presents allegations that largely reproduce the arguments made during the allegations phase, so responses are provided only to those that are novel:  
+- “USER INSTRUCTIONS”  
+At this point, MAILTRACK highlights the following idea: “In fact, it is essential to consider in this regard that the user can deactivate tracking for each email, for all, or for specific ones, thereby having a fundamental power to determine the means of the processing carried out through the MAILTRACK service.” To this, it should be responded that MAILTRACK decides on the purposes of the processing because it determines which data is processed, for how long, the categories of recipients, and even the categories of data subjects, as they will be those who have an email address. Furthermore, the fact of  
+C/ Jorge Juan, 6  
+www.aepd.es  
+28001 – Madrid  
+sedeagpd.gob.es
+27/44  
+that users can deactivate tracking does not prevent considering that it is MAILTRACK itself that decides on the means, since it is MAILTRACK that enables these possibilities and makes it possible to choose the tracking of emails.  
+For all the above, this allegation is dismissed.  
+-  
+“ARTICLE 33.2 OF THE LOPD IS ALSO NOT APPLICABLE”  
+MAILTRACK states that the provisions of Article 33.2 of the LOPDGDD are not applicable as it does not establish relationships with the affected parties other than on behalf of the user using its tool, and there is no basis or evidence to assert otherwise. In response to this assertion, it should be noted that MAILTRACK is responsible for the processing as it does not act on behalf of any controller, being itself the controller of the processing, since the relationships with the recipients of the emails are carried out in its own name.  
+For all the above, this allegation is dismissed.  
+-  
+“LACK OF APPLICATION OF THE ARGUMENT THAT ONE CANNOT SPEAK OF A PROCESSOR IF THERE IS NO CONTROLLER”  
+The main idea of this argument is that there is no rule or any court ruling that supports this reasoning: “That is to say, it is not a settled issue nor is there any jurisprudence.” However, this is an assertion that is deduced from the very definition of a processor, as a processor is one who “processes personal data on behalf of the controller” (Article 4.8 GDPR), meaning that for there to be a processor, there must always be a controller.  
+For all the above, this allegation is dismissed.  
+-  
+“ABSENCE OF GUARANTEES”  
+MAILTRACK considers the entity that sent the emails to be responsible for the processing: “the AEPD seems to overlook that the emails sent to the complainant were sent, in the context of the CSN service, by the Student Council of the Chemnitz University of Technology, which is established as the controller of the processing and, as such, must ensure that there are necessary guarantees for the data subjects whose data are being processed to have control over them.” This reasoning cannot be accepted; the concepts of controller and processor are functional concepts, as they are used to assign responsibilities based on the role each party plays, as stated in the Guidelines 07/2020 on the concepts of “controller” and “processor” in the GDPR, version 2.0 adopted on July 7, 2021:  
+C/ Jorge Juan, 6  
+www.aepd.es  
+28001 – Madrid  
+sedeagpd.gob.es  
+
+28/44  
+“12. The concepts of ‘controller’ and ‘processor’ are functional concepts: their purpose is to assign responsibilities based on the actual role of each party. This implies that the legal status of ‘controller’ or ‘processor’ of the participants must be established primarily based on their specific activities in a given situation and not based on the formal designation of a participant as ‘controller’ or ‘processor’ (e.g., in a contract). This implies that the assignment of the role of controller or processor must normally derive from an analysis of the facts or circumstances of the case and, consequently, is not negotiable.”  
+That the Student Council of the Chemnitz University of Technology is responsible for the processing of personal data that is processed in the course of its activity does not exclude that MAILTRACK is responsible for the processing in question.  
+For all the above, this allegation is dismissed.  
+IV  
+Information to be provided to data subjects  
+Article 13 “Information to be provided when personal data are obtained from the data subject” of the GDPR states:  
+“1. When personal data relating to a data subject are obtained from the data subject, the controller shall provide the data subject with all the information indicated below at the time of obtaining the data:  
+a) the identity and contact details of the controller and, where applicable, of its representative;  
+b) the contact details of the data protection officer, where applicable;  
+c) the purposes of the processing for which the personal data are intended and the legal basis for the processing;  
+d) when the processing is based on Article 6(1)(f), the legitimate interests pursued by the controller or a third party;  
+e) the recipients or categories of recipients of the personal data, where applicable;  
+f) where applicable, the intention of the controller to transfer personal data to a third country or international organization and the existence or absence of an adequacy decision by the Commission, or, in the case of transfers referred to in Articles 46 or 47 or Article 49(1), second paragraph, reference to the appropriate safeguards and the means to obtain a copy of them or the place where they have been made available.  
+2. In addition to the information mentioned in paragraph 1, the controller shall provide the data subject, at the time of obtaining the personal data, with the following information necessary to ensure fair and transparent data processing:  
+a) the period for which the personal data will be stored or, when that is not possible, the criteria used to determine that period;  
+C/ Jorge Juan, 6  
+www.aepd.es  
+28001 – Madrid  
+sedeagpd.gob.es
+29/44  
+b) the existence of the right to request from the data controller access to personal data concerning the data subject, and its rectification or erasure, or the restriction of its processing, or to object to the processing, as well as the right to data portability;  
+c) when the processing is based on Article 6(1)(a) or Article 9(2)(a), the existence of the right to withdraw consent at any time, without affecting the lawfulness of the processing based on consent before its withdrawal;  
+d) the right to lodge a complaint with a supervisory authority;  
+e) whether the communication of personal data is a legal or contractual requirement, or a requirement necessary to enter into a contract, and whether the data subject is obliged to provide the personal data and has been informed of the possible consequences of not providing such data;  
+f) the existence of automated decision-making, including profiling, referred to in Article 22(1) and (4), and, at least in such cases, meaningful information about the logic involved, as well as the significance and the envisaged consequences of such processing for the data subject.  
+3. When the data controller intends to further process personal data for a purpose other than that for which they were collected, it shall provide the data subject, prior to such further processing, information on that other purpose and any other relevant information in accordance with paragraph 2.  
+4. The provisions of paragraphs 1, 2, and 3 shall not apply when and to the extent that the data subject already has the information.”  
+For its part, Article 14 “Information to be provided when personal data have not been obtained from the data subject” of the GDPR states:  
+“1. When personal data have not been obtained from the data subject, the data controller shall provide the following information:  
+a) the identity and contact details of the controller and, where applicable, of its representative;  
+b) the contact details of the data protection officer, where applicable;  
+c) the purposes of the processing for which the personal data are intended, as well as the legal basis for the processing;  
+d) the categories of personal data concerned;  
+e) the recipients or categories of recipients of the personal data, where applicable;  
+f) where applicable, the intention of the controller to transfer personal data to a recipient in a third country or an international organization and the existence or absence of an adequacy decision by the Commission, or, in the case of transfers referred to in Articles 46 or 47 or Article 49(1), second paragraph, reference to the appropriate or suitable safeguards and the means to obtain a copy of these or the place where they have been made available.  
+2. In addition to the information mentioned in paragraph 1, the data controller shall provide the data subject with the following information necessary to ensure fair and transparent processing of personal data concerning the data subject:  
+C/ Jorge Juan, 6  
+www.aepd.es  
+28001 – Madrid  
+sedeagpd.gob.es
+30/44  
+a) the period during which personal data will be retained or, when that is not possible, the criteria used to determine this period;  
+b) when the processing is based on Article 6, paragraph 1, letter f), the legitimate interests of the data controller or a third party;  
+c) the existence of the right to request from the data controller access to personal data concerning the data subject, and their rectification or erasure, or the restriction of their processing, and to object to the processing, as well as the right to data portability;  
+d) when the processing is based on Article 6, paragraph 1, letter a), or Article 9, paragraph 2, letter a), the existence of the right to withdraw consent at any time, without affecting the lawfulness of the processing based on consent before its withdrawal;  
+e) the right to lodge a complaint with a supervisory authority;  
+f) the source from which the personal data originate and, where applicable, whether they come from publicly accessible sources;  
+g) the existence of automated decision-making, including profiling, referred to in Article 22, paragraphs 1 and 4, and, at least in such cases, meaningful information about the logic involved, as well as the significance and the anticipated consequences of such processing for the data subject.  
+3. The data controller shall provide the information referred to in paragraphs 1 and 2:  
+a) within a reasonable period, once the personal data have been obtained, and at the latest within one month, taking into account the specific circumstances in which the data are processed;  
+b) if the personal data are to be used for communication with the data subject, at the latest at the time of the first communication to that data subject, or  
+c) if they are to be communicated to another recipient, at the latest at the time when the personal data are first communicated.  
+4. When the data controller intends to process the personal data further for a purpose other than that for which they were obtained, it shall provide the data subject, prior to such further processing, information about that other purpose and any other pertinent information referred to in paragraph 2.  
+5. The provisions of paragraphs 1 to 4 shall not apply when and to the extent that:  
+a) the data subject already has the information;  
+b) the communication of such information proves impossible or would involve a disproportionate effort, in particular for processing for archiving purposes in the public interest, scientific or historical research purposes, or statistical purposes, subject to the conditions and safeguards referred to in Article 89, paragraph 1, or to the extent that the obligation mentioned in paragraph 1 of this Article would prevent or seriously hinder the achievement of the objectives of such processing. In such cases, the controller shall take appropriate measures to protect the rights, freedoms, and legitimate interests of the data subject, including making the information public;  
+C/ Jorge Juan, 6  
+www.aepd.es  
+28001 – Madrid  
+sedeagpd.gob.es
+31/44  
+c) the obtaining or communication is expressly provided for by Union or Member State law applicable to the data controller and establishes adequate measures to protect the legitimate interests of the data subject, or  
+d) when the personal data must continue to be confidential based on a professional secrecy obligation regulated by Union or Member State law, including a legal obligation of secrecy.”  
+In this case, it has been established that MAILTRACK in its privacy policy informs that it acts as a data processor and does not refer in any section nor informs its users or recipients of the emails at a later time that it is acting as a data controller, which is what it actually is.  
+Therefore, in accordance with the evidence available at this moment of resolution of the sanctioning procedure, it is considered that the known facts constitute an infringement attributable to MAILTRACK, for violation of Articles 13 and 14 of the GDPR.  
+V  
+Classification of the infringement of Articles 13 and 14 of the GDPR  
+The aforementioned infringement of Articles 13 and 14 of the GDPR constitutes the commission of the infringements classified in Article 83.5 of the GDPR, which under the heading “General conditions for the imposition of administrative fines” provides:  
+“5. Infringements of the following provisions shall be subject to administrative fines of up to 20,000,000 EUR or, in the case of an enterprise, an amount equivalent to up to 4% of the total annual global turnover of the previous financial year, opting for the higher amount:  
+(…)  
+b) the rights of data subjects under Articles 12 to 22; (…)”  
+In this regard, the LOPDGDD, in its Article 71 “Infringements” establishes that “Acts and conduct referred to in paragraphs 4, 5, and 6 of Article 83 of Regulation (EU) 2016/679, as well as those that are contrary to this organic law, constitute infringements.”  
+For the purposes of the statute of limitations, Article 74 “Minor Infringements” of the LOPDGDD indicates:  
+“Minor infringements of a merely formal nature of the articles mentioned in paragraphs 4 and 5 of Article 83 of Regulation (EU) 2016/679 shall be considered minor and shall be subject to a one-year statute of limitations, particularly the following:  
+a) Failure to comply with the principle of transparency of information or the right to information of the affected party by not providing all the information required by Articles 13 and 14 of Regulation (EU) 2016/679. (…)”  
+C/ Jorge Juan, 6  
+www.aepd.es  
+28001 – Madrid  
+sedeagpd.gob.es  
+
+32/44  
+VI  
+Sanction for the infringement of Articles 13 and 14 of the GDPR  
+For the purpose of deciding on the imposition of an administrative fine and its amount, in accordance with the evidence available at this moment of resolution of the sanctioning procedure, it is considered appropriate to grade the sanction to be imposed according to the following criteria established by Article 83.2 of the GDPR:  
+As aggravating factors:  
+- The nature, gravity, and duration of the infringement, taking into account the nature, scope, or purpose of the processing operation in question as well as the number of affected data subjects and the level of damage and harm they have suffered (paragraph a): for failing to provide truthful information to users and recipients of MAILTRACK emails regarding its role as a data controller, having more than 1,900,000 users of its tracking service, with potential victims also being the recipients of the emails sent by users of that service (Source: ***URL.21). All of this has persisted since its founding in 2013.  
+It is also considered appropriate to grade the sanction to be imposed according to the following criteria established by paragraph 2 of Article 76 “Sanctions and corrective measures” of the LOPDGDD:  
+As aggravating factors:  
+- The link of the infringer's activity with the carrying out of personal data processing (paragraph b): The activity of MAILTRACK involves the regular processing of personal data of the recipients of its users' emails. Considering the context of the processing, that is, that the main activity of the data controller is linked to the handling of personal data, it determines the need for greater diligence in complying with the GDPR.  
+The balance of the circumstances contemplated in Article 83.2 of the GDPR and 76.2 of the LOPDGDD, regarding the infringement committed by violating the provisions of Articles 13 and 14 of the GDPR, allows for the imposition of a fine of €20,000 (twenty thousand euros).  
+VII  
+Imposition of measures for the infringement of Articles 13 and 14 of the GDPR  
+It is deemed appropriate to impose on MAILTRACK that within 30 days it shall adapt the information provided to users of its service as well as to the recipients of the emails sent using said tool, indicating that it acts as a data controller of personal data, in accordance with the provisions of the aforementioned Article 58.2 d) of the GDPR, according to which each  
+C/ Jorge Juan, 6  
+www.aepd.es  
+28001 – Madrid  
+sedeagpd.gob.es
+33/44  
+The control authority may "order the data controller or processor to ensure that the processing operations comply with the provisions of this Regulation, where appropriate, in a specific manner and within a specified timeframe...". The imposition of this measure is compatible with the sanction consisting of an administrative fine, as provided for in Article 83.2 of the GDPR. Furthermore, these measures regarding the information provided will apply in all countries of the European Union where MAILTRACK operates. It is warned that failure to comply with the requirements of this body may be considered an administrative infringement in accordance with the provisions of the GDPR, classified as an infringement in its Articles 83.5 and 83.6, which may lead to the initiation of further administrative sanctioning procedures.  
+VIII  
+Legality of Processing  
+Regarding the collection of personal data from users and recipients by MAILTRACK for the provision of the service in question, Directive 2002/58/EC of the European Parliament and of the Council, of July 12, 2002, on the processing of personal data and the protection of privacy in the electronic communications sector (Directive on Privacy and Electronic Communications), hereinafter "ePrivacy Directive", provides in its Article 5.3:  
+“‘3. Member States shall ensure that the storage of information, or the access to information already stored, in the terminal equipment of a subscriber or user is only allowed on condition that the subscriber or user has given his or her consent after having been provided with clear and comprehensive information, in particular regarding the purposes of the processing of the data, in accordance with the provisions of Directive 95/46/EC. This shall not prevent the storage of or access to information for the sole purpose of carrying out the transmission of a communication over an electronic communications network, or to the extent strictly necessary in order for the provider of a service of the information society to provide a service explicitly requested by the subscriber or user.’”  
+By virtue of the principle of normative specialty, the special law must prevail over the general law regarding those issues specifically regulated by the special law. Therefore, Directive 2002/58 must prevail over the GDPR, as it is a special law, regarding the matters it regulates.  
+On this issue, Recital 173 of the GDPR states that "This Regulation should apply to all matters related to the protection of the rights and freedoms of individuals in relation to the processing of personal data that are not subject to specific obligations with the same objective established in Directive 2002/58/EC of the European Parliament and of the Council, including the obligations of the data controller and the rights of natural persons (...)."  
+C/ Jorge Juan, 6  
+www.aepd.es  
+28001 – Madrid  
+sedeagpd.gob.es
+34/44  
+It should also be noted that Article 95 of the GDPR specifies that “This Regulation shall not impose additional obligations on natural or legal persons regarding processing in the context of the provision of publicly available electronic communications services in public communication networks of the Union in areas where they are subject to specific obligations with the same objective established in Directive 2002/58/EC.”  
+Therefore, with respect to the storage of information and access to already stored personal data through the use of the web beacon (tracking and information retrieval device) used by MAILTRACK for the tracking service it provides, the GDPR would not apply but rather the aforementioned “ePrivacy Directive,” which has been partially transposed into Spanish law by the LSSI, so the one-stop-shop system provided for by Article 60 of the GDPR could not be used and could not be subject to this sanctioning procedure.  
+However, the GDPR would apply to subsequent processing of the personal data thus obtained. There is no doubt that MAILTRACK processes the data for the purposes of the service, primarily the tracking of the opening of emails sent by its users and their communication to the users, and that regarding these purposes it acts as the data controller as the instructions of the users are not defined and it would be disproportionate to shift the responsibility to individuals covered by the domestic exception.  
+The legal status of MAILTRACK as a “controller” or “processor” must, in principle, be determined by its actual activities in a specific situation, rather than by the formal designation made in its privacy policy. According to the factual approach, the word “determines” means that the entity that actually influences the purposes and means of processing is the data controller. If one of the parties actually decides why and how personal data is processed, that party will be a controller even if a contract states that it is a processor.  
+Typically, a processor agreement establishes who the decision-making party (controller) and the instructed party (processor) are. If there is no reason to doubt that this accurately reflects reality, there is nothing against following the terms of the contract. However, the mere use of the MAILTRACK service grants the status of data controller to all its users. Thus, any user of MAILTRACK would be responsible, including individuals, which makes it clear that this circumstance is not in line with the intention of the GDPR.  
+While the case law of the Court of Justice of the European Union indicates that it is irrelevant whether the administrator of a website has access to the data collected by Facebook (see CJEU C-40/17, paragraph 82), this circumstance would not apply in this case, as established in paragraph 3.2 of the MAILTRACK Privacy Policy, which states that it has effective access to personal data of the recipients of the emails.  
+In this regard, Article 6, “Lawfulness of processing,” of the GDPR provides:  
+C/ Jorge Juan, 6  
+www.aepd.es  
+28001 – Madrid  
+sedeagpd.gob.es
+35/44  
+1. The processing shall only be lawful if at least one of the following conditions is met:  
+   a) the data subject has given consent to the processing of their personal data for one or more specific purposes;  
+   b) the processing is necessary for the performance of a contract to which the data subject is a party or for the implementation at the request of the data subject of pre-contractual measures;  
+   c) the processing is necessary for compliance with a legal obligation to which the data controller is subject;  
+   d) the processing is necessary to protect vital interests of the data subject or of another natural person;  
+   e) the processing is necessary for the performance of a task carried out in the public interest or in the exercise of official authority vested in the data controller;  
+   f) the processing is necessary for the purposes of legitimate interests pursued by the data controller or by a third party, provided that such interests do not override the interests or fundamental rights and freedoms of the data subject which require protection of personal data, in particular when the data subject is a child.  
+   The provision in paragraph f) of the first paragraph shall not apply to processing carried out by public authorities in the performance of their tasks.  
+   (…)  
+The condition of MAILTRACK as the data controller determines that, in order to consider such processing lawful, at least one of the conditions of Article 6.1 of the GDPR must be met.  
+In this case, at least regarding the purpose of improving the service, paragraph a) of Article 6 of the GDPR does not apply since consent from the data subjects has not been requested for this purpose.  
+Neither does paragraph b) of Article 6 of the GDPR apply since it is not processing necessary for the performance of the contract or for providing the service.  
+Paragraph c) of Article 6 of the GDPR does not apply since it is not processing carried out to comply with a legal obligation applicable to MAILTRACK.  
+Paragraph d) of Article 6 of the GDPR does not apply since this processing does not protect vital interests of the data subjects, nor does paragraph e) of Article 6 of the GDPR apply since it is not processing necessary for the performance of a task carried out in the public interest or in the exercise of official authority.  
+Finally, paragraph f) of Article 6 of the GDPR does not apply since it has not been established that the processing in question was necessary for the satisfaction of legitimate interests pursued by the data controller or by a third party, provided that such interests do not override the interests or fundamental rights and freedoms of the data subject which require protection of personal data, in particular when the data subject is a child.  
+In accordance with the evidence available at this moment of resolution of the sanctioning procedure, it is considered that the known facts constitute an infringement attributable to MAILTRACK for violation of Article 6.1 of the GDPR.  
+IX  
+Classification of the infringement of Article 6 of the GDPR  
+The aforementioned infringement of Article 6 of the GDPR constitutes the commission of the infringements classified in Article 83.5 of the GDPR, which under the heading "General conditions for the imposition of administrative fines" provides:  
+"Violations of the following provisions shall be subject to administrative fines of up to 20,000,000 EUR or, in the case of an undertaking, an amount equivalent to up to 4% of the total annual global turnover of the preceding financial year, opting for the higher amount:  
+   a) the basic principles for processing, including the conditions for consent under Articles 5, 6, 7, and 9; (…)”  
+In this regard, the LOPDGDD, in its Article 71 "Infringements" establishes that "Acts and conduct referred to in paragraphs 4, 5, and 6 of Article 83 of Regulation (EU) 2016/679, as well as those that are contrary to this organic law, constitute infringements."  
+For the purposes of the statute of limitations, Article 72 "Infringements considered very serious" of the LOPDGDD indicates:  
+“1. In accordance with what is established in Article 83.5 of Regulation (EU) 2016/679, the following are considered very serious and shall be subject to a three-year statute of limitations: infringements that constitute a substantial violation of the articles mentioned therein and, in particular, the following:  
+   (…)  
+   b) The processing of personal data without any of the conditions for lawful processing established in Article 6 of Regulation (EU) 2016/679. (…)”  
+X  
+Sanction for the infringement of Article 6 of the GDPR  
+For the purpose of deciding on the imposition of an administrative fine and its amount, in accordance with the evidence available at this moment of resolution of the sanctioning procedure, it is considered appropriate to graduate the sanction to be imposed according to the following criteria established in Article 83.2 of the GDPR:  
+C/ Jorge Juan, 6  
+www.aepd.es  
+28001 – Madrid  
+sedeagpd.gob.es
+37/44  
+As aggravating factors:  
+-  
+The nature, severity, and duration of the infringement, taking into account the nature, scope, or purpose of the processing operation in question as well as the number of affected parties and the level of damages and losses they have suffered (paragraph a): for carrying out personal data processing without having a legal basis for it, considering that MAILTRACK has more than 1,900,000 users of its tracking service, with potential victims being the recipients of the emails sent by the users of that service (Source: https://mailtrack.io/es/). This has been the case since its founding in 2013, a situation that persists to this day.  
+Furthermore, it is considered appropriate to adjust the sanction to be imposed according to the following criteria established in paragraph 2 of Article 76 “Sanctions and corrective measures” of the LOPDGDD:  
+As aggravating factors:  
+-  
+The link of the infringer's activity with the carrying out of personal data processing (paragraph b): The activity of MAILTRACK involves the regular processing of personal data of the recipients of the emails from its users. Taking into account the context of the processing, that is, the main activity of the data controller being linked to the handling of personal data, determines the need for greater diligence in complying with the GDPR.  
+The balance of the circumstances contemplated in Article 83.2 of the GDPR and 76.2 of the LOPDGDD, regarding the infringement committed by violating the provisions of Article 6 of the GDPR, allows for the imposition of a sanction of €30,000 (thirty thousand euros).  
+XI  
+Imposition of measures for the infringement of Article 6 of the GDPR  
+Without prejudice to the provisions of paragraph Article 83 of the GDPR, the aforementioned Regulation provides in paragraph 2.d) of Article 58, “Powers,” the following:  
+“2. Each supervisory authority shall have all of the following corrective powers indicated below:  
+(...)  
+d) to order the controller or processor to bring processing operations into compliance with the provisions of this Regulation, where appropriate, in a specific manner and within a specified period; (...).”  
+Therefore, in accordance with the evidence available at this moment of resolution of the sanctioning procedure, it is appropriate to order MAILTRACK to, within 60 days from the notification of the final resolution concluding this procedure, comply with the following, without prejudice to any measures it may have applied:  
+-  
+Ensure the lawfulness of the data processing it carries out in connection with the development of the service, complying with one of the conditions of Article 6.1 of Regulation (EU) 2016/679 of the European Parliament and of the Council, of April 27, 2016,  
+-  
+Provide this Agency with the supporting documentation confirming that the aforementioned request has been fulfilled within the established timeframe.  
+Furthermore, the measures adopted regarding the lawfulness of data processing will apply in all countries of the European Union where MAILTRACK operates.  
+It is warned that failure to comply with the requirements of this body could be considered an administrative infringement in accordance with the provisions of the GDPR, classified as an infringement in its Articles 83.5 and 83.6, which could lead to the initiation of a further administrative sanctioning procedure.  
+XII  
+Principles relating to processing  
+Article 5 “Principles relating to processing” of the GDPR states:  
+“1. Personal data shall be:  
+a) processed lawfully, fairly, and in a transparent manner in relation to the data subject (‘lawfulness, fairness, and transparency’); (…)”  
+In this case, in the “Terms of Use and Contracting” of MAILTRACK, in its paragraph 1.1, in its last paragraph, it states: “Regarding the collection and processing of personal data, the Privacy Policy and the Cookie Policy will apply.” Therefore, the Privacy Policy is a legal document that, together with the Terms of Use and Contracting, binds MAILTRACK regarding the processing of data it carries out of its users and of the recipients of the emails sent using the tool. Point 6 of the Privacy Policy of MAILTRACK establishes the method of opting out of its service concerning the recipients of the emails whose personal data are subject to processing:  
+“6. Exclusion from the Mailtrack Service  
+6.1. The recipient of an email sent by the User of the Service may be excluded from the tracking carried out by the User if the recipient selects the ‘Opt-out’ checkbox available in the ‘User Privacy’ section.  
+6.2. Due to technical limitations, the only way to exclude the recipient from the Service involves the installation of a cookie from the website mailtrack.io. Therefore, if the recipient proceeds to delete the cookies from their browser, the recipient will once again be included in the Service.  
+6.3. The mentioned cookie will only function in the browser used by the recipient to select the exclusion. Therefore, if a different browser is used, the recipient will have to carry out the exclusion process in that browser.”  
+C/ Jorge Juan, 6  
+www.aepd.es  
+28001 – Madrid  
+sedeagpd.gob.es
+39/44  
+Due to the technical limitations outlined in clause 6 of the MAILTRACK Privacy Policy, the use of the service by the user entails, in any case, the necessary activity for the processing of the recipient's data, with the latter having to take the necessary actions to ensure that their data is not subject to processing. This is contrary to the GDPR, as it is not the data subject who should protect themselves against specific data processing; rather, the entity performing that processing must carry out the appropriate actions to terminate such processing.  
+Furthermore, it should be noted that Article 5 of the GDPR requires that the processing of personal data be transparent, and in this regard, Article 12 of the GDPR states that “…all information referred to in Articles 13 and 14, as well as any communication pursuant to Articles 15 to 22 and 34 related to the processing, shall be provided in a concise, transparent, intelligible, and easily accessible form, using clear and plain language…”  
+Well, the tool for opting out of the processing of the recipient's email data is not easily accessible, as:  
+- Access to the “User Privacy” section is not available on the website https://mailtrack.io/es/  
+- There is no link in the MAILTRACK Privacy Policy itself.  
+- Performing a search for “the mail track company user privacy” in an internet search engine does not yield a direct result.  
+Finally, according to the information available on the website “***URL.22”, the limitation on data processing occurs by disabling images in the recipient's email.  
+Therefore, in this case, the privacy policy indicates that recipients of emails can be excluded from the tracking carried out by MAILTRACK if they select the “Opt-out” checkbox supposedly available in the “User Privacy” section, but this statement is misleading, as such a checkbox is not available on the MAILTRACK website.  
+Additionally, the privacy policy also states that the only way for recipients to be excluded from the service provided by MAILTRACK is by installing a specific cookie, which must be reinstalled each time the cookies of the relevant browser are deleted, and which must be installed in all browsers used.  
+The other option that a MAILTRACK user would have, but which is also not mentioned in the privacy policy of the aforementioned website but is explained in a section of articles about the tool, would be to disable images in the recipient's email.  
+The processing as carried out would violate the principles of fairness and transparency of the GDPR, as the Guidelines 4/2019 regarding Article 25 Data Protection by Design and by Default Version 2.0, in its section 3.3, establish that:  
+C/ Jorge Juan, 6  
+www.aepd.es  
+28001 – Madrid  
+sedeagpd.gob.es
+40/44  
+“Loyalty is a general principle that requires that personal data not be processed in a manner that is unjustifiably detrimental, unlawfully discriminatory, unexpected, or misleading to the data subject.”  
+In this regard, expecting the recipient of the emails to perform a series of cumbersome operations (such as installing a cookie on all browsers and every time the cookies of the browser in question are deleted, or disabling images in emails), which are not within the understanding of any user, and that this information is not even easily accessible, in order to be excluded from such processing, is completely contrary to the principle of loyalty and transparency regulated by Article 5.1.a) of the GDPR.  
+Furthermore, in some cases, the recipients of the emails are not even aware that they are being tracked, because the notice “Sender notified by MAIL TRACK” in the tracked email can be disabled by users if they purchase a “PRO” or “ADVANCED” subscription.  
+As early as 2006, in Opinion 2/2006 of the Article 29 Working Party on privacy issues related to the provision of email scanning services, “the Article 29 Working Party expresses its strongest opposition to this processing because personal data regarding the behavior of the recipients is recorded and transmitted without the unequivocal consent of a relevant recipient. This processing, carried out in secret, is contradictory to the data protection principles that require loyalty and transparency in the collection of personal data, as provided in Article 10 of the Data Protection Directive.  
+Therefore, in accordance with the evidence available at this moment of the resolution of the sanctioning procedure, it is considered that the known facts constitute an infringement attributable to MAILTRACK for violation of Article 5.1.a) of the GDPR.  
+XIII  
+Classification of the infringement of Article 5.1.a) of the GDPR  
+The aforementioned infringement of Article 5.1.a) of the GDPR constitutes the commission of the infringements classified in Article 83.5 of the GDPR, which under the heading “General conditions for the imposition of administrative fines” provides:  
+“5. Infringements of the following provisions shall be sanctioned, in accordance with paragraph 2, with administrative fines of up to 20,000,000 EUR or, in the case of an enterprise, an amount equivalent to 4% at most of the total annual global turnover of the previous financial year, opting for the higher amount:  
+a) the basic principles for processing, including the conditions for consent under Articles 5, 6, 7, and 9; (…)”  
+In this regard, the LOPDGDD, in its Article 71 “Infringements” establishes that “Acts and conduct referred to in paragraphs 4, 5, and 6 of Article 83 of Regulation (EU) 2016/679, as well as those that are contrary to this organic law, constitute infringements.”  
+For the purposes of the limitation period, Article 72 “Very serious infringements” of the LOPDGDD indicates:  
+“1. In accordance with what is established in Article 83.5 of Regulation (EU) 2016/679, the following are considered very serious and shall prescribe after three years: infringements that constitute a substantial violation of the articles mentioned therein, and in particular, the following:  
+a) The processing of personal data in violation of the principles and guarantees established in Article 5 of Regulation (EU) 2016/679. (…)”  
+XIV  
+Sanction for the infringement of Article 5.1.a) of the GDPR  
+For the purpose of deciding on the imposition of an administrative fine and its amount, in accordance with the evidence available at this moment of the resolution of the sanctioning procedure, it is considered appropriate to graduate the sanction to be imposed according to the following criteria established in Article 83.2 of the GDPR:  
+As aggravating factors:  
+- The nature, severity, and duration of the infringement, taking into account the nature, scope, or purpose of the processing operation in question as well as the number of affected data subjects and the level of damage and harm they have suffered (paragraph a): for failing to carry out a loyal and transparent processing of the data of the recipients of the emails of its users, who are the ones who must take the necessary technical measures to prevent their data from continuing to be processed, considering that MAILTRACK has more than 1,900,000 users of its tracking service, with the potential harmed being the recipients of the emails sent by the users of that service (Source: https://mailtrack.io/es/). This has been the case since its foundation in 2013, a situation that persists to this day.  
+It is also considered appropriate to graduate the sanction to be imposed according to the following criteria established in paragraph 2 of Article 76 “Sanctions and corrective measures” of the LOPDGDD:  
+As aggravating factors:  
+- The link of the infringer's activity with the processing of personal data (paragraph b): The activity of MAILTRACK involves the regular processing of personal data of the recipients of the emails of its users. Taking into account the context of the processing, that is, that the main activity of the data controller is linked to the handling of data.  
+C/ Jorge Juan, 6  
+www.aepd.es  
+28001 – Madrid  
+sedeagpd.gob.es
+42/44  
+personal, determines the need for greater diligence in compliance with the GDPR.  
+The balance of the circumstances contemplated in Article 83.2 of the GDPR and 76.2 of the LOPDGDD, regarding the infringement committed by violating the provisions of Articles 17 and 21 of the GDPR, allows for the imposition of a fine of €50,000 (fifty thousand euros).  
+
+XV  
+Imposition of measures for the infringement of Article 5.1.a) of the GDPR  
+It is estimated that MAILTRACK should adopt appropriate measures within 90 days to facilitate access to the exclusion from tracking by the MAILTRACK service, without imposing a burden on the interested party as significant as the installation of cookies in their browsers or the modification of the configuration of elements that are not security or privacy-related in their email, in accordance with the provisions of the aforementioned Article 58.2 d) of the GDPR, according to which each supervisory authority may "order the controller or processor to ensure that the processing operations comply with the provisions of this Regulation, where appropriate, in a specific manner and within a specified period...". The imposition of this measure is compatible with the sanction consisting of an administrative fine, as provided in Article 83.2 of the GDPR. Furthermore, the measures regarding the exclusion from tracking by the MAILTRACK service will apply in all countries of the European Union where MAILTRACK operates.  
+It is warned that failure to comply with the requirements of this agency may be considered an administrative infringement in accordance with the provisions of the GDPR, classified as an infringement in Articles 83.5 and 83.6, which may lead to the initiation of further administrative sanctioning procedures.  
+Therefore, in accordance with the applicable legislation and assessed the criteria for the graduation of the sanctions whose existence has been established, the Director of the Spanish Agency for Data Protection RESOLVES:  
+
+FIRST:  
+- TO IMPOSE on THE MAIL TRACK COMPANY, S.L., with NIF B66095670, for an infringement of Articles 13 and 14 of the GDPR, classified under Article 83.5 of the GDPR, a fine of €20,000 (twenty thousand euros).  
+- TO IMPOSE on THE MAIL TRACK COMPANY, S.L., with NIF B66095670, for an infringement of Article 6 of the GDPR, classified under Article 83.5 of the GDPR, a fine of €30,000 (thirty thousand euros).  
+- TO IMPOSE on THE MAIL TRACK COMPANY, S.L., with NIF B66095670, for an infringement of Article 5.1.a) of the GDPR, classified under Article 83.5 of the GDPR, a fine of €50,000 (fifty thousand euros).  
+
+SECOND:  
+- TO ORDER THE MAIL TRACK COMPANY, S.L., with NIF B66095670, to provide evidence to this Agency within 30 days that it has adapted the information provided to users of its service, as well as to the recipients of the emails sent using this tool, indicating that it acts as the data controller.  
+- TO ORDER THE MAIL TRACK COMPANY, S.L., with NIF B66095670, to provide evidence to this Agency within 60 days that it has ensured the lawfulness of the data processing it carries out in connection with the development of the service, complying with one of the conditions of Article 6.1 of Regulation (EU) 2016/679 of the European Parliament and of the Council, of April 27, 2016.  
+- TO ORDER THE MAIL TRACK COMPANY, S.L., with NIF B66095670, to provide evidence to this Agency within 90 days that it has adopted appropriate measures to facilitate access to the exclusion from tracking by the MAILTRACK service, without imposing a burden on the interested party as significant as the installation of cookies in their browsers or the modification of the configuration of elements that are not security or privacy-related in their email.  
+
+THIRD: TO NOTIFY this resolution to THE MAIL TRACK COMPANY, S.L.  
+FOURTH: To warn the sanctioned party that it must comply with the imposed sanction once this resolution becomes enforceable, in accordance with the provisions of Article 98.1.b) of Law 39/2015, of October 1, on the Common Administrative Procedure of Public Administrations (hereinafter LPACAP), within the voluntary payment period established in Article 68 of the General Collection Regulation, approved by Royal Decree 939/2005, of July 29, in relation to Article 62 of Law 58/2003, of December 17, by making the payment, indicating the NIF of the sanctioned party and the procedure number that appears in the heading of this document, into the restricted account No. ES00 0000 0000 0000 0000 0000, opened in the name of the Spanish Agency for Data Protection at the banking entity CAIXABANK, S.A. Otherwise, collection will proceed in the executive period.  
+Upon receipt of the notification and once enforceable, if the date of enforceability falls between the 1st and the 15th of each month, inclusive, the deadline for voluntary payment will be until the 20th of the following month or the next business day thereafter, and if it falls between the 16th and the last day of each month, inclusive, the payment deadline will be until the 5th of the second following month or the next business day thereafter.  
+In accordance with the provisions of Article 50 of the LOPDGDD, this Resolution will be made public once it has been notified to the interested parties.  
+C/ Jorge Juan, 6  
+www.aepd.es  
+28001 – Madrid  
+sedeagpd.gob.es
+44/44  
+In accordance with the provisions of Article 60.7 of the GDPR, this resolution will be communicated, once it is final, to the interested supervisory authorities and to the European Data Protection Committee.  
+Against this resolution, which concludes the administrative procedure in accordance with Article 48.6 of the LOPDGDD, and in accordance with the provisions of Article 123 of the LPACAP, the interested parties may optionally file a motion for reconsideration before the Director of the Spanish Agency for Data Protection within one month from the day following the notification of this resolution, or directly file an administrative contentious appeal before the Administrative Court of the National Court, in accordance with the provisions of Article 25 and Section 5 of the fourth additional provision of Law 29/1998, of July 13, regulating the Administrative Jurisdiction, within two months from the day following the notification of this act, as provided in Article 46.1 of the aforementioned Law.  
+Finally, it is noted that in accordance with the provisions of Article 90.3 a) of the LPACAP, the final resolution in the administrative procedure may be provisionally suspended if the interested party expresses their intention to file an administrative contentious appeal. If this is the case, the interested party must formally communicate this fact by means of a written document addressed to the Spanish Agency for Data Protection, submitting it through the Agency's Electronic Registry [https://sedeagpd.gob.es/sede-electronica-web/], or through any of the other registries provided for in Article 16.4 of the aforementioned Law 39/2015, of October 1. They must also provide the Agency with documentation that proves the effective filing of the administrative contentious appeal. If the Agency is not aware of the filing of the administrative contentious appeal within two months from the day following the notification of this resolution, it will consider the provisional suspension to be concluded.  
+938-120722  
+Mar España Martí  
+Director of the Spanish Agency for Data Protection  
+C/ Jorge Juan, 6  
+www.aepd.es  
+28001 – Madrid  
+sedeagpd.gob.es

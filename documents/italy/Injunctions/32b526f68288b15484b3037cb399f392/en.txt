@@ -1,0 +1,171 @@
+[doc. web n. 9988652]  
+Decision of January 24, 2024  
+Register of Decisions  
+n. 38 of January 24, 2024  
+
+THE GUARANTOR FOR THE PROTECTION OF PERSONAL DATA  
+
+IN the meeting held today, attended by  
+Prof. Pasquale Stazione, President, Prof.  
+Ginevra Cerrina Feroni, Vice President, Dr.  
+Agostino Ghiglia and Attorney Guido Scorza, Members, and  
+Counsel Fabio Mattei, Secretary General;  
+
+HAVING REGARD TO Regulation (EU) 2016/679 of the European Parliament  
+and of the Council, of April 27, 2016, concerning  
+the protection of natural persons with regard to  
+the processing of personal data, as well as the free  
+movement of such data and repealing Directive  
+95/46/EC, “General Data Protection Regulation” (hereinafter “Regulation”);  
+
+HAVING REGARD TO Legislative Decree No. 196 of June 30, 2003, containing  
+“Code regarding the protection of personal data,  
+containing provisions for the adaptation  
+of the national legal system to Regulation (EU)  
+2016/679 of the European Parliament and of the Council, of  
+April 27, 2016, concerning the protection of  
+natural persons with regard to the processing of personal data,  
+as well as the free movement of such data and repealing  
+Directive 95/46/EC (hereinafter “Code”);  
+
+HAVING REGARD TO Regulation No. 1/2019 concerning  
+internal procedures with external relevance,  
+aimed at carrying out the tasks and  
+exercising the powers entrusted to the Guarantor for the  
+protection of personal data, approved by  
+Resolution of the Guarantor No. 98 of 04/04/2019,  
+published in G.U. No. 106 of 08/05/2019 and in  
+www.gpdp.it, doc. web n. 9107633 (hereinafter  
+“Guarantor Regulation No. 1/2019”);  
+
+HAVING REGARD TO the documentation on file;  
+
+HAVING REGARD TO the observations made by the Secretary  
+General pursuant to Article 15 of the Guarantor Regulation No.  
+1/2000 on the organization and functioning of the  
+office of the Guarantor for the protection of personal data, in www.gpdp.it, doc.  
+web n. 1098801;  
+
+REPORTING Prof. Ginevra Cerrina  
+Feroni;  
+
+PREMISE  
+1. The investigative activity.  
+By notes dated XX and XX, the Bambino Gesù Pediatric Hospital, located in Rome, Piazza Sant'Onofrio n. 4, 00165 - Tax Code/VAT: 80403930581 - PEC: presidenza@pec.opbg.net (hereinafter Pediatric Hospital) notified the Authority, pursuant to Article 33 of the Regulation, of a personal data breach that occurred between XX and XX, stating that it had received, on XX, at 13:56, a report from a patient claiming to have accessed (via the dedicated portal “Carta della Salute” https://  
+cartadellasalute.ospedalebambinogesu.it) the report of another patient (…), in addition to having directly detected, at 9:34 on the same day, an anomaly, “promptly reported to the supplier Dedalus S.p.A. formally identified as the Data Processor by the Hospital (…).” In the aforementioned communication, the Pediatric Hospital also added that “(…) on the day XX at 12:01, the Hospital received another report from an interested party, indicating the ability to access a report of another patient. Subsequent analysis revealed an additional error, a consequence of the bug already identified and corrected previously, concerning a small number of users.”  
+In describing the breach, the Pediatric Hospital noted that it “consisted of the sending, by the system of the supplier Dedalus Italia S.p.A., to the data management system of the Hospital (middleware Mirth) of HL7 laboratory messages containing an information segment reporting a patient identifier different from the content of the message (report). The subsequent propagation of these messages generated an incorrect association between report and patient in other integrated applications. The effect of the aforementioned anomaly is the association of a report, intact and coherent as a whole, to the wrong patient. The malfunctioning component is the integration component of the Dedalus Dnlab software, of the supplier Dedalus Italia S.p.A. (…).  
+As a result of the detailed analytical control relating to the individual interested parties and the reports related to them, the number of reports involved that constitute a breach of personal data, putting at risk the rights and freedoms of natural persons, is 24 (reports).”  
+In the same notification, the Hospital requested the subjects who had erroneous access to the confidential reports to delete the personal data contained therein.  
+In addition to describing the systems, software, services, and IT infrastructures involved in the breach, indicating their location, the Pediatric Hospital illustrated the technical and organizational measures in place at the time of the breach, as well as those adopted to remedy the breach and reduce the negative effects for the interested parties.  
+In relation to the latter, the Hospital communicated that it had carried out: “1. Temporary blocking of access to the reports (portal "Carta della Salute") pending analysis of potentially erroneous documents (12:43 on XX); 2. Analysis of access logs to verify the downloads of erroneous reports; 3. Adoption of a temporary corrective measure pending definitive identification and correction of any system bugs by the supplier of the laboratory management software; 4. Deprecation of erroneous reports and generation of reports following the correction of errors.
+identified materials; 5. Reopening of access to reports (portal "Health Card") at 20:16 on XX (...). In relation to the further report of incorrect viewing, the error was identified at 12:01 on XX, following a report from an interested party, and rectified at 12:36 on the same day XX. Furthermore, in order to further avert the onset of a high risk to the rights and freedoms of the interested parties, personalized communications will be prepared and sent (...) to the viewers with an explicit request for complete deletion of files/data that may have been saved on their PC. To this end, the Hospital has planned, as an additional measure, a phone contact by a team set up ad hoc to support, also from a technological standpoint, the viewers in the aforementioned deletion.
+
+Finally, the aforementioned pediatric hospital has listed the following technical and organizational measures adopted to prevent similar violations in the future: "request to the supplier to include an explicit 'non-regression' test for future software developments, in order to avoid the recurrence of the identified case of computer error (...). An additional filter has been installed in the internal system of the Hospital, which identifies the case of error and blocks the transfer of the related reports. This additional measure allows for the analysis, correction of the data, and possible identification of any software errors. (...) The bug identified on the systems provided to the Hospital by Dedalus Italia S.p.A. has been: - isolated in its effects preliminarily through action by the Hospital carried out on the day XX on its own systems receiving incorrect information from the systems managed by the supplier Dedalus Italia S.p.A.; - subsequently eliminated on the day XX by the Supplier. The preliminary isolation referred to in the first point has been introduced as a permanent defensive measure within the message transfer system (...) adopted by the Hospital, in order to prevent any future issues related to incorrect formatting of the identifying fields of the users, which is at the root of the problem that caused the violations reported in this document. Further measures to restrict access to reports will be evaluated based on the date of issuance of the same. Where a user needs to access older reports, an explicit request procedure will be implemented, possibly in multiple phases."
+
+In relation to what has been represented, the Office, with note of XX (prot. n. XX), requested further information and clarifications, pursuant to Article 157 of the Code, from the data controller who, with note of XX (prot. n. XX), provided feedback stating, among other things, that: 
+- "In order to clarify (...), the correlation between the bug eliminated on the day XX and the error subject to further reporting on the day XX is highlighted as follows. The Hospital, having identified and preliminarily isolated the bug on the day XX, (1) immediately requested support from the Supplier in order to remove the aforementioned error from the software, therefore, this action ensured that the new reports generated were no longer corrupted; (2) proceeded to obscure the inaccurate reports produced as a result of the bug. That said, in order to proceed with the action referred to in the previous point (2), it was necessary to perform a query of the systems to identify which were the erroneous reports produced. The generated list was subsequently used to determine the elimination of the erroneous reports, carried out on the same day (XX). However, what was not yet known on XX, during the preliminary and immediate analyses conducted by the Hospital with the support of the Supplier, was the presence of a case of reports that had been affected by the bug in question before its removal, therefore already present on XX and which, due to the issue that occurred, had not been identified by the query performed on the systems. The further report of the day XX allowed for an expansion of the analysis perimeter and refinement of the identification of reports that could potentially pose a risk to the rights and freedoms of individuals. This resulted in an additional analysis of the causes underlying the failure to detect in the preliminary phase, which allowed for the identification of all remaining erroneous reports and, finally, their definitive removal; no further reports that could generate a risk to the rights and freedoms of individuals were detected after the date of XX.";
+- "The measures adopted to remedy the violation of personal data and also to mitigate its possible negative effects have effectively averted the possibility of similar events occurring, as neither the reappearance of the previously resolved bug nor a similar new breach of the system has been highlighted. Furthermore, the actions taken by the Hospital definitively have allowed for the standardization of even more detailed analysis methodologies, also used for periodic testing phases and 'sample' analysis, in order to verify the consistency of the systems and the production of reports over time. In any case, it is emphasized that once the report was made to the system Supplier, they proceeded to make the necessary corrections and the checks carried out, both in the test and production environments, confirmed that similar episodes can no longer occur.";
+- "(...) The event that occurred, in light of what has been illustrated, had effects (...) for a limited time frame, namely during the period between the 9th and XX."
+- “(...) 6 individuals (the so-called ‘Visualized’) have experienced a loss of confidentiality, as one or more of their reports were exposed to unauthorized persons; 6 individuals (the so-called ‘Viewers’) accessed reports of other interested parties erroneously, resulting in a loss of confidentiality; 8 individuals encountered a probable unavailability issue (one of whom was also part of the ‘Viewers’ group), as the requested report was not available, thus they recorded a malfunction and difficulty in using the service”;
+
+- “(...) Specifically, the relevant issues were related to the propagation of an incorrect association between the report and the patient identifier, leading to the ‘Incorrect Condition’ (...), in which a correct and intact report (containing the data and results of the analyses related to a ‘Patient A’) was erroneously assigned to the identifier of another ‘Patient B’);
+
+- “The Hospital, in order to fully comply with the provisions of Article 34 of the GDPR, has prepared and communicated the breach to the interested parties by mail without undue delay, sending two types of communications by XX” and “(...) has also taken, as an additional measure, to contact the Viewers by phone in the aforementioned deletion activity, through a multidisciplinary team established to provide support, where requested, also from an IT perspective to the interested parties”;
+
+- “(...) no further reports have been received from the interested parties up to the present date.” Lastly, the data controller highlighted that it has adopted the “Privacy Organizational Model” and activated specific training paths for staff regarding regulations aimed at protecting personal data, also attaching the appointment documents of Dedalus Italia S.p.a. as data processor, related to the service contracts entered into.
+
+In light of the above, with a note dated XX (prot. n. XX), the Office requested information, pursuant to Article 157 of the Code, from Dedalus S.p.a., the data processor, which, with a note dated XX, provided feedback stating, among other things, the following.
+
+- “Regarding ‘the detailed description of the bug’, it concerned the DNLAB solution (‘DNLAB’), provided by the Company to the Bambin Gesù Pediatric Hospital (‘OPBG’), and consisted of sending to the data management system of the same OPBG, namely the Mirth middleware, HL7 laboratory messages containing an information segment reporting a patient identifier different from the content of the message, namely the report of the analyses. The subsequent propagation of these messages generated an incorrect association between the report and the patient in the other integrated applications. The problem was related to an error in the custom code of the integration, manifested in the face of an overlap of the incremental counters of the ‘Seqreferti’ and ‘Seqrichiesta’ tables. The graph in Fig. 1 shows the historical trend of these two values, whose overlap occurred on June 9 of this year.” 
+
+The data processor then illustrated, also through some graphs (“Historical trend of the assignment of values to the sequences ‘Seqreferti’ and ‘Seqrichiesta’; Comparison of the values ‘Seqreferti’ and ‘Seqrichiesta’ between 8:04:23 and 8:06:53 on June 9 of this year”) the technical aspects of the dynamics of the bug determination, as well as stated that “with regard to DNLAB, there was and is no contractual provision for ‘the realization of periodic vulnerability assessment tests’. Nor, beyond the absence of a contractual obligation in this sense, would the Company have been able to independently carry out such vulnerability assessment activities, as DNLAB resides entirely in the production environment of OPBG.”
+
+2. Evaluations of the Department on the processing carried out and notification of the breach referred to in Article 166, paragraph 5, of the Code
+
+Based on the above representation, with act dated XX (prot. XX), which must be understood as fully reproduced here, the Office initiated a procedure for the adoption of measures referred to in Article 58, paragraph 2, against the Bambino Gesù Pediatric Hospital in Rome, as the data controller, pursuant to Article 166, paragraph 5, of the Code for having carried out data processing on health in violation of the principle of “integrity and confidentiality” (Article 5, paragraph 1, letter f), of the Regulation), of Article 9, as well as the obligations regarding the security of processing referred to in Article 32 of the Regulation.
+
+With a note sent on XX, the pediatric hospital submitted its defensive memoranda in which it highlighted, among other things, that:
+
+- “The event that occurred (…)” concerned “(...) a limited time frame, namely the period between XX and XX, also thanks to the establishment and activation of the ‘Crisis Team’ established with the Privacy Organizational Model (MOP) adopted by the Hospital”;
+
+- “(...) The Hospital’s Information Systems (…) (have) detected the anomaly, about 2 hours before the report from the interested party, requesting technical support from the Supplier to carry out an analysis regarding the unusual functioning identified”;
+
+- “The Hospital, having preliminarily identified and isolated the effects of the bug on XX, requested immediate support from the Supplier in order to remove the aforementioned error from the software (…) (and) has proceeded to obscure the inaccurate reports produced as a result of the bug; (…) after reporting to the system Supplier, they proceeded to
+the system,” is required to ensure that the processing of personal data is conducted in compliance with the applicable regulations, particularly in relation to the protection of sensitive data such as health information. 
+
+3. Outcome of the Investigative Activity  
+Taking into account the documentation presented, it is noted that:  
+- "health-related data" refers to "personal data concerning the physical or mental health of a natural person, including the provision of health care, which reveals information about their health status" (art. 4, par. 1, n. 15 of the Regulation). Personal data related to health deserves greater protection since the context of their processing could create significant risks to fundamental rights and freedoms (Cons. n. 51);  
+- the regulation on personal data protection establishes that such data must be "processed in a manner that ensures adequate security (...), including protection against unauthorized or unlawful processing and against accidental loss, destruction, or damage (principle of 'integrity and confidentiality')" (art. 5, par. 1, lett. f) of the Regulation);  
+- the data controller and the data processor are required to implement "appropriate technical and organizational measures to ensure a level of security appropriate to the risk," taking into account, among other things, "the nature, scope, context, and purposes of the processing, as well as the risk of varying probability and severity for the rights and freedoms of natural persons" (art. 32 par. 1 of the Regulation);  
+- in particular, the data controller and the data processor implement technical and organizational measures that include, among others, where applicable, (...) the ability to ensure on a permanent basis the confidentiality, integrity, availability, and resilience of processing systems and services (and) (...) a procedure to regularly test, verify, and evaluate the effectiveness (...) (of such measures) in order to ensure the security of processing" (art. 32, par. 1, lett. b) and d));  
+- specifically regarding the healthcare sector, it is highlighted that the regulation on personal data protection stipulates that information about health status may only be communicated to the data subject and may be communicated to third parties only on the basis of an appropriate legal basis or at the request of the data subject with prior written delegation from the latter (art. 9 Regulation);  
+- the bug operating in the "Dnlab" solution provided by Dedalus S.p.a., the data processor, resulting in the sending to the data controller's data management system of HL7 laboratory messages containing a segment of information reporting a patient identifier different from the content of the report, led to the accessibility of reports for 6 patients by another 6 unauthorized patients and the unavailability of personal data related to 8 patients;  
+- in light of the aforementioned regulations, the data controller, with reference to the cited "component of the system," is required to ensure that the processing of personal data is conducted in compliance with the applicable regulations, particularly in relation to the protection of sensitive data such as health information.
+**Integration of the Dedalus Dnlab software, provided by Dedalus Italia S.p.A.** 
+
+Subject to malfunction leading to the emergence of the bug in question, as stated by the data controller and the data processing manager, also considering the interconnected function of this program with the hospital's data management system (middleware Mirth), it should have provided for the implementation of adequate security measures, as well as the related periodic checks of the same, as required by Article 32, paragraph 1, letters b) and d) of the Regulation to ensure on a permanent basis the confidentiality, integrity, availability, and resilience of the data;
+
+- The data controller, as the entity responsible for decisions regarding the purposes and methods of processing personal data of the data subjects, has a “general responsibility” for any processing of personal data that has been carried out directly or that others have carried out on their behalf: in particular, the controller is responsible for implementing appropriate technical and organizational measures to ensure, and be able to demonstrate, that the processing is carried out in accordance with the Regulation (Articles 4, paragraph 1, point 7, 5, paragraph 2, 24 and Recital no. 74, in relation to the so-called “accountability” principle of the Regulation; furthermore, see “Guidelines 7/2020 on the concepts of controller and processor in the GDPR,” adopted by the European Data Protection Board on July 7, 2021, in particular, paragraph 2.1.4, point 41);
+
+- Furthermore, it is considered that: the event occurred between XX and XX and, therefore, within a limited time frame; no complaints or reports were made to the Authority and, according to the data controller, no “further consequences for the data subjects emerged and the unlawfully viewed data were not used for other purposes or disseminated, nor is there evidence of repercussions resulting in physical, material, or immaterial damage to the data subjects”; the controller stated that they detected the anomaly about 2 hours before the report from the data subject; there is no evidence of any malicious behavior regarding the incident; the Authority became aware of the event following the notification of a breach by the pediatric hospital. The controller has previously undergone proceedings by the Authority concerning a relevant violation (see provision of June 24, 2021, no. 250, web document no. 9689566).
+
+**4. Conclusions.**
+
+In light of the assessments mentioned above, taking into account the statements made by the controller during the investigation - and considering that, unless the act constitutes a more serious offense, anyone who, in a proceeding before the Guarantor, falsely declares or certifies news or circumstances or produces false acts or documents is liable under Article 168 of the Code “Falsehood in declarations to the Guarantor and interruption of the execution of the tasks or the exercise of the powers of the Guarantor” - the elements provided by the data controller in the defense memos do not allow for overcoming the observations notified by the Office with the initiation of the proceedings, nor do any of the cases provided for by Article 11 of the Guarantor Regulation no. 1/2019 apply.
+
+For these reasons, considering that, as highlighted above, the Regulation provides, for the controller, a “general responsibility” for any processing of personal data that has been carried out directly or that others have carried out on their behalf (Article 4, paragraph 1, point 7 of the Regulation, as well as Article 5, paragraph 2, Article 24 and Recital no. 74 of the Regulation in relation to the so-called “accountability” principle), also with reference to the preparation of technical and organizational measures that meet the requirements of the Regulation in terms of security, it appears that the processing of personal data in question, by the Bambino Gesù Pediatric Hospital in Rome, was carried out:
+
+- in a manner not compliant with the principle of “integrity and confidentiality” in violation of Article 5, paragraph 1, letter f), of the Regulation;
+- failing to implement appropriate technical and organizational measures to ensure a level of security appropriate to the risk, capable of ensuring the ability to maintain on a permanent basis the confidentiality, integrity, availability, and resilience of the processing systems and services, as well as a procedure to test, verify, and regularly evaluate the effectiveness of such measures to ensure the security of the processing (Article 32, paragraph 1, letters b) and d));
+- communicating health-related data of 6 patients to six unauthorized third parties, in the absence of an appropriate legal basis and, therefore, in violation of Article 9 of the Regulation.
+
+In this context, considering that measures have been adopted to overcome the aforementioned vulnerability and that requests have been made to the recipients of the reports, subject to violation, for the destruction of such reports, the conditions for the adoption of corrective measures referred to in Article 58, paragraph 2, of the Regulation do not apply.
+
+**5. Adoption of the injunction order for the application of the administrative pecuniary sanction and accessory sanctions (Articles 58, paragraph 2, letter i), and 83 of the Regulation; Article 166, paragraph 7, of the Code).**
+
+The violation of Articles 5, paragraph 1, letter f), 9, and 32 of the Regulation caused by conduct attributable to the data controller is subject to the application of the administrative pecuniary sanction pursuant to Article 83, paragraphs 4 and 5, of the Regulation. 
+
+Considering that the violation of the above norms...
+**WHEREAS** the citation took place as a result of a single conduct, Article 83, paragraph 3, of the Regulation applies, according to which the total amount of the administrative pecuniary sanction does not exceed the amount specified for the most serious violation. 
+
+**CONSIDERING** that, in this case, the most serious violation concerns non-compliance with Article 9 of the Regulation, subject to the administrative sanction provided for in Article 83, paragraph 5, of the Regulation, the total amount of the sanction is to be quantified up to €20,000,000 or, for companies, up to 4% of the total worldwide annual turnover of the previous financial year, if higher.
+
+**IT IS NOTED** that the Authority, pursuant to Articles 58, paragraph 2, letter i), and 83 of the Regulation, as well as Article 166 of the Code, has the power to “impose an administrative pecuniary sanction pursuant to Article 83, in addition to [other] [corrective] measures referred to in this paragraph, or in lieu of such measures, depending on the circumstances of each individual case” and, in this context, “the Board [of the Authority] adopts the injunction order, which also provides for the application of the accessory administrative sanction of its publication, in whole or in part, on the Authority's website pursuant to Article 166, paragraph 7, of the Code” (Article 16, paragraph 1, of the Regulation of the Authority No. 1/2019).
+
+**THE ABOVE-MENTIONED** administrative pecuniary sanction imposed, depending on the circumstances of each individual case, is to be determined in amount taking into account the principles of effectiveness, proportionality, and deterrence, as indicated in Article 83, paragraph 1, of the Regulation in light of the elements provided for in Article 83, paragraph 2, of the Regulation.
+
+**IN LIGHT OF** the above, assessing the severity of the violation (Article 83, paragraph 2, letters a), b), g)), particular consideration is given to the category of personal data processed (related to health), the duration of the violation (4 days), the number of affected individuals (n. 6 regarding the communication of data and n. 8 regarding the loss of availability of personal data), the absence of intent, the absence of complaints regarding any damages suffered by the affected individuals; in light of this, it is believed that the level of severity of the violation committed by the Pediatric Hospital is medium (cf. European Data Protection Board, “Guidelines 04/2022 on the calculation of administrative fines under the GDPR” of May 23, 2023, point 60).
+
+**ALSO CONSIDERED**, pursuant to Article 83, paragraph 2, of the Regulation, are the following aggravating and mitigating circumstances:
+- The Authority became aware of the event following the notification of the violation by the Pediatric Hospital (Article 83, paragraph 2, letter h), of the Regulation);
+- The data controller has undergone a previous proceeding concerning a relevant violation (cf. provision of June 24, 2021, No. 250, web doc No. 9689566) (Article 83, paragraph 2, letter e) of the Regulation);
+- The data controller reported having detected the anomaly about 2 hours before the notification by the affected individual, requesting technical support from the Provider to conduct an analysis regarding the unusual operation (Article 83, paragraph 2, letter k) of the Regulation).
+
+**BASED ON** the aforementioned elements, assessed as a whole, it is deemed appropriate to determine the amount of the pecuniary sanction provided for in Article 83, paragraph 5, letter a), of the Regulation, in the amount of €8,000.00 (eight thousand) for the violation of Articles 5, paragraph 1, letter f), 9, and 32 of the Regulation, as an administrative pecuniary sanction deemed, pursuant to Article 83, paragraph 1, of the Regulation, effective, proportionate, and deterrent.
+
+**IT IS ALSO BELIEVED** that the accessory sanction of publication on the Authority's website of this provision, as provided for in Article 166, paragraph 7, of the Code and Article 16 of the Regulation of the Authority No. 1/2019, should be applied, also considering the type of personal data subject to unlawful processing.
+
+**FINALLY, IT IS NOTED** that the conditions referred to in Article 17 of Regulation No. 1/2019 concerning internal procedures of external relevance, aimed at carrying out the tasks and exercising the powers entrusted to the Authority, are met.
+
+**THEREFORE, THE AUTHORITY** declares the unlawfulness of the processing of personal data carried out by the Pediatric Hospital Bambino Gesù located in Rome, Piazza Sant'Onofrio No. 4, 00165 - Tax Code/VAT: 80403930581 for the violation of Articles 5, paragraph 1, letter f), 9, and 32 of the Regulation as stated in the reasoning.
+
+**ORDERS** pursuant to Articles 58, paragraph 2, letter i), and 83 of the Regulation, as well as Article 166 of the Code, the Pediatric Hospital Bambino Gesù to pay the sum of €8,000.00 (eight thousand) as an administrative pecuniary sanction for the violations indicated in this provision; it is noted that the offender, pursuant to Article 166, paragraph 8, of the Code, has the option to settle the dispute by payment, within 30 days, of an amount equal to half of the imposed sanction.
+
+**DIRECTS** the Pediatric Hospital, in case of failure to settle the dispute pursuant to Article 166, paragraph 8, of the Code, to pay the sum of €8,000.00 (eight thousand) according to the methods indicated in the attachment, within 30 days from the notification of this provision, under penalty of the adoption of subsequent enforcement acts in accordance with Article 27 of Law No. 689/1981.
+
+**DISPOSES** pursuant to Article 166, paragraph 7, of the Code, the full publication of this provision on the Authority's website and the annotation of this.
+provision in the internal register of the Authority, provided for by art. 57, par. 1, lett. u), of the Regulation, of the violations and the measures adopted in accordance with art. 58, par. 2, of the Regulation. 
+
+Pursuant to art. 78 of the Regulation, arts. 152 of the Code, and 10 of Legislative Decree No. 150/2011, an appeal against this provision may be filed before the ordinary judicial authority, under penalty of inadmissibility, within thirty days from the date of communication of the provision itself or within sixty days if the appellant resides abroad. 
+
+Rome, January 24, 2024 
+
+THE PRESIDENT 
+Stanzione 
+
+THE RAPPORTEUR 
+Cerrina Feroni 
+
+THE SECRETARY GENERAL 
+Mattei

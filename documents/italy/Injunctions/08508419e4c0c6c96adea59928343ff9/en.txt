@@ -1,0 +1,225 @@
+[doc. web n. 10013321]  
+Provision of April 11, 2024  
+Register of provisions  
+n. 198 of April 11, 2024  
+
+THE GUARANTOR FOR THE PROTECTION OF PERSONAL DATA  
+
+IN THE meeting today, attended by  
+Prof. Pasquale Stanzione, president, Prof.  
+Ginevra Cerrina Feroni, vice president, Dr.  
+Agostino Ghiglia and Attorney Guido Scorza, members, and  
+Secretary General Fabio Mattei;  
+
+HAVING REGARD to Regulation (EU) 2016/679 of the European Parliament  
+and of the Council of April 27, 2016, concerning  
+the protection of natural persons with regard to  
+the processing of personal data, as well as the free  
+movement of such data and repealing Directive  
+95/46/EC, General Data Protection Regulation (hereinafter, Regulation);  
+
+HAVING REGARD to Legislative Decree No. 196 of June 30, 2003, containing  
+the Code regarding the protection of personal data  
+(hereinafter, Code);  
+
+HAVING REGARD to Regulation No. 1/2019 concerning  
+internal procedures with external relevance,  
+aimed at carrying out the tasks and  
+exercising the powers entrusted to the Guarantor for the  
+protection of personal data, approved by  
+resolution No. 98 of April 4, 2019, published in  
+G.U. No. 106 of May 8, 2019 and on www.garanteprivacy.it,  
+doc. web n. 9107633 (hereinafter “Guarantor reg. No.  
+1/2019”);  
+
+HAVING REGARD to the documentation on file;  
+
+HAVING REGARD to the observations made by the Secretary  
+General pursuant to Article 15 of the Guarantor  
+reg. No. 1/2000 on the organization and functioning  
+of the office of the Guarantor for the protection of personal data  
+(doc. web n. 1098801);  
+
+REPORTING Prof. Pasquale Stanzione;  
+
+PREAMBLE  
+
+1. The investigative activity.  
+On XX, the Chamber of Commerce, Industry,  
+Craftsmanship, and Agriculture of Rome (hereinafter, Chamber  
+of Commerce) notified the Guarantor, pursuant  
+to Article 33 of the Regulation, of a personal data  
+breach that occurred between XX and XX, caused by  
+a “cyber attack (SQL Injection type) on  
+one of the components used by the CMS (Content Management System)  
+application environment provided  
+by ISWEB S.p.A., as part of the service  
+dedicated to the institutional portal of the Chamber of  
+Commerce.”  
+In particular, the Chamber of Commerce represented that it had  
+“been the victim of a cyber attack on the ISWEB CMS that exploited  
+the vulnerability of the application environment based on a  
+parameter usable via a GET call of SQL Injection type. The attack  
+allowed access to the application database, with the subsequent  
+manipulation of application accounts for  
+loading malicious files onto the filesystem for  
+remote access to the system (backdoor),” stating  
+that it became aware of the personal data breach through the  
+“publication of a tweet mentioning the Chamber of Commerce of Rome by  
+an account traceable to Anonymous, which  
+reported an attack on the institutional site  
+of the Entity. The tweet and a post on the Anonymous blog  
+referred to a fake news published  
+by the same hackers.”  
+Subsequently, on XX, the Chamber of Commerce  
+provided some supplementary elements to the aforementioned  
+notification, stating that “Innova Camera […],  
+responsible for managing the institutional site, […]  
+reported that ‘On the day of XX, at 1:50 PM,  
+Innova Camera detected a tweet,  
+traceable to “Lulzsecita,” that published csv  
+files of data, defining them as “Business Register”” and that “on  
+the same XX, at 2:51 PM, the General Director of  
+Innova Camera received a communication from  
+CNAIPIC […] indicating the online presence of a  
+link to a csv file where it was possible to download  
+the list of about 22 thousand users and defined the attack  
+as ‘probably of SQL Injection type against  
+the server.’ This attack, the CNAIPIC continues, ‘was  
+a means through which the attackers  
+probably implanted a backdoor.’”  
+In the same note, the Chamber of Commerce also declared that:  
+for the management of its institutional site –  
+within which was the appointment management system involved in  
+the personal data breach – it relies, as  
+data processors, on ISWEB S.p.A. and Innova Camera –  
+a special company of the Chamber of Commerce, Industry,  
+Craftsmanship, and Agriculture of Rome for innovation (hereinafter,  
+Company or Innova Camera);  
+“According to what Innova Camera reports, the csv  
+file of data subject to publication ‘is traceable to  
+a backup database, not exposed to the web,  
+stored on the same server that suffered  
+the attack through the ISWEB CMS already detected on  
+June 15 of this year. The database in question is  
+related to a backup copy of XX  
+of the application that manages appointments […],  
+which was made before the migration  
+of the application itself to another server in order to  
+optimize hardware resources. It consists  
+of 22,334 records of registered users who, through  
+usernames and passwords obtained upon registration, accessed  
+a system that allows  
+online appointment scheduling [...]”. Innova  
+Camera, in the aforementioned report, also states  
+that CNAIPIC has indicated risks for two other  
+web resources: a chat module that is part of  
+the ISWEB application, which appears to be devoid of  
+content, and a system called Ariannaweb,  
+used for consulting the historical archive  
+of the Chamber of Commerce. These resources are  
+located on a different server from the one subject  
+to the primary attack. As a precaution, Innova
+The Chamber has arranged for the deactivation of all services and prohibited access to the server from the web"; the breach of personal data would therefore have involved "personal data (name, surname, tax code)", "contact data (email address, landline or mobile phone number)", as well as "access and identification data (username, password encrypted in MD5)"; "An application vulnerability of this CMS allowed malicious users to execute the attack and insert backdoors that enabled remote access to the system and the web server and caused the attackers to steal data from the mentioned backup database not exposed to the web, residing on the same server as the CMS subject to the breach"; "the publication on XX of the csv file, related to a backup copy of the application that manages the online appointment system of the Chamber of Commerce of Rome, resulted in the dissemination of personal data of approximately 22,300 users." 
+
+In a note dated XX, the Chamber of Commerce, in response to an information request from XX sent pursuant to Article 157 of the Code, clarified that "the password was freely chosen by the user at the time of registration. If the user wished to change the password, they could use the 'password recovery' function and receive a link at their email address." 
+
+At the conclusion of the investigation carried out, given the particular complexity of the technological profiles that emerged during the investigation, it was found that: 
+- the passwords of users registered in the appointment management system in question were stored within a file contained on the server that was the subject of the cyber attack, after using a hashing algorithm, such as the MD5 algorithm, which is not robust in cryptographic terms. The aforementioned hashing algorithm is not an effective measure to protect users' passwords as serious vulnerabilities of the MD5 algorithm have been known for several years, allowing anyone to derive, starting from a hash value, the password that generated it; 
+- the aforementioned backup copy of the personal data of users registered in the booking management service should have been deleted at the end of the application migration activities, or, in any case, within a timeframe appropriate to the need to ensure a possible restoration of data in case of malfunctions or security incidents. 
+
+Finally, in a note dated XX, the Chamber of Commerce, in response to an information request from XX by this Authority, added, in particular, that: "As for Innova Camera, which as mentioned is not a company, but a Special Company of the Chamber of Commerce, an instrumental body established pursuant to Article 2 of Law No. 580 of December 29, 1993, and subsequent amendments, and Article 21, paragraph 2, letter f) of the Chamber's Statute, the appointment as Data Processor was made as a result of the tasks assigned to it, within the institutional purposes of the Chamber, outlined in Article 3 'Activities' of the Organization Regulation"; "the breached data was not located on the institutional website, but in a database consisting of a backup copy of the application that manages the appointments which was breached as it resided on the same server where the Isweb CMS, which suffered the primary attack, was located"; "The backup copy that was the subject of the breach was created by the Special Company Innova Camera in September of XX, in an extraordinary and one-time manner, as part of a series of activities aimed at optimizing the resources present on the servers and which also included the relocation of the appointment system to a different server. [...] Although this copy was to be kept only for the period necessary to verify the functioning of the appointment system on the new server, it was not promptly deleted. In XX, as the work for the online release of the new institutional website was nearing completion, the Special Company Innova Camera had planned the transfer of information, the reconfiguration of applications, and consequently, also the deletion of all previous information, including that backup copy. Indeed, the online release of the new institutional website was scheduled for April XX. Unfortunately, the difficulties created by the onset of the health emergency forced both the Chamber and the Special Company Innova Camera, which, as mentioned, is an instrumental body of the Entity, to reschedule all priorities, limiting office presence as much as possible and concentrating efforts on ensuring the performance of institutional activities that could not be postponed to provide services to users. These circumstances inevitably caused delays that the attackers exploited for their own purposes." 
+
+With the same note, the Chamber of Commerce also produced, among other things, the act of confirmation of the appointment as data processor, pursuant to Article 28 of the Regulation, concerning the Company and the related organizational regulation. 
+
+2. The initiation of the procedure for the adoption of corrective and sanctioning measures, pursuant to Article 166, paragraph 5, of the Code. 
+
+Preliminarily, it should be noted that based on the documentation collected, it emerged that the data controller, pursuant to Articles 4, no. 7), and 24 of the Regulation, was the Chamber of Commerce of Rome, on behalf of which the Company carried out the processing, pursuant to Article 28 of the same Regulation, based on the relevant act of appointment.
+acquired in documents.  
+Therefore, in relation to the checks carried out, based on the elements acquired and the facts that emerged following the investigative activity, as well as subsequent assessments, the Office, with a note dated XX, notified the Company of the initiation of the procedure for the adoption of corrective and sanctioning measures referred to in Article 58, paragraph 2, of the Regulation, having established, in the matter at hand, the existence of violations of the relevant regulations concerning the protection of personal data. With the same note, the Company was notified of the violations committed (pursuant to Article 166, paragraph 5, of the Code), inviting it to submit defensive writings or documents and, if necessary, to request to be heard by this Authority, within a period of 30 days (Article 166, paragraphs 6 and 7, of the Code; as well as Article 18, paragraph 1, of Law 689/1981).  
+From the assessment carried out, it has been established that the violation of personal data reported to the Authority concerned personal data that "was not found on the institutional website, but in a database consisting of a backup copy of the application that manages appointments," which "the backup copy subject to violation was created by the Special Company Innova Camera in September of XX, in an extraordinary and one-time manner." In particular, "The backup copy subject to violation was created by the Special Company Innova Camera in September of XX, in an extraordinary and one-time manner, as part of a series of activities aimed at optimizing the resources present on the servers, which also included the relocation of the appointment system to a different server."  
+Specifically, it emerged that, at the time when the violation of personal data occurred, the passwords of users registered in the appointment management system were stored within a file created by the Company and contained on the server that was the subject of the cyber attack, following the use of a hashing function (MD5) that is not robust in cryptographic terms, which is not an effective measure for these purposes.  
+Furthermore, considering that the personal data subject to violation represents "a backup copy of XX of the application that manages appointments [...], which was made prior to the migration of the application itself to another server in order to optimize hardware resources," it emerged that, "Although this copy was to be kept only for the period necessary to verify the functioning of the appointment system on the new server, it was not promptly deleted."  
+On the contrary, this backup copy of the personal data of users registered in the appointment management service should have been deleted at the end of the migration activities of the application, or, in any case, within a timeframe appropriate to the need to ensure a possible restoration of data in case of malfunctions or security incidents.  
+It therefore emerges that the choices made in this case are attributable to the Company, within the sphere of discretion recognized to the data controller regarding detailed aspects concerning technical and organizational measures (in this regard, see the Guidelines 07/2020 on the concepts of data controller and data processor under the GDPR, adopted by the European Data Protection Board on July 7, 2021, specifically paragraph 40), and it is therefore established that the processing of personal data carried out by Innova Camera, with reference to the aforementioned profiles, was conducted:  
+in violation of the principle of data retention limitation (Article 5, paragraph 1, letter e), of the Regulation);  
+in violation of the principle of integrity and confidentiality (Article 5, paragraph 1, letter f), of the Regulation);  
+in violation of security obligations (Article 32 of the Regulation).  
+3. The defensive activity.  
+With a note dated XX, the Company submitted its defensive writings, stating that:  
+"Due to the aforementioned primary attack on the CMS ISWEB [...], in fact, it was possible to exfiltrate the data contained in the database which [...] was a backup copy made in XX in relation to the migration activity to the new server to avoid the risk of losing information. The copy was indeed created as part of the management activities of the chamber portal, organized by Innova Camera and aimed at optimizing the resources present on the servers. Although the migration activity had been successfully completed and therefore no anomalies had been detected that would allow for the further retention of the file for verification purposes, due to a mere oversight, the copy was not deleted. In short, cybercriminals – taking advantage of an unknown vulnerability of the application provided by ISWEB – breached the server on which – in addition to the CMS – a backup, dating back to XX, containing data related to the appointment platform was still erroneously stored";  
+"As soon as Innova Camera became aware of what had happened, it promptly activated by carrying out the following activities: a) requesting ISWEB for a detailed report on the incident; b) ordering the immediate blocking of user accounts. It should be noted that, in any case, at the time of the attack, it was not possible to exploit the hashes of the passwords found in the backup copy for access to the appointment system since the service was not active; c) immediately informing the CCIAA and its Data Protection Officer of the news learned; d) deleting the backup copy from the appointment system subject to publication; e) requesting...
+**Verification on the server regarding the presence of anomalies and modification of access keys by the supplier;**  
+f) request to Twitter for the removal of the post in addition to providing the most appropriate collaboration to the CNAIPIC during the investigative phase;  
+g) arrangement for the publication of the new website of the Chamber of Commerce and all services related to the CMS of rm.camcom.it on a new server, different from the one that suffered the attack, and conducting a manual verification of all files and databases to eliminate any anomalies;  
+
+“Following the checks, which were strictly technical in nature, the Special Company took care, on behalf of the CCIAA, to inform the affected parties of what had happened by sending, on XX date, an email to each of the 22,334 affected individuals regarding the personal data breach, also providing a contact point to manage all possible requests for clarification. Specifically, it is noted that some affected individuals submitted requests for clarification that were promptly addressed. A few days later, following a request for information directed by this Authority to the CCIAA, which believed that the communication to the affected parties should be supplemented, Innova Camera proceeded to send each affected individual an additional communication containing the recommendation not to use the compromised password anymore and to change the access credentials to any other online service if they were identical or similar to those that were breached.”  
+
+With reference, furthermore, to the specific observations made by the Office regarding compliance with the regulations on personal data protection, the Company noted the following:  
+on the violation of the principle of data retention limitation (art. 5, par. 1, lett. e), of the Regulation): “the file was still residing on the server that was breached due to human error since, although the migration to the new server was completed without any malfunction, the backup copy was not removed. The copy in question had indeed been created in an extraordinary manner and should have been deleted after verifying the correct migration activity and therefore before the full application period of the GDPR”;  
+on the violation of the principle of integrity and confidentiality (art. 5, par. 1, lett. f), of the Regulation): “although it was a copy that should have been deleted, it was not accessible to the website users but only to the administrators as it was present on the server and not exposed on the web. Unfortunately, the attack directed at the ISWEB CMS also involved the file containing user data since the attackers, after stealing the access credentials to an administrative account of ISWEB, inserted backdoors that allowed remote access to the system and the webserver”;  
+“Regarding the MD5 hashing algorithm, […] the appointment system dates back to XX, a time prior to the entry into force of the European data protection regulation. According to the assessments made at that time, the algorithm in question was considered a valid password obfuscation mechanism. […] On the other hand, the correct assessment is that made ex ante in concrete terms and not ex post, as otherwise, in the presence of a breach, every choice would necessarily be deemed inadequate. In any case, it is also specified that the new appointment system, in compliance with the principle of data minimization, has been designed in such a way as not to require any authentication.”  
+on the violation of security obligations (art. 32 of the Regulation): “In this regard, it is specified that the undersigned Special Company, following the full application of the European data protection regulation, proposed […] the implementation of a higher level of protection on the servers through a hardware firewall. Consequently, the Fortinet Fortigate 30E firewall was installed.”  
+
+With reference to the evaluation elements referred to in art. 83, par. 2, of the Regulation, the Company highlighted that:  
+“the data subject to the breach are of a common nature […] and […] refer to 22,334 individuals who booked an appointment on the rm.camcom.it website”;  
+the conduct is of a “culpable nature […] as it was a human error, since the backup should have been removed after verifying the correct migration activity and therefore before the full application of the GDPR”;  
+“immediately following the incident and with the aim of mitigating the consequences of the breach, Innova Camera requested Twitter to remove the post and simultaneously requested ISWEB S.p.A. to block all accounts”;  
+“Innova Camera, on behalf of the Chamber of Commerce, promptly activated by sending a new communication to all individuals involved in the personal data breach containing the recommendation not to use the compromised password anymore and to change the access credentials to any other online service if they were identical or similar to those that were breached”;  
+“the breach did not concern ‘special’ categories of data or data ‘related to criminal convictions and offenses’ but rather personal data (name, surname, tax code), contact data (email address, landline or mobile phone number), and access and identification data (username and password hash)”;  
+“Innova Camera, in its capacity as data controller for the CCIAA, promptly…”
+contacted ISWEB S.p.A. as soon as it became aware of the publication of the tweet beforehand and the communication from CNAIPIC shortly thereafter. […] Innova Camera also informed the CCIAA of the incident promptly on the same XX and with a written report the following day, providing maximum cooperation in managing the incident and in preparing/sending the respective communications to the Authority and to the interested parties”; it had sent a specific communication to the interested parties in order to make “an additional recommendation to the interested parties regarding the modification of access credentials.” Finally, during the hearing held via videoconference on XX, the Company, in addition to reiterating what had already been stated in the documents, specified, in particular, that: “The Company considers itself a victim of a criminal cyber attack […] before the migration process to a new infrastructure was completed, initially scheduled for April XX and not carried out by that date also due to the emergency period on the epidemiological front”; “the file containing such personal data was not intended for publication and the passwords contained therein were protected with cryptographic techniques, the robustness of which must be evaluated with reference to the time when they were adopted (XX) and when the aforementioned backup was made (XX)”; “in the approximately two years since the event, no reports, citations, or requests for damages have been received from the interested parties.”  
+4. The regulations regarding personal data protection.  
+Preliminarily, it is noted that, although the conduct subject to investigation by this Authority began before the date of full application of the Regulation (September XX, the date of creation of the backup copy subject to violation), for the purpose of determining the applicable norm from a temporal perspective, the principle of legality referred to in Article 1, paragraph 2, of Law No. 689 of November 24, 1981 must be invoked, which, in providing that “Laws that provide for administrative sanctions apply only in the cases and times considered therein,” asserts the recurrence of the principle of tempus regit actum. The application of this principle imposes the obligation to take into account the provisions in force at the time of the committed violation. In the case at hand, this moment—considering the permanent nature of the contested conduct—must be identified at the moment of cessation of the unlawful conduct, which from the documents of the investigation appears to have lasted at least until June XX, that is, at a time subsequent to May 25, 2018, the date on which the Regulation became fully applicable.  
+Having said that, it is highlighted that the personal data subject to processing must be kept in a form that allows the identification of the interested parties for a period not exceeding that necessary to achieve the purposes for which they are processed (principle of data retention limitation, as per Article 5, paragraph 1, letter e), of the Regulation); moreover, the data controller and the data processor are required to adopt appropriate technical and organizational measures to ensure a level of security appropriate to the risk, taking into account the state of the art and the costs of implementation, as well as the nature, subject matter, context, and purposes of the processing, as well as the risk of varying probability and severity for the rights and freedoms of natural persons (principle of integrity and confidentiality and security obligations, as per Articles 5, paragraph 1, letter f), and 32 of the Regulation).  
+With reference to the figure of the data processor, Article 28 of the Regulation establishes, in particular, that “Processing by a processor shall be governed by a contract or other legal act under Union or Member State law, which binds the processor to the controller and which stipulates the subject matter and duration of the processing, the nature and purpose of the processing, the type of personal data and categories of data subjects, the obligations and rights of the controller. The contract or other legal act provides, in particular, that the processor: […] c) shall implement all measures required pursuant to Article 32; […] f) shall assist the controller in ensuring compliance with the obligations laid down in Articles 32 to 36, taking into account the nature of the processing and the information available to the processor; […]” (paragraph 3).  
+5. Outcome of the investigative activity.  
+In general terms, the arguments put forward in the defense writings, although deserving of consideration, do not allow for overcoming the observations notified by the Office with the initiation of the procedure and are insufficient to allow for the closure of the present procedure against the Company, as none of the cases provided for in Article 11 of the Garante Regulation No. 1/2019 on internal procedures with external relevance apply.  
+With reference to the specific observations made in the initiation of the procedure aimed at adopting corrective and sanctioning measures, regarding what was argued by the Company, the following is noted: on the violation of the principle of data retention limitation (Article 5, paragraph 1, letter e), of the Regulation): the Company itself confirmed the no longer necessary retention of the personal data of the interested parties related to the appointment management service within the backup copy.
+been characterized by the presence of significant vulnerabilities in the hashing function used, which could allow unauthorized access to sensitive data. 
+
+6. Conclusions.  
+In light of the overall assessments mentioned above, the statements made by the Company in its defense writings and during the hearing, although deserving of consideration for the evaluation of conduct, do not allow for overcoming the main objections notified by the Office with the initiation of the procedure for the adoption of measures referred to in Article 58, paragraph 2, of the Regulation and are insufficient to allow for the closure of this procedure, as none of the cases provided for in Article 11 of the Garante Regulation No. 1/2019 apply.  
+In this context, confirming the objections notified by the Office with the note of XX, it is noted that, in the case at hand, Innova Camera has committed a violation of:  
+a) the principle of data retention limitation as per Article 5, paragraph 1, letter e), of the Regulation, concerning the retention of personal data of users registered for the booking management service;  
+b) the principle of integrity and confidentiality and the security obligations under Articles 5, paragraph 1, letter f), and 32 of the Regulation, concerning the methods of storing users' passwords.  
+In this context, considering that measures have been adopted to address the aforementioned issues, the prerequisites for the adoption of corrective measures under Article 58, paragraph 2, of the Regulation do not exist.
+
+7. Adoption of the injunction order for the application of the administrative pecuniary sanction and accessory sanctions (Articles 58, paragraph 2, letter i), and 83 of the Regulation; Article 166, paragraph 7, of the Code).  
+In this case, the Company Innova Camera appears to have violated Article 5, paragraph 1, letter e), of the Regulation, concerning the retention of personal data of users registered for the booking management service, as well as Articles 5, paragraph 1, letter f), and 32 of the Regulation, concerning the methods of storing users' passwords, resulting in the application of administrative pecuniary sanctions, the amount of which must be determined taking into account the elements provided for in Article 83, paragraph 2, of the Regulation.  
+In this regard, Article 83, paragraph 3, of the Regulation is deemed applicable, according to which if, in relation to the same processing or related treatments, a data controller violates, with intent or negligence, various provisions of the Regulation, the total amount of the administrative pecuniary sanction does not exceed the amount specified for the most serious violation (as per Article 83, paragraph 5, of the Regulation), thus absorbing the other less serious violations.  
+Therefore, the aforementioned violations are to be classified, pursuant to Article 83, paragraph 3, of the Regulation and Article 166, paragraph 2, of the Code, within the scope of the sanction provided for the aforementioned violation, with consequent application of the sanction provided for in Article 83, paragraph 5, of the Regulation.  
+With specific regard to the nature and severity of the violations, as well as the degree of responsibility of the controller and the categories of personal data involved (Article 83, paragraph 2, letters a), d), and g), of the Regulation), it must be considered that the incident originated from access to a backup copy that was no longer necessary to retain and has...
+**Regarding the personal data and contact details of users registered for the reservation management service.**  
+Furthermore, it should be noted that serious vulnerabilities have long been known that allow anyone to derive the password from a hash value, and that, therefore, secure storage using state-of-the-art cryptographic techniques remains one of the commonly adopted measures to protect the passwords of users of an online service.  
+In light of these circumstances, it is believed that, in this specific case, the level of severity of the violations committed by the Company Innova Camera is medium (Guidelines 04/2022 on the calculation of administrative fines under the GDPR, adopted by the Committee on May 23, 2023, point 60).  
+In favor of the data controller, it should still be considered, pursuant to Article 83, paragraph 2, letters b), c), e), and f), of the Regulation, that the violation related to the retention of personal data of users registered for the reservation management service is attributable to human error and that the Company – in relation to which no previous relevant violations have been detected – promptly took action to mitigate the consequences of the personal data breach, requesting the blocking of accounts and the removal of data published online, and provided its cooperation to the data controller, and, in the context of cooperation with the Authority, sent an additional recommendation to the affected parties in order to remedy the violation and mitigate its possible negative effects.  
+In light of the aforementioned elements, assessed as a whole, and the ordinary operating balance of the Company, it is deemed appropriate to determine, as an administrative pecuniary sanction considered, pursuant to Article 83, paragraph 1, of the Regulation, effective, proportionate, and deterrent, the amount of the pecuniary sanction:
+
+- in the amount of €10,000 (ten thousand) for the violation of Article 5, paragraph 1, letter e), of the Regulation;  
+- in the amount of €15,000 (fifteen thousand) for the violation of Articles 5, paragraph 1, letter f), and 32 of the Regulation.  
+
+It is therefore deemed necessary to determine the total amount of the pecuniary sanction imposed on the Company Innova Camera in the amount of €25,000 (twenty-five thousand) in relation to the totality of the previously described violations.  
+Considering that the violations committed allowed access and exfiltration of personal data of a large number of affected parties, subsequently published on the web, it is also believed that the accessory sanction of publication on the website of the Authority of this provision should apply, as provided for by Article 166, paragraph 7, of the Code and Article 16 of the Authority's Regulation No. 1/2019.  
+Finally, it is noted that the conditions of Article 17 of the Authority's Regulation No. 1/2019 are met.  
+
+**ALL OF THE ABOVE CONSIDERED, THE AUTHORITY**  
+having noted the unlawfulness of the conduct of Innova Camera – Special Company of the Chamber of Commerce, Industry, Handicrafts, and Agriculture of Rome for Innovation, described in the terms set forth in the motivation, consisting of the violation of Articles 5, paragraph 1, letters e) and f), and 32 of the Regulation;  
+
+**ORDERS**  
+Innova Camera – Special Company of the Chamber of Commerce, Industry, Handicrafts, and Agriculture of Rome for Innovation, represented by the legal representative pro tempore, with registered office at Via de' Burrò, 147, 00186 Rome (RM), Tax Code 10203811004, to pay the sum of €25,000 (twenty-five thousand) as an administrative pecuniary sanction for the violations indicated in the motivation. It is stated that the offender, pursuant to Article 166, paragraph 8, of the Code, has the option to settle the dispute by paying, within 30 days, an amount equal to half of the imposed sanction;  
+
+**ORDERS**  
+Innova Camera – Special Company of the Chamber of Commerce, Industry, Handicrafts, and Agriculture of Rome for Innovation, in case of failure to settle the dispute pursuant to Article 166, paragraph 8, of the Code, to pay the sum of €25,000 (twenty-five thousand) according to the methods indicated in the annex, within 30 days from the notification of this provision, under penalty of the adoption of subsequent enforcement actions in accordance with Article 27 of Law No. 689/1981;  
+
+**DISPOSES**  
+pursuant to Article 166, paragraph 7, of the Code, the publication of this provision on the website of the Authority, believing that the conditions of Article 17 of the Authority's Regulation No. 1/2019 are met.  
+Pursuant to Article 78 of the Regulation, Articles 152 of the Code, and Article 10 of Legislative Decree No. 150 of September 1, 2011, it is possible to appeal against this provision before the ordinary judicial authority, under penalty of inadmissibility, within thirty days from the date of communication of the provision itself or within sixty days if the appellant resides abroad.  
+
+Messina, April 11, 2024  
+THE PRESIDENT  
+Stanzione  
+THE REPORTER  
+Stanzione  
+THE SECRETARY GENERAL  
+Mattei

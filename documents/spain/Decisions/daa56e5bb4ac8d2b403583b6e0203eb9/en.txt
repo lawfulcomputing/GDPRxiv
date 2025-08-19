@@ -1,0 +1,383 @@
+1/19  
+  
+File No.: EXP202309170  
+RESOLUTION FOR FILING OF ACTIONS  
+From the actions carried out by the Spanish Agency for Data Protection and based on the following  
+
+FACTS  
+FIRST: On 03/11/2021, the AEPD received a communication from the National Commission on Markets and Competition (CNMC) which includes the “Agreement by which the actions carried out regarding possible fraudulent uses of the Supply Points Information System (SIPS)” approved by the Regulatory Supervision Chamber of the CNMC. The CNMC conveys the results of the actions carried out in its supervisory role over the retail electricity and natural gas market, concerning possible fraudulent uses of the SIPS by marketing agents and other companies that are not agents of the electricity and gas systems, totaling 18 commercial entities. The CNMC, while analyzing its possible response to the detected cases in order to correct this situation, forwards them to the Agency for its information and so that, in the exercise of its functions, it may carry out the actions it deems appropriate from the perspective of data protection regulations, to the extent that supply points owned by individuals may be affected.  
+The CNMC has detected 4 distinct cases of possible fraud:  
+• CASE ONE.- Indications of marketing or use of SIPS data through advertisements on websites or information sent to the CNMC, in 7 entities, mostly non-energy marketers.  
+• CASE TWO.- Among the agents who download the complete SIPS electricity database monthly, there are 3 marketers that manage few or no supply points.  
+• CASE THREE.- There are indications of possible use not in accordance with the purpose of the SIPS in the analysis of data obtained from individual queries of authorized marketers through API, as they present a very high number of queries, significantly exceeding the volume of switching operations recorded over a specific period of time, and even the number of supply points that are part of their client portfolio. The high number of different IP addresses used by some marketers is also noteworthy. An Excel file accompanying the Annex includes information on the relationship of IP addresses of 7 marketers, with the number of queries made, which, due to its high volume, could indicate possible communication and/or marketing of the information contained in the SIPS, or the use of OAuth credentials for access to the SIPS by third parties.  
+C/ Jorge Juan, 6  
+www.aepd.es  
+28001 – Madrid  
+sedeagpd.gob.es
+2/19  
+• CASE FOUR.- It has been discovered that a marketer is using information from the SIPS in automated web contracting procedures, which allows any user of the tool to know, among other data, partial information of the CUPS associated with a consumer's address along with their contracted power.  
+On March 31, 2022, the director of the AEPD agrees to initiate an ex officio investigation to gather the necessary evidence to ascertain whether actions contrary to personal data protection regulations have occurred, taking into account the broad scope of the allegations raised by the CNMC and the need to align it with the capabilities and resources available to the AEPD.  
+On July 5, 2023, the Director of the AEPD agrees to initiate investigative actions covering the third of the scenarios described by the CNMC, namely, the anomalous activity of marketers in their authorized access to the SIPS, by the number of queries or multiplicity of originating IP addresses, which could indicate the commercialization of data or the use of credentials by third parties, focusing on the entity INTEGRACION EUROPEA DE ENERGIA, S.A. with CIF A74340464 (hereinafter INTEGRA).  
+SECOND: In view of the facts, in the preliminary investigation phase, the Inspection Services of this Agency have become aware of the following facts reflected in the Preliminary Inspection Report:  
+Situation noted by the CNMC  
+- In a letter dated October 28, 2021, the Regulatory Supervision Room of the CNMC informs this Agency of possible cases of fraudulent use detected during its supervision of the retail electricity and natural gas market.  
+In the context of the third of the scenarios described, the CNMC notes, in the analysis of the data obtained from individual queries by marketers in their authorized access to the CNMC's web service API, indications of possible use not in accordance with the purpose of the SIPS, as evidenced by a high number of requests and different IP addresses used by some marketers. The CNMC points out that INTEGRA.  
+This electricity marketer (code R2-469) made 96,285 queries from 4 different IP addresses during the study period, and its switching was 2,188 supply points. In July 2021, it managed 23,157 electricity supply points.  
+Additionally, the CNMC provides an Excel document, which includes information on the relationship of INTEGRA's IP addresses with the number of requests made through the CNMC's web service API during the second quarter of 2021.  
+- On June 28, 2022, in the context of the investigation actions (...) the CNMC provides this Agency with the official letter, dated March 9, 2022, in which it requests INTEGRA to clarify the individual queries made during the year 2021, and the letter from INTEGRA, dated March 25, 2022, responding to the questions raised by the CNMC.  
+• Response from INTEGRA  
+I. Operation of the system  
+(...).  
+(...):  
+o  
+(...).  
+o  
+(...):  
+  
+(...).  
+  
+(...).  
+  
+(...).  
+  
+(...).  
+That is, the double query, for data and consumption, is always launched, as indicated.  
+In these individual queries, if none of the operations has returned data (i.e., the CNMC has no data for that CUPS or the loading process has resulted in an error), the systems are allowed to re-query the information for that CUPS as many times as deemed appropriate, meaning that the absence of data is not stored in this cache as a valid value to avoid successive queries against the CNMC's individualized API.  
+(...).  
+General Considerations:  
+Regarding the mention of 71 complete downloads of the files. Without intending to doubt the information provided by this Agency in the first point of its official letter, we find the figure of 71 complete downloads of the files in a year to be excessive, given that the approximate loading time of these files in our systems is five days, and the process requires considerable supervision and temporal extension of our resources (servers and database servers) with the associated cost, so the figure indicated does not really align with our established standards.  
+Regarding the reference to queries from different IPs. In this regard, as mentioned, operations are only carried out either from the fixed IPs of the central offices of the reporting entity or from the IP of the devices of its development managers, or in the case of individual queries from the machine (server), being in this case the IPs variable, but the queries are always launched from the same machine (server), owned by the reporting entity and hosted, as mentioned, in AWS.  
+Regarding the increase in individual queries in July 2021. In this regard, it should be noted that, due to the change in tariffs that occurred in June 2021, one of the actions undertaken by the reporting entity was the re-profiling of consumption.  
+C/ Jorge Juan, 6  
+www.aepd.es  
+28001 – Madrid  
+sedeagpd.gob.es
+4/19  
+Schedule of all CUPS managed by the same regarding the SIPS for its demand calculation program for the management of purchases from the Market Operator.  
+Within this context, the regulatory change resulted in such a workload for our development department that it was not possible for it to manually load the complete database of the SIPS, due to the aforementioned reason that manual downloading and loading into our systems takes five days, with continuous supervision to ensure that no errors occur. For this reason, it was decided to launch the queries of the CUPS against the API, as individual queries, sequentially in a short period of time, which led to the "blocking" of the IP of the machine (server) where the SIPS query service (previously mentioned) is hosted, prompting email communication with … to resolve said blockage.  
+(...)  
+Once the information was received, action was taken accordingly, and the method of querying was modified, without receiving further communications in this regard, until the present request. However, in light of such communication, to ensure that no extra or uncontrolled requests are made, a logging service for the requests made through the individual API has also been implemented.  
+Regarding the implementation of a monitoring system for queries. As mentioned, this situation led to the decision to control the individualized queries that would be launched from our systems, through the implementation of a monitoring system, which has been active since July 28, 2021. We can confirm that based on our information from that date to the present, the individual queries recorded as launched by this party amount to 90,745, highlighting that many of them are repeated for the same CUPS, either for the previously explained reason related to whether the CUPS should be identified with 20 or 22 digits, due to the absence of information, for the renewal of consumption information, etc.  
+Regarding the provision of services carried out by the undersigned to other marketers. In addition to the marketing activity, Integra Energía has as an activity the provision of services to other marketers, which may include their representation in the market, the management of purchases from the Operator, which may include the estimation of purchases, and billing to end customers. For these reasons, the undersigned can carry out the previously reported queries for the calculation of purchases and for billing to the customers of said marketers, if applicable.  
+Response to the question(s) raised in Point I:  
+Use of the downloaded information or its destination. The SIPS query is used:  
+- For the calculation of demand for energy purchases. In order to prepare the demand forecast for the customer portfolio, the program developed for this purpose uses the latest available consumption data of each Supply Point as a reference. This demand forecast is calculated for each day and for the 24 hours of the day.  
+C/ Jorge Juan, 6  
+www.aepd.es  
+28001 – Madrid  
+sedeagpd.gob.es
+5/19  
+(...)  
+  
+For billing. According to the billing system developed, if on the date of issuing the invoice for each CUPS, the system checks whether there is an XML from the distributor for the billing period and, if not, it queries the machine (browser) where the information of the complete file downloads is stored. As mentioned, if the information regarding the CUPS to be billed is not updated, according to the established criteria, this machine automatically launches the individual query, providing the system with the obtained information so that the billing program can use it for calculating the energy to be billed. Again, there is no specific "person" accessing this information; it is only made available, in this case, to the program intended for billing. We must highlight a particularity that occurred in 2021, which is that the program not only drew from the information of 2020 but also included that of 2019 in order to take into account the impact of changes in customer consumption habits due to the pandemic, so that this would not affect billing and to attempt to be as precise as possible in the calculations of the invoices.  
+  
+For the preparation of offers, power studies, or tariff changes. Based on the obligation of every marketer to inform and advise consumers about the most suitable tariff and power to contract according to their needs, the possibility opens up for the assigned marketer to consult the customer's consumption through the internal system, with the aim of conducting these power studies, tariff changes, or new offers. In this way, if the system has these updated data, it shares them; otherwise, it would launch the individual query as previously reiterated.  
+Reasons for the number of queries. While this is already implied by what has been stated so far, we will differentiate between complete downloads of the files and individual queries.  
+  
+Complete downloads: As we have said, for this part, it would be truly burdensome to perform 71 complete downloads of the files and their upload into our system over the course of a year, as each one would take 5 days, which would result in a constant process of downloading/uploading, something unmanageable for the undersigned. Without the intention of reiterating, the complete download of the files is performed every 3-4 months solely to keep the information updated.  
+  
+Individual queries: This party understands that the possible disproportionate increase in the number of queries originates from those processes where, due to a lack of time or resources to undertake complete downloads of the files at specific moments, queries were launched through the API. This was fundamentally caused by the adaptation of all our processes to the modification of tariffs, which has stressed our activity in the development department due to the multiple actions to be carried out. It is worth mentioning that the modification of the tariffs involved the reshaping of the consumption of all CUPS, aimed at feeding our purchase calculation system, which, as mentioned, was attempted to be carried out through this system of individualized queries.  
+Evidence that the increase has been punctual is that, as derived from our repeated monitoring system of the queries, from July 28, 2021, to the present, only 90,745 queries have been made, and of these, we estimate that about 12,000 may correspond to repeated queries about CUPS, in turn repeated, due to failure in the first attempt, either due to an error in the request (incorrect CUPS, for example), in the process (system crash, for example), or in the result (no information, for example). Figures that are far from the limit of queries/hour that had been communicated to us.  
+II   Code of Conduct  
+The Ethical Code developed in the context of the implementation of Criminal Compliance in 2017 is provided. INTEGRA states:  
+Although we are currently in the process of updating both the implementation of Criminal Compliance and the Code of Conduct/Ethics in light of the commitments to society that are being acquired, related to sustainability, efficiency, and renewable energies, among others. Notably, the undersigned has recently obtained the AENOR certificate for Sustainability Strategy and Contribution to the SDGs 2030, which "obliges" it to adapt its Code of Conduct to the new situation and commitments, which is in the process of implementation, and of which complete information will be provided in a short period of time.  
+Confidentiality Guarantees  
+As we say, complete downloads of the files are only performed manually by the responsible employees of the undersigned's development department, employees who sign a confidentiality commitment.  
+(...)  
+Regarding the information from individual queries, as mentioned, it is used to include it either in the calculations for the purchase of energy or for billing, if necessary, so these are queries that the system directly launches if it detects that the information being used for this purpose is considered outdated, without exclusive use of the information by these cases.  
+C/ Jorge Juan, 6  
+www.aepd.es  
+28001 – Madrid  
+sedeagpd.gob.es
+7/19
+part of a specific person, although all our employees sign the attached confidentiality commitment.
+In the case of inquiries about potential clients for whom information from the SIPS may be specifically requested for the aforementioned purposes of offering consumers the most suitable rate and power for their needs, the system requires the applicant to provide the CUPS for which the information is needed, although those sales representatives who may receive the report on consumption in order to prepare the offer also sign the same confidentiality commitment.
+Likewise, external sales representatives assume their confidentiality commitment and sign a Data Processing Agreement, in order to safeguard the data to which they have access in the performance of their duties.
+(…) 
+Measures have been implemented, among others, both organizational and technical, applied to the personal data for which the speaker is responsible for processing:
+
+(…).
+
+(…).
+
+(…).
+
+(…).
+
+(…).
+
+(…).
+
+(…).
+
+(…).
+
+(…).
+
+(…).
+
+(…).
+
+(…).
+Regarding the technical security measures, the following measures are currently in place:
+o
+(…).
+o
+(…).
+o
+(…).
+o
+(…).
+o
+(…).
+o
+(…).
+o
+(…).
+C/ Jorge Juan, 6
+www.aepd.es
+28001 – Madrid
+sedeagpd.gob.es
+
+8/19
+o
+(…).
+o
+(…).
+o
+(…).
+o
+(…).
+o
+(…).
+o
+(…).
+o
+(…).
+o
+(…).
+o
+(…).
+o
+(…).
+o
+(…).
+o
+(…).
+o
+(…).
+o
+(…).
+o
+(…).
+o
+(…).
+o
+(…).
+o
+(…).
+o
+(…).
+o
+(…).
+o
+(…).
+o
+(…).
+o
+(…).
+o
+(…).
+o
+(…).
+o
+(…).
+o
+(…).
+o
+(…).
+o
+(…).
+III. It is denied that the information obtained from the SIPS is shared or transferred to third parties outside the organization of the speaker.
+(…)
+Regarding the IP addresses identified by the CNMC
+C/ Jorge Juan, 6
+www.aepd.es
+28001 – Madrid
+sedeagpd.gob.es
+
+9/19
+In relation to the IP addresses of INTEGRA identified by the CNMC with the number of inquiries made during the second quarter of 2021, the investigation actions proceed to identify the internet service provider through the website of the Regional Internet Coordination Center for Europe, Diligence IPs, obtaining the following results:  
+IP
+Internet Service Provider
+***IP.1
+-
+***IP.2
+Nostravant S.L.L.
+***IP.3
+Orange S.A.
+***IP.4
+Orange S.A.
+For the IP address ***IP.1, the results are provided by the Regional Internet Registry for America, ARIN.
+- Nostravant is requested for the identifying data and address of the holder of the assignment of IP ***IP.2 on the dates provided by the CNMC.
+In its response, Nostravant states:
+(…)
+SECOND. – It is to be stated that the holder of the IP address is the company NOSTRAVANT.
+As for the user of the IP address, they are a client of one of the Franchises of the AKIWIFI brand (owned by NOSTRAVANT).
+The mentioned Franchise (Franchise SIERO AKIWIFI) is called JOLROM TELECOM, S.L. with NIF B74431503 and address at (...) FRESNEDA (LUGONES), ASTURIAS.
+The company NOSTRAVANT operates under the AKIWIFI brand throughout the national territory through direct provision by our company and through franchises in certain localities/provinces of Spain.
+(…)
+THIRD. – For the purpose of identifying the user of the IP address during the communicated time ranges, these are as follows:
+A.A.A.
+(…) 
+- On the dates 09/02/2024 and 23/04/2024, data is requested from Orange regarding the identifying details and address of the current holder of the assignment of the IP addresses listed in the previous table that correspond to them, as well as the date on which that holder...
+10/19  
+acquired. On 26/02/2024 and 08/05/2024, the response was received at the electronic headquarters of the AEPD, where it states:  
+(...)  
+Given that in the context of the investigation proceedings (...) Orange indicates that its computer system has a limited storage time of twelve months according to Law 25/2007, of October 18, on the retention of data related to electronic communications and public communications networks, the request is not reiterated informing of the connection dates of the IP addresses corresponding to the second quarter of 2021.  
+
+Regarding the procedure used by the CNMC for the management of the SIPS  
+In the context of (...) this Agency requests the following information from the CNMC:  
+The CNMC does not exclusively authorize one person for access. The representative of the marketer guarantees that compliance with data protection regulations will be ensured, but does not assume that the download must be done personally by him. The APPLICANT can access and upload the databases using their Digital Certificate, but the CNMC also provides a pair of keys so that the company's personnel, using computer systems, can perform the query automatically.  
+(...)  
+In summary, access to the download of the databases can be carried out directly by the company's personnel, respecting data protection regulations. However, the possible relationships that exist between the marketer and the IT service company managing its databases and the presumed data processing assignments (in the sense given to them by the GDPR) and confidentiality agreements signed between both remain within the scope of data protection.  
+
+Regarding INTEGRA's access to the CNMC web service  
+In the context of the investigation proceedings, INTEGRA is requested to provide information regarding access to the CNMC service API during the year 2021. On 22/03/2024, the response was received at the electronic headquarters of the AEPD.  
+On 01/04/2024, INTEGRA was requested to expand the information provided, and on 12/04/2024, the response was received at the electronic headquarters of this Agency.  
+The most relevant aspects of the information provided are summarized below:  
+- It is certified that INTEGRA requests registration in the database of supply points (SIPS) from the CNMC.  
+- INTEGRA indicates that during the year 2021, particularly during the second quarter of 2021, there were three authorized users to access the CNMC web service API, all of whom are members of the development team for INTEGRA's testing and, therefore, employees of the company. The three authorized users are identified, and it is specified that the devices from which they access are owned by INTEGRA.  
+- INTEGRA states that during the second quarter of 2021, it had contracts with the following internet service providers:  
+o  
+(...)  
+C/ Jorge Juan, 6  
+www.aepd.es  
+28001 – Madrid  
+sedeagpd.gob.es  
+
+11/19  
+o  
+(...)  
+(...)  
+Regarding the IP address ***IP.2, INTEGRA states that it does not belong to it and that neither in its files nor in its systems are the data of the holder of the IP address identified by NOSTRAVANT in the context of the present investigation proceedings.  
+- In relation to the blocking of access to the SIPS for INTEGRA by the CNMC, INTEGRA states:  
+Due to a regulatory change in June 2021, all electricity marketers had to adapt to the new rates, and for this, one of the actions undertaken by the undersigned was the re-profiling of the hourly consumption of all CUPS managed by it, regarding the SIPS, for its energy demand calculation program for managing the purchase of energy from the Market Operator. Within this context, the regulatory change resulted in such a workload for our development department that it was not possible for it to manually load the complete SIPS database, due to the fact that the manual download of the entire database in a single request and its loading into our systems takes five days, with continuous supervision to avoid errors. For this reason, it was decided to launch the queries for the CUPS against the individual query API made available by the CNMC, sequentially in a short period of time, hence the high number of them, considering that two must be made for each CUPS, differentiating one on the data and another on the consumption. This method of querying, individually for each CUPS, is what led to the high number and, surely, to the "blocking" of the IP of the machine (server) where the own SIPS query service is hosted, prompting the email conversation with ... to resolve this blockage.  
+It is noted on the CNMC website, https://www.cnmc.es/la-nueva-factura-de-la-luz, that starting from 01/06/2021, the new structure of the electricity bill applies. In compliance with European regulations, the separation of the rate into two components: tolls and charges is introduced. New Tariff Diligence.  
+The email that INTEGRA received from the CNMC on 28/07/2021, the date on which the blockage occurred, is provided.  
+INTEGRA adds that, once the information was received, it modified the way of querying without receiving further communications regarding this and implemented a logging service for the requests made through the individual API, as already reported in its response to the CNMC dated 25/03/2022.  
+
+LEGAL GROUNDS  
+C/ Jorge Juan, 6  
+www.aepd.es  
+28001 – Madrid  
+sedeagpd.gob.es
+12/19  
+I  
+Competence  
+In accordance with the functions conferred upon each supervisory authority by Article 57.1 a), f), and h) of Regulation (EU) 2016/679 (General Data Protection Regulation, hereinafter GDPR) and as provided in Articles 47 and 48.1 of Organic Law 3/2018, of December 5, on the Protection of Personal Data and Guarantee of Digital Rights (hereinafter LOPDGDD), the Director of the Spanish Data Protection Agency is competent to resolve these investigative proceedings.  
+Furthermore, Article 63.2 of the LOPDGDD states: "The procedures processed by the Spanish Data Protection Agency shall be governed by the provisions of Regulation (EU) 2016/679, this organic law, the regulatory provisions issued for its development, and, in so far as they do not contradict them, subsidiarily by the general rules on administrative procedures."  
+
+II  
+Case Analysis  
+1. Article 6 of the GDPR, under the heading "Lawfulness of processing," details in its paragraph 1 the circumstances under which data processing is considered lawful:  
+“1. Processing shall be lawful only if it meets at least one of the following conditions:  
+a) the data subject has given consent to the processing of their personal data for one or more specific purposes;  
+b) processing is necessary for the performance of a contract to which the data subject is party or in order to take steps at the request of the data subject prior to entering into a contract;  
+c) processing is necessary for compliance with a legal obligation to which the controller is subject;  
+d) processing is necessary to protect the vital interests of the data subject or of another natural person;  
+e) processing is necessary for the performance of a task carried out in the public interest or in the exercise of official authority vested in the controller;  
+f) processing is necessary for the purposes of the legitimate interests pursued by the controller or by a third party, except where such interests are overridden by the interests or fundamental rights and freedoms of the data subject which require protection of personal data, in particular when the data subject is a child.  
+The provision in point f) of the first paragraph shall not apply to processing carried out by public authorities in the performance of their tasks.”  
+
+C/ Jorge Juan, 6  
+www.aepd.es  
+28001 – Madrid  
+sedeagpd.gob.es  
+
+13/19  
+The GDPR also establishes in Article 5 the principles that must govern the processing of personal data, and in its paragraph 1 states that:  
+“1. Personal data shall be:  
+a) processed lawfully, fairly, and in a transparent manner in relation to the data subject (<<lawfulness, fairness, and transparency>>).  
+(…)”  
+And in its paragraph 2, it establishes that:  
+“2. The controller shall be responsible for compliance with the provisions of paragraph 1 and shall be able to demonstrate compliance (<<accountability>>).”  
+Therefore, all processing of personal data must respect the principles that govern it, as listed in Article 5.1 of the GDPR, including the principle of lawfulness, which is further developed in Article 6.1 of the GDPR.  
+From what is stated in this last provision, it follows that data processing requires the existence of a legal basis that legitimizes it, and in accordance with it, in addition to consent, there are other possible bases that legitimize data processing without the need for the authorization of its owner, in particular, when it is necessary for the performance of a contract to which the affected party is a party or for the application, at their request, of pre-contractual measures, or when it is necessary for the satisfaction of legitimate interests pursued by the controller or by a third party, provided that such interests are not overridden by the interests or fundamental rights and freedoms of the affected party which require the protection of such data. Processing is also considered lawful when it is necessary for compliance with a legal obligation applicable to the controller, to protect the vital interests of the affected party or of another natural person, or for the performance of a task carried out in the public interest or in the exercise of official authority vested in the controller.  
+
+2. Regarding energy marketers, both access to and processing of personal data contained in the SIPS find their legitimacy in point e) of Article 6.1 of the GDPR:  
+“(…)  
+e) processing is necessary for the performance of a task carried out in the public interest or in the exercise of official authority vested in the controller.”  
+(…)”  
+According to Article 6.1.f) of Law 24/2013, of December 26, on the Electricity Sector:  
+C/ Jorge Juan, 6  
+www.aepd.es  
+28001 – Madrid  
+sedeagpd.gob.es
+14/19  
+“f) The marketers, which are those commercial companies or consumer and user cooperative societies that, accessing the transport or distribution networks, acquire energy for sale to consumers, to other subjects of the system, or to carry out international exchange operations under the terms established in this law. The procedure and requirements to be a reference marketer will be established by regulation.”  
+Therefore, to carry out the marketing activity, interested parties must communicate the initiation of activity, specifying the territorial scope in which the activity will be developed, to the General Directorate of Energy Policy and Mines of the Ministry of Energy, Tourism, and Digital Agenda. This communication must be submitted accompanied by a responsible declaration regarding compliance with the requirements for carrying out the activity. The General Directorate of Energy Policy and Mines forwards the communication made by the interested party to the CNMC, which publishes it on its website and maintains an updated list of all marketers at least monthly.  
+In the event that a marketer fails to comply with any of the requirements necessary for the exercise of its activity, the Ministry for Ecological Transition and the Demographic Challenge may initiate a disqualification procedure that ends with the termination of the authorization to act as a marketer, which is communicated to the CNMC.  
+Furthermore, the obligations that marketers must comply with regarding the confidential nature of the information related to supply points are indicated. According to current regulations, the data from the SIPS is confidential.  
+For consultation or download of the SIPS information, marketers must first request registration in the management system of the electricity and gas supply point databases from the CNMC, through the procedure established for this purpose. This request must be analyzed and validated by the CNMC before access is granted.  
+
+Access to the SIPS information from the CNMC is only permitted to energy marketers that are registered in the list of marketers available on the CNMC website through an application programming interface (API).  
+3. Regarding the SIPS, the AEPD has stated about the nature of the data from the electrical SIPS that “the Supply Point Information System incorporates personal data, since it is possible to identify the consumer to whom the information refers from the Supply Point Code, thus linking all the content of the system to that consumer.”  
+The SIPS is a database of technical, consumption, and commercial data for each of the supply points connected to each electricity or natural gas distributor.  
+Both the structure and access to the SIPS are regulated in Article 7 of Royal Decree 1435/2002, of December 27, for the electricity sector.  
+Marketers and other subjects that use the information contained in the supply point databases of the distribution companies, in accordance with Article 7 of Royal Decree 1435/2002 and Article 46.1.k) of Law 24/2013, of December 26, on the Electricity Sector, must subscribe to a code of conduct and ensure the confidentiality of the information contained therein.  
+4. On 03/11/2021, the CNMC forwarded to the AEPD the document “Agreement to refer to the Spanish Agency for Data Protection the actions taken regarding possible fraudulent uses of the SIPS” approved by the Regulatory Supervision Chamber of the CNMC, which suggested a possible fraudulent use of the Supply Point Information System (SIPS).  
+The CNMC indicated that, through the analysis of recorded access data and the receipt of notices from marketers and users, a series of scenarios had been identified that suggested possible fraudulent uses of the SIPS that could impact the right to personal data protection. In summary, the CNMC referred to four possible scenarios.  
+Once the information provided was analyzed, the opportunity to conduct investigations was considered to gather necessary evidence to determine whether actions contrary to the regulations on personal data protection had occurred, taking into account the capabilities and resources of the AEPD.  
+In the case examined, the investigations focused on the third of the described scenarios, that is, authorized marketers presenting a high number of inquiries, exceeding the volume of switching operations recorded in a specific period of time, even exceeding the number of supply points that are part of their client portfolio. Similarly, an abnormal number of IP addresses used, which due to their volume of access, could indicate the use of access credentials to the SIPS by unauthorized third parties or a possible commercialization of the information obtained and contained in the SIPS.  
+C/ Jorge Juan, 6  
+www.aepd.es  
+28001 – Madrid  
+sedeagpd.gob.es
+16/19  
+The entity INTEGRA is an electricity marketer with code R2-469 accessing through the CNMC API to the SIPS, which could exhibit signs of fraudulent use for the purpose attributed to the SIPS due to its high number of queries and the IP addresses used in accessing the database.  
+In the framework of these investigative actions, the Internet service provider for each of the IP addresses identified by the CNMC in the Excel document provided with the list of IP addresses and the number of requests for the second quarter of 2021 is identified.  
+The investigated entity had requested on 03/07/2019 to register in the SIPS in accordance with the procedures established by the regulatory body.  
+Furthermore, it has stated that it does not share or transfer to third parties the information contained in the SIPS; regarding the number of queries to the SIPS, it indicates that it was fundamentally increased due to the adaptation of its processes to the modification of tariffs that occurred in June 2021; during the second quarter of 2021, it certifies that there were three authorized users to access the CNMC web service API, all members of the entity's development team and employees of the company subject to the duty of confidentiality.  
+It provides the data protection regulations signed by the staff and collaborators, which include, among other aspects, confidentiality and the duty of secrecy by the worker/collaborator in relation to any information to which they have access while performing their functions with the entity.  
+Although the marketer indicates that in 2021 it had contracts with the Internet service providers: Amazon and Orange, in the document provided by the CNMC where the IP addresses identified by the regulator during the second quarter of 2021 are listed, the Internet service providers were identified as Amazon, Orange, and Nostravant.  
+Orange reported that it used a system of dynamic IP address allocation and that its computer system has a limited storage time of twelve months according to Law 25/2007, so in the context of the current investigative actions, it has not been able to provide the identifying data of the holders of the IP addresses assigned during the second quarter of 2021.  
+For its part, Nostravant identifies an individual residing in Asturias as the holder of the provided IP address, while the marketer indicated that it did not belong to them and that neither in their files nor in their systems were there any data of the holder of the IP address identified by Nostravant.  
+Well, from the documentation in the file and the statements made by the CNMV, by the investigated entity in the responses  
+C/ Jorge Juan, 6  
+www.aepd.es  
+28001 – Madrid  
+sedeagpd.gob.es
+17/19  
+offered both to the requirements of the CNMC and to the acting inspector, the existence of conduct affecting the regulations on personal data protection is not substantiated.  
+In this regard, it is worth recalling that, as repeatedly stated by the Constitutional Court, among others in rulings STC 120/1994 and 76/1990, the fundamental right to the presumption of innocence has full effect within the framework of Administrative Sanctioning Law. Thus, in ruling STC 76/1990, the High Court indicates that “...the presumption of innocence applies without exceptions in the sanctioning legal framework and must be respected in the imposition of any sanctions, whether criminal, administrative in general, or tax-related in particular.”  
+The Constitutional Court also states in Judgment 76/1990 that the right to the presumption of innocence entails “that the sanction must be based on acts or incriminating evidence of the reproached conduct; that the burden of proof lies with the accuser, without anyone being obliged to prove their own innocence; and that any insufficiency in the results of the evidence presented, freely assessed by the sanctioning body, must result in an acquittal.”  
+On the other hand, the Constitutional Court ruling of 20/02/1989 asserts that “Our doctrine and criminal jurisprudence have maintained that, although both can be considered manifestations of a general favor rei, there is a substantial difference between the right to the presumption of innocence, which operates when there is an absolute lack of evidence or when the evidence presented does not meet procedural guarantees, and the jurisprudential principle in dubio pro reo, which pertains to the moment of assessment or appreciation of evidence, and which must judge when that indispensable evidentiary activity occurs, there is a rational doubt about the actual concurrence of the objective and subjective elements that constitute the criminal type in question.”  
+Focusing on the facts concerning the investigation carried out and after examining the documents provided, it is verified that there is no evidence indicating that the investigated entity has committed an infringement of the GDPR, facts arising from a preliminary analysis prompted by the high number of queries through the CNMC API, significantly exceeding the normal switching operation volume for a specific period of time, which in some way would be supported by the number of IP addresses used, indicative of a presumed fraudulent commercialization of the information obtained from the SIPS.  
+However, the aforementioned circumstances do not constitute or evidence the existence of any proof of the possible commission by the investigated entity of a violation of the GDPR. This is because, within the framework of the preliminary investigation phase, efforts were made to identify the Internet service providers, which included the IP addresses identified by the CNMC in the Excel provided through which access to the SIPS database was made, not allowing for the deduction of fraudulent activity on the part of the marketer, so that the results obtained from the investigations carried out had the evidentiary significance required to substantiate an unlawful act by the marketer.  
+Therefore, no evidentiary elements have been provided or incorporated into the file that would allow for the reliable establishment that the claimed party violated the regulations on data protection. In light of this, applying the principle of the presumption of innocence, which prevents the imposition of a sanction in the case of a lack of evidence regarding a specific and determining fact, it is not appropriate to activate a sanctioning procedure, as no violation of the GDPR has been substantiated.  
+IV  
+Conclusion  
+Therefore, based on the indications in the previous paragraphs, no evidence has been found that substantiates the existence of an infringement within the jurisdiction of the Spanish Agency for Data Protection.  
+All of this is without prejudice to any possible subsequent actions that this Agency may carry out, applying the investigative and corrective powers it holds.  
+Thus, as it has not been possible to attribute responsibility for the treatments in accordance with what has been indicated,  
+By the Director of the Spanish Agency for Data Protection, IT IS AGREED:  
+FIRST: TO ARCHIVE the present proceedings.  
+SECOND: TO NOTIFY this resolution to INTEGRACIÓN EUROPEA DE ENERGÍA, S.A. with CIF A74340464.  
+In accordance with the provisions of Article 50 of the LOPDGDD, this Resolution will be made public once it has been notified to the interested parties.  
+Against this resolution, which concludes the administrative process as provided by Article 114.1.c) of Law 39/2015, of October 1, on the Common Administrative Procedure of Public Administrations, and in accordance with the provisions of Articles 112 and 123 of the aforementioned Law 39/2015, of October 1, the interested parties may optionally file a motion for reconsideration before the Director of the Spanish Agency for Data Protection within one month from the day following the notification of this resolution or directly file a contentious-administrative appeal before the Contentious-Administrative Chamber of the National Court, in accordance with the provisions of Article 25 and in section 5 of  
+C/ Jorge Juan, 6  
+www.aepd.es  
+28001 – Madrid  
+sedeagpd.gob.es
+19/19  
+the fourth additional provision of Law 29/1998, of July 13, regulating the  
+Contentious-Administrative Jurisdiction, within a period of two months from the  
+day following the notification of this act, in accordance with the provisions of  
+Article 46.1 of the aforementioned Law.  
+Mar España Martí  
+Director of the Spanish Agency for Data Protection  
+C/ Jorge Juan, 6  
+www.aepd.es  
+28001 – Madrid  
+sedeagpd.gob.es

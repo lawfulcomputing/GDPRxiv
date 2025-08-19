@@ -1,0 +1,252 @@
+ALSO SEE Newsletter of January 31, 2025
+
+[doc. web n. 10095761]
+Provision of November 27, 2024
+Register of provisions
+n. 762 of November 27, 2024
+THE GUARANTOR FOR THE PROTECTION OF PERSONAL DATA
+IN the meeting held today, attended by
+Prof. Pasquale Stazione, president, Dr.
+Agostino Ghiglia and Attorney Guido Scorza, members, and
+Counsel Fabio Mattei, secretary general;
+HAVING REGARD TO Regulation (EU) 2016/679 of the European Parliament
+and of the Council, of April 27, 2016 (hereinafter “Regulation”);
+HAVING REGARD TO Legislative Decree of June 30, 2003, n. 196 (Code regarding
+the protection of personal data, hereinafter “Code”) as amended by Legislative Decree of August 10,
+2018, n. 101 containing “Provisions for the adaptation
+of national legislation to the provisions of
+Regulation (EU) 2016/679”;
+HAVING REGARD TO Regulation n. 1/2019 concerning
+internal procedures of external relevance,
+aimed at carrying out the tasks and
+exercising the powers assigned to the Guarantor for the
+protection of personal data, approved by
+resolution of the Guarantor n. 98 of 4/4/2019,
+published in G.U. n. 106 of 8/5/2019 and in
+www.gpdp.it, doc. web n. 9107633 (hereinafter
+“Guarantor Regulation n. 1/2019”);
+HAVING REGARD TO the documentation on file;
+HAVING REGARD TO the observations made by the secretary
+general pursuant to Article 15 of the Guarantor Regulation n. 1/2000 on the organization and
+functioning of the office of the Guarantor for the
+protection of personal data, in www.gpdp.it, doc.
+web n. 1098801;
+REPORTING Prof. Pasquale Stazione;
+PREMISED
+1. The investigative activity.
+
+On January 24, 2023, the Molise Region (hereinafter
+Region) transmitted to the Guarantor, pursuant to Article
+33 of the Regulation, a notification of a personal data breach,
+concerning the Regional FSE Portal (https://fse.regione.molise.it) which, due to a
+“system vulnerability,” had allowed a third party “through an intentional manipulation of the URL to search for
+the data of other citizens present in the Regional
+Registry of Molise.”
+In particular, in the aforementioned notification, the Region
+stated that “on the FSE Portal of the Molise Region, the user with the role of 'Assisted' was able, exploiting a system vulnerability through an intentional manipulation of the URL, to search for the data of other citizens present in the Regional Registry of Molise. Specifically, by manipulating the URL from https://
+fse.regione.molise.it/fseui/dashboard to https://
+fse.regione.molise.it/fseui/list, the user was able to use the citizen search functionality and subsequently select it to access the functionality for consulting the personal data and the FSE of the citizen himself” (see notification of January 24, section F, point 7). According to the information on file, the number of
+assisted individuals involved was 7.
+Regarding what was reported by the Region,
+the Office made two requests for information
+(notes of February 21 and April 17, 2023) - to which responses were provided with notes dated March 3 and May 5, 2023 - in order to acquire further details
+about the breach and the actions taken to
+remove the highlighted vulnerability, as well as
+informational elements regarding the roles of the various parties
+involved in the processing subject to
+breach, the technical and organizational measures
+related to identification procedures,
+computer authentication (Identity Management) and
+authorization of the assisted individuals for the purpose of
+
+consulting their documents present in the FSE,
+the parties responsible for the design of such
+procedures, and the assessments made regarding the
+risks to the rights and freedoms of the data subjects
+arising from the breach, also in order to
+verify the existence of the prerequisites for
+notifying the same to the affected individuals.
+In response to the aforementioned requests for information,
+the Region clarified that “on January 17, 2023,
+Mr. […] reported to this Entity, via certified email […] a problem of information security encountered while viewing his
+electronic health record” and that “access was
+possible by manually and forcibly altering
+the URL (not visible and accessible to users with the role of Assisted); the reporter, with the role of
+assisted, forced the system by modifying the URL
+with the consequent use of the search and consultation functionality of the data. The search functionality was blocked in
+normal navigation of the system. The method by which the assisted individual
+obtained the exact URL “https://
+fse.regione.molise.it/fseui/list” to force the
+system remains unknown” (see note of March 3, 2023,
+page 1 and attachment 1 and page 2 of attachment 2 to
+the same).
+Regarding the categories of data that the
+third party was able to consult by calling the
+URL https://fse.regione.molise.it/
+fseui/list, the Region stated that “they refer to: personal data (Name, Surname, Date of Birth, City of Birth); residence and domicile data; data related to healthcare assistance (ASL affiliation, District of affiliation, General Practitioner, Exemptions); documents and health reports (e.g., laboratory reports, specialist reports, etc.)” and that “the search must be conducted accurately by entering the complete and valid Tax Code or by entering Name,
+**Surname and date of birth (the three data are mandatory to finalize the search)** (see note of May 5, 2023, p. 3).  
+With reference to the measures in place at the time of the violation, the Region recalled the document attached to the notification drafted by the company Engineering Ingegneria Informatica S.P.A., designated as the data processing manager, with which the same company communicated the data breach to the Region. Among the technical and organizational measures adopted concerning the data processing subject to violation described in the aforementioned document, the activities of vulnerability assessment and penetration testing carried out periodically by an independent designated team are indicated (see notification of January 24, 2023).  
+In this regard, the Region also stated that “the technical authentication measures are all referred to the regional proxy (managed by Molise Dati) for SPID and CIE access. The Web APP accesses the proxy via a URL that includes an authentication token. The system receives in response a body with the personal data that vary depending on the type of authentication. The middleware performs checks in the Registry to verify whether the user is indeed a beneficiary of the Molise region. If not, the user is redirected to the system's authentication page. If so, at the time of access and role selection, the token is generated by the User Manager (software module for user management) in order to be authorized to use the API services for registry searches and documentation. […] the following roles have been configured: 1. Doctor/Health Director; 2. MMG/PLS; 3. Pharmacist; 4. Administrative Operator; 5. Beneficiary; 6. Guardian, Informal giver, Parent. For each of these roles, the types of interactions that can be performed have been determined” (see note of March 3, 2023, pp. 2 and 3 of Annex 2 to the same).
+
+In particular, the Region specified that “following the analysis of the technical and functional requirements of the FSE, which involved the Molise Region, Molise Dati, Tim S.p.A., and Engineering S.p.A. (Annex 6 titled ‘FSE Regione Molise-Roles and permissions.pdf’), the system was designed and implemented from an IT perspective by Engineering S.p.A., which therefore represents the entity responsible for the design of the identification and authentication procedures (Identity Management) as well as the electronic authorization of beneficiaries for the consultation of documents present in the FSE and the measures to guarantee the confidentiality of the same documents” (see note of May 5, 2023, p. 2).  
+With reference to the measures adopted following the violation, the Region stated that “an analysis of the possible cause of the report was conducted, and then an analysis of the logs of all application modules at all levels was performed, and subsequently, an analysis of the code was conducted to circumscribe the bug and resolve it definitively. The first measure adopted was to inhibit the possibility of accessing the page https://fse.regione.molise.it/fseui/list via direct browser call. The second measure adopted was to implement, through checks inserted in the source code, a control that allows verifying that the web page https://fse.regione.molise.it/fseui/list is not in any way visible and usable by users authenticated with the role ‘Beneficiary’” (see notification of January 24, 2023, section H, point 1).  
+As for the measures adopted to prevent similar violations in the future, it was then stated that “we requested Molise Dati to conduct an analysis aimed at evaluating any presence of similar errors in the software developed by Engineering S.p.A.” (see notification of January 24, 2023, section H, point 2).  
+Regarding the communication of the violation to the interested parties, the Region represented that the severity of the potential impact for the interested parties was “medium” as “the security flaw was reported by the same subject who detected the possibility of access to unauthorized data. There is no indication of intent to act prejudicially against the interested parties,” that the violation “is not likely to present a high risk to the rights and freedoms of natural persons” and that “it was deemed unnecessary to proceed with communication to the interested parties, not perceiving a high risk for their rights and freedoms. In particular, considering that the security flaw was reported by the same subject who had made the unauthorized access, it was not deduced, by the same, the intent to act prejudicially against the interested parties” (see notification of January 24, 2023, section G, point 3, and section L, point 1, and note of March 3, 2023, p. 2 in response to the information request of February 21, 2023).  
+Based on the above, with a note dated September 28, 2023 (prot. 133809), the Office issued a notification of violation pursuant to Article 166, paragraph 5, of the Code to the Molise Region as it was found that the processing of personal data in question was carried out in a manner not compliant with the principle of “integrity and confidentiality” (Article 5, paragraph 1, letter f), of the Regulation), not adopting appropriate technical and organizational measures to ensure a level of security adequate to the risk (Article 32 of the Regulation) and adequate, from the design stage of the processing carried out within the FSE, to effectively implement the principles of data protection and to integrate the necessary safeguards into the processing to meet the requirements of the Regulation and protect the rights of the interested parties, in violation of Article 25 of the Regulation.
+Regulation.  
+With a note dated October 27, 2023, the Region submitted its defensive memos in which it particularly stated:  
+- that it had entrusted “the technical implementation activity of the FSE to Molise Dati S.p.A., an in-house providing entity of the Molise Region,” which was designated “as the data processing manager with the ‘act attached to the regional council resolution no. 143 of May 20, 2021’” for “the performance of all activities detailed in the documents approved with DGR no. 571 of December 30, 2019, and no. 59 of February 7, 2020, concerning the contractual relationship between the Molise Region and Molise Dati in the field of health informatics.” This appointment, in the documents, provides for:  
+i. “the obligation to implement the principles of privacy by design and privacy by default;  
+ii. the obligation to implement security measures adequate to protect personal data being processed, including the “…definition of appropriate technical and organizational solutions aimed at regulating logical access… authorization profiles defined based on the principle of ‘Need to Know’” and the “…execution of activities aimed at identifying vulnerabilities in applications and technical infrastructures functional to the provision of the service and activation of appropriate mitigation plans”;  
+iii. the ability to resort to any sub-processors, in compliance with certain formal and substantive requirements”;  
+that “in executing the entrusted task, and noting the need to turn to a specialized technological partner, Molise Dati S.p.A. adhered to the Framework Contract SPC Cloud Lot 1 of Consip S.p.A., signing, on October 28, 2020, the executive contract no. 2000379980709001COE with a RTI composed of TIM S.p.A., Enterprise Services Italia S.r.l., Poste Italiane S.p.A., Postecom S.p.A., and Postel S.p.A.”;  
+- that “concurrently with the signing of the service contract, Molise Dati S.p.A. and TIM S.p.A. signed the act of ‘appointment as data processing manager’ attached to it, in which, as far as relevant here, the scope of processing was defined and the obligation of the supplier to (…) ‘adopt all technical and organizational measures that meet the requirements of the EU Regulation to ensure an adequate level of security of the processing’ was established”;  
+- that “with respect to the operations of processing personal data subject to the breach, therefore: (i) the Molise Region assumed the role of (co)controller of the processing; (ii) Molise Dati S.p.A. assumed the role of data processing manager; (iii) TIM S.p.A. assumed the role of sub-processor, designated by Molise Dati S.p.A. by virtue of the specific power attributed with the designation act; (iv) Engineering Ingegneria Informatica S.p.A. assumed the role of further sub-processor, designated by TIM S.p.A. by virtue of the specific clause contained in the act of appointment as data processing manager signed with Molise Dati S.p.A.”;  
+- that “Molise Dati S.p.A. immediately initiated an investigation to verify the actual existence of the cybersecurity issue reported by the citizen, asking the sub-processor Engineering Ingegneria Informatica S.p.A. to carry out any appropriate checks. Following the checks carried out, on January 21, 2023, Engineering Ingegneria Informatica S.p.A. sent Molise Dati S.p.A. a document, called ‘report’, in which it was noted that the bug reported by the notifier was indeed present. In particular, according to what was stated by the sub-processor, ‘on the FSE Portal of the Molise Region, the user with the role of “Assisted” was able, exploiting a vulnerability of the system through intentional manipulation of the URL, to search for the data of other citizens present in the Regional Registry of Molise. Specifically, by manipulating the URL from https://fse.regione.molise.it/fseui/dashboard to https://fse.regione.molise.it/fseui/list, the user was able to use the citizen search functionality and subsequently select it to access the functionality for consulting the personal data and the FSE of the citizen himself’”;  
+- that “with a note dated January 23, 2023, Molise Dati S.p.A. reported to the Molise Region the breach of personal data, noting that it had immediately proceeded to carry out ‘a technical analysis in collaboration with Engineering S.p.A., in its capacity as Cloud Enabler of TIM S.p.A. in the FSE project’, that it had detected the actual existence of ‘…a security bug, which allowed a user with the role of “Assisted” to search for the data of other citizens present on the FSE and to consult such data’ and that it had proceeded to correct this cybersecurity issue”;  
+- that “in addition to the previous note, on January 24, 2023, Molise Dati S.p.A. sent the Molise Region the document called ‘report’ prepared by Engineering Ingegneria Informatica S.p.A. and the following day the General Director for Health of the Molise Region acknowledged to the President, ASREM, and Molise Dati S.p.A. that notification had been made.”  
+In relation to what emerged from the memos of the Region, the Office has initiated a sanctioning procedure also against the companies Molise Dati S.p.A. and Engineering Ingegneria Informatica S.p.A. (notes of February 5, 2024).  
+In particular, the involvement of the company Molise Dati S.p.A. was carried out in consideration of what was represented by the aforementioned Region regarding having entrusted “the activity of
+technical implementation of the FSE at Molise Dati S.p.A.,  
+an in-house providing body of the Molise Region”  
+which, with the “act attached to the regional council resolution no. 143 of May 20, 2021,” was designated  
+“as the data processing manager” and that such  
+appointment, in the documents, provides, among other things, the obligation to  
+implement security measures adequate to  
+protect personal data subject to processing,  
+including the “…definition of appropriate technical and organizational solutions aimed at  
+regulating logical access…authorization profiles defined based on the principle of  
+“Need to Know”” and the “…execution of activities  
+aimed at identifying vulnerabilities in  
+applications and technical infrastructures  
+functional to the provision of the service and activation  
+of appropriate mitigation plans.”  
+In light of these elements, it was noted that the  
+processing of personal data in question was  
+carried out by the company Molise Dati S.p.A. omitting  
+to implement technical and organizational measures  
+suitable to ensure an adequate level of security  
+commensurate with the risk, in violation of Article 32 of  
+the Regulation.  
+By note dated March 21, 2024, the company Molise Dati submitted  
+its defense statements in which it was represented, in particular, that:  
+“the Molise Region entrusted the Company with the technical  
+implementation of the FSE and, with the act  
+attached to the regional council resolution no.  
+143 of May 20, 2021, designated it as  
+the data processing manager (…) attributing to it, for  
+what is relevant here, the authority to resort to  
+any sub-processors, in compliance with certain formal and  
+substantial requirements”;  
+“In executing the entrusted task, and noting  
+the necessity to turn to a specialized technological partner, the Company adhered to the Framework Contract  
+SPC Cloud Lot 1 of Consip S.p.A., stipulating, on  
+October 28, 2020, the executive contract (…) with  
+a temporary grouping of companies (R.T.I.) composed of TIM S.p.A., Enterprise Services  
+Italia S.r.l., Poste Italiane S.p.A., Postecom S.p.A.  
+and Postel S.p.A. The contract entered into with the  
+aforementioned R.T.I. concerned the provision of  
+IaaS cloud services, PaaS, and cloud enabling services  
+for the migration of the original web app of the FSE from  
+an “on-premises” environment to the SPC cloud, with  
+concurrent replatforming of the web app to  
+adapt it to the new environment utilizing cloud enabling services, and expressly provided that  
+the execution of the services indicated in the specific  
+specifications would be entrusted to Engineering  
+Ingegneria Informatica S.p.A.”;  
+“Simultaneously with the signing of the service contract, the Company and TIM S.p.A. signed  
+the act of “appointment as data processing manager” attached to it, in which, for what is relevant here,  
+the scope of processing was defined and the obligation of the supplier was established to: (…)  
+“ensure,” in case of resorting to a sub-  
+processor, that they comply with “obligations similar to those provided  
+by the Administration to the Initial Data Processor <or sub-processor”  
+and that “the sub-Processor presents  
+sufficient guarantees in terms of specialized knowledge, reliability, and resources, for the adoption  
+of appropriate technical and organizational measures so that the processing complies with the principles and requirements of the EU Regulation””;  
+“Engineering Ingegneria Informatica S.p.A.  
+was therefore the entity responsible for the design and implementation, from a  
+technical perspective, of the information system used for  
+the management of the electronic health record,  
+including the design of the identification and  
+authentication procedures (Identity Management) as well as the  
+electronic authorization of users for the purpose of  
+consulting the documents present in the FSE and the  
+measures to guarantee the confidentiality of the same  
+documents”;  
+“The portal was made operational and released to  
+the public on August 18, 2022” and on January 17,  
+2023, the report in question was received;  
+“Following the checks carried out, on January 21,  
+2023, Engineering Ingegneria Informatica  
+S.p.A. sent the Company a document,  
+entitled “report,” in which it was acknowledged  
+the actual presence of the bug reported by  
+the notifier”;  
+“Engineering Ingegneria Informatica S.p.A. acknowledged, inter alia, the practices of “vulnerability  
+assessment & penetration testing” adopted in accordance  
+with the service contract and the addendum pursuant to Article 28,  
+paragraph 4 GDPR, and in particular the periodic  
+conducting of tests aimed at verifying the security  
+of the application, with registration of any  
+anomalous events detected (…); of the use, for this  
+purpose, of a series of tools and applications by  
+a dedicated team (..)” ;  
+“Engineering Ingegneria Informatica S.p.A. also acknowledged that it had conducted an investigation into  
+the causes of the breach and, once the  
+bug was identified, had proceeded to resolve it,  
+asserting that the full and exclusive responsibility  
+for the incident lies with the sub-processors tasked with managing the  
+implementation phase of the F.S.E.”;  
+“the security incident that caused the loss  
+of confidentiality of the data was made possible  
+exclusively by a programming error  
+committed by the sub-supplier Engineering Ingegneria  
+Informatica S.p.A. during the execution of the  
+operations entrusted to it, and that, despite the  
+declared performance of constant  
+verification activities (penetration tests and vulnerability  
+assessments), it was unable to detect the  
+specific IT vulnerability in question.”
+subsequent report”.
+2. Outcome of the investigative activity.
+Taking note of what is represented in the documentation on file and in the defense memoranda, it is observed that:
+pursuant to the Regulation, “health data” refers to personal data concerning the physical or mental health of a natural person, including the provision of health care services, which reveal information related to their health status (art. 4, par. 1, n. 15, of the Regulation). Recital no. 35 of the Regulation further specifies that health data “includes information about the natural person collected during their registration in order to receive health care services”; “a number, a symbol or a specific element assigned to a natural person to uniquely identify them for health purposes”;
+the Regulation provides that personal data must be “processed in a manner that ensures appropriate security (…) including protection against unauthorized or unlawful processing and against accidental loss, destruction or damage (‘integrity and confidentiality’)” (art. 5, par. 1, lett. f) of the Regulation). In this regard, art. 32 of the Regulation, concerning the security of processing, establishes that “taking into account the state of the art and the costs of implementation, as well as the nature, scope, context and purposes of the processing, and the risk of varying likelihood and severity for the rights and freedoms of natural persons, the data controller and the processor shall implement appropriate technical and organizational measures to ensure a level of security appropriate to the risk” (par. 1) and that “in assessing the appropriate level of security, particular consideration shall be given to the risks presented by the processing which arise, in particular, from accidental or unlawful destruction, loss, alteration, unauthorized disclosure of, or access to personal data transmitted, stored or otherwise processed” (par. 2);
+also taking into account the purpose of the FSE and the nature of the personal data processed, which also belong to special categories, the processing carried out in the context in question requires the adoption of the highest security standards, in order not to compromise the confidentiality, integrity, and availability of personal data of millions of data subjects. On this basis, the security obligations imposed by the Regulation require the adoption of stringent technical and organizational measures, including, in addition to those expressly identified in art. 32, par. 1, lett. a) to d), all those necessary to mitigate the risks presented by the processing;
+from the examination of the information and documentation provided by the Region, it emerges that the FSE Portal of the Molise Region, made available at the address https://fse.regione.molise.it, due to a “vulnerability” allowed a user authenticated as “assisted” “through intentional manipulation of the URL, to search for the data of other citizens present in the Regional Registry of Molise”, in the absence of a verification of the authorization permissions assigned to the user for access to such data;
+the Region had entrusted “the technical implementation activity of the FSE to Molise Dati S.p.A., an in-house providing entity of the Molise Region” as the “data processor” and that such appointment, in the documents, includes, among other things, the obligation to implement security measures adequate to protect the personal data subject to processing, including the “…definition of appropriate technical and organizational solutions aimed at regulating logical access…authorization profiles defined based on the principle of ‘Need to Know’” and the “…execution of activities aimed at identifying vulnerabilities in the applications and technical infrastructures functional to the provision of the service and activation of appropriate mitigation plans”;
+the processing of personal data in question was carried out by the company Molise Dati omitting to implement appropriate technical and organizational measures to ensure a level of security appropriate to the risk, as required by the appointment act as processor, in violation of art. 32 of the Regulation;
+the “Guidelines 07/2020 on the concepts of data controller and data processor under the GDPR”, adopted by the European Data Protection Board on July 7, 2021 indicate that the processor is responsible, towards the data controller, for ensuring compliance with data protection obligations by other sub-processors (point 129). Although the chain may be quite long, the data controller maintains a central role in determining the purpose and means of processing (point 152) and the processor also retains full responsibility towards the controller for the fulfillment of the obligations of the other processor (article 28, paragraph 4, of the GDPR) (point 159).
+3. Conclusions.
+In light of the evaluations mentioned above, taking into account the statements made by the controller during the investigation - and considering that, unless the act constitutes a more serious offense, anyone who, in a proceeding before the Guarantor, falsely declares or certifies news or circumstances or produces false acts or documents is liable under art. 168 of the Code “Falsehood in declarations to the Guarantor and interruption of the execution of tasks or
+of the exercise of the powers of the Guarantor” – the elements provided by the data controller in the defense briefs do not allow for overcoming the observations notified by the Office with the initiation of the procedure, nor do any of the cases provided for in Article 11 of the Guarantor Regulation No. 1/2019 apply. For these reasons, the illegality of the processing of personal data carried out by the company Molise dati is noted in the terms outlined in the reasoning, in violation of Article 32 of the Regulation. It is finally believed that the conditions referred to in Article 17 of the Guarantor Regulation No. 1/2019 are met.
+
+4. Adoption of the injunction order for the application of the administrative pecuniary sanction and the accessory sanctions (Articles 58, paragraph 2, letter i), and 83 of the Regulation; Article 166, paragraph 7, of the Code). The violation of Article 32 of the Regulation entails the application of the administrative sanction provided for in Article 83, paragraph 4 of the Regulation. The Guarantor, pursuant to Article 58, paragraph 2, letter i) of the Regulation and Article 166 of the Code, has the power to impose an administrative pecuniary sanction provided for in Article 83 of the Regulation, by adopting an injunction order (Article 18, Law No. 689 of November 24, 1981), in relation to the processing of personal data carried out by the company Molise dati, which has been found to be illegal, in the terms outlined above. In light of the above, it is believed that the level of severity of the violation committed by the company Molise dati is low (cf. European Data Protection Board, “Guidelines 04/2022 on the calculation of administrative fines under the GDPR” of May 23, 2023, point 60). 
+
+With reference to the elements listed in Article 83, paragraph 2 of the Regulation for the application of the administrative pecuniary sanction and its quantification, considering that the sanction must be “effective, proportionate and dissuasive in each individual case” (Article 83, paragraph 1 of the Regulation), it is represented that, in the case in question, the following circumstances have been taken into account: 
+- The Authority became aware of the event following the notification of a personal data breach made by the Molise Region, which, with reference to the processing in question, also in light of the specific sector regulations, operates as the data controller that has designated the company Molise dati as the data processor; 
+- The processing in question concerns data suitable for revealing information about health (personal and residence data, data related to healthcare received (ASL of belonging, district of belonging, name of the general practitioner, any exemptions), health data derivable from documents and health reports that may be present in the specific electronic health file (e.g., laboratory reports, specialist reports, etc.)) of 7 subjects who were exposed to possible illegal access for about 45 days (from November 14 to December 30, 2022); 
+- The type of vulnerability detected was neither easily detectable nor easily exploitable, requiring prior knowledge of the destination URL “https://fse.regione.molise.it/fseui/list” and intentional manipulation of the URL; 
+- The company Molise dati demonstrated a high degree of cooperation by working to ensure that appropriate measures were immediately introduced to overcome the highlighted vulnerabilities; 
+- The company Molise dati has not been the recipient of other sanctioning and corrective measures regarding the case in question. 
+
+In light of the above elements and the assessments made, it is believed, in this specific case, to apply to the company Molise dati the administrative sanction of paying an amount equal to €10,000.00 (ten thousand/00). In this context, it is also believed that, pursuant to Article 166, paragraph 7, of the Code and Article 16, paragraph 1, of the Guarantor Regulation No. 1/2019, the publication of this section containing the injunction order on the Guarantor's website should proceed.
+
+ALL OF THE ABOVE STATED, THE GUARANTOR 
+a) pursuant to Articles 57, paragraph 1, letter a) and 83 of the Regulation, declares the illegality of the processing of personal data carried out by the company Molise dati S.p.A. with registered office at Via Insorti d’Ungheria, No. 81 – 86100 Campobasso (CB), C.F. / P. IVA 00379980709, for the violation of the principles of integrity and confidentiality (Article 32 of the Regulation), in the terms outlined in the reasoning; 
+ORDERS 
+b) pursuant to Article 58, paragraph 2, letter i) of the Regulation, the aforementioned Company, to pay the sum of €10,000.00 (ten thousand/00) as an administrative pecuniary sanction, for having violated Article 32 of the Regulation, as described above; 
+ENJOINS 
+c) the company Molise dati to pay the aforementioned sum of €10,000.00 (ten thousand/00), according to the methods indicated in the annex, within thirty days from the notification of this provision, under penalty of the adoption of the consequent executive acts pursuant to Article 27 of Law No. 689/1981. It is represented that pursuant to Article 166, paragraph 8 of the Code, the possibility for the offender to settle the dispute by paying – always according to the methods indicated in the annex – an amount equal to half of the imposed sanction within the term referred to in Article 10, paragraph 3, of Legislative Decree No. 150 of September 1, 2011 provided for the submission of the appeal as indicated below remains unaffected.
+DISPOSES  
+d) pursuant to Article 166, paragraph 7, of the Code and Article 16, paragraph 1, of the Regulation of the Guarantor No. 1/2019, the publication of the injunction order on the Guarantor's website;  
+e) pursuant to Article 154 bis, paragraph 3 of the Code, orders the publication of this provision on the Guarantor's website.  
+f) pursuant to Article 17 of the Regulation of the Guarantor No. 1/2019, the annotation of the violations and the measures adopted in accordance with Article 58, paragraph 2 of the Regulation, in the internal register of the Authority provided for by Article 57, paragraph 1, letter u) of the Regulation.  
+Pursuant to Article 78 of the Regulation, Articles 152 of the Code, and Article 10 of Legislative Decree No. 150/2011, an appeal against this provision may be filed before the ordinary judicial authority, under penalty of inadmissibility, within thirty days from the date of communication of the provision itself or within sixty days if the appellant resides abroad.  
+Rome, November 27, 2024  
+THE PRESIDENT  
+Stanzione  
+THE REPORTER  
+Stanzione  
+THE SECRETARY GENERAL  
+Mattei
