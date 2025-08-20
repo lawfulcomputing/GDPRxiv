@@ -20,7 +20,7 @@ from reportlab.lib.units import mm
 REPO_ROOT = Path(__file__).resolve().parent
 
 # Git commit number
-COMMIT_REF = "4af2ab3"   
+COMMIT_REF = "6fc3f06"   
 
 # OpenAI model
 MODEL_NAME = "gpt-4o-mini"  
@@ -223,7 +223,7 @@ def is_target_documents_pdf(p: Path) -> bool:
     # if name not in {"se_1.txt", "se_1.pdf"}:
     #     return False
     name = p.name.lower()
-    if name not in {"de.pdf"}:
+    if name not in {"es.pdf"}:
         return False
 
 
