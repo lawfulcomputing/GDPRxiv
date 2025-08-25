@@ -1,0 +1,856 @@
+0
+
+DATA PROTECTION ENGINEERING  
+From Theory to Practice  
+JANUARY 2022  
+
+DATA PROTECTION ENGINEERING  
+January 2022  
+1  
+
+ABOUT ENISA  
+The European Union Agency for Cybersecurity (ENISA) is the Union's agency whose goal is to achieve a high common level of cybersecurity across Europe. Established in 2004 and strengthened by the EU Cybersecurity Regulation, the European Union Agency for Cybersecurity contributes to the EU's cybersecurity policy, enhances the reliability of ICT products, services, and processes through cybersecurity certification programs, cooperates with Member States and EU bodies, and helps Europe prepare for tomorrow's cybersecurity challenges. Through knowledge sharing, capacity building, and awareness campaigns, the Agency collaborates with its key stakeholders to strengthen trust in the connected economy, boost the resilience of the Union's infrastructure, and ultimately protect society and citizens in Europe digitally. For more information about ENISA and its work, please visit: www.enisa.europa.eu.  
+
+CONTACT INFORMATION  
+To contact the authors, please use the email address isdp@enisa.europa.eu. Media inquiries regarding this document should be directed to press@enisa.europa.eu.  
+
+COLLABORATORS  
+Claude Castelluccia (INRIA)  
+Giuseppe D'Acquisto (Garante per la Protezione dei Dati Personali)  
+Marit Hansen (ULD)  
+Cedric Lauradoux (INRIA)  
+Meiko Jensen (Kiel University of Applied Sciences)  
+Jacek Orzeł (SGH Warsaw School of Economics)  
+Prokopios Drogkaris (European Union Agency for Cybersecurity)  
+
+EDITORS  
+Prokopios Drogkaris (European Union Agency for Cybersecurity)  
+Monika Adamczyk (European Union Agency for Cybersecurity)  
+
+ACKNOWLEDGEMENTS  
+We would like to thank our colleagues from the European Data Protection Board (EDPB), Technology Subgroup, and our colleagues from the European Data Protection Supervisor (EDPS), Technology and Privacy Unit, for reviewing this report and providing their valuable feedback.  
+We would also like to thank Kim Wuyts, Veronica Jarnskjold Buer, Konstantinos Limniotis, Paolo Balboni, Stefan Schiffner, José M. del Alamo, Irene Kamara, and our ENISA colleague, Athena Bourka, for their reviews and valuable comments.  
+
+DATA PROTECTION ENGINEERING  
+January 2022  
+2  
+
+LEGAL NOTICE  
+Unless otherwise stated, this publication reflects the opinions and interpretations of ENISA. It does not endorse any regulatory obligation of ENISA or ENISA bodies under Regulation (EU) 2019/881.  
+ENISA reserves the right to modify, update, or remove the publication or any part of its content. Its purpose is purely informational and should be freely accessible. Any reference to this report or use of it, in whole or in part, should cite ENISA as the source.  
+The corresponding third-party sources are cited where appropriate. ENISA accepts no responsibility for the content of external sources, including external websites referenced in this publication.  
+Neither ENISA nor any person acting on its behalf accepts any liability in relation to the use that may be made of the information included in this publication.  
+ENISA retains its intellectual property rights related to this publication.  
+
+COPYRIGHT NOTICE  
+© European Union Agency for Cybersecurity (ENISA), 2022  
+This publication is licensed under CC-BY 4.0. "Unless otherwise stated, the reuse of this document is permitted under the Creative Commons Attribution 4.0 International (CC BY 4.0) license (https://creativecommons.org/licenses/by/4.0/). This means that reuse is allowed, provided that appropriate credit is given and changes are indicated."  
+To use or reproduce photographs or any other material for which ENISA does not hold copyright, permission must be obtained directly from the copyright holders.  
+
+ISBN 978-92-9204-556-2, DOI 10.2824/09079  
+SPANISH TRANSLATION  
+The Spanish translation has been carried out by ENISA and reviewed by the Spanish Data Protection Agency.  
+In case of discrepancies, the English version shall be considered the original source and its interpretation shall prevail. The original version can be found at:  
+https://www.enisa.europa.eu/publications/data-protection-engineering  
+
+DATA PROTECTION ENGINEERING  
+January 2022  
+3  
+
+INDEX  
+1. INTRODUCTION  
+7  
+1.1 DATA PROTECTION BY DESIGN  
+8  
+1.2 PURPOSE AND OBJECTIVES  
+8  
+1.3 STRUCTURE OF THE DOCUMENT  
+9  
+2. DATA PROTECTION ENGINEERING  
+10  
+2.1 FROM DATA PROTECTION BY DESIGN TO DATA PROTECTION ENGINEERING  
+10  
+2.2 CONNECTION TO DPIA  
+10  
+2.3 TECHNOLOGIES FOR PROTECTING THE RIGHT TO PRIVACY  
+11  
+3. ANONYMIZATION AND PSEUDONYMIZATION  
+13  
+3.1 ANONYMIZATION  
+13  
+3.2 k-ANONYMIZATION  
+14  
+3.3 DIFFERENTIAL PRIVACY  
+15  
+3.4 SELECTION OF THE ANONYMIZATION SYSTEM  
+16  
+4. DATA MASKING AND PRIVACY-PRESERVING COMPUTATION  
+18  
+4.1 HOMOMORPHIC ENCRYPTION  
+18  
+4.2 SECURE MULTI-PARTY COMPUTATION  
+19  
+4.3 TRUSTED EXECUTION ENVIRONMENTS  
+20  
+4.4 RECOVERY OF PRIVATE INFORMATION  
+20  
+4.5 SYNTHETIC DATA  
+21  
+5. ACCESS, COMMUNICATION, AND STORAGE  
+24  
+5.1 COMMUNICATION CHANNELS  
+24  
+5.1.1 End-to-End Encryption  
+24  
+5.1.2 Proxy and Onion Routing  
+25
+DATA PROTECTION ENGINEERING  
+January 2022  
+4  
+
+5.2 STORAGE WITH PRIVACY PROTECTION  
+25  
+5.3 ACCESS CONTROL, AUTHORIZATION, AND AUTHENTICATION FOR THE PROTECTION OF THE RIGHT TO PRIVACY  
+26  
+5.3.1 Attribute-based credentials for the protection of the right to privacy  
+27  
+5.3.2 Zero-knowledge proof  
+27  
+6. TRANSPARENCY, INTERVENTION CAPACITY, AND USER CONTROL TOOLS  
+29  
+6.1 PRIVACY POLICIES  
+29  
+6.2 PRIVACY ICONS  
+30  
+6.3 STICKY POLICIES  
+31  
+6.4 PRIVACY PREFERENCE SIGNALS  
+31  
+6.5 PRIVACY PANELS  
+33  
+6.5.1 Service-side privacy panels  
+34  
+6.5.2 User-side privacy panels  
+34  
+6.6 CONSENT MANAGEMENT  
+35  
+6.7 OBTAINING CONSENT  
+35  
+6.8 CONSENT MANAGEMENT SYSTEMS  
+36  
+6.9 EXERCISING THE RIGHT OF ACCESS  
+37  
+6.9.1 Delegation of requests for exercising access rights  
+39  
+6.10 EXERCISING THE RIGHTS OF ERASURE AND RECTIFICATION  
+41  
+7. CONCLUSIONS  
+42  
+7.1 DEFINITION OF THE MOST APPROPRIATE TECHNIQUE  
+42  
+7.2 DEFINITION OF THE CURRENT STATE OF THE ART  
+43  
+7.3 DEMONSTRATION OF COMPLIANCE AND OFFERING GUARANTEES  
+43  
+8. REFERENCES  
+44  
+
+DATA PROTECTION ENGINEERING  
+January 2022  
+5  
+
+SUMMARY  
+The evolution of technology has brought new techniques for sharing, processing, and storing data. This has led to new data processing models (including personal data), but also new problems and threats. Among some of the issues related to the evolution of privacy protection and data associated with emerging technologies and applications are: the lack of control and transparency, the possibility of data reuse, data inference and re-identification, profiling, and automated decision-making.  
+The application of the data protection principles of the GDPR in these contexts is challenging, as it cannot be done in the traditional and "intuitive" way. Processing operations must be rethought, sometimes in a radical manner (in proportion to the radicality of the threats), possibly with the definition of new agents and responsibilities, and with a prominent role for technology as a guarantee element. Guarantees must be integrated into processing with technical and organizational measures. From a technical perspective, the problem lies in converting these principles into tangible requirements and specifications through the selection, application, and configuration of appropriate technical and organizational measures and practices.  
+Data protection engineering can be perceived as a part of data protection by design and by default. Its purpose is to support the selection, deployment, and configuration of appropriate technical and organizational measures to meet the specific principles of data protection. Undoubtedly, it depends on the measure, context, and application, and ultimately contributes to the protection of the rights and freedoms of data subjects.  
+This report provides a more thorough analysis of data protection engineering with the intention of supporting professionals and organizations in the practical application of the technical aspects of data protection by design and by default. In this regard, this report presents existing technologies (security) and techniques and analyzes potential strengths and applicability concerning compliance with the data protection principles established in Article 5 of the GDPR.  
+Based on the analysis provided in the report, the following conclusions and recommendations for relevant stakeholders are presented:  
+Regulators (e.g., data protection authorities and the European Data Protection Board) should discuss and promote best practices across the EU regarding the most advanced solutions of relevant technologies and techniques.  
+EU institutions could promote these best practices through relevant public documents.  
+The research community should continue to explore the deployment of techniques and technologies (security) that can support the practical application of data protection principles, with the support of EU institutions regarding regulatory guidance and research funding.  
+Regulators (e.g., data protection authorities and the European Data Protection Board) and the European Commission should promote the establishment of relevant certification schemes, in accordance with Article 43 of the GDPR, to ensure adequate data protection engineering.
+DATA PROTECTION ENGINEERING  
+January 2022  
+7  
+
+1. INTRODUCTION  
+The technological advancements of recent years have influenced the way our personal data is shared and processed. The evolution of technology has brought new techniques for sharing, processing, and storing data. Consequently, new models of data processing (including personal data) have emerged, but so have new threats and difficulties for the end user in understanding and controlling that processing. The continuous online presence of end users has led to an increase in the daily processing of large amounts of personal data. Consider, for example, online shopping or when we use a mobile application to reach a specific location or to contact friends and family. The data lifecycle has expanded, and many agents are now involved, so ultimately, end users cannot fully understand and control who has access to their personal data, for how long, and for what purpose.  
+In many cases, these new technologies have been introduced without a prior assessment of their impact on privacy and data protection. In this context, the processing of personal data is often characterized by the absence of a predetermined purpose and by the discovery of new correlations between observed phenomena, for example, in the case of big data or machine learning. This modus operandi fundamentally conflicts with the principles of necessity and purpose limitation, as established in the GDPR. Another example can be found in blockchain and decentralized ledger technologies, which offer the opportunity to replace intermediary-based transactions, but at the expense of a substantial loss of control that individuals have over their data, which remains visible to all participants in the chain, as long as it is active or possibly even when it is not. This, depending, of course, on each case, contradicts the GDPR principle of data minimization and constitutes a significant obstacle to the exercise of the right to erasure of data subjects. Finally, artificial intelligence systems could be empowered to make decisions with a certain degree of autonomy in order to achieve specific objectives, for example, in credit scoring in the financial sector. Such autonomy could conflict with the prior requirements for human intervention over machines and self-determination, both of which are at the core of personal data protection and the GDPR.  
+As also explained in [1], among some of the issues related to the evolution of privacy protection and data associated with emerging technologies and applications are: the lack of control and transparency, incompatible data reuse, data inference and re-identification, profiling, and automated decision-making. The application of the data protection principles of the GDPR in these contexts is challenging, as it cannot be done in the traditional and "intuitive" way. Processing operations must be reconsidered and redesigned, sometimes radically (in proportion to the radicality of the threats and attack vectors), possibly with the definition of new agents and responsibilities, and with a prominent role for technology as a guarantee element. Appropriate technical and organizational measures, as well as safeguards, must be considered at the earliest possible stage and integrated into the processing. This is the scope of the concept of data protection by design, enshrined in Article 25 of the GDPR.  
+The evolution of technology has brought new techniques for sharing, processing, and storing data that have brought new problems and threats.
+DATA PROTECTION ENGINEERING  
+January 2022  
+8  
+
+1.1 DATA PROTECTION BY DESIGN  
+Data protection by design is a legal obligation since the entry into force of the GDPR in 2018. However, the concept emerged several years ago in the context of privacy engineering. At that time, it was referred to as "Privacy by Design" and gained significant relevance, being considered an essential component of the practical application of privacy and personal data protection. Currently, it is regarded as a multifaceted concept: in legal documents, on one hand, it is generally described in very broad terms as a general principle; on the other hand, researchers and engineers often equate it with the use of privacy-enhancing technologies (PETs). However, privacy by design is not merely a list of principles nor can it be reduced to the application of specific technologies. In fact, it is a process involving various technological and organizational components that apply the principles of privacy and data protection through the appropriate and timely deployment of technical and organizational measures, which also include PET technologies.  
+The obligation described in Article 25 is that data controllers must design and integrate data protection into the processing of personal data, with appropriate default settings or otherwise available throughout the entire lifecycle of the processing. Following the adoption of the GDPR, the EDPS has published a series of guidelines on data protection by design and by default, as well as advice on its application. The main obligation is the implementation of appropriate measures and necessary safeguards for the effective application of the principles of data protection and, consequently, the rights and freedoms of data subjects by design and by default.  
+Through the various examples provided, it is evident that the proper and timely development and integration of technical and organizational measures in data processing activities play an important role in the practical application of the different principles of data protection.  
+The engineering of these principles refers not only to the decisions made regarding the design of the processing operation but also to the selection, deployment, configuration, and maintenance of appropriate technological measures and techniques. These techniques would support compliance with the principles of data protection and provide an adequate level of protection relative to the level of risk to which personal data are exposed. Data protection engineering can be perceived as part of data protection by design and by default. Its purpose is to support the selection, deployment, and configuration of appropriate technical and organizational measures to meet the specific principles of data protection. Undoubtedly, it depends on the measure, context, and application and ultimately contributes to the protection of the rights and freedoms of data subjects.  
+
+1.2 PURPOSE AND OBJECTIVES  
+The general purpose of this report is to conduct a more thorough analysis of data protection engineering with the intention of supporting professionals and organizations in the practical application of the technical aspects of data protection by design and by default. In this regard, this report aims to present existing technologies and techniques (security) and analyze potential strengths and applicability concerning compliance with the principles of data protection. This work is carried out in the context of ENISA's tasks, under the Cybersecurity Regulation, to support Member States in specific aspects of  
+
+1 It was presented by Dr. Ann Cavoukian and was also an evident idea, although it was not explicitly mentioned in Directive 95/46/EC or in the Directive on privacy and electronic communications. See also the document EDPS Opinion 5/2018 “Preliminary Opinion on privacy by design” from the European Data Protection Supervisor (EDPS).  
+2 Regulation (EU) 2019/881 of the European Parliament and of the Council, of April 17, 2019, concerning ENISA (European Union Agency for Cybersecurity) and the certification of cybersecurity of information and communication technologies and repealing Regulation (EU) No. 526/2013 (“Cybersecurity Regulation”) http://data.europa.eu/eli/reg/2019/881/oj  
+The purpose of data protection engineering is to support the selection, deployment, and configuration of appropriate technical and organizational measures to meet the principles of data protection.
+DATA PROTECTION ENGINEERING  
+January 2022  
+9  
+
+cybersecurity of the Union's policy and legislation regarding privacy and data protection. This work aims to serve as a basis for conducting a more detailed and specific analysis of the identified categories of technologies and techniques, while simultaneously demonstrating their practical viability.  
+
+1.3 STRUCTURE OF THE DOCUMENT  
+Section 2 of the document analyzes the relationship between data protection engineering and data protection by design, the data protection impact assessment, and technologies that protect the right to privacy to comply with the general principles of data protection. Section 3 discusses anonymization and two of the most prominent anonymization techniques, and also references previous work by ENISA in the field of pseudonymization. Section 4 examines some of the available techniques, apart from encryption, in the areas of data masking and privacy-preserving computation, while Section 5 describes technologies for access control, storage, and communications that preserve privacy. Section 6 presents technical measures in the broader area of transparency, user intervention capability, and control tools, while Section 7 concludes the document and makes recommendations for future work in this field.  
+
+DATA PROTECTION ENGINEERING  
+January 2022  
+10  
+
+2. DATA PROTECTION ENGINEERING  
+2.1 FROM DATA PROTECTION BY DESIGN TO DATA PROTECTION ENGINEERING  
+The concept of privacy and data protection engineering has been described in the past, either through a set of engineering strategies aimed at the principle of privacy by design or as a set of data protection objectives. For example, in its 2015 report [3], ENISA analyzed the concept of privacy by design from an engineering perspective. In addition to analyzing the concept, the report presented eight privacy protection strategies from design, both data-oriented and process-oriented, aimed at preserving certain privacy objectives. As a different approach to privacy and data protection engineering, a framework composed of six objectives was proposed to identify safeguards for computer systems that process personal data. In addition to the typical security triad formed by the concepts of "confidentiality," "integrity," and "availability," three additional objectives were proposed: "unlinkability," "transparency," and "user intervention capability." Significant work in the field of privacy engineering was also published in [4] and [5], and in the EU-funded research project PRIPARE3. Despite the different starting points of each work, all of them presented proposals to link data protection requirements with technical requirements, whether through a methodology, specific objectives, or a set of strategies that needed to be adhered to.  
+In its Preliminary Opinion 5/2018 [6] on privacy by design, the European Data Protection Supervisor (EDPS) provided a detailed description of privacy engineering methodologies as a means to translate the principles of privacy by design and by default. In that same preliminary opinion, the EDPS included examples of methodologies to identify privacy and data protection requirements and integrate them into privacy engineering processes with a view to applying appropriate technological and organizational safeguards. Some of these methodologies define data protection objectives directly from the principles of privacy and data protection, such as those of the GDPR, or derive them from intermediate operational objectives. Other methodologies are governed by risk management.  
+
+2.2 CONNECTION WITH THE DPIA  
+The Data Protection Impact Assessment (DPIA) is one of the requirements introduced in the GDPR and can also be perceived as part of the approach of "protection by design and by default." In addition to the emphasis that these principles place on the need to include the engineering of data protection requirements in processing operations, this emphasis is also evident in Article 35, paragraph 7, letter d), of the GDPR. The legislator explicitly mentions "the measures envisaged to address risks, including safeguards, security measures, and mechanisms...," which clearly go beyond the traditional deployment of technical and organizational measures, and requires a more detailed analysis, selection, and use of techniques capable of ensuring the required level of protection. It is interesting to note that these provisions are also linked to the level of risk of the  
+
+3 http://pripareproject.eu/. The corresponding publication is available at https://www.slideshare.net/richard.claassens/pripare-methodologyhandbookfinalfeb242016  
+The engineering of privacy and data protection has been described in the past, either through a set of engineering strategies aimed at the principle of privacy by design or as a set of data protection objectives.
+DATA PROTECTION ENGINEERING  
+January 2022  
+11  
+
+processing of personal data (which again serves as a threshold for the adoption of relevant measures). This concept is also evident in some of the approaches proposed by data protection authorities regarding impact assessment, such as the Privacy Impact Assessment (PIA) and the relevant templates and guidelines for DPIAs provided by other national data protection authorities.  
+
+2.3 TECHNOLOGIES FOR PROTECTING THE RIGHT TO PRIVACY  
+Privacy Enhancing Technologies (PETs) encompass the broadest range of technologies designed to support the application of data protection principles at both systemic and fundamental levels. As described in [7], PETs are "a coherent system of ICT measures that protects the right to privacy by suppressing or reducing personal data or avoiding unnecessary or unwanted processing of personal data, without compromising the functionality of the information system." PETs, as technical solutions, can be considered the basic pillars for complying with data protection principles and the obligations imposed by Article 25 of the GDPR regarding data protection by design. Therefore, they are also part of the elements that constitute the basic pillars of data protection engineering.  
+
+Since, depending on the context, the scope, and the operation of the processing itself, PETs can consist of a single technical tool or a complete deployment, it is evident that there is no one-size-fits-all approach and that a more detailed classification of different PETs is necessary. In this regard, ENISA has presented a methodology [8] to analyze the maturity of PETs and a framework for evaluating and assessing them in the context of online privacy tools and mobile platforms. As highlighted by the Spanish Data Protection Agency in [9], there are various initiatives for classifying PETs, either based on their technical characteristics or the objectives they pursue (in relation to the data protection principles they may support).  
+
+Regarding specific tools and technologies, another classification may be based on the characteristics of the technology used in relation to the data processed. Specifically, these characteristics may include:  
+• Preservation of truth: the goal of privacy engineering is to preserve the accuracy of data while simultaneously reducing its identification capability. This goal can be achieved, for example, by diluting the granularity of the data (e.g., age instead of date of birth). In this way, the data remains accurate but in a "minimized" manner, suitable for the intended purpose. Additionally, encryption can be considered a technique for preserving truth, as decryption fully restores the original data without introducing any uncertainty into the process.  
+• Preservation of intelligibility: data is retained in a format that "makes sense" to the data controller, without revealing the actual attributes of the data subjects. For example, the trick of introducing a delay in a hospitalization date maintains the day/month/year format but breaks the link with the actual data of an identified patient. Furthermore, noise injection is a technique for preserving intelligibility, as it does not alter the appearance of the data, which ensures the confidentiality of the actual data.  
+• Operable technology: the ability to perform mathematical and logical operations (e.g., a sum or a comparison) on the results of its applications. Operability does not necessarily imply intelligibility, as (as stated later in this report) there are various encryption techniques in which the results (not intelligible) are directly operable through operations that can be executed seamlessly in the encrypted domain.  
+
+In addition to these characteristics, an additional classification can also be carried out concerning the data protection principles of the GDPR that each category may support, at least in theory. Attempting to carry out this taxonomy could be very useful for data controllers and processors, as it would provide a reference model for the purposes for which each tool or technique may serve, or as an indication of what has already been achieved with the tools and techniques that have already been implemented. It should be noted, however, that the overall analysis must always be conducted by processing operation and must also include aspects such as the nature, scope, context, and purposes of the processing, similar to the concept of the DPIA.
+DATA PROTECTION ENGINEERING  
+January 2022  
+13  
+
+3. ANONYMIZATION AND PSEUDONYMIZATION  
+Anonymization and pseudonymization are two well-known techniques that are widely used to implement data protection principles, such as data minimization. Pseudonymization is also explicitly mentioned in the GDPR as a technique that can support data protection by design (Article 25 of the GDPR) and the security of personal data processing (Article 32 of the GDPR). However, these techniques are often confused, when in fact there is an important difference between them and in their practical application. As the Article 29 Working Party [10] has already pointed out, and in accordance with Recital (26) of the GDPR, anonymous information is understood to be information that does not relate to an identified or identifiable natural person and, therefore, anonymous data is not considered personal data. In contrast, according to Article 4, paragraph 5, pseudonymized data that can be (re)attributed to a natural person using additional information is personal data and is subject to the data protection principles of the GDPR. A common mistake is to consider pseudonymized data as equivalent to anonymized data.  
+In the field of pseudonymization, ENISA has published a series of reports in recent years [11], [12], and [13] that address the concept and role of the technique within the framework of the GDPR, different techniques and models of pseudonymization, and a series of use cases demonstrating its applicability in practice. To this end, this section focuses on the anonymization of data, with the aim of briefly explaining k-anonymization and differential privacy as two possible techniques for anonymizing relational or tabular data.  
+Regarding non-tabular or sequential data, anonymization may not be as easy or straightforward. For example, in the case of mobility data, relevant studies [14], [15], and [16] have shown that knowing three or four space-time points of a trajectory was sufficient to reidentify, with a high probability, a person among a population of several million. Possible solutions may consist of publishing only statistics on different trajectories or proposing or publishing synthetic data, that is, trajectories artificially generated from the statistical characteristics of real trajectories [17]. Synthetic data are explained in more detail in section 4.5.  
+3.1 ANONYMIZATION  
+The anonymization of data is an optimization problem between two contradictory parameters: the utility of the data and the protection against reidentification. In fact, data anonymization is achieved by modifying the data, either by introducing noise or by generalization. Typically, to achieve strong protection against reidentification, it is necessary to significantly modify the dataset and, therefore, negatively impact its utility. Anonymization of data thus involves finding the best balance between these two parameters, and that balance often depends on the application and context (i.e., how the dataset is distributed and used).  
+As also mentioned in [10], [18], and [19], we should not assume that a generic anonymization system will be suitable for all use cases and that such a system will be capable of providing full and unlimited protection. Each solution must be tailored based on the type of data, the processing operation, the context, and potential attack models. This concept should be considered applicable to all techniques and technologies described in this document. As mentioned in the opinion of the Working Party,  
+A generic anonymization system cannot be applied to all use cases and provide full and unlimited protection.
+DATA PROTECTION ENGINEERING  
+January 2022  
+14  
+
+Article 29 [10], "An effective anonymization solution prevents anyone from singling out a person in a dataset, linking two records in a dataset (or two records belonging to different datasets), and inferring any type of information from that dataset."  
+In the following two sections, a quick overview of the two most well-known anonymization methods is included, namely k-anonymization and differential privacy ε. A more detailed description of existing anonymization systems can be found in [10], [20], and [21].  
+
+3.2 k-ANONYMIZATION  
+The k-anonymization model was introduced in the early 2000s and is based on the idea that combining datasets with similar attributes allows for the concealment of information about any of the individuals contributing to that data. As explained in [22], a dataset is considered to provide protection through k-anonymization if the information of each data subject contained in the dataset cannot be distinguished from at least k-1 other data subjects whose information is also present in the dataset. The key concept is to address the risk of re-identification of anonymized data through linkage with other available datasets. For example, Table 1 presents a sample dataset.  
+
+Table 1: Initial Dataset  
+Name  
+Gender  
+Postal Code  
+Year of Birth  
+Diagnosed Illness  
+George S.  
+M  
+75016  
+1968  
+Depression  
+Martin M.  
+M  
+75015  
+1970  
+Diabetes  
+Marie J.  
+F  
+69100  
+1945  
+Heart Rhythm Disorder  
+Claire M.  
+F  
+69100  
+1950  
+Multiple Sclerosis  
+Amelia F.  
+F  
+75016  
+1968  
+None  
+Annes J.  
+F  
+75012  
+1964  
+Rheumatoid Arthritis  
+Sophia C.  
+F  
+75013  
+1964  
+Blood Disorder  
+Simon P.  
+M  
+75019  
+1977  
+Sarcoidosis  
+Michael J.  
+M  
+75018  
+1976  
+Lymphoma  
+
+To anonymize the data in Table A, various techniques can be used, such as suppression or generalization6. In this example, the Gender attribute was left unchanged, as it was deemed important for the study of diseases. On the other hand, the attributes of the user's Postal Code and Year of Birth were generalized, retaining only the postal code of the department and using ten-year intervals, respectively. When attempting to k-anonymize the data with a k value of two (2) concerning the quasi-identifier formed by the triplet {Postal Code, Year of Birth, Gender}, the initial dataset is transformed, as for each triplet of values there are at least two entries from the original table that correspond to it, as presented in the following Table 2.  
+
+6 Generalization can also be achieved by suppressing an attribute (column).  
+K-anonymization is based on the idea that the combination of datasets with similar attributes allows for the concealment of identifying information about any of the individuals.
+DATA PROTECTION ENGINEERING  
+January 2022  
+15  
+
+Table 2: k-anonymized data (with k=2)  
+Postal Code  
+Year of Birth  
+Sex  
+Diagnosed Illness  
+75***  
+[1960-1970]  
+M  
+Depression  
+Diabetes  
+69***  
+[1940-1950]  
+F  
+Heart Rhythm Disorder  
+Multiple Sclerosis  
+75***  
+[1960-1970]  
+F  
+None  
+Rheumatoid Arthritis  
+Hemopathy  
+75***  
+[1970-1980]  
+M  
+Sarcoidosis  
+Lymphoma  
+
+The k-anonymization method has several limitations. For example, the k-anonymization criterion does not protect against homogeneity attacks, where all records grouped in an equivalence class have the same sensitive value or a similar one. Several extensions of the k-anonymization model have been introduced to address this issue, such as l-diversity, which ensures that for each quasi-identifier value corresponding to the k data, there will be at least l representative values of the sensitive data [23] and [24]. Table 2 is 2-anonymous and 2-diverse because there are always at least two different diseases in a group of people with the same quasi-identifier. However, if Simon P. had lymphoma instead of sarcoidosis, Table 2 would still be 2-anonymous but would cease to be 2-diverse. In this case, it could be inferred that Michael J., who belongs to the group defined by (75, [1970-1980], M), has lymphoma, whereas previously, that prediction could only be made with a probability of 50% (1/2). Another deficiency of k-anonymization is that it does not compose, meaning that several k-anonymized datasets of the same individuals can be combined to reidentify those individuals [25]. Therefore, it is very difficult to guarantee a priori the risk of reidentification, which could depend on the adversary's knowledge.  
+The guarantee of protection in k-anonymization depends on the value of k. Intuitively, a high k value offers better protection than a lower one, but at the cost of data utility. To select a parameter for a privacy definition, it is necessary to understand the link between the parameter value and the risk of a privacy incident occurring. As we have seen earlier, quantitatively calculating that risk and thus the corresponding k value is very difficult in k-anonymization [26]. In the healthcare field, where medical data is shared with a small group of people (usually for research purposes), a k value between 5 and 15 is sometimes chosen [27]. However, this choice is very arbitrary and ad hoc.  
+3.3 DIFFERENTIAL PRIVACY  
+Differential privacy (DP) algorithms [28] can provide guarantees that, after analyzing a dataset of several individuals, the result of the analysis will not be affected and will remain the same, even if the data of any individual (up to ε) has not been included in the dataset. In other words, differential privacy allows for the study of broader statistical trends in a dataset while protecting the data of the individuals participating in that dataset. Learning these trends (i.e., inferences that are generalizable to a larger population of interest) is likely the ultimate goal of any data publication in general. Differential privacy is not an anonymization technique per se, but a model in which anonymization techniques can be developed and that allows for the quantification of reidentification risk.  
+Differential privacy allows for the study of broader statistical trends in a dataset while protecting the data of the individuals participating in that dataset.
+DATA PROTECTION ENGINEERING  
+January 2022  
+16  
+
+For a process to be differentially private, it must be slightly modified, generally with some randomness or noise. This noise must be calibrated with the value ε and the sensitivity, that is, to what extent an individual contributes to the outcome of the process. Although there is still no rigorous method for choosing the key parameter ε [29], most systems that apply differential privacy choose a value of ε close to 1. In any case, the lowest possible value that offers acceptable utility and privacy must be selected. For example, suppose a city wishes to publish the number of people suffering from a specific chronic illness. The publication can be made in the form of a histogram, where each segment corresponds to the count of people in a particular district suffering from the illness. Each person can, at most, influence one of these segments with the value 1 (the person either has or does not have the illness and only lives in one district). Therefore, the sensitivity is 1. We know that this publication can be ε-differentially private by simply adding Laplace noise of scale 1/ε to each count of segments [30]. The effectiveness of the protection is largely determined by that factor ε, so the selection of its optimal value must be made in the context of the data, the size of the user population of the dataset, and the treatment being carried out.  
+It is worth noting that anonymization based on differential privacy can be of two types: global or local anonymization. In the global differential privacy model, the data is collected by a central aggregator that transforms it, usually by adding noise, with a differential privacy mechanism. This model requires full trust in the aggregator. However, in the local model, participating users apply a differential privacy mechanism to their own data before sending it to the aggregator. Therefore, it does not require that full trust in the aggregator. Typically, the local model requires adding more noise and thus reduces accuracy, although secure aggregation techniques can also be employed to minimize degradation in accuracy [31].  
+One of the main advantages of differential privacy is that the loss of privacy can be quantified, even if a given dataset is anonymized multiple times for different purposes or entities (we say that "differential privacy composes"). For example, if the same dataset is anonymized twice (e.g., by two different entities), each with a privacy value of ε, it remains differentially private, but with a privacy parameter of 2 ε. Another important feature of differential privacy is that it allows for post-processing. In other words, the result of processing differentially private data through a fixed transformation remains differentially private.  
+3.4 SELECTION OF THE ANONYMIZATION SYSTEM  
+Data anonymization is a complex process that must be carried out on a case-by-case basis. Possible solutions depend on numerous parameters that vary from one application to another, such as the type of data (temporal, sequential, tabular, etc.), the sensitivity of the data, or the acceptable levels of risk and performance degradation. Any anonymization procedure must be combined with a risk-benefit analysis that defines acceptable levels of risk and performance. This risk analysis will guide the data controller in selecting the model, algorithm, and parameters to use.  
+The chosen anonymization solution must also depend on the context, for example, how the anonymized dataset will be distributed. The "publish and forget" model, in which anonymized data is publicly disclosed without control, requires greater protection than the "enclave model," in which the anonymized data is retained by the data controller and can only be accessed by qualified researchers. Sometimes, k-anonymization methods and differential privacy are perceived as opposing and it is considered that one should be used to the detriment of the other. However, they are quite complementary methods that adapt to different applications, as  
+Anonymization procedures must be combined with a risk-benefit analysis that defines acceptable levels of risk and performance.
+DATA PROTECTION ENGINEERING  
+January 2022  
+17  
+
+and as explained in [32]. k-anonymization is easy to understand and fits well with tabular data. It is the most suitable method for publishing anonymized data that can be used for different purposes. However, since it is vulnerable to a number of attacks and its security depends on the prior knowledge of adversaries, it is not advisable to use it in a "publish and forget" model.  
+The differential privacy model offers stronger protection than k-anonymization due to the added randomness that is independent of the adversary's knowledge. Unlike k-anonymization, differential privacy does not require modeling of attacks and is secure, regardless of what the attacker knows. Therefore, it is better suited for a "publish and forget" approach. However, differential privacy does not adapt well to tabular data and is more suitable for publishing aggregated statistical information (query counts, averages, etc.) about a dataset. Additionally, the differential privacy-based anonymization system often requires adaptation for data use. It is challenging to generate an anonymized dataset using differential privacy that offers solid protection and good utility for various purposes [33]. Furthermore, differential privacy performs better with datasets where the number of participants is large, but each individual contribution is quite limited.  
+
+DATA PROTECTION ENGINEERING  
+January 2022  
+18  
+
+4. DATA MASKING AND COMPUTATION FOR PRIVACY PRESERVATION  
+Masking is a generic term that refers to functions that, once applied to data, hide its actual value. The most notable examples are encryption and hashing; however, since the term is quite general, it also encompasses other techniques, some of which are explained in this section. The main utility of masking concerning data protection principles is integrity and confidentiality (security) and, depending on the technique or the context of the processing operation, it may also include proactive accountability and purpose limitation.  
+4.1 HOMOMORPHIC ENCRYPTION  
+Homomorphic encryption is a fundamental element of many privacy protection technologies, such as secure multiparty computation, private data aggregation, pseudonymization, or federated learning in machine learning, to name a few. Homomorphic encryption allows calculations to be performed on encrypted data without having to decrypt it first. The typical use case for homomorphic encryption is when a data subject wishes to outsource the processing of their personal data without revealing it in plaintext. It is evident that these functionalities are very practical when the processing is performed by a third party, such as a cloud service provider.  
+There are two types of homomorphic encryption: partial and full [34]. Partial homomorphic encryption (PHE) is one in which only a single operation can be performed on the encrypted text, for example, addition or multiplication. On the other hand, full homomorphic encryption (FHE) allows multiple operations (currently addition and multiplication), enabling more calculations to be performed with the encrypted data. Homomorphic encryption currently represents a trade-off between utility, protection, and performance. FHE offers good protection and utility but poor performance. PHE, on the contrary, offers good performance and good protection, but its utility is very limited. However, there is a catch: the performance of FHE is quite inefficient, as the simplest operations can take seconds or hours, depending on the security parameters [35].  
+The choice of the type of homomorphic encryption depends on the desired level of protection and the complexity of the calculations to be performed with the encrypted data. If the operations are complex, the encryption system will be more expensive. The complexity of a calculation is not measured in the way commonly used in computing (time and memory), but by the diversity of operations (addition and multiplication) performed on the data. If the calculation only requires addition (as in the sum of some values), partial homomorphic encryption can be used. If the calculation requires some addition and a limited number of multiplications, a medium homomorphic encryption can be used, which is similar to partial homomorphic encryption but with a limitation on the number of operations that can be performed rather than on the types of operations. If the calculation requires many additions and multiplications, full homomorphic encryption should be used.  
+Homomorphic encryption allows calculations to be performed on encrypted data without having to decrypt it first.
+DATA PROTECTION ENGINEERING  
+January 2022  
+19  
+
+4.2 SECURE MULTI-PART COMPUTING  
+The concept of secure multi-party computation (SMPC) refers to a series of cryptographic protocols introduced in 1986 that aim to solve mutual trust issues among a set of parties by distributing a computation among those parties without any of them being able to see the data of the others. Secure two-party computation protocols can, for example, compute functions of the input data from two parties without revealing one party's data to the other. Notable variations of SMPC include Byzantine Consensus [36], where the computation is extended to various parties, and auctions [37], where participants can bid in an auction without revealing their bids. The latter is already being used as a real application in Denmark, where Danish farmers set the prices of sugar beets among themselves without the need for a central auctioneer.  
+The most prominent example of SMPC is blockchain technology, where a set of parties, referred to as "miners," must decide and agree on what the next block to link to the blockchain record will be. This problem can be divided into two subtasks:  
+a) Determine the valid block (or set of blocks) to link to the blockchain, and  
+b) Reach consensus with the other "miners" of the blockchain that this new block is the one that should be linked.  
+Task a) can be performed by each miner individually. This task consists of finding a valid hash value that meets a series of requirements through brute-force search (which, in reality, is the part that consumes the most energy in blockchain technology), and it does not yet involve multiple parties. Once a miner finds and announces this valid hash value, the majority of miners must reach a consensus for that hash (and its new block of transactions) to be linked to the blockchain. This task is similar to Lamport's Byzantine consensus protocol, as some miners could be faulty or could propose a different hash value and block that also meet all the requirements.  
+In general, there are secure multi-party computation protocols for every function that can be computed among a set of parties. In other words: if there is a way for a set of parties to jointly compute the results of the function (by exchanging some messages and calculating some local intermediate results), there will always be a secure multi-party protocol that solves the problem with the necessary security guarantees. Unfortunately, in many cases, a secure multi-party computation protocol can end up being a very complex application and may require a considerable investment in network communication. Therefore, it is likely not suitable for applications with real-time requirements that must be met quickly.  
+Depending on the exact protocol chosen, SMPC protocols support the confidentiality objectives of privacy protection (as the inputs of the other parties are not revealed) and integrity (as neither internal nor external attackers can easily change the outcome of the protocol). Thus, the total energy is distributed among all the involved parties, which can be many entities in real applications such as blockchain. In this way, it is not possible for an individual party to unilaterally determine and impose a decision on the other parties.  
+Furthermore, since the SMPC protocol selected in a specific application must be known to all involved parties, this approach fosters transparency regarding  
+
+7 https://partisia.com/better-market-solutions/mpc-goes-live/  
+Secure multi-party computation  
+aims to solve  
+mutual trust issues  
+among a set of  
+parties so that  
+none of them can  
+see the data of  
+the others.
+DATA PROTECTION ENGINEERING  
+January 2022  
+20  
+
+to the type of processing applied to the input data. On the negative side of this approach, however, is the fact that it is not easy to manually annul the result of an SMPC computation in case of error. If, for example, an email address is written in a block of the blockchain and the miners agree on what its host block is through the consensus protocol, it becomes part of the blockchain forever. Removing that email address from the blockchain later will be practically unfeasible, as it would require all miners to locally remove it from the block and ignore the error that the removal would cause in the hash values of the modified blockchain, which would be a direct violation of the blockchain protocol.  
+4.3 TRUSTED EXECUTION ENVIRONMENTS  
+Encryption is a powerful tool for protecting data, but useless if the security of the device used to store, encrypt, or decrypt the data is compromised. If that were the case, the adversary could access the decryption materials and the plaintext data. A Trusted Execution Environment (TEE) can play a key role in protecting personal data by preventing unauthorized access, data leaks, and the use of malicious programs. It offers protection against strong adversaries who manage to access devices, whether physically or remotely. With a TEE, data processing takes place internally in the environment. Therefore, it is theoretically impossible to obtain any data.  
+A Trusted Execution Environment (TEE) is an inviolable processing environment in the main processor of a device. Operating in parallel to the operating system and using both hardware and software, TEEs are designed to be more secure than traditional processing environments. It is also known as an enriched operating system execution environment (REE), in which the OS and device applications run. It ensures the authenticity of the executed code, the integrity of execution states (e.g., logs, memory, and CPU inputs/outputs), as well as the confidentiality of its code, data, and execution states. The TEE can withstand software attacks, in addition to physical attacks perpetrated on the system's main memory. Unlike dedicated hardware coprocessors, the TEE can easily manage its content by installing or updating its code and data.  
+TEEs are widely used in various devices, such as smartphones, tablets, and Internet of Things (IoT) devices. TEEs can also play an important role in protecting servers. They can execute key functions, such as secure aggregation or encryption, to limit access to the server's unprocessed data. They also provide the opportunity to obtain verifiable computations and increase trust. In fact, TEEs allow clients to certify and verify the code that is running on a particular server. In particular, once the verifier knows the binary code that is to be executed in the protected enclaves, TEEs can be used to verify that a device is running the correct code (code integrity). For example, in a collaborative learning environment, TEEs and remote certifications can be especially useful for clients to correctly verify the main functions being executed on the server, such as secure aggregation or randomization.  
+4.4 PRIVATE INFORMATION RETRIEVAL  
+Private Information Retrieval (PIR) is a cryptographic technique that allows the user to retrieve an entry from a database without revealing to the data custodian (e.g., the owner or administrator of the database) the item that has been retrieved [38]. Therefore, data controllers can use it as a data minimization technique.  
+Suppose a company wants its customers to access a database. Private Information Retrieval allows the user to query an entry from a database without revealing what the queried item is.
+DATA PROTECTION ENGINEERING  
+January 2022  
+21  
+
+In a predetermined environment, each time a client accesses the database, the data custodian knows which entry has been accessed. Over time, the data controller will be able to determine which entries in the database are of interest to clients. By implementing the private information retrieval technique, the data controller minimizes the amount of information revealed about the data that has been accessed, as the PIR technique prevents the data controller from knowing which entries have been queried.  
+Figure 1: Models of Private Information Retrieval  
+
+There are two main models of private information retrieval. The first is the computational private information retrieval model, in which the database is hosted on a single server. This model is considered to offer better protection but has limitations regarding the connections that can be established with the server and the database. The second is the theoretical private information retrieval model, in which the database is stored on multiple servers controlled by different owners. This model allows for greater communication complexity but assumes that the servers will not collude or exchange information. References [39] and [40] include additional information about PIR.  
+4.5 SYNTHETIC DATA  
+Synthetic data is a new area of data processing in which data is crafted to realistically resemble real data (both personal and non-personal), but does not actually refer to any specific identified or identifiable person, nor to the actual measurement of an observable parameter in the case of non-personal data. For example, it can be entirely simulated data aimed at testing services or software applications. It can also be personal data that is manipulated to limit the potential for re-identification of individuals. The term "synthetic data" can also refer to the combination of various data sources in order to provide better estimates of the parameters of a population (a kind of cross-enrichment between different datasets).  
+By using synthetic data, the data controller respects individuals' privacy, as it differs from real data, and the generation and processing of synthetic data do not invade the personal sphere of the data subjects (especially when real data pertains to sensitive characteristics of individuals or rare attributes that may be difficult to recover or may have considerable identification power). However, this  
+Synthetic data is crafted to realistically resemble real data, but does not actually refer to any specific identified or identifiable person.
+DATA PROTECTION ENGINEERING  
+January 2022  
+22  
+
+The technique may also pose problems in terms of data accuracy. Therefore, data controllers will always have to reconcile the tension between the different data protection principles, especially if the outcome of the processing has consequences (i.e., legal or health-related consequences) for the data subjects. Synthetic data must be adopted with the understanding that it should be analyzed, through a trial-and-error approach, whether its use actually generates more accurate and unbiased estimates over time. From this perspective, synthetic data are privacy engineering tools that can provide granular data without sacrificing the privacy and confidentiality of the data subjects.  
+There are many practical alternatives for generating synthetic data. The simplest option is to draw samples from a known probability distribution. In this case, the outcome does not contain original (or personal) data, and re-identification is unlikely, mainly due to randomness. Other, more complex options are based on the combination of real and false data (the latter obtained through sampling from known multivariable distributions, conditioned by the observed real data). In this case, it would be possible to reveal some personal data and re-identify them due to the presence of real values within the dataset. Currently, the practical generation of synthetic data, due to the variety of attributes involved and the diverse nature of probability distributions, relies both on the use of classical random number generation routines and, increasingly, on the application of artificial intelligence and machine learning tools.  
+The use of synthetic data presents advantages and disadvantages, and data controllers must be aware of both. Regarding the advantages, synthetic data are generated by machines and, as such, their reproduction is straightforward and virtually cost-free. Data controllers do not have to bear the burden of collection or the potential breach of the data of the data subjects. Additionally, synthetic data can also be valid for situations where the collection of (personal) data is very difficult or even unethical. For example, in comparative analyses where the goal is to study the causal effects of a specific action when performing that action may not be a practical option. This could be a situation where one wishes to know the effect that a new treatment is having on a pathology or the consequences of exposure to a risk factor for human health. In these circumstances, it may not be possible to administer the new treatment to the entire population, or it may not be ethical to suspend the previous treatment, and it is unethical to deliberately expose a person to a risk factor (e.g., pollution) to check its effects on their health.  
+Synthetic data can help data controllers overcome these difficulties and conduct numerous simulated experiments. Furthermore, synthetic data (used as a form of anonymization) could benefit from longer and potentially unlimited retention periods.  
+While there is much truth to this, it is important to highlight that synthetic data can only imitate real data, reproducing specific properties of a phenomenon, which means they should not be considered as real measures in any way. Additionally, as they are simulated data, their quality and accuracy largely depend on the quality of the input data, which sometimes comes from disparate sources, and on the data fitting model. Synthetic data can also reflect biases, both in the sources and in the models adopted, similar to biases in machine learning. Finally, the generation of synthetic data is not a definitive option; it requires time and effort. Although they are easy to create, the production of synthetic data must be controlled, as their accuracy is not guaranteed. Especially in complex situations, the best way to ensure the quality of their production is to compare, over time, the results of synthetic data with those of authentic labeled data. Only in this way can the risks of inconsistency be reduced. But, more importantly, synthetic data, due to their artificial nature, are not suitable for processing operations involving identified individuals (such as profiling or any legally binding decision), but rather for general analyses and predictions.  
+The fields of application for synthetic data are already numerous and increasing, especially considering the need to train machine learning algorithms and artificial intelligence systems with large volumes of data during the testing phase, before they become part of services or a production process. Tabular synthetic data are numerical data that reflect real data structured in tables. The meaning of the data can vary, from health-related data to user behavior on the web or financial records. A practical case of using tabular synthetic data would be in a company where true data cannot be distributed among its departments, subsidiaries, or partners due to internal policies or regulatory limitations, while its synthesized version could be used for predictive analysis.
+DATA PROTECTION ENGINEERING  
+January 2022  
+24  
+
+5. ACCESS, COMMUNICATION, AND STORAGE  
+5.1 COMMUNICATION CHANNELS  
+Secure communication channels, as their name suggests, are those that allow for a secure exchange of data between two or more parties involved in a communication. Generally, they are designed to enhance the privacy of communications in such a way that no unauthorized third party can access the content and, in some cases, the participants or even the metadata of the ongoing communication. The GDPR requires the security of personal data being processed, even during its transmission, in accordance with Recital 49 and Article 32 of the GDPR. The protection of privacy in the electronic communications sector and the processing of metadata, such as traffic data, is also addressed in the Directive on Privacy and Electronic Communications.  
+
+From the perspective of data protection engineering, communication channels must go beyond providing security as a primary functionality and incorporate additional features to protect the right to privacy, such as who can access the content of the communication, including providers, the location and access to encryption keys, the location and type of provider, the information about the user revealed, etc. Below, two technologies that move in this direction are described: end-to-end encryption and proxy routing.  
+
+5.1.1 End-to-End Encryption  
+End-to-end encryption (E2EE) is a method for encrypting data and keeping it encrypted at all times during communication between two or more parties. Only the parties involved in the communication have access to the decryption keys. The application of end-to-end encryption is clearly a fundamental function of secure messaging applications and has gained significant traction in recent years, during which a number of widely used Over-The-Top (OTT) services, such as messaging applications, claim to implement end-to-end encryption. The main difference between E2EE and link encryption or encryption in transit is that, in the case of the latter two, the server can access the content based on where the encryption takes place or where the encryption keys are stored. In a typical E2EE situation, the encryption keys are stored on the end-user devices, and the server only has information about the metadata of the communication (participants in the communication, date/time, etc.). However, E2EE is only reliable if the security of one of the endpoints is not compromised. An overview of end-to-end encrypted messaging protocols can be consulted in [41] and [42].  
+
+Following the ruling C-311/18 (Schrems II), which referred to the transfer of personal data from an EU citizen to the United States, the EDPS published its recommendations regarding the measures that complement transfer instruments to ensure compliance with the level of protection of personal data.  
+
+8 Directive 2002/58/EC of the European Parliament and of the Council of 12 July 2002 concerning the processing of personal data and the protection of privacy in the electronic communications sector (Directive on Privacy and Electronic Communications), revised by Directive 2009/136/EC https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:02009L0136-20201221  
+9 Judgment of 16 July 2020, Schrems, C-311/18, EU:C:2020:559, https://curia.europa.eu/juris/document/document.jsf?text=&docid=228677&pageIndex=0&doclang=en&mode=lst&dir=&occ=first&part=1&cid=40128973  
+Communication channels must go beyond providing security as a primary functionality and incorporate additional features to protect the right to privacy.
+DATA PROTECTION ENGINEERING  
+January 2022  
+25  
+
+the EU. In Use Case 3 and under the conditions mentioned therein, end-to-end encryption, combined with transport layer encryption, is considered a means to enable transfers of personal data to non-EU countries in specific situations.  
+
+5.1.2 Proxy and Onion Routing  
+In addition to the content of the communications described above, the aspect of the communication metadata (data that describes other data and includes information about who, what, where, when, etc.) must also be taken into account, which, according to the statement of the EDPS [44] regarding the review of the Directive on privacy and electronic communications and the Proposal for a Regulation on privacy and electronic communications10 "may allow very precise conclusions to be drawn regarding individuals' private lives, which poses a high risk to their rights and freedoms." In Article 4, paragraph 3, letter c), of the proposal, a more formal definition of electronic communications metadata is included.  
+A possible model for protecting metadata is the use of an onion routing network (for example, Tor11) that supports anonymous communication over public networks. In onion routing, user traffic is routed through a series of relay servers [45], and each server receives the data encrypted in layers without knowing who the original sender is or the final recipient. This information is only available to the entry and exit node [46]. However, Tor is vulnerable to attackers who can observe the traffic entering through the entry nodes and exiting through the exit nodes and correlate the messages, as explained in [47].  
+5.2 PRIVACY-PROTECTING STORAGE  
+Privacy-protecting storage has two objectives: to protect the confidentiality of personal data at rest and to inform data controllers in the event of a breach. Encryption is the main technique used to protect the confidentiality of data against unauthorized access. Depending on the limitations of the data controllers, it can be applied at three different levels: (i) storage level, (ii) database level, and (iii) application level.  
+Chart 2: Database Encryption Options  
+
+Encryption at the file system and disk level reduces the risks of an intruder physically accessing the disk where the data is stored. This approach has the  
+
+10 Proposal for a REGULATION OF THE EUROPEAN PARLIAMENT AND OF THE COUNCIL on the respect for private life and the protection of personal data in the electronic communications sector and repealing Directive 2002/58/EC (Regulation on privacy and electronic communications) https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A52017PC0010  
+11 Tor Project https://www.torproject.org/  
+Privacy-protecting storage protects the confidentiality of personal data at rest and informs data controllers in the event of a breach.
+DATA PROTECTION ENGINEERING  
+January 2022  
+26  
+
+The advantage is that it is transparent for the users of the database, but it is an "all or nothing" method, as it is not possible to encrypt only certain parts of the database nor does it offer better granularity than file-level encryption. In this solution, there is only one encryption key, which is managed by the database system administrators. The key is located on the server hosting the database and must be protected through access with the highest privileges.  
+Encryption can also be applied at the database level. This method offers more flexibility than the previous solution and can be applied with different granularities in tables, entries, or fields. It can also be applied when some fields or data attributes are more sensitive than others (political or religious beliefs, for example). However, since encryption keys must be stored with the database, an adversary who can connect to the server hosting the database could use a forensic tool like Volatility12 to recover the keys directly from volatile memory.  
+In application-level encryption, all data is encrypted by the client with its own encryption keys and then stores the keys. However, if different clients are going to share multiple entries of the database, it will be necessary to exchange cryptographic keys, which can jeopardize their security. This problem can be avoided if specific encryption systems are used, such as homomorphic encryption. The encryption keys no longer need to be shared, as calculations can be performed with the encrypted data.  
+Regarding notification, stack protectors (or "canaries") are a well-known security mechanism used to detect software attacks and buffer overflows. The concept of a stack protector can be transferred to the protection of personal data. Injecting a stack protector into a database involves introducing false values that are not supposed to be used by anyone. Therefore, access to those values must be monitored to detect data security breaches. It is also important to note that it should not be possible to distinguish these false values from the real ones. In a possible application of this system, there will be one server that stores the database and another that handles requests to the database. The server responsible for the database requests must be capable of identifying requests for controlled values, thus detecting a possible attack or breach. This model is particularly suitable for data controllers who wish to use third-party cloud storage systems. However, the data controller must find a good balance between the number of actual entries in the database and the number of controlled values (false entries), and in any case, these techniques cannot be considered a panacea for the prompt identification of data security breaches.  
+5.3 ACCESS CONTROL, AUTHORIZATION, AND AUTHENTICATION FOR THE PROTECTION OF THE RIGHT TO PRIVACY  
+Authentication, authorization, and access control aim to prevent unauthorized or unwanted activities by applying controls and restrictions on what users can do, on the resources they can access, and on the functions they can perform on the data, including unauthorized viewing, modification, or copying. Authentication confirms the identity of a user requesting access to the data, while authorization determines what actions an authenticated user can carry out. Access control refers to a technique that ensures that only authenticated users can access the information for which they are authorized. These three elements are closely related, and omitting even one of them can weaken the level of data protection, as authorized users may access them or perform unauthorized actions.  
+
+12 https://www.volatilityfoundation.org
+DATA PROTECTION ENGINEERING  
+January 2022  
+27  
+
+Depending on the context and needs, some access control mechanisms seem more suitable than others. As also explained in [48], in a situation where the processing of customers' personal data for commercial purposes is carried out through an online cloud storage provider, Discretionary Access Control (DAC) can be employed to access the data of a specific service request, such as a printing and delivery service. Through DAC, each user can specify the permissions they grant to other users or external entities regarding their objects. DAC offers users advanced flexibility to establish the desired access control properties; however, as a downside, it heavily relies on the users' knowledge and understanding of the associated risks. On the other hand, in a hospital information system, where different roles (doctors, nursing staff, administrative staff) are assigned to each agent with different privileges (e.g., a doctor can access patients' medical data), Role-Based Access Control (RBAC) seems more appropriate.
+
+5.3.1 Attribute-Based Credentials for Privacy Protection  
+Attribute-Based Credentials (ABC) allow for the authentication of an entity through selective authentication of various attributes, without revealing additional information, which is commonly used and could very well include personal data. For example, for a service provider to allow access to an online service, the provider must verify the age of the person requesting access. Instead of asking the person for their age, the provider could request the value of an attribute indicating whether the individual is over 18 years old or not. To include even more privacy protection features, attribute-based credentials that protect the right to privacy have also been proposed [49]. This technique authenticates the user through attributes but does so in a way that minimizes data, as it provides unrelated attributes (to each other). The ABC4Trust research project [50] under the H2020 program has conducted significant research work in this area, and since then, various deployments have been carried out, such as the IRMA card13. Recently, the Decode14 research project under the H2020 program has launched pilot demonstrations of the use of attribute-based credentials in real-life situations.  
+5.3.2 Zero-Knowledge Proof  
+Zero-Knowledge Proofs [51] are cryptographic primitives that can be used to enforce compliance with the confidentiality and data minimization principles of the GDPR. The fundamental idea of a zero-knowledge proof is to allow a user (a data subject) to demonstrate to a server (data controller) that they know a secret piece of information without revealing anything about that secret ([52]). Zero-knowledge proofs are primarily used to implement authentication systems, and several protocols are proposed in the ISO/IEC 9798-515 standard.  
+Zero-knowledge proofs not only enforce compliance with confidentiality but also—compared to other authentication systems, such as those using a username and password—apply the principle of data minimization. In password-based authentication systems, the user sets the password and shares it with a server.  
+
+13 IRMA Application https://irma.app/  
+14 https://decodeproject.eu/  
+15 ISO/IEC 9798-5:2009 Information technology — Security techniques — Entity authentication — Part 5: Mechanisms using zero-knowledge techniques https://www.iso.org/standard/50456.html  
+Zero-knowledge proofs allow users to demonstrate that they know a secret piece of information without revealing anything about the secret.  
+
+DATA PROTECTION ENGINEERING  
+January 2022  
+28  
+
+When the user wishes to authenticate to the server, they indicate their password, which is compared to the one registered on the server. If an adversary wishes to impersonate the user, they can steal the password from the user or the server. In a zero-knowledge proof authentication system, this risk is limited solely to the user, as the server does not know the secret used by the user to authenticate. The technique minimizes the amount of information that the server knows about the user and, therefore, reduces the attack surface. Zero-knowledge proofs are also a fundamental element of many multiparty secure computation protocols.  
+Zero-knowledge proofs present two variants: interactive [51] and non-interactive [53]. Interactive zero-knowledge proofs require several communications between the user and the server. Non-interactive zero-knowledge proofs do not require any communication. Non-interactive zero-knowledge proofs are frequently used in blockchain applications.
+DATA PROTECTION ENGINEERING  
+January 2022  
+29  
+
+6. TRANSPARENCY,  
+USER INTERVENTION CAPACITY, AND  
+CONTROL TOOLS  
+
+A fundamental element of any data protection concept is enabling individuals to exercise their data protection rights themselves. This empowerment involves both access to information about data processing (transparency) and the ability to influence the processing of their personal information in the hands of the data controller or processor (intervention capacity). In this regard, the research community in privacy has provided numerous approaches and topics that can help implement these rights and related services in institutions dedicated to data processing. In this chapter, we present a selection of the most important ones.  
+
+The GDPR not only requires transparency in data processing but also the necessity for individuals to understand why their personal data is collected and how it is processed, e.g., whether it is transferred to other parties. While system designers or data protection officers have the capacity to understand the systems and processes of data processing, and even to demand detailed information about them, most users cannot comprehend what a technical specification or legal document states, and may even feel overwhelmed when presented with basic information about the processing of personal data (Articles 13 and 14 of the GDPR).  
+
+6.1 PRIVACY POLICIES  
+
+In the online world, a well-known tool for providing information to users is the privacy policy (also referred to as "data protection statement," "data policy," or "privacy notice," among other terms).  
+
+The first recommendation from the Article 29 Data Protection Working Party regarding how to inform users online about data protection issues derives from its recommendations published in 2004 [54] and emphasizes the possibility of using a multi-layered approach, starting with essential information and offering more information, if the user wishes, through additional layers. The layered approach is particularly useful for presenting information on mobile devices, where it would be complicated, if not impossible, to read a long text containing all the information about the processing of personal data.  
+
+In 2017, the Article 29 Data Protection Working Party published guidelines on transparency [55] that referred to the obligations established in the GDPR. In particular, the document explains the meaning of the requirement of Article 12, paragraph 1, section 1, of the GDPR: "The data controller shall take appropriate measures to provide the data subject with all information referred to in Articles 13 and 14, as well as any communication under Articles 15 to 22 and 34 regarding processing, in a concise,  
+
+Providing accurate information about data protection is not an easy task, as it may be necessary to simplify the information and it could also generate misunderstandings.
+DATA PROTECTION ENGINEERING  
+January 2022  
+30  
+
+transparent, intelligible, and easily accessible, using clear and simple language, particularly any information specifically directed at a child."  
+Providing accurate information about data protection is not an easy task, as it may be necessary to simplify the information so that an average person can understand it, and on the other hand, simplification must not lead to misunderstandings. In the case of information in natural language, several metrics have been proposed to measure complexity and comprehensibility, for example, of newspapers or insurance terms. The data controllers can use these metrics to monitor the comprehensibility of their privacy policy, although data protection authorities have not yet recommended the use of a specific metric. To specifically address children, the Information Commissioner's Office has published a code of good practices regarding online services.  
+When designing the presentation of the privacy policy, consideration must be given to the devices that users may use, e.g., screen size. Additionally, the information must be accessible and designed in a way that accommodates assistive technologies, so that individuals with disabilities are not excluded. In some situations, textual information is not suitable, e.g., in phone calls or, in some contexts, in smart homes or connected vehicles. Furthermore, all communication established through the Human-Computer Interface (HCI) regarding the information provided to users about data processing must be verified. Controls and tests for intelligibility (and the absence of "dark patterns") may require the involvement of data protection officers and individuals with usability expertise.  
+It should be noted that providing information is not limited to a single basic document, such as the privacy policy, but can also include personalized ad hoc information during actual use as designed in the human-computer interface (HCI). This type of information can influence users when making decisions on important data protection issues (e.g., what data to publish on social media) or regarding the granting or withdrawal of their consent. In the report titled "Deceived by Design," the Norwegian Consumer Council pointed out that the design of the human-computer interface of many applications and services is not neutral, but employs so-called "dark patterns," which push users to reveal more data and make hasty decisions about data processing methods.  
+6.2 PRIVACY ICONS  
+Better understanding could also be achieved if information were conveyed not only through text that requires knowledge and reading effort but also through graphic symbols (icons). Icons are a well-known method for complementing textual information or even sometimes replacing it. The GDPR acknowledges this possibility in Article 12, paragraph 7. To date, there is no standardized set of icons that can be combined with the information from Articles 13 and 14, but the research community has already presented several proposals.  
+Article 12, paragraph 7, also introduces the requirement that information presented through icons must be mechanically readable. Mechanical reading could facilitate understanding of the general meaning of the icon and obtaining more information.  
+
+16 E.g., the LIX readability formula, developed by Carl Hugo Björnsson in 1971: LIX(text) = Total words/Sentences + (Long words x 100)/Total words.  
+The CFP formula (content functionality index) on informativeness: CFR(text) = Number of content word tags / Number of functional word tags.  
+Hix formula (Hohenheim Understandability Index), developed by the University of Hohenheim, based on the Amstad formula, 1. Neue Wiener Sachtext-Formel, SMOG Index, and LIX, https://klartext.uni-hohenheim.de/hix  
+17 Since "consent" is understood as "any manifestation of free, specific, informed, and unequivocal will by which the data subject agrees, either by a statement or a clear affirmative action, to the processing of personal data concerning them" (Article 4, paragraph 11, of the GDPR), it requires sufficient information.  
+Privacy icons can be a good method to complement textual information, or even to replace it, regarding the processing of personal data.
+DATA PROTECTION ENGINEERING  
+January 2022  
+31  
+
+on data processing provided through the icon. Among the advantages of having a privacy policy that is mechanically readable (and not just the icons) include the option to translate it into the user's preferred (and understood) language and the automatic machine interpretation of the user's data, possibly cross-referencing the information in the privacy policy with the preferences or demands configured on the user's device (see section 6.4 on privacy preference signals).  
+Some data controllers have already introduced icons designed by themselves and present them in combination with their privacy policy. In the absence of a standardized set of icons, they can be very useful for users. However, as soon as standardized solutions for the icons and mechanical readability are published, they must be used.  
+As already noted, several pending issues remain regarding privacy policies, such as the lack of definition of best practices, the absence of standards regarding mechanical readability, or the creation of a defined set of icons. Furthermore, situations involving new technologies, such as sensor technologies with restricted, absent, complex, or dynamic user interfaces, have not yet been well reflected, leading to data processing systems that are difficult to understand and may involve multiple data controllers or constantly changing computer systems.  
+6.3 STICKY POLICIES  
+The purpose of privacy policies (mechanically readable) can be expanded to regulate the data processing itself. Several proposals have been presented regarding information in policies linked to data elements, for example, complementing the metadata with the intention of describing important properties (origin, recipients, purposes, date of processing, etc.) or technically controlling the permitted and prohibited data processing operations (access, transfer, deletion, etc.). An advantage of sticky policies is that they combine the technical organization of data processing with transparency. If a data protection management system regulates all data processing on the data controller's side, changes in processing automatically invoke changes in the policy information. Similarly, the restrictions set out in the policy can be automatically ensured. Access rights, time-based restrictions, or event-based triggers can be defined in a policy language that can be executed in the data processing system and translated into natural language in the privacy policy.  
+The most notable proposal in this regard is the work on "sticky policies" [62], where policies "adhere" to the data and travel "stuck" to them in case they are transferred. Cryptographic methods are also being used to prevent recipients from ignoring the attached policies. However, not all types of policies completely exclude the possibility of misuse of personal data. Currently, there are no standardized solutions for these mechanically readable policies that also control data processing operations.  
+6.4 PRIVACY PREFERENCE SIGNALS  
+Although data controllers develop privacy policies to inform about data processing and aspects of data protection, these policies do not necessarily constitute a one-way communication. Since the 1990s, various possibilities have been discussed for users, as stakeholders, to express their privacy preferences in a mechanically readable manner, as outlined in [63]. While all users in the online world or other areas can express their demands or wishes regarding how their personal data should be processed, data controllers typically cannot (and do not) satisfy arbitrary demands. Instead, they adhere to standardized and predefined processing operations. The communication of preference signals regarding privacy allows users to express their preferences in a mechanically readable manner.
+DATA PROTECTION ENGINEERING  
+January 2022  
+32  
+
+standardized and mechanically readable privacy policies from the user's side can be interpreted by servers governed by these technical standards. A first example of this approach, which became obsolete in 2018, is the specification of the "Privacy Preferences Platform" [64], which would allow expressing privacy policies through a specification language for the server and a complementary one for the user [65]. 
+
+Following the idea that users could express their wishes or demands regarding privacy in a mechanically readable format, various languages and protocols were developed, mainly in research projects and prototypes. Although these languages and protocols are often exhaustive and complex, with numerous functions, it seemed appropriate to use a more simplistic approach for practical applications. A notable example was the "Do Not Track" (DNT) standard, where users could express their desire not to be tracked through an HTTP header field. "DNT = 1" means "This user prefers not to be tracked on this request," while "DNT = 0" means "This user prefers to allow tracking on this request." A third possibility would be to refrain from sending a DNT header because the user has not activated this feature. One of the shortcomings of the DNT standard was the lack of supporting legislation: if the issue of "tracking acceptance" or "tracking denial" can only be expressed as a "preference" rather than as a clear requirement, and if only "educated" servers respond correctly, this measure will not contribute to achieving reliability or clarity for users or service providers. 
+
+Another standard related to tracking is the so-called "Global Privacy Control" (GPC). This standard allows users to send a "do not sell or share" signal to a website through their browser to request that their data not be sold or shared with any party other than the one with which the user intends to interact, except in cases permitted by law. Since mid-2021, the GPC signal has been regulated under the California Consumer Privacy Act (CCPA) adapted. Users wishing to express a "do not sell or share" signal can use one of the supported browsers or extensions. Under the European data protection regime, service providers are currently not required to implement specific protocols that interpret users' privacy preference signals. 
+
+In the era of the Internet of Things (IoT), the role of mechanically readable policies, as well as privacy preference signals, will gain importance. Website or web service providers must support standardized privacy preference signals and take into account and respect the wishes expressed by users when deciding on the processing of their personal data. However, it should be noted that Article 25, paragraph 2, of the GDPR requires data protection by default, without the need for users to explicitly state that they do not agree to their personal data being processed for profiling, shared, or sold: the data controller must ensure "that, by default, only personal data that are necessary for each specific purpose of the processing are processed. This obligation shall apply to the amount of personal data collected, the extent of their processing, their retention period, and their accessibility." 
+
+If users' preferences, expressed in a technical and standardized manner, cannot be fulfilled, for reasons of transparency, data controllers must inform them (p.  
+
+18 https://www.w3.org/2011/tracking-protection/  
+19 https://www.w3.org/TR/tracking-dnt/  
+20 https://globalprivacycontrol.org/  
+21 https://oag.ca.gov/privacy/ccpa#collapse7b  
+Privacy panels allow users to see how a data controller is processing their data.
+DATA PROTECTION ENGINEERING  
+January 2022  
+33  
+
+e.g., in their privacy policy) the reasons for such non-compliance. For example, in some countries, there may be laws that require longer retention periods than one might expect. In addition to standardized privacy preference signals, users' browsers may contain privacy tools in the form of add-ons or have specific settings regarding tracking, data minimization of identifiers, or script blockers. In the event that a restrictive setting may prevent the proper functioning of a website or web service, providers must inform users about the possible limitations and offer, at a minimum, basic functions to those users who are concerned about their privacy. In practice, this means that they must respect users' privacy demands, regardless of whether they use one of the upcoming privacy preference signal standards or other tools.  
+6.5 PRIVACY PANELS  
+Privacy panels can be used as a mechanism to increase transparency and, possibly, the ability of stakeholders to intervene. The aim of privacy panels is for users to see how a data controller is processing their data. Unlike the information provided in privacy policies, which often include rather abstract descriptions of processing operations, privacy panels can serve to show the actual personal data that the data controller has access to. With them, stakeholders can better understand what personal data concerning them is being processed. They also often inform when and to whom that personal data is communicated, e.g., whether personal data is being transferred to other organizations or if (and possibly for what purpose) a person has accessed specific personal data elements. Stakeholders can also check if their personal data, as displayed in the privacy panel, is outdated, incorrect, incomplete, or excessive, or if its disclosure to third parties is likely or unexpected.  
+Current privacy panels are typically provided by data controllers, who also decide the amount of information presented in them, how many explanations are offered, e.g., about possible risks, and what options the user can use to adjust the parameters or modify or delete their personal data. Users cannot expect to be informed of all types of communications of their data, for example, if law enforcement authorities or other public authorities require (in their jurisdiction) lawful access to the user's personal data but prohibit notifying them. Additionally, information about data breaches could be excluded from the presentation. If the data processing by the controller includes profiling, the privacy panel must clarify what personal data is used for the user's profile and, in any case, what information will be obtained from the aggregated personal data.  
+Data controllers should consider using privacy panels that are practical for stakeholders and comply with GDPR requirements. As explained in section 5.3, the user must authenticate through a reliable method to prevent the communication of personal data to unauthorized persons. If user-side privacy panels were to be distributed, data controllers should check whether these tools could be used as transparency-enhancing technologies.  
+The following sections describe two types of privacy panels: service-side privacy panels and user-side privacy panels.
+DATA PROTECTION ENGINEERING  
+January 2022  
+34  
+
+6.5.1 Service-side Privacy Panels  
+Google was one of the first companies to offer its own privacy panel, which acts as a central access point for account holders to manage their privacy settings. For companies that use personalized advertising, these privacy panels can also be useful for explaining ad choices (“Why am I seeing this ad?”) and for prompting the user to adjust the configured or inferred categories of ads that may be of interest to them. This user-centered approach is subject to criticism, as it only offers partial transparency. For example, it is often not explained in detail how profiles about user interests have been generated, and moreover, the business model of personalized advertising does not necessarily comply with the principle of data minimization, but rather pushes users to provide more information that can be used for profiling.  
+Privacy panels are also considered a functionality of public sector citizen service portals. Estonia was likely the first country to offer a tool that presents a summary of personal data and who has accessed it: the RIHA system shows the personal data stored in various public databases and governmental information systems, indicating the purpose and the individuals who can access it. Estonian citizens can see which officials have accessed their personal data. This information is collected through access log files. Citizens can control accesses that should not occur without a justified reason, as required by national legislation [66].  
+The German public sector plans to implement a similar functionality with a privacy panel called “Datenschutzcockpit,” as outlined in the “Online Access Act.” The inclusion of a privacy panel in a citizen portal does not necessarily mean that all personal information must be permanently stored in a central database; it can also serve as a centralized view of decentralized information.  
+
+6.5.2 User-side Privacy Panels  
+User-side privacy panels are applications controlled by the user, e.g., as a tool on the user's device. These tools, referred to as “transparency-enhancing technologies,” have been developed within research projects and aim to increase transparency regarding the disclosure of users' personal data to different data controllers, possibly under different pseudonyms, in addition to helping the user manage identities. A summary is included in [67].  
+This type of privacy panel would benefit from machine-readable policies and standardized privacy preference signals so that the summary of personal data processing can be based on reliable information provided by a data controller. It is expected that the standardization of machine-readable policies and their practical distribution will lead to the development of user-side privacy panels.  
+Privacy panels can not only serve as a means to present an overview of information regarding personal data processing but can also offer functions that allow users to change privacy settings or exercise their rights as data subjects.  
+
+22 Google Account: myaccount.google.com  
+23 State Information System Management System: https://www.riha.ee/
+DATA PROTECTION ENGINEERING  
+January 2022  
+35  
+
+6.6 MANAGEMENT OF CONSENTS  
+Most of the existing web services on the internet are exploited by companies that carry out processing based on the legal ground of consent. When registering to use such services, the user must accept the terms of use, thereby expressing their knowledge and consent to the processing of data under the conditions described in those documents. Unfortunately, web services often change frequently; new features are added, and old ones are gradually removed. New business partners are incorporated who may act as data processors. Each time this occurs, it will be necessary to validate whether the current terms of use documents cover the changes introduced in the processing operations.  
+In these cases, it is inevitable that the data controller modifies its terms of use accordingly (and possibly its privacy policy and other similar documents), e.g., by including new business partners in the list of data processors or adding the new purpose of processing such data. Once this is done, new customers must read and accept the new terms of use, thereby expressing their consent to these data processing rules. However, existing customers who have already accepted the old terms of use did not express their consent to the change in the processing rules and cannot easily withdraw their previous consent. This situation can be problematic.  
+If different customers have accepted different versions of the terms of use at different times, their legal basis regarding data processing may be different. It cannot be assumed that the user automatically grants consent for all changes introduced in the processing of data. Therefore, it is necessary to explicitly ask existing customers to review the new terms of use and to re-grant their consent. Depending on the type and application of the web service in question, this measure may be problematic.  
+In any case, in a realistic situation, it is inevitable to allow different customers to use the same service under different terms of use and, therefore, with different coverage of consent. Thus, it is also inevitable to keep track of these differences, that is, to record which consent for data processing applies to each customer. This practice is often considered a fundamental aspect of consent management.  
+6.7 OBTAINING CONSENT  
+In the case of web services used through a browser, the de facto approach to obtaining consent consists of displaying the text of the terms of use to the customer for them to read and adding a button at the bottom that states "I have read and understood these terms of use." Once the user clicks the button, it is considered that they have explicitly granted their consent, and that information is recorded in the customer's user profile (or, in the worst case, it is implicitly recorded by the fact that a user profile is created and the user is allowed to log in).  
+Unfortunately, this approach has several drawbacks:  
+• Users often click the button without reading or understanding the document ("they are tired of giving consents" [68] and [69]).  
+• Users with disabilities may not be able to read or understand the document.  
+• Browser display issues may hinder users from reading the document.  
+Consent management refers to the administration of users' consents regarding the processing of their personal data.
+DATA PROTECTION ENGINEERING  
+January 2022  
+36  
+
+• Services that cannot be used through a browser cannot employ this method.  
+• Services running on embedded computers (e.g., in vehicles or IoT devices) may not have a screen to display the terms of use document.  
+• Services running on embedded computers may not have any button or other response mechanism to express consent. However, obtaining consent is mandatory even in such circumstances, and the expression of consent must be granted and documented in a valid manner to be used as a legal basis for data processing.  
+
+6.8 CONSENT MANAGEMENT SYSTEMS  
+From the perspective of implementation, there are numerous approaches to managing consent in real dynamic situations (see, for example, [70], [71], and [69]). In the healthcare sector, where patient consent is requested before proceeding with a medical intervention, very elaborate concepts for consent management have been proposed. For obvious reasons, the doctors in these institutions have an urgent need to document such consent before any intervention, as the absence of consent could lead to, for example, a surgical intervention being considered to have inflicted bodily harm.  
+In this regard, numerous approaches have been developed to manage consent in such a way that a unique consent for a medical operation or treatment can be documented, but most are based on extensive legal text with the patient's handwritten signature below. Digital equivalents use electronic documents, authentication witnesses such as personal identity cards, and technologies like blockchain to permanently store exact versions of consent documents along with the expression of user consent [72]. In these cases, we encounter a significant number of security requirements for collecting and documenting these electronic expressions of consent, e.g., regarding the integrity and availability of consent forms.  
+Unlike in the healthcare sector, internet services have slightly different needs regarding the collection of consents:  
+a) If consent is to be obtained for a system or service that is in constant evolution, changes in the service must be documented and reflected in the terms of use. This differs from surgical interventions in the healthcare sector, where consent is only collected once.  
+b) Handwritten signatures are rarely used as an expression of consent in IT services. Therefore, the attribution, authenticity, and validity of an expression of consent must be collected using different techniques, such as recognized electronic signatures [73].  
+c) In most cases, consent must be obtained before the user profile exists and, therefore, before the password or authentication witness. However, the association between the user profile (i.e., their personal data) and the expression of their consent (when they click the acceptance button) must be documented and stored in a way that cannot be tampered with.  
+On a positive note, the use of consent management systems reduces the management workload for the data controller and processors. Once the system is operational, the task of collecting consent is carried out almost automatically, freeing up costly and scarce human resources.
+DATA PROTECTION ENGINEERING  
+January 2022  
+37  
+
+specialized so that they can dedicate themselves to other tasks, such as deciding whether or not to obtain new consent. A second clear advantage is the ability to integrate the consent management system with other management tools, such as CRM systems, to support auditing and certification processes, or for legal matters. In this case, depending on the extent of the integration, there is enormous potential to minimize the necessary efforts, as the alternative would be to apply manual management procedures, which require the intervention of costly human resources with expertise.  
+As a negative aspect, the efforts to implement and integrate such a consent management system can be substantial. Depending on the degree of integration, setting up a system of this type may require a considerable amount of resources and may only be partially amortized later. The greater the attempt at integration, the higher the initial cost, but the greater the resulting savings in the long term. This (frequent) imbalance may prevent smaller companies from integrating such systems.  
+6.9 EXERCISING THE RIGHT OF ACCESS  
+As established in Article 15 of the GDPR, the data controller must provide all data subjects access to their personal data that is stored in the systems of the data controller, as well as to the extent that data processors participate in the processing of such data. The same obligation applies to data processors. However, the task of responding to such requests for information regarding the right of access, especially in large and complex data processing networks with numerous data processors (and possibly other joint controllers; see Article 26 of the GDPR), can be very challenging. To address this issue, many modern companies implement infrastructures and technical services to automate the processing of these access requests by providing, for example, privacy dashboards, as explained in section 6.5.  
+Figure 3: Request to exercise the right of access  
+
+A service for exercising the right of access would provide an interface with the data subjects whose data is being processed by the organization in question. When activated, the service would automatically query the organization’s data repositories, collect all personal data related to the person making the request, and deliver the complete set of collected data to the data subject. Ideally, the entire task should be automated, so that no manual interaction (or minimal interaction) is required from the organization.  
+Having an automated service to exercise the right of access that is part of the internal or external management systems of an organization significantly reduces the difficulty of responding to a request to exercise the right of access in large and complex data processing networks involving numerous data processors.
+DATA PROTECTION ENGINEERING  
+January 2022  
+38  
+
+manual efforts required in the event that the number of access requests is excessive. While employees can easily become overwhelmed during peak demand periods, the technical infrastructure is often easier to scale. Depending on the number of requests received, an automated system can represent a significant cost saving for the organization.  
+At the same time, if this service for exercising the right of access were connected to all new data warehouses, data collectors, or additional data processors that obtain data from a person, it would also enhance the organization's overall data management capabilities. Requests related to the location of the data, forwarding of the data, business partners involved in data processing, etc., can be answered quite easily based on existing data flow infrastructures created and maintained for this right of access exercise service.  
+From a negative standpoint, implementing such a service requires defining, developing, and deploying other processes in addition to the basic functional services for data processing. This raises a number of additional issues that must be taken into account:  
+• Authorization: a person is only authorized to view and investigate their own personal data, not that of other data subjects. Therefore, there must be some means (technical and organizational) of authentication that allows for the verification of the authorization of the person making the request. Of course, such authorization must ensure its validity, so high-level security techniques must be employed to validate the identity of individuals. Systems such as passport validation, two-factor authentication, or other similar means may be required.  
+• Delegated authorization: in some cases, it is possible to delegate the right of access, e.g., in the case of minors, legal guardians, lawyers, etc. In such cases, the authorization of the request to exercise the right of access must be validated, not only by verifying the identity of the person making the request but also by checking the legal grounds for the transfer of authorization. Depending on the type of rights delegation, this task can become arbitrarily complex (see also further below).  
+• Risk of data security breach: revealing the entire set of personal data of one data subject to another without valid authorization amounts to a serious breach of data security, which, in turn, constitutes a violation of the GDPR. At the same time, there may be substantial interest in such access rights from other agents besides the data subject, such as hackers, media, law enforcement agencies, or family members. Therefore, the security risk posed by providing such a service is not negligible.  
+• Completeness: as highlighted in the Schrems court ruling, obtaining all the data disclosed in response to a request to exercise the right of access is not easy. A recent study showed that only about 10% of companies provided the complete set of data of their customers when requested under Article 15 of the GDPR [74]. However, an incomplete response to a request for the right of access constitutes a violation of Article 15 of the GDPR and, therefore, would invalidate the exercise of that right of access. The main problem in this regard lies in how to identify all the data belonging to a particular data subject within the vast array of data warehouses that large organizations responsible for or acting as data processors typically work with. Sometimes, this task involves consulting databases with the customer identifier of the
+DATA PROTECTION ENGINEERING  
+January 2022  
+39  
+
+interested party (if available), but it may also include examining large amounts of archived data, file systems, backups, derived datasets, or other types of information that can no longer be accessed directly and easily or that is not properly linked to the customer identifier of the interested party, if such an identifier exists.  
+•  
+Accuracy: just like completeness, the data communicated to the interested party must be accurate and, therefore, cannot contain abbreviations, aggregations, internal censorship, or other mechanisms that hinder access. Furthermore, its integrity must be maintained when delivered to the requesting person. Therefore, to implement a service for exercising the right of access of this type, solid technical means must be used to ensure the accuracy and integrity of the data contained in the response to the requesting person.  
+•  
+Volume: the personal profiles of active interested parties tend to grow in size with the use of a service. Therefore, the response to a request for exercising the right of access can easily contain enormous amounts of data. This poses a technical challenge when delivering the data to the requesting person by reasonable means. For example, the maximum allowed size for sending by email can easily be reached, making it unfeasible to respond to a request for exercising the right of access via an informative email. Printing the data would not only be problematic from an environmental standpoint, but it would also fail to meet the common requirements related to responses to this type of requests or the data portability requirement established in Article 20 of the GDPR. The most commonly used solutions consist of downloading compressed data files via HTTP(S) or FTP(S), which also entails some technical problems in areas with poor bandwidth.  
+
+6.9.1 Delegation of requests for exercising the right of access  
+Beyond the authority to delegate the authorization to execute a request for access, for example, to a data custodian, the delegation of a request for the right of access may also include processing an iteration across a complete series of data controllers and processors involved in a processing activity [75]. In these cases, the delegation of the right of access is not only transferred to a single specific entity but is essentially transmitted along with the request itself to all the involved subprocessors. Specifically, once the interested party requests information under their rights of access, the data controller or processor contacts all the subprocessors involved in that specific processing and transmits the right of access to each of them. These, in turn, also contact their subprocessors, and so on, until the entire structure of processors (and joint controllers) involved has been contacted. Each delegated request is then responded to with all the information received from the subprocessors plus the information related to the organization to which the data was requested. Therefore, the request submitted by the requester receives a single response obtained after recursively gathering a complete set of information from all the involved subprocessors.  
+
+DATA PROTECTION ENGINEERING  
+January 2022  
+40  
+
+Figure 4: Recursive delegation of the right of access  
+
+For the interested party, the advantage of such an infrastructure is that a single request to exercise the rights of access is sufficient to obtain a complete picture of all the data processing activities carried out by all the subprocessors. For the data processors, the advantage of this type of infrastructure for the data request is its compositionality: the details about the exact network of subprocessors, suppliers, service providers, etc., can be easily hidden or masked in the single response sent to the previous requester in the processing structure. Thus, the exact identity of a business partner of an organization can be concealed from previous processors if considered a trade secret. However, the data collected for the original request to exercise the right of access remains complete and sufficient to meet the needs of the interested party.  
+The obvious drawback of this approach is, again, the efforts required for its implementation and its complexity, as delegated access rights services must be implemented and managed. Any request of a recursive nature may require more computational resources and longer execution times than responding to a normal access rights request.
+DATA PROTECTION ENGINEERING  
+January 2022  
+41  
+
+Graph 5: Iterative delegation of the right of access  
+
+On the other hand, an organization responsible for data custody may also provide the data collection service for its data subjects itself. Unlike the recursive approach, in this case, the task of individually identifying and demanding responses to the right of access from all the subprocessors in the processing network is carried out iteratively by the data custodian, on behalf of and at the request of the data subject. Once the collection is completed, the aggregated response to the resulting right of access is sent to the data subject who requested it. In this case, the advantage of obtaining a complete picture of the processing remains evident for the data subject, while the data controllers and processors lose some control over the exact content of that aggregated response to a request for access rights.  
+6.10  
+EXERCISE OF THE RIGHTS OF ERASURE AND  
+RECTIFICATION  
+Similarly to the right of access, the other rights of data subjects, namely the rights to erasure, rectification, blocking, limitation of processing, etc., can also be implemented in a similar manner as special or dedicated services. In this case, the infrastructure of the services to exercise the right of access is very useful, as it allows for easy identification of all data stores affected by a specific request. Additionally, it enables the sending of a notification that a request for the right of erasure or rectification has been initiated to the processors (or controllers) of such data.  
+
+DATA PROTECTION ENGINEERING  
+January 2022  
+42  
+
+7. CONCLUSIONS  
+The principles of data protection, established in Article 5 of the GDPR and elaborated in terms of measures and guarantees in Article 25, are the objectives that must be achieved when considering the design, implementation, and deployment of a data processing operation. From a technical perspective, the challenge lies in converting these principles into tangible requirements and specifications through the selection, implementation, and configuration of appropriate technical and organizational measures and practices throughout the entire lifecycle of the intended data processing. However, data protection engineering is not so straightforward in practice. Depending on the level of risk, the context of the processing operation, the purposes of processing, the types, scope, and volume of personal data, the means and magnitude of processing, the state of the art, and the cost, the conversion into viable requirements requires a multidisciplinary approach. Furthermore, the evolving technological landscape and emerging technologies must also be taken into account as new challenges arise, such as the lack of control and transparency, the potential for repurposing or diversion of purpose with data use, inference and re-identification of data, profiling, and automated decision-making. The application of data protection principles in these contexts is challenging, as it cannot be done in the traditional and "intuitive" manner. Appropriate safeguards, both technical and organizational, must be integrated into the processing from the very first steps, as dictated by the obligation of data protection by design, and the design process and the corresponding decision-making must also be grounded in this obligation.  
+This report has attempted to provide a brief overview of existing technologies and techniques (security) that can help fulfill the principles of data protection, in addition to explaining the potential strengths and applicability in different processing operations. The remainder of this section presents the main conclusions for this purpose, along with specific recommendations for relevant stakeholders.  
+7.1 DEFINITION OF THE MOST SUITABLE TECHNIQUE  
+As previously highlighted in earlier ENISA reports, various technologies and techniques already exist, but it is not easy for data controllers and processors to know which of them is applicable and most suitable for each processing operation and context. More importantly, it is unclear how each technique should be integrated into the practical operation of processing in order to truly develop its potential and support compliance with the principles of data protection.  
+The research community must continue to explore the deployment of techniques and technologies (security) that can support the practical application of data protection principles, with the support of EU institutions regarding regulatory guidance and research funding.  
+Regulators (e.g., data protection authorities and the European Data Protection Board), the European Commission, and relevant EU institutions must disseminate the advantages of these technologies and techniques and provide guidance on their applicability and deployment.
+DATA PROTECTION ENGINEERING  
+January 2022  
+43  
+
+Initiatives aimed at supporting engineers, such as the Internet Privacy Engineering Network (IPEN)24, should be backed by professionals, researchers, and the academic world.  
+
+7.2 DEFINITION OF THE CURRENT STATE OF THE ART  
+The correct implementation and engineering of the technologies and techniques analyzed largely depend on the state of the art and the extent to which data controllers are aware of or have access to it. Although not all techniques are equally effective, each may present certain problems or limitations in application. This not only affects the choice of the technique itself but also the overall design of the data processing operation.  
+Regulators (e.g., data protection authorities and the European Data Protection Board) should discuss and promote best practices throughout the EU regarding the most advanced solutions of relevant technologies and techniques. EU institutions could promote these best practices through relevant public documents.  
+
+7.3 DEMONSTRATION OF COMPLIANCE AND PROVISION OF GUARANTEES  
+In addition to guidance, data controllers and processors must have a certain degree of assurance regarding the robustness and correctness of their processing operations, while simultaneously fulfilling their regulatory obligation to demonstrate the overall level of protection they offer. In this regard, the provisions of Article 42 of the GDPR on certification mechanisms, seals, or data protection marks could become useful tools, not only for demonstrating compliance (and effectiveness) but also as a guide when designing data protection for processing operations. This is even more evident in emerging technologies, such as artificial intelligence, where threats, technological methods, implementations, and data protection issues are evolving.  
+Regulators (e.g., data protection authorities and the European Data Protection Board) and the European Commission must promote the establishment of relevant certification regimes, in accordance with Article 42 of the GDPR, to ensure adequate data protection engineering.  
+Regulators (e.g., data protection authorities and the European Data Protection Board) must ensure that regulatory approaches, e.g., regarding new technologies and application sectors, take into account all possible entities and functions from the perspective of data protection, while remaining technologically neutral.  
+
+24 https://edps.europa.eu/data-protection/ipen-internet-privacy-engineering-network_en  
+
+DATA PROTECTION ENGINEERING  
+January 2022  
+44  
+
+8. REFERENCES  
+A.Will, M., & Ko, R. (2015). A guide to homomorphic encryption. In The Cloud Security Ecosystem (pp. 101-127). Syngress.  
+Abul, O., Bonchi, F., & Nanni, M. (2008). Never Walk Alone: Uncertainty for Anonymity in Moving Objects Databases. IEEE 24th International Conference on Data Engineering (ICDE 08).  
+Abul, O., Bonchi, F., & Nanni, M. (2010). Anonymization of moving objects databases by clustering and perturbation. Information Systems, 35(8), 849-910. doi:https://doi.org/10.1016/j.is.2010.05.003  
+Ács, G., & Castelluccia, C. (2011). I Have a DREAM! (DiffeRentially privatE smArt Metering). International Workshop on Information Hiding (IH 2011). doi:https://doi.org/10.1007/978-3-642-24178-9_9  
+Acs, G., & Castelluccia, C. (2014). A case study: privacy preserving release of spatio-temporal density in Paris. 20th ACM SIGKDD international conference on Knowledge discovery and data mining. doi:https://doi.org/10.1145/2623330.2623361  
+Agencia Española de Protección de Datos (AEPD). (n.d.). A Guide to Privacy by Design. 2019. Retrieved from https://www.aepd.es/sites/default/files/2019-12/guia-privacidad-desde-diseno_en.pdf  
+ARTICLE 29 Data Protection Working Party. (2014). Opinion 05/2014 on Anonymisation Techniques. Retrieved from https://ec.europa.eu/justice/article-29/documentation/opinion-recommendation/files/2014/wp216_en.pdf  
+ARTICLE 29 Data Protection Working Party. (2004). Opinion 10/2004 on More Harmonised Information Provisions. Retrieved from https://ec.europa.eu/justice/article-29/documentation/opinion-recommendation/files/2004/wp100_en.pdf  
+ARTICLE 29 Data Protection Working Party. (2018). Guidelines on transparency under Regulation 2016/679. Retrieved from https://ec.europa.eu/newsroom/article29/items/622227  
+Asghar, M. R., Lee, T., Baig, M. M., Ullah, E., Russello, G., & Dobbie, G. (2017). A Review of Privacy and Consent Management in Healthcare: A Focus on Emerging Data Sources. 2017 IEEE 13th International Conference on e-Science (e-Science).  
+Asonov, D. (2011). Private Information Retrieval – An Overview and Current Trends.  
+Balboni, P., & Francis, K. (2020). Maastricht University Data Protection as a Corporate Social Responsibility (UM DPCSR) Research Project: UM DPCSR Icons Version 1.0. Retrieved from https://www.maastrichtuniversity.nl/maastricht-university-data-protection-corporate-social-responsibility-um-dpcsr-research-project-um  
+Benchoufi, M., Porcher, .., & Ravaud, P. (2017). Blockchain protocols in clinical trials: Transparency and traceability of consent. F1000Research. Retrieved from https://pubmed.ncbi.nlm.nih.gov/29167732/
+DATA PROTECTION ENGINEERING  
+January 2022  
+45  
+
+Blum, M., Feldman, P., & Micali, S. (1988). Non-interactive zero-knowledge and its applications.  
+Twentieth annual ACM symposium on Theory of computing (STOC 88).  
+doi:https://doi.org/10.1145/62212.62222  
+
+Bogetoft, P., Christensen, D. L., Damgård, I., Geisler, M., Jakobsen, T., Krøigaard, M., . . . Toft, T. (2009). Secure Multiparty Computation Goes Live. Financial Cryptography and Data Security (FC 2009).  
+
+Bonchi, F., Lakshmanan, L. V., & Wang, H. (2011). Trajectory anonymity in publishing personal mobility data. SIGKDD Explor, 31(1), 30-42.  
+
+Camenisch, J., Lehmann, A., Neven, G., & Rial, A. (2014). Privacy-Preserving Auditing for Attribute-Based Credentials. European Symposium on Research in Computer Security (ESORICS 2014). doi:https://doi.org/10.1007/978-3-319-11212-1_7  
+
+Chen, R., Acs, G., & Castelluccia, C. (2012). Differentially private sequential data publication via variable-length n-grams. 2012 ACM conference on Computer and communications security. doi:https://doi.org/10.1145/2382196.2382263  
+
+Clifton, C., & Tassa, T. (2013). On syntactic anonymity and differential privacy. IEEE 29th International Conference on Data Engineering Workshops (ICDEW). IEEE.  
+
+Colesky, M., Hoepman, J. H., & Hillen, C. (2016). A Critical Analysis of Privacy Design Strategies. 2016 IEEE Security and Privacy Workshops (SPW). doi:10.1109/SPW.2016.23  
+
+Datalisynet. (2015). A guide to the anonymisation of personal data.  
+
+Dwork, C. (2006). Differential Privacy. International Colloquium on Automata, Languages, and Programming (ICALP 2006). doi:https://doi.org/10.1007/11787006_1  
+
+Dwork, C., & Roth, A. (2014). The Algorithmic Foundations of Differential Privacy. Foundations and Trends in Theoretical Computer Science. doi:10.1561/0400000042  
+
+Dwork, C., Kohli, N., & Mulligan, D. (2019). Differential Privacy in Practice: Expose your Epsilons! Journal of Privacy and Confidentiality, 9(2). doi:https://doi.org/10.29012/jpc.689  
+
+E. Holtz, L., Nocun, K., & Hansen, M. (2010). Towards Displaying Privacy Information with Icons. Privacy and Identity 2010: Privacy and Identity Management for Life. doi:https://doi.org/10.1007/978-3-642-20769-3_27  
+
+EDPB. (2019). Guidelines 4/2019 on Article 25 Data Protection by Design and by Default. Retrieved from https://edpb.europa.eu/our-work-tools/our-documents/guidelines/guidelines-42019-article-25-data-protection-design-and_en  
+
+Edwards, L., & Abel, W. (2014). The Use of Privacy Icons and Standard Contract Terms for Generating Consumer Trust and Confidence in Digital Services. Retrieved from http://zenodo.org/record/12506/files/CREATe-Working-Paper-2014-15.pdf  
+
+Emam, K. E., & Dankar, F. K. (n.d.). Protecting privacy using k-anonymity. Journal of the American Medical Informatics Association, 15(5), 627–637. doi: https://doi.org/10.1197/jamia.M2716  
+
+DATA PROTECTION ENGINEERING  
+January 2022  
+46  
+
+ENISA. (2015). Privacy and Data Protection by Design. Retrieved from https://www.enisa.europa.eu/publications/privacy-and-data-protection-by-design  
+
+ENISA. (2015). Privacy by design in big data. Retrieved from https://www.enisa.europa.eu/publications/big-data-protection  
+
+ENISA. (2016). PETs controls matrix - A systematic approach for assessing online and mobile privacy tools. Retrieved from https://www.enisa.europa.eu/publications/pets-controls-matrix/pets-controls-matrix-a-systematic-approach-for-assessing-online-and-mobile-privacy-tools  
+
+ENISA. (2016). Readiness Analysis for the Adoption and Evolution of Privacy Enhancing Technologies. Retrieved from https://www.enisa.europa.eu/publications/pets  
+
+ENISA. (2017). Security guidelines on the appropriate use of qualified electronic signatures. Retrieved from https://www.enisa.europa.eu/publications/security-guidelines-on-the-appropriate-use-of-qualified-electronic-signatures  
+
+ENISA. (2019). Recommendations on shaping technology according to GDPR provisions - An overview on data pseudonymisation. Retrieved from https://www.enisa.europa.eu/publications/recommendations-on-shaping-technology-according-to-gdpr-provisions  
+
+ENISA. (2019). Reinforcing trust and security in the area of electronic communications and online services: Sketching the notion of “state-of-the-art” for SMEs in security of personal data processing. Retrieved from https://www.enisa.europa.eu/publications/reinforcing-trust-and-security-in-the-area-of-electronic-communications-and-online-services  
+
+ENISA. (2021). Data Pseudonymisation: Advanced Techniques and Use Cases. Retrieved from https://www.enisa.europa.eu/publications/data-pseudonymisation-advanced-techniques-and-use-cases  
+
+ENISA. (n.d.). Pseudonymisation techniques and best practices. Retrieved from https://www.enisa.europa.eu/publications/pseudonymisation-techniques-and-best-practices  
+
+Ermoshina, K., Musiani, F., & Halpin, H. (2016). End-to-End Encrypted Messaging Protocols: An Overview. International Conference on Internet Science (INSCI). Springer LNCS.  
+
+European Commission. (2017). Factsheet: Access to Base Registries in Estonia. Retrieved from https://joinup.ec.europa.eu/sites/default/files/inline-files/Estonia%20Factsheet%20Validated_0.pdf  
+
+European Data Protection Board. (2018). Statement of the EDPB on the revision of the ePrivacy Regulation and its impact on the protection of individuals with regard to the privacy and confidentiality of their communications. Retrieved from https://edpb.europa.eu/our-work-tools/our-documents/other/statement-edpb-revision-eprivacy-regulation-and-its-impact_en  
+
+European Data Protection Board. (2020). Recommendations 01/2020 on measures that supplement transfer tools to ensure compliance with the EU level of protection of personal data. Retrieved from https://edpb.europa.eu/our-work-tools/our-documents/recommendations/recommendations-012020-measures-supplement-transfer_en
+DATA PROTECTION ENGINEERING  
+January 2022  
+47  
+
+European Data Protection Supervisor. (2018). Opinion 5/2018 Preliminary Opinion on privacy by design. Retrieved from https://edps.europa.eu/sites/edp/files/publication/18-05-31_preliminary_opinion_on_privacy_by_design_en_0.pdf  
+Fischer-Hübner, S., Angulo, J., Karegar, F., & Pulls, T. (2016). Transparency, Privacy and Trust–Technology for Tracking and Controlling My Data Disclosures: Does This Work? Trust Management X: 10th IFIP WG 11.11 International Conference, IFIPTM 2016 (pp. 3-14). IFIP.  
+Forbrukerrådet (Norwegian Consumer Council). (2018). Deceived by design. Retrieved from https://www.forbrukerradet.no/undersokelse/no-undersokelsekategori/deceived-by-design/  
+Fung, B., Wang, K., Chen, R., & Yu, P. (2010). Privacy-preserving data publishing: A survey of recent developments. ACM Computing Surveys, 42(4), 1-53.  
+Ganta, S. R., Kasiviswanathan, S. P., & Smith, A. (2008). Composition attacks and auxiliary information in data privacy. 14th ACM SIGKDD international conference on Knowledge discovery and data mining. doi:doi.org/10.1145/1401890.1401926  
+Garfinkel, S. L. (2015). NISTIR 8053 De-Identification of Personal Information. Retrieved from https://nvlpubs.nist.gov/nistpubs/ir/2015/nist.ir.8053.pdf  
+Gasarch, W. (2004). A Survey on Private Information Retrieval. Bulletin of the EATCS, 82, 72-107.  
+Gentry, C., & Halevi, S. (2011). Implementing Gentry’s Fully-Homomorphic Encryption Scheme. Annual International Conference on the Theory and Applications of Cryptographic Techniques (EUROCRYPT 2011). doi:https://doi.org/10.1007/978-3-642-20465-4_9  
+Gilad, Y. (2019). Metadata-Private Communication for the 99%. Communications of the ACM, 62(9), 86-93.  
+Goldwasser, S., Micali, S., & Rackoff, C. (1985). The knowledge complexity of interactive proof-systems. Seventeenth annual ACM symposium on Theory of Computing (STOC 85). doi:https://doi.org/10.1145/22145.22178  
+Habib, H., Zou, Y., Yao, Y., Acquisti, A., Cranor, L., Reidenberg, J., . . . Schaub, F. (2021). Toggles, Dollar Signs, and Triangles: How to (In)Effectively Convey Privacy Choices with Icons and Link Texts. 2021 CHI Conference on Human Factors in Computing Systems. doi:https://doi.org/10.1145/3411764.3445387  
+Hansen, M., Jensen, M., & Rost, M. (2015). Protection Goals for Privacy Engineering. 2015 IEEE Security and Privacy Workshops. IEEE. doi:10.1109/SPW.2015.13  
+Herkenhöner, R., Meer, H. d., Jensen, M., & Pöhls, H. C. (2010). Towards Automated Processing of the Right of Access in Inter-organizational Web Service Compositions. 2010 6th World Congress on Services.  
+Hils, M., Woods, D. W., & Böhme, R. (2020). Measuring the Emergence of Consent Management on the Web. ACM Internet Measurement Conference. doi:https://doi.org/10.1145/3419394.3423647  
+Hils, M., Woods, D. W., & Böhme, R. (2021). Privacy Preference Signals: Past, Present and Future. Proceedings on Privacy Enhancing Technologies, 2021(4), 249-269.  
+
+DATA PROTECTION ENGINEERING  
+January 2022  
+48  
+
+ICO. (2021). Introduction to anonymisation.  
+Information Commissioner’s Office (ICO). (n.d.). Age appropriate design: a code of practice for online services. Retrieved from https://ico.org.uk/for-organisations/guide-to-data-protection/ico-codes-of-practice/age-appropriate-design-a-code-of-practice-for-online-services/  
+Lamport, L., Shostak, R., & Pease, M. (1982). The Byzantine Generals Problem. SRI International. Retrieved from https://lamport.azurewebsites.net/pubs/byz.pdf  
+Li, N., Li, T., & Venkatasubramanian, S. (2007). t-Closeness: Privacy Beyond k-Anonymity and l-Diversity. 2007 IEEE 23rd International Conference on Data Engineering. doi:10.1109/ICDE.2007.367856  
+Machanavajjhala, A., Gehrke, J., Kifer, D., & Venkitasubramaniam, M. (2006). L-diversity: privacy beyond k-anonymity. 22nd International Conference on Data Engineering (ICDE'06). doi:10.1109/ICDE.2006.1  
+Meyerson, A., & Williams, R. (2004). On the complexity of optimal K-anonymity. 23rd ACM SIGMOD-SIGACT-SIGART symposium on Principles of database systems.  
+Ostrovsky, R., & Skeith, W. E. (2007). A Survey of Single-Database Private Information Retrieval: Techniques and Applications. PKC 2007: Public Key Cryptography. Springer. doi:https://doi.org/10.1007/978-3-540-71677-8_26  
+P3P. (n.d.). THE PLATFORM FOR PRIVACY PREFERENCES 1.1 (P3P1.1). Retrieved from https://www.w3.org/standards/history/P3P11  
+Quisquater, J.-J., Quisquater, M., Quisquater, M., Quisquater, M., Guillou, L., Guillou, M. A., . . . Guillou, S. (1990). How to Explain Zero-Knowledge Protocols to Your Children. Advances in Cryptology (CRYPTO 89). doi:https://doi.org/10.1007/0-387-34805-0_60  
+Rannenberg, K., Camenisch, J., & Sabouri, A. (2015). Attribute-based Credentials for Trust. Springer. doi:https://doi.org/10.1007/978-3-319-14439-9  
+Reed, M., Syverson, P., & Goldschlag, D. (1998). Anonymous connections and onion routing. IEEE Journal on Selected Areas in Communications, 16(4), 482 - 494. doi:10.1109/49.668972  
+Reed, M., Syverson, P., & Goldschlag, D. (1998). Anonymous connections and onion routing. IEEE Journal on Selected Areas in Communications, 16(4), 482-494.  
+S. Pearson, M. C.-M. (2011). Sticky Policies: An Approach for Managing Privacy across Multiple Parties. Computer, 44(9), 60-68. doi:10.1109/MC.2011.225  
+Santos, C., Nouwens, M., Toth, M., Bielova, N., & Roca, V. (2021). Consent Management Platforms Under the GDPR: Processors and/or Controllers? Annual Privacy Forum 2021.  
+Schermer, B. W., Custers, B., & Hof, S. v. (2014). The crisis of consent: how stronger legal protection may lead to weaker consent in data protection. Ethics and Information Technology, 16, 171-184.  
+Sweeney, L. (2002). k-anonymity: a model for protecting privacy. International Journal of Uncertainty, Fuzziness and Knowledge-Based Systems, 10(5), 557–570.
+DATA PROTECTION ENGINEERING  
+January 2022  
+49  
+
+Tolsdorf, J., Fischer, M., & Iacono, L. L. (2021). A Case Study on the Implementation of the Right of Access in Privacy Dashboards. Annual Privacy Forum 2021. doi:https://doi.org/10.1007/978-3-030-76663-4  
+Unger, N., Dechand, S., Bonneau, J., Fahl, S., Perl, H., Goldberg, I., & Smith, M. (2015). SoK: Secure Messaging. 2015 IEEE Symposium on Security and Privacy. IEEE.  
+W3C. (n.d.). A P3P Preference Exchange Language 1.0 (APPEL1.0). Retrieved from https://www.w3.org/TR/2002/WD-P3P-preferences-20020415/  
+
+TP-01-22-045-EN-N  
+
+ABOUT ENISA  
+The European Union Agency for Cybersecurity (ENISA) is the Union's agency aimed at achieving a high common level of cybersecurity across Europe. Established in 2004 and strengthened by the EU Cybersecurity Regulation, the European Union Agency for Cybersecurity contributes to the EU's cybersecurity policy, enhances the reliability of ICT products, services, and processes through cybersecurity certification programs, cooperates with Member States and EU bodies, and helps Europe prepare for tomorrow's cybersecurity challenges. Through knowledge sharing, capacity building, and awareness campaigns, the Agency collaborates with its key stakeholders to strengthen trust in the connected economy, enhance the resilience of the Union's infrastructure, and ultimately, to digitally protect society and citizens in Europe. For more information about ENISA and its work, you can visit: www.enisa.europa.eu.  
+
+ISBN: 978-92-9204-556-2  
+DOI: 10.2824/09079

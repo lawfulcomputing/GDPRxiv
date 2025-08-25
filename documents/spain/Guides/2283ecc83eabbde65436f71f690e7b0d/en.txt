@@ -1,0 +1,112 @@
+MISUNDERSTANDINGS ABOUT MACHINE LEARNING
+
+The EU has identified artificial intelligence (AI) as one of the most relevant technologies of the 21st century and has highlighted its importance in the strategy for the digital transformation of the EU. With a wide range of applications, AI can contribute in areas as diverse as the treatment of chronic diseases, the fight against climate change, or the anticipation of cybersecurity threats. 
+
+"Artificial intelligence," however, is a broad term that encompasses those technologies aimed at mimicking human reasoning capabilities, which can have very different applications and limitations. Technology providers often promote their systems by referencing AI without specifying what type of AI.
+
+Machine learning (ML) is a specific branch of AI, applied to solving specific and limited problems, such as classification or prediction tasks. Unlike other types of AI that attempt to emulate human experience (for example, expert systems); the behavior of machine learning systems is not defined by a predetermined set of instructions. 
+
+ML models are trained using datasets. During their training, ML systems autonomously adapt to the patterns found in the different variables of a given dataset, creating correlations. Once trained, the system will use the learned patterns to generate an outcome.
+
+Unlike other types of AI systems, the performance of ML models largely depends on the accuracy and representativeness of the data used for their training (training data).
+
+The objective of this document is to elucidate the common misconceptions surrounding ML systems while emphasizing the importance of implementing these technologies in accordance with EU values, data protection principles, and full respect for individuals.
+
+1  
+   Communication from the Commission: Artificial Intelligence for Europe, https://eur-lex.europa.eu/legal-content/ES/TXT/?uri=COM%3A2018%3A237%3AFIN 
+2  
+   Expert systems are computer programs designed to solve complex problems in specific areas. They rely on a knowledge base, which defines the rules for decision-making, and an inference engine, which applies the rules.
+3  
+   In machine learning, the algorithm learns rules as it establishes correlations between inputs and outputs. In symbolic reasoning, rules are created through human intervention. First, humans must learn the rules by which two phenomena are related, and then translate those relationships into code in the symbolic reasoning system. Therefore, the accuracy of the symbolic AI system is based on the quality of the human definition of those relationships, rather than the quality of the input data sets.
+4  
+   In short, the performance of an ML system defines how "good" its predictions actually are. Although it is a simple concept, the complexity lies in identifying what is considered "good." There are several "performance metrics" that allow for the evaluation of ML models: Accuracy is the fraction of correct predictions made by a model; Precision is the ratio of the number of correct results to the number of all results returned; Recall is the ratio of the number of correct results to the number of results that should have been returned as correct. Depending on the application context, some performance metrics may be more relevant than others.
+MISUNDERSTANDING  
+Correlation implies causation.  
+Reality: Causation is more than just establishing correlations.  
+“Causation” is the relationship that exists between cause and effect. “Correlation” is the relationship that exists between two factors that occur or evolve with some synchronization.  
+ML systems are very efficient at finding correlations, but they lack the analytical capability to go beyond that and establish a causal relationship.  
+As an example, if the ML system is fed with a dataset composed of intelligence test scores and the height of the participants (but not their age), an ML model might incorrectly predict that tall people are more intelligent than short people by establishing a correlation between height and score. However, such a phenomenon could be caused by the fact that children typically score lower than adults on IQ tests.  
+As another example, we could also mention that training an ML system to infer diseases is possible using a dataset with symptom-disease correlations. However, that same system may not be suitable for explaining what is causing the disease.  
+These real examples demonstrate that human oversight is necessary to ensure that ML systems identify the relevant variables (the ultimate causes) for a prediction or classification.  
+5  https://www.wired.com/story/ai-pioneer-algorithms-understand-why  
+MISUNDERSTANDING  
+When developing machine learning systems, the more data and greater variety, the better.  
+Reality: ML training datasets must be selected to meet thresholds of accuracy and representativeness.  
+The growing development of ML systems has led to an increased demand for personal and non-personal data because ML developers do not have enough data to improve the performance of their systems.  
+Generally, training ML systems requires large amounts of data, depending on the complexity of the task to be solved. However, using more training data in the development of machine learning models does not always improve system performance. In fact, it could create new problems or worsen existing ones.  
+For example, including more images of light-skinned males in facial recognition training datasets will not help correct any existing gender or ethnic bias in the systems.  
+The GDPR requires that the processing of personal data be proportional to its purpose. From a data protection perspective, it is not a proportional practice to substantially increase the amount of personal data in the training dataset for only a slight improvement in system performance.  
+More data will not necessarily improve the performance of ML models. On the contrary, more data could lead to the generation of more bias in the model.  
+6  Gender and ethnic bias analysis in: Gender Shades project http://gendershades.org  
+5  
+6  
+1  
+2  
+10 MISUNDERSTANDINGS ABOUT MACHINE LEARNING
+MISUNDERSTANDING  
+ML needs training data  
+completely free of errors.  
+Reality:  
+To achieve good performance, ML models require training data with just a quality above a certain threshold.  
+ML models are tolerant of occasional inaccuracies in individual records, as they rely on the quality of the training dataset considering it as a whole. Some ML models are trained using synthetic data, that is, artificially generated training datasets that mimic real data. Even if no real data precisely matches the synthetic data, ML models trained with synthetic data can produce good performance.  
+7  “When you have plenty of data the law of big numbers tends to make sure the data is evenly distributed.” (p. 43) Practical Machine Learning with H20 by Darren CooI tried to k, O’Really Media Inc. “Third, data anomalies were eliminated in the data cleansing process, due to the so-called law of big numbers.” https://link.springer.com/article/10.1186/s40537-019-0216-1  
+8  In fact, due to the large volume of input variables in some ML models, it is often necessary to use techniques that introduce noise into the input data, such as Principal Component Analysis (PCA), a technique for aggregating variables. Of course, the noise introduced into the input data must be below the acceptable performance value of the application.  
+9  Some examples of machine learning models trained with synthetic data: Amazon Alexa https://www.amazon.science/blog/tools-for-generating-synthetic-data-helped-bootstrap-alexas-new-language-releases Google Waymo https://blog.waymo.com/2019/08/learning-to-drive-beyond-pure-imitation_26.html  
+MISUNDERSTANDING  
+The development of ML systems requires large repositories of data or the sharing of datasets from different sources.  
+Reality:  
+Federated learning allows for the development of machine learning systems without sharing training data.  
+Data aggregation and the machine learning system in a cloud computing infrastructure controlled by the ML system developer is a common solution to avoid performance constraints. This is an architecture known as centralized learning. However, while centralized learning can solve performance issues, there are some considerations that must be taken into account. One of them is that personal data requires both the data controller and the data recipient to comply with the GDPR principles of proactive responsibility, security, and purpose limitation, among others. Another is that larger repositories of personal data increase third-party interest in obtaining unauthorized access and exacerbate the impact of a personal data breach. Distributed on-site learning and federated learning are alternative development architectures to centralized machine learning. In distributed on-site learning, each server of the data controller downloads a generic or pre-trained ML model from a remote server. Each local server uses its own dataset to train and improve the performance of the generic model.  
+The performance of ML models depends, among other factors, on the quality of the training, validation, and test data. Therefore, these datasets must be capable of defining a real case sufficiently completely and accurately. However, statistical science suggests that, despite the presence of individual errors in the input data, it is possible to accurately calculate the average outcome when processing large amounts of data.  
+Differential Privacy is a technique that introduces noise into training datasets to preserve the privacy of the stakeholders. Despite the inaccuracies introduced by differential privacy, ML models are capable of achieving good performance.  
+10  Recent research has shown, counterintuitively, that differential privacy can improve generalization in machine learning algorithms - in other words, differential privacy can make the algorithm work better!’ https://www.nist.gov/blogs/cybersecurity-insights/how-deploy-machine-learning-differential-privacy  
+After the remote server has distributed the initial model to the devices, no further communication is necessary. It involves the same techniques used in centralized learning, but on the servers of the data controller. In federated learning, each server of the data controller trains a model with its own data and sends only the model parameters to a central server for aggregation. The data remains on the devices, and knowledge is shared through an aggregated model with peers. No learning architecture fits all tasks. However, accumulating data in one or several servers is not always the best or most efficient solution. Additionally, it could constitute an obstacle for SMEs to carry out ML-based developments.  
+12  Abdulrahman, Sawsan & Tout, Hanine & Ould-Slimane, Hakima & Mourad, Azzam & Talhi, Chamseddine & Guizani, Mohsen. (2020). A Survey on Federated Learning: The Journey From Centralized to Distributed On-Site Learning and Beyond. IEEE Internet of Things Journal. PP. 10.1109/JIOT.2020.3030072. http://dx.doi.org/10.1109/JIOT.202
+0.3030072  
+10 MISUNDERSTANDINGS ABOUT MACHINE LEARNING  
+
+MISUNDERSTANDING  
+ML models improve automatically over time.  
+Reality: Once implemented, the performance of ML models can deteriorate and will not improve unless they receive additional training. During the training of an ML model, the algorithm is constantly tested. When the model is mature (i.e., it can correctly solve the problems for which it was designed), it is considered suitable for production. A model that is implemented and no longer trained will not "learn" any more correlations from incoming data, regardless of the amount of data provided. This means that unless ML models continue to be trained, they cannot be expected to evolve. This poses a risk to the system's accuracy, as its obsolescence in relation to reality may jeopardize its ability to make adjusted and fair judgments. The predictive capability of ML models, once in production, can deteriorate over time for two different reasons: due to data drift in the input data used by the model (substantial changes in the input data) or due to concept drift (when our interpretation of the data changes while the overall distribution of the data does not change). Since the context of the treatment in which an ML system is operating can evolve, it is necessary to monitor the system for any deterioration of the model and take action (for example, by retraining the model with new data).  
+13   A Comprehensive Guide on How to Monitor Your Models in Production https://neptune.ai/blog/how-to-monitor-your-models-in-production-guide  
+
+MISUNDERSTANDING  
+Automatic decisions made by ML algorithms cannot be explained.  
+Reality: A well-designed ML model can produce understandable decisions for all relevant stakeholders. Several approaches are possible to provide explanations for AI-based decisions, and most of them can also be applied to decisions made by the ML model. Some approaches clarify the model-building process, specifying which parameters and hyperparameters have been applied and how much influence each had on the resulting model. Others explain how the model interprets the features of the incoming data, allowing individuals to understand and anticipate how the system will behave in a particular situation. Other approaches do not explain the overall behavior of the model but focus on how a specific input influences achieving a particular output. Different degrees of detail may be required in the explanation of the model, depending on the individuals and the context. The appropriate approach will be the one that can clearly describe to stakeholders the decision-making in the training and creation processes of the ML model.  
+14   A hyperparameter is a parameter whose value is set before the machine learning process begins. In contrast, the values of other parameters are derived through training.  
+15   For example, a patient's blood pressure value may be very relevant for detecting a certain disease, while the patient's age may not be as relevant.  
+16   Arya, V. et al. “One Explanation Does Not Fit All: A Toolkit and Taxonomy of AI Explainability Techniques”. ArXiv abs/1909.03012 ‘Tr(2019): https://arxiv.org/abs/1909.03012v2  
+13  
+14  
+15  
+16  
+6  
+5  
+10 MISUNDERSTANDINGS ABOUT MACHINE LEARNING
+MISUNDERSTANDING  
+Transparency in ML violates intellectual property and is not understood by the user.  
+Reality: It is possible to provide meaningful transparency to AI users without harming intellectual property. People must receive sufficient information about how their personal data is processed, and treatments based on ML systems are no exception. This type of transparency does not necessarily imply the disclosure of detailed technical information that, in most cases, would not be significant to users. Just as a medication prospectus provides information about correct and incorrect uses or side effects, abstracting the user from detailed chemical descriptions, an ML system should offer its users meaningful information that makes them aware of the logic applied, as well as the importance and expected consequences of the processing. When processing personal data using ML, data controllers must adequately inform the data subjects about the potential impacts on their daily lives. Some examples of meaningful information could include describing the limitations of the system, the performance metrics achieved, the personal data used as input and generated as output, the impact of certain input data on the results, communications to third parties, and the risks posed to rights and freedoms.  
+
+MISUNDERSTANDING  
+ML systems are subject to fewer biases than humans themselves.  
+Reality: ML systems are subject to different types of biases, and some of these stem from human biases. ML models can be free from human bias or favoritism towards an individual or group based on their inherent or acquired characteristics. However, ML systems are selected, designed, adjusted, and trained with data that, in most cases, were selected by humans. ML systems could be subject to more than twenty types of biases derived from data processing. Some of the biases affecting ML systems replicate human biases (for example, a model trained with historical CEO profiles will be biased towards male candidates). Other possible ML biases depend on human decisions, such as how training data is sampled or how results are presented. Sometimes, machine learning systems are used in contexts that are not the same as those for which the models were designed. In summary, the goal of ML systems is to reflect the experience and knowledge provided by their creators. However, ML systems do not incorporate the humanity required to handle exceptional situations: they lack a holistic view of the problem and have a limited ability to adapt to contextual changes and be flexible in unforeseen circumstances.  
+17  Ninareh Mehrabi, Fred Morstatter, Nripsuta Saxena, Kristina Lerman, and Aram Galstyan. A Survey on Bias and Fairness in Machine Learning. (2019) https://arxiv.org/abs/1908.09635v2  
+17  
+8  
+7  
+10 MISUNDERSTANDINGS ABOUT MACHINE LEARNING
+MISUNDERSTANDING  
+ML can accurately predict the future.  
+Reality:  
+The predictions of an ML system are only accurate when future events reproduce past trends.  
+ML systems take into account the data present in the datasets and use it to extract projections of possible future outcomes. Therefore, ML systems do not make guesses about the future, but rather forecasts, which are based on past events and provided to the systems during training. Some ML learning models may evolve to adapt to new data, such as the models used in profiling in marketing or online media. However, they are unable to adapt to a completely new scenario or to rapidly changing events. To adjust their predictions to such changes, most models will require large amounts of new data.  
+
+MISUNDERSTANDING  
+Data subjects are able to anticipate the possible outputs that ML systems can provide with their data.  
+Reality: The ability of ML to find non-obvious correlations in the data may end up revealing additional personal information, without the data subject being aware of it.  
+ML systems are excellent at finding correlations in data. They can identify patterns in personal data that go beyond those explicitly stated in the development of the model, and that may even be unknown to the affected individuals (for example, a predisposition to a disease). This potential raises several concerns from the perspective of data protection. On one hand, data subjects may be affected by decisions based on information they do not know and had no way of anticipating and/or reacting to. On the other hand, data subjects may receive information discovered by an ML model about them in places or situations where it could have a greater impact on their lives due to the specific context. For example, receiving discount coupons in the mail from a store, based on their shopping habits, could reveal a certain level of gambling addiction.  
+When ML systems process personal data to create inferences beyond the declared purpose of the processing, for example, by performing some type of profiling (predictions or classifications) of individuals, the data controller must comply with all data protection principles, including lawfulness, transparency (Art. 5.1.a of the GDPR), and purpose limitation (Art. 5.1.b of the GDPR). Any type of subsequent processing of personal data requires a legal basis and a clear purpose.  
+
+10  
+9  
+10 MISUNDERSTANDINGS ABOUT MACHINE LEARNING

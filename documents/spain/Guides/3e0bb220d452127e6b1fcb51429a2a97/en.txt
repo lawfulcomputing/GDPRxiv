@@ -1,0 +1,1440 @@
+Page: 1 of 53
+
+Guidelines for the 
+Validation of Cryptographic Systems 
+in Data Protection
+
+v. May 2023
+
+Page: 2 of 53
+
+EXECUTIVE SUMMARY
+
+The widespread use of information and communication services and technologies has made encryption one of the most important measures for protecting data security. Properly implemented cryptographic mechanisms provide robust measures for the protection of personal data in automated processing, ensuring confidentiality, integrity, and authenticity. 
+The strength and robustness of an encryption system, that is, its ability to withstand attacks aimed at breaking the protection it provides, depends on its behavior as a system, not exclusively on each component independently. To offer an adequate level of protection, encryption systems must be effective and efficient within the framework of each specific processing, in addition to being operational. 
+The GDPR explicitly mentions encryption as a measure for mitigating security risks in the protection of personal data to: 
+• ensure an appropriate level of security for the risk to the rights and freedoms of data subjects, 
+• guarantee that is part of the conditions for compliance with the GDPR, 
+• serve as a safeguard that reduces the likelihood of an impact on the data subjects in the event of a personal data breach.  
+Therefore, as a protective measure, encryption will not have the same impact on all processing, and it will necessarily be complemented by other privacy guarantees and security measures. 
+For encryption to be an effective measure in a processing, the controller or processor must verify, evaluate, and assess all elements involved in the encryption process, beyond merely selecting an algorithm or a specific implementation of it. On one hand, it is necessary to determine the requirements that the encryption system must meet in the context of the processing, and on the other hand, a validation must be carried out to ensure that these requirements are satisfied, as well as to monitor that they are maintained over time. In any case, it must be taken into account that the protection of personal data involves considering the lifespan of such data, which can be as long as the life of the data subject, and this in the context of technological changes that occur over long periods of time. It is important to highlight that encryption does not imply anonymization, although it could be used as a tool for pseudonymization. 
+These guidelines outline the elements that it is advisable to evaluate in the design and validation of a cryptographic system used in the processing of personal data, taking into account its significance in that processing, and especially focused on those cases where encryption is used to preserve confidentiality. Additionally, a non-exhaustive and non-mandatory list of controls is proposed to assist the controller or processor under the GDPR, the functional manager within these entities, the DPO, data protection advisors, and internal and external auditors in the selection, validation, and monitoring of encryption systems within the framework of a specific processing, as part of privacy by design and proactive responsibility efforts.
+
+Page: 3 of 53
+
+Keywords: cryptography, encryption, keys, algorithm, mitigation, risk, GDPR, audit, data protection.
+
+This document has been developed by the Spanish Data Protection Agency in collaboration with the Spanish Professional Association of Privacy (APEP) and the Spanish Association for the Promotion of Information Security (ISMS Forum), with revisions made by Carlos Bachmaier, DPO of the State Society, María Isabel González Vasco, Professor of the Department of Applied Mathematics, Science and Engineering of Materials and Electronic Technology (MACIMTE) at Rey Juan Carlos University, and Isabel Barberá, Privacy Engineer at Rhite.
+Page: 4 of 53
+
+INDEX  
+1  
+INTRODUCTION  
+6  
+2  
+INITIAL CONSIDERATIONS  
+9  
+2.1  
+Recipients  
+9  
+2.2  
+Obligations  
+9  
+2.3  
+The role of the DPD  
+9  
+2.4  
+Beyond confidentiality  
+10  
+2.5  
+Security by design and validation  
+10  
+2.6  
+Requirements and lifespan of personal data  
+12  
+2.7  
+Encrypted information as personal data  
+12  
+2.8  
+SNLD attacks  
+13  
+2.9  
+The key as personal data  
+13  
+2.10  
+Encrypted information: at rest, in transit, and in computation  
+13  
+2.11  
+Privacy Enhancing Cryptography  
+15  
+2.12  
+Documentation of encryption system requirements  
+15  
+3  
+VALIDATION OF THE CRYPTOGRAPHIC SYSTEM FOR DATA PROTECTION  
+16  
+3.1  
+Evaluation of encryption elements  
+16  
+3.2  
+Recommendation at the evaluation level  
+17  
+3.3  
+Keys  
+20  
+3.3.1  
+Key space  
+20  
+3.3.2  
+Key management  
+21  
+3.3.3  
+Key storage  
+23  
+3.3.4  
+Management of encryption relationships and certificates  
+24  
+3.4  
+Clear messages  
+25  
+3.4.1  
+Message space  
+25  
+3.4.2  
+Storage of clear messages  
+26  
+3.5  
+Encrypted information  
+28  
+3.5.1  
+Format  
+28  
+3.5.2  
+Encryption storage  
+29  
+3.6  
+Encryption suite  
+29  
+3.6.1  
+Suite and algorithm  
+30  
+3.6.2  
+Encryption protocol  
+31  
+3.6.3  
+Implementation  
+32  
+3.6.4  
+Encryption log  
+33  
+3.6.5  
+Covert channels  
+34  
+3.7  
+Communications  
+35  
+3.7.1  
+Communications protocol  
+35  
+3.7.2  
+Metadata  
+36  
+3.7.3  
+Communication log  
+36  
+3.7.4  
+Channels  
+37  
+3.8  
+Receiver  
+37  
+3.9  
+Governance and data protection policies  
+38  
+3.9.1  
+Configuration control of encryption system components.  
+38  
+3.9.2  
+Devices  
+39  
+3.9.3  
+Physical/logical security  
+40  
+
+Page: 5 of 53  
+3.9.4  
+Management and Policies  
+41  
+3.9.5  
+Context and personal data breaches  
+43  
+3.9.6  
+Human factor  
+44  
+4  
+CONCLUSION  
+46  
+5  
+REFERENCES  
+47  
+6  
+ANNEXES  
+48  
+6.1  
+Annex: Symmetric, asymmetric, and hybrid key systems  
+48  
+6.1.1  
+Symmetric encryption  
+48  
+6.1.2  
+Asymmetric encryption  
+48  
+6.1.3  
+Hash functions  
+48  
+6.1.4  
+Key Establishment Mechanisms  
+48  
+6.1.5  
+Authentication  
+49  
+6.1.6  
+Post-Quantum Scenario  
+49  
+6.2  
+Annex: Key length  
+50  
+6.3  
+Annex: Tips regarding an encryption system  
+50  
+7  
+TABLE OF ACRONYMS  
+52
+**Page: 6 of 53**  
+1 INTRODUCTION  
+Encryption is a procedure by which information (referred to as plaintext) is transformed into a seemingly unintelligible set of data (or encrypted information). To achieve this objective, current cryptography combines transformations based on mathematical algorithms, "secure" implementations of these algorithms, and the use of keys. The characteristic aspect of encryption is that, without access to the appropriate key, it should be unfeasible (at least within a certain timeframe and resource framework) to access the content of the encrypted information or alter it without the changes being detected.  
+Encryption as a measure is explicitly mentioned in Regulation (EU) 2016/679 of the European Parliament and of the Council, of April 27, 2016, on the protection of natural persons with regard to the processing of personal data and on the free movement of such data, and repealing Directive 95/46/EC (General Data Protection Regulation or GDPR), and in Organic Law 7/2021, of May 26, on the protection of personal data processed for the purposes of prevention, detection, investigation, and prosecution of criminal offenses and the execution of criminal sanctions (LO 7/2021).  
+In the GDPR, it appears among the measures that can be applied to mitigate security risks in the protection of personal data (Recital 83 and Article 32), as a safeguard that helps establish the compatibility of processing (Article 6(4)) or as a safeguard that reduces the likelihood of an impact on the data subjects in the context of a personal data breach and makes communication to the data subjects optional (Article 34).  
+Encryption is an appropriate security measure as long as its implementation, as well as its operation, aligns with the characteristics and impact of the processing. Otherwise, it becomes a measure that generates a false sense of security that relaxes the application of other complementary measures in the processing, particularly privacy guarantees by design.  
+Limiting the issue of encryption to the mere selection of an algorithm is a simplistic view that overlooks essential aspects that can render such a measure ineffective. An encryption system or cryptosystem is much more complex and can be understood as all the elements that make up the processes of encryption and decryption framed within the processing of personal data: the algorithm, its implementation, the creation and management of the key lifecycle, the tools that comprise its suite, communication, the devices used, the governance model, etc. The application of the principle of proactive responsibility (Art. 5.2 and Art. 24.1 of the GDPR) necessitates a validation of the cryptographic system in personal data processing within the framework of the nature, scope, context, and specific purposes of each processing.  
+At the level of detail in the design, validation, and supervision of the cryptographic system must be commensurate with the importance and relevance of encryption in the processing of data, as well as the impact that such processing has on the rights and freedoms of the data subjects.  
+The role of encryption in a processing could be that of an additional safeguard among the many that are implemented in a specific processing, or even a measure.  
+
+1 The documented act of proving that any procedure, process, equipment, material, activity, or system actually leads to the expected results. The process of confirming that an element (a system, a work product, or a part of it) meets the needs of its stakeholders.
+Page: 7 of 53  
+of data protection by default. It could also be that of a determining measure in a processing operation to manage a high risk or even be one of the measures on which it is based that there are sufficient guarantees to protect the rights of the data subjects. In this latter case, we could refer to different articles of the GDPR in which the measures are an important part of determining compliance with the requirements of data protection regulations:  
+• Balancing of legitimate interest (art. 6.1.f)  
+• Determination of compatible processing (art. 6.4.e)  
+• Limitations on rights established by law (art. 23)  
+• Selection of a data processor (art. 28)  
+• Mitigation of a high risk of processing (art. 32) and (art. 33.7.d)  
+• The non-communication of a personal data breach to the data subjects (art. 34.3.a)  
+• Overcoming the proportionality assessment of processing (art. 35.7.b)  
+• Codes of conduct and certification (art. 40, 41, and 42)  
+• Compliance with the GDPR for international data transfers (art. 46, 47, 49, and 50)  
+• Processing for archiving purposes in the public interest, scientific or historical research purposes, or statistical purposes (art. 89)  
+The strength of a cryptographic system is an objective estimate of the likelihood that it will be compromised within a given period of time. This likelihood should be very low, in the case of data protection, throughout the entire lifespan of that personal data. This strength does not depend solely on the algorithm used or the length of the key, and not all systems have the same strength. Using a very strong encryption system can incur high costs, both in implementation and in the operation of the processing, and may also conflict with compliance with other requirements (unrelated to data protection) that the same processing requires concerning latency, setup time, consumption, resources, performance, portability, usability, cost, return on investment in security, etc.  
+However, from the GDPR perspective, lowering security levels below adequate levels, putting the rights and freedoms of data subjects at risk, based on criteria other than protection for rights and freedoms is not acceptable.  
+In particular, in the case where the main guarantee on which a processing operation rests is the encryption of personal data, it is necessary to carry out a thorough validation of the strength of the cryptosystem. This validation must be performed "by design," and the use of the encryption system must be integrated into the processing as established in the Privacy by Design Guide published by the AEPD.  
+In any case, the personal data protection policies, which would form part of the governance framework or information policy of the entity, referred to in Article 24 of the GDPR, must reflect the strategies of the controller concerning cryptographic systems from a data protection perspective and be integrated into the information systems security management procedures.  
+
+2 Article 25 calls for the establishment of appropriate technical and organizational measures to manage both "the risks of varying probability and severity that the processing poses to the rights and freedoms of natural persons" as well as based on "the nature, scope, context, and purposes of the processing" even if there is no risk to the rights and freedoms of the data subjects.  
+3 OWASP has identified failures in the encryption system as the second most important factor of security risk on the web in 2021.  
+
+Page: 8 of 53  
+These guidelines do not delve into the specifics of all cases of concrete implementations, nor do they address an important part such as the assignment of roles throughout the process, but rather serve as a starting point for the recipients of this document to have an initial framework for analysis and, at their discretion, select the checks they deem appropriate and add those that are suitable for the specificity of the processing.
+Page: 9 of 53  
+2 INITIAL CONSIDERATIONS  
+2.1 RECIPIENTS  
+These guidelines are directed at those responsible and those in charge/sub-in-charge of processing to whom the GDPR or LO 7/2021 applies, who implement cryptography in their personal data processing. Therefore, it is also aimed at data protection officers, advisors on personal data protection, data protection auditors, security specialists, and functional managers of the responsible or in-charge entities. This guide is also recommended for developers of encryption solutions intended for the processing of personal data and, in general, for developers of products and services in ICT systems.  
+2.2 OBLIGATIONS  
+The data controller and any potential processors/sub-processors (art. 32.1 of the GDPR) have the obligation to ensure that the security measures implemented to manage risks to rights and freedoms are effective and are subjected to a process of regular verification, evaluation, and assessment (art. 32.1.d).  
+It should be emphasized that the measures established under Article 32 must be evaluated regularly, unlike other appropriate technical and organizational measures, in order to ensure and demonstrate that the processing is in compliance with Article 24.1 of the GDPR, which states that they must be reviewed and updated when necessary.  
+The practical implementation of a processing operation (which defines the nature of the processing) will involve the acquisition of components, the use of services, possibly the hiring of processors, sub-processors, and the communication of data, which will also affect the cryptosystem as part of the security measures.  
+The data controller must define the distribution of obligations in the management of security with the processors, particularly concerning the encryption system, taking into account that, normally, part of the direct management will remain in their hands. In the case of components and the use of third-party services for the implementation of the cryptosystem, the controllers and processors/sub-processors must be diligent in requiring effectiveness certifications that meet the requirements of the specific processing and the applicable regulations.  
+2.3 THE ROLE OF THE DPO  
+In cases where a DPO is designated, they have, among other functions, the responsibility to inform and advise the controller or processor, and their employees, about the obligations arising from the GDPR (art. 39.1.a), to supervise compliance with data protection regulations, staff awareness and training, audits (art. 39.1.b), and, in the case of a Data Protection Impact Assessment, to advise and supervise its implementation (art. 39.1.e).  
+This advisory and supervisory mission could materialize in general data protection audits and regular audits concerning the proper application of security measures. In particular, the DPO must be informed of  
+
+4 The figure of the GDPR-L.O. 7/2021 data controller of a processing operation, a legal figure defined in arts. 4.7 GDPR and 5.g LO 7/2021, which generally corresponds to a legal entity, should not be confused with the figure of "responsible" for a task assigned to a natural person or body within the organization of an entity. They may receive the designation of process owner, information system owner, functional manager, "data owner," "risk owner." In this guide, they will be referred to as functional manager.
+Page: 10 of 53  
+any type of internal incident and changes in context related to the encryption system. The DPO, with this information and considering the characteristics of the processing as a whole, may elevate their conclusions and recommendations to the highest management bodies of the controllers and processors.  
+Regarding the purpose of these guidelines, the DPO must be aware of the processing and what requirements arise for the encryption system(s) that will be implemented therein. They will need to advise and, within their functions of supervising compliance with the provisions of the GDPR, oversee the regular process of verification, evaluation, and assessment of the proper functioning of the encryption system.  
+In summary, the DPO must:  
+• Know the nature or how the processing is implemented.  
+• Know the level of risk to the rights and freedoms of such processing.  
+• Know what significance the encryption system has within the set of security measures that determine the viability of the processing from the perspective of rights and freedoms.  
+• Advise on the requirements that arise for the encryption system(s), which elements of it are most critical, and what checks should be carried out.  
+• Oversee the regular process of verification, evaluation, and assessment of the controls.  
+• Inform the organization's management.  
+Within a process of continuous improvement, auditing is one of the best management tools that can be used by the DPO to define the recommendations that will be communicated to the data controller and to ensure the strength of the encryption system concerning the protection of personal data.  
+It is also good practice to regularly supervise how the processors/sub-processors and the suppliers of the organizations maintain their encryption system, starting, for example, with a ‘vendor assessment’.  
+2.4 BEYOND CONFIDENTIALITY  
+The encryption system can be used both to protect the confidentiality of personal data and to determine the integrity of the information, as well as in processes of authentication, non-repudiation, and pseudonymization.  
+Although this document focuses on encryption as a measure to preserve confidentiality, it may be helpful when processing employs encryption systems for the previously mentioned purposes, and when the failure of such measures could affect fundamental rights concerning data protection.  
+2.5 SECURITY BY DESIGN AND VALIDATION  
+The data controller, before including an encryption system in the processing, must carry out two tasks:  
+• Determine from the design the strength requirements of the encryption system that are necessary in the processing and  
+• Validate that such requirements are being effectively met in the implementation of the information systems and in their operation.  
+
+5 Process of evaluation and approval of potential suppliers through an objective assessment.
+Page: 11 of 53  
+Article 24.1 of the GDPR establishes that the data controller shall apply appropriate technical and organizational measures in the processing. The measures, to be appropriate, must be established based on, on one hand, the nature, context, scope, and purposes of the processing, and on the other hand, the risk that the processing poses to the fundamental rights and freedoms of individuals. In relation to the risk to fundamental rights and security, Article 32 establishes that the measures taken must be appropriate to ensure an adequate level of security. As the Supreme Court has already established, security measures are an obligation of means, not of results. The measures must have three objectives: first, to ensure the protection of rights and freedoms; second, compliance with regulations; and third, to be able to demonstrate it. Furthermore, protection and compliance are not one-off actions but require regular review and updating, in the case of security measures.  
+The requirements established in the previous paragraph (guaranteeing, demonstrating, and appropriateness of the measures) require establishing from the design the requirements of strength and robustness of the cryptosystem that are necessary in the processing. The requirements of strength and robustness must be established objectively and must be proportional to the potential impact of the processing and, in this case, to the importance of the encryption system within the set of security measures in that processing. Therefore, four scenarios are proposed in these guidelines when auditing a cryptographic system based on the role that cryptography plays in the processing. Scenarios that, ordered from least to greatest demand for protection, would be:  
+• The encryption system is a data protection measure by default.  
+• The encryption system is a measure that manages medium and low risks in the processing.  
+• The encryption system is a measure that, complementarily, manages high risk to rights and freedoms in processing.  
+• The encryption system is the main or most significant measure to manage a high risk to rights and freedoms in the processing, or to legitimize the processing.  
+On the other hand, both Article 24 and Article 32 of the GDPR require the controller to conduct objective periodic evaluations and reviews. An instrument for the review and updating of the measures is the audit, where the effectiveness of the policies, procedures, and technical and organizational measures should be validated. An audit of the encryption system, its configuration, implementation, and use, conducted from the perspective of data protection, may be part of a more general data protection audit of the processing.  
+An encryption system that is not regularly evaluated, verified, and validated in the context of the processing is a system that does not provide objective guarantees. Note that a validation, or an audit, is not a process of "reverse engineering." That is, the system must be designed and implemented in an accountable manner or in application of the principle of proactive responsibility (Article 5.2 of the GDPR), which implies that an objective development methodology has been used, guided by specific requirements, with processes of  
+6 Therefore, measures must be established "by default," regardless of the risk of the processing.  
+7 Judicial Power Communication: The Supreme Court establishes that the obligation of companies to adopt the necessary measures to ensure the security of personal data cannot be considered an obligation of results.  
+8 Process or method through which one attempts to understand through deductive reasoning how a previously created device, process, system, or piece of software performs a task with very little idea of how it does it exactly (if at all).  
+9 Although the term "accountability" has been translated in the GDPR as proactive responsibility, we will also use the term in English for having a more precise semantic extension.  
+10 A processing cannot comply with the principle of proactive responsibility if the components that make it up, or the means by which it is implemented, do not comply.
+**Page: 12 of 53**
+
+verification and validation, and it has been documented. The verification of compliance with the principle of proactive responsibility is the first step in the validation and/or audit process. Validation or audit does not replace the obligation of proactive responsibility; rather, it complements it.
+
+**2.6 REQUIREMENTS AND LIFETIME OF PERSONAL DATA**
+
+Each processing operation will have specific requirements related to the encryption system (latency, memory limitations, performance, HW/SW resources, consumption, cost, etc.), in addition to strength and robustness requirements. All of these are interrelated; for example, lower latency will likely require higher consumption and may increase costs. Similarly, greater strength will depend on and impact the other requirements.
+
+The strength requirements (algorithmic security and key size) and robustness (implementation and operational security) of the encryption system differ from one application to another: some applications will require merely ensuring confidentiality for a few days against unsophisticated adversaries, while others will require the need to protect confidentiality against sophisticated unauthorized entities for years, as in the case of trade secrets and industrial information or information with significant individual or social impact. The type of data lifetime, understood as the period during which it is relevant to maintain the message confidential (or intact), is the relevant criterion for determining the strength and robustness requirements of the cryptosystem.
+
+In cases where encryption techniques are used to add additional security measures to the processing of personal data, it is essential to consider both the impact that the disclosure of the data may have and what the data lifetime is from the perspective of the GDPR, that is, the data lifetime. As defined by the GDPR in Article 4.1, personal data has that nature as long as it is information about an identified or identifiable natural person.
+
+If encryption is to be the determining protection measure for processing, storing, or transmitting information whose disclosure may pose a high risk to fundamental rights and freedoms (geolocation of minors, information about victims of gender-based violence, medical histories, habits of vulnerable or intimate individuals, profiles or financial information of a significant portion of the subjects of a country, etc.), we would be talking about strength and robustness requirements that offer reasonable protection for many years.
+
+**2.7 ENCRYPTED INFORMATION AS PERSONAL DATA**
+
+The use of encryption is one of the protection measures that can be incorporated into personal data processing and could be an appropriate tool for pseudonymization. However, it should be noted that the act of encrypting data does not
+
+11 Hardware/Software  
+12 In paragraph 84.3 and note 70 of Recommendations 01/2020 on measures that complement transfer instruments to ensure compliance with the level of protection of EU personal data Version 2.0, it is stated: “3. the strength of encryption and the length of the key take into account the specific period during which the confidentiality of the encrypted personal data must be preserved. Note: public authorities may commit to accessing encrypted data under the circumstances described in paragraph 80, and store it until their resources are sufficient for decryption. The complementary measure can only be considered effective if that decryption and further processing at that time no longer constitute a violation of the rights of the data subjects, for example, because the data can no longer be used to identify them directly or indirectly.”  
+13 The Opinion 4/2007 on the concept of personal data from the Article 29 Working Party states that “In principle, information relating to deceased persons should not be considered personal data subject to the provisions of the Directive, as the deceased cease to be natural persons for civil law.”  
+14 As of the date, it would be necessary to consider whether to require them to be quantum-resistant, that is, capable of withstanding decryption attacks using high-powered quantum computers.
+Page: 13 of 53  
+it removes its nature as personal data, so the encrypted information is not anonymized information. The alleged "loss" or deletion of a decryption key will not change this nature.  
+2.8 SNLD ATTACKS  
+In relation to the two previous sections, the increase in storage and digital processing capabilities has brought to light the need to consider future SNLD attacks, an acronym for "Store Now, Decrypt Later," also known as HNLD.  
+Currently, it is possible to have vast data storage capabilities for long periods. This makes it possible to collect encrypted data and keep it until the information can be revealed (or the right moment to allocate resources to do so). Furthermore, technological advancements, especially concerning quantum computing, highlight the weakness of commonly used encryption systems in the near future.  
+The impact that the realization of these attacks could have in the future, both for the privacy of individuals and society as a whole, must be evaluated. This evaluation must be particularly careful in cases where vast amounts of personal data under the responsibility of Public Administrations are stored in external services that are protected, in transit, or in storage, by means of encryption.  
+2.9 THE KEY AS PERSONAL DATA  
+A key belonging to a natural person is a unique identifier, and its use allows for the identification of the person using it; under these conditions, it is therefore considered personal data within the framework of specific treatments.  
+2.10 ENCRYPTED INFORMATION: AT REST, IN TRANSIT, AND IN COMPUTATION  
+In simplified terms, there are two approaches that could be considered as typical cases of cryptosystems:  
+•  
+Encryption of data at rest: data is encrypted for protected storage against loss of confidentiality.  
+•  
+In transit: data is encrypted prior to being sent to a recipient, either over networks or using other types of media. The recipient may or may not have the means to decrypt it, as can occur with encrypted storage in the cloud. Data can be encrypted either to protect it during transmission or for its remote encrypted storage.  
+•  
+In computation: data is generated encrypted or is encrypted while being processed, subsequently treated always without decryption, decrypting only the result when necessary.  
+This last case is at various degrees of substantiation and is at the frontier of the state of the art in encryption; therefore, this document will address the first two cases. The process of encrypting information at rest, broadly speaking, could be considered formed by these major blocks:  
+
+Figure 1 Encryption of data at rest  
+In cases oriented towards the confidential transmission of information, there are new elements that must be taken into account, such as the establishment of keys with a recipient and the communication of messages, in addition to a replica of all the elements of the sender at the recipient (which are only hinted at in the attached figure):  
+
+Figure 2 Encryption of data in transmission  
+In the case of encryption for transmission, ensuring the authenticity and integrity of the message are usually essential requirements.  
+The typical use cases presented here are basic cases for didactic purposes. In practical treatments, we can find a combination of several processes or the application of different encryption systems at various phases of the same treatment. For example, in a cloud storage service, where data is transmitted to the cloud over a channel secured by encryption, and, in addition, the data is itself encrypted at the source or is encrypted at rest by the cloud service.
+Page: 15 of 53  
+Some specific treatments may show great complexity in the application of encryption systems, such as messaging systems in asynchronous environments22, polymorphic encryption, proxy re-encryption, multimedia encryption, etc. This guidance will serve as a starting point and will need to be adapted to the peculiarities of each system, considering that this is a field in full development, with some applications available using PET and PEC technologies.  
+2.11 PRIVACY ENHANCING CRYPTOGRAPHY  
+PET or Privacy Enhancing Technologies are those products and services developed specifically to facilitate the implementation of privacy measures in treatments. A subset of them is PEC or Privacy Enhancing Cryptography. Regarding PEC, the U.S. National Institute of Standards and Technology (NIST) points out a series of advanced cryptographic tools particularly suitable for implementing privacy-by-design strategies:  
+• Zero-Knowledge Proofs (ZKPoK)  
+• Secure Multi-Party Computation  
+• Homomorphic Encryption  
+• Group and Ring Signatures  
+• Private Set Intersection Protocols (PSI)  
+• Private Information Retrieval Protocols (PIR)  
+• Structured Encryption (StE)  
+• Searchable Symmetric Encryption (SSE)  
+Through these tools, it is possible to implement advanced solutions suitable for different scenarios and use cases, such as, for example:  
+• Credential management for access to services with guarantees of anonymity.  
+• Management of encrypted and shared databases, with different levels of access.  
+• Design of data analysis methods and machine learning on encrypted data.  
+• Verification and auditing with privacy guarantees in different environments.  
+2.12 DOCUMENTATION OF ENCRYPTION SYSTEM REQUIREMENTS  
+The data controller must determine from the design the requirements of the encryption systems, and these requirements must be guided by risk management, at least, of the risk to the rights and freedoms of the data subjects. In its preparation, it may be convenient to use the classification presented in the following point, so that, in addition to having a guide for their creation, the process of verification, evaluation, and assessment will be made more effective.  
+In turn, the processes of verification, evaluation, and assessment must be documented in their planning, execution, and results. Furthermore, there must be a follow-up on the results and recommendations resulting from these processes.  
+22 For example, the implementation of the signal-protocol  
+
+Page: 16 of 53  
+3 VALIDATION OF THE CRYPTOGRAPHIC SYSTEM FOR DATA PROTECTION  
+The data controller and the processor must carry out “a process of regular verification, evaluation, and assessment of the effectiveness of the technical and organizational measures to ensure the security of the processing” (Art. 32). For brevity, this process of verification, evaluation, and assessment has been referred to as validation23. If the data controller has decided to use encryption to protect personal data, the implemented encryption system must be validated based on the nature, context, scope, purposes, and risks of the processing.  
+The relevance of encryption as a measure for protecting personal data in a processing may vary, and similarly, the validation requirements for the cryptosystem(s) must be adapted. The level of analysis and management of the encryption process must be proportional to the risk to the rights and freedoms of the data subjects and to the role of encryption as a measure for compliance with the GDPR in the processing. Risk management will determine how the same can be mitigated or avoided using technical and organizational measures from the initial phases of the design of personal data processing. This management and implementation in the processing must comply with the principle of proactive accountability, which will imply, among other things, being documented and verifiable.  
+As in any security system, it must be taken into account that the overall strength and robustness of the encryption system will be equal to that of the weakest element.  
+3.1 EVALUATION OF ENCRYPTION ELEMENTS  
+When validating the encryption system, it may be necessary to include, among others, the selected algorithm; the implementation of the algorithm; key management; verification of procedures; the encryption suite; data preprocessing; communication protocols; the interaction of encrypted data with applications and storage; and, finally, the review of the organizational aspects of the management of the system and the encryption material.  
+The components of an encryption system can be decomposed for a more detailed analysis. The decomposition criterion presented here has been made with the aim of identifying elements that are known to have been sources of vulnerabilities.  
+23 The documented act of proving that any procedure, process, equipment, material, activity, or system actually leads to the expected results. Process of confirming that an element (a system, a work product, or a part of it) meets the needs of its stakeholders.
+Page: 17 of 53
+
+Figure 3 Elements that are part of an encryption system
+
+3.2 RECOMMENDATION AT THE EVALUATION LEVEL
+As previously noted, when conducting validation, the level of analysis to which the encryption system is subjected will depend on the following factors:
+• The risk that a breach in processing due to a problem in the encryption process could pose to the rights and freedoms of the data subjects,
+• The significance of encryption as a guarantee that is part of the conditions for compliance with the GDPR in processing,
+• The purpose of the encryption system (storage, communication, and/or others) as well as the level of compliance deemed appropriate and proportional.
+The level of analysis must be established by the data controller and/or processor, advised by the DPO24 and with the support of the security officer, through a risk analysis for the rights and freedoms that the processing entails, which includes the encryption system(s).
+As a recommendation, this guide suggests four distinct levels of criticality of the encryption system in relation to personal data processing:
+• As the least critical level, when the processing is of very low risk and the encryption system is included as a data protection measure by default25.
+
+24 Where applicable, the data protection specialist
+25 Measures and guarantees established in the processing regardless of the level of risk of the processing and that also encompass the default security measures.
+
+Page: 18 of 53
+• As low and medium criticality, when the encryption system is a measure that manages medium and low risks in the processing.
+• As high criticality, when the encryption system is a measure that, complementarily, manages high risk.
+• As highly critical, when encryption is the main guarantee for managing high risk or even the main measure upon which compliance with the GDPR in processing is based.
+Based on this, levels of verification for the different elements of the encryption system are suggested:
+• Optional: marked in yellow.
+• Medium: marked in orange.
+• High: marked in red.
+
+CRITICALITY OF ENCRYPTION AS A MEASURE THAT GUARANTEES THE PROTECTION OF THE RIGHTS OF THE DATA SUBJECT
+
+ELEMENT TO BE EVALUATED
+Data protection by default.
+In processing with medium and low risks.
+In processing where it complementarily manages high risk.
+In processing where it is the main measure to manage high risk or legitimize the processing.
+Keys
+
+1. Key space
+
+2. Key management
+
+3. Key storage
+
+4. Management of the encryption relationship
+
+Message space
+
+1. Message space
+
+2. Message storage
+
+Encrypted information
+
+1. Format
+
+2. Encrypted storage
+
+Page: 19 of 53
+Encryption suite
+
+1. Suite and algorithm
+
+2. Encryption protocol
+
+3. Implementation
+
+4. Log Encryption
+
+5. Hidden channels
+
+Communications
+
+1. Communication protocol
+
+2. Metadata
+
+3. Communication log
+
+4. Channels
+
+Receiver
+
+Governance
+
+1. Configuration control
+
+2. Devices
+
+3. Physical/logical security
+
+4. Policies
+
+5. Context and breaches
+
+6. Human factor
+
+For each of the elements, a list of possible controls has been developed in this document. This list is not exhaustive nor mandatory in all cases. The list has been created to assist the recipients of the guide in selecting which checks may be most appropriate for the evaluation of each specific element within the framework of a specific processing activity. Those involved may use this list as a starting point to determine which of them are suitable for the processing, which are dispensable, and, most importantly, which should be added that are not included in the suggested controls list. All elements are interrelated, such that there are checks that could well encompass different elements. This is evident in the example cases presented for each set of controls, which show that a holistic view of the entire system is necessary.
+Page: 20 of 53  
+3.3 KEYS  
+The strength of a cryptosystem largely depends on the strength of its keys, which in turn depends on the key space, their proper selection, their confidentiality, and an adequate key lifecycle management process, particularly regarding their proper storage.  
+
+3.3.1 Key Space  
+The key space is the set of possible keys that are effectively (not theoretically) selected in the actual execution of a cryptographic system.  
+
+Control  
+Validation  
+1. Key security requirements must be defined, such as, e.g., length greater than a certain number of bits (see Annex), format, etc.  
+Choose one item.  
+2. There is a procedure to prevent key repetition.  
+Choose one item.  
+3. Hand-generated keys cannot be used.  
+Choose one item.  
+4. Passwords are not used as keys.  
+Choose one item.  
+5. Keys are not generated from user passwords using key derivation functions.  
+Choose one item.  
+6. There is a procedure for detecting and eliminating weak and predictable keys.  
+Choose one item.  
+7. High entropy is guaranteed in the key selection process and the potential covering of the entire key space, with a uniform distribution.  
+Choose one item.  
+8. The absence of correlation between keys of different users is guaranteed.  
+Choose one item.  
+9. Key generation occurs in a protected environment (e.g., in hardware security modules or HSM).  
+Choose one item.  
+10. Key generation will be isolated from the operational environment.  
+Choose one item.  
+11. Key generation protects forward secrecy.  
+Choose one item.  
+12. Key generation protects future secrecy.  
+Choose one item.  
+13. Key generation mechanisms will be certified and subject to applicable sector regulations.  
+Choose one item.  
+14. Whether the generated keys must or must not be instantiated in physical media or tokens.  
+
+In the case of asymmetric cryptosystems, this applies only to the private key.  
+Although in some cases they have common elements, keys should not be confused with passwords.  
+https://es.wikipedia.org/wiki/HSM  
+If any key, or set of keys, is compromised, it is not possible to compromise past keys. That is, knowledge of one key does not allow the discovery of old keys with which text has been previously encrypted.  
+If any key, or set of keys, is compromised, it is not possible for a third party to deduce the future keys that will be generated in the key relationship.  
+
+Page: 21 of 53  
+Office Environment:  
+Keys that are hand-generated or derived from used passwords are vulnerable to social engineering attacks and have been the subject of psychological analysis. A term "password psychology" has even been developed to study the internal mechanisms for creating them. Information published on social networks, or the analysis of passwords used by the same user on any other service, can provide a lot of information to direct brute force attacks.  
+
+Key Generators:  
+These are local storage devices manufactured by various technology firms, which provide what their creators call "military-grade data protection"; they use the PBKDF2 algorithm as a key derivation function performing 1000 iterations of MD5 to derive the encryption key. The "salt" used to derive the keys is constant and is hardcoded in all solutions and all providers, making it easier for an actor to determine the user password.  
+
+Key Generation from Biometrics:  
+Key generation using biometric patterns (Genkey Biohash Key Creation) could present risks related to the correctness of the algorithms, the false positive rate, as well as privacy risks since biometric characteristics of subjects may be revealed. They are susceptible to inversion attacks and others.  
+
+Cryptocurrencies:  
+In digital cryptocurrency wallets, keys have been deduced due to the use of overly simple procedures in their generation, such as brain wallets, or other simplification methods that generate weak keys (truncations, etc.).  
+
+WiFi Communications:  
+Some routers used to provide WiFi access within entities employ key generation mechanisms with very low entropy that allow simple attacks on the WPS protocol.  
+3.3.2 Key Management  
+The encryption system must have a key management process, and this section refers to that management process. Due to its specificity, it is developed below:
+**Page: 22 of 53**  
+**Control**  
+**Validation**  
+15. The management and lifecycle of the relationship between keys and certificates is documented: generation, distribution, storage, change or update, revocation, management of compromised, forgotten, or lost keys, activation periods, expiration, recovery of lost or corrupted keys, deposit, backup, and destruction of keys.  
+Choose an item.  
+16. There are extracts from the management documentation aimed at the different roles involved in the encryption process.  
+Choose an item.  
+17. If a cryptographic medium or token is not used, the entry of the key and its representation on the screen must not be done in a format readable by other people or users who may be around.  
+Choose an item.  
+18. Internal distribution of keys is carried out through confidential channels and by authenticating the recipients.  
+Choose an item.  
+19. There are procedures to train users that they must never disclose keys or passwords to third parties who request them, even if they identify themselves as service administrators.  
+Choose an item.  
+20. There is a user management procedure, both for authorization and for procedures of termination or those who have temporarily (absent) or permanently ceased their privileges.  
+Choose an item.  
+21. There is a procedure that defines the use of keys that limits reuse in multiple messages, use in different procedures and systems, or for different purposes.  
+Choose an item.  
+22. There is a procedure that guarantees a significant distance between two consecutively used keys.  
+Choose an item.  
+23. There is a hierarchical/pyramidal structure of keys.  
+Choose an item.  
+24. There is a key or certificate revocation protocol that considers not only the time of use but also the amount of information exchanged, the context of breaches or attacks, the sensitivity of the information, etc.  
+Choose an item.  
+25. Revoked keys or certificates that must be stored will be kept in isolated media from operational ones.  
+Choose an item.  
+
+**Key Reuse:**  
+A key is exposed when used, and it becomes more compromised each time it is reused. Therefore, an approach for systems that require greater strength is the use of OTP (One Time Password) systems, which limits the lifespan of the key to encrypt a single message.  
+
+**Office Environment:**  
+Passwords should not be exchanged in clear text using electronic messaging services. In any case, keys should never be sent in the same communications as the encrypted elements but should be sent independently through other secure channels.  
+
+**Page: 23 of 53**  
+**WiFi Networks:**  
+In WEP encryption (WiFi networks), the reuse of keys and initialization vectors enables simple brute-force attacks to obtain the key.  
+
+**3.3.3 Key Storage**  
+Symmetric keys, or pairs of public and private keys, must be registered with guarantees of both confidentiality and recovery. The storage of keys is not only an issue for the individual who encrypts their own data but also for the organization, as it must be able to recover data encrypted by its employees, having a key storage system.  
+The management of key storage would be a particular case of the previous section but is developed independently for clarity reasons.  
+
+**Control**  
+**Validation**  
+1. Keys are not recorded in clear text on any type of medium.  
+Choose an item.  
+2. Keys are not stored in a non-volatile or external manner when the key is not encrypted (wrapped key).  
+Choose an item.  
+3. There is specific management of keys used to protect other keys.  
+Choose an item.  
+4. There is protection or cryptographic devices (HSM, hardware security module) to preserve the confidentiality of the keys.  
+Choose an item.  
+5. The protection mechanisms themselves are subject to periodic review.  
+Choose an item.  
+6. There are procedures for deposit, backup, and recovery of keys.  
+Choose an item.  
+7. Access to keys is subject to control and access logging.  
+Choose an item.  
+8. There are automated procedures to detect and alert unauthorized access to key storage.  
+Choose an item.  
+9. There are procedures for secure deletion and erasure of keys.  
+Choose an item.  
+
+**Office Environment:**  
+It is typical to use notes in clear text both in paper and electronic format in a place without access controls, for example, on a post-it, in a note stored in a shared Dropbox folder, in email, etc. In many cases, it is not the user's fault but rather the lack of protocols, policies, and tools for the storage and management of keys in the organization.  
+
+**Key Encryption Key (KEK)** or key wrapping key are keys used to protect the confidentiality of keys. They are also used in key exchange processes as transport keys.
+**Page: 24 of 53**  
+**Cryptocurrencies:**  
+A citizen lost the keys that allowed him to access his bitcoins by throwing away the disk on which they were stored. The value of the bitcoins, thus inaccessible, reached 280 million euros.  
+
+**Validation of HSMs:**  
+Using an HSM device is not an absolute guarantee. Such devices are also subject to failures, vulnerabilities, and attacks, and therefore, measures must also be implemented to validate and verify their strength against different attack vectors, including those arising from implementation errors, such as those that have allowed the reinstallation of their software.  
+
+**3.3.4 Management of the encryption and certificate relationship**  
+When encryption involves the relationship of more than one participant, it is necessary to establish an encryption relationship between two (or more) interlocutors. The establishment of the encryption relationship involves more than exchanging keys; it also involves agreeing on the encryption algorithms, as well as other aspects of the encryption suite and the protocol for using the system:  
+
+**Control**  
+**Validation**  
+1. If two parties agree to exchange information to establish a key relationship, both must be sure of the identity and origin of the messages from the other party.  
+   Choose an element.  
+2. In the case of authentication in a public key infrastructure (PKI), it must be reliable.  
+   Choose an element.  
+3. In the case of symmetric keys, if two parties agree to exchange information to establish a key relationship, the keys they establish between themselves must be different from those established by one of the parties with another third party.  
+   Choose an element.  
+4. If there are common keys, there must be distinct keys for different groups not authorized to communicate with each other.  
+   Choose an element.  
+5. The received certificates and the chain of trust are properly validated.  
+   Choose an element.  
+6. While two parties are exchanging information to establish a key relationship, no other third entity should be able to infer the identity of both parties.  
+   Choose an element.  
+7. The establishment of the key relationship (algorithms, suite elements, etc.) must be carried out confidentially.  
+   Choose an element.  
+
+**Page: 25 of 53**  
+**Office Environments:**  
+NTLM Relay attacks on Windows domain controllers are possible if protections related to signatures with certificates are not activated.  
+
+**Expiration of Certificates:**  
+A communications systems provider interrupted service to 32 million users from various communications companies due to poor management of the expiration of digital certificates.  
+
+**Compromise of Certificates:**  
+The possibility of certificate compromise (due to theft, social engineering, corruption, information leaks, etc.) is a fact that goes beyond gaining access to systems, and has been used to sign malicious applications, to sign malware that can lead to loss of confidentiality or availability of personal data (ransomware).  
+
+**3.4 CLEAR MESSAGES**  
+A clear message is one that I want to encrypt in order to keep it confidential in storage or during transmission.  
+
+**3.4.1 Message Space**  
+The message space is the set of possible messages being encrypted. The more predictable the messages are, the weaker that message will be. This predictability has a greater impact the more it affects the initial part of the message to be transmitted. For example, standard formats for storing text, video, images, or emails usually have headers that are always the same (or with slight variations depending on the user) which makes cryptanalysis easier.  
+Additionally, certain tools perform a preprocessing of the messages before they are encrypted, which can increase, but in some cases also decrease, the strength of the message.
+Page: 26 of 53  
+Control  
+Validation  
+1. There are no static headers in the messages or set of messages to be encrypted.  
+Choose an element.  
+2. Messages avoid a predictable and identifiable structure, such as patterns, abbreviations, public or obvious information.  
+Choose an element.  
+3. If the plaintext message consists of a set of files, they are preprocessed to conceal.  
+Choose an element.  
+4. The plaintext message is compressed before being encrypted.  
+Choose an element.  
+5. The adjustment of the message to the block size of the encryption algorithm is done using appropriate padding and without known vulnerabilities.  
+Choose an element.  
+6. The message space is designed to guarantee high entropy (e.g., by including random segments, especially at the beginning and end).  
+Choose an element.  
+
+Office environments:  
+When encrypting two distinct documents generated by the same word processor, the same author, and the same key, the first blocks of the encrypted documents are exactly the same. This is due to the fact that document generation tools, such as word processors, spreadsheets, etc., often have a set of static headers. Such documents are vulnerable to attacks based on known plaintext since, even if the key is changed, the contents of the first blocks are already known. If it is added that certain documents have a standard structure where the data that differs between two documents is minimal, the vulnerability increases. There are examples of decryption tools using this principle.  
+
+Protection of fields in a dataset:  
+In datasets organized into fields, such as phone numbers, ID numbers, or other identifiers, it is possible for the fields to be encrypted individually. In such cases, it should be noted that these fields may have very little variability. For example, the number of possible combinations of a valid phone number is very low from the perspective of automatic analysis (low entropy).  
+
+Limits on encryption security:  
+The uniqueness distance, also called the uniqueness point, is the minimum number of characters of the encrypted text needed to reduce the number of possible keys to one. Beyond that amount, the cipher is theoretically breakable given sufficient resources. It does not depend on the algorithm but on the entropy of the message space and the actual length of the key. For example, a text in Spanish encrypted with AES 256 exceeds the uniqueness distance with more than 95 characters.  
+
+3.4.2 Storage of plaintext messages  
+In the case of messaging services, documentation sent in an encrypted form, protected backups, or datasets sent to third parties in an encrypted form, in many cases the original information could be stored as a plaintext message.  
+The simplest way to compromise an encrypted message is to directly access the plaintext message that originated it. Also, knowing plaintext messages about other information that is not the attacker's object of interest can be a source of information about key management and encryption processes in general.  
+
+Control  
+Validation  
+1. The confidentiality of the storage of permanent messages and temporary copies is protected.  
+Choose an element.  
+2. There is an access control procedure for the storage of plaintext messages.  
+Choose an element.  
+3. There is a record of access to the storage of plaintext messages.  
+Choose an element.  
+4. There are automatic procedures to detect and alert unauthorized access to the message store.  
+Choose an element.  
+5. For certain types of messages, there are expiration procedures for plaintext messages that were transmitted encrypted.  
+Choose an element.  
+6. Temporary copies are not accessible by third parties or third-party applications and are subject to secure deletion.  
+Choose an element.  
+7. Access to the storage of plaintext messages, when enabled, is limited to the set of applications that can exploit it.  
+Choose an element.  
+8. There are secure deletion procedures for plaintext messages and temporary copies.  
+Choose an element.  
+9. There is no linkage between plaintext messages and the keys used to encrypt them.  
+Choose an element.  
+10. There is no linkage between plaintext messages and their encryption.  
+Choose an element.  
+
+Instant messaging:  
+Some instant messaging applications store messages and/or multimedia content in plaintext on the devices themselves, so that the attack on the confidentiality of the messages is carried out on such storage before being conducted on the transmitted messages.
+Page: 28 of 53  
+Encrypted Disks:  
+The encryption of storage in a system or a removable data medium is a basic security measure against theft or loss. However, one must be aware that it only provides a certain degree of security. Once access to the device is opened, for example, by logging into the system, the data is available to numerous applications, so it cannot be considered that the data is encrypted during the normal operation of the system53.  
+3.5 ENCRYPTED INFORMATION  
+Encrypted messages may be stored for a long time, particularly when the goal is to encrypt information at rest, or they may be stored for very short intervals while in the transmission queue.  
+
+3.5.1 Format  
+Encrypted messages usually have a format that depends on the encryption software. The format may include unencrypted information that facilitates daily operations with such files, but it may also incorporate weaknesses in the encryption system.  
+
+Control  
+Validation  
+1. The format of the ciphertext does not include unencrypted information, nor information related to the process or nature of the encrypted information.  
+Choose an item.  
+2. The key is not included in the header of the text before being encrypted.  
+Choose an item.  
+3. When the encrypted message consists of several independent files, a clear description of its content is not stored.  
+Choose an item.  
+4. If steganographic or deniable encryption techniques are used, their effectiveness has been analyzed.  
+Choose an item.  
+
+Web Services:  
+Some encryption tools reveal information in their format, such as JWE, JSON Web Encryption, generally used as access tokens (a version of JWT, JSON Web Tokens with encrypted content).  
+
+53 https://www.makeuseof.com/tag/how-whatsapp-messages-can-hacked/ in its section 4.  
+
+Page: 29 of 53  
+Office Environment:  
+In some tools that generate encrypted “zip” files, the default configuration reveals clear information about the type of algorithm used, version of the tool, or even the stored files, and allows the use of strategies based on a weakness in the Message Space seen previously.  
+
+Instant Messaging:  
+In mobile messaging services, the first characters of messages are also stored in Notifications when the application is not open on the phone, allowing messages to be retrieved outside of any protection, even those believed to be deleted54.  
+
+3.5.2 Encryption Storage  
+Control  
+Validation  
+1. There are physical and logical access controls to the repositories of encrypted information.  
+Choose an item.  
+2. There are authentication mechanisms that prevent impersonation of the user who has entered the access keys to the encryption storage.  
+Choose an item.  
+3. There is no other parallel storage where it is possible to find the encrypted messages in clear, in whole or in part.  
+Choose an item.  
+4. There is a backup of the encryption storage.  
+Choose an item.  
+
+Unauthorized Access:  
+The Truecrypt disk encryption suite was discontinued upon discovering that it was possible, once a user entered the key to access the encrypted content, for unauthorized third parties to gain access to the contents55.  
+
+3.6 ENCRYPTION SUITE  
+The encryption suite consists of all the software/hardware/procedures components surrounding the theoretical encryption algorithm that will determine its operation. The algorithm, e.g., AES, will be implemented using a series of libraries and plugins necessary for its actual execution. A proposed classification of these plugins is as follows:  
+
+54 https://www.xataka.com/basics/recuperar-mensajes-borrados-whatsapp  
+55 https://thehackernews.com/2015/09/truecrypt-encryption-software.html
+**Page: 30 of 53**
+
+**3.6.1 Suite and Algorithm**  
+Algorithms run on concrete implementations. Furthermore, it is necessary to use multiple elements that allow the implementation of the encryption system on a specific system: random number generators, prime numbers, block padding, key stretching, etc. All of these can be sources of vulnerabilities.
+
+**Control**  
+**Validation**  
+1. The elements of the suite are identified by their name and version and inventoried. In particular, encryption algorithms, MACs, key exchange, padding, random number generators, key generators, certificates, automated protocols, key management tools, etc.  
+   Choose an element.  
+2. The security of the suite is demonstrable.  
+   Choose an element.  
+3. The criteria for determining the elements of the suite appropriate for the application context and the lifecycle of personal data are identified.  
+   Choose an element.  
+4. The elements of the suite are adequately certified and comply with sector regulations.  
+   Choose an element.  
+5. The statuses of the certifications are updated.  
+   Choose an element.  
+6. The suite does not employ compromised, unverified, or "ad-hoc" developed algorithms.  
+   Choose an element.  
+7. The generation of random numbers must be adequate, with a strong algorithm (software or hardware), certified or in accordance with the regulations (ENS), and must pass the next-bit test and state compromise.  
+   Choose an element.  
+8. The seeds for random number generation must be configurable by the user or there must be a functionality for seed creation with sufficient entropy and unpredictability.  
+   Choose an element.  
+9. The generation of prime numbers must be unpredictable.  
+   Choose an element.  
+10. The configuration of the suite used to encrypt each plaintext message is controlled.  
+    Choose an element.  
+11. There is a backup of the elements of the suite.  
+    Choose an element.  
+12. Information about the suite is confidential.  
+    Choose an element.  
+
+**Page: 31 of 53**
+
+**Cloud Access:**  
+Access to remote or cloud services is done through tools that allow configuring the encryption suite being used. The default configuration must be adjusted so that only those elements of the suite that meet the security requirements are employed.  
+
+**3.6.2 Encryption Protocol**  
+The encryption protocol consists of automated processes (which will be part of the suite in a broad sense) and non-automated processes used to perform the operations of encrypting and decrypting information.
+
+**Control**  
+**Validation**  
+1. The protocol must be well documented, audited by third parties, or certified.  
+   Choose an element.  
+2. The protocol does not use insecure block treatments (e.g., ECB).  
+   Choose an element.  
+3. The protocol includes authenticated encryption mechanisms (e.g., GCM).  
+   Choose an element.  
+4. The protocol guarantees that not just a fragment of the message is encrypted.  
+   Choose an element.  
+5. The protocol guarantees that the same message is not sent both encrypted and unencrypted.  
+   Choose an element.  
+6. The protocol guarantees that the same message is not encrypted with different keys or algorithms.  
+   Choose an element.  
+7. The protocol guarantees that the same key is not used for different recipients.  
+   Choose an element.  
+8. The protocol guarantees a maximum of encrypted information with the same key.  
+   Choose an element.  
+9. The protocol guarantees that different blocks of the encrypted text cannot be replaced, deleted, or reordered without detection.  
+   Choose an element.  
+
+**Massive Data Sets:**  
+One of the limits for secure encryption is not to exceed the amount of information encrypted with the same key to a power of 2 of half the size of the encryption block. This limit, known as the "birthday limit," can be easily reached with small block size ciphers, such as those based on DES, and necessitates key changes.
+**Page: 32 of 53**  
+**Loss of integrity in communications:**  
+The use of ECB encryption modes or unauthenticated modes such as GCM allows for attacks on the integrity of the transmitted message sets, enabling the insertion of false information that can alter the meaning of the information and have cascading effects on the processing of personal data58.  
+**3.6.3 Implementation**  
+Implementation is the translation of designs, algorithms, and tools conceived theoretically into the real world. This involves concrete coding, the definition of algorithm parameters, and deployment on a specific system. There can be a significant gap between theoretical protection and effective protection due to limitations introduced in the implementation of algorithms and issues in integration with the rest of the system.  
+
+**Control**  
+**Validation**  
+1. Vulnerability tests have been conducted on the Hw/Sw elements that make up the encryption system.  
+   Choose an element.  
+2. It has been verified that there is no persistence in the memory of keys or plaintext used in the encryption process.  
+   Choose an element.  
+3. It is analyzed that there are no hardcoded keys included in the code.  
+   Choose an element.  
+4. There is a verification procedure to prevent the leakage of information regarding the system's behavior.  
+   Choose an element.  
+5. There are measures to prevent detection and manipulation of the implementation: non-deterministic duration operations, circuit shielding, consumption homogenization, modifying implementation of registered algorithms, adding noise, and useless operations.  
+   Choose an element.  
+6. Appropriate, certified libraries (FIPS 140-2, 197) or authorized (CCN-STIC-807) are used in the implementations.  
+   Choose an element.  
+7. The generation of initialization vectors, "salts," and "nonces" ensures that they are secure (minimum and non-repeated sizes) and are not reused.  
+   Choose an element.  
+8. The block padding methods used are updated and suitable for the type of processing. For example, do not use PKCS v1 or v1.5.  
+   Choose an element.  
+9. The hash functions used are suitable for cryptographic use, modern, and not obsolete. For example, do not use MD5 or SHA1.  
+   Choose an element.  
+10. The implementation of certificate validation is secure.  
+    Choose an element.  
+
+**Corporate Applications:**  
+A widely used corporate application maintained an encryption key written in the code itself to protect stored data (at rest). An inspection of the code allowed access to the confidential configuration information stored59.  
+
+58 https://sysfatal.github.io/maleable.html  
+59 https://www.cvedetails.com/cve/CVE-2016-3684/  
+
+**Page: 33 of 53**  
+**Office Environment:**  
+The driver of an operating system used by projects derived from Truecrypt 7 was vulnerable to a local privilege escalation attack by abusing the symbolic link creation functions of drive letters to reassign the system's main drive60.  
+
+**Lack of Implementation Review:**  
+In the case of an online video game platform that, although it employed asymmetric keys generated with elliptic curves, the vulnerability of these keys was determined due to the fact that the key generation seed was constant across all implementations, introducing determinism into the key space61.  
+
+**Communications:**  
+A systems company provided a RTU (Remote Terminal Unit) with SSH encryption in which the access private key was written in the code itself and was not updated if the default configuration was used62.  
+
+**Instant Messaging:**  
+In 2019, it was discovered that sending malicious MP4 files could cause a buffer overflow in an instant messaging service, thereby allowing access to messages63.  
+**3.6.4 Encryption Log**  
+The operation of the encryption system generates log files that will be essential in the validation and auditing of the system; however, they can also become a source of vulnerabilities.  
+
+**Control**  
+**Validation**  
+1. There is a log of encryption activities.  
+   Choose an element.  
+2. They must not store keys, plaintext or ciphertext, or any other information that could be used for cryptanalysis.  
+   Choose an element.  
+3. The recorded data must be minimized, with strict criteria for destruction, storage, and copying.  
+   Choose an element.  
+4. The encryption logs must be protected in terms of their confidentiality and integrity.  
+   Choose an element.  
+5. A very restrictive access control with traceability is guaranteed, with real-time alerts.  
+   Choose an element.  
+
+60 https://www.exploit-db.com/exploits/38403  
+61 https://www.edn.com/the-sony-playstation-3-hack-deciphered-what-consumer-electronics-designers-can-learn-from-the-failure-to-protect-a-billion-dollar-product-ecosystem/  
+62 https://www.cisa.gov/uscert/ics/advisories/icsa-22-179-06  
+63 https://thenextweb.com/news/whatsapp-fixes-bug-that-would-have-let-hackers-exploit-devices-using-mp4-files
+**Page: 34 of 53**  
+**Communications:**  
+An SSH implementation stored the private key in the log file, accessible to all users who could gain access to it.64  
+
+**3.6.5 Hidden Channels**  
+A hidden or covert channel is any communication channel that can be exploited by a process to transfer information in a way that violates the system's security policy. This may be due to poor designs of the system on which the encryption runs or the existence of backdoors.  
+
+**Control**  
+**Validation**  
+1. There is an analysis of hidden channels in the suite.  
+   Choose an item.  
+2. There is an analysis of hidden channels in both automated and non-automated protocols.  
+   Choose an item.  
+3. There is an analysis of hidden channels in communication channels, such as error messages.  
+   Choose an item.  
+4. There is an analysis of hidden channels in the software (libraries) and hardware implementation.  
+   Choose an item.  
+5. There is an analysis of hidden channels in the operating system that runs the encryption system.  
+   Choose an item.  
+6. In treatments implemented on complex information systems, even for data at rest, the security of information flows between load balancers, web servers, back-end systems, and other internal and external systems must be determined.65  
+   Choose an item.  
+7. If the organization employs hidden channels in the encryption system for monitoring and content inspection, monitoring must be in real-time, data logged must be minimized, with strict early destruction criteria, logs must be protected in terms of confidentiality, and a very restrictive access control with traceability must be guaranteed, with real-time alerts.  
+   Choose an item.  
+
+**Instant Messaging:**  
+A social network provided an end-to-end encrypted messaging system. However, the emoticons are not embedded in the message, but only a link to the image of the same. When a message was downloaded, the first action was to request the server for the drawings of the emoticons contained in the message, which revealed a lot of information about the conversation.  
+
+64 https://www.cve.org/CVERecord?id=CVE-2018-1999036  
+65 It is also related to the existence of logs of encrypted material and plaintext messages.  
+
+**Page: 35 of 53**  
+**Hidden Channels:**  
+An oracle attack is a type of hidden channel attack that exploits the fact that the protocol or system allows deducing whether the adversary is close to achieving a goal or not. For example, the Vaudenay attack66 consists of knowing whether an encrypted message sent by the attacker has well-formed padding or not. This can be known if the server returns an error that allows differentiating whether there is a padding error or if the error is of another type (for example, from the MAC). It could also be known by measuring the time it takes for the server to respond to a request, etc.  
+
+**Communications:**  
+Although TLS specifications require servers to check padding, some implementations do not validate it correctly. POODLE67 ("Padding Oracle On Downgraded Legacy Encryption") is a security vulnerability that exploits the downgrade to SSL 3.0, making some servers vulnerable to POODLE even if they disable SSL 3.0.  
+
+**3.7 COMMUNICATIONS**  
+The encryption system may be aimed at protecting data at rest, but one of the frequent purposes in an encryption system is the protection of data exchanged over communication networks. The very act of communication may involve specific vulnerabilities that do not appear in the protection of information at rest.  
+
+**3.7.1 Communication Protocol**  
+The communication protocol is the system of rules that allows two or more entities in a communication system to exchange messages with each other. In this case, it will also include the establishment of the encryption relationship, as well as the encrypted messages themselves.  
+
+**Control**  
+**Validation**  
+1. Authentication is guaranteed at the establishment of each session and in each exchange within a session.  
+   Choose an item.  
+2. Procedures are implemented to prevent and detect impersonation of interlocutors. (MITM)  
+   Choose an item.  
+3. Procedures are implemented to prevent and detect delays, reordering or suppression of fragments of the encrypted text, selective modification of the encrypted information, fabrication of fictitious messages with fragments of authentic messages, invention of messages, replay of messages, reflection (returning the message to the sender), alteration of the message recipient, etc.  
+   Choose an item.  
+
+66 https://sysfatal.github.io/oracle.html  
+67 https://es.wikipedia.org/wiki/Ataque_POODLE
+Page: 36 of 53  
+SSL/TLS:  
+Numerous security issues with SSL/TLS protocols have been documented. The footnote describes the most significant (recent) attacks focused on undermining cryptography68.  
+3.7.2 Metadata  
+Metadata in electronic communications are the data processed in a communication network for the purpose of transmitting, distributing, or exchanging a message, in this case encrypted. This includes data used to determine and identify the origin and destination of a communication, data about the device's location, and the date, time, duration, and type of communication69.  
+
+Control  
+Validation  
+1. Metadata in communications are minimized and known.  
+Choose one  
+item.  
+2. The impact of metadata on cryptanalysis has been analyzed.  
+Choose one  
+item.  
+
+WiFi Networks:  
+In some implementations by WiFi router manufacturers that employ WPA/WPA2 encryption, it is possible to exploit data from the optional fields of control frames issued to carry out PMKID attacks70.  
+3.7.3 Communication Log  
+Communications also generate log files that will be essential for monitoring and auditing the system, which can in turn become a source of vulnerabilities.  
+
+Control  
+Validation  
+1. Log files must not store keys or encrypted text.  
+Choose one  
+item.  
+2. When communication is not direct, the log information generated in forwarding systems must be known and controlled.  
+Choose one  
+item.  
+3. Recorded data must be minimized, with strict criteria for destruction, storage, and copying.  
+Choose one  
+item.  
+4. They must be protected in terms of confidentiality.  
+Choose one  
+item.  
+5. A very restrictive access control with traceability is guaranteed (alarms for suspicious access).  
+Choose one  
+item.  
+6. The log management tool is audited and/or certified.  
+Choose one  
+item.  
+7. There are procedures to prevent log management attacks such as "log poisoning."  
+Choose one  
+item.  
+
+68  
+Security  
+of  
+the  
+SSL/TLS  
+protocol.  
+Modern  
+cryptanalytic  
+attacks.  
+Author:  
+Dr.  
+Alfonso  
+Muñoz  
+https://raw.githubusercontent.com/mindcrypt/libros/master/Book. Seguridad en el protocolo SSL-TLS. Dr. Alfonso Muñoz - 05082021.pdf  
+69 Definition from the ePrivacy Regulation Proposal  
+70 https://kalitut.com/pmkid-attack/  
+
+Page: 37 of 53  
+
+Communication Logs:  
+Inadequate management of logs can be exploited to take advantage of vulnerabilities such as log poisoning, present in some applications71.  
+3.7.4 Channels  
+The channel is the physical medium (and its virtual extensions) that allows the effective exchange of information between two interlocutors. The channel can take very complex forms on the Internet, with numerous intermediate participants that, in many cases, could be transparent to the user.  
+
+Control  
+Validation  
+1. Procedures are implemented to prevent and detect the use of open channels.  
+Choose one  
+item.  
+2. Procedures are implemented to prevent and detect private channels.  
+Choose one  
+item.  
+3. Procedures are implemented to prevent and detect eavesdropping and collection of encrypted information.  
+Choose one  
+item.  
+4. Procedures are implemented to prevent and detect traffic analysis and information linking.  
+Choose one  
+item.  
+5. Procedures are implemented to prevent and detect attacks on DNS services.  
+Choose one  
+item.  
+6. Procedures are implemented to prevent and detect denial of service attacks.  
+Choose one  
+item.  
+7. Procedures are implemented to prevent and detect interruptions of channels (physical and logical).  
+Choose one  
+item.  
+8. Mechanisms for physical and/or virtual network segmentation (VLAN\f "Acronyms") are implemented.  
+Choose one  
+item.  
+
+Eavesdropping in the network infrastructure:  
+Tapping/sniffing devices on Ethernet or fiber cables. WiFi-jamming devices (which cause denial of service) or sniffing.  
+WiFi de-authentication attacks along with fake access points (WiFi de-auth and evil-twin72)  
+3.8 RECEIVER  
+The receiver is the one who will receive the encrypted messages; in some cases, they will have the decryption keys and stores of both encrypted and plaintext messages, therefore, they must comply with the same guarantees as the sender.  
+
+Control  
+Validation  
+1. The receiver is authenticated.  
+Choose one
+Page: 38 of 53  
+element.  
+2. Open sessions with the receiver expire. The session keys used are not predictable.  
+Choose an element.  
+3. Re-authentication during an open session is performed randomly.  
+Choose an element.  
+4. The level of compliance of the receiver regarding the encryption system is equivalent to that of the sender.  
+Choose an element.  
+5. The receiver has been evaluated with audits and/or certifications.  
+Choose an element.  
+6. The receiver's staff has received training and has policies and practical manuals for the proper handling of encrypted material.  
+Choose an element.  
+7. The history of personal data breaches has been checked.  
+Choose an element.  
+
+Vulnerability in the receiver affecting the sender:  
+Cookie and session token theft in the receiver73  
+3.9 GOVERNANCE AND DATA PROTECTION POLICIES  
+Beyond the theoretical strength of a cryptosystem, the actual security of an encryption system derives from the correct application of governance measures and policies, which in this case are focused on data protection.  
+Information governance in the organization must be unified and must integrate data protection policies. A processing activity will only comply with the principle of proactive responsibility, or be “accountable,” if each of the phases and means it employs is also so. Thus, the information governance in the organization must reflect the requirements for the encryption system to be “accountable” at least from the perspective of data protection.  
+
+3.9.1 Configuration Control of the Encryption System Components.  
+The configuration of the components is the set of parameters that can be adjusted to determine their functionality.  
+
+Control  
+Validation  
+1. The elements of the cryptographic system must be properly configured before the production deployment of the processing in which the encryption system is used.  
+Choose an element.  
+
+73 https://www.theverge.com/2023/3/24/23654996/linus-tech-tips-channel-hack-session-token-elon-musk-crypto-scam  
+
+Page: 39 of 53  
+2. The configuration of each element is documented.  
+Choose an element.  
+3. The encryption system cannot be run with default configurations, or such configurations do not exist.  
+Choose an element.  
+4. Automatic updates of any element do not alter or reset the configuration.  
+Choose an element.  
+5. There is an access control policy implemented and an access log for the configuration of each element.  
+Choose an element.  
+
+Mobile Devices:  
+There are attack patterns that consist of reinstalling the encryption libraries with all-zero keys74.  
+
+Corporate Databases:  
+A complex architecture of database encryption can be compromised by access to the keys if their storage is not configured properly75.  
+
+3.9.2 Devices  
+Since all elements that configure the encryption suite will run on servers, routers, computers, whether in personal systems or in business or corporate environments, inadequate configuration can compromise the security of the entire cryptographic system.  
+
+Control  
+Validation  
+1. There is a security policy and control over BYOD devices used in the encryption system, or they are not allowed at all.  
+Choose an element.  
+2. There is control or prohibition of installing applications on devices running encryption systems without authorization from the security officer.  
+Choose an element.  
+3. Versions of the operating systems are used that are specially configured for high security.  
+Choose an element.  
+4. The devices on which the encryption system runs are analyzed for specific vulnerabilities.  
+Choose an element.  
+5. The use of devices that prevent the entire encryption system from being updated is not allowed.  
+Choose an element.  
+6. The devices of the encryption system will be used only in protected environments.  
+Choose an element.  
+
+74 https://www.krackattacks.com/  
+75 https://matthewmcgiffen.com/2018/01/03/how-secure-is-transparent-data-encryption-tde-and-how-to-prevent-hacking/
+Page: 40 of 53  
+IoT Devices, VoIP Phones, and Others:  
+Many devices do not support 802.1X configurations due to having very limited functions, and they often have poor implementations of cryptography and password management. The use of other alternative mechanisms such as MAC Authentication Bypass76, which may not be secure enough, can allow external devices to access networks where the cryptographic system is being used.  
+VoIP systems with vulnerabilities or misconfigurations can compromise the corporate network77.  
+
+Mobile Device Management (MDM) Systems:  
+MDM systems must be properly configured to prevent unauthorized external devices from being incorporated78. They are systems susceptible to vulnerabilities and must be kept updated79.  
+3.9.3 Physical/Logical Security  
+Systems, devices (especially if portable), backup systems, screens, etc., may be accessible to third parties or directly stolen. The list of controls shown below refers to encryption material.  
+
+Control  
+Validation  
+1. There is a policy and establishment of restricted areas.  
+Choose an item.  
+2. The policies define the permitted storage devices.  
+Choose an item.  
+3. There is authorized physical and logical access control to devices and encryption material, message files and keys, temporary files, encryption procedures.  
+Choose an item.  
+4. There is a record of access to devices and encryption material, message files and keys, temporary files, encryption procedures.  
+Choose an item.  
+5. There is a list of personnel involved in the process and their roles.  
+Choose an item.  
+6. There is a confidential destruction protocol for all material related to the encryption system.  
+Choose an item.  
+7. There are measures to prevent black-bag attacks80.  
+Choose an item.  
+8. There is no direct visualization of the elements of the encryption system.  
+Choose an item.  
+9. All backups are controlled.  
+Choose an item.  
+10. There is no storage on third-party systems.  
+Choose an item.  
+11. Memory analysis has been performed in hot (Heartbleed SSL) or cold boot.  
+Choose an item.  
+12. The use of keyloggers has been sought and measures to prevent them.  
+Choose an item.  
+13. There are measures to prevent man-in-the-middle attacks.  
+Choose an item.  
+14. There are measures to prevent Tempest attacks.  
+Choose an item.  
+
+Theft or Destruction of Devices:  
+Physical access to devices containing encrypted information allows for attacks on the availability of information, directly through the theft or destruction of the data medium, as well as facilitating a potential breach of the encryption system and affecting confidentiality.  
+
+Disk Encryption Mechanisms:  
+Disk encryption systems protect data when the equipment is turned off. If the user has logged into the system and left the equipment on, the operating system has already decrypted sensitive data, making it available to anyone who accesses it.  
+
+Physical Access to the Device:  
+Repeated physical access can exploit vulnerabilities in cryptographic systems. LUKS has a re-encryption functionality (recrypt) with a CVE-2021-4122 flaw, which reuses a mechanism for the re-encryption operation. An attacker with repeated physical access can simulate an unfinished re-encryption process and achieve the decryption of the LUKS device81.  
+3.9.4 Management and Policies  
+The GDPR requires in Art. 5.2 a governance model regarding personal data that is “accountable,” meaning it can be explained and subjected to transparency, justification, and explanation of the actions taken. Furthermore, Art. 24.2 establishes the opportunity that “When provided in relation to processing activities, the application by the data controller of appropriate data protection policies will be included.”  
+
+Control  
+Validation  
+1. The encryption system is designed, implemented, and validated in accordance with the policies and procedures established by the controller.  
+Choose an item.  
+2. The data lifecycle in processing (data category, data flow from inception to destruction) is documented.  
+Choose an item.  
+3. An assessment of the necessary strength and quality of the encryption system in each processing based on the risk to fundamental rights and freedoms is documented.  
+Choose an item.  
+4. There is a unit/person (u/p) in charge of the encryption system.  
+Choose an item.  
+5. That u/p maintains an appropriate and documented policy for the use of encryption.  
+Choose an item.
+Page: 42 of 53  
+in the treatment concerning all elements and controls.  
+element.  
+6. Treatments are categorized by their necessary strength and different implementations and policies appropriate to such criticality are employed.  
+Choose an element.  
+7. The policy incorporates the recommendations of the DPO or the data protection advisor.  
+Choose an element.  
+8. This policy is subject to the registration and approval cycle of the entity's responsible parties.  
+Choose an element.  
+9. This policy includes the flow/lifecycle of all components of the suite inventory (as previously indicated).  
+Choose an element.  
+10. Third parties/providers involved are identified (e.g., certificate validators, SaaS, …).  
+Choose an element.  
+11. Contracts with third parties involved are documented.  
+Choose an element.  
+12. In contracts with third parties, to the extent that they perform encryption of personal data, instructions on data encryption are established, providing the responsible party with all necessary information to demonstrate compliance with the controls of the cryptosystem selected by the responsible party, as well as mechanisms for supervision and auditing of the same.  
+Choose an element.  
+13. Regular monitoring of encryption system providers is established (for example, with a 'vendor assessment').  
+Choose an element.  
+14. This policy includes the data protection requirements established by the DPO or the data protection advisory.  
+Choose an element.  
+15. It includes the definition of roles (administrator, user), access control, authentication, procedures for users, destruction of cryptographic material, integrity management, incidents and notifications, and contingency plans.  
+Choose an element.  
+16. The policy establishes the deadlines and events that trigger a process of validation, maintenance, product decommissioning, and/or auditing.  
+Choose an element.  
+17. The policy contemplates re-encryption strategies for information at rest appropriate to the technical context and data breach scenarios.  
+Choose an element.  
+18. The policy includes an auditing and testing procedure for updates to the elements of the encryption system.  
+Choose an element.  
+19. Updates in procedures/hardware or software are not automatically incorporated into production systems.  
+Choose an element.  
+20. There is an implemented backup management policy for the suite, configuration, and keys.  
+Choose an element.  
+21. There is a key deposit policy.  
+Choose an element.  
+22. This policy is integrated into the security policy.  
+Choose an element.  
+23. The policy does not rely exclusively on automation.  
+Choose an element.  
+24. Access to the policy or its parts is restricted following the principle of "need-to-know."  
+Choose an element.  
+25. The policy establishes a process for identifying and continuously assessing changes in the sensitivity of encrypted information, whether due to changes in data categories, categories of subjects, volume of affected individuals, or others.  
+Choose an element.  
+26. There are communication channels for incidents regarding the overall encryption process that reach that unit/person.  
+Choose an element.
+Page: 43 of 53  
+27. There are channels for internal communication and for communications with external sources.  
+Choose an element.  
+28. The data protection officer is included in all procedures for defining and validating the cryptosystem.  
+Choose an element.  
+29. The administrator cannot bypass the encryption procedures.  
+Choose an element.  
+30. There are procedures to prevent the transmission of confidential information without encryption.  
+Choose an element.  
+31. The process for receiving and addressing requests from authorities regarding encryption material is documented.  
+Choose an element.  
+32. If the organization employs hidden channels in the encryption system for monitoring and inspecting content, management is subject to strict continuous audit criteria involving the DPO.  
+Choose an element.  
+33. There is a contingency plan in case it is detected that the cryptosystem may be compromised.  
+Choose an element.  
+34. There is a procedure to comply with GDPR obligations in the event that a compromise of the encryption system affecting personal data is detected.  
+Choose an element.  
+
+Missing Employee:  
+An employee of the organization who is the only one who knows a key goes missing. The employee has not followed the key deposit policy, or it does not exist or is not functioning properly within the organization. In that case, the organization cannot access all the information that has been previously encrypted by that employee.  
+
+Coding:  
+When updating an encryption library by rewriting from C++ to Java, a mistake was made in the ECDS verification by not considering null R and S values, which is a vulnerability that allows intercepting communications, forging SSL certificates, etc.82  
+
+Encryption of Documents at Rest:  
+The compromise of the master key in an organization allowed third-party access to an indeterminate number of customer passports stored by a multinational hotel chain, due to poor policy regarding configuration, control, evaluation, and management of keys83.  
+3.9.5 Context and Personal Data Breaches  
+The context is the set of circumstances surrounding the organization, the processing, and the state of the art. The context is always changing dynamically. Among the changes in context, a critical indicator is the personal data breaches that occur in relation to the encryption system in organizations, processes, or similar types of systems. These incidents must be detected, analyzed in the context of the processing, and appropriate actions taken so that they do not affect the organization itself.  
+
+82 https://neilmadden.blog/2022/04/19/psychic-signatures-in-java/  
+83 https://www.techtarget.com/searchsecurity/news/252455488/Marriott-data-breach-exposed-5-million-unencrypted-passport-numbers  
+
+Page: 44 of 53  
+
+Control  
+Validation  
+1. There is continuous collection and analysis of breaches and incidents related to the encryption system in organizations, processes, or similar systems.  
+Choose an element.  
+2. There is continuous collection and analysis of new known vulnerabilities that may affect the entire encryption system.  
+Choose an element.  
+3. Changes in the legal framework affecting the entity or the processing are identified and continuously evaluated, and legal risks of future regulations are identified.  
+Choose an element.  
+4. Technological advances related to cryptanalysis, both current and medium-term change estimates, are identified and continuously evaluated.  
+Choose an element.  
+
+Change in the Legal Framework:  
+Regarding the legal framework, possible regulatory initiatives at the European level must be considered that are being proposed to allow public authorities access to encrypted communications84.  
+
+Backdoors in Certified Components:  
+In some cases, the standardization bodies themselves promote components that include backdoors known to a small circle85. One of the most well-known cases involved a component of the suite (random number generator86) certified by NIST.  
+3.9.6 Human Factor  
+The human element is the most important factor in any security system and is sometimes given less attention. In particular, breaches that arise from an action or omission by human participants can cause the greatest impacts in a processing operation.  
+
+Control  
+Validation  
+1. There are written procedures available for staff handling encryption material.  
+Choose an element.  
+2. Staff are required to sign confidentiality agreements in which they are informed of their obligations and the responsibilities they must face.  
+Choose an element.  
+3. Staff are trained to execute the procedures that pertain to them.  
+Choose an element.  
+4. There are continuous training plans on the procedures.  
+Choose an element.  
+5. There is training and specific procedures aimed at detecting the existence and cataloging of social engineering attacks, as well as possible extortion or coercion.  
+Choose an element.  
+
+84 https://appleinsider.com/articles/22/05/11/eu-plans-to-require-backdoor-to-encrypted-messages-for-child-protection  
+85 https://www.reuters.com/article/us-usa-security-rsa-idUSBRE9BJ1C220131220  
+86 https://en.wikipedia.org/wiki/Dual_EC_DRBG#Software_and_hardware_which_contained_the_possible_backdoor
+Page: 45 of 53  
+6. There is supervision of the manual execution of procedures.  
+Choose one  
+item.  
+7. There is an internal sanction procedure for non-compliance with encryption procedures.  
+Choose one  
+item.  
+8. In the processes of selecting internal/external personnel for positions in charge of the most critical operations, a review process and background checks must be passed.  
+Choose one  
+item.  
+9. Personnel in charge of the most critical operations undergo a regular process of technical and reliability reevaluation.  
+Choose one  
+item.  
+
+Access to credentials:  
+Recently, an announcement was published on a Telegram channel offering payment through the Darkweb, not for data, but for access credentials to computer systems. This type of attack is becoming increasingly frequent as it allows access to the heart of the entity.  
+
+Page: 46 of 53  
+4 CONCLUSION  
+As stated in Article 32, section 1.b, the encryption system, like all security elements as a whole, must be regularly verified, evaluated, and assessed regarding its effectiveness in protecting the rights and freedoms of individuals, among others. This is an obligation of those responsible and those in charge/subordinate, and the DPO or, failing that, data protection advisors must be involved in advising and supervising the regular process of verification, evaluation, and assessment of the encryption system.  
+An encryption system is a complex operation that is included in many treatments and cannot be addressed superficially. When the encryption system is compromised in a personal data treatment, risks to rights and freedoms materialize that will be specific to each treatment. To determine these risks, it is necessary, in addition to identifying which data has been compromised, to assess the impact that the compromise of that data may have on the affected individuals and on society. The strength and robustness of the encryption system must be proportionate to that impact.  
+Considering that no security system incorporates a guarantee of infallibility, the responsible party should not limit measures to manage risks to rights and freedoms solely to security measures, particularly by relying entirely on the encryption of information for risk management. The responsible party must incorporate, from the very concept of the treatment, privacy measures to minimize the impacts arising from a possible realization of a personal data breach, such as policies for data protection, privacy by default and design (minimization, early anonymization, pseudonymization, data deletion, aggregation, low granularity, transparency, etc.), governance mechanisms, and management of personal data breaches through the development and execution of contingency plans, among others.  
+
+Page: 47 of 53  
+5 REFERENCES  
+• Regulation (EU) 2016/679 of the European Parliament and of the Council of April 27, 2016, on the protection of natural persons with regard to the processing of personal data and on the free movement of such data, and repealing Directive 95/46/EC (General Data Protection Regulation).  
+• Organic Law 3/2018, of December 5, on Personal Data Protection and Guarantee of Digital Rights  
+• Recommendations 01/2020 on measures that complement transfer instruments to ensure compliance with the level of protection of EU personal data Version 2.0  
+• AEPD: Encryption and Privacy: encryption in the GDPR  
+• AEPD: Encryption and Privacy II: The data lifecycle [Jan 2020]  
+• AEPD: Encryption and Privacy (V): the key as personal data [Dec 2021]  
+• ISO 27002/2022  
+• CCN Cryptology for use in the National Security Scheme  
+• CCN Taxonomy of STIC products Annex E.1: Encrypted storage devices  
+• CCN Reference taxonomy for ICT security products - Annex E.2: Offline encryption devices/tools  
+• ENISA: Study on cryptographic protocols  
+• ENISA: Algorithms, key size and parameters report 2014  
+• ENISA: Data protection Engineering 2022  
+• NIST: Cryptographic Standards and Guidelines
+Page: 48 of 53  
+6 ANNEXES  
+6.1 ANNEX: SYMMETRIC, ASYMMETRIC, AND MIXED KEY SYSTEMS  
+6.1.1 Symmetric Encryption  
+The schemes for symmetric encryption are based on the hypothesis that the users involved in the communication share a secret key (completely unpredictable to an adversary). Fundamentally, two types of schemes are used:  
+6.1.1.1  
+Block Cipher. Modes of Operation  
+A block cipher processes fixed-size information blocks (typically 128 or 256 bits) that are encrypted or decrypted with similarly sized keys. Currently, the most recommended block cipher is AES, standardized by NIST in 2001. The minimum recommended block (and key) size is 128 bits.  
+As relevant as choosing an appropriate block cipher is implementing a mode of operation that dictates how to manipulate sets of data larger than one block. The most recommended modes are CCM and GCM (see https://nvlpubs.nist.gov/nistpubs/legacy/sp/nistspecialpublication800-38c.pdf and https://nvlpubs.nist.gov/nistpubs/legacy/sp/nistspecialpublication800-38d.pdf).  
+6.1.1.2  
+Stream Cipher.  
+A stream cipher is usually suitable for the dynamic encryption of data (for example, transmitted via streaming). When the AES block cipher is used in CTR mode, the result is a cipher of this type.  
+6.1.2 Asymmetric Encryption  
+Asymmetric encryption schemes are characterized by the existence of a division of the key material, such that only the receiver has a secret key, making their so-called public key available to the public for access by any sender. The most commonly used symmetric schemes to date are RSA encryption (specifically, the so-called RSA-OAEP variant) and those based on the discrete logarithm problem, often in groups associated with elliptic curves (El Gamal). For long-term security, it is necessary to seek other alternatives, as these schemes are vulnerable to quantum attacks (see 2.1.6).  
+6.1.3 Hash Functions  
+Hash functions or message digests are fundamental components of many cryptographic schemes, in addition to being used in isolation to provide integrity proofs. Thus, it is common for the transmission of a document X (encrypted or not) to be completed with the sending of a digest H(X), where H is a cryptographic function that allows, to some extent, the detection of modifications (intentional or not) to the text X that may have occurred in transit. The currently most recommended hash functions belong to the so-called SHA family; for example, SHA-256, SHA-512/256, SHA3-256, SHA3-512. The numerical suffix indicates the number of output bits, that is, the size of the document digest (which is fixed, not dependent on the size of the input document).  
+6.1.4 Key Establishment Mechanisms  
+The establishment of cryptographic keys (for later use in symmetric scenarios) can be done through both symmetric and asymmetric mechanisms. In fact, mixed cryptographic mechanisms are usually considered, in which after
+Page: 49 of 53  
+to exchange a cryptographic key using an asymmetric mechanism (such as Diffie-Hellman or EC Diffie-Hellman) this key is used to encrypt with a block cipher (such as AES). If the key establishment is to be done by symmetric means, it is also possible (see ISO/IEC 11770-2:2018).  
+6.1.5 Authentication  
+Authentication involves verifying the identity of those who communicate with us, or the origin of a message or block of data, which is crucial in complementing the guarantees provided by encryption. There are different mechanisms for this purpose,  
+6.1.5.1  
+Passwords  
+These are a relatively weak mechanism of authentication, which should be implemented exclusively under mechanisms that limit the number of access requests (to avoid dictionary attacks). It is important not to store passwords in plain text or summarized through a hash, to prevent access data leakage.  
+6.1.5.2  
+Signatures  
+The use of digital signature schemes is always the best way to authenticate communication, although it is important to have solid key and certificate management. The most recommended signature mechanisms are RSA-based signatures, discrete logarithm-based signatures (DSA and its variants on elliptic curves ECDSA, ECKDSA), as well as Merkle signatures (XMSS+ or LMS) – with the latter being preferable for the long term. RSA and DSA signatures are vulnerable to quantum attacks, so for long-term applications, it is recommended to use post-quantum tools.  
+6.1.5.3  
+MACs  
+Message Authentication Codes (MACs) are used to generate tags that allow for data authentication in the symmetric scenario (both for the generation and verification of the tag, the same symmetric key will be needed). MACs are usually constructed from block ciphers or hash functions. Prominent examples include CMAC, HMAC, or GMAC, always with the recommendation that the generated tags be at least 96 bits and the associated keys be at least 128 bits.  
+6.1.6 Post-Quantum Scenario  
+Since 2017, the North American technology and standards office (NIST) has established an international process for selecting cryptographic algorithms that are resistant to quantum attacks. This process focuses on mechanisms for key encapsulation (called KEM), and digital signature schemes. KEMs have the particularity of adapting to give rise to asymmetric encryption schemes and key exchange schemes, so having secure KEMs provides a complete set of tools for basic uses in cryptography. In July 2022, the first schemes to be standardized were identified; the KEM CRYSTALS-Kyber (based on lattices) and the signatures CRYSTALS-Dilithium and FALCON (also based on lattices), as well as the signature SPHINCS+, which is built from hash functions.  
+Many international organizations are developing guidelines to facilitate the transition to the post-quantum world, that is, the replacement of cryptography based on discrete logarithm and factorization with tools grounded in other mathematical problems, such as decoding problems or those related to lattices. See, for example, the recently published guide in Europe by ETSI https://www.etsi.org/deliver/etsi_tr/103600_103699/103619/01.01.01_60/tr_103619v010101p.pdf.
+Page: 50 of 53  
+6.2 ANNEX: KEY LENGTH  
+When defining the strength of a key by its length in bits, it is important to consider that in asymmetric encryption the sizes are one way, and in symmetric encryption they are very different (They operate in different ranges. AES is the standard for symmetric encryption from NIST and uses keys of 128 bits, with key lengths of 128, 192, or 256 bits (this would actually be the minimum recommended size to withstand quantum attacks in the medium to long term). Asymmetric algorithms use longer keys of 1024 bits, 2048, or 3072 bits.  
+In 2003, RSA stated that its 1024-bit key is equivalent to an 80-bit symmetric key. Its 2048-bit key is equivalent to a 112-bit symmetric key, and the 3072-bit key is equivalent to a 128-bit key. RSA recommends using at least 1024-bit keys if you want to keep your documents secure until 2010, and using a 2048-bit key if you want the documents to be secure until 2030. The 3072-bit key is indicated for documents that must remain secure after 2030. A NIST document defines that a 15360-bit asymmetric key is equivalent to a 256-bit symmetric key in post-quantum environments, although in the medium to long term it is advisable to use other encryption methods that are more resistant to known quantum attacks.  
+The recommended key sizes for post-quantum tools can, for example, be consulted in the recent NIST report https://nvlpubs.nist.gov/nistpubs/ir/2022/NIST.IR.8413-upd1.pdf. For example, the recommended key sizes for encrypting with CRYSTALS-Kyber range from 800 to 1568 bits for the public key, approximately doubling these sizes for the corresponding secret keys.  
+6.3 ANNEX: ADVICE REGARDING AN ENCRYPTION SYSTEM  
+Encryption is a very powerful tool for protecting data. Encryption as a guarantee measure to reduce or mitigate the risk in the processing of personal data will only be effective if its use is appropriate and correct. Otherwise, it becomes useless if the device, procedures, protocols, or people involved in its operation are compromised.  
+Cryptography tends to fail in its practical application more than in errors in the theoretical algorithm. Real-world encryption systems are implemented across multiple hardware and software products, combining primitives and tools, which can present risks. But even with good algorithms and protocols for most cases, errors in configuring and validating the use of the encryption system are the source of most vulnerabilities.  
+Some common mistakes that should be avoided are87:  
+• Not employing specialists in cryptography and data protection to define a cryptosystem to protect personal data.  
+• Relying on tools, services, third-party support, or your own personnel without appropriate regular validations.  
+• Not training employees.  
+• Not validating the cryptosystem that depends on managers, suppliers, and third parties.  
+• Not adjusting the strength of the cryptosystem to the actual impact that a breach could produce.  
+• Encrypting information that does not need to be encrypted.  
+• Creating your own algorithm or other elements of the encryption suite.  
+• Using default configurations.  
+• Making an unvalidated deployment of updates.  
+• Incorrectly protecting and/or managing cryptographic keys.  
+• Reusing elements to implement part of the encryption system.  
+• Using channels that avoid using cryptography for "convenience."  
+• Not employing overlapping protection methods: encryption-encryption, steganography-encryption, encryption-dedicated lines, etc.  
+• Not using authenticated encryption systems in communications.  
+• Employing randomness that does not meet the requirements for a cryptographic system.  
+• Failing to adhere to the "need to know" principle regarding the cryptosystem.  
+• Not implementing a key management lifecycle.  
+• Distributing information or keys at some point in plaintext.  
+• Prioritizing functionality over security.  
+The final advice is to conduct periodic audits of procedures and the use of cryptographic material, which includes periodically preparing "traps" to determine if monitoring is taking place, if our own users are not following procedures, and if the system is sufficiently strong (ethical hacking).
+**Page: 52 of 53**  
+**7 ACRONYM TABLE**  
+
+AEPD. Spanish Agency for Data Protection  
+AES. Advanced Encryption Standard  
+APEP. Spanish Professional Association of Privacy  
+BYOD. Bring Your Own Device  
+CCM. CBC Counter Mode  
+CMAC. Cipher-based Message Authentication Code  
+CTR. Counter  
+DES. Data Encryption Standard  
+DPD. Data Protection Officer  
+DSA. Digital Signature Algorithm  
+EC Diffie-Hellman. Elliptic-curve Diffie-Hellman  
+ECB. Electronic Code Book  
+ECDSA. Elliptic Curve Digital Signature Algorithm  
+ECKDSA. Korean version of ECDSA  
+ENS. National Security Scheme  
+GCM. Galois/Counter Mode  
+GMAC. Galois Message Authentication Code  
+HMAC. Hash-based Message Authentication Code  
+HNLD. Harvest Now, Decrypt Later  
+HSM. Hardware Security Module  
+HW/SW. Hardware/Software  
+IoT. Internet of Things  
+ISMS Forum. Spanish Association for the Promotion of Information Security  
+JWE. JSON Web Encryption  
+JWT. JSON Web Token  
+KEM. Key-encapsulation Mechanism  
+LMS. Leighton-Micali Signature  
+LUKS. Linux Unified Key Setup  
+MAC. Message Authentication Code  
+MD5. Message Digest Algorithm 5  
+MDM. Mobile Device Management  
+MITM. Man In The Middle  
+NIST. National Institute of Standards and Technology  
+OAEP. Optimal Asymmetric Encryption Padding  
+
+**Page: 53 of 53**  
+OWASP. Open Worldwide Application Security Project  
+PBKDF2. Password-Based Key Derivation Function 2  
+PEC. Privacy Enhancing Cryptography  
+PET. Privacy Enhancing Technologies  
+PIR. Private Information Retrieval  
+PKCS. Public-Key Cryptography Standards  
+PMKID. Pairwise Master Key Identifier  
+POODLE. Padding Oracle On Downgraded Legacy Encryption  
+PSI. Private Set Intersection  
+RGPD. General Data Protection Regulation  
+RSA. Rivest-Shamir-Adleman  
+RTU. Remote Terminal Unit  
+SaaS. Software as a Service  
+SHA. Secure Hash Algorithm  
+SNLD. Store Now, Decrypt Later  
+SSE. Searchable Symmetric Encryption  
+SSH. Secure Shell  
+SSL. Secure Sockets Layer  
+StE. Structured Encryption  
+TIC. Information and Communication Technologies  
+TLS. Transport Layer Security  
+VoIP. Voice over Internet Protocol  
+WEP. Wired Equivalent Privacy  
+WPA. Wi-Fi Protected Access  
+XMSS. eXtended Merkle Signature Scheme  
+ZKPoK. Zero-Knowledge Proofs of Knowledge

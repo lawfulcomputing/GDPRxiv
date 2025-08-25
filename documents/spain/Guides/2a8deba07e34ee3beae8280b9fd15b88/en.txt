@@ -1,0 +1,1117 @@
+v. October 2019  
+Privacy by Design Guide  
+
+v. October 2019  
+
+INDEX  
+I.  
+PRIVACY BY DESIGN .................................................................................................................. 5  
+Concept of Privacy by Design ................................................................................................... 5  
+Foundational Principles of Privacy by Design ......................................................................... 7  
+1.  
+Proactive, not reactive; preventive, not corrective. .......................................................... 7  
+2.  
+Privacy as the default setting .......................................................................................... 8  
+3.  
+Privacy embedded in the design phase .......................................................................... 8  
+4.  
+Full functionality: “win-win” thinking .......................................................................... 8  
+5.  
+Privacy assurance throughout the lifecycle ................................................................... 9  
+6.  
+Visibility and transparency ............................................................................................. 10  
+7.  
+Respect for user privacy: maintaining a user-centered approach .................................. 10  
+Entities obligated to protect data by design ....................................................................... 11  
+II.  
+SYSTEM PRIVACY REQUIREMENTS ...................................................................................... 12  
+Privacy and security objectives ............................................................................................ 13  
+III.  
+PRIVACY ENGINEERING: THE ENGINEERING OF PRIVACY ............................................... 15  
+IV.  
+PRIVACY DESIGN STRATEGIES ............................................................................................ 17  
+Minimize .................................................................................................................................... 18  
+Hide .......................................................................................................................................... 19  
+Separate ................................................................................................................................... 19  
+Abstract .................................................................................................................................... 20  
+Inform ....................................................................................................................................... 20  
+Control ...................................................................................................................................... 21  
+Comply ..................................................................................................................................... 22  
+Demonstrate .......................................................................................................................... 23  
+V.  
+PRIVACY DESIGN PATTERNS ................................................................................................. 25  
+Design pattern catalogs ......................................................................................................... 27  
+VI.  
+PRIVACY ENHANCING TECHNOLOGIES (PETS) .................................................................. 27  
+Classification of PETs .............................................................................................................. 28  
+PET catalogs ........................................................................................................................... 28  
+VII.  
+CONCLUSIONS ...................................................................................................................... 32  
+VIII.  
+ANNEX 1: SELECTION OF PRIVACY DESIGN PATTERNS .................................................... 34  
+IX.  
+ANNEX 2: NORMATIVE EXTRACTS ....................................................................................... 48  
+Recital 39 .................................................................................................................................... 48  
+Recital 78 .................................................................................................................................... 48  
+Article 5 Principles relating to processing ............................................................................. 49  
+Article 13 Information to be provided when personal data are obtained from the data 
+subject ........................................................................................................................................ 49  
+Article 14 Information to be provided when personal data have not been obtained from 
+the data subject ...................................................................................................................... 50  
+Article 24 Responsibility of the data controller .................................................................... 52  
+Article 25 Data protection by design and by default ............................................................... 52  
+Article 28 Processor ................................................................................................................ 53  
+Article 32 Security of processing ............................................................................................ 55  
+Article 36 Prior consultation .................................................................................................... 55  
+Article 83 General conditions for the imposition of administrative fines .......................... 56
+Page | 5 of 58
+
+I.  
+PRIVACY BY DESIGN  
+CONCEPT OF PRIVACY BY DESIGN  
+The idea of ‘data protection by design’ has existed for over 20 years and has been intensely worked on under the terminology of ‘privacy by design’ (Privacy by Design, PbD). This concept was developed by Ontario’s Information and Privacy Commissioner, Ann Cavoukian, in the 1990s; presented at the 31st International Conference of Data Protection and Privacy Commissioners in 2009 under the title “Privacy by Design: The Definitive Workshop” [1][2] and internationally accepted at the 32nd International Conference of Data Protection and Privacy Commissioners held in Jerusalem in 2010, with the approval of the “Resolution on Privacy by Design” [3].  
+This resolution recognized the importance of incorporating privacy principles within the design, operation, and management processes of organizational systems to achieve a comprehensive protection framework regarding data protection. Furthermore, it encouraged the adoption of the Foundational Principles of Privacy by Design defined by Ann Cavoukian and invited Data Protection Authorities to actively work and promote the incorporation of privacy by design in the policies and legislation regarding data protection of their respective States.  
+
+Foundational Principles of Privacy by Design  
+1. Proactive, not reactive; Preventive, not corrective  
+2. Privacy as the default setting  
+3. Privacy embedded into design  
+4. Full functionality: positive-sum thinking  
+5. End-to-end security: lifecycle protection  
+6. Visibility and transparency  
+7. Respect for user privacy: keep it user-centric  
+Table 1 – Principles of “Privacy by Design”  
+Regulation (EU) 2016/679, General Data Protection Regulation [4] (hereinafter, GDPR), in its Article 25 [5] and under the heading ‘Data protection by design and by default’, incorporates into data protection law the practice of considering privacy requirements from the earliest stages of product and service design. Therefore,  
+
+1 Peter Hustinx, European Data Protection Supervisor. Privacy by Design: Delivering the Promises, Madrid 2009  
+https://edps.europa.eu/sites/edp/files/publication/09-11-02_madrid_privacybydesign_en.pdf  
+2 Ann Cavoukian, Identity in the Information Society, Aug 2010, Volume 3, Issue 2, pp 247-251. Privacy by design: the definitive workshop. A foreword by Ann Cavoukian, Ph.D  
+https://link.springer.com/content/pdf/10.1007%2Fs12394-010-0062-y.pdf  
+3 Resolution on Privacy by Design. 32nd International Conference of Privacy and Data Protection Commissioners. Jerusalem (Israel) 27-29/10/2010  
+https://edps.europa.eu/sites/edp/files/publication/10-10-27_jerusalem_resolutionon_privacybydesign_en.pdf  
+4 Regulation (EU) 679/2016, General Data Protection Regulation  
+https://www.boe.es/doue/2016/119/L00001-00088.pdf  
+5 Article 25. “Data protection by design and by default” - Regulation (EU) 2016/679, General Data Protection Regulation  
+https://eur-lex.europa.eu/legal-content/ES/TXT/HTML/?uri=CELEX:32016R0679&from=ES#d1e3126-1-1
+Page | 6 of 58
+
+grants the status of legal requirement to the principle of integrating safeguards for the protection of citizens' rights and freedoms concerning their personal data from the early stages of system and product development. It is understood, therefore, as the necessity to consider privacy and data protection principles from the conception of any type of processing, and for the purposes of drafting this document, the terms ‘data protection by design’ and ‘privacy by design’ may be considered equivalent [6] [7] [8].  
+Figure 1 – Privacy by Design as an integral sum of risk-oriented approach and proactive responsibility  
+Privacy by Design (hereinafter, PbD) involves using a risk management and proactive responsibility-oriented approach [9] to establish strategies that incorporate privacy protection throughout the entire lifecycle of the object (whether it is a system, hardware or software product, service, or process). The lifecycle of the object is understood to encompass all the stages it goes through, from its conception to its withdrawal, including the phases of development, production deployment, operation, maintenance, and withdrawal. Furthermore, it implies that not only the application of privacy protection measures in the early stages of the 
+
+6 European Data Protection Supervisor (EDPS). Opinion 5/2018 Preliminary Opinion on Privacy by Design, May 2018 https://edps.europa.eu/sites/edp/files/publication/18-05-31_preliminary_opinion_on_privacy_by_design_en_0.pdf “’Privacy by Design’ or ‘Data Protection by Design’? For the purpose of this Opinion, we use the term “privacy by design” to designate the broad concept of technological measures for ensuring privacy as it has developed in the international debate over the last few decades. In contrast, we use the terms “data protection by design” and “data protection by default” to designate the specific legal obligations established by Article 25 of the GDPR.”  
+7 European Union Agency for Cybersecurity (ENISA). Privacy and Data Protection by Design – from policy to engineering, Dec 2014 https://www.enisa.europa.eu/publications/privacy-and-data-protection-by-design/at_download/fullReport “The term “Privacy by Design”, or its variation “Data Protection by Design”, has been coined as a development method for privacy-friendly systems and services, thereby going beyond mere technical solutions and addressing organisational procedures and business models as well.”  
+8 Information Commissioner’s Office (ICO). Data protection by design and default. https://ico.org.uk/for-organisations/guide-to-data-protection/guide-to-the-general-data-protection-regulation-gdpr/accountability-and-governance/data-protection-by-design-and-default/ “This concept is not new. Previously known as ‘privacy by design’, it has always been part of data protection law. The key change with the GDPR is that it is now a legal requirement.”  
+9 The new European regulation represents a paradigm shift in the way to guarantee the rights and freedoms of data subjects concerning the processing of their personal data and is based on a risk-oriented approach, as a dynamic and continuous improvement approach to understand privacy risks and determine the technical and organizational measures to be implemented, and on proactive responsibility, understood as a critical, continuous, and traceable self-analysis of the data controller in compliance with the obligations imposed by the regulation.
+Page | 7 of 58
+
+project, but also to consider all the processes and business practices involved in the associated data processing, thus achieving true governance of personal data management by organizations. The ultimate goal is for data protection to be present from the earliest phases of development and not to be an added layer to a product or system. Privacy must be an integral part of the nature of that product or service.
+
+FOUNDATIONAL PRINCIPLES OF PRIVACY BY DESIGN
+
+PbD is based on building privacy as the default mode of operation within the business model of organizations, extending to the information technology systems that support data processing, the related business processes and practices, and the physical and logical design of the communication channels used. This assurance of privacy can be achieved through the implementation of the seven Foundational Principles defined by Ann Cavoukian [10] [11]:
+
+1. Proactive, not reactive; preventive, not corrective.
+PbD involves anticipating events that affect privacy before they occur. 
+
+Any system, process, or infrastructure that will use personal data must be conceived and designed from the ground up, identifying, a priori, the possible risks to the rights and freedoms of the data subjects and minimizing them so that they do not materialize into harm. A PbD policy is characterized by the adoption of proactive measures that anticipate threats, identifying the weaknesses of the systems to neutralize or minimize risks rather than applying corrective measures to resolve security incidents once they have occurred. In other words, PbD avoids the "fix-it policy" and anticipates the materialization of the risk event. 
+
+This implies:
+• A clear commitment from the organization, which must be driven from the highest levels of management.
+• The development of a culture of commitment and continuous improvement by all employees, as a policy is of no use if it does not translate into concrete actions that are informed by their results.
+• Definition and assignment of specific responsibilities, so that each member of the organization clearly knows their functions regarding privacy.
+• Development of systematic methods based on indicators for the early detection of processes and practices that are yielding deficient results in ensuring privacy.
+
+10 Ann Cavoukian, Ph.D. Information & Privacy Commissioner Ontario, Canada. Privacy by Design: The 7 Foundational Principles, Jan 2011 https://www.ipc.on.ca/wp-content/uploads/Resources/7foundationalprinciples.pdf
+11 Ann Cavoukian, Ph.D. Information & Privacy Commissioner Ontario, Canada. Operationalizing Privacy by Design. A guide to implementing strong privacy practices, Dec 2012 http://www.ontla.on.ca/library/repository/mon/26012/320221.pdf
+Page | 8 of 58
+
+2. Privacy by Default  
+Privacy by Design (PbD) aims to provide the user with the highest level of privacy given the state of the art and, in particular, that personal data is automatically protected in any system, application, product, or service.  
+The default settings must be established from the design at a level that is as respectful as possible in terms of privacy. In the event that the subject does not take any configuration action, their privacy must be guaranteed and remain intact, as it is integrated into the system and configured by default.  
+This principle, put into practical terms, is based on data minimization throughout all stages of processing: collection, use, retention, and dissemination.  
+To achieve this, it is necessary to:  
+• Set collection criteria limited to the purpose pursued by the processing.  
+• Limit the use of personal data to the purposes for which they were collected and ensure that there is a legitimate basis for the processing.  
+• Restrict access to personal data to the parties involved in the processing according to the principle of "need to know" and based on the function they perform by creating differentiated access profiles.  
+• Define strict retention periods and establish operational mechanisms that ensure compliance.  
+• Create technological and procedural barriers that prevent unauthorized linking of independent data sources.  
+
+3. Privacy Embedded in the Design Phase  
+Privacy must be an integral and inseparable part of systems, applications, products, and services, as well as of the business practices and processes of the organization.  
+It is not an additional layer or module added to something pre-existing, but must be integrated into the set of non-functional requirements from the very moment it is conceived and designed.  
+To ensure that privacy is taken into account from the earliest stages of design, it is necessary to:  
+• Consider it a necessary requirement in the life cycle of systems and services, as well as in the design of the organization’s processes.  
+• Conduct a risk analysis for the rights and freedoms of individuals and, where applicable, impact assessments related to data protection, as an integral part of the design of any new processing initiative.  
+• Document all decisions made within the organization with a "privacy design thinking" approach.  
+
+4. Full Functionality: "Win-Win" Thinking  
+Traditionally, it has been understood that gaining privacy comes at the cost of losing other functionalities, presenting dichotomies such as privacy vs usability, privacy vs functionality, privacy vs business benefit, and even privacy vs security.
+Page | 9 of 58
+
+This approach is artificial [12] and the objective must be to seek the optimal balance in a "win-win" type of search, with an open mindset towards new solutions to achieve fully functional, effective, and efficient systems, also at the level of privacy. 
+
+To this end, from the early stages of product and service conception, the organization must: 
+• Assume that different and legitimate interests can coexist: those of the entity and those of the users it serves; and that it is necessary to identify, evaluate, and appropriately balance them.  
+• Establish communication channels to collaborate and consult with stakeholders in order to understand and converge multiple interests, which may initially seem divergent. 
+• If the proposed solution poses threats to privacy, seek new solutions and alternatives to achieve the various functionalities and interests pursued, but always keeping in mind that the risks to user privacy must be adequately managed. 
+
+5. Ensuring Privacy Throughout the Lifecycle 
+Privacy is born in the design, before the system is operational, and must be guaranteed throughout the entire lifecycle of the data. 
+Information security imposes confidentiality, integrity, availability, and resilience of the systems that house it. Privacy also guarantees unlinkability, transparency, and the ability for the data subject to intervene and control the processing (intervenability). 
+
+To integrate privacy throughout all stages of data processing, the various operations involved (collection, recording, classification, retention, consultation, dissemination, limitation, deletion, etc.) must be carefully analyzed, and the most appropriate measures to protect the information must be implemented in each of them, including: 
+• Early pseudonymization or anonymization techniques such as k-anonymity [13]. 
+• Classification and organization of data and processing operations based on access profiles. 
+• Default encryption so that the "natural" state of the data in case of loss or theft is "illegible." 
+• Secure and guaranteed destruction of information at the end of its lifecycle. 
+
+12 Such approaches were already proposed when concepts such as cybersecurity or quality were introduced in organizations. 
+13 Spanish Agency for Data Protection (AEPD) – Unit for Evaluation and Technological Studies. K-anonymity as a measure of privacy, Jun 2019 https://www.aepd.es/media/notas-tecnicas/nota-tecnica-kanonimidad.pdf “K-anonymity is a property of anonymized data that allows quantifying to what extent the anonymity of the subjects present in a dataset from which identifiers have been removed is preserved. In other words, it is a measure of the risk that external agents may obtain personal information from anonymized data.”
+**Page | 10 of 58**
+
+6. Visibility and Transparency  
+One of the keys to ensuring privacy is the ability to demonstrate it, verifying that the processing is in accordance with the information provided.  
+Transparency in data processing is established as a pillar to demonstrate diligence and proactive responsibility before the Control Authority and as a measure of trust before the subjects whose data is processed. As stated in Recital 39 of the GDPR [14], it must be completely clear to individuals that personal data concerning them is being collected, used, consulted, or otherwise processed, as well as the extent to which such data is or will be processed.  
+Promoting transparency and visibility involves adopting a series of measures such as:  
+• Making public the privacy and data protection policies that govern the operation of the organization.  
+• Developing and publishing concise, clear, and intelligible information clauses that are easily accessible and allow data subjects to understand the scope of the processing of their data, the risks they may be exposed to, as well as how to exercise their rights regarding data protection.  
+• Although not mandatory for all controllers, making public, or at least easily accessible to data subjects, the list of processing activities carried out in the organization.  
+• Disclosing the identity and contact information of the person responsible within the organization for privacy matters.  
+• Establishing accessible, simple, and effective communication, compensation, and complaint mechanisms directed at data subjects.  
+
+7. Respect for User Privacy: Maintaining a User-Centered Approach  
+Without disregarding the legitimate interests pursued by the organization through its data processing, the ultimate goal must be to guarantee the rights and freedoms of users whose data is subject to processing, so any measures adopted must aim to ensure their privacy. This means designing processes, applications, products, and services “with the user in mind,” anticipating their needs.  
+The user must have an active role in managing their own data and in controlling how others manage it. Their inaction should not undermine privacy, reiterating one of the previously mentioned principles advocating for a privacy-by-default configuration that offers the highest level of protection.  
+A design of processes, applications, products, and services focused on ensuring the privacy of data subjects involves:  
+• Implementing “robust” privacy-by-default settings and informing users of the consequences to their privacy that result from modifying preset parameters.  
+
+14 Regulation (EU) 679/2016, General Data Protection Regulation https://www.boe.es/doue/2016/119/L00001-00088.pdf  
+
+**Page | 11 of 58**  
+
+• Providing complete and adequate information leading to informed, free, specific, and unequivocal consent, which must be explicit in cases where required.  
+• Providing data subjects access to their data and detailed information on the purposes of the processing and communications made.  
+• Implementing efficient and effective mechanisms that allow data subjects to exercise their rights regarding data protection.  
+
+**Figure 2 – Foundational Principles of Privacy by Design**  
+OBLIGATED PARTIES TO DATA PROTECTION BY DESIGN  
+The GDPR establishes ‘data protection by design’ as a legal compliance requirement. Article 83 [15] considers it punishable [16] not to comply with this obligation, just as its correct application constitutes one of the criteria for assessing the severity of an infringement.  
+As stated in Article 25 of the GDPR [17], the obligation to implement data protection by design is applicable to all data controllers regardless of their size, the type of data processed, or the nature of the processing. Specifically, they are required to apply appropriate technical and organizational measures “both at the time of determining the means of processing and in the processing itself.”  
+While compliance with this obligation specifically applies to the data controller, in light of Recital 78 [18] and what is established in Article 28 of the GDPR [19], data protection by design extends to other actors involved in the processing of personal data such as suppliers and service providers, product and application developers, or device manufacturers.  
+
+15 Article 83. “General conditions for the imposition of administrative fines” - Regulation (EU) 2016/679, General Data Protection Regulation https://eur-lex.europa.eu/legal-content/ES/TXT/HTML/?uri=CELEX:32016R0679&from=ES#d1e6301-1-1  
+16 The Romanian Data Protection Authority announced on July 4, 2019, that it had fined UNICREDIT BANK S.A. for non-compliance with Article 25.1 of the GDPR https://www.dataprotection.ro/index.jsp?page=Comunicat_Amenda_Unicredit&lang=en  
+17 Article 25. “Data protection by design and by default” - Regulation (EU) 2016/679, General Data Protection Regulation https://eur-lex.europa.eu/legal-content/ES/TXT/HTML/?uri=CELEX:32016R0679&from=ES#d1e3126-1-1  
+18 Regulation (EU) 679/2016, General Data Protection Regulation https://www.boe.es/doue/2016/119/L00001-00088.pdf  
+19 Article 28. “Processor” - Regulation (EU) 2016/679, General Data Protection Regulation https://eur-lex.europa.eu/legal-content/ES/TXT/HTML/?uri=CELEX:32016R0679&from=ES#d1e3210-1-1
+Page | 12 of 58
+
+the data controller must encourage “consideration of the right to data protection when developing and designing these products, services, and applications,” and when it is necessary to outsource data processing to a third party, it must select the “processor that offers sufficient guarantees to implement appropriate technical and organizational measures, so that the processing is in compliance with the requirements of this Regulation and ensures the protection of the rights of the data subject.” In summary, it is the data controller, in application of its duty of diligence, who must adhere to the selection of products and processors capable of ensuring compliance with the requirements of the GDPR, and in particular, the obligation to ensure data protection by design and by default. This requirement is also applicable to joint controllers of processing based on their respective responsibilities assumed jointly in determining the means and purposes of the processing.
+
+Figure 3 – Privacy by Design as the Foundation of the Organization's Privacy Culture (The figure has been designed using images from Freepik.com)
+
+II. 
+SYSTEM PRIVACY REQUIREMENTS
+
+Understanding how the processing of personal data can affect individuals' privacy is key to designing and developing reliable systems from a data protection perspective. The GDPR enshrines in its Article 5 [20] the basic principles that must be taken into account when carrying out processing, so that these six principles (lawfulness, fairness and transparency, purpose limitation, data minimization, accuracy, storage limitation, integrity and confidentiality) combined with the principle of proactive accountability become the core of the regulation and the objective that every system, application, service, or process must guarantee in its design, in addition to the functional requirements specific to the system.
+
+PRIVACY AND SECURITY OBJECTIVES
+
+Traditionally, the design of secure and reliable systems has focused on analyzing risks and responding to threats that affect security objectives that are more oriented towards privacy:  
+• confidentiality, preventing unauthorized access to systems,  
+• integrity, protecting them from unauthorized modifications of information, and  
+• availability, ensuring that data and systems are available when needed.  
+
+However, although unauthorized access and modification of personal data can be a critical aspect threatening individuals' privacy, there are other risk factors that may arise during authorized data processing [21] and that must be identified during the risk assessment for the rights and freedoms of data subjects. The loss of autonomy in decision-making, excessive data collection, re-identification, discrimination and/or stigmatization of individuals, bias in automated decisions, and the lack of user understanding of the scope and risks of unauthorized, invasive, or incorrect processing or profiling are examples of privacy risks that clearly affect the rights and freedoms of individuals and cannot be managed using a traditional risk model focused exclusively on the protection of security objectives.
+
+Considering the described scenario and the potential privacy risks associated with the planned and authorized operation of systems that collect, use, and disclose personal data, it is necessary to expand the analytical framework to cover both the risks arising from unauthorized processing and those that may arise from planned and permitted processing of information. To address these potential risks, three new privacy-specific protection objectives [22][23] must be included in the analytical framework, and their guarantee becomes a safeguard for the processing principles established by the GDPR:  
+• Unlinkability: aims to ensure that the processing of information is carried out in such a way that personal data from one processing domain cannot be linked to personal data from another different domain or that establishing such a link would require disproportionate effort. This privacy objective minimizes the risk of unauthorized use of personal data and the creation of profiles through the interconnection of information belonging to different data sets,  
+
+21 Sean Brooks, Michael Garcia, Naomi Lefkovitz, Susanne Lightman, Ellen Nadeau - National Institute of Standards and Technology (NIST). NISTIR 8062 An Introduction to Privacy Engineering and Risk Management in Federal Systems, Jan 2017 https://nvlpubs.nist.gov/nistpubs/ir/2017/NIST.IR.8062.pdf  
+22 Harald Zwingelberg, Marit Hansen. 7th PrimeLife International Summer (PRIMELIFE), Sep 2011, Trento, Italy. pp.245-260. Privacy Protection Goals and Their Implications for eID Systems. https://hal.inria.fr/hal-01517607/document  
+23 Marit Hansen. 7th PrimeLife International Summer (PRIMELIFE), Sep 2011, Trento, Italy. pp.14-31. Top 10 Mistakes in System Design from a Privacy Perspective and Privacy Protection Goals https://hal.inria.fr/hal-01517612/document
+Page | 14 of 58
+
+establishing guarantees regarding the principles of purpose limitation, data minimization, and storage limitation.  
+• Transparency: seeks to clarify the processing of data so that the collection, processing, and use of information can be understood and reproduced by any of the parties involved at any time during the processing. This privacy objective aims to ensure that the context of the processing is clearly defined and that information about the purposes and the applicable legal, technical, and organizational conditions is available before, during, and after the processing to all parties involved, both for the controller and for the data subject, thus minimizing the risks that may affect the principles of fairness and transparency.  
+• Control: guarantees the possibility for the parties involved in the processing of personal data, and primarily the data subjects whose data is processed, to intervene in the processing when necessary to apply corrective measures to the information processing. This objective is closely related to the definition and implementation of procedures for exercising rights regarding data protection, filing complaints, or revoking consents given by the data subjects, as well as mechanisms to ensure, by the controller, the evaluation of compliance and the effectiveness of the obligations imposed by the regulations, which contributes to respecting the principles of accuracy and proactive responsibility set forth by the GDPR.  
+These three new protection objectives, along with existing security objectives, establish a global framework for protection in the processing of personal data and determine, as a result of conducting a risk assessment regarding their impact, other types of non-functional attributes or requirements that the system must meet and that become the inputs for privacy design processes.  
+OBJECTIVES OF PRIVACY PROTECTION  
+DISASSOCIATION  
+TRANSPARENCY  
+CONTROL  
+Data minimization  
+Storage limitation  
+Integrity and confidentiality  
+Lawfulness, fairness, and transparency  
+Purpose limitation  
+
+Purpose limitation  
+Accuracy  
+Integrity and confidentiality  
+Proactive responsibility  
+Table 2 – Guarantee of the principles of GDPR processing through privacy objectives  
+
+Page | 15 of 58
+
+Viewed globally and collectively, the six protection objectives are complementary to each other and sometimes overlap, so for each data protection impact assessment (DPIA) that is conducted on the data processing to be undertaken, it will be necessary to assess the possible preponderance of one objective over another and seek a balance in the measures and safeguards adopted for their guarantee.  
+III.  
+PRIVACY ENGINEERING: THE ENGINEERING OF PRIVACY  
+Privacy engineering is a systematic process driven by a risk-based approach whose objective is to translate the principles of privacy by design (PbD) into practical and operational terms within the lifecycle of information systems responsible for processing personal data:  
+- specifying the privacy properties and functionalities that the system must meet in a way that allows for its design and implementation (definition of privacy requirements)  
+- designing the architecture and implementing the system elements that cover the defined privacy requirements (design and implementation of privacy)  
+- confirming that the defined privacy requirements have been correctly implemented and meet the expectations and needs of the stakeholders (verification and validation of privacy)  
+Figure 4 – Privacy Engineering  
+
+24 Marit Hansen, Meiko Jensen, Martin Rost.. International Workshop on Privacy Engineering. Protection Goals for Privacy Engineering, May 2015 https://www.ieee-security.org/TC/SPW2015/IWPE/2.pdf  
+25 Spanish Agency for Data Protection (AEPD). Guide for the Data Protection Impact Assessment, Oct 2018 https://www.aepd.es/media/guias/guia-evaluaciones-de-impacto-rgpd.pdf  
+26 Spanish Agency for Data Protection (AEPD). Model Report for Data Protection Impact Assessment (DPIA) for Public Administrations https://www.aepd.es/reglamento/cumplimiento/evaluaciones-de-impacto.html  
+27 In this section, we address privacy engineering as a process within the design and development of the object. Privacy engineering can also be understood as a discipline as described in: https://www.aepd.es/blog/2019-09-11-ingenieria-privacidad.html  
+28 Massachusetts Institute of Technology Research & Engineering (MITRE) – Privacy Community of Practice (CoP). Privacy Engineering Framework, Jul 2014 https://www.mitre.org/sites/default/files/publications/14-2545-presentation-privacy-engineering-framework-july2014.pdf
+Page | 16 of 58
+
+The objective is for privacy to be integrated as part of the system design, so that privacy requirements are defined in terms of properties and functionalities that are fully implementable, and any identified privacy risks are adequately managed by the system in a proactive manner. To achieve this, a systematic and methodological approach must be followed, transferring the what of the conception and analysis phases (the identified privacy requirements) to the how of the design and implementation phases (specific strategies and solutions), working sequentially at different levels of abstraction. 
+
+At the highest level, in the initial phases of object conception and requirement analysis, strategies for privacy [29] must be employed—high-level generic approaches aimed at identifying the tactics to be followed during the different stages of data processing to ensure privacy objectives and compliance with processing principles. The strategies provide an accessible model through which engineers designing the object can specify the privacy requirements identified during the analysis and requirement phases. Privacy strategies serve as a bridge between the processing principles imposed by the regulation and the implementation of privacy in specific solutions. As will be seen later, they are focused on responding to actions that may pose a threat to privacy in processing activities, and their use is not exclusive. On the contrary, it is desirable to apply all or as many of them as possible to ensure that the developed object is as privacy-friendly as possible. 
+
+Privacy strategies materialize, at a lower level, in privacy design patterns [29], reusable solutions employed in the design phase that are applicable to solve common and repeatable privacy problems that arise repeatedly in the development of products and systems. The goal of the patterns is to create catalogs of reusable solutions in the design of privacy for systems and to standardize the design process. 
+
+The association between patterns and strategies is not one-to-one, so a single pattern can implement and respond to more than one privacy strategy, providing solutions to different problems that arise throughout the data processing activities. 
+
+Finally, at the lowest level, in the development phase, are the privacy-enhancing technologies or PETS (Privacy Enhancing Technologies) that are used to implement the privacy design patterns with a specific technology [29]. The Commission, in its Communication to the European Parliament and the Council on promoting data protection through privacy protection technologies (PET), defines them as “a coherent system of ICT measures that protects the right to privacy by eliminating or reducing personal data or preventing unnecessary or unwanted processing of personal data, without compromising the functionality of the information system.” [30]. Just as with the patterns and privacy design strategies, a single PET solution can implement several design pattern solutions.
+
+29 Jaap-Henk Hoepman. Institute for Computing and Information Sciences (ICIS) – Radboud University Nijmegen, The Netherlands. Privacy Design Strategies, Oct 2012 https://www.cs.ru.nl/~jhh/publications/pdp.pdf 
+30 COM(2007)228 COMMUNICATION FROM THE COMMISSION TO THE EUROPEAN PARLIAMENT AND THE COUNCIL on promoting data protection through privacy protection technologies (PET) https://eur-lex.europa.eu/legal-content/ES/TXT/PDF/?uri=CELEX:52007DC0228&from=EN 
+
+Page | 17 of 58
+
+Figure 5 – Strategies, patterns, and techniques (PET) of privacy within the system lifecycle [31] 
+
+IV. 
+PRIVACY DESIGN STRATEGIES 
+The state of the art identifies eight privacy design strategies [31][32] known as ‘minimize’, ‘hide’, ‘separate’, ‘abstract’, ‘inform’, ‘control’, ‘comply’, and ‘demonstrate’. 
+
+These eight strategies can be classified into two categories [31]: data-oriented strategies and process-oriented strategies. The former, which include the strategies of ‘minimize’, ‘hide’, ‘separate’, and ‘abstract’, are more technical in nature and focus on a privacy-friendly processing of the collected data. The latter, which include the strategies of ‘inform’, ‘control’, ‘comply’, and ‘demonstrate’, have a more organizational character and are oriented towards defining processes that implement responsible management of personal data. 
+
+OBJECTIVE OF 
+PRIVACY PROTECTION 
+PRIVACY DESIGN STRATEGIES 
+ORIENTED TO DATA 
+PRIVACY DESIGN STRATEGIES 
+ORIENTED TO PROCESSES 
+DISASSOCIATION 
+MINIMIZE, ABSTRACT, 
+SEPARATE, HIDE 
+
+CONTROL 
+
+CONTROL, COMPLY, 
+DEMONSTRATE 
+TRANSPARENCY 
+
+INFORM 
+Table 3 – Association between privacy objectives and privacy design strategies 
+
+31 Jaap-Henk Hoepman. Privacy Design Strategies (The Little Blue Book), Mar 2019 https://www.cs.ru.nl/~jhh/publications/pds-booklet.pdf 
+32 Michael Colesky, Jaap-Henk Hoepman – Digital Security. Radboud University Nijmegen, The Netherlands, Christiaan Hillen – Valori Security. Nieuwegein, The Netherlands. A Critical Analysis of Privacy Design Strategies, May 2016 https://www.researchgate.net/publication/305870977_A_Critical_Analysis_of_Privacy_Design_Strategies
+Page | 18 of 58
+
+Although, depending on the context, certain strategies may be more applicable than others within the framework of developing a system, these eight strategies, considered from the initial stages of their conception and analysis and applied together, allow for the incorporation of safeguards and protective measures in the operations and procedures for processing personal data, ensuring that the final results take into account the privacy requirements that guarantee the rights and freedoms of data subjects.  
+Figure 6 – Privacy Design Strategies.  
+(Image taken from the document Privacy Design Strategies (The Little Blue Book) [31])  
+Minimize  
+The objective of this strategy is to collect and process the minimum amount of data possible, so that by avoiding the processing of data that is not necessary for the purposes pursued in the processing, potential impacts on privacy are limited. This can be achieved by collecting data from fewer subjects (reducing the size of the study population) or collecting less data from subjects (reducing the volume of information gathered), for which the following tactics can be used:  
+• Select: choose only the relevant sample of individuals and the necessary attributes, adopting a conservative approach when establishing the selection criteria and processing only the data that meets that criterion (whitelist).  
+• Exclude: this is the reverse approach to the previous one, and it involves preemptively excluding subjects and attributes that are irrelevant to the processing being carried out (blacklist). In this case, an open attitude should be adopted, attempting to exclude as many records as possible unless it can be justified that they are absolutely necessary for the intended purpose.  
+• Trim: partially eliminate personal data as soon as it is no longer necessary, which involves determining in advance the retention period for each of the collected data and establishing automatic deletion mechanisms when that period is met. In cases where the data is part of a record containing more information that needs to be retained, the value of unnecessary fields can be changed to a predetermined default value.  
+• Delete: completely remove personal data as soon as it is no longer relevant, ensuring that recovery is not possible, even from backups.  
+It is also necessary to consider that only strictly necessary data should be communicated and shared, and in cases of processing that infer new personal information, those generated data that are not necessary for the intended purpose should also be selected for exclusion.  
+Hide  
+This strategy focuses on limiting the exposure of data, establishing the necessary measures to ensure the protection of confidentiality and unlinking objectives. The following tactics are useful in response to this strategy:  
+• Restrict: manage access to personal data restrictively by limiting it through an access control policy that implements the "need to know" principle both in space (detail and type of data accessed) and in time (stages of processing).  
+• Obfuscate: make personal data unintelligible to those who are not authorized to access it by using encryption and hashing techniques, both in storage and transmission operations of the information.  
+• Disassociate: eliminate the linkage between datasets that must remain independent, as well as the identifying attributes of data records to avoid correlations between them, with special attention to metadata.  
+• Aggregate: Group information relating to several subjects using generalization and suppression techniques[33] to avoid correlations.  
+Separate  
+The objective of this strategy is to avoid, or at least minimize, the risk that during processing, in the same entity, different personal data belonging to the same individual and used in independent treatments could lead to a complete profiling of the subject. To achieve this, it is necessary to maintain independent processing contexts that hinder the correlation of groups of data that should be disconnected. The following tactics contribute to implementing the separation strategy:  
+• Isolate: collect and store personal data in different databases or applications that are independent from a logical perspective or even run on different physical systems, adopting additional measures to ensure that unlinking, such as the scheduled deletion of indexing tables between databases.  
+
+33 Spanish Agency for Data Protection (AEPD) – Unit for Evaluation and Technological Studies. K-anonymity as a measure of privacy, Jun 2019 https://www.aepd.es/media/notas-tecnicas/nota-tecnica-kanonimidad.pdf
+Page | 20 of 58
+
+• Distribute: disseminate the collection and processing of different subsets of personal data corresponding to different types of processing across independent processing and management units that, within the organization, are physically separate and use different systems and applications, attempting to implement decentralized and distributed architectures with local information processing whenever possible instead of centralized solutions with unified access that depend on a single control unit.  
+Abstract  
+The underlying idea of using this strategy is to limit the detail of the personal data being processed as much as possible. Unlike the ‘minimize’ strategy, which performs a prior selection of the collected data, this strategy focuses on the level of detail with which the data is processed and its aggregation through the use of three tactics:  
+• Summarize: generalizes the values of the attributes using intervals or ranges of values, instead of using the specific value of the field.  
+• Group: aggregates the information of a group of records into categories instead of using the detailed information of each individual belonging to the group, working with average or general values.  
+• Disturb: use approximate values or modify the actual data by employing some type of random noise instead of working with the exact value of the personal data.  
+In each processing, it is necessary to study how the level of detail of the input data affects the outcome and what precision is required for the processing to be effective. In particular, the time elapsed since the data was collected can affect its relevance, so it is advisable to periodically review the stored information and apply these types of strategies [34].  
+Inform  
+This strategy is the implementation of the objective and principle of transparency established by the Regulation and aims to ensure that data subjects are fully informed about the processing of their data in a timely manner. Whenever processing is carried out, the subjects whose data is processed should know what information is being processed, for what purpose, and to which third parties it is communicated, in addition to the other information established in Articles 13 [35] and 14 [36] of the GDPR. Transparency regarding this information becomes a basic privacy requirement as it allows data subjects to make informed decisions about the processing carried out and to provide, where appropriate, free, specific consent.
+
+34 It should not be overlooked that even aggregated processing of records presents some risk to privacy when it is possible to determine an individual's membership in a certain group or profile (for example, in the case of personnel with a certain illness or those presenting a specific risk profile).  
+35 Article 13. “Information to be provided when personal data is obtained from the data subject” - Regulation (EU) 2016/679, General Data Protection Regulation https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN#d1e2317-1-1  
+36 Article 14. “Information to be provided when personal data has not been obtained from the data subject” - Regulation (EU) 2016/679, General Data Protection Regulation https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN#d1e2418-1-1
+Page | 21 of 58
+
+informed and unequivocal. Any modification that occurs in the processing regarding the information previously provided should be communicated, including possible security breaches that may significantly affect the rights and freedoms of data subjects. This strategy is supported by the existence of privacy clauses that facilitate the overall provision of this information to the interested parties along with the use of the following tactics:
+• Provide: supply the interested parties with all the information required by the GDPR regarding which personal data is processed, how it is processed, and why by identifying the reason and purpose. Details should be provided regarding the data retention periods, as well as the communications of this data to third parties. Along with all this information, which must be easily accessible and provided continuously over time to promote genuine transparency, it should also be indicated how and with whom data subjects can contact to raise questions regarding their privacy, as well as the rights that assist them in matters of personal data protection.
+• Explain: provide information regarding the processing in a concise, transparent, intelligible, and easily accessible manner using clear and simple language. To avoid dense, complex, and cumbersome information policies, it is advisable to adopt a layered or tiered approach in which basic information is presented at a first level, summarized, at the same time and medium in which the data is collected, and refer to additional and detailed information available at a second level [37].
+• Notify: communicate the processing to the interested parties when the data is not collected directly from them, at the moment when it has been obtained and no later than within one month, or if it is to be used to communicate with them, in the first communication. They should also be informed if there is an intention to transfer the data to third parties. Mechanisms should also be implemented to notify the interested parties of security breaches that have occurred and that may pose a high risk to their rights and freedoms, using clear and simple language to describe the nature of the breach.
+Given that the procedures for collecting information can vary widely, the modes of informing must be adapted to the circumstances of each of the means employed, including, additionally, the possibility of using standardized icons that provide a joint view of the intended processing.
+Control
+This strategy is closely linked to the informing strategy and aims to provide the interested parties with control over the collection, processing, uses, and communications made regarding their personal data by implementing mechanisms that allow the exercise of the rights of access, rectification, deletion, opposition, portability, and limitation of processing, as well as the granting and withdrawal of consent or the modification of privacy options.
+
+37 Spanish Agency for Data Protection, Catalan Data Protection Authority, Basque Data Protection Agency. Guide for compliance with the duty to inform, Jan 2017 https://www.aepd.es/media/guias/guia-modelo-clausula-informativa.pdf
+Page | 22 of 58
+
+in applications and services. The implementation of these mechanisms is supported by the use of the following tactics:
+• Consent: collect the consent of data subjects in cases where there is no other legal basis, which must be given unequivocally, through a statement or a clear affirmative action, and must be explicit in certain situations such as the processing of sensitive data, the adoption of certain automated decisions, or international transfers. Furthermore, the data subject must be able to withdraw their consent at any time, through mechanisms and procedures that ensure it is as easy to withdraw as it is to give.
+• Alert: make the user aware at the moment when personal data is being collected, even when they have already been generically informed of the legal basis justifying the processing or even if they have given their consent.
+• Choose: provide granular functionality [38] of applications and services, particularly basic functionality, without it being contingent on consent for the processing of personal data that is not necessary for its execution.
+• Update: implement mechanisms that facilitate users or even allow them to directly review, update, and rectify the data provided for a specific processing in order to ensure that it is accurate and reflects reality.
+• Withdraw: provide mechanisms for users to delete or request the deletion of the personal data they have provided to a controller within the framework of a processing activity. 
+
+Technological advancement, while allowing for continuous information collection, enables data to be easily managed by the data subjects themselves through the implementation of privacy platforms that allow them to access, update, cancel, and modify the configured privacy options. These functionalities must be considered from the design of the application.
+
+Compliance
+This strategy ensures that personal data processing is compatible and respects the legal requirements and obligations imposed by the regulations. To achieve this, it is necessary to define a privacy framework and a governance structure that includes a data protection policy supported by senior management, as well as the roles and responsibilities that ensure compliance. The culture of privacy must be an essential part of the organization and involve all its members, for which the following tactics can serve as a catalyst:
+• Define: specify a data protection policy that reflects the internal clauses of privacy communicated to the data subjects. Structures must be created and resources allocated to support this policy and ensure that the processing activities carried out by the organization comply with and are in accordance with data protection regulations. A plan must also be developed and implemented.
+
+38 Functionalities that require consent-based legitimization must be selectable independently of both the main purpose of the object and among themselves.
+Page | 23 of 58
+
+training and awareness for all members of this entity aimed at ensuring a committed and responsible attitude as part of proactive responsibility.  
+• Maintain: support the defined policy by establishing procedures and implementing the necessary technical and organizational measures. The existence of effective mechanisms and procedures must be reviewed to ensure the exercise of rights, the management and notification of security incidents, the adequacy of potential data processing assignments to legal requirements, and the accreditation of compliance with the obligations imposed by the regulations.  
+• Defend: ensure compliance, effectiveness, and efficiency of the privacy policy and the procedures, measures, and controls implemented to verify that they respond at all times to the reality of the processing activities and the day-to-day operations of the organization.  
+The role of the Data Protection Officer is fundamental in the implementation of this strategy, advising the controller and supervising compliance with data protection regulations within the organization. The implementation of privacy management models, such as that proposed by the recent ISO/IEC 27701:2019 standard [39], which specifies the requirements and provides guidance for establishing, implementing, maintaining, and continuously improving a Privacy Information Management System (PIMS), is also effective.  
+Demonstrate  
+The objective of this strategy goes a step further than the previous one and aims for the data controller to demonstrate, in accordance with Article 24 of the GDPR [40], compliance with the data protection policy being applied, as well as with the other legal requirements and obligations imposed by the Regulation, both to the data subjects and to the supervisory authorities. From a practical standpoint, it is the implementation of accountability or proactive responsibility required by the Regulation, based on a critical, continuous, and traceable self-analysis of all decisions made within the framework of processing and ensuring genuine governance of personal data within the organization. The following tactics allow for the execution of this strategy to ensure and demonstrate that the processing is compliant with the Regulation:  
+• Record: document each and every decision made over time even if they have been contradictory, identifying who made them, when, and the justification for doing so.  
+• Audit: systematically, independently, and documentedly review the degree of compliance with the data protection policy.  
+• Inform: document the results of the audits conducted and any incidents that occur in the operations of personal data processing and make it available to the supervisory authority when necessary. In the case of new processing, if the result of the data protection impact assessment indicates that the processing would entail a high risk to the rights and freedoms of the data subjects if the controller does not take measures to mitigate them, carry out the prior consultation referred to in Article 36 [41] of the GDPR.  
+Conducting a risk analysis and, where appropriate, a data protection impact assessment along with the documentation of the decisions made based on the results obtained are a good starting point to not only establish the privacy requirements that must be implemented in applications and systems as part of privacy by design but also to fully document how personal data processing is carried out and ensure compliance with the principle of proactive responsibility. Other resources to demonstrate compliance with obligations by the controller include adherence to codes of conduct and certification mechanisms as optional instruments to implement the demonstration strategy.  
+PRIVACY BY DESIGN STRATEGY  
+DESCRIPTION AND TACTICS  
+CONTROLS AND  
+DESIGN PATTERNS  
+Data-oriented  
+strategies  
+Minimize  
+Limit the processing of personal data as much as possible.  
+TACTICS: select, exclude, prune, and eliminate  
+Anonymization  
+Pseudonymization  
+Correlation blocking  
+in federated identity management systems  
+Hide  
+Prevent personal data from becoming public or known  
+TACTICS: restrict, obscure, dissociate, and aggregate  
+Encryption  
+Mix networks  
+Credential-based attributes  
+Separate  
+Keep sets of personal data separate.  
+TACTICS: isolate and distribute  
+Anonymous blacklists  
+Homomorphic encryption  
+Physical and logical separation  
+Abstract  
+Limit the level of detail used in personal data processing as much as possible.  
+TACTICS: summarize, group, and perturb  
+Temporal aggregation  
+K-anonymity  
+Measure obfuscation through noise aggregation  
+Dynamic location granularity  
+Differential privacy  
+
+[39] ISO/IEC 27701:2019 Security techniques – Extension to ISO/IEC 27001 and ISO/IEC 27002 for privacy information management – Requirements and guidelines, August 2019 https://www.iso.org/standard/71670.html  
+[40] Article 24. “Responsibility of the data controller” - Regulation (EU) 2016/679, General Data Protection Regulation https://eur-lex.europa.eu/legal-content/ES/TXT/HTML/?uri=CELEX:32016R0679&from=ES#d1e3106-1-1  
+[41] Article 36. “Prior consultation” - Regulation (EU) 2016/679, General Data Protection Regulation https://eur-lex.europa.eu/legal-content/ES/TXT/HTML/?uri=CELEX:32016R0679&from=ES#d1e3713-1-1  
+
+Page | 24 of 58
+**PRIVACY DESIGN STRATEGY**  
+**DESCRIPTION AND TACTICS**  
+**CONTROLS AND DESIGN PATTERNS**  
+
+**Process-oriented strategies**  
+
+**Inform**  
+Keep data subjects informed about the nature and conditions of the processing.  
+**TACTICS:** facilitate, explain, and notify  
+- Notification of privacy breaches  
+- Dynamic visualization of the privacy policy  
+- Privacy icons  
+- Processing alerts  
+
+**Control**  
+Provide data subjects with effective control over their personal data.  
+**TACTICS:** consent, alert, choose, update, withdraw  
+- Privacy preference panels  
+- Active presence transmission  
+- Credential selection  
+- Informed consent  
+
+**Comply**  
+Respect and promote compliance with the obligations imposed by current regulations and the data protection policy itself.  
+**TACTICS:** define, maintain, defend  
+- Privacy impact assessment in federated identity management solutions  
+- Access control  
+- Obligation management  
+- Adhered policies  
+
+**Demonstrate**  
+Be able to demonstrate that processing is carried out in a privacy-respecting manner.  
+**TACTICS:** record, audit, and report.  
+- Audit  
+- Record  
+
+**Table 4 – Privacy design strategies along with tactics and patterns for their implementation**  
+
+**V. PRIVACY DESIGN PATTERNS**  
+Once the privacy objectives and strategies that the product, system, application, or service must incorporate as part of its definition are established, it is necessary to integrate them into its design. To do this, privacy design patterns are used as reusable solutions employed to address common and repeatable privacy issues that arise repeatedly in a specific context during the development of products and systems.  
+
+Typically, the description of a design pattern contains, at a minimum, its name, purpose, description of the application context, objectives, structure, implementation (relationship with other patterns), consequences of its application, and known uses.  
+
+**Figure 7 – Example of a privacy design pattern**  
+As previously indicated, the same design pattern can serve to implement more than one privacy strategy already listed, so these are not closed and exclusive solutions; the design of privacy strategies should be viewed as a joint and comprehensive approach. For example, the design pattern ‘Obfuscation of measures through noise aggregation’ shown in Figure 7, which aims to add noise to the actual measures taken during the operation of a service so that no additional information can be inferred, allows for the simultaneous implementation of the strategies of abstracting, hiding, and minimizing.
+PAGE | 27 of 58
+
+DESIGN PATTERNS CATALOGS  
+There are different repositories or catalogs of privacy design patterns where one can consult a comprehensive definition of them, their purpose, and how to use them. Thus, within the framework of the PRIPARE project (Preparing Industry to Privacy by Design by Supporting its Application in Research), [42] funded by the European Union, a catalog has been developed that includes 26 privacy design patterns [43].  
+Another similar initiative is the result of a project [44][45] developed at the Vienna University of Economics and Business, which creates an interactive repository of solutions [46] that classifies 40 privacy design patterns according to the 11 protection principles defined in the framework established by ISO/IEC 29100:2011 [47].  
+There is also a collaborative initiative among various centers and universities that maintains a catalog of patterns [48] with the aim of operationalizing legal requirements into concrete solutions, standardizing the language of privacy, documenting and collecting common solutions to specific problems, and helping system and application designers identify privacy issues and address them.  
+Annex 1 contains, in tabular form and linked to their respective entries, a selection of 54 privacy design patterns published on the websites developed as a result of the initiatives listed, indicating for each one a brief summary of the purpose they pursue and the privacy design strategy or strategies they aim to address.  
+VI.  
+PRIVACY ENHANCING TECHNOLOGIES (PETS)  
+Once the strategies are defined and the privacy patterns of the product, application system, or service to be developed are designed, the next step is their implementation in the development phase using a specific technological solution.  
+Privacy Enhancing Technologies or PETs are an organized and coherent set of ICT solutions that reduce risks affecting privacy by implementing the strategies and patterns defined earlier.  
+Due to the changing technological context, the effectiveness, in terms of privacy protection, varies from one PET to another and over time, making it complicated to provide 
+
+42 ATOS, Inria, Gradiant, Trilateral, and UPM. Privacy and Security by Design Methodology Handbook, Dec 2015  
+http://pripareproject.eu/wp-content/uploads/2013/11/PRIPARE-Methodology-Handbook-Final-Feb-24-2016.pdf  
+43 Online - privacypatterns.eu - collecting patterns for better privacy https://privacypatterns.eu/  
+44 Olha Drozd, Sabrina Kirrane, Sarah Spiekermann – Vienna University of Economics and Business. Towards an Interactive Privacy Pattern Catalog. 12th Symposium on Usable Privacy and Security (SOUPS 2016), Jun 2016, Denver CO. https://www.researchgate.net/publication/305811615_Towards_an_Interactive_Privacy_Pattern_Catalog  
+45 Olha Drozd – Vienna University of Economics and Business. Privacy Pattern Catalog: A Tool for Integrating Privacy Principles of ISO/IEC 29100 into Software Development Process., July 2016, https://www.researchgate.net/publication/304995300_Privacy_Pattern_Catalogue_A_Tool_for_Integrating_Privacy_Principles_of_ISOIEC_29100_into_the_Software_Development_Process  
+46 Online – privacypatterns http://privacypatterns.wu.ac.at:8080/catalog/  
+47 ISO/IEC JTC 1 /SC 27 Technical Committee. ISO/IEC 29100:2011 Information Technology - Security techniques – Privacy Framework, Dec 2011 https://www.iso.org/standard/45123.html  
+48 Online – Privacy patterns https://privacypatterns.org/
+Page | 28 of 58
+
+an updated classification and typology [49]. A PET can be both an independent tool that the end user purchases and installs on a personal computer, as well as a complex architecture of information systems.  
+CLASSIFICATION OF PETS  
+There are multiple classifications of PETs, most of which are based on their technical characteristics [50]. Another possible classification of these tools, which is the one offered in this guide, is based on the purpose they pursue [51]. Therefore, they will be classified according to whether they are aimed at protecting privacy or managing it, thus maintaining a coherent approach with the classification of the strategies seen. The first group includes tools and technologies that actively protect privacy during the processing of personal data (for example, masking personal data or eliminating the need for identification). The second group encompasses tools and technologies that support the administration of procedures related to privacy management but do not operate, as such, on the data.  
+CATEGORY  
+SUBCATEGORY  
+DESCRIPTION  
+Privacy Protection  
+Tools for Pseudonymization  
+Allow transactions to be carried out without requesting personal information  
+Products and services for Anonymization  
+Provide access to services without requiring the identification of the data subject  
+Encryption Tools  
+Protect documents and transactions from being viewed by third parties  
+Filters and Blockers  
+Prevent unwanted emails and web content  
+Tracking Suppressors  
+Eliminate electronic traces of the user's digital activity  
+Privacy Management  
+Information Tools  
+Create and verify privacy policies  
+Administrative Tools  
+Manage user identity and permissions  
+Table 5 – One of the possible classifications of PETs (META Group Report)  
+CATALOGS OF PETS  
+As was the case with design patterns, there is no single unified repository of PET tools and technologies, although there are various initiatives.  
+
+49 COM(2007)228 COMMUNICATION FROM THE COMMISSION TO THE EUROPEAN PARLIAMENT AND THE COUNCIL on promoting data protection through privacy-enhancing technologies (PET) https://eur-lex.europa.eu/legal-content/ES/TXT/PDF/?uri=CELEX:52007DC0228&from=EN  
+50 Lothar Fritsch, Norwegian Computing Center Report, No 1013. State of the art of Privacy-enhancing Technology (PET), Nov 2007 https://www.nr.no/publarchive?query=4589  
+51 Ministry of Science, Technology and Innovation of Denmark. Privacy Enhancing Technologies – META Group Report v1.1, Mar 2005 https://danskprivacynet.files.wordpress.com/2008/07/rapportvedrprivacyenhancingtechlologies.pdf
+Page | 29 of 58
+
+The Technology Analysis Division of the Office of the Privacy Commissioner of Canada has developed an overview of them, addressing the functionality they provide and presenting some concrete examples of solutions [52].  
+The Center for Internet and Society (CIS) at Stanford Law School (California) has published, through a public contribution wiki system, a database of free PET tools and technologies for users to enhance control over their personal data [53].  
+At the European level, the European Data Protection Supervisor (EDPS) has developed the IPEN, Internet Privacy Engineering Network [54], with the aim of supporting developers in the use of design patterns and other reusable blocks aimed at efficiently and effectively protecting and enhancing privacy.  
+In 2015, ENISA conducted the study “Online privacy tools for the general public” [55], which analyzed PET tools for online privacy protection and included a list of web portals that promote the use of such technologies. Although the tools suggested in the portals shown in Table 5 are generally software applications focused on end users to improve the protection of their personal data, their analysis and study are also useful for data controllers as a source of examples of privacy requirements that must be incorporated into the services, products, and applications they develop. If such solutions (encryption for secure communications, anonymizers, tracking blockers, etc.) are integrated as standard in the systems, it will prevent the end user from being unprotected or, in the best case, having to add the unimplemented privacy layer in a subsequent installation of third-party tools.  
+From this initial study, ENISA has published several reports [56][57][58][59] on the evolution of PET tools and the development of a methodology to compare their maturity level, working on the development of a platform that supports it and a centralized repository from which to obtain information on the solution that best fits the pursued privacy objectives [60].  
+
+52 The Technology Analysis Division of the Office of the Privacy Commissioner. Privacy Enhancing Technologies – A review of Tools and Techniques, 2017 https://www.priv.gc.ca/en/opc-actions-and-decisions/research/explore-privacy-research/2017/pet_201711/  
+53 The Center for Internet and Society Stanford University. Ciberlaw PET wiki, https://cyberlaw.stanford.edu/wiki/index.php/PET  
+54 https://edps.europa.eu/data-protection/ipen-internet-privacy-engineering-network_en  
+55 European Union Agency for Cybersecurity (ENISA). Online privacy tools for the general public, Dec 2015 https://www.enisa.europa.eu/publications/privacy-tools-for-the-general-public/at_download/fullReport  
+56 European Union Agency for Cybersecurity (ENISA). Readiness Analysis for the Adoption and Evolution of Privacy Enhancing Technologies, Mar 2016 https://www.enisa.europa.eu/publications/pets/at_download/fullReport  
+57 European Union Agency for Cybersecurity (ENISA). PETs control matrix – A systematic approach for assessing online and mobile privacy tools, Dec 2016 https://www.enisa.europa.eu/publications/pets-controls-matrix/pets-controls-matrix-a-systematic-approach-for-assessing-online-and-mobile-privacy-tools/at_download/fullReport  
+58 European Union Agency for Cybersecurity (ENISA). Privacy Enhancing Technologies: Evolution and State of the Art, Mar 2017 https://www.enisa.europa.eu/publications/pets-evolution-and-state-of-the-art/at_download/fullReport  
+59 European Union Agency for Cybersecurity (ENISA). A tool on Privacy Enhancing Technologies (PETs) knowledge management and maturity assessment, Mar 2018 https://www.enisa.europa.eu/publications/pets-maturity-tool/at_download/fullReport  
+60 UNIPI Workshop on Privacy Enhancing Technologies. Evgenia Nikolouzou - ENISA Data Security and Standardization Unit. PETs Repository Community Building and Evaluation, Nov 2018 https://www.enisa.europa.eu/events/personal-data-security/pets-maturity
+**PAGE | 30 of 58**
+
+**PORTAL**  
+**ORGANIZATION**  
+**URL**  
+**DESCRIPTION**  
+Secure Messaging Scorecard  
+Electronic Frontier Foundation (EFF)  
+https://www.eff.org/deeplinks/2018/03/secure-messaging-more-secure-mess  
+
+A presentation and evaluation of secure messaging applications and tools using a predefined list of criteria.  
+
+PRISM Break  
+Nylira (Peng Zhong)  
+https://prism-break.org/en/  
+
+A selection of tools against mass surveillance and tracking, such as encryption tools, anonymizers, etc.  
+
+Security in-a-box  
+Tactical Technology Collective and Front Line Defenders  
+https://securityinabox.org/en/  
+
+General use security portal, which includes tools for privacy protection, such as encryption tools.  
+
+EPIC Online Guide to Practical Privacy Tools  
+Electronic Privacy Information Center (EPIC)  
+https://www.epic.org/privacy/tools.html  
+
+Offers lists of privacy tools categorized in different areas (web browser add-ons, anonymizers, etc.).  
+
+The Ultimate Privacy Guide  
+BestVPN (4Choice Ltd)  
+https://proprivacy.com/guides/the-ultimate-privacy-guide  
+
+General use security portal that offers ratings for commercial VPNs. The privacy guide provides a list of tools categorized by areas.  
+
+Free Software Directory  
+Free Software Foundation (FSF)  
+https://directory.fsf.org/wiki/Main_Page  
+
+General use portal aimed at free software with a specific area for security and privacy, primarily focused on encryption.  
+
+Privacytools.io  
+Privacytools.io  
+https://www.privacytools.io  
+
+Offers lists of tools to preserve privacy, such as VPNs, browser add-ons, etc.  
+
+Me & My Shadow  
+Tactical Technology Collective  
+https://myshadow.org  
+
+A portal primarily focused on digital footprints and online tracking. Offers recommendations on various relevant tools.  
+
+Gizmo’s Freeware  
+Gizmo's Freeware  
+http://www.techsupportalert.com/content/free-windows-desktop-software-security-list-privacy.htm  
+
+General use portal for freeware tools, which also offers a list of open privacy tools.  
+
+Best Privacy Tools  
+Best Privacy Tools  
+http://bestprivacytools.com/  
+
+Offers a list of privacy tools, especially chat applications, VPNs, secure browsing, etc.  
+
+Internet Privacy Tools  
+Internet Privacy Tools  
+http://privacytools.freeservers.com  
+
+Offers a list of privacy tools, especially email filters, browser encryption, etc.  
+
+**PAGE | 32 of 58**
+
+**PORTAL**  
+**ORGANIZATION**  
+**URL**  
+**DESCRIPTION**  
+Reset The Net Privacy Pack  
+Fight for the Future and Center for Rights  
+https://pack.resetthenet.org  
+
+Offers a list of free privacy tools and relevant advice (e.g., secure communication, anonymous browsing, etc.).  
+
+**Table 6 – Web portals promoting the use of online privacy tools aimed at the general public according to the ENISA study Online privacy tools for the general public**  
+
+**VII. CONCLUSIONS**  
+In a context where organizations and companies develop services based on intensive use of personal data, whose impact on privacy is amplified by the use of disruptive technologies, it is necessary to adopt effective and efficient technical and organizational measures that contribute to ensuring respect for the rights and freedoms of individuals regarding their personal data processing.  
+
+Ensuring privacy and establishing a governance framework that guarantees the protection of personal data does not represent an obstacle to innovation. On the contrary, it offers advantages and opportunities for various participants:  
+• For organizations, it means improving efficiency, optimizing processes, establishing a cost-reduction strategy, and gaining a competitive advantage.  
+• For the market, it means developing sustainable economic models in the long term.  
+• For society as a whole, it means being able to access the benefits of technological advances without compromising the freedom and independence of individuals.  
+
+In short, ensuring privacy is innovation in itself and introduces a new technological discipline: privacy engineering.  
+
+The effective and efficient implementation of privacy principles requires that they be an integral part of the nature of products and services, and for this, they must be considered from the initial phase of conception, design, and development as part of the overall specifications, both functional and non-functional. This approach is known as Privacy by Design.  
+
+Privacy by Design involves using a methodological approach oriented towards risk management and proactive responsibility that allows for setting privacy requirements through practices, procedures, and tools. To this end:  
+• Based on risk analysis, both specific data protection objectives (unlinkability, transparency, and control) and security objectives from the perspective of privacy (confidentiality,
+Page | 33 of 58
+
+availability and integrity), which guarantee the basic principles established in Article 5 [61] of the GDPR.
+• Next, the privacy strategies will be studied in which the requirements of each privacy objective are specified, both data-oriented and process-oriented. These strategies are: ‘minimize’, ‘hide’, ‘separate’, ‘abstract’, ‘inform’, ‘control’, ‘comply’, and ‘demonstrate’; and for each of them, the protection tactics that effectively implement them will be identified.
+• Once in the design phase, the selected tactics will be integrated through already known solutions, that is, the privacy design patterns, which address common and repeatable problems, accessing the available catalogs, from which a selection is presented in this document.
+• Finally, in the development phase, the concrete implementation of these patterns will be carried out. This implementation will be performed by the development team either by programming the necessary functionality in code or, if possible, by using existing ICT solutions, that is, utilizing Privacy Enhancing Technologies.
+In any case, data protection by design is an obligation of the data controller, and it is the controller who must ensure it regardless of the form of development, acquisition, or outsourcing of the system, product, or service, and cannot fully delegate to third parties (manufacturers and processors) the responsibility for applying this principle.
+In compliance with their duty of diligence, they must actively participate in privacy engineering tasks by defining the requirements that need to be considered, continuously monitoring their correct implementation, and verifying their full operability before the system goes into production, so that the privacy of individuals whose data is being processed is guaranteed.
+
+61 Article 5. “Principles relating to processing” - Regulation (EU) 2016/679, General Data Protection Regulation https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN#d1e1873-1-1
+
+Page | 34 of 58
+
+VIII.
+ANNEX 1: SELECTION OF PRIVACY DESIGN PATTERNS
+
+NAME OF THE
+DESIGN PATTERN
+OBJECTIVE AND PURPOSE
+STRATEGY(IES) IT SUPPORTS
+Obfuscation of
+measures through
+noise aggregation
+Modifies the detailed usage measures or any other attribute of a service by adding noise values that mask the real data with the aim of preventing unauthorized third parties from deducing patterns and behaviors by intercepting the communication.
+Abstract
+Hide
+Minimize
+Temporal aggregation
+Involves collecting data corresponding to different time moments and processing information in an aggregated manner to protect privacy.
+Abstract
+Differential privacy
+This pattern modifies the results of queries by adding new data (noise) randomly extracted from a distribution generated from the original data so that statistically this modification has an insignificant effect on the results of the algorithm analyzing the data while preserving the privacy of individuals.
+Abstract
+Privacy assurance
+complement
+In many cases, the provision of a service requires taking detailed and repetitive measures that, evaluated over time, may reveal behavior and jeopardize the privacy of the data subject. This complement reliably aggregates the detailed values of the records on the user side, providing the intended purpose while hiding the detailed disaggregated values.
+Abstract
+Dynamic location
+granularity
+In the case of location-based services (LBS), it allows the user's location information to achieve k-anonymity by reducing precision while maintaining a balance with the utility of the information necessary for the provision of the service.
+Abstract
+Minimize
+
+Page | 35 of 58
+
+NAME OF THE
+DESIGN PATTERN
+OBJECTIVE AND PURPOSE
+STRATEGY(IES) IT SUPPORTS
+Aggregation gateway
+Implements homomorphic encryption, encrypting, aggregating, and subsequently decrypting the processed information. Operating on the encrypted information, it is possible to perform treatments of measures taken at different time moments on a user, but without extrapolating a behavior pattern. It works with aggregated data without having access to individual information.
+Abstract
+Hide
+Separate
+Active presence
+transmission
+Allows the user to decide when they want to share information actively, particularly information associated with their location. Information dissemination settings should not be applied holistically by default, and in case of doubt, confirmation should be requested.
+Control
+Informed consent
+For certain treatments, the controller needs to obtain the informed consent of the user. The implementation of this pattern ensures a clear, concise, and understandable notice is displayed before collecting the data and initiating the processing, indicating that by using the service, the user consents to the necessary data processing and is aware of the possible consequences. Complete details should be easily accessible so that the user has the opportunity to choose whether or not to use the service.
+Control
+**PAGE | 36 of 58**
+
+**NAME OF THE DESIGN PATTERN**  
+**OBJECTIVE AND PURPOSE**  
+**STRATEGY(IES) IT SUPPORTS**  
+
+Private Links  
+In environments where the responsible party provides users with a content storage service, personal data may potentially exist. If the user wishes to share part of this content, but in a limited manner, implementing this pattern allows sending a private link to interested parties granting access to the information, but without the need to make it fully public.  
+
+Control  
+
+Adhered Policies  
+These are privacy policies that are read and interpreted automatically and accompany the data communicated to third parties to define their usage possibilities, limitations, and user preferences, thus improving the control that the user has over their personal data.  
+
+Control  
+
+Disaggregated Functionality Choice  
+Often, responsible parties collect more data than strictly necessary with the aim of providing additional functionalities regarding the main purpose of the processing. This pattern allows users to choose, in a disaggregated manner, the functionalities of the system they wish to use and to provide only the data required for their achievement.  
+
+Control  
+
+Selective Access Control  
+Used in forums, social networks, and web content publishing services, it provides users with a mechanism to define the visibility of their posts and the content they share by defining access rules and configuring privacy options.  
+
+Control  
+
+**PAGE | 37 of 58**
+
+**NAME OF THE DESIGN PATTERN**  
+**OBJECTIVE AND PURPOSE**  
+**STRATEGY(IES) IT SUPPORTS**  
+
+Selective Disclosure Option  
+Many products and services require the collection of a predetermined amount of data, sometimes excessive, before the user can begin to use it. However, there are individuals who prefer to freely choose what type of information they share. This pattern recommends that services allow a selective disclosure option, adapting the functionality provided to the level of data exposure that the user feels comfortable sharing.  
+
+Control  
+
+Privacy Preference Configuration Platform  
+This pattern allows users to monitor and easily configure the permissions granted and their privacy preferences by offering a centralized point where configurable options that determine the processing can be accessed, upon authentication.  
+
+Control  
+
+Inform  
+Access Control  
+Establishes access control mechanisms to information based on the principle of "need to know" so that it is processed legitimately and by authorized parties.  
+
+Comply  
+
+Privacy Impact Assessment in Federated Identity Management Solutions  
+Identity management solutions allow for the decoupling of functions related to authentication, authorization, and user attribute management on one side and the provision of services accessed by those users on the other, constituting a federated system that involves complex data flows and the transmission of user identity among different parties. These flows involve risks and threats regarding privacy that must be analyzed through a data protection impact assessment.  
+
+Comply  
+
+**PAGE | 38 of 58**
+
+**NAME OF THE DESIGN PATTERN**  
+**OBJECTIVE AND PURPOSE**  
+**STRATEGY(IES) IT SUPPORTS**  
+
+Obligation Management  
+The pattern allows obligations related to the exchange, storage, and processing of data to be transferred and managed among multiple parties involved in the processing. This way, it is possible to manage the defined privacy policy and user preferences, controlling the exercise of rights or the withdrawal of consents when data has been communicated or is shared by several controllers/processors.  
+
+Comply  
+
+Audits  
+Conduct periodic audits to examine the effectiveness of compliance mechanisms.  
+
+Demonstrate  
+
+Record  
+The application of this pattern allows demonstrating to the responsible party in compliance with the principle of accountability that the regulatory requirements regarding data protection are duly implemented.  
+
+Demonstrate  
+
+Abbreviated Terms and Conditions  
+Aims for users to better understand the terms and conditions presented in the privacy policy (risks, rights, transfers, etc.) if these are presented in a concise and abbreviated manner that is understandable to the interested party.  
+
+Inform  
+
+Processing Alert  
+Provide a discreet, yet clearly perceptible notice when a sensor is collecting personal data or tracking an individual so that users can obtain more information in real-time, if they require, about the use of the data and thus be able to revoke permissions. An alternative to this pattern is the so-called Asynchronous Notice.  
+
+Inform
+**PAGE | 39 of 58**
+
+**NAME OF THE DESIGN PATTERN**  
+**OBJECTIVE AND PURPOSE**  
+**STRATEGY(IES) SUPPORTED**  
+Privacy Feedback  
+In order to ensure that the interested party understands the scope of the processing, a notification is sent to confirm that they understand what data is being collected, to whom it will be communicated, how it will be used, and what risks to their privacy it entails, so that they can adjust their privacy preferences before using the application or service.  
+Inform  
+
+**Privacy Icons**  
+Often, privacy policies are convoluted and difficult to understand. The use of icons, preferably standardized, allows for the information to be conveyed more quickly and supports the understanding of the text, becoming a useful tool to increase transparency and the level of information provided by the privacy policy.  
+Inform  
+
+**Awareness**  
+Making users aware of the potential consequences of sharing their data, informing them of how visible it is and what risks may arise from that exposure. This allows them to reconsider their privacy settings and take action if they wish.  
+Inform  
+
+**Notification of Privacy Breaches**  
+This pattern ensures that, in the event of unauthorized access and processing of personal data, it is detected and reported to the supervisory authority and, where applicable, to the affected users, without undue delay.  
+Inform  
+
+**Dynamic Visualization of the Privacy Policy**  
+Not all environments are suitable for displaying an extensive privacy policy; however, interested parties need to be able to consult detailed information regarding a specific point. This pattern provides additional information from the privacy policy contextually (by clicking or hovering over a link) adjusted to the context or device from which it is being consulted.  
+Inform  
+
+**Management and Notification of Unusual Activities in User Accounts**  
+Many web services rely on weak authentication systems based on username and password. It is advisable to establish mechanisms to identify anomalous activities in the user account, alert the holders, and use multifactor authentication to protect the systems from unauthorized access.  
+Inform  
+
+**Warning about the Degree of Disclosure**  
+To prevent users from unconsciously or mistakenly sharing or publishing personal information while using applications or services, contextual privacy alerts can be used to provide information regarding the level of data disclosure before that information is definitively published or transmitted.  
+Inform  
+
+**Secure Passwords**  
+The usual method of authentication for accessing a service is in the form of a username and password. Due to the weakness of this authentication method, the responsible party must use this pattern to assist the user in choosing a robust password and keep them informed of the importance of its protection and custody.  
+Inform  
+
+**Design of Layered Privacy Policies**  
+Privacy policies tend to be long, complex, and difficult to understand, which leads users not to read them and consequently not to be adequately informed about the processing. This pattern suggests that the responsible party organizes the privacy policy into nested levels of detail and extracts the most relevant aspects to a first level to provide access to subsequent levels of detail where users can easily and comfortably find the relevant information for them.  
+Inform  
+
+**Minimization of Information Asymmetry**  
+Information asymmetry is defined as the situation in which one of the parties involved in a transaction has more or better information about it than the other. For a relationship of trust to exist between the responsible party and the data subject, the latter must know and understand the nature of the processing. The use of this pattern translates into minimizing the amount and type of data obtained from the user so that only the personal data required for the intended purpose is processed and establishing clear and concise policies that are easily understandable by the user, thus reducing the imbalance between the responsible party and the data subject.  
+Inform  
+
+**Registration of Personal Data**  
+Even though in many cases it is not a legal obligation for the responsible party, publishing the inventory of processing activities promotes transparency and, by making them easily accessible to the user, allows them to be fully informed about the characteristics of the processing: what data is collected, by whom, for what purpose, to whom it is communicated, for how long it is retained, etc. The possibility of providing raw access to the record of the data being processed at different levels of detail can even be considered.  
+Inform  
+
+**PAGE | 41 of 58**  
+
+**NAME OF THE DESIGN PATTERN**  
+**OBJECTIVE AND PURPOSE**  
+**STRATEGY(IES) SUPPORTED**
+**PAGE | 42 of 58**
+
+**NAME OF THE DESIGN PATTERN**  
+**OBJECTIVE AND PURPOSE**  
+**STRATEGY(IES) IT SUPPORTS**  
+
+**Privacy Awareness Panel**  
+There are services and applications that impact user privacy in ways that are not immediately evident to the user. Users may, if they are not fully aware of the consequences and act uninformed, make incorrect decisions regarding how they use the services, even believing that the actions they take are anonymous and do not identify them. This pattern allows sending reminders to users about who can see the content they disclose, what is done with it, and how they could be identified.  
+**Inform**  
+
+**Privacy Coding by Colors**  
+Used in web environments where personal data is published, such as social networks, it allows users to quickly and at a glance appreciate through color coding what privacy parameters apply to the shared content.  
+**Inform**  
+
+**Privacy Labels**  
+Due to the effort required, users often do not consult the various privacy policies of the services they use, leading to misinformation about the possible consequences of their consent and configured privacy options. Defining the basic aspects of processing in a tabular format and using labels helps to more easily understand the nature and characteristics of the processing.  
+**Inform**  
+
+**Privacy Mirrors**  
+Users often do not know the extent to which a system processes their personal data. As a result, sometimes they accept the indefinite and uncontrolled use of data, while at other times they limit it more than necessary, resulting in a loss of functionality. This pattern implements a system that reflects at a high level what personal data the system knows, what access is granted to others, and what types of personal data can be inferred, thus providing an interface that allows users to consider their privacy in context and make informed decisions tailored to their needs.  
+**Inform**  
+
+**Privacy Proxy**  
+The privacy policies published on web services are often difficult for stakeholders to read and understand. This pattern, applicable to web solutions, implements a privacy proxy capable of analyzing and interpreting the policies and translating them into a more readable format.  
+**Inform**  
+
+**Credential Selection**  
+In processes that require authentication, providing accurate information to users about the personal data and metadata that the controller will obtain once the transaction is completed, and enabling a mechanism that allows selection among different options, allows for granular identification, providing more or less information according to their choice.  
+**Inform**  
+
+**Control**  
+
+**Anonymization**  
+Disassociating sensitive attributes from their corresponding identifiers so that data subjects cannot be identified.  
+**Minimize**  
+
+**Select Before Collecting**  
+Its implementation limits the collection of personal data to what is necessary for the specified purposes and for which there is a legal basis, thus avoiding indiscriminate data collection and potentially a diversion of purpose in processing.  
+**Minimize**  
+
+**Removal of Metadata**  
+Metadata generated during certain processing (Exif data in photographs, headers in emails or other types of communications, timestamps in files, etc.) that are not necessary for the intended purpose must be hidden, as they can represent a threat to privacy if made public.  
+**Minimize**  
+
+**Attribute-Based Credentials**  
+They allow for flexible and selective authentication of compliance with different properties or attributes about an entity or subject, but without revealing their identity or additional information about it (zero-knowledge property).  
+**Minimize**  
+
+**Hide**  
+
+**Protection Against Tracking**  
+This pattern prevents tracking of individuals visiting a website through the use of cookies by implementing mechanisms between the browser and the web server that regularly delete them (for example, at each operating system startup) or permanently disabling them.  
+**Minimize**  
+**Hide**  
+
+**Mix Networks**  
+Mix networks are routing protocols that create communications that are difficult to trace by using a chain of proxy servers that receive messages from multiple senders, reorder them, and forward them in random order to the next destination (possibly another mix node). This way, the link between the source of the request and the destination is broken, making it more difficult for someone attempting to eavesdrop on end-to-end communications.  
+**Hide**
+**PAGE | 45 of 58**
+
+**NAME OF THE DESIGN PATTERN**  
+**OBJECTIVE AND PURPOSE**  
+**STRATEGY(IES) IT SUPPORTS**  
+This pattern provides unlinkability in end-to-end communications, making it difficult to establish correlations and track communications.  
+**Onion Routing**  
+This pattern is a particular case of the Mixing Networks pattern and provides unlinkability between the sender and the receiver of a communication by encapsulating the data in different layers of encryption, thus limiting the knowledge of intermediate nodes along the communication route, achieving anonymous routing.  
+**Hiding**  
+**Pseudonymization**  
+This pattern allows for the processing of personal data in such a way that it cannot be attributed to a specific data subject without the use of additional information, provided that such additional information is kept separate and is subject to technical and organizational measures to ensure non-attribution.  
+**Hiding**  
+**Pseudonymous Identity**  
+It is possible to interact anonymously in certain services, such as forums, by using pseudonyms that conceal the real identity of the interested party in their contributions, so that other users cannot link them to the real identity of the subject.  
+**Hiding**  
+**Pseudonymous Messaging**  
+This is an enhanced online messaging service in which a trusted third party is responsible for exchanging the identifiers of the parties involved in the communication for pseudonyms, thus maintaining anonymity between the ends.  
+**Hiding**  
+
+**PAGE | 46 of 58**
+
+**NAME OF THE DESIGN PATTERN**  
+**OBJECTIVE AND PURPOSE**  
+**STRATEGY(IES) IT SUPPORTS**  
+**Masking**  
+This pattern conceals the actions performed by a user by adding other false interactions that cannot be distinguished from the real ones. It is used to protect privacy in location services by notifying different locations to hide the actual location, in anonymous communications by sending false messages to false recipients to protect the profile, or in web search services to hide actual preferences.  
+**Hiding**  
+**Anonymous Set**  
+It aggregates multiple occurrences of records related to interested parties into a single dataset, so that a specific occurrence cannot be identified within the set, thus preventing actions such as tracking the location of a subject, analyzing behavior, or other operations that may jeopardize privacy.  
+**Hiding**  
+**Abstracting**  
+**Encryption with User-Managed Keys**  
+It protects the confidentiality of personal information by encoding the content of messages transmitted over the network or stored using a service provided by untrusted third parties through the use of encryption algorithms and using keys managed by the user, so that only those who possess the decryption key can retrieve the content.  
+**Hiding**  
+**Controlling**  
+**Blocking Correlation in Federated Identity Management Systems**  
+In federated identity management systems, the use of this pattern prevents the correlation of requests between the end user and the service provider that may be made by other participating actors in the system by using a request orchestrator that runs in the client environment.  
+**Hiding**  
+**Compliance**  
+
+**PAGE | 47 of 58**
+
+**NAME OF THE DESIGN PATTERN**  
+**OBJECTIVE AND PURPOSE**  
+**STRATEGY(IES) IT SUPPORTS**  
+**User Data Custody**  
+It is common to develop centralized architectures in which the processing of personal data is carried out in a single system or entity in which the user is forced to trust and even share sensitive data. This pattern avoids centralized processing of personal data by shifting part of it to trusted user environments (for example, their own devices), thus allowing them to control the exact data that is shared with service providers.  
+**Separating**  
+**Anonymous Blacklists**  
+Maintain control over users who misuse the service and prohibit their access by creating blacklists, but without knowing their identity.  
+**Separating**  
+**Hiding**
+**Page | 48 of 58**
+
+**IX.  
+ANNEX 2: NORMATIVE EXTRACTS**  
+Below, for the reader's convenience, are transcribed those articles and recitals of Regulation (EU) 2016/679 General Data Protection Regulation that have been referenced throughout this guide and that relate to the concept of privacy by design and by default.  
+
+**CONSIDERING 39**  
+"Any processing of personal data must be lawful and fair. For natural persons, it must be completely clear that personal data concerning them is being collected, used, consulted, or otherwise processed, as well as the extent to which such data is or will be processed. The principle of transparency requires that all information and communication related to the processing of such data be easily accessible and easy to understand, and that plain and clear language be used. This principle particularly refers to the information provided to data subjects about the identity of the data controller and the purposes of the processing, as well as the additional information to ensure fair and transparent processing with respect to the affected natural persons and their right to obtain confirmation and communication of the personal data concerning them that is being processed. Natural persons must be aware of the risks, rules, safeguards, and rights related to the processing of personal data, as well as how to exercise their rights in relation to the processing. In particular, the specific purposes of the processing of personal data must be explicit and legitimate, and must be determined at the time of collection. Personal data must be adequate, relevant, and limited to what is necessary for the purposes for which they are processed. This requires, in particular, ensuring that the retention period is limited to a strict minimum. Personal data should only be processed if the purpose of the processing cannot reasonably be achieved by other means. To ensure that personal data is not kept longer than necessary, the data controller must establish deadlines for its deletion or periodic review. All reasonable measures must be taken to ensure that inaccurate personal data is rectified or deleted. Personal data must be processed in a manner that ensures adequate security and confidentiality of the personal data, including to prevent unauthorized access or use of such data and the equipment used in the processing."
+
+**CONSIDERING 78**  
+"The protection of the rights and freedoms of natural persons with regard to the processing of personal data requires the adoption of appropriate technical and organizational measures to ensure compliance with the requirements of this Regulation. In order to demonstrate compliance with this Regulation, the data controller must adopt internal policies and implement measures that comply in particular with the principles of data protection by design and by default. Such measures could consist, among others, of minimizing the processing of personal data, pseudonymizing personal data as soon as possible, providing transparency regarding the functions and processing of personal data, allowing data subjects to monitor the processing of data, and enabling the data controller to create and improve security elements. When developing, designing, selecting, and using applications, services, and products that are based on the processing of personal data or that process personal data to fulfill their function, producers of products, services, and applications should be encouraged to take into account the right to data protection."
+Page | 49 of 58
+
+data when developing and designing these products, services, and applications, and ensure, with due attention to the state of the art, that the data controllers and processors are in a position to fulfill their obligations regarding data protection. The principles of data protection by design and by default must also be taken into account in the context of public contracts.”  
+ARTICLE 5 PRINCIPLES RELATING TO PROCESSING  
+“1. Personal data shall be:  
+a) processed lawfully, fairly, and transparently in relation to the data subject (‘lawfulness, fairness, and transparency’);  
+b) collected for specified, explicit, and legitimate purposes, and not further processed in a manner that is incompatible with those purposes; in accordance with Article 89, paragraph 1, further processing of personal data for archiving purposes in the public interest, scientific or historical research purposes, or statistical purposes shall not be considered incompatible with the initial purposes (‘purpose limitation’);  
+c) adequate, relevant, and limited to what is necessary in relation to the purposes for which they are processed (‘data minimization’);  
+d) accurate and, where necessary, kept up to date; all reasonable steps must be taken to ensure that personal data that are inaccurate with respect to the purposes for which they are processed are erased or rectified without delay (‘accuracy’);  
+e) kept in a form which permits identification of data subjects for no longer than is necessary for the purposes of the processing of personal data; personal data may be stored for longer periods provided that they are processed solely for archiving purposes in the public interest, scientific or historical research purposes, or statistical purposes, in accordance with Article 89, paragraph 1, without prejudice to the implementation of appropriate technical and organizational measures as required by this Regulation to protect the rights and freedoms of the data subject (‘storage limitation’);  
+f) processed in a manner that ensures appropriate security of the personal data, including protection against unauthorized or unlawful processing and against accidental loss, destruction, or damage, using appropriate technical or organizational measures (‘integrity and confidentiality’).  
+2. The data controller shall be responsible for compliance with the provisions of paragraph 1 and be able to demonstrate it (‘accountability’).”  
+ARTICLE 13 INFORMATION TO BE PROVIDED WHEN PERSONAL DATA ARE OBTAINED FROM THE DATA SUBJECT  
+“1. When personal data relating to a data subject are obtained from the data subject, the data controller shall provide the data subject with all the information set out below at the time of obtaining the data:  
+a) the identity and contact details of the controller and, where applicable, of the controller's representative;  
+b) the contact details of the data protection officer, where applicable;  
+c) the purposes of the processing for which the personal data are intended and the legal basis for the processing;
+Page | 50 of 58
+
+d) when the processing is based on Article 6, paragraph 1, letter f), the legitimate interests of the controller or a third party;  
+e) the recipients or categories of recipients of the personal data, if applicable;  
+f) if applicable, the intention of the controller to transfer personal data to a third country or international organization and the existence or absence of an adequacy decision by the Commission, or, in the case of transfers referred to in Articles 46 or 47 or Article 49, paragraph 1, second sentence, reference to the appropriate safeguards and the means to obtain a copy of these or the fact that they have been provided.  
+2. In addition to the information mentioned in paragraph 1, the data controller shall provide the data subject, at the time the personal data is obtained, with the following information necessary to ensure fair and transparent data processing:  
+a) the period for which the personal data will be stored or, when that is not possible, the criteria used to determine that period;  
+b) the existence of the right to request from the data controller access to personal data concerning the data subject, and their rectification or erasure, or the restriction of processing, or to object to the processing, as well as the right to data portability;  
+c) when the processing is based on Article 6, paragraph 1, letter a), or Article 9, paragraph 2, letter a), the existence of the right to withdraw consent at any time, without affecting the lawfulness of the processing based on consent before its withdrawal;  
+d) the right to lodge a complaint with a supervisory authority;  
+e) whether the communication of personal data is a legal or contractual requirement, or a requirement necessary to enter into a contract, and whether the data subject is obliged to provide the personal data and has been informed of the possible consequences of not providing such data;  
+f) the existence of automated decision-making, including profiling, referred to in Article 22, paragraphs 1 and 4, and, at least in such cases, meaningful information about the logic involved, as well as the significance and the anticipated consequences of such processing for the data subject.  
+3. When the data controller intends to further process personal data for a purpose other than that for which it was collected, it shall provide the data subject, prior to that further processing, information about that other purpose and any relevant additional information pursuant to paragraph 2.  
+4. The provisions of paragraphs 1, 2, and 3 shall not apply when and to the extent that the data subject already has the information.”  
+ARTICLE 14 INFORMATION TO BE PROVIDED WHEN PERSONAL DATA HAS NOT BEEN OBTAINED FROM THE DATA SUBJECT  
+“1. When personal data has not been obtained from the data subject, the data controller shall provide the following information:
+Page | 51 of 58
+
+a) the identity and contact details of the controller and, where applicable, of their representative;  
+b) the contact details of the data protection officer, where applicable;  
+c) the purposes of the processing for which the personal data are intended, as well as the legal basis for the processing;  
+d) the categories of personal data concerned;  
+e) the recipients or categories of recipients of the personal data, where applicable;  
+f) where applicable, the intention of the controller to transfer personal data to a recipient in a third country or international organization and the existence or absence of an adequacy decision by the Commission, or, in the case of transfers referred to in Articles 46 or 47 or Article 49, paragraph 1, second subparagraph, reference to the appropriate safeguards and the means to obtain a copy of them or the fact that they have been provided.  
+
+2. In addition to the information mentioned in paragraph 1, the controller shall provide the data subject with the following information necessary to ensure fair and transparent data processing regarding the data subject:  
+a) the period for which the personal data will be retained or, when that is not possible, the criteria used to determine that period;  
+b) when the processing is based on Article 6, paragraph 1, letter f), the legitimate interests of the controller or a third party;  
+c) the existence of the right to request from the controller access to personal data concerning the data subject, and their rectification or erasure, or the restriction of processing, and to object to the processing, as well as the right to data portability;  
+d) when the processing is based on Article 6, paragraph 1, letter a), or Article 9, paragraph 2, letter a), the existence of the right to withdraw consent at any time, without affecting the lawfulness of the processing based on consent before its withdrawal;  
+e) the right to lodge a complaint with a supervisory authority;  
+f) the source from which the personal data originate and, where applicable, whether they come from publicly accessible sources;  
+g) the existence of automated decision-making, including profiling, referred to in Article 22, paragraphs 1 and 4, and, at least in such cases, meaningful information about the logic involved, as well as the significance and the envisaged consequences of such processing for the data subject.  
+
+3. The controller shall provide the information referred to in paragraphs 1 and 2:  
+a) within a reasonable period, once the personal data have been obtained, and at the latest within one month, taking into account the specific circumstances in which the data are processed;  
+b) if the personal data are to be used for communication with the data subject, at the latest at the time of the first communication to that data subject, or
+Page | 52 of 58
+
+c) if it is intended to communicate them to another recipient, no later than at the time the personal data is communicated for the first time.  
+4. When the data controller intends to further process the personal data for a purpose other than that for which it was obtained, they shall provide the data subject, prior to such further processing, information about that other purpose and any other relevant information indicated in paragraph 2.  
+5. The provisions of paragraphs 1 to 4 shall not apply when and to the extent that:  
+a) the data subject already has the information;  
+b) the communication of such information is impossible or would involve a disproportionate effort, in particular for processing for archiving purposes in the public interest, scientific or historical research purposes, or statistical purposes, subject to the conditions and safeguards referred to in Article 89, paragraph 1, or to the extent that the obligation mentioned in paragraph 1 of this article may prevent or seriously hinder the achievement of the objectives of such processing. In such cases, the controller shall take appropriate measures to protect the rights, freedoms, and legitimate interests of the data subject, including making the information public;  
+c) the obtaining or communication is expressly laid down by Union or Member State law applicable to the data controller and which provides for adequate measures to protect the legitimate interests of the data subject, or  
+d) when the personal data must continue to be kept confidential based on a professional secrecy obligation regulated by Union or Member State law, including a statutory obligation of secrecy.”  
+ARTICLE 24 RESPONSIBILITY OF THE DATA CONTROLLER  
+“1. Taking into account the nature, scope, context, and purposes of the processing as well as the risks of varying likelihood and severity for the rights and freedoms of natural persons, the data controller shall implement appropriate technical and organizational measures to ensure and be able to demonstrate that the processing is in compliance with this Regulation. Such measures shall be reviewed and updated as necessary.  
+2. When provided in relation to processing activities, among the measures mentioned in paragraph 1, the implementation by the data controller of appropriate data protection policies shall be included.  
+3. Adherence to approved codes of conduct pursuant to Article 40 or to an approved certification mechanism pursuant to Article 42 may be used as elements to demonstrate compliance with the obligations of the data controller.”  
+ARTICLE 25 DATA PROTECTION BY DESIGN AND BY DEFAULT  
+“1. Taking into account the state of the art, the cost of implementation, and the nature, scope, context, and purposes of the processing, as well as the risks of varying likelihood and severity that the processing entails for the rights and freedoms of natural persons, the data controller shall implement, both at the time of determining the means of processing and at the time of the processing itself, appropriate technical and organizational measures, such as pseudonymization, designed to apply in a way
+effective the principles of data protection, such as data minimization, and integrate the necessary safeguards in the processing, in order to comply with the requirements of this Regulation and protect the rights of the data subjects.  
+2. The data controller shall implement appropriate technical and organizational measures to ensure that, by default, only personal data that are necessary for each specific purpose of the processing are processed. This obligation shall apply to the amount of personal data collected, the extent of its processing, its retention period, and its accessibility. Such measures shall ensure, in particular, that, by default, personal data are not accessible, without the intervention of the individual, to an indeterminate number of natural persons.  
+3. An approved certification mechanism under Article 42 may be used as an element to demonstrate compliance with the obligations set out in paragraphs 1 and 2 of this Article.”  
+ARTICLE 28 PROCESSOR  
+“1. When processing is to be carried out on behalf of a data controller, the controller shall choose only a processor that provides sufficient guarantees to implement appropriate technical and organizational measures, so that the processing is in compliance with the requirements of this Regulation and ensures the protection of the rights of the data subject.  
+2. The processor shall not engage another processor without the prior written authorization, specific or general, of the controller. In the latter case, the processor shall inform the controller of any intended changes concerning the addition or replacement of other processors, thereby giving the controller the opportunity to object to such changes.  
+3. The processing by the processor shall be governed by a contract or other legal act under Union or Member State law, which binds the processor to the controller and establishes the subject matter, duration, nature, and purpose of the processing, the type of personal data and categories of data subjects, and the obligations and rights of the controller. Such contract or legal act shall stipulate, in particular, that the processor:  
+a) shall process the personal data only on documented instructions from the controller, including with regard to the transfers of personal data to a third country or an international organization, unless required to do so by Union or Member State law applicable to the processor; in such a case, the processor shall inform the controller of that legal requirement before the processing, unless that law prohibits such information on important grounds of public interest;  
+b) shall ensure that persons authorized to process personal data have committed themselves to confidentiality or are under an appropriate statutory obligation of confidentiality;  
+c) shall take all necessary measures in accordance with Article 32;  
+d) shall respect the conditions referred to in paragraphs 2 and 4 for engaging another processor;  
+e) shall assist the controller, taking into account the nature of the processing, by means of appropriate technical and organizational measures, insofar as this is possible, so that the controller…
+Page | 54 of 58
+
+may comply with its obligation to respond to requests aimed at exercising the rights of the data subjects established in Chapter III;  
+f) will assist the controller in ensuring compliance with the obligations established in Articles 32 to 36, taking into account the nature of the processing and the information available to the processor;  
+g) at the controller's choice, will delete or return all personal data once the provision of processing services has ended, and will delete existing copies unless the retention of personal data is required under Union or Member State law;  
+h) will make available to the controller all necessary information to demonstrate compliance with the obligations established in this article, as well as to enable and contribute to the performance of audits, including inspections, by the controller or another auditor authorized by the controller.  
+In relation to the provisions of item h) of the first paragraph, the processor will immediately inform the controller if, in its opinion, an instruction infringes this Regulation or other provisions regarding data protection of the Union or Member States.  
+
+4. When a processor engages another processor to carry out specific processing activities on behalf of the controller, the same data protection obligations as those stipulated in the contract or other legal act between the controller and the processor referred to in paragraph 3 will be imposed on this other processor, through a contract or other legal act established in accordance with Union or Member State law, particularly the provision of sufficient guarantees for the application of appropriate technical and organizational measures in such a way that the processing is compliant with the provisions of this Regulation. If that other processor fails to comply with its data protection obligations, the initial processor will remain fully responsible to the controller for the compliance of the other processor's obligations.  
+5. The adherence of the processor to an approved code of conduct pursuant to Article 40 or to an approved certification mechanism pursuant to Article 42 may be used as an element to demonstrate the existence of sufficient guarantees referred to in paragraphs 1 and 4 of this article.  
+6. Without prejudice to the controller and the processor entering into an individual contract, the contract or other legal act referred to in paragraphs 3 and 4 of this article may be based, in whole or in part, on the standard contractual clauses referred to in paragraphs 7 and 8 of this article, including when they form part of a certification granted to the controller or processor in accordance with Articles 42 and 43.  
+7. The Commission may establish standard contractual clauses for the matters referred to in paragraphs 3 and 4 of this article, in accordance with the examination procedure referred to in Article 93, paragraph 2.  
+8. A supervisory authority may adopt standard contractual clauses for the matters referred to in paragraphs 3 and 4 of this article, in accordance with the consistency mechanism referred to in Article 63.  
+9. The contract or other legal act referred to in paragraphs 3 and 4 shall be in writing, including in electronic format.
+Page | 55 of 58
+
+10. Without prejudice to the provisions of Articles 82, 83, and 84, if a data processor infringes this Regulation by determining the purposes and means of processing, they shall be considered responsible for the processing in relation to such processing.”  
+ARTICLE 32 SECURITY OF PROCESSING  
+“1. Taking into account the state of the art, the costs of implementation, and the nature, scope, context, and purposes of the processing, as well as the risks of varying probability and severity for the rights and freedoms of natural persons, the controller and the processor shall implement appropriate technical and organizational measures to ensure a level of security appropriate to the risk, which may include, among others:  
+a) the pseudonymization and encryption of personal data;  
+b) the ability to ensure the ongoing confidentiality, integrity, availability, and resilience of processing systems and services;  
+c) the ability to restore the availability and access to personal data quickly in the event of a physical or technical incident;  
+d) a process for regularly verifying, assessing, and evaluating the effectiveness of the technical and organizational measures to ensure the security of processing.  
+2. In assessing the appropriateness of the level of security, particular consideration shall be given to the risks presented by the processing of data, in particular as a result of the accidental or unlawful destruction, loss, or alteration of personal data transmitted, stored, or otherwise processed, or the unauthorized communication or access to such data.  
+3. Adherence to an approved code of conduct pursuant to Article 40 or to an approved certification mechanism pursuant to Article 42 may serve as an element to demonstrate compliance with the requirements set out in paragraph 1 of this Article.  
+4. The controller and the processor shall take measures to ensure that any person acting under the authority of the controller or the processor and having access to personal data may only process such data on instructions from the controller, unless required to do so by Union or Member State law.”  
+ARTICLE 36 PRIOR CONSULTATION  
+“1. The controller shall consult the supervisory authority before proceeding with the processing when a data protection impact assessment pursuant to Article 35 indicates that the processing would result in a high risk if the controller does not take measures to mitigate it.  
+2. When the supervisory authority considers that the intended processing referred to in paragraph 1 could infringe this Regulation, in particular when the controller has not sufficiently identified or mitigated the risk, the supervisory authority shall, within eight weeks of the request for consultation, advise the controller in writing, and where applicable, the processor, and may use any of its powers mentioned in Article 58. This period may be extended by six weeks, depending on the complexity of the intended processing. The supervisory authority shall inform the
+Page | 56 of 58
+
+responsible party and, where applicable, to the person in charge of such extension within one month from the receipt of the consultation request, indicating the reasons for the delay. These deadlines may be suspended until the supervisory authority has obtained the information requested for the purposes of the consultation.  
+3. When consulting the supervisory authority in accordance with paragraph 1, the data controller shall provide the following information:  
+a) where applicable, the respective responsibilities of the controller, joint controllers, and processors involved in the processing, particularly in the case of processing within a corporate group;  
+b) the purposes and means of the intended processing;  
+c) the measures and safeguards established to protect the rights and freedoms of the data subjects in accordance with this Regulation;  
+d) where applicable, the contact details of the data protection officer;  
+e) the data protection impact assessment established in Article 35; and  
+f) any other information requested by the supervisory authority.  
+4. Member States shall ensure that the supervisory authority is consulted during the preparation of any legislative measure to be adopted by a national Parliament, or of a regulatory measure based on such legislative measure, that relates to processing.  
+5. Notwithstanding the provisions of paragraph 1, the law of the Member States may require data controllers to consult the supervisory authority and obtain its prior authorization in relation to processing by a controller in the exercise of a task carried out in the public interest, particularly processing related to social protection and public health.”  
+ARTICLE 83 GENERAL CONDITIONS FOR THE IMPOSITION OF ADMINISTRATIVE FINES  
+“1. Each supervisory authority shall ensure that the imposition of administrative fines under this article for the infringements of this Regulation indicated in paragraphs 4, 5, and 6 are, in each individual case, effective, proportionate, and dissuasive.  
+2. Administrative fines shall be imposed, depending on the circumstances of each individual case, as an additional or substitute measure to those provided for in Article 58, paragraph 2, letters a) to h) and j). In deciding on the imposition of an administrative fine and its amount in each individual case, the following shall be duly taken into account:  
+a) the nature, gravity, and duration of the infringement, taking into account the nature, scope, or purpose of the processing operation in question as well as the number of data subjects affected and the level of damage suffered;  
+b) the intentionality or negligence in the infringement;  
+c) any measures taken by the controller or processor to mitigate the damage suffered by the data subjects;  
+d) the degree of responsibility of the controller or processor, taking into account the technical or organizational measures they have implemented pursuant to Articles 25 and 32;
+e) any previous infringement committed by the controller or the processor;  
+f) the degree of cooperation with the supervisory authority in order to remedy the infringement and mitigate the possible adverse effects of the infringement;  
+g) the categories of personal data affected by the infringement;  
+h) the manner in which the supervisory authority became aware of the infringement, in particular whether the controller or processor notified the infringement and, if so, to what extent;  
+i) when the measures referred to in Article 58(2) have been previously ordered against the controller or processor in relation to the same matter, compliance with those measures;  
+j) adherence to codes of conduct under Article 40 or to certification mechanisms approved under Article 42; and  
+k) any other aggravating or mitigating factor applicable to the circumstances of the case, such as the financial benefits obtained or the losses avoided, directly or indirectly, through the infringement.  
+3. If a controller or processor intentionally or negligently violates various provisions of this Regulation for the same processing operations or related operations, the total amount of the administrative fine shall not exceed the amount provided for the most serious infringements.  
+4. Infringements of the following provisions shall be subject to administrative fines of up to 10,000,000 EUR or, in the case of an enterprise, an amount equivalent to a maximum of 2% of the total annual global turnover of the preceding financial year, opting for the higher amount:  
+a) the obligations of the controller and the processor under Articles 8, 11, 25 to 39, 42, and 43;  
+b) the obligations of certification bodies under Articles 42 and 43;  
+c) the obligations of the supervisory authority under Article 41(4).  
+5. Infringements of the following provisions shall be subject to administrative fines of up to 20,000,000 EUR or, in the case of an enterprise, an amount equivalent to a maximum of 4% of the total annual global turnover of the preceding financial year, opting for the higher amount:  
+a) the basic principles for processing, including the conditions for consent under Articles 5, 6, 7, and 9;  
+b) the rights of data subjects under Articles 12 to 22;  
+c) the transfers of personal data to a recipient in a third country or an international organization under Articles 44 to 49;  
+d) any obligation under the law of the Member States adopted pursuant to Chapter IX;  
+e) the failure to comply with a decision or a temporary or definitive limitation on processing or the suspension of data flows by the supervisory authority under Article 58(2), or the failure to provide access in violation of Article 58(1).  
+6. The failure to comply with the decisions of the supervisory authority under Article 58(2) shall be sanctioned in accordance with paragraph 2 of this article with administrative fines of up to 20,000,000 EUR or, in the case of an enterprise, an amount equivalent to a maximum of 4% of the total annual global turnover of the preceding financial year, opting for the higher amount.  
+7. Without prejudice to the corrective powers of the supervisory authorities under Article 58(2), each Member State may establish rules on whether and to what extent administrative fines may be imposed on authorities and public bodies established in that Member State.  
+8. The exercise by a supervisory authority of its powers under this article shall be subject to appropriate procedural safeguards in accordance with the law of the Union and of the Member States, including effective judicial protection and respect for procedural guarantees.  
+9. When the legal system of a Member State does not provide for administrative fines, this article may be applied in such a way that the initiation of the fine corresponds to the competent supervisory authority and its imposition to the competent national courts, while ensuring that these legal remedies are effective and have an effect equivalent to the administrative fines imposed by the supervisory authorities. In any case, the fines imposed shall be effective, proportionate, and dissuasive. The relevant Member States shall notify the Commission of the legislative provisions they adopt under this paragraph by 25 May 2018 at the latest and, without delay, any subsequent law of amendment or modification that is applicable to them.

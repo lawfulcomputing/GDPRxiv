@@ -1,0 +1,824 @@
+Requirements for 
+Audits of 
+Treatments that 
+Include AI 
+ 
+ 
+ 
+v. January 2021
+
+ 
+ 
+ 
+Page: 2 of 39 
+ 
+ 
+ 
+ 
+ 
+This document has been developed based on the study conducted by Eticas Research and Consulting SL under the 
+commission and supervision of the Spanish Agency for Data Protection and the reviews carried out by experts from the 
+Artificial Intelligence Hub of the Spanish National Research Council (CSIC AI HUB), the Observatory of 
+the social and ethical impact of artificial intelligence (OdiseIA), the Professional Association of Senior Bodies of 
+Information Systems and Technologies of Public Administrations (ASTIC), the Teaching Innovation Group in 
+Cybersecurity (CiberGID)-ETSI Computer Science - UNED, and the Center for Technological and Industrial Development (CDTI). 
+ 
+
+ 
+ 
+ 
+Page: 3 of 39 
+ 
+EXECUTIVE SUMMARY 
+This document presents a preliminary approach to a set of 
+controls that could be incorporated into audits of personal data 
+treatments that utilize components based on artificial intelligence (AI). It is important to note 
+that the included controls are designed to conduct an analysis of the adequacy of 
+the treatment from a data protection perspective. Additionally, some 
+methodological notes are added that may be specific and characteristic of this type of 
+audits.  
+The document is framed within the proposals in the Guide for Compliance with the GDPR for 
+treatments that incorporate Artificial Intelligence published by the AEPD regarding 
+the effective compliance with the principles of personal data protection in treatments 
+that include artificial intelligence solutions.  
+The audit of personal data treatments is one of the tools for 
+evaluating regulatory compliance. In those treatments subject to the GDPR that 
+include AI-based components, it will be necessary for the audit to include 
+specific controls derived from their particularities. The list of controls presented in 
+this document aims to serve as a reference for the auditor to determine, after a 
+preliminary analysis, which controls are appropriate and relevant to include in the specific audit of a 
+treatment. 
+While it is true that the audit of a specific treatment, particularly one that includes 
+AI components, could verify other aspects of it, such as its behavior from an 
+ethical perspective or its efficiency from a technical standpoint, this 
+document will focus exclusively on those aspects related to personal data protection. 
+On the other hand, the audit of a treatment that, among others, includes 
+AI-based components, cannot and should not focus exclusively on the specific technical 
+aspects of the technologies employed, but must cover a much broader scope that considers the nature, scope, context, and purposes of the treatment in addition to 
+the risks to the rights and freedoms that the treatment as a whole may 
+represent.  
+This document is primarily directed at those responsible for auditing 
+treatments that include AI-based components, as well as to data processors and 
+developers who wish to provide guarantees about their products and solutions; to the 
+Data Protection Officers responsible for supervising the treatments and 
+advising the controllers, and finally, to the audit teams when dealing 
+with the evaluation of such treatments. 
+ 
+Keywords: Artificial Intelligence, audit, AI component, algorithms, machine learning, automated decisions, profiling, big data, GDPR, Personal Data Protection, accountability, transparency, compliance, bias, explainability. 
+ 
+ 
+
+ 
+ 
+ 
+Page: 4 of 39 
+ 
+ 
+ 
+ 
+
+ 
+ 
+ 
+Page: 5 of 39 
+ 
+INDEX 
+I. 
+INTRODUCTION 
+7 
+II. 
+AUDIT METHODOLOGY AND TREATMENTS THAT INCORPORATE AI COMPONENTS 
+11 
+A. 
+General objectives of the audit of an AI component in PD 
+11 
+B. 
+Unique characteristics of the audit methodology of an AI component in PD 
+12 
+III. CONTROL OBJECTIVES AND CONTROLS 
+14 
+A. 
+Identification and transparency of the component 
+14 
+Objective: Inventory of the audited AI component 
+14 
+Objective: Identification of responsibilities 
+14 
+Objective: Transparency 
+15 
+B. 
+Purpose of the AI component 
+16 
+Objective: Identification of the intended purposes and uses 
+16 
+Objective: Identification of the context of use of the AI component 
+16 
+Objective: Analysis of proportionality and necessity 
+17 
+Objective: Determination of the data recipients 
+18 
+Objective: Limitation of data retention 
+18 
+Objective: Analysis of the categories of data subjects 
+19 
+C. 
+Foundations of the AI component 
+20 
+Objective: Identification of the development policy of the AI component 
+20 
+Objective: Involvement of the DPO 
+20 
+Objective: Adequacy of the underlying theoretical models 
+21 
+Objective: Adequacy of the methodological framework 
+21 
+Objective: Identification of the basic architecture of the component 
+21 
+D. 
+Data management 
+23 
+Objective: Assurance of data quality 
+23 
+Objective: Determination of the origin of data sources 
+23 
+Objective: Preparation of personal data 
+24 
+Objective: Control of bias 
+25 
+E. 
+Verification and validation 
+26 
+Objective: Adequacy of the verification and validation process of the AI component 
+26 
+Objective: Verification and Validation of the AI component 
+26 
+Objective: Performance 
+27 
+Objective: Coherence 
+28 
+Objective: Stability and robustness 
+29 
+Objective: Traceability 
+30 
+Objective: Security 
+31 
+IV. CONCLUSIONS 
+32 
+V. 
+ANNEX I: DEFINITIONS 
+33 
+Anonymization 
+33 
+Learning of AI components 
+33 
+Audit 
+34 
+Data protection audit of AI components 
+34 
+AI component 
+34
+Page: 6 of 39
+
+Input data, output data, and labeled data  
+34  
+Personal data  
+35  
+Lifecycle of an AI component  
+36  
+Algorithmic discrimination  
+36  
+Group discrimination  
+37  
+Statistical discrimination  
+37  
+Weak AI  
+37  
+Audit methodology  
+37  
+Control objectives and controls  
+38  
+Profiling  
+38  
+Re-identification risk  
+38  
+The re-identification risk analysis is a data analysis process to find properties that may increase the risk of subjects being identified. Risk analysis methods can be used before de-identification to help determine an effective de-identification strategy or after de-identification to monitor any changes or outliers.  
+38  
+Algorithmic bias  
+39  
+Proxy variables  
+39  
+
+Page: 7 of 39  
+
+I.  
+INTRODUCTION  
+The GDPR establishes in its Article 24 the obligation to apply "appropriate technical and organizational measures to ensure and be able to demonstrate that the processing is in compliance with this Regulation." These measures must be selected "taking into account the nature, scope, context, and purposes of the processing, as well as the risks of varying likelihood and severity to the rights and freedoms of natural persons." When necessary, these measures will also be subject to a process of constant review and updating.  
+One of the tools to "ensure and be able to demonstrate" compliance with the GDPR is the conduct of audits of the processing activities. In fulfilling its functions (Article 39), the data protection officer would oversee these audits. Every processing activity must be evaluated concerning its purposes, as well as in the scope and context in which it will be deployed. In turn, this evaluation must take into account the nature of the processing and the need to carry out a data protection impact assessment (Article 35) for various reasons, including the processing of special categories of data on a large scale, the use of new technologies, or the systematic and comprehensive evaluation of personal aspects of natural persons based on automated processing, such as profiling.  
+Regarding the latter, the particularities that may arise from the inclusion in such processing of operations1 (Article 4.2) that are implemented with components based on specific technological solutions must be considered. These components are concrete implementations of data processing techniques that, due to their proportionality, collateral effects, or other aspects, may incorporate characteristic elements that affect both compliance with the GDPR and the risks that arise for the rights and freedoms of the data subjects. Furthermore, it is essential to remember the need to inform the data subject of the existence of decisions based on automated processing, including profiling (Article 13.2.f)2, in addition to providing meaningful information about the logic applied, the significance, and the expected consequences of such processing for the data subject.  
+The potential impact that processing based on AI components could have on the rights and freedoms of citizens highlights the need to establish effective control measures, correction, accountability, risk management, and transparency concerning the systems and data processing in which they are used. Currently, audit models for processing that incorporate AI components are under development. Holistic models that allow for the practical implementation of the principle of accountability throughout the data lifecycle and that enable the clarification of responsibilities in the various phases of the collection and processing of personal data are also being developed. In this sense, this document represents only a first approach towards determining basic elements that future audits  
+
+1 Operations according to Article 4.2 of the GDPR are: "collection, recording, organization, structuring, storage, adaptation or alteration, retrieval, consultation, use, communication by transmission, dissemination or any other form of making available, alignment or combination, restriction, erasure or destruction."  
+2 Wachter, Sandra, Brent Mittelstadt, and Luciano Floridi. 2017. "Why a Right to Explanation of Automated Decision-Making Does Not Exist in the General Data Protection Regulation." International Data Privacy Law 7 (2):76-99.
+Page: 8 of 39
+
+could incorporate from the perspective of data protection and towards the development of future standards. 
+
+In the document "Compliance with the GDPR for processing that incorporates Artificial Intelligence. An introduction," published by the AEPD, a chapter was dedicated to the auditing of processes that included either AI solutions or phases implemented through AI components, viewed from the perspective of personal data protection regulations. The audit was proposed as one of the possible evaluation tools within the framework of processes that use AI and as an instrument aimed at achieving safe, predictable, controllable products whose internal logic can be explained to some extent.
+
+In this regard, it is important to consider that artificial intelligence solutions, especially those known as "weak AI" (See Annex I "Definitions"), are built and executed using traditional hardware and software components. "Weak AI," rather than being a new computing model, is a new application development model. The maturity of this development process will be critical to ensure the traceability, explainability, and quality of the constructed product.
+
+Traditional development models are supported by well-known and established best practices, such as software development life cycle management (SDLCM), capability maturity models (CMM), or application life cycle management (ALM). All these models establish guidelines and recommendations for the systematic development of products in general and software products in particular. However, while they have common points, it is necessary to adapt these models for specific cases, particularly for components whose life cycles differ from traditional system development models. For example, this is the case that arises from the inherent characteristics of data-driven learning (Machine Learning in English).
+
+Moreover, the pace of production leads to the integration of data sources, software, and hardware from both proprietary and third-party sources, and these data projects may utilize statistical techniques, machine learning, or more advanced artificial intelligence procedures. The continuous cycle of integration of these three elements is what gives uniqueness to the development of AI products.
+
+Despite these peculiarities, the development of AI components applies the basic principles of analysis, design, development, verification, and validation that must be adjusted to the specific characteristics of this technology. Hence the importance of addressing
+
+3 See, for example, the standardization efforts being carried out by the ISO/IEC JTC 1/SC 42 committee, formed by the International Electrotechnical Commission (IEC) and the International Standard Association (ISO), which conducts standardization activities in the area of artificial intelligence. Relevant in this regard are the recommendations of this committee to the EU's AI strategy: "CEN-CENELEC response to the EC White Paper on AI, version 2020-06." Available at: https://www.cencenelec.eu/News/Policy_Opinions/PolicyOpinions/CEN-CLC%20Response%20to%20EC%20White%20Paper%20on%20AI.pdf
+
+4 While traditional software applications are deterministic and programmed to behave according to specific specifications and requirements, applications based on machine learning are probabilistic, learn from data, mostly unstructured, and need to be trained over a variable number of iterations across different stages.
+
+5 Rama Akkiraju, Vibha Sinha, Anbang Xu, Jalal Mahmud, Pritam Gundecha, Zhe Liu, Xiaotong Liu, John Schumacher. Characterizing machine learning process: A maturity framework. IBM Almaden Research Center, San José, California, USA, Nov 2018. Available at: https://arxiv.org/ftp/arxiv/papers/1811/1811.04871.pdf
+Page: 9 of 39
+
+a systematic model in the life cycle of the development of AI components, so that its construction process can be audited with quality guarantees. When evaluating the processing, it must be analyzed as a whole. However, the complexity of certain technological solutions, such as those based on AI, recommends relying on specific guidelines to manage the unique elements that these technologies incorporate. These guidelines or recommendations must be integrated into the set of general controls aimed at evaluating a specific processing, becoming a particular and necessary subset in the overall analysis of it. That is to say, they are general and transversal recommendations for any processing that includes such technological components, but not exhaustive for conducting the evaluation of a specific processing in all its scope and dimensions. 
+
+The European Commission's white paper "White Paper On Artificial Intelligence - A European approach to excellence and trust," published in February 2020, states that "Testing centers must allow for independent auditing and evaluation of AI systems in accordance with the requirements described above. Independent evaluation will increase trust and ensure objectivity. It could also facilitate the work of the relevant competent authorities." The High-Level Expert Group on Artificial Intelligence of the European Commission also lists, among the principles for the development of trustworthy AI, the preservation of privacy, fairness, transparency, and accountability in data governance, the robustness and technical security of AI components, respect for the environment, and the well-being and autonomy of individuals.
+
+In the case of this document, we would be dealing with a list of control objectives and audit controls that could be included as part of the audit control set of a processing that implements one (or more than one) AI-based components. The list is extensive, so not all the objectives and controls presented in the document need to apply to all processes that include an AI component; it will depend on the specific case. The list of controls is a reference proposal for the auditor to select those that are applicable to the specific processing being audited. The selection will be made based on various factors: whether they affect compliance with the GDPR, the type of AI component used, the type of processing (e.g., whether the processing of the development of the component is audited or whether the processing that includes a component in operation is audited), and, above all, the risk it poses to rights and freedoms.
+
+6 Guidelines on the use of cookies. AEPD, 2020. Available at: https://www.aepd.es/sites/default/files/2020-07/guia-cookies.pdf  
+7 Analysis of information flows in Android. Tools for compliance with proactive responsibility. AEPD, 2019. Available at: https://www.aepd.es/sites/default/files/2019-09/estudio-flujos-informacion-android.pdf  
+8 Guidelines for Cloud Computing service providers. AEPD, 2018. Available at: https://www.aepd.es/sites/default/files/2019-09/guia-cloud-prestadores.pdf  
+9 Code of good practices in big data projects. AEPD, 2017. Available at: https://www.aepd.es/media/guias/guia-codigo-de-buenas-practicas-proyectos-de-big-data.pdf  
+10 Guidelines and guarantees in the procedures for anonymizing personal data. AEPD, 2016. Available at: https://www.aepd.es/sites/default/files/2019-09/guia-orientaciones-procedimientos-anonimizacion.pdf  
+11 White Paper on Artificial Intelligence - a European approach to excellence and trust [online] COM(2020) 65 final, p.30 [Consulted: October 29, 2020]. Available at: https://ec.europa.eu/info/sites/info/files/commission-white-paper-artificial-intelligence-feb2020_es.pdf  
+12 AI-HLEG. 2019. Policy and investment recommendations for trustworthy Artificial Intelligence. High-Level Expert Group on Artificial Intelligence. Available at: https://ec.europa.eu/digital-single-market/en/news/policy-and-investment-recommendations-trustworthy-artificial-intelligence
+Page: 10 of 39
+
+On the other hand, the controls presented do not cover other aspects of processing that are not directly linked to the incorporation of an AI component and that derive from a general analysis of processing. In this sense, this document does not describe how to conduct a data protection audit of an entire processing operation that relies on an AI solution, nor does it aim to cover objectives beyond those established in the GDPR, such as ethical or efficiency aspects. This document also does not aim to describe the general aspects of the audit methodology, which are widely established in the literature, nor to recommend specific tools that could be used in the execution of audits, whether general or specific. This document is limited to providing particular methodological guidelines and a list of control objectives and specific controls that could be selected for inclusion in the data protection audit process of a processing operation that incorporates AI components or solutions. In this context, this document is primarily directed at data controllers who must audit processing that includes AI-based components, to assist in ensuring and demonstrating compliance with the obligations and principles regarding data protection to which they are subject; to processors and developers who wish to provide guarantees about their products and services; to Data Protection Officers responsible for supervising processing as well as advising controllers; and finally, to audit teams when evaluating such processing.
+
+Page: 11 of 39
+
+II. 
+AUDIT METHODOLOGY AND PROCESSING THAT INCORPORATES 
+AI COMPONENTS  
+From the perspective of data protection, it is important to remember that the approach to AI will always come from the perspective of using emerging technologies whose risks to the rights and freedoms of data subjects must be assessed. Such an assessment will naturally lead to the adoption of technical and organizational measures that allow for the minimization of such risks and the maximization of the expected benefits from the processing of personal data. From this approach, the value of the methodologies already in use and the existing standards and certifications is evident.  
+Regardless of the fact that the different existing audit methodologies may differ from one another depending on the focus or perspective they are directed towards, multiple applicable references can be found. For example, the general principles in ISO 19011, the more specific aspects regarding the software development of information systems in standards such as ISO/IEC 15504 SPICE, methodologies such as METRICAv3, standards such as CMMI, or other reference frameworks such as COBIT, SOGP.  
+This document will not detail the methodological aspects of an audit as they are widely developed in the previous reviews. However, there are distinguishing characteristics that must be taken into account when planning and executing the process of an algorithmic audit of AI. Additionally, there are numerous standardization efforts in the domain of artificial intelligence that must be considered when developing specific audit processes that fit the needs of the processing with AI components under evaluation.  
+A. 
+GENERAL OBJECTIVES OF THE AUDIT OF AN AI COMPONENT IN DATA PROTECTION  
+An audit of an AI component in data protection must be a systematic, independent, and documented process to obtain evidence and evaluate it objectively in order to determine the degree of compliance with the audit criteria that have been established and that, in the case at hand, are related to the principles.
+
+13 Guidelines for auditing management systems. ISO 19011:2018. Available at: https://www.iso.org/standard/70017.html and https://www.une.org/encuentra-tu-norma/busca-tu-norma/norma?c=N0060855  
+14 ISO/IEC 15504-1:2004 Information technology – Process assessment – Part 1: Concepts and vocabulary. Available at: https://www.iso.org/standard/38932.html  
+15 Metric v3. Superior Council of Computer Science, 2001. Available at: https://administracionelectronica.gob.es/pae_Home/pae_Documentacion/pae_Metodolog/pae_Metrica_v3.html  
+16 The Capability Maturity Model Integration (CMMI). Carnegie Mellon University (CMU). Available at: https://cmmiinstitute.com/cmmi/intro  
+17 Control Objectives for Information and Related Technologies (COBIT). ISACA. Available at: https://www.isaca.org/resources/cobit  
+18 Standard of Good Practice for Information Security 2020. Information Security Forum (ISF). Available at: https://www.securityforum.org/tool/standard-of-good-practice-for-information-security-2020/  
+19 See regarding the positioning of the European Telecommunications Standards Institute (ETSI) and the International Telecommunication Union (ITU) on this matter (“White Paper No. #34 Artificial Intelligence and future directions for ETSI”. ETSI. 1st edition: June 2020. Available at: https://www.etsi.org/images/files/ETSIWhitePapers/etsi_wp34_Artificial_Intelligence_and_future_directions_for_ETSI.pdf. “Artificial Intelligence (AI) for Development Series Module on Setting the Stage for AI Governance: Interfaces, Infrastructures, and Institutions for Policymakers and Regulators” ITU. July 2018. Available at: https://www.itu.int/en/ITU-D/Conferences/GSR/Documents/GSR2018/documents/AISeries_GovernanceModule_GSR18.pdf), and  
+20 In this regard, it is pertinent to consider the action of the following standardization committees: CTN27 (ISO/IEC 27037:2012); ISO 27050 electronic.
+Discovery, CTN320, and TC 46 SC11 (Record's Management), which is the ISO standardization committee on Artificial Intelligence and Big Data.
+
+Page: 12 of 39
+
+processing and the other requirements established by the GDPR and the other applicable data protection regulations.  
+The life cycle of an AI component can be structured into several stages, such as the conception and analysis of the component, its development (including research, selection, analysis and debugging of datasets, prototyping, design, training, testing, implementation in software and/or hardware, integration as part of a processing and global validation), its exploitation (including its evolutionary maintenance), or its final withdrawal. The previous stages may allow for iterations, depending on the selected development model.  
+As in any audit process, it is necessary to determine its scope before carrying it out. This scope can cover all aspects of the life cycle of the development of the component and the processing in which it will be used. In this case, we would be facing a total scope of the audit. It is also possible to limit the scope of the audit to specific stages and aspects of the AI component. For example, an audit limited to the datasets used, the aspects of the development methodology followed, the implementation of the component's design in a physical element or software library in a specific environment, or the way in which the component is integrated as part of a processing deployed in a certain context.  
+Within the vast range of quality audits, both process and product audits can be carried out. The objective of the audit may guarantee compliance with regulations regarding personal data regulations and thus prevent instances of non-compliance. Similarly, potential risks associated with the use of personal data in AI components can be identified, anticipated, and corrected. This, in turn, allows for the reinforcement of proactive accountability mechanisms implemented by the data controller to demonstrate compliance with their obligations regarding data protection. The audit can also contribute to conducting a detailed analysis of the functioning of the AI component, thus allowing the implementation of transparency mechanisms for the controller that enable them to understand and justify the design, development, and/or selection decisions of the system.  
+B.  
+SINGULAR CHARACTERISTICS OF THE METHODOLOGY OF THE AUDIT OF AN AI COMPONENT IN PD  
+As in any audit, the first decision to be made is the definition of its objective and scope, which may be determined by the interests of the organization or by external impositions (certifications, demonstrating compliance to third parties, or other regulatory obligations).  
+The criteria that should guide an audit in data protection of a processing that includes an AI component are the principles related to processing defined by the Regulation: lawfulness, fairness and transparency, purpose limitation, data minimization, accuracy, storage limitation, integrity and confidentiality, and proactive accountability (Art. 5 of the GDPR).  
+The selection of control objectives and controls to be considered in the audit process, the extent of the analysis by the auditor, and the formality that the auditor requires in the implementation of each control will depend, as in any audit, on the objective and scope defined for it, as well as on the risk analysis carried out by the auditor. As the object of the audit covered by this document is compliance with the
+Page: 13 of 39
+
+Under the GDPR, the risk analysis must be conducted within the scope of the rights and freedoms of the individuals whose data is being processed. Furthermore, it is necessary to consider the analysis of the risks of the audit itself as a process, in relation to meeting the objectives set in the context of the specific AI component. The risk analysis of the audit process is aimed at identifying those aspects that may affect the achievement of the defined objectives and that will be linked to planning, available resources, the selection of the audit team, the control of documented information, the availability and cooperation of responsible individuals, conditions related both to the AI component itself and to the context in which it is situated, the processes of monitoring and reviewing the designed audit program, administrative and legal issues, or any other circumstance.
+
+Therefore, as in any audit recommendation document, the enumeration in this document of a set of possible controls does not imply the obligation to systematically apply each and every one of them, but rather that those relevant to fulfilling the defined object and scope of the audit should be selected rationally. Thus, for example, in the case of a component that, based on the analysis of input data, may make decisions that significantly affect an individual, denying them access to essential services or restricting their freedoms, it is evident that the scope of the audit and the thoroughness of the analysis of the proposed controls must be greater than in a component that, for example, is limited to classifying emails in the spam folder.
+
+For the control objectives and detailed controls in the following chapter to be applicable, it must be assumed that there is, or is intended to be, a processing of personal data at some stage of the life cycle of the AI component, or that the processing is aimed at profiling the individual or executing automatic decisions about natural persons that have legal effects on them or significantly affect them. This could imply, in some cases, a prior analysis of the degree of anonymization achieved for the data used in the processing in general and by the component in particular, the calculation or estimation of the possible risk of re-identification that exists, or the calculation of the risk of data loss in the cloud, among others.
+
+Given the type of audit being addressed, the audit team must consist of personnel with knowledge both in the AI solution being audited and in data protection regulations. Additionally, if a Data Protection Officer (DPO) is appointed within the organization of the data controller, this individual should be available to the audit team to clarify any issues related to the purpose, nature, scope, and context of the processing that conditions the behavior of the AI component used. Likewise, depending on the development model, it may be advisable for a data scientist to be part of the audit team.
+
+Data loss prevention in the cloud can calculate four metrics of re-identification risk: k-anonymity, l-diversity, k-map, and δ-presence. A dataset is k-anonymous if the quasi-identifiers of each person in the dataset are identical to at least k - 1 other people also in the dataset. A dataset has l-diversity if, for each set of rows with identical quasi-identifiers, there are at least l distinct values for each sensitive attribute. K-map calculates the risk of re-identification by comparing a specific dataset of de-identified subjects with a larger re-identification or "attack" dataset. δ-presence estimates the probability that a specific user from a larger population is present in the dataset. It is used when membership in the dataset is itself sensitive information. More information is available at: https://cloud.google.com/dlp/docs/compute-risk-analysis
+Page: 14 of 39
+
+III.  
+CONTROL OBJECTIVES AND CONTROLS  
+This section lists a set of control objectives and possible controls to consider when conducting audits of artificial intelligence components incorporated into personal data processing and/or that make automated decisions affecting individuals.  
+As previously indicated, the selection of controls to audit, the extent of their analysis, and the formality required in their implementation will depend, as in any audit, on the defined objective and scope of the audit, as well as the risk analysis conducted. Therefore, the auditor must select from the proposed list of controls those that are appropriate for the specific audit and add any that they deem necessary.  
+
+A.  
+IDENTIFICATION AND TRANSPARENCY OF THE COMPONENT  
+Objective: Inventory of the audited AI component  
+In compliance with the proactive responsibility, there must be traceability, and for this, a correct identification of the AI component that is part of the audited processing must exist.  
+Controls:  
+● The AI component is identified in the documentation with a name or code, the identification of the version, and the creation date.  
+● Both the code and any additional file that defines the version will have a digital signature for the entire set that guarantees its integrity.  
+● There exists and is documented a historical record of the versions of the evolution of the AI component used, including the parameters used in the training of the component and everything that ensures the traceability of the evolution/changes in the component.  
+
+Objective: Identification of responsibilities  
+In compliance with the proactive responsibility, there must be a clear identification of the roles related to the audited processing that includes the AI component and the responsibilities of the involved parties.  
+Controls:  
+● Identifying and contact details of the person(s) or institution(s) responsible for the stages of the life cycle of the AI component under audit and/or co-responsible, representatives of the responsible party and the processors.  
+
+22 Article 5.2 of the GDPR – Principles relating to processing. Proactive responsibility. Available at: https://eur-lex.europa.eu/legal-content/ES/TXT/HTML/?uri=CELEX:32016R0679&from=ES#d1e1873-1-1  
+23 If this is a component developed from previous versions of the same component, it will be useful to know how this version differs from the previous ones.  
+24 Chapter IV of the GDPR – Controller and processor. Available at: https://eur-lex.europa.eu/legal-content/ES/TXT/HTML/?uri=CELEX:32016R0679&from=ES#d1e3085-1-1  
+25 The process of clarifying responsibilities includes the entire supply chain of the system in which the AI component is implemented. In current software and hardware continuous integration procedures, these cycles are associated with dependency chains where an adequate convergence between user trust and machine reliability must be achieved. See for example the book by Olav Lysne “The Huawei and Snowden Questions: Can Electronic Equipment from Untrusted Vendors be Verified? Can an Untrusted Vendor Build Trust into Electronic Equipment?”. 2018. Springer Nature.
+Page: 15 of 39
+
+● Specification in the contracts associated with the processing stages under audit of the distribution of responsibilities from the perspective of personal data protection.  
+● Registration in the Registry of Processing Activities of the respective data controllers and/or processors of personal data under audit.  
+● Determination of whether there is an obligation to have a Data Protection Officer, and if so, identification of this person and communication to the Control Authority.  
+
+Objective: Transparency  
+In compliance with the principle of transparency26 and the obligation to provide information regarding the processing to the data subjects27, both the origin of the data and the properties and logic of the AI component are accessible, understandable, and can be explained.  
+
+Controls:  
+● The origin of the data is documented and there is a mechanism for reporting.  
+● The characteristics of the data used to train the AI component are identified, documented, and adequately justified.  
+● Considering criteria of efficiency, quality, and accuracy of the AI component, the most suitable model has been chosen (using criteria of simplicity and intelligibility) among several concurrent components28, and from the perspective of its coding to facilitate readability, understanding of its logic, internal coherence, and explainability29.  
+● Information about the metadata30 of the AI component, its logic, and the consequences that may arise from its use is accessible to the interested parties along with the means or mechanisms available to exercise their rights in case of objection regarding the results.  
+● There is sufficient documentation to understand the logic of the AI component used and to trace its behavior concerning each input data set, the use it makes of these and intermediate data, and how it delivers the output data.  
+● In the event of erroneous behavior by the AI component that may cause harm to the data subjects, mechanisms have been provided for  
+
+26 Article 5.1.a and Chapter III – Section 1 of the GDPR - Principles relating to processing. Lawfulness, fairness, and transparency. Available at: (https://eur-lex.europa.eu/legal-content/ES/TXT/HTML/?uri=CELEX:32016R0679&from=ES#d1e1873-1-1) and Transparency and modalities (https://eur-lex.europa.eu/legal-content/ES/TXT/HTML/?uri=CELEX:32016R0679&from=ES#d1e2235-1-1) respectively.  
+27 Articles 13.2.f and 14.2.g of Chapter III - Section 2 of the GDPR Information and access to personal data. Available at: https://eur-lex.europa.eu/legal-content/ES/TXT/HTML/?uri=CELEX:32016R0679&from=ES#d1e2307-1-1  
+28 The current state of the development of the AI component must be taken into consideration, and the advice of experts and researchers in artificial intelligence (deep learning, natural language processing, etc.) should be sought. Regarding deep learning, see for example the review by Xie, N., Ras, G., van Gerven, M. and Doran, D., 2020, “Explainable deep learning: A field guide for the uninitiated.” arXiv preprint arXiv:2004.14545.  
+29 Recently, there has been growing concern about understanding and explaining how Artificial Intelligence models make decisions based on the data captured in their application environment, particularly in those cases where such decisions have implications for humans (e.g., medical diagnosis). Several reasons underlie this growing concern. http://blogs.tecnalia.com/inspiring-blog/2019/11/14/explicabilidad-transparencia-trazabilidad-equidad-no-precision-uso-responsable-la-inteligencia-artificial/  
+30 The metadata of the AI component are the parameters used in the learning processes.
+Page: 16 of 39
+
+minimize those harms, support communication with stakeholders, and facilitate communication among all parties involved in the process.  
+B.  
+PURPOSE OF THE AI COMPONENT  
+Objective: Identification of the intended purposes and uses  
+In compliance with the principle of purpose limitation31, the purposes for which the data processed by and for the AI component are employed must be determined, explicit, and legitimate, and must not be used in a manner incompatible with those purposes.  
+Controls:  
+● The objective pursued with the use of the AI component is documented, both in quantitative and qualitative terms, with a clear description of what is intended to be achieved through its use within the framework of the processing.  
+● The relationship between the objective pursued with the use of the AI component in a specific processing activity and the conditions that ensure the legality of that processing is documented.  
+● The dynamics, activities, and/or processes within the organization in which the stage of the AI component under audit is integrated are identified, delimiting, as far as possible, the context of its use.  
+● Potential users of the AI component are categorized.  
+● If applicable, other possible uses and secondary users32 are described along with the legal basis that justifies their use;  
+Objective: Identification of the context of use of the AI component  
+In compliance with the obligation to analyze the context of the processing in which the AI component is integrated33, the circumstances under which the processing takes place, as well as other factors that may condition the expectations of the concerned parties and may impact the rights of the data subjects, must be known. The analysis of these circumstances will help determine the most appropriate technical and organizational measures to ensure compliance with regulatory obligations.  
+Controls:  
+● The legal, social, economic, organizational, technical, scientific, or any other relevant contexts related to the inclusion of the AI component in the processing of personal data are documented.  
+● The organizational and/or contractual structure between the parties is defined, along with the distribution of tasks and responsibilities.  
+● The conditioning factors affecting the effectiveness of the component are described, including legal guarantees, applicable regulations, organizational and technical resources, available data, and internal dynamics that have  
+
+31 Article 5.1.b of the GDPR – Principles relating to processing. Purpose limitation. Available at: https://eur-lex.europa.eu/legal-content/ES/TXT/HTML/?uri=CELEX:32016R0679&from=ES#d1e1873-1-1  
+32 Note that this is a particularly sensitive issue when it comes to the protection of personal data, as using data collected for a specific purpose for a different one reveals a malpractice that could go unnoticed. These, therefore, should be informed and have a legal basis.  
+33 Article 24.1 of the GDPR – Responsibility of the data controller. Available at: https://eur-lex.europa.eu/legal-content/ES/TXT/HTML/?uri=CELEX:32016R0679&from=ES#d1e3096-1-1
+Page: 17 of 39
+
+to incorporate a personal data processing for inclusion, with guarantees, of the AI component under audit.  
+● The requirements for human operators tasked with supervising and interpreting the operation of the AI component are defined.  
+● Where applicable, the interaction of the AI component with other components, systems, or applications, whether proprietary or third-party, is documented, along with the distribution of responsibilities for maintenance, updates, and minimizing privacy issues of the system.  
+● The benchmarks or thresholds for interpreting and utilizing the results provided by the AI component in use are defined.  
+● Contexts for which it is not recommended to include the AI component in a processing operation are identified and described, either because it cannot fulfill its purpose or properties, or because the component has an inadequate level of reliability and/or accuracy concerning the relevance that the processing could have for the data subject.34  
+
+Objective: Analysis of Proportionality and Necessity  
+When the AI component is audited within the framework of a processing operation that requires a data protection impact assessment, the necessity and proportionality35 of its use concerning the pursued purpose must be analyzed.  
+
+Controls:  
+● There is an evaluation of the use of the AI component within the framework of the processing against other possible options concerning the rights and freedoms of the data subjects.  
+● In the case of new developments, a comparative analysis of the effectiveness and adequacy of the results of the AI component against other more proven components, which use stricter minimization criteria or present fewer risks to the rights and freedoms of individuals, particularly those that make less intensive use of special categories of data, has been conducted.  
+● In addressing a new problem, motivations and arguments leading to the resolution of this problem through the use of an AI component exist, have been documented, and can be justified.  
+● In addressing a known problem, the reasons that have led to a change in the previous operational scheme exist, have been documented, and can be justified, describing, where applicable, the new objectives pursued through the use of the AI component within the framework of the processing.  
+● There is an analysis and management of the risk to the rights and freedoms of the data subjects introduced by the processing of data through the AI component.  
+
+34 It is important to take into account the impact that the processing in question will have on the life of the data subject, especially for present and future opportunities.  
+35 Article 35.7.b of the GDPR Data Protection Impact Assessment. Available at: https://eur-lex.europa.eu/legal-content/ES/TXT/HTML/?uri=CELEX:32016R0679&from=ES#d1e3606-1-1
+Page: 18 of 39
+
+Objective: Determination of the recipients of the data
+In compliance with the obligations arising from the attention to the rights of the data subjects36 and especially those related to transparency and the information provided37, the recipients or categories of recipients of the personal data processed by the AI component must be identified, including recipients in third countries or international organizations.
+Controls:
+● The information obligations to the data subjects related to the data processing arising from the inclusion of the AI component are identified.
+● These obligations are identified both for data obtained directly from the data subjects and when not obtained directly from them and coming from other sources.
+● In determining these obligations, the recipients or categories of recipients to whom the personal data processed by the AI component have been or will be communicated are identified, including recipients in third countries or international organizations, whether the data is obtained directly from them or comes from other sources of information.
+● In determining these obligations, the intentions of the data controller to transfer personal data to a recipient in a third country or international organization are identified, as well as the existence or absence of an adequacy decision by the Commission38. In the case of transfers based on adequate safeguards, those based on the application of binding corporate rules, or those that respond to the exceptions referred to in Article 49, paragraph 1, second sentence, reference is made to such safeguards and the means to obtain a copy of them or the fact that they have been provided39.
+● The recipients of the data, including those in third countries or international organizations, are identified in the activity or activities of the Record of Processing Activities in which the use of the AI component is registered.
+Objective: Limitation of data retention
+In compliance with the principle of limitation of the retention period of the data40, and except for the exceptions provided, the data used by the AI component, whether for training or generated by it, will be kept no longer than necessary for the purposes intended to be achieved41.
+
+36 Chapter III of the GDPR – Rights of the data subject.
+
+https://eur-lex.europa.eu/legal-content/ES/TXT/HTML/?uri=CELEX:32016R0679&from=ES#d1e2224-1-1
+37 Articles 13.1.e and 14.1.e of the GDPR - Information that must be provided when personal data is obtained from the data subject (https://eur-lex.europa.eu/legal-content/ES/TXT/HTML/?uri=CELEX:32016R0679&from=ES#d1e2317-1-1) and information that must be provided when personal data has not been obtained from the data subject. Available at: (https://eur-lex.europa.eu/legal-content/ES/TXT/HTML/?uri=CELEX:32016R0679&from=ES#d1e2418-1-1), respectively.
+38 European Commission, How the EU determines if a non-EU country has an adequate level of data protection. Available at: https://ec.europa.eu/info/law/law-topic/data-protection/international-dimension-data-protection/adequacy-decisions_en
+39 AEPD. International transfers. Available at: https://www.aepd.es/es/derechos-y-deberes/cumple-tus-deberes/medidas-de-cumplimiento/transferencias-internacionales
+40 Article 5.1.e of the GDPR – Principles relating to processing. Limitation of the retention period. Available at: https://eur-lex.europa.eu/legal-content/ES/TXT/HTML/?uri=CELEX:32016R0679&from=ES#d1e1873-1-1
+41 The processing framework in which the audit is being conducted could be that of the development of the component or, in other cases, the processing could be that in which the component has been incorporated.
+Page: 19 of 39
+
+Controls:
+● The legitimizing bases for the retention of personal data used by the AI component for a period of time beyond that limited to the purposes of processing are identified, particularly if related to compatible purposes or responding to any of the exceptions provided by the regulations42 (purposes of archiving in the public interest, purposes of scientific or historical research, or statistical purposes).
+● The stages of the life cycle of the AI component in which it is necessary to retain the processed personal data are determined and justified.
+● The criteria and appropriate technical and organizational measures for the retention of personal data43 are defined.
+● The deadlines for the deletion of retained personal data are determined.
+● A retention policy for a sample of training data is defined for the purpose of auditing the AI component, taking into account the minimum or acceptable risks for the data subjects.
+● There are procedures to verify the application of criteria, measures, and retention deadlines.
+● A review procedure for the analysis of the necessity and proportionality of data retention is defined for those cases where excessive retention patterns have been detected, whether in terms of time or quantity.
+● A retention policy for personal data included in the activity log files of the AI component is defined, and privacy strategies (minimization, obfuscation, separation, or abstraction of data) are applied for its exploitation.
+
+Objective: Analysis of the categories of data subjects
+When it is mandatory to conduct a data protection impact assessment44 within the framework of the processing in which the AI component is included, the categories of data subjects affected by the processing must be identified and the appropriateness of involving them (or their representatives) in the assessment process45 must be evaluated.
+
+Controls:
+● The categories of data subjects affected by the development of the AI component and its use within the framework of the planned processing are identified.
+● The short-term and long-term consequences that the implementation of the AI component may have on the categories of data subjects are identified.
+
+42 Article 89.1 of the GDPR - Guarantees and exceptions applicable to processing for archiving purposes in the public interest, scientific or historical research purposes, or statistical purposes.
+
+Available at: https://eur-lex.europa.eu/legal-content/ES/TXT/HTML/?uri=CELEX:32016R0679&from=ES#d1e6569-1-1
+43 In particular, the measures of minimization, obfuscation, and/or pseudonymization adopted.
+44 Article 35.9 of the GDPR – Data protection impact assessment. Opinion of the data subjects. Available at: https://eur-lex.europa.eu/legal-content/ES/TXT/HTML/?uri=CELEX:32016R0679&from=ES#d1e3606-1-1
+45 Recent studies propose enabling mechanisms for contestation or appeal that allow the data subject, or groups representing them, to intervene and question the logic or outcome of the AI component in cases of automated decision-making processes. See, for example, the work of Kluttz, Kohli, and Mulligan from 2018 "Contestability and Professionals: From Explanations to Engagement with Algorithmic Systems." Available on SSRN 3311894.
+Page: 20 of 39
+
+● The necessary procedures are defined to analyze the social context in which the use of the component is framed and to gather information through individuals, groups, or organizations affected by it, with the aim of understanding their levels of satisfaction, positions, concerns, and uncertainties regarding the use of this technique in the context of the processing of their data.  
+C.  
+FOUNDATIONS OF THE AI COMPONENT  
+Objective: Identification of the AI component development policy  
+The internal policy for the development of systems, particularly for the development of AI components, must be consistent with the organization's data protection policy. It will be necessary to detail and complement this policy in the specific points that are necessary, in addition to being aligned with the GDPR, the LOPDGDD, and any other applicable sectoral regulations.  
+Controls:  
+• The documents with the product and system development policies take into account the data protection policy.  
+• There is a review process and version control of the policies.  
+Objective: Involvement of the DPO  
+In compliance with the position and functions assigned to the Data Protection Officer (DPO), internal communication procedures and distribution of responsibilities have been defined that allow this figure to provide the necessary advice and to participate actively in the selection, design, and/or development of the AI component that supports the processing of personal data.  
+Controls:  
+● The Data Protection Officer possesses the necessary professional qualities and, in particular, the specialized knowledge in law, technical matters, and practical experience in data protection suitable for the project.  
+● The Data Protection Officer has the assistance and advice of experts in specific matters related to the AI component subject to audit.  
+● Internal procedures are defined within the organization for proper communication between the Data Protection Officer and the individuals in charge of those projects with implications for the processing of personal data, so that their advice can be sought, particularly during the development of the data protection impact assessment of those processes that utilize AI components.  
+● The Data Protection Officer has participated in the stages subject to audit, their independence of judgment within the organization has been respected, and their obligations to cooperate with supervisory agencies have been upheld, with their opinions and considerations taken into account.  
+
+46 Article 24.1 of the GDPR – Responsibility of the data controller. Available at: https://eur-lex.europa.eu/legal-content/ES/TXT/HTML/?uri=CELEX:32016R0679&from=ES#d1e3106-1-1  
+47 Section 4 of Chapter IV of the GDPR (Articles 37, 38, and 39) – Data Protection Officer. Available at: https://eur-lex.europa.eu/legal-content/ES/TXT/HTML/?uri=CELEX:32016R0679&from=ES#d1e3782-1-1
+Page: 21 of 39
+
+Objective: Adequacy of the underlying theoretical models  
+The treatment, in order to be considered fair48, must be suitable in relation to the declared purpose.  
+Controls:  
+● A study and analysis have been conducted on the theoretical framework and similar previous experiences that underpin the development of the AI component.  
+● The foundational ideas and hypotheses taken into account for the creation and development of the model49 have been precisely determined, argued, and documented.  
+● A procedure for critical and contrasted review of the reasoning derived from the acceptance of important hypotheses for the development of the AI component is defined (for example, examining the arguments behind a causal relationship that models an algorithm, such as the selection of variables that define a phenomenon).  
+● A careful analysis has been conducted to establish appropriate assumptions about the possible proxy variables involved in the AI component.  
+
+Objective: Adequacy of the methodological framework  
+The treatment, in order to be considered fair48, must be suitable in relation to the declared purpose.  
+Controls:  
+● The methodological framework for defining the model and creating the AI component during the stages subject to audit must be documented, such as the way to select, collect, and prepare the training data for the component, perform its labeling, build the model, use the generated intermediate data, select the test/validation data subset, or how to measure model mismatches to improve it.  
+● Based on the analysis of the problem to be solved and justified, the development model to be used (e.g., supervised, unsupervised, or others) is determined, and in the case of supervised models, the learning supervision model of the algorithm, the degree of supervision, and its rationale are specified.  
+● Metrics have been selected and defined regarding which to measure the behavior of the AI component.  
+● There is a procedure for recording and monitoring deviations in the behavior of the AI component concerning the defined metrics, which allows for monitoring those circumstances that may lead to erroneous or biased behavior of the component.  
+
+Objective: Identification of the basic architecture of the component  
+In compliance with proactive responsibility, the development of the AI component is documented in such a way that it is possible to understand the part related to its implementation,  
+
+48 Article 5.1.a of the GDPR – Principles relating to processing. Lawfulness, fairness, and transparency. Available at: https://eur-lex.europa.eu/legal-content/ES/TXT/HTML/?uri=CELEX:32016R0679&from=ES#d1e1873-1-1  
+49 The audit team may consult this information before or after the preparation of the Analysis Plan, depending on how they consider this may affect the objectivity of the audit.
+Page: 22 of 39
+
+its operational context and the interrelations it maintains with other elements involved in the processing.  
+Controls:  
+● In the analysis phase of the development project for the AI component, specific requirements have been included as part of the requirements catalog to ensure privacy and the protection of personal data.  
+● In the programming of the AI components, the principles, codes, and best coding practices used to ensure that the code is readable, secure, easy to maintain, and robust have been followed and documented.  
+● The basic architecture of the AI component is identified and documented, including information about the machine learning technique used, the type or types of algorithms tested and, if applicable, discarded in the learning and training phase, and other data about the operation of the component such as the loss function or cost function of the model.  
+● There exists and operates a systematic documentation procedure for the implementation of the component that ensures the recording and subsequent acquisition of all necessary information to identify it, as well as its elements and its environment, understand what it does and why it does it, and be able to contrast the quality and readability of the code for auditing purposes: description of the programming language(s) used, the most recent version of the code, commented code, necessary packages and libraries for its reading, interfaces with other components, if applicable, APIs used, utility documents such as requirements specification, functional analysis, organic analysis, manuals, etc.  
+● In the event of being unable to access the code of the AI component, a reverse engineering process or another alternative method such as the use of zero-knowledge proofs (ZKP) has been applied, which, even without access to the code, allows for a deeper understanding of the operation of the component and determining the logic of the applied rules in order to detect inconsistencies, direct manipulations, and underestimation or overestimation of the variables used in the original component.  
+
+50 What Are The Best Software Engineering Principles?. Luminousmen Blog, 2020. Available at: https://luminousmen.com/post/what-are-the-best-engineering-principles  
+51 Clean Code: A Handbook of Agile Software Craftsmanship, Robert C. Martin, Pearson 2008  
+52 Summary Clean Code. Samuel Casanova. Available at: https://samuelcasanova.com/2016/09/resumen-clean-code  
+53 Clean Architecture: A Craftsman's Guide to Software Structure and Design, Robert C. Martin, Pearson 2017  
+54 A loss function J(θ) measures the level of dissatisfaction regarding the model's predictions compared to a correct response using certain values of θ. There are several loss functions such as mean squared error or cross-entropy, and the selection of one depends on various factors such as the selected algorithm or the desired level of confidence, but mainly depends on the objective pursued with the model. Since the purpose of training a model is to generate predictions that are as close as possible to the correct response and minimize error or dissatisfaction, the goal is to find the optimal values of θ that minimize the result of the loss function. This is known as optimization, and like the loss function, there are several optimization methods that directly impact the model's performance and training time. One of the most commonly used methods is the gradient descent method https://www.iartificial.net/gradiente-descendiente-para-aprendizaje-automatico/  
+55 API: what it is and what it is for. XATACA, 2019. Available at: https://www.xataka.com/basics/api-que-sirve
+Page: 23 of 39
+
+D.  
+DATA MANAGEMENT  
+Objective: Ensuring data quality  
+In compliance with the principles related to the processing of personal data, the personal data processed must be accurate and up to date in relation to the purposes for which they are processed.  
+Controls:  
+● There is a documented procedure to manage and ensure proper governance of the data, allowing for verification and providing guarantees of the accuracy, integrity, reliability, truthfulness, updating, and adequacy of the dataset used in training and/or testing and/or exploitation.  
+● There are mechanisms for monitoring the processes of collection, processing, retention, and use of the data.  
+● A prior analysis and quantification of the sample used for model training has been carried out, and it has been verified that the adequacy of the sample size, as well as the frequency and distribution of each of the variables, their intersection, or relevant groups for the study, is appropriate in relation to the defined parameters or with respect to reality.  
+● Analyses have been conducted, both at the beginning and in each of the iterations that make up the overall learning process, of the sample used for model training, and it has been verified that the representativeness of the final dataset concerning the population of the context to which the AI component is directed and the defined groups within it is appropriate.  
+● It has been verified that the distribution of the variables is adequate and that the component is not particularly sensitive to or ignores any of them.  
+● There are procedures to analyze, measure, and detect possible imbalances between the amount of data that the component collects on a certain variable compared to another, which may lead to deviations in its behavior.  
+● A precise compensation analysis has been conducted, establishing the relationship between the quantity and type of data to be collected/discarded and those necessary to ensure the effectiveness and efficiency of the component.  
+● An analysis of the sample size for data retention for audit purposes has been conducted.  
+Objective: Determination of the origin of data sources  
+In compliance with the principles related to processing, personal data must be processed lawfully, fairly, and transparently, for determined, explicit, and legitimate purposes (principle of purpose limitation), with a prohibition on processing special categories of data except under the circumstances and exceptions provided.  
+
+56 Article 5.1.d of the GDPR – Principles related to processing. Principle of accuracy. Available at: https://eur-lex.europa.eu/legal-content/ES/TXT/HTML/?uri=CELEX:32016R0679&from=ES#d1e1863-1-1  
+57 Article 5 of the GDPR. Principles related to processing. Available at: https://eur-lex.europa.eu/legal-content/ES/TXT/HTML/?uri=CELEX:32016R0679&from=ES#d1e1863-1-1  
+58 Article 9 of the GDPR – Processing of special categories of personal data. Available at: https://eur-lex.europa.eu/legal-content/ES/TXT/HTML/?uri=CELEX:32016R0679&from=ES#d1e2114-1-1
+Page: 24 of 39
+
+Controls:
+● The source context and the data sources used for the training and validation of the model must be identified.
+● The process of selecting the data sources used for training the component has been documented and justified.
+● There is a legal basis for the use of personal data at the various stages of the AI component's lifecycle.
+● There is a justification for the collection and use of personal data that is not necessary at the training stage, in order to perform a check on the model's behavior in the subsequent verification and validation stages of the component59.
+● If sensitive personal data is processed, the necessity of its use has been evaluated, and there is a circumstance that justifies lifting the general prohibition on its processing.
+
+Objective: Preparation of Personal Data
+In compliance with the principles related to processing60, personal data must be processed applying the principle of minimization.
+
+Controls:
+● The criteria for performing the preliminary cleansing of the original datasets and any others identified as necessary throughout the different iterations in the training process of the component are identified and documented.
+● The techniques and best practices for data cleansing61 used in the cleansing process are argued and documented.
+● The classification of the variables defines clearly distinguishable and identifiable types.
+● The structure and properties of the processed dataset are documented, including the number of subjects and the extent of data used.
+● A prior categorization of the data used has been carried out, organizing them into non-personal and personal data, identifying, in the case of the latter, which fields constitute identifiers, quasi-identifiers, and special categories of data.
+● The relevant variables for the model have been determined, identifying the variables associated with special categories of data and the proxy variables, including the necessary information for their interpretation.
+● The applicable data minimization criteria for the different stages of the AI component have been determined and applied, using those strategies of masking, separation, abstraction, anonymization, and pseudonymization of the data that are applicable and lead to maximizing privacy in the operation of the component.
+
+59 Additional information associated with the subjects for subsequent analysis of whether there are accuracy issues or biases associated with characteristics that should not be linked to the decision-making process. For example, discrimination based on sex, race, social origin, etc.
+60 Article 5 of the GDPR – Principles related to processing.
+
+Available at: https://eur-lex.europa.eu/legal-content/ES/TXT/HTML/?uri=CELEX:32016R0679&from=ES#d1e2114-1-1
+61 Data cleansing or data cleaning consists of a series of techniques that, applied to the records of a dataset, allow for its cleansing by reducing duplications and inconsistencies. More information available at: https://elitedatascience.com/data-cleaning
+Page: 25 of 39
+
+● The databases used are associated with a data dictionary that allows for their analysis and understanding.  
+● Strategies for segregation and dissociation have been implemented regarding additional information that is not necessary for training but will be necessary in the processes of verification and validation of the model's behavior to analyze correlations between variables, check the level of accuracy of the AI component concerning certain attributes, or verify that it does not introduce biases.  
+● In the evaluation and selection of the data, the participation of an expert in modeling techniques and data science has been included, responsible for understanding the complex processes of reality that are intended to be modeled, and for analyzing and interpreting the data used by the component.  
+● A preprocessing and cleansing of the data used for the training and validation of the AI component has been carried out, detecting possible anomalies that require prior treatment (limit values, incomplete records, etc.) and converting heterogeneous data sources into a single homogeneous format.  
+● Necessary modifications have been introduced in the format of the input data if it is not suitable concerning the operation of the AI component or because it does not represent the reality it reflects.  
+● If applicable, an analysis of the degree of anonymization of the data and the possible risk of re-identification has been conducted.  
+● If applicable, if data imputation techniques have been used to complete the information in the dataset, the procedures and algorithms used for such imputation have been documented.  
+
+Objective: Bias Control  
+In compliance with the principles related to the processing of personal data, the personal data processed must be accurate and updated concerning the purposes for which they are processed.  
+
+Controls:  
+● Procedures have been defined to identify and eliminate, or at least limit, biases in the data used to train the model.  
+● It has been verified that there are no historical biases in the training data used as input to the model, and if there are, either another training data source that does not contain them has been chosen, or appropriate cleaning and cleansing have been carried out for normalization.  
+● Measures have been adopted to assess the need for additional data to improve accuracy or eliminate possible biases.  
+● Mechanisms for human oversight have been implemented to control and ensure the absence of biases in the results.  
+
+62 For example, to control that a component does not discriminate for gender reasons, although the gender variable is not used during the training of the component, information about the gender of the individuals in the database must have been collected to verify whether the component behaves differently based on the value.  
+63 For example, in the case of a natural language processing component, if its mode of operation does not have the capacity to adapt to changes in the words that make up the input texts, it is likely that it will not behave as desired. In this case, one could opt for a more orderly and schematizable input format or adapt the operation of the component to the format of the input data it receives.  
+64 Article 5.1.d of the GDPR – Principles relating to processing. Principle of accuracy. Available at: https://eur-lex.europa.eu/legal-content/ES/TXT/HTML/?uri=CELEX:32016R0679&from=ES#d1e1863-1-1
+Page: 26 of 39
+
+● Mechanisms have been implemented that allow interested parties to request human intervention, express their viewpoint, and challenge the results derived from the use of automated algorithms in decision-making.
+
+E. 
+VERIFICATION AND VALIDATION 
+Objective: Adequacy of the verification and validation process of the AI component 
+In compliance with the principles related to processing65, particularly the principle of proactive responsibility66, it must be demonstrated that the methodology used in the incorporation of the AI component in the processing, or in its development, complies with the principles related to processing and the other obligations imposed by data protection regulations. 
+
+Controls: 
+● The verification and validation process, the techniques used, the set of tests and checks carried out, the results obtained, and the proposed actions are documented. 
+● A guide, standard, or benchmark has been established or followed to carry out a systematic procedure for the verification and validation of the AI component and its behavior once integrated into the processing it supports. 
+● The necessary control and supervision mechanisms are implemented to ensure that the AI component effectively meets the intended objectives and purposes. 
+● The metrics and criteria regarding which checks will be carried out in the verification and validation process are defined and justified. 
+● A testing strategy is defined, and associated with it, there is a comprehensive testing plan to evaluate the correctness of the AI component from both a structural and functional perspective. 
+● The personnel involved in the verification and validation tasks of the AI component are qualified to carry out the necessary checks to ensure that the component has been built correctly and behaves as expected. 
+
+Objective: Verification and Validation of the AI component 
+In compliance with the principles related to processing67, it must be demonstrated that the developed AI component processes personal data correctly, respecting the principle of accuracy. 
+
+Controls: 
+● The verification testing plan includes reviews, and where applicable, inspections, to detect and correct, at an early stage, defects in requirements, design defects, incorrect specifications, or deviations in development concerning the applicable criteria.  
+
+65 Article 5.1.b of the GDPR – Principles related to processing. Purpose limitation Available at: https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN#d1e1873-1-1 
+66 Article 5.2 of the GDPR – Principles related to processing. Principle of proactive responsibility https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN#d1e1873-1-1 
+67 Article 5.1.a and 5.1.b of the GDPR – Principles related to processing. Lawfulness and purpose limitation https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN#d1e1873-1-1
+Page: 27 of 39
+
+• White box testing at the design level of the network or the IA component is included as part of the testing plan.  
+● White box testing at the implementation and code level is included as part of the testing plan.  
+● Black box testing necessary to verify that the functionality of the IA component is fully guaranteed, its behavior is as expected, and the integrity of the information used is maintained is included as part of the testing plan.  
+● Testing necessary to assess security, concerning the protection of rights and freedoms, in its holistic definition (physical and informational) in the case of IA components implemented in robotic systems, Industry 4.0, or the Internet of Things is included as part of the testing plan.  
+● The validation testing plan includes the verification of boundary values and extreme test cases that may cause the component to operate in an unexpected manner.  
+● There is a documented debugging process to correct errors, deficiencies, or inconsistencies detected during the verification and validation process.  
+Objective: Performance  
+In compliance with the principles related to processing, the IA component must process personal data respecting the principle of accuracy.  
+
+68 For example, in the case of neural networks, these tests include the analysis of neural coverage, coverage threshold, sign change of activation, coverage level, etc. References can be found in the AI system certification scheme of the Korean Software Testing Qualification Board: https://imbus.cn/upFile/Uploadfiles/AI%20Testing_Testing%20AI-Based%20System%20Syllabus%20v1.3.pdf  
+69 This type of testing is strongly linked to the source code and is key, from the perspective of quality and security, for early detection of failures and vulnerabilities that the component presents in its development and effective implementation. They are necessary, in particular, to perform a static analysis aimed at determining the correctness of the generated code, the possible manipulation of it, the existence of dead, unreachable, or redundant code areas, as well as the coding of backdoors in the libraries or other elements used in the implementation of the component that could imply a modification of the defined functional and non-functional specifications. They usually follow a bottom-up approach, inspecting and verifying the behavior of each of the components individually before proceeding to their integration within the system of which they are part, so that, once all elements have been validated separately and integration has been performed, the overall behavior of the system is tested.  
+70 Among the black box tests that can be used are equivalence partitioning, boundary value analysis, decision table testing, state transition testing, and use case testing.  
+71 See for example Mayoral Vilches, V., Olalde Mendia, G., Perez Baskaran, X., Hernández Cordero, A., Usategui San Juan, L., Gil-Uriarte, E., Olalde Saez de Urabain, O. and Alzola Kirschgens, L., 2018. Aztarna, a footprinting tool for robots. arXiv, pp.arXiv-1812.  
+72 The term "performance" is used in its meaning related to effectiveness concerning data protection, rather than regarding other aspects or its efficiency. Depending on the processing or the component, the confusion matrix, precision, sensitivity, specificity, or receiver operating characteristic (ROC) curve and area under the curve (AUC) would be evaluated, based on true positive, false positive, true negative, and false negative rates. Among others, see: https://sitiobigdata.com/2019/01/19/machine-learning-metrica-clasificacion-parte-3/, https://www.iartificial.net/precision-recall-f1-accuracy-en-clasificacion/, https://imbus.cn/upFile/Uploadfiles/AI%20Testing_Testing%20AI-Based%20System%20Syllabus%20v1.3.pdf  
+73 Article 5.1.d Principles related to processing – Principle of accuracy. Available at: https://eur-lex.europa.eu/legal-content/ES/TXT/HTML/?uri=CELEX:32016R0679&from=ES#d1e1873-1-1
+Page: 28 of 39
+
+Controls:
+● The metrics or set of aggregated metrics are established to determine the component's precision, accuracy, sensitivity74 75 76, or other performance parameters related to the application of the data accuracy principle.
+● The values of the false positive and false negative rates produced by the AI component are known, analyzed, and interpreted in order to determine the precision, specificity, and sensitivity of the component's behavior.
+● The level and definition of the performance parameters required for the AI component in the context of the treatment it supports have been evaluated.
+● The performance values have been compared among different AI component options within the framework of a process to choose the most suitable component for a treatment.
+● The output variables are defined and determined, paying special attention to those that constitute special categories of data.
+● Measures have been adopted to ensure that the data used is comprehensive and up to date.
+● The parameters and their cutoff values are determined so that the model takes into account certain variables in order to obtain results that are meaningful.
+● There are procedures to detect if the AI component's response to the input data is incorrect or exceeds a specified error threshold, or if there are different error thresholds associated with different categories of stakeholders in the dataset.
+● A dimensionality77 adjustment of the model has been made to ensure a balance between complexity and generalization capability.
+
+Objective: Coherence
+In compliance with the principles related to processing78, the AI component must process personal data respecting the principle of accuracy.
+
+74 Precision relates to how close a result is to the true value, accuracy relates to the percentage of correct predictions, sensitivity is the fraction of true positives (i.e., correct predictions of a true statement), and specificity is the fraction of true negatives (i.e., incorrect predictions of a false statement).
+75 False positives, or the importance of understanding information. Scientific Culture Notebook, 2015. Available at: https://culturacientifica.com/2015/10/07/falsos-positivos-o-la-importancia-de-comprender-la-informacion/
+76 Machine Learning: Classification Metric Selection. SitioBigData.com Available at: https://sitiobigdata.com/2019/01/19/machine-learning-metrica-clasificacion-parte-3/#
+77 Dimensionality relates to the relationship between the variables observed by the model for learning and the number of samples used for training. If the number of parameters is very high, the model will overfit the characteristics of the training data, capturing all relevant information but also all existing noise (overfitting), so that in the testing and validation phases, when making predictions on new data, the accuracy will be significantly lower and it will not be able to generalize the rules to predict outcomes regarding unseen data. Hence the importance of splitting the input dataset used in the training phase into two disjoint sets (training and validation, usually in an 80-20 ratio) to determine how the model behaves with data it has never seen. http://www.revistaindice.com/numero68/p22.pdf
+78 Article 5.1.d Principles related to processing – Accuracy principle. Available at: https://eur-lex.europa.eu/legal-content/ES/TXT/HTML/?uri=CELEX:32016R0679&from=ES#d1e1873-1-1
+Page: 29 of 39
+
+Controls:
+● There is a procedure to verify whether significant variations occur in the results obtained compared to the expected outputs and to act if necessary.
+● A threshold has been established to determine when an obtained result differs from the expected one given identical or similar input data (significant variations).
+● It has been determined whether the AI component behaves differently in relation to individuals who differ from each other in characteristics associated with special categories of data or in the values taken by proxy variables.
+● The effects on the output results of the AI component have been analyzed in the face of variations in variables with low prevalence in the training dataset.
+● Measures have been taken to ensure the independence of the component79.
+● It has been verified that there is no correlation between the results and the additional variables associated with subjects80 that are not part of the process variables and that could determine the existence of biases.
+
+Objective: Stability and Robustness  
+In compliance with proactive responsibility81, the AI component is subject to continuous monitoring processes to adapt to changes in the environment and detect the need for readjustment82 as a consequence of internal and external context changes to the processing83.
+
+Controls:
+● Factors have been identified, within the possible context or the actual operating context of the component, whose variation may affect the properties of the AI component and may establish the need to manage its readjustment.
+● The behavior of the AI component has been evaluated in unforeseen use cases or environments.
+● An estimation has been made of the times when a reevaluation, readjustment, or restart of the component is necessary to adjust it to deviations in the input data or changes in decision-making criteria.
+● It is documented whether, by design, the AI component has been built following a static approach or a dynamic or continuous learning approach84.
+
+79 An AI component is independent if the probability of it generating a result is not determined by the attribute that defines a specific group.
+80 Discrimination that arises due to decision-making based on characteristics correlated with data such as race or gender that are linked to protected groups is known as proxy discrimination. More information available at: https://papers.ssrn.com/sol3/Delivery.cfm/SSRN_ID3572098_code499486.pdf?abstractid=3347959&mirid=1
+81 Article 5.2 of the GDPR – Principles relating to processing. Proactive responsibility. Available at: https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN#d1e1873-1-1
+82 Such readjustment may involve retraining, a new evaluation of weights, or restructuring depending on the type of AI being addressed.
+83 Such as deviations in the data, new risks to the rights and freedoms of the data subjects, or changes in the decision-making criteria that support the model.
+84 When building an AI component, a static approach can be followed, in which the behavior defined during the training and model construction phases remains unchanged according to the data used in the learning process, or conversely, the component, once in production, uses the input data not only to generate an output result but also to adapt and improve the model.
+Page: 30 of 39
+
+● In the case of AI components with continuous learning, the degree of adaptability to new data or types of input data has been assessed, and the procedures and mechanisms for supervision have been defined to verify that the conclusions drawn remain valid, that the component is capable of acquiring new knowledge, and that there is no loss of previously learned associations during the initial learning phase.  
+Objective: Traceability  
+In compliance with data protection principles and, in particular, the right of the data subject not to be subject to a decision based solely on automated processing, including profiling, which produces legal effects concerning them or significantly affects them in a similar manner, the behavior in the processing of the AI component must be able to be supervised through traceability mechanisms, including human means.  
+Controls:  
+● There is a version control system for all elements of the AI component: datasets used, component code, libraries employed, and any other elements associated with the component.  
+● There is a formal, documented procedure subject to a risk reassessment based on any changes that may occur in the implementation of the AI component throughout its lifecycle.  
+● There are monitoring and supervision mechanisms for the AI component, such as log files and result records, that allow for the evaluation of the component's behavior in its interaction with the environment, measuring that these outputs align with the responses of the processes of reality that they model, and rectifying any inconsistencies that may exist between the expected real behavior and the automated one.  
+● There is a record of any previous incidents and anomalous behaviors detected and corrected.  
+● Monitoring mechanisms are available to human operators for their tracking and verification.  
+● A procedure is documented to ensure human intervention in decision-making, both ex officio, in the case of discrepant results concerning expected behavior, and upon request from the affected data subjects regarding the outcome of the component.  
+● Mechanisms are adopted within the framework of processing so that the results and decisions made may depend exclusively on the responsibility of human beings.  
+
+In such systems, it is necessary to avoid what is known as "catastrophic forgetting," which occurs when, as the system learns from new input data different from those used in the training phase and modifies parameters to adapt to the new inputs, it overwrites the previously acquired knowledge from earlier training phases, considering it invalid.  
+Article 5 of the GDPR - Principles relating to processing.  
+Available at: https://eur-lex.europa.eu/legal-content/ES/TXT/HTML/?uri=CELEX:32016R0679&from=ES#d1e1873-1-1  
+Article 22 of the GDPR – Automated individual decisions, including profiling. Available at: https://eur-lex.europa.eu/legal-content/ES/TXT/HTML/?uri=CELEX:32016R0679&from=ES#d1e2901-1-1
+Page: 31 of 39
+
+Objective: Security  
+In compliance with the principles related to processing88 and the obligations of data protection by design and by default89 and the security of processing90, the AI component must process personal data by effectively and efficiently applying the principles of data protection and integrating the necessary technical and organizational measures to ensure an adequate level of information security commensurate with the risk, particularly concerning the confidentiality, integrity, availability, and resilience of the processing.  
+Controls:  
+● A risk analysis has been conducted regarding the rights and freedoms of individuals, based on which the security and privacy requirements of the AI component used in the processing can be determined.  
+● Requirements related to data protection and security have been defined from the outset, along with the other requirements, regardless of whether it concerns the design of a new AI component or the modification of an existing one.  
+● Standards and best practices available for the secure development and configuration of the component are followed.  
+● Necessary measures have been implemented to ensure the protection of the processed data, particularly those aimed at ensuring confidentiality through techniques for anonymizing or pseudonymizing the data and integrity to protect the implementation of the component from accidental or intentional manipulations.  
+● Measures have been implemented to ensure the resilience of the component and its ability to withstand attacks91.  
+● Procedures have been implemented to monitor the operation of the component and to detect, at an early stage, possible data leaks, unauthorized access, or other types of security breaches.  
+● Users and operators of the component have access to information and are aware of their duties and responsibilities regarding security aimed at protecting the rights and freedoms of the data subjects.  
+
+88 Article 5.1.f of the GDPR – Principles relating to processing. Integrity and confidentiality. Available at: https://eur-lex.europa.eu/legal-content/ES/TXT/HTML/?uri=CELEX:32016R0679&from=ES#d1e1873-1-1  
+89 Article 25 of the GDPR – Data protection by design and by default. Available at: https://eur-lex.europa.eu/legal-content/ES/TXT/HTML/?uri=CELEX:32016R0679&from=ES#d1e3126-1-1  
+90 Article 32 of the GDPR – Security of processing. Available at: https://eur-lex.europa.eu/legal-content/ES/TXT/HTML/?uri=CELEX:32016R0679&from=ES#d1e3443-1-1  
+91 AI attacks consist of unauthorized third parties manipulating these components to alter their behavior for malicious purposes. The attack can affect design components, libraries, software, hardware, and any other implementation element. As these AI components are increasingly integrated into critical components of society, such attacks represent a potential risk that can have significant effects on national security, hence the need to identify their possible vulnerabilities (for example, limitations in algorithms or insufficient controls on the data used) as well as sources of potential threats to implement the necessary security measures and best practices to ensure their resilience. Comiter M. Attacking Artificial Intelligence - AI’s Security Vulnerability and What Policymakers Can Do About It. Belfer Center for Science and International Affairs, 2019. Available at: https://www.belfercenter.org/sites/default/files/2019-08/AttackingAI/AttackingAI.pdf
+Page: 32 of 39
+
+IV.  
+CONCLUSIONS  
+As noted in the introduction, one of the tools to "guarantee and demonstrate" compliance with the GDPR is the conduct of audits of data processing activities and, in the future, processes for supervising codes of conduct, in accordance with the provisions of Article 40 of the GDPR, and certifications, in accordance with the provisions of Article 42 of the same regulation. Both instruments require the establishment of objective criteria for assessing regulatory adequacy. While some general criteria may be common to all processing activities, others will include specificities due to, among other reasons, the technological elements on which the processing relies. One of these technological elements to consider is the incorporation of artificial intelligence-based components into the processing of personal data, whether for the development of the component, for its exploitation, or other possible circumstances.  
+This document has provided a preliminary approach to determining a set of control objectives and controls designed, from a data protection perspective, to be included in the audit of a processing activity that incorporates artificial intelligence components. For the purpose of conducting an audit, having a list of control objectives and controls serves as a reference to determine and contrast the adequacy of the processing subject to the audit, compare it with other processing activities, and assess its evolution. As in any audit, the controls that are appropriate to consider, as well as the method for verifying them, must be selected and adapted by the auditor. The selection of those that are relevant for the audit of a specific processing activity will depend on various factors: the type of processing, the client's requirements, the specific audit, its object and scope, and the results of a risk analysis of the processing and the audit process itself.  
+The audit methodology is well known, although when focused on the evaluation of AI components, it may present some particularities that must be taken into account, as noted in this document.  
+Considering the evolution that this technological environment is undergoing, this report can only be a guiding and living document, whose future versions will need to reflect the feedback from its implementation.
+Page: 33 of 39
+
+V.  
+ANNEX I: DEFINITIONS  
+For the purposes of this document, it is useful to define a series of relevant terms in advance to facilitate the understanding of the concepts developed and that are part of the processes of an algorithmic data protection audit.  
+
+Anonymization  
+Following the specifications provided by the Regulation (Recital 26 of the GDPR), this document considers that “information that does not relate to an identified or identifiable natural person” is anonymous. Therefore, anonymization is understood as the process aimed at converting data into anonymous data and breaking its link with the person to whom it refers, so that this person cannot be identified through it.  
+
+AI Component Learning  
+There are four approaches in the development models of AI components:  
+▪  
+Supervised Learning: An operator acts as an “instructor” of the component, introducing training data into the system that contains both the input data and the “correct” output data for that input data, that is, they introduce labeled data. The component must reproduce this “pattern” on future occasions to produce new output data, following the same logic.  
+▪  
+Unsupervised Learning: Unlike supervised learning, there is no feedback from an operator. The components are designed to be capable of detecting latent patterns and rules in the data and to summarize and group the units of information that make up the data.  
+▪  
+Semi-supervised Learning: These represent a compromise between the two previous ones. They contain some labeled input data, although most of them are not, complemented by automatic procedures.  
+▪  
+Reinforcement Learning: In this case, the component is designed to observe the interaction of the system with its environment and leverage it to improve the functioning of the component. In the training process, the system analyzes and evaluates different possible actions, with the aim of automatically determining the most suitable one within a specific context. The reinforcement signal consists of simple feedback.  
+
+Recital 26: The principles of data protection must apply to all information relating to an identified or identifiable natural person. Pseudonymized personal data, which could be attributed to a natural person by the use of additional information, must be considered information about an identifiable natural person. To determine whether a natural person is identifiable, all means, such as singling out, that the data controller or any other person may reasonably use to identify the natural person directly or indirectly must be taken into account. To determine whether there is a reasonable likelihood that means will be used to identify a natural person, all objective factors, such as the costs and time required for identification, must be considered, taking into account both the technology available at the time of processing and technological advancements. Therefore, the principles of data protection should not apply to anonymous information, that is, information that does not relate to an identified or identifiable natural person, nor to data converted into anonymous form so that the data subject is not identifiable, or ceases to be so. Consequently, this Regulation does not affect the processing of such anonymous information, including for statistical or research purposes.
+Page: 34 of 39
+
+that the system takes as a "reward" and allows determining how "adequate" a certain behavior is.  
+Audit  
+An audit is a systematic, independent, and documented process to obtain objective evidence (records, statements of facts, or any other information) and evaluate it objectively in order to determine the extent to which the audit criteria (set of policies, procedures, or requirements used as a reference) are met.93  
+Data Protection Audit of AI Components  
+That part within a data protection audit of a processing operation whose objective is limited to the AI-based components that are part of it.  
+AI Component  
+In the first edition of ISO/IEC TR 29119-11 “Software and systems engineering - Software testing - Part 11: Testing of AI-based systems”94, as well as in the “White Paper On Artificial Intelligence - A European approach to excellence and trust”95 or in the European Parliament study “Artificial Intelligence and Civil Liability”96, the term “AI system” is used to refer to a system that includes one or more AI-based components97.  
+An AI component is the implementation of an element that encapsulates the functions related to an artificial intelligence process and may include algorithms, datasets, and other elements that enable the execution of that component. The component includes both the specific aspects of AI and those derived from its implementation in software and/or hardware, which may affect the behavior of that component.  
+The GDPR, as established in Article 2, applies to processing operations. In this case, the AI component will implement a phase of the processing operation.  
+Input Data, Output Data, and Labeled Data  
+Input data are those that are entered into the AI component to be processed by it.  
+Output data, on the other hand, are those that result from the algorithmic processing of the input data.  
+
+93 UNE-EN ISO 19011:2018 - Guidelines for auditing management systems. Available at: https://www.iso.org/obp/ui#iso:std:iso:19011:ed-3:v1:es  
+94 ISO/IEC TR 29119-11:2020 Software and systems engineering — Software testing — Part 11: Guidelines on the testing of AI-based systems. Available at: https://www.iso.org/standard/79016.html  
+95 White Paper on Artificial Intelligence - A European approach to excellence and trust [online] COM(2020) 65 final, p.30 [Consulted: October 29, 2020]. Available at https://ec.europa.eu/info/sites/info/files/commission-white-paper-artificial-intelligence-feb2020_es.pdf  
+96 https://www.europarl.europa.eu/RegData/etudes/STUD/2020/621926/IPOL_STU(2020)621926_EN.pdf  
+97 Likewise, this is evidenced by CENELEC in “CEN-CENELEC response to the EC White Paper on AI.” Available at: https://www.cencenelec.eu/news/policy_opinions/PolicyOpinions/CEN-CLC%20Response%20to%20EC%20White%20Paper%20on%20AI.pdf
+Page: 35 of 39
+
+On its part, labelled data are those data that are input into an AI component and are linked to specific output information. The labels on the data allow the system to understand content about these data.  
+Personal Data  
+In this document, the definition of personal data provided by the GDPR in Article 4.1 is used: “any information relating to an identified or identifiable natural person (‘the data subject’); an identifiable natural person is one who can be identified, directly or indirectly, in particular by reference to an identifier, such as a name, an identification number, location data, an online identifier, or one or more factors specific to the physical, physiological, genetic, mental, economic, cultural, or social identity of that natural person.”  
+From the perspective of the life cycle of the AI component (see definition of life cycle below), we can encounter the following treatments of personal data:  
+• When personal data are used in the development stage of the AI component.  
+• When personal data are used in the verification or validation stages of the AI component.  
+• When the AI component is included in a personal data processing operation (exploitation stage), such as a security control processing (which includes facial recognition) or citizen assistance (which includes a chatbot).  
+• At any other stage of the life cycle that involves personal data.  
+In such treatments, datasets may be used, and new personal data may be inferred. All of them, whether direct or indirect, original or derived, are personal data as long as they refer to an identified or identifiable individual and are therefore subject to protection according to Article 1 of the GDPR.  
+Personal data are classified into identifiers, quasi-identifiers, and special categories of data.  
+The first are those data that, by themselves, are uniquely associated with a subject, such as a national ID number, full name, passport, social security number, or any other identifier that serves the same purpose.  
+Quasi-identifiers, also called indirect identifiers or pseudo-identifiers, are those data that, without directly identifying the individual, when conveniently grouped and related to other datasets or sources of information, can lead to the identification of a person and allow linkage or inference with sensitive data. Examples of such data include date of birth.  
+
+In AI systems, the role of the labeler is key to validating the data and its subsequent use to assist the machine in its learning, aiming for AI components to require no supervision in the medium term.  
+REGULATION (EU) 2016/679 OF THE EUROPEAN PARLIAMENT AND OF THE COUNCIL of April 27, 2016, on the protection of natural persons with regard to the processing of personal data and on the free movement of such data, and repealing Directive 95/46/EC (General Data Protection Regulation). Official Journal of the European Union, May 4, 2016. Available at: https://eur-lex.europa.eu/legal-content/ES/TXT/PDF/?uri=OJ:L:2016:119:FULL&from=DE
+Page: 36 of 39
+
+the municipality of residence, the postal code, or gender, as these are very common data points across a wide range of datasets, many of which are public, in which a particular individual may be included.  
+Finally, special categories of data are those types of data that are granted special protection according to Article 9 of the GDPR. Specifically, these are “personal data revealing racial or ethnic origin, political opinions, religious or philosophical beliefs, or trade union membership, and the processing of genetic data, biometric data aimed at uniquely identifying a natural person, data concerning health or data concerning a natural person's sex life or sexual orientation.”  
+Other data that, while not falling into the special category, require special protection due to their nature, are personal data related to criminal convictions and offenses (Article 10 of the GDPR), where their processing is limited and special guarantees are established, such as conducting a data protection impact assessment (Article 35.3(b) of the GDPR).  
+
+Lifecycle of an AI Component  
+The lifecycle of an AI component is the set of stages that structure its evolution from conception to withdrawal.  
+The basic stages of the lifecycle of an AI component may include, in the case of machine learning:  
+● A preprocessing stage, in which work is done on the databases that will serve for the training and testing of the system and which may have incomplete, unstructured data in different formats, so the first step will be to prepare them for utilization. These data are generally separated into two sets: those used to generate the learning model and those used for validation.  
+● A stage for preparing the code of the component, which is subsequently trained to generate the algorithmic model. The chosen learning technique will depend on the nature of the problem.  
+● A validation stage on the disjoint set of training data reserved for this purpose.  
+● If the model behaves reliably, the subsequent stages of implementation in a commercial model, inclusion in a process, production rollout, updating or maintenance, and finally a withdrawal stage are carried out.  
+It is common for this development model to include an iterative process of verification – re-learning the behavior of the component using real data that allows for its adaptation and continuous improvement.  
+
+Algorithmic Discrimination  
+Algorithmic discrimination refers to the unequal treatment that an AI component gives to person X in relation to another person Y as a consequence of an attribute
+Page: 37 of 39
+
+particular of X. This circumstance does not necessarily imply that the discrimination is negative or disadvantageous100,101.  
+Group Discrimination  
+This form of discrimination refers to discrimination that affects a person due to their membership in a socially identifiable or protected group.  
+Statistical Discrimination  
+Statistical discrimination refers to group discrimination based on a fact that is statistically relevant102.  
+Weak AI  
+Based on the scope and application of artificial intelligence, three categories of AI are distinguished: strong AI, general AI, and weak AI. General AI could solve any intellectual task that a human can solve; strong AI or super-intelligence would go beyond human capabilities. For its part, weak AI (AI-weak), which is the intelligence currently implemented, is characterized by developing solutions capable of solving a specific and limited problem. This document is oriented towards this last category.  
+Audit Methodology  
+Regardless of the doctrinal field in which it is applied, methodology refers to the set of rational procedures, methods, and techniques that are systematically applied during a study or research process to achieve a specific objective.  
+In the specific case of auditing, the objective pursued is to determine the degree of compliance of the audited treatment concerning the required audit criteria or requirements, which may stem from regulatory demands, the internal policies and standards of the responsible party, other plans defined within the organization (quality plan, social responsibility plan, etc.), or other requirements specified by the interested parties.  
+In an analysis and research process, many methodologies can be developed, although all of them fall into two main groups: qualitative research methodology and quantitative research methodology.  
+
+100 The definitions of discrimination and bias presented in this guide are primarily based on the work of Barocas and Selbst (2016), Baeza-Yates (2018), Castillo (2018), Cowgill (2019), Hajian, S., Bonchi, F., and Castillo, C. (2016), Lippert-Rasmussen (2013), Pedreschi et al. (2008). Also in their interpretation for previous works published by Eticas Research and Consulting.  
+101 An example of discrimination that positively affects a protected or vulnerable group would be a component developed to model resource allocation that provides significantly more assistance to disabled individuals compared to those assigned to other groups of non-disabled individuals.  
+102 This can occur, for example, in the case of a component dedicated to prediction that uses data on probabilities derived from the real world (and which, therefore, by reflecting the outcome of previous decisions, are statistically relevant), but whose use results in disadvantageous treatment towards a certain vulnerable social group or collective. A real example of this is the case of a component dedicated to predicting recidivism in the commission of crimes, which was shown to be discriminatory due to its use of information related to recidivism cases among Black individuals. For more information on this example, related to the COMPAS algorithm case, please consult the following website: https://www.propublica.org/article/how-we-analyzed-the-compas-recidivism-algorithm. It should also be noted that if a similar case were to occur in Europe or involve European data, according to Article 10 of the GDPR, the use of this data, related to convictions or criminal offenses, should be adequately reported to the competent authorities and have a legal basis.
+Page: 38 of 39
+
+The first is the one that allows access to information through the collection of data on variables, reaching certain conclusions by comparing statistics; the second describes the phenomena investigated, setting aside the quantification of data and obtaining information through interviews or non-numerical techniques, studying the relationship between the variables obtained from observation and taking into account, above all, the context and situations surrounding the problem studied.  
+Control Objectives and Controls  
+According to ISO103, control objectives establish the statement of what is intended to be achieved through the implementation of different controls, understood as those measures by which risk is modified. Controls, for their part, include processes, policies, devices, or practices, among other actions, to modify risk. They can be preventive, detective, or corrective depending on how they act in relation to the materialization of the threat that leads to the risk.  
+Profiling  
+Profiling (art. 4.4 of the GDPR) consists of a form of automated processing of personal data that allows inferring more information about a natural person, evaluating, analyzing, or predicting personal aspects.  
+A processing operation that involves profiling is characterized by three elements104:  
+• It must be an automated form of processing, including those processes that have partial human involvement.  
+• It must be carried out with respect to personal data.  
+• And the objective of profiling must be to evaluate personal aspects about a natural person.  
+Profiling and making a decision about a natural person are processing operations according to the Regulation (Recitals 24 and 72 of the GDPR) and, consequently, are subject to this regulation.  
+Risk of Re-identification  
+The risk analysis of re-identification is a process of data analysis to find properties that may increase the risk of subjects being identified. Risk analysis methods can be used prior to de-identification to assist in the identification of potential risks.  
+
+103 ISO/IEC 27000 Information technology — Security techniques — Information security management systems — Overview and vocabulary. Available at: https://standards.iso.org/ittf/PubliclyAvailableStandards/c073906_ISO_IEC_27000_2018_E.zip  
+104 Guidelines on automated individual decision-making and profiling for the purposes of Regulation 2016/679. Article 29 Working Party, 2017. Available at: https://www.aepd.es/sites/default/files/2019-12/wp251rev01-es.pdf  
+105 Recital 24 of the GDPR: “… the potential subsequent use of personal data processing techniques that consist of profiling a natural person for the purpose, in particular, of making decisions about him or her or analyzing or predicting his or her personal preferences, behaviors, and attitudes.”  
+106 Recital 72: Profiling is subject to the rules of this Regulation governing the processing of personal data, such as the legal bases for processing or the principles of data protection. The European Data Protection Board established by this Regulation (hereinafter, the "Board") must have the opportunity to provide guidance in this context.
+Page: 39 of 39
+
+determine an effective strategy for de-identification or after de-identification to monitor any changes or outliers.  
+Algorithmic Bias  
+Algorithmic bias occurs in cases where a specific AI component produces different results concerning subjects based on their membership in a particular group (explicit or ad-hoc), evidencing an underlying prejudice against that group.  
+This behavior can stem from various sources: bias in training data, in the training methodology (e.g., due to supervision that includes bias), from an overly simplistic model (underfitting), from the application of the AI component in a treatment or context that is not appropriate, etc.  
+Proxy Variables  
+A proxy variable is one that is used instead of the variable of interest when that variable cannot be measured directly. Although a proxy variable is not a direct measure of the desired variable, a good proxy variable is strongly related to the values of that variable.  
+In short, proxy variables are those that can be measured directly and show a sufficiently close correlation with what we are interested in but cannot be measured directly, thus allowing for the establishment of a substitute evaluation system.  
+
+The definitions of discrimination and bias presented in this guide are primarily based on the work of Barocas and Selbst (2016, "Big data's disparate impact." California Law Review 104: 671.), Baeza-Yates (2018. Bias on the web. Communications of the ACM, 61(6), pp.54-61.), Saldago and Castillo (2018, “Differential status evaluations and racial bias in the Chilean segregated school system.” Sociological Forum, 33, 2, pp. 354-377.), Cowgill et al. (Cowgill, B., Dell'Acqua, F., Deng, S., Hsu, D., Verma, N. and Chaintreau, A., 2020, “Biased Programmers? Or Biased Data? A Field Experiment in Operationalizing AI Ethics.” In Proceedings of the 21st ACM Conference on Economics and Computation, pp. 679-681), Sweeney (2013, "Discrimination in online ad delivery." arXiv preprint arXiv:1301.6822.).  
+Proxy variable. Oxford Reference. Available at https://www.oxfordreference.com/view/10.1093/oi/authority.20110803100351624  
+Proxy variable. The SAGE Encyclopedia of Social Science Research Methods, 2004. Available at: https://methods.sagepub.com/reference/the-sage-encyclopedia-of-social-science-research-methods/n768.xml  
+Everything is a proxy. Machine Learning: Algorithms in the Real World Coursera [accessed: November 2020]. Available at https://www.coursera.org/lecture/machine-learning-applied/everything-is-a-proxy-AFO5D

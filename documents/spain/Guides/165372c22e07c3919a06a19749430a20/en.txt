@@ -1,0 +1,632 @@
+0
+
+DATA SHARING ENGINEERING
+Use Cases and Emerging Technologies
+JANUARY 2023
+
+DATA SHARING ENGINEERING
+Final | Version 1 | Public | JANUARY 2023
+
+1
+
+ABOUT ENISA
+The European Union Agency for Cybersecurity, ENISA, is the Union's agency dedicated to achieving a high common level of cybersecurity across Europe. Established in 2004 and reinforced by the EU Cybersecurity Regulation, the European Union Agency for Cybersecurity contributes to EU cyber policy, enhances the reliability of ICT products, services, and processes with cybersecurity certification systems, cooperates with Member States and EU bodies, and helps Europe prepare for tomorrow's cyber challenges. Through knowledge sharing, capacity building, and awareness raising, the Agency collaborates with its key stakeholders to strengthen trust in the connected economy, boost the resilience of Union infrastructures, and ultimately maintain the digital security of society and European citizens. More information about ENISA and its work can be found at: www.enisa.europa.eu.
+CONTACT
+To contact the authors, use isdp@enisa.europa.eu
+For media inquiries regarding this document, use press@enisa.europa.eu.
+COLLABORATORS
+Isabel Barbera, Claude Castelluccia, Giuseppe D’acquisto, Marta Fydrych Gasowska, Marit Hansen, Jaap-Henk Hoepman, Meiko Jensen, Konstantinos Limniotis, Maria Raphael, Marie-Charlotte Roques Bonnet, Fernando Silva, Fatbardh Veseli, Barbara Vieira, Kim Wuyts, Christian Zimmermann, Luis de Salvador Carrasco, Peter Kraus, Stephanie Mihail, Miguel Peñalba Moldes, and Prokopios Drogkaris
+EDITORS
+Prokopios Drogkaris (ENISA), Monika Adamczyk (ENISA)
+ACKNOWLEDGMENTS
+We thank Kristof Verslype for his review and valuable comments.
+LEGAL NOTICE
+This publication represents the opinions and interpretations of ENISA, unless otherwise stated. It does not endorse a regulatory obligation of ENISA or ENISA bodies in accordance with Regulation (EU) 2019/881. ENISA reserves the right to modify, update, or remove the publication or any of its contents. It is intended solely for informational purposes and must be freely accessible. In all references to it or its total or partial use, ENISA must be cited as the source. 
+Where applicable, third-party sources will be cited. ENISA is not responsible for the content of external sources, including external websites referenced in this publication. Neither ENISA nor any person acting on its behalf is responsible for any use that may be made of the information contained in this publication. 
+ENISA retains its intellectual property rights in relation to this publication.
+
+DATA SHARING ENGINEERING
+Final | Version 1 | Public | JANUARY 2023
+
+2
+
+COPYRIGHT NOTICE
+© European Union Agency for Cybersecurity (ENISA), 2023
+
+This publication is licensed under CC-BY 4.0 “Unless otherwise stated, the reuse of this document is authorized under the Creative Commons Attribution 4.0 International License (CC BY 4.0) (https://creativecommons.org/licenses/by/4.0/). This means that reuse is permitted, provided that appropriate credit is given and any changes are indicated.” 
+For any use or reproduction of photos or other material not under ENISA's copyright, permission must be obtained directly from the copyright holders. 
+ISBN 978-92-9204-602-6, DOI 10.2824/36813
+
+DATA SHARING ENGINEERING
+Final | Version 1 | Public | JANUARY 2023
+
+3
+
+INDEX
+1. INTRODUCTION
+6
+1.1 RELEVANT EU LEGISLATIVE INITIATIVES
+6
+1.2 THE ROLE OF DATA PROTECTION ENGINEERING
+7
+1.3 SCOPE AND OBJECTIVES
+8
+1.4 STRUCTURE OF THE DOCUMENT
+8
+2. DATA SHARING PRACTICES IN THE HEALTH SECTOR
+9
+2.1 USER-CONTROLLED PERSONAL DATA SHARING
+9
+2.1.1 Attribute-based encryption
+11
+2.1.2 Proxy re-encryption
+12
+2.2 HEALTH DATA EXCHANGE FOR MEDICAL AND RESEARCH PURPOSES BY HEALTHCARE PROVIDERS
+13
+2.2.1 Polymorphic encryption and pseudonymization
+14
+3. DATA SHARING THROUGH THIRD-PARTY SERVICES
+16
+3.1 PUSH NOTIFICATIONS FOR MOBILE DEVICES
+17
+3.1.1 Anonymous notification protocols (via Proxies)
+18
+3.1.2 End-to-end encryption
+19
+3.1.3 Design strategies
+20
+3.2 DATA SHARING DURING AUTHENTICATION
+20
+3.2.1 Relevance of attribute-based access to online platforms
+22
+4. CONSIDERATIONS ON THE EXERCISE OF DATA SUBJECT RIGHTS
+23
+4.1 INTERACTION BETWEEN THE DATA SUBJECT AND THE DATA INTERMEDIARY
+25
+4.1.1 Purpose limitation
+26
+4.1.2 Implementation aspects
+26
+4.2 INTERACTION BETWEEN INTERMEDIARIES AND DATA USERS
+27
+4.2.1 Data request and response
+27
+4.3 DATA MANAGEMENT IN THE DATA INTERMEDIARY
+28
+
+DATA SHARING ENGINEERING
+Final | Version 1 | Public | JANUARY 2023
+
+4
+
+4.3.1 Coverage of consent and limitation of purpose
+28
+4.3.2 Interaction between intermediaries
+28
+4.3.3 Records and reporting
+29
+4.3.4 Data selection to preserve privacy
+29
+4.4 DATA ALTRUISM
+30
+5. CONCLUSIONS
+31
+REFERENCES
+33
+PERSONAL DATA SHARING ENGINEERING  
+Final | Version 1 | Public | JANUARY 2023  
+
+5  
+
+EXECUTIVE SUMMARY  
+In the last twenty years, we have experienced a steady increase in the amount of data that is generated and subsequently processed in some way. Data has transitioned from being a scarce resource, difficult to collect and manage centrally, to becoming an abundant resource created in a decentralized manner and easy to reproduce and communicate. There seems to be a natural tendency to "extract data from devices or organizations" and share it among different parties to create new value for our society, or simply to reduce operational costs.  
+Data sharing can be considered as the disclosure of data to third parties outside the organization for the purpose of achieving a specific objective. This sharing can take place as part of a processing operation or while attempting to provide additional utility to existing data. Recent EU legislative initiatives promoting data sharing are sectoral or cross-sectoral instruments aimed at making data available by regulating the reuse of publicly and privately owned data, including personal data. They also facilitate data sharing by creating intermediaries and novel exchange environments in which the involved parties can share data and facilities reliably and securely.  
+This report aims to analyze in detail specific use cases related to personal data sharing, primarily in the healthcare sector, and examines how specific technologies and implementation considerations can support compliance with data protection specifications. After analyzing some of the challenges of data (personal) sharing, this report demonstrates how to design specific technologies and techniques that enable data sharing while preserving privacy.  
+More specifically, it analyzes concrete cases of data exchange in the healthcare sector, with the objective of demonstrating how data protection principles can be fulfilled through the proper use of technological solutions based on advanced cryptographic techniques. It then examines data sharing that occurs as part of another process or service, in which data is processed through some secondary channel or entity before reaching its primary recipient. Finally, it identifies challenges, considerations, and possible architectures as solutions to aspects of control by stakeholders (such as the right to erasure and the right to rectification when sharing data).
+PERSONAL DATA SHARING ENGINEERING  
+Final | Version 1 | Public | JANUARY 2023  
+
+1. INTRODUCTION  
+Data is at the center of our daily lives and our economy. Over the past twenty years, we have experienced a steady increase in the amount of data generated and subsequently processed in some way. Data has transitioned from being a scarce resource, difficult to collect and managed in a centralized manner, and costly to store, transmit, and process, to becoming an abundant resource created in a decentralized manner (by individuals or sensors), easy to replicate and communicate or disseminate at scale. This is evident in the fact that in the last 20 years, the capacity of the backbone fiber optic of the Internet has multiplied almost 100 times (from 10 Gbps to nearly 1 Tbps), while the cost of transmitting a single Gbps has decreased at the same rate, currently around 1% of the cost incurred in the early 2000s [1].  
+Data is considered the new currency, and organizations exchange information about their customers with their partners, analytical platforms, public administrations, and other stakeholders in the data ecosystem in order to leverage new technologies or the additional information they can obtain from sharing and correlation. There seems to be a natural tendency to "extract data from devices or organizations" and share it among different parties to create new value for our society, or simply to reduce operational costs. Sharing data is already becoming the norm rather than an exception in data processing. To harness the value of data, service providers must be able to use it, including data they do not own.  
+In an effort to provide an accurate description, and based on the definitions provided by the Data Protection Commission (DPC) in 2019 [2] and the ICO in 2020 [3], data sharing can be considered as the disclosure of data to third parties outside the organization for a specific purpose. Such sharing can be carried out as part of a processing operation or to attempt to provide additional utility to existing data. Data sharing can be done routinely or in response to specific or emergency situations. According to Gartner [4], sharing data is a business necessity, as it can enhance digital transformation and innovation.  
+
+1.1 RELEVANT EU LEGISLATIVE INITIATIVES  
+Currently, European legislators have a strong interest in data sharing. One of the fundamental pillars of the European Data Strategy [5] is to increase the availability of data and facilitate its sharing across sectors and countries in the EU to leverage the potential of data for the benefit of European citizens and businesses. Considering only the EU 27 area, the projected value of data for the economy by 2025 will be €829 billion, compared to €301 billion (2.4% of EU GDP) in 2018.2 It is expected that facilitating access to data and its sharing will bring significant and concrete benefits in various fields, such as personalized diagnostics and telemedicine, transportation, policy-making, and public administration.  
+The European Data Governance Regulation [6] provides mechanisms to increase the availability of data in the public sector and overcome technical obstacles to the reuse of public interest data. These mechanisms are supported by a set of concrete measures that facilitate data sharing. The measures include the establishment of data intermediaries that act as reliable data organizers and technologies.  
+
+1 IDC, Data Age 2025 - The digitization of the world, from edge to core, Nov. 2018  
+2 European Data Strategy: https://commission.europa.eu/strategy-and-policy/priorities-2019-2024/europe-fit-digital-age/european-data-strategy_en  
+There is a natural tendency to "extract data from devices or organizations" and share it among different parties to create new value.
+ENGINEERING OF PERSONAL DATA SHARING  
+Final | Version 1 | Public | JANUARY 2023  
+
+7  
+
+within sectoral data spaces and the creation of processing environments (e.g., data rooms), supervised by the public sector. Other legislative initiatives focus on specific sectors, such as the EU Health Data Space Proposal [7]. For the private sector, the EU Data Act Proposal [8] aims to establish the standards for creating new value from the data held by consumers and businesses, and to clarify who can access that data and under what conditions. Through the EU Data Act, companies, citizens, and public administrations will be able to share data based on specific measures aimed at increasing legal certainty, preventing the abuse of contractual imbalances, and facilitating access to data for public sector bodies.  
+
+1.2 THE ROLE OF DATA PROTECTION ENGINEERING  
+The protection of personal data is an integral element of the trust that individuals and organizations must have implemented in the development of data sharing ecosystems. As highlighted in the joint opinion of the EDPB and the EDPS [9], success will also depend on the establishment of robust data governance and effective safeguards for the rights and interests of natural persons that are fully compliant with the GDPR. This is where data protection engineering has a very important role to play. Legislative initiatives that promote data sharing are sectoral and cross-sectoral instruments aimed at making data available by regulating the reuse of public and private ownership data, including personal data. They also facilitate data exchange by creating intermediaries and novel exchange environments where the involved parties can share data and facilities reliably and securely.  
+
+Data protection engineering, as described in [10], can be a key factor in building a trusted sharing environment, where organizations can present data without revealing personal data or sensitive business information, or by revealing personal data with an adequate level of protection. This aligns with the spirit of the data protection by design concept prescribed in Article 25 of the GDPR; safeguards must be integrated and designed into the processing. Data protection engineering offers the possibility of addressing the growing capabilities of transmission, storage, and processing technologies without diminishing their innovation potential, while simultaneously mitigating emerging risks to individuals' privacy and economic risks to businesses.  
+
+As noted by the European Data Protection Board (EDPB) in its guidelines on data protection by design and by default [11] in an increasingly digital world, adherence to data protection by design plays a crucial role in promoting privacy and data protection. It is crucial that data holders understand the principles of data protection and the rights and freedoms of data subjects, and implement appropriate measures and necessary safeguards to reinforce these principles and enable the exercise of these rights. Each technical and organizational measure must produce the expected results in the specific context in which the processing takes place.  
+
+Therefore, special attention must be paid to identifying the main paradigms of data protection engineering in data sharing and to understanding the types of safeguards that must be implemented in all possible scenarios. The following chapters of this document will exemplify these paradigms and the relevant technical safeguards in more detail through practical use cases. These use cases primarily focus on the healthcare sector; however, the technologies and techniques presented are equally applicable to other areas of application.  
+
+Data protection engineering can be a key factor in building a shared trusted environment with an adequate level of protection.
+PERSONAL DATA SHARING ENGINEERING  
+Final | Version 1 | Public | JANUARY 2023  
+
+8  
+
+1.3 SCOPE AND OBJECTIVES  
+This report aims to analyze in detail specific use cases related to the sharing of personal data, primarily in the healthcare sector, and examines how specific technologies and implementation considerations can support compliance with specific data protection principles. After analyzing some of the challenges of data (personal) sharing, this report demonstrates how to design specific technologies and techniques that enable data sharing while preserving privacy. This work is intended to support policymakers, regulators, and data protection professionals and is carried out in the context of ENISA's tasks under the Cybersecurity Act (CSA) to assist Member States in specific aspects of cybersecurity policy and legislation related to data protection and privacy. This work is based on the Agency's activities in the field of Data Protection Engineering and is conducted in collaboration with the ENISA Ad Hoc Working Group on Data Protection Engineering.  
+
+1.4 DOCUMENT STRUCTURE  
+Section 2 analyzes specific use cases of data sharing in the healthcare sector, with the aim of demonstrating how data protection principles can be fulfilled through the appropriate use of technological solutions based on advanced cryptographic techniques. Section 3 addresses data sharing that occurs as part of another process or service, in which the data is processed through a secondary channel or entity before reaching its primary recipient. Finally, Section 4 discusses the challenges, considerations, and potential architectural solutions regarding aspects of control by the data subject (such as the right to erasure and the right to rectification when data is shared). Section 5 concludes the document.  
+
+3 Regulation (EU) 2019/881 of the European Parliament and of the Council of April 17, 2019, on ENISA (European Union Agency for Cybersecurity) and on the certification of cybersecurity of information and communication technologies, and repealing Regulation (EU) No 526/2013 (Cybersecurity Act)  
+http://data.europa.eu/eli/reg/2019/881/oj  
+4 https://www.enisa.europa.eu/topics/data-protection/ad-hoc-working-group-on-data-protection-engineering
+ENGINEERING OF PERSONAL DATA SHARING  
+Final | Version 1 | Public | JANUARY 2023  
+
+9  
+
+2. DATA SHARING PRACTICES IN THE HEALTHCARE SECTOR  
+One area where data sharing presents an opportunity is undoubtedly the healthcare sector. Sharing health data can enhance coordination and collaboration between public and private healthcare entities to provide effective personalized healthcare and achieve public health objectives, as well as to conduct scientific research (including clinical trials) [12]. Data sharing in the healthcare sector also has cross-border dimensions, as noted in the Directive on Cross-Border Healthcare and currently in the proposed EU Health Data Spaces [7]. However, there are several risks to the protection of personal data arising from the sensitive nature of health data under Article 95 of the GDPR and the fact that ensuring compliance with data protection principles such as transparency and data minimization requires a very thorough assessment and a cautious "by design" implementation approach [12].  
+Health data includes biomedical data, electronic medical records (e.g., medical histories stored and processed in a hospital), and data generated by individuals themselves, e.g., data from wearable devices [14]. In the context of sharing health data for various purposes, it is necessary to efficiently address the following properties or requirements [15].  
+• Data for the diagnosis and treatment of individual patients must be identifiable.  
+• The (same) data for medical research (possibly on a large scale) must be duly pseudonymized, in order to ensure that it is unlikely that a researcher can re-identify them (unless the user gives explicit consent for processing without pseudonymization, which can be revoked at any time)6, as well as the existence of the ability to eliminate the link [16] between two different datasets for different purposes.  
+• There must be the capability to manage multiple sources of patient data, including wearable devices and applications.  
+
+It is noteworthy that the need to minimize data encompasses these three requirements horizontally.  
+Other data protection requirements that must also be met include transparency for the data subject and data security.  
+2.1 USER-CONTROLLED PERSONAL DATA SHARING  
+A basic approach to ensuring transparency for the user consists of allowing them to control who will have access to their data, as well as for how long and to which part of their data.  
+
+5 According to the GDPR, health data not only belongs to the so-called "special categories" of data (Article 9), but member states have leeway to introduce, in their national legislation, other conditions and limitations (aside from those provided in the GDPR) regarding the processing of this data, which clearly illustrates the importance of its processing.  
+6 From a legal perspective, the legal basis for such processing is the user's consent.  
+A basic approach to ensuring user transparency is to allow them to control who will have access to their data, as well as for how long and to which part of their data.
+PERSONAL DATA SHARING ENGINEERING  
+Final | Version 1 | Public | JANUARY 2023  
+
+10  
+
+Therefore, in this user-controlled data sharing approach, the user's role could be considered a "safeguard" to ensure compliance with the aforementioned data protection requirements. From the perspective of the legal basis for processing, this approach is a way to implement data sharing with the explicit consent of the user in a manner that cannot be overridden; no entity would be allowed to access the user's health data unless the user explicitly granted access.  
+Let us consider a scenario in which User A uses a wearable device for continuous glucose monitoring (CGM), which also tracks blood pressure, caffeine levels, and lactate levels. The device uploads the data streams collected to the cloud for storage and subsequent processing for the user themselves or for other entities, such as their family, doctors, etc., as shown in Figure 1 below. The main challenge, from a data protection perspective, is how the user can selectively share specific data streams generated by the device with specific parties.  
+Figure 1: Generic model of user-controlled personal data sharing  
+
+This access model can be based not only on the identity of the entity requesting access but also on additional parameters such as the time period in which the data is generated. For example, access could be granted to a third party only for data corresponding to the last three months and/or to specific parts of the dataset (e.g., blood pressure readings).  
+A straightforward approach to achieve the objectives is the use of asymmetric encryption. User A encrypts the data with the corresponding recipient's public key and shares the data as presented in Figure 2 below. In other words, each segment of data that is to be read by a third party is encrypted with A's public key (similarly, if the user themselves is going to access the data, it is encrypted with the user's public key).  
+Figure 2: User-controlled data sharing through asymmetric encryption  
+
+7 Apparently, our use case scenario could easily be adapted to describe the case in which the patient uses more than one wearable device, each with a different purpose (e.g., CGM, Holter monitoring, etc.)  
+
+PERSONAL DATA SHARING ENGINEERING  
+Final | Version 1 | Public | JANUARY 2023  
+
+11  
+
+However, this approach has some limitations, primarily in terms of practicality and efficiency. If the same data needs to be shared with multiple entities, the user must share the same data multiple times, each time encrypted with the public key of the relevant entity. This inevitably leads to redundancy, which becomes a predominant problem, especially in the case of large volumes of data that are constantly being produced. Additionally, potential recipients may not necessarily be known in advance, and consequently, for each new access that is to be granted, a new encryption would be necessary.  
+2.1.1 Attribute-based encryption  
+A cryptographic technique to overcome the aforementioned limitations is Attribute-Based Encryption (ABE), which was first introduced in 2004 under the term Fuzzy Identity-Based Encryption. ABE is a special case of asymmetric encryption, in which data can be encrypted with an ABE public key, but, unlike "classic" public key encryption, there can be more than one decryption key, each linked to small pieces of additional information related to the data, referred to as attributes. In practice, the decryption keys are generated using a generic ABE master secret key, which must remain private.  
+Reviewing the previously analyzed use case, we will now describe how ABE can be used to implement user-controlled data sharing through a cloud service. Our scenario is largely based on the implementation described in [19]. However, it should be noted that today’s cloud infrastructures and services offer a wide range of possibilities and can carry out part of the processing operations, in addition to the transmission of the data. However, these applications fall outside the scope of the use cases described in this report.  
+Figure 3: Cloud-stored encoded objects  
+
+The user's data is generated by their device and assigned to relevant objects, describing specific attributes related to them, such as the date of origin, the type of object, etc. These attributes will later be used to define the access control mechanism for this data. The data is then encrypted with the ABE master key and uploaded to the cloud.  
+
+8 ABE can be considered a specific case of what is called functional encryption, which is defined as a specific type of public key encryption that allows decryption keys with the property that they can only decrypt a specific function of the encrypted plaintext (regardless of the content of the plaintext).  
+ABE is a special type of asymmetric encryption, in which data can be encrypted with an ABE public key, but there can be more than one decryption key.
+ENGINEERING OF PERSONAL DATA SHARING  
+Final | Version 1 | Public | JANUARY 2023  
+
+12  
+
+Figure 4: Sharing the ABE decryption key and the encrypted data  
+
+When a third party requests access to a user's data, User A creates an access policy for that third party. This policy specifies which exact properties, based on the already defined attributes, the data must meet to grant access. Next, the user's device "translates" the policy, for example file="blood pressure" and year>=2021 AND recipient="Doctor D", into a corresponding ABE decryption key and sends the key to the other party (the cloud provider does not have access to this decryption key). Once Doctor D receives this decryption key, he will only be able to locally decrypt the corresponding data that satisfies the access policy defined by the user, as the ABE decryption key can only decrypt a subset of the dataset.  
+However, this approach allows for "tagging" the data at an early stage, which is not always a straightforward task, whether due to the capabilities of the device or the interaction required by the user. Additionally, an appropriate selection of attributes in relation to subsequent access policies may not always be obvious. However, in a user-controlled data exchange model, it is inevitable that the user can make decisions about their data. Furthermore, the cloud provider continues to collect information related to the metadata of each communication between the user and each of the parties.  
+
+2.1.2 Proxy Re-Encryption  
+Another advanced cryptographic technology that enables user-controlled data sharing is Proxy Re-Encryption (PRE) [20]. This is a specific type of asymmetric encryption that allows re-encrypting a set of already encrypted data from one public key to another, without the proxy having access to the unencrypted dataset. It is considered a very good approach when the entity with which the data will be shared is not known at the time of the initial encryption or when sharing will be carried out through unreliable infrastructures.  
+Delving into the previously described use case, User A encrypts their data with their own public key and uploads it to the cloud. When a third party, for example, Doctor D, requests access to the data, the user generates a re-encryption key, using their own private key and Doctor D's public key. The re-encryption key can be sent to the cloud provider, which can now transform the encrypted dataset corresponding to the encryption using Doctor D's public key, as shown in Figure 5 below. In this way, only Doctor D can decrypt the data using his private key.  
+
+ENGINEERING OF PERSONAL DATA SHARING  
+Final | Version 1 | Public | JANUARY 2023  
+
+13  
+
+Figure 5: Proxy re-encryption process  
+
+PRE allows for cryptographically strengthened access control in a user-controlled sharing model. Additionally, it enables the data owner to delegate access once encrypted, which is important because in a typical sharing scenario, it is not always possible to identify the recipient entities in advance.  
+In general, PRE can be considered a good solution when sharing occurs through unreliable infrastructures, such as cloud infrastructure. Several existing applications and commercial patents are already described in [21]. However, the cloud provider continues to collect information related to the metadata of each communication, similar to the previously mentioned ABE. Furthermore, since re-encryption can only be performed on the initially encrypted dataset, the user must have a good understanding during the initial encryption of the data that would be shared later. It is worth noting, however, that ABE and PRE can be used in combination [22], allowing for a more refined user-controlled data sharing.  
+
+2.2 EXCHANGE OF HEALTH DATA FOR MEDICAL AND RESEARCH PURPOSES BY HEALTHCARE PROVIDERS  
+Another typical scenario of data exchange in the healthcare sector is the management of Electronic Health Records (EHR) by healthcare providers. Broadly speaking, EHRs are an electronic version of a patient's medical history that contains all key medical data related to that person's conditions, medical test results, treatments, medications, etc. EHRs are usually managed with a central repository at the national level, and users can authorize access to their data to treating physicians or medical institutions. During the pandemic, the need for large-scale data collection projects became even more apparent, in an attempt to support not only the treatment of patients but also scientific research and forecasting.
+ENGINEERING OF PERSONAL DATA SHARING  
+Final | Version 1 | Public | JANUARY 2023  
+
+14  
+
+Figure 6: Example of large-scale data collection  
+
+Typically, to address the applicable data protection issues, a medical center deploys access control mechanisms, applicable to both internal and external users, to determine who will have access to the data and/or the encoding of the stored data. The objective is to ensure that only authorized healthcare providers will have access to personalized information (for example, doctors who need to access a patient's medical history). When data must be shared with internal or external researchers for research purposes, appropriate safeguards must also be deployed, which in a typical scenario include pseudonymization to prevent the disclosure of patients' identities to recipients, as described in [12] and presented in the above Figure 6.  
+
+2.2.1 Polymorphic Encoding and Pseudonymization  
+Leveraging the advantages of polymorphic encoding, Polymorphic Encoding and Pseudonymization (PEP) [15] has been proposed as a means to address the challenges described above. The main property of polymorphic encoding is that personal data can be encrypted in such a way that it is not necessary to determine in advance who can decrypt it. This can be decided later through transformations of the encrypted text that allow decryption using different cryptographic keys. This transformation can be performed blindly, so that the party carrying it out, the transcriber, cannot access the unencrypted dataset. Therefore, the transcriber "transforms" the encrypted dataset into another version that only the recipient can decrypt [15]. The transcriber can be an entity within the organization (for example, the medical center or the hospital) or outside the organization, such as a cloud provider. Regarding pseudonymization, PEP also uses the transcriber as the pseudonymization entity, as described in [23]. Each individual is assigned different pseudonyms for each third party requesting access to their data, thus avoiding the linking of pseudonyms among multiple third parties.  
+
+Returning to the use case of large-scale data collection projects in the healthcare sector mentioned earlier, each patient has a unique identifier. The transcriber transforms this identifier into several pseudonyms depending on the recipient and the context or purpose of sharing the data. Each pseudonym is communicated to each recipient along with the polymorphic encrypted data. Since a new pseudonym is generated for each recipient, the pseudonyms used for the same patient cannot be linked, making them unlinkable and preserving the confidentiality of the patient's data. As shown in Figure 7, when the recipient is a doctor, the transcriber re-encrypts the patient's health data and transmits it to the corresponding doctor.  
+
+Through polymorphic encoding, data can be encrypted in such a way that it is not necessary to determine in advance who can decrypt it.  
+
+ENGINEERING OF PERSONAL DATA SHARING  
+Final | Version 1 | Public | JANUARY 2023  
+
+15  
+
+Figure 7: Using PEP in large-scale data collection  
+
+It should be noted that the processing of pseudonymous data is always subject to the re-identification of individuals, either through the reversal of pseudonyms to the original identifiers or through the re-identification of individuals via the remaining personal information that remains available (the so-called quasi-identifiers) as discussed in [23]. In general, PEP constitutes a technique that is currently considered an advanced cryptographic technique for data protection engineering and has already demonstrated its applicability in a large-scale study of Parkinson's disease [24] and as a proposal for the Dutch electronic identification plan [25].
+PERSONAL DATA SHARING ENGINEERING  
+Final | Version 1 | Public | JANUARY 2023  
+
+16  
+
+3. DATA SHARING  
+THROUGH THIRD-PARTY SERVICES  
+In addition to the use cases of data sharing, where one entity shares data directly with another entity, which is the final recipient of the data, there are also cases of secondary, indirect data sharing that may require a user to perform specific actions. In this type of data sharing, the sharing occurs as part of another process or service, where the data is processed through some secondary channel or entity before reaching its primary recipient. Often, this data sharing is not transparent to users. Therefore, this issue must be addressed by engineers, architects, and developers specialized in privacy. For example, this data sharing occurs when an application integrates a third-party service, which is also managed by an entity different from the primary recipient or sender of the data [26]. Although this is an established practice in software development, there are cases where it is detrimental to user privacy, e.g., a component or service used may share data with a third party—sometimes without the system architects and developers being aware of it.  
+There are examples of secondary data sharing use cases in many dimensions of software engineering. Table 1 provides an overview of some of these use cases structured into three main areas, along with a high-level description of each.  
+Table 1: Selected Use Cases of Third-Party Data Sharing  
+Area  
+Use Case  
+Description  
+Integration of Third-Party Services  
+Mobile Push Notifications  
+Utilization of a third-party service to send push notifications to mobile phone users (apps)  
+Authentication and Authorization  
+Integration of a third-party authentication and/or authorization service in an application, e.g., federated identity.  
+Outsourcing of IT Operations  
+Network Monitoring  
+Whenever network monitoring is carried out, especially by a subcontracted company, implicit data sharing occurs.  
+Data Sharing Between Local Environment and the Cloud  
+When companies implement a hybrid cloud approach, data is shared between the local environment and the cloud.  
+Thread Preparation Optimization  
+Sharing Intelligence Information  
+Collaborative efforts to share timely and relevant information about emerging threats within a predefined community.
+PERSONAL DATA SHARING ENGINEERING  
+Final | Version 1 | Public | JANUARY 2023  
+
+17  
+
+In the context of this study, we focus on the first two use cases, namely, push notifications for mobile devices and authentication, which will be analyzed in more detail.  
+3.1 PUSH NOTIFICATIONS FOR MOBILE DEVICES  
+Push notifications for mobile devices are an important communication channel between mobile applications and their users. Through push messages, a mobile application provider can instantly send a message to its users. Push notifications can provide timely information from the application provider to the user or users and, potentially, provoke a reaction from them.  
+Push notifications for mobile devices can convey different types of content, such as text, images, external links, and in-app links, etc. In addition to marketing purposes, push notifications can also be used to provoke a reaction from the user or users, or to indicate to users that they should provide certain information, carry out a specific process, or offer a functionality. Hence, the timeliness of the push notification is often important and generally its main advantage over other communication channels, such as email or text messages. Push messages for mobile devices can be sent in bulk or individually (personalized).  
+In the case of personalized notifications, the information transmitted may very well include personal data or pseudonyms as user application identifiers. Therefore, it is necessary to integrate additional technical and organizational measures to address the privacy threats described below. Currently, one of the most widely used platforms for push notifications is the cross-platform messaging Firebase Cloud Messaging (FCM),9 compatible with the two main mobile operating systems (iOS and Android).  
+From an engineering perspective, developers often integrate code provided by third parties into their application. Although it may not be transparent to users, the infrastructure of push notifications for mobile devices involves, at least, two additional entities that are fundamental to its architecture in the mobile world. Thus, we have the following entities, which are represented in Figure 8 and described below.  
+Figure 8: Main actors of push notifications for mobile devices  
+
+• Application Server (Publishers): typical application server that sends a notification message to the user of a mobile application;  
+• Notification Broker (Third Party): a third party that provides push notification mediation to end users (user agents);  
+• Device Platform / OS: the broker's contact with the application must be made through a dedicated API provided by the device's operating system, such as Android, iOS, etc.; it contacts the device platform / OS independently of the notification agent's involvement;  
+
+9 Firebase Cloud Messaging (FCM): https://firebase.google.com/docs/cloud-messaging
+PERSONAL DATA SHARING ENGINEERING  
+Final | Version 1 | Public | JANUARY 2023  
+
+18  
+
+• User Agent (Mobile): is typically represented by a mobile application that runs on the corresponding device platform and represents the software interface for the mobile user.  
+Let’s consider the following example of mobile push notifications in the health sector. A healthcare institution offers a mobile application that allows user interaction with doctors, the institution's facilities such as laboratories and reception, and personalized services for the user. The user can receive copies of blood test results, X-rays, MRIs, and prescriptions through the application. They can also schedule appointments with doctors and receive notifications about upcoming appointments, reminders to book an annual check-up, and even daily reminders regarding the receipt of prescribed medication.  
+The mobile application provides push notifications for all the mentioned services. The user receives reminders for upcoming appointments, annual exams, received medication, and laboratory results as soon as they are available, and can respond or return information to the healthcare institution by interacting with the push notification.  
+Figure 9: Entities involved in the mobile push notification scenario of e-Health  
+
+The third party operating the notification mediation service receives the notification data from the application server and delivers it to the user agent client. Therefore, data is indirectly shared with a third party, which poses threats to user privacy, including:  
+• Linkability: observation of the interaction between the two entities, including the frequency of interaction, types of messages exchanged, etc.;  
+• Identifiability: messages that identify the user;  
+• Disclosure: the content of the messages being sent may be disclosed, thus violating the confidentiality of the notification, as in many cases these messages are sent through the third party in clear text.  
+3.1.1 Anonymous Notification Protocols (via Proxies)  
+An approach to address the aforementioned privacy threats could be implemented through the use of private notification protocols, which allow the delivery of notification messages using multiple layers of anonymization or proxies, as also described in [10]. This approach requires the use of a chain of proxies, through which the notification messages could be mixed before reaching the end user. This type of protocol allows mobile push notification services to be sent to users without the intermediary nodes knowing either the original sender or the final recipient.
+PERSONAL DATA SHARING ENGINEERING  
+Final | Version 1 | Public | JANUARY 2023  
+
+19  
+
+Figure 10: Overview of the proxy architecture  
+
+Based on the example described above, a notification message in this approach would be sent through a chain of proxies. The application provider would prepare the message and choose a random selection of intermediary nodes (proxies) through which the message would be routed. In this case, there is not one but a mix of notification mediation servers. Each of them only knows the address of the next mediation server, thus concealing information about the two end entities (application server and user). Furthermore, the communication between the notification servers (proxies) is encrypted with their corresponding public keys, thereby protecting against inadvertent disclosure. An example of this type of protocol is AnNotify [27], which supports the decoupling of the notification between the subscriber and the publisher, the decoupling of push notifications to a subscriber, and the privacy of the broadcast, concealing whether a subscriber is subscribed to a notification or not.  
+Regardless of the chosen protocol, it is necessary to consider the potential implications for both the development and operation of the service that uses such a protocol, in order to provide practical viability and be adopted by developers. In this regard, various criteria can be used to evaluate the different options, such as ease of integration into the application, ease of maintenance, scalability, etc.  
+
+3.1.2 End-to-End Encryption  
+Encrypting notification messages is the most direct measure to address at least some of the privacy threats mentioned above (especially the threat of disclosure). Currently, the delivery of push notifications is not typically carried out using end-to-end encryption. Either no encoding is used at all, or only part of the communication is encrypted. In some cases, the developer or developers may decide to deliver the notification message between the application server and the notification agent using transport layer encryption (e.g., TLS), which provides encryption between these two entities. Additionally, a notification agent may choose to encrypt communication with the user (device). However, the encoding is partial and does not fully address the threat of disclosure through each of these entities. The notification agent decrypts the message before sending it to the user. A more suitable solution for this would be the implementation of end-to-end encryption at a minimum.  
+The details of this approach are shown below in Figure 11. The application provider uses the user's public key and encrypts the content of the message being sent. Although the application server still uses the notification agent to send the message, it cannot decrypt it. It simply delivers the notification messages without being able to read the sent message. Then, upon receiving the notification message on their phone, the user can use their private key to decrypt it and read the sent message.
+PERSONAL DATA SHARING ENGINEERING  
+Final | Version 1 | Public | JANUARY 2023  
+
+20  
+
+Figure 11: End-to-End Encryption  
+
+With this approach, the notification agent does not have access to the content of the notification. However, it could observe the metadata and know the interactions between the other two entities. The Capillary Project10, for example, aims to solve this problem by end-to-end encrypting the notification messages, although it is limited to Java applications on Android platforms.  
+
+3.1.3 Design Strategies  
+In addition to the technical options described above, decisions regarding the design of the architecture that integrate privacy by design could be used to address some of the threats discussed earlier. One of these decisions is, for example, to follow a two-step strategy. In the first step, the architecture must require that the use of push notifications in the application be limited. This can be achieved, for example, by using a “pull by default” strategy, whereby the functionality of push notifications is minimized and only used to transfer non-personal data. In these cases, it is sufficient to notify the user that there is an update or that interaction is required. Then, in the next step, the notification message, which includes personalized content, can be obtained directly from the application through direct communication with the application server.  
+
+Following the previous example, the electronic health application could notify the user that a specific action is required or that there is a new message for them, but without displaying the message itself. The user can then proactively react by clicking on the application. However, it is clear that this is complementary to the other measures presented earlier, as it can reduce, for example, the threat of disclosure to third parties, but not eliminate it entirely. Furthermore, this approach poses a challenge, as it requires covering the full scope of the notification functions of an application. Therefore, its use is recommended as a complementary measure but not as the primary one, or when other measures are not feasible.  
+
+3.2 DATA SHARING DURING AUTHENTICATION  
+Authentication is a key element for many web applications. However, in some cases, it is sufficient to obtain proof that an interested party meets specific criteria or has a particular property, rather than revealing all the properties of their identity and then calculating whether those properties are met or not.  
+
+Age verification has been one of the methods used to ensure the protection of minors against potential harm in the physical world; the traditional ID verification at store checkouts is a good example. Currently, several video-sharing platforms require age verification under the provisions of the Audiovisual Media Services Directive [28]. This verification is usually carried out  
+
+10 https://github.com/google/capillary
+ENGINEERING OF PERSONAL DATA SHARING  
+Final | Version 1 | Public | JANUARY 2023  
+
+21  
+
+carried out through a self-declaration of the date of birth without further validation. Aside from the ease with which this control can be circumvented, there is also the issue of processing more data than necessary to fulfill the specific purpose (data minimization principle).  
+Attribute-Based Credentials (ABC) and, more specifically, enhanced ABCs in terms of privacy allow for the authentication of an entity by selectively revealing and authenticating specific attributes, without disclosing additional information about the identity that is usually used and includes personal data [10]. The user presents their attributes to a third party that verifies their accuracy and then acts as a trusted third party. This approach has already demonstrated its potential and applicability in different scenarios within the framework of the research project Attribute-based Credentials for Trust (ABC4Trust) [29] and IRMA within the Future ID project [30].  
+Let us consider an online car rental service within the EU that offers a delivery service. During the online booking process, the user is asked to provide information on whether they are over 18 years old and if they have a valid driver's license. Normally, this information is verified at the time of picking up the rented vehicle and signing the rental contract, but with the delivery service, the user can electronically sign the rental contract. Instead of proving their age and the validity of their driver's license by mail, the provider can check if these criteria are met by validating specific attributes of the user's identity.  
+The user sends their attributes to the trusted entity, which validates them and digitally signs them. Now the user can communicate them to third parties who can validate their authenticity and integrity through the accompanying digital signature, as presented below in Figure 12.  
+Figure 12: Creation of identity attributes  
+
+When the user visits the website of the online car rental service, they are asked to provide the relevant attributes to demonstrate that they are over 18 years old and that they possess a valid driver's license. The user then presents the relevant attributes to the online platform, either through their smart card or via a relevant browser extension. The platform validates them and continues with the car rental booking process.  
+Enhanced privacy ABCs allow for the authentication of an entity by selectively revealing and authenticating specific attributes, without disclosing additional information about the identity.  
+
+ENGINEERING OF PERSONAL DATA SHARING  
+Final | Version 1 | Public | JANUARY 2023  
+
+22  
+
+Figure 13: Attribute-based authentication  
+
+In this data sharing scenario, the user does not reveal the actual personal data, but rather an attribute that is a testimony from a third party that a specific property is (or is not) met.  
+3.2.1 Relevance of attribute-based access to online platforms  
+In 2022, the French data protection authority (CNIL) highlighted in [31] that it is not possible to aspire to absolute effectiveness in online age control, especially in the case of minors. Given the increasing requirements for age verification of minors in online services, the CNIL recommends the use of a trusted independent third party to promote data minimization and the unnecessary collection of personal data from service providers. The CNIL provides an overview of six possible existing age verification solutions but concludes that none of them meet all the required properties in terms of reliability, data protection, and security. In addition to this analysis, the CNIL's Digital Innovation Lab (LINC) has developed a privacy-preserving age verification system based on zero-knowledge proof.  
+The CNIL's recommendation for a trusted third party and attribute-based authentication, which is closely related to the concept of zero-knowledge proof, seems to be a quite promising concept for the Digital Services Regulation [32] Art. 28.2 provisions on the online protection of minors. According to this provision, online platform providers shall not display ads on their interface based on profiling, as defined in Article 4, point 4, of Regulation (EU) 2016/679, using personal data of the service recipient when they are reasonably aware that the service recipient is a minor.  
+Based on the previously discussed use case of trusted third parties, the guardian or parent of the minor could support the creation of an attribute-based identity for the minor using such a third-party service. Then the minor could navigate online platforms and utilize the functionalities of the attribute-based identity without having to reveal their full identity, date of birth, etc. This approach would satisfy the requirements of reliability, data protection, and security of the minor's data.  
+
+11 https://linc.cnil.fr/demonstration-privacy-preserving-age-verification-process
+ENGINEERING OF PERSONAL DATA SHARING  
+Final | Version 1 | Public | JANUARY 2023  
+
+23  
+
+4. CONSIDERATIONS  
+ON THE EXERCISE OF THE  
+RIGHTS OF THE  
+DATA SUBJECTS  
+A key element of the GDPR is the right of data subjects to be properly informed and to control the use or other types of processing of their personal data. These rights of data subjects include, among others, aspects related to the principles of data protection of lawfulness, fairness, and transparency (i.e., right to information and access), non-linkability (i.e., data minimization, purpose limitation, and storage limitation, integrity, and confidentiality), and control by the data subject (intervenability) (i.e., right to erasure, right to rectification, right to object, as well as the right to lodge complaints with data protection authorities and to seek effective judicial remedies against data protection authorities; or the data controllers or processors).  
+These fundamental rights of data subjects require closer examination regarding their application in data-sharing environments. While the previous sections cover multiple examples of data minimization techniques, removing information from data or restricting access to information to a smaller subset of data subjects, thus addressing the goal of protecting unlinkability, the other two protection goals require a different engineering approach. This chapter will address these aspects.  
+As an example, we have chosen the scope of healthcare, as outlined in Section 2. In this scenario, multiple actors participate in the collection of data, its storage, exchange, and processing. Data is created in multiple places, for example:  
+•  
+in patients in hospitals or medical consultations;  
+•  
+in users of wearable devices;  
+•  
+in registration offices or government health institutions;  
+•  
+in health insurance companies;  
+•  
+in manufacturers of medical devices;  
+•  
+in nurseries or nursing homes.  
+Each of these data sources can provide relevant data, such as current medical conditions and medical history, statistical information about age, sex, current and recent disease diagnoses, ongoing and past medication, personal habits and preferences regarding sports, nutrition, sleep, family life, etc.  
+Although some European member states promote a centralized approach to the storage of health data in government-hosted institutions, there will always be relevant datasets not stored in these central repositories. Therefore, when it comes to engineering the rights of data subjects, there may be cases with a very segregated landscape of data controllers, data processors, and data storage locations.
+DATA SHARING ENGINEERING 
+Final | Version 1 | Public | JANUARY 2023 
+
+24 
+
+As also stated in Section 2, the GDPR contains specific requirements related to personal data in the healthcare sector and provides a broad set of rights for the data subject. Depending on the exact circumstances, this may affect personal data stored in hospitals, where the binding purpose, the declaration or withdrawal of consent12, transparency requests, and intervention rights must be adequately considered. 
+On the other side of the data sharing debate, data processing organizations are interested in acquiring data for their purposes with sufficient technical support and clear guidelines on legitimate and illegitimate uses of the data. To avoid confusion with the GDPR terms "data controller" and "data processor," and considering that there may even be a use based on anonymous data that is not regulated by the GDPR, in this chapter we will refer to these entities as "data users." In terms of the GDPR, they may be data controllers, data processors, or recipients of the data. However, this is still to be clarified, depending on each scenario, as also highlighted in the Joint Opinion 3/2022 of the EDPB and the EDPS on the proposal for the European Health Data Space Regulation (EHDS) [9].  
+Thirdly, and most importantly to consider in the near future, is the role of data intermediaries. These actors mediate in some way between data providers, data subjects, data storage providers, and data users. Different new and future European laws define this type of entity, for example, as data intermediaries in the Data Governance Regulation [6] or as stakeholders in the proposal for the European Health Data Space [7].  
+Their role typically consists of not using the data they share themselves or, if they do, only for very limited primary purposes (such as hospitals using patients' personal data to provide essential medical services). In their role as data intermediaries, these actors interact with data users, such as pharmaceutical research institutions or statistical agencies, trying to share data with them while considering the data sources and the data subjects. In terms of the GDPR, they may be considered data processors, but their similarity to data users is still to be clarified.  
+Figure 14: Data sharing scenario with intermediaries 
+
+As noted in a previous ENISA report [10], the enforcement of data subject rights can be challenging when it comes to a distributed data sharing environment with multiple actors, providers, sub-processors, IT service providers, etc. With the new legal instruments for data spaces, this set of "directly involved" data users is expanded with new actors, such as private sector platforms for data sharing, data markets, and repositories. 
+
+12 If consent (Art. 6(1)(a) GDPR) is the legal basis for processing.
+PERSONAL DATA SHARING ENGINEERING  
+Final | Version 1 | Public | JANUARY 2023  
+
+25  
+
+data hosted by the government and other types of intermediaries, as indicated in the Data Governance Regulation.  
+These actors do not intend, primarily, to process that data themselves, but simply to store, host, and provide it to data repositories on demand. According to the Data Governance Regulation, it is the explicit duty of these actors to address and enforce the rights of data subjects over the data that is under their control. Therefore, a clear definition of the necessary permissions to access such data is required, which must be negotiated between the data subject and the data intermediary, prior to any data sharing activity, and alongside them.  
+4.1 INTERACTION BETWEEN THE DATA SUBJECT AND THE DATA INTERMEDIARY  
+A key component of any type of processing of personal data is a valid legal basis.13 In most cases, this is usually the explicit consent of the data subject. In this regard, the data intermediary must manage such consent for the processing of data for each of the data users it serves. If a data subject gives their consent for the processing of their personal data in one organization, for example, this does not automatically include the transfer to any other organization. Data subjects may choose to limit their consent to certain conditions or refrain from giving it. Although the GDPR prescribes restrictions, e.g., arising from the purpose limitation principle, Art. 5(1)(b) of the GDPR, the conditions under which a data subject may voluntarily provide personal information for certain types of processing operations by one or more organizations can be multiple and may even go beyond data protection criteria. Figure 15 presents some examples that a data subject might consider.  
+Figure 15: Example of data processing preferences  
+
+It is evident that the task of declaring and enforcing such data processing policies at the data intermediary can be challenging. It requires both extensive interaction with the data subject to gather and negotiate all necessary processing permissions, as well as interaction with the data repositories to validate the compatibility of the data subject's demands with the conditions of the data user. Therefore, it would be beneficial to have explicit policies and a data model, similar to those described in [33], [34], and [35], to define such access policies.  
+What makes this challenge even more complex are the possible changes over time; a data subject may decide, at any moment, to arbitrarily modify their data processing demands or revoke consent for processing by certain data users. Therefore, a data intermediary must also continuously monitor the requests of each data subject regarding the ongoing processing of data, in order to respond to a change of mind from a data subject within a reasonable timeframe.  
+
+13 See Art. 6(1)(a)-(f) GDPR, which lists six possible legal grounds.  
+Data subjects  
+may choose to  
+restrict their  
+consent  
+only to  
+certain  
+conditions or,  
+alternatively,  
+may decide  
+to refrain  
+from giving it.
+PERSONAL DATA SHARING ENGINEERING  
+Final | Version 1 | Public | JANUARY 2023  
+
+26  
+
+4.1.1 Purpose Limitations  
+A key challenge in this landscape is the aspect of purpose limitation. Given that a data subject can arbitrarily choose to restrict the processing of their own data for certain purposes, it becomes necessary to closely examine the scope of purpose compatibility. How can an information system help determine whether the consent for the processing of personal data given for one purpose is compatible with the exact purpose of processing by the data user? What can be done to provide data intermediaries with the necessary certainty and potential guarantees for data sharing that complies with data protection?  
+In the current environment of data production and usage, there exists a plethora of different purposes, which may or may not be compatible, overlap, or include one another. Furthermore, there is significant potential for conflict if the interpretation of the purposes of these permissions differs among the various parties involved. It should be anticipated that some time and space will be needed to arrive at a somewhat consolidated and generally accepted approach to address these issues of consent and binding purpose in data intermediary scenarios.  
+
+4.1.2 Implementation Aspects  
+In the technical aspect of engineering, the interaction between data subjects and data intermediaries can occur in multiple ways. When cookie policy banners and similar consent management systems are commonplace, it is possible to give and withdraw consent, with more or less functional technical interfaces to use, for example, in [36] and [37]. However, these systems typically form part of a website with which the data subject interacts, and only cover the services offered through this website or its service provider. Therefore, this does not resolve the issues posed by collecting consent in different modes of interaction, e.g., in smart cars, for wearable devices or medical implants, or for other IoT systems that do not provide a reasonable user interface for the data subject [38] and [39].  
+Moreover, most consent management systems only cover a single website or service of a specific scope. They do not function, or do not do so explicitly, for cases where the initial interaction is not triggered by the data subject, but simply by a data user. Clearly, it is not possible to actively display a consent banner based on a website to a user who is not currently interacting with the website of a data user. Therefore, if the initiation of a new data processing activity is not carried out by the data subject but by the data intermediary, a different mode of interaction between the data subject and the data intermediary is necessary, in which the data intermediary can proactively contact the data subject to obtain new consent for a new case of data processing, e.g., for a new data user, or for a new purpose of data processing.  
+Withdrawing consent and communicating restrictions on data processing are two other challenges of this interaction. Each of these processing operations is initially triggered by the data subject. The common approach in this case is for the data to be deleted by the intermediary or the user, along with an active notification directed to the data subject. Therefore, in engineering terms, the withdrawal of consent or the rights of rectification, deletion, or expression of restrictions on processing can be managed similarly by providing a communication interface (such as a website), directed at the data subject, that offers these interactions as services.  
+However, a challenge for a data intermediary in these cases is to transmit such requests to all affected data users. This requires some management within the data intermediary and some interactions with the data user. Let’s start with the latter.
+PERSONAL DATA SHARING ENGINEERING  
+Final | Version 1 | Public | JANUARY 2023  
+
+27  
+
+4.2  
+INTERACTION BETWEEN INTERMEDIARIES AND DATA USERS  
+Once the data is available in the data intermediary's repositories, the details of the various modes of data acquisition must be considered. When a potential data user expresses interest in a specific subset of the available data (or in the entire dataset), the data intermediary must perform several tasks.  
+
+4.2.1 Data Request and Response  
+Initially, a data user needs to be able to address a data intermediary, requesting data that may be of a personal or non-personal nature. In the latter case, many of the subsequent steps may be omitted. In that data request, the user must express the specific criteria related to the data they are interested in. This includes, for example, attributes of the data subjects whose data is being sought, aspects of data types, domains, quantities, qualities, or origins, with a vast array of different types of filters and restrictions to consider. The challenge lies in defining the format and syntax of an interaction with a sufficient degree of expressiveness, so that the data user can define their request with maximum precision.  
+
+Figure 16: Interaction between the intermediary and the data user  
+
+In addition to expressing the search criteria for the data of interest, the data user must also precisely define the purpose and scope of the intended data processing. The data intermediary needs this information to filter the datasets in which the data subject has objected in some way to such types or scopes of processing, or to such types of data recipients. Therefore, information about, for example, the countries in which the data processing is intended to take place or the subsequent data users by the data user must be communicated with a set of attributes to the data intermediary, so that it can reliably enforce the data subject's wishes.  
+
+Based on this initial data request, the data intermediary must conduct an internal analysis to determine the available datasets that meet the requirements expressed by the data user. As a result, a set of data sources is identified, which could serve the data user as a response. This set of data sent as a response can vary significantly in type and quantity. Sometimes only a subset of data from a database table may meet all applicable restrictions. At other times, it may involve a file storage location, where
+PERSONAL DATA SHARING ENGINEERING  
+Final | Version 1 | Public | JANUARY 2023  
+
+28  
+
+some files match the search files and the policies regarding purpose.  
+Again, the response must be able to handle a plethora of types of data,  
+formats, syntax, and different access technologies.  
+4.3 DATA MANAGEMENT IN THE DATA INTERMEDIARY  
+To meet the needs and rights of the data subject and the data user, the  
+data intermediary needs to track all data sources and data processing tasks at the same time. It must know and interact with both the data subjects and the data users, as necessary, and it must evaluate and update data usage policies at multiple stages throughout the data processing lifecycle.  
+As already mentioned, the data intermediary must store the communication means of each of the data users it interacts with, as well as most of the data subjects. Each new data processing request must be recorded, tracked, and reasonably processed. Beyond the necessary actions with the data subjects and data users, as previously outlined, the data intermediary must address some specific challenges, which will be detailed below.  
+4.3.1 Coverage of Consent and Limitation of Purpose  
+A key issue in the process of selecting data from a data subject that may or may not meet the criteria established by the data user is compliance with the purposes of data processing. If the legal basis for data processing is consent, does this consent cover the scope of the processing intended by the data user? Clearly, if the data subject has explicitly blacklisted the data user, the viability test is easy: the data of that data subject cannot be part of the response to the data user. However, there may be cases where the data intermediary must determine—and decide—whether to include these data in the response; e.g., to determine whether that transfer is compatible with the initial purpose of data processing.  
+Sometimes, it may involve a comparison of attributes in an explicit list of restrictions, such as the identities of the data users or the processing countries, but sometimes, especially for the different purposes of processing, such a decision is not so trivial. When is the purpose defined by a data user for a specific case of data processing sufficiently covered by the purposes granted by a data subject in their consent? Depending on the exact conditions, the data intermediary must decide on one of several different options on how to proceed:  
+• include the data, assuming the purposes are clearly compatible,  
+• exclude the data, assuming the purposes are clearly incompatible,  
+• contact the data subject to clarify whether the purposes are compatible or not, or to determine if the data subject would consent to the specific purpose of the processing in question,  
+• consult relevant third parties, such as data protection authorities, for guidance on whether the purposes are compatible or not.  
+4.3.2 Interaction Between Intermediaries  
+Sometimes there will be more than one data intermediary involved in managing a specific data request from a data user. In that case, either the data user asks each data intermediary separately, leading to situations like those discussed above, or interaction between several different data intermediaries may be necessary. For example, the decision to include a certain data set in a response may be made by one data intermediary, but the data itself may be controlled by another data intermediary (e.g., a storage provider).
+ENGINEERING OF PERSONAL DATA SHARING  
+Final | Version 1 | Public | JANUARY 2023  
+
+29  
+
+of data). In such cases, data intermediaries must interact accordingly to manage that mixed – or joint – responsibility14 of managing the data request accordingly.  
+Figure 17: Cross-border data exchange with data custodians  
+
+A specific scenario for this type of interaction between data intermediaries is the cross-border data exchange between (and beyond) the Member States of the European Union. In such cases, the decision on whether data can leave one country to go to another may be made, for example, by national organizations specialized in data custody or by similar types of data intermediaries. In such cases, the communication protocol between data intermediaries must also address that specific demand and its communication aspects, as shown in Figure 17.  
+4.3.3 Records and Reports  
+Regardless of the data request made, whatever data falls under the control of a data intermediary, the data intermediary must track them and be accountable. When a response is sent to a data user, the exact details of the decision-making process regarding which data have been included must be stored indefinitely by the data intermediary, in order to later inform the interested party, data users, law enforcement agencies, or other external stakeholders. This may involve legal requirements for data intermediaries to enable them to justify any data sharing activity in the event of a claim.  
+4.3.4 Data Selection to Preserve Privacy  
+To fulfill its role in responding to data requests made by users, the data intermediary must have in-depth knowledge of all the datasets it controls. This may even extend to details such as the disclosure of individual data to the data intermediary, for example, to determine whether specific attributes of the interested party in question match the filtering requirements of a data user’s request. In that case, the issue of privacy and data confidentiality vis-à-vis the data intermediary becomes evident. In its response, how can the data intermediary decide whether to include or not include individual data records in a dataset without having access to the filtering attribute values within the data itself? One possible solution could be attribute-based encryption (analyzed in Section 2.1.1) or pseudonymization approaches, as discussed in [16], or even anonymization, which can  
+
+14 Depending on the actual application, it may constitute a situation of joint liability according to Art. 26 of the GDPR.  
+
+ENGINEERING OF PERSONAL DATA SHARING  
+Final | Version 1 | Public | JANUARY 2023  
+
+30  
+
+help to conceal the identity of the interested parties from both the intermediary and the data user, as long as they do not interfere with the viability of the processing activity itself.  
+4.4 DATA ALTRUISM  
+The concept of altruistic data sharing, also introduced in the Data Governance Regulation, refers to interested parties who agree to the use of their data for public interest purposes, such as scientific research or the improvement of public services. For example, data altruism may occur when a patient decides to allow the processing of medical data collected about them not only in the hospital but also by research institutions developing treatments. What is interesting about altruism is that typically no compensation is given to the interested party. However, this does not imply a lifetime waiver of fundamental rights to privacy and data protection, both for the interested party and for the organization processing the data.  
+Regarding the management of this data in a data intermediary, consideration could be given to marking the data as disclosed under a “license” for the management of altruistically shared data, in order to properly address subsequent demands from data users regarding this data. Normally, permissions for processing this data are always granted, but data sharing must be documented to demonstrate the reason for the data disclosure in case the interested party files a complaint, for example, with a data protection authority regarding the rights of the interested parties. In that case, the data intermediary must be able to demonstrate the origin of the data and the initial permissions granted by the interested party at that time.  
+
+Data altruism, introduced in the Data Governance Regulation, refers to interested parties who agree to the use of their data for public interest purposes.
+ENGINEERING OF PERSONAL DATA SHARING  
+Final | Version 1 | Public | JANUARY 2023  
+
+31  
+
+5. CONCLUSIONS  
+When two or more parties decide to share their data, they become part of a broader data ecosystem in which they can leverage the combined dataset that allows for the discovery, through computation, of new information or trends related to individuals, groups of individuals, or society as a whole. The easiest and most direct way to achieve this goal would be to share the raw data held by each actor through technical interfaces, placing them in a common table (i.e., a single database), but this hypothetical option is not really feasible. In reality, what we seek are trusted shared environments that maximize the potential offered by secure sharing and use of personal data, while simultaneously respecting data protection principles.  
+This report aimed to analyze specific cases of personal data sharing, primarily in the healthcare sector, and discuss how specific technologies and implementation considerations can support the engineering of personal data sharing in practice. The analysis covered everything from user-controlled data sharing to large-scale personal data collection and data sharing through third-party services.  
+Despite the potential of the concept of data sharing and the policy and legislation of the Union in this area, there are still considerations regarding what the appropriate technical and organizational measures are and how to implement them in practice. The European legislative initiatives on data sharing described in Section 1.1 involve the processing of large amounts of data that will also include personal data. Therefore, in addition to the consistency of their provisions with the GDPR, it is important to eliminate any legal uncertainty regarding the roles and obligations, not only for natural persons, as highlighted by the EDPB and the SEPD in [9], but also for the entities participating in data sharing. To harness the potential of data sharing across the EU, professionals could receive guidance on what technologies and techniques can be considered, under what circumstances, and what data protection principles can be complied with.  
+There are several commonly used (cryptographic) techniques (namely, asymmetric encryption, pseudonyms, access control, etc.) that are already recognized as capable of mitigating data protection risks. Some of these have been analyzed in Section 2, Section 3, and Section Error! Reference source not found. However, in emerging concepts such as data spaces and data intermediaries, the risks posed cannot always be adequately addressed solely with such techniques. This is due to the fact that stakeholders wish to preserve the confidentiality of the data they share, may not know in advance with whom they will share data, or may want to share accumulated datasets. Although advanced techniques exist that are still evolving, they should not be considered of purely academic interest, as there are practical implementations in real use case scenarios.  
+Finally, since most of the technologies described above and in previous ENISA reports [10] and [40] are based on asymmetric cryptography, the arrival of quantum computing and its impact on the security of currently used asymmetric encryptions must be anticipated. After the deployment of data exchange infrastructures and services, we cannot expect them to cease functioning due to the possible inadequacy of asymmetric encryptions. This is where crypto-agility becomes relevant, as it allows for switching between algorithms, cryptographic primitives, and other encryption mechanisms without significant changes to the overall computing system or process.  
+
+ENGINEERING OF PERSONAL DATA SHARING  
+Final | Version 1 | Public | JANUARY 2023  
+
+32
+PERSONAL DATA SHARING ENGINEERING  
+Final | Version 1 | Public | JANUARY 2023  
+
+33  
+
+REFERENCES  
+1. Xenos, H.: Latest trends in optical networks- straight from NGON & DCI World. (2019)  
+2. Data Protection Commission (DPC): Data Sharing in the Public Sector. (2019)  
+3. ICO: Data sharing: a code of practice. (2020)  
+4. Gartner: Data Sharing Is a Business Necessity to Accelerate Digital Business. (2021)  
+5. Communication from the Commission to the European Parliament, the Council, the European Economic and Social Committee and the Committee of the Regions "A European Data Strategy", COM/2020/66 final., Brussels (2022)  
+6. Regulation (EU) 2022/868 of the European Parliament and of the Council of 30 May 2022 on European data governance and amending Regulation (EU) 2018/1724 (Data Governance Regulation) (2022)  
+7. Proposal for a Regulation of the European Parliament and of the Council on the European Health Data Space (EHDS). (2022)  
+8. Proposal for a Regulation of the European Parliament and of the Council on harmonized rules for fair access to and use of data (Data Act). (2022)  
+9. EDPB-EDPS: Joint Opinion 3/2022 of the EDPB and the EDPS on the proposal for a Regulation on the European Health Data Space (EHDS). (2022)  
+10. ENISA: Data Protection Engineering. From Theory to Practice. (2022)  
+11. EDPB: Guidelines 4/2019 on Article 25 Data Protection by Design and by Default. (2019)  
+12. ENISA: Deploying Pseudonymisation Techniques: The case of the Health Sector. (2022)  
+13. Directive 2011/24/EU of the European Parliament and of the Council of 9 March 2011 on the application of patients' rights in cross-border healthcare. (2011)  
+14. Schwalbe, N., Wahl, B., Song, J., Lehtimaki, S.: Data Sharing and Global Public Health: Defining What We Mean by Data. Frontiers in Digital Health 2 (2020)  
+15. Hildebrandt, M., Verheul, E., Jacobs, B., Meijer, C., de Ruiter, J.: Polymorphic Encryption and Pseudonymisation for Personalised Healthcare: A Whitepaper., Cryptology ePrint Archive (2016)  
+
+PERSONAL DATA SHARING ENGINEERING  
+Final | Version 1 | Public | JANUARY 2023  
+
+34  
+
+16. ENISA: Pseudonymisation techniques and best practices. (2019)  
+17. Sahai, A., Waters, P.: Fuzzy Identity-Based Encryption. In: Advances in Cryptology – EUROCRYPT 2005, vol. 3494, pp.457-473 (2005)  
+18. Goyal, V., Pandey, O., Sahai, A., Waters, B.: Attribute-Based Encryption for Fine-Grained Access Control of Encrypted Data. In: 13th ACM Conference on Computer and Communications Security, pp.89-98  
+19. Wang, F., Mickens, J., Zeldovich, N., Vaikuntanathan, V.: Sieve: Cryptographically Enforced Access Control for User Data in Untrusted Cloud. In: 13th  
+20. Blaze, M., Bleumer, G., Strauss, M.: Divertible protocols and atomic proxy cryptography. In: International Conference on the Theory and Applications of Cryptographic Techniques - EUROCRYPT 1998, pp.127-144 (1998)  
+21. Nuñez, D., Agudo, I., Lopez, J.: Proxy Re-Encryption: Analysis of constructions and its application to secure access delegation. Journal of Network and Computer Applications 87(1), 193-209 (2017)  
+22. Liang, X., Cao, Z., Lin, H., Shao, J.: Attribute based proxy re-encryption with delegating capabilities. In: 4th International Symposium on Information, Computer, and Communications Security, pp.276-286 (2009)  
+23. ENISA: Recommendations on shaping technology according to GDPR provisions - An overview on data pseudonymisation. (2019)  
+24. van Gastel, B., Jacobs, B., Popma, J.: Data Protection Using Polymorphic Pseudonymisation in a Large-Scale Parkinson's Disease Study., 19-25 (2021)  
+25. Verheul, E.: The polymorphic eID scheme - combining federative authentication and privacy. (2019)  
+26. ENISA: Privacy and data protection in mobile applications. (2018)  
+27. Piotrowska, A., Hayes, J., Gelernter, N., Danezis, G.: AnNotify: A Private Notification Service., IACR eprint (2016)  
+28. Consolidated Text: Directive 2010/13/EU of the European Parliament and of the Council of 10 March 2010 on the coordination of certain provisions laid down by law, regulation or administrative action in Member States concerning the provision of audiovisual media services (Audiovisual Media Services Directive) (2018)  
+29. ABC4Trust EU Project. Available at: https://abc4trust.eu/  
+30. Piedra, A., Hoepman, J., Vullers, P.: Towards a Full-Featured Implementation of Attribute Based Credentials on Smart Cards. In: CANS 2014: Cryptology and Network Security, pp.270-289 (2014)
+PERSONAL DATA SHARING ENGINEERING  
+Final | Version 1 | Public | JANUARY 2023  
+
+35  
+
+31.  
+CNIL: Online age verification: balancing privacy and the protection of minors. (2022)  
+32.  
+Regulation (EU) 2022/2065 of the European Parliament and of the Council of 19 October 2022 on a single market for digital services and amending Directive 2000/31/EC (Digital Services Act) (2022)  
+33.  
+McDonald, A., Reeder, R. W., Kelley, P. G., Cranor, L. F.: A Comparative Study of Online Privacy Policies and Formats. In: Privacy Enhancing Technologies Symposium, pp.37–55 (2009)  
+34.  
+Drogkaris, P., Gritzalis, A., Lambrinoudakis, C.: Empowering Users to Specify and Manage Their Privacy Preferences in e-Government Environments. In: Electronic Government and the Information Systems Perspective, pp.237–245 (2014)  
+35.  
+Hansen, M., Jensen, M.: A Generic Data Model for Implementing Right of Access Requests. In: APF 2022: Privacy Technologies and Policy, vol. 13279, pp.3-22 (3033)  
+36.  
+Degeling, M., Utz, C., Lentzsch, C., Hosseini, H., Schaub, F., Holz, T.: We Value Your Privacy. Now Take Some Cookies. Informatik Spektrum, 345-346 (2019)  
+37.  
+Karegar, F., Pettersson, J., Fischer-Hübner, S.: The Dilemma of User Engagement in Privacy Notices: Effects of Interaction Modes and Habituation on User Attention. ACM Transactions on Privacy and Security 23(1), 1-38 (2020)  
+38.  
+Castelluccia, C., Cunche, M., Le Metayer, D.: Enhancing Transparency and Consent in the IoT. In: 2018 IEEE European Symposium on Security and Privacy Workshops (EuroS&PW), pp.116-119 (2018)  
+39.  
+Murmann, P., Beckerle, M., Fischer-Hübner, S., Reinhardt, D.: Reconciling the what, when and how of privacy notifications in fitness tracking scenarios. Pervasive and Mobile Computing 77(C) (2021)  
+40.  
+ENISA: Data Pseudonymisation: Advanced Techniques and Use Cases. (2021)  
+41.  
+Regulation (EU) 2016/679 of the European Parliament and of the Council of 27 April 2016 on the protection of natural persons with regard to the processing of personal data and on the free movement of such data, and repealing Directive 95/46/EC (General Data Protection Regulation) (2016)  
+42.  
+Alpár, G., Jacobs, B.: Credential Design in Attribute-Based Identity Management. (2013)  
+
+TP-03-22-200-EN-N  
+
+ABOUT ENISA  
+The European Union Agency for Cybersecurity, ENISA, is the Union's agency dedicated to achieving a high common level of cybersecurity across Europe. Established in 2004 and strengthened by the EU Cybersecurity Regulation, the European Union Agency for Cybersecurity contributes to the EU's cyber policy, enhances the reliability of ICT products, services, and processes with cybersecurity certification systems, cooperates with Member States and EU bodies, and helps Europe prepare for the cyber challenges of tomorrow. Through knowledge sharing, capacity building, and awareness raising, the Agency collaborates with its key stakeholders to strengthen trust in the connected economy, boost the resilience of Union infrastructures, and ultimately maintain the digital security of society and European citizens. More information about ENISA and its work can be found here: www.enisa.europa.eu.  
+
+ISBN 978-92-9204-602-6  
+doi: 10.2824/36813

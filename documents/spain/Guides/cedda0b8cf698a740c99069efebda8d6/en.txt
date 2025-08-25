@@ -1,0 +1,1065 @@
+Technologies and 
+Data Protection in 
+Public Administrations 
+ 
+November 2020 
+ 
+Page: 2 of 60 
+EXECUTIVE SUMMARY 
+Technology is changing the way Public Administrations (hereinafter, PAs) work and their relationship with citizens, aiming to improve response times, facilitate accessibility, simplify procedures, and save costs. On the other hand, there is a specific risk associated with the processing of personal data by PAs using emerging technologies.  
+In this regard, this document aims to analyze some of the technologies being applied in PAs, highlighting some of their most characteristic aspects from the perspective of data protection and revealing some of the inherent risks associated with their use in any processing.   
+This document is not intended to be a guide for compliance with specific processing activities. To this end, the AEPD has been publishing specific guides on some of the topics that will be addressed below, as well as guidelines on the GDPR or specific national regulations developed, documents that will be referenced throughout the text. The objective of this document is to highlight some aspects that could be more characteristic of the use of these technologies in processing carried out by PAs.  
+Therefore, the described list of compliance guarantees and risks to be managed is not exhaustive, but rather a relationship of those basic aspects to consider in any processing that uses such technologies. The list of emerging technologies is also not complete. The content of this document is open and is intended to be completed in successive versions based on the contributions received and extending it to other specific technologies with the aim of establishing risk control objectives associated with each of them. 
+The intended recipients of this document are primarily the Data Protection Officers of PAs and those public employees responsible for promoting, managing, and using these technologies in the Administration, although the content, and especially the included references, may be useful to a broader audience, such as managers from the private sector who may act as processors or developers for PAs, as well as citizens themselves, to understand how these technologies affect them within the framework of the services provided by PAs.  
+This document has sought a simple style for the text, as far removed from formality as possible in both technical and legal aspects, to serve as an introduction for those in the public sector who have to face the design of processing activities that include emerging technologies. 
+ 
+Keywords: GDPR, public administrations, eAdministration, Digital Administration, risks, data protection, privacy, Big data, blockchain, cookies, artificial intelligence, social networks, smart cities, technology. 
+ 
+Page: 3 of 60 
+ 
+In the review of this document, ASTIC (Professional Association of Senior Bodies of Information Systems and Technologies of Public Administrations), the Data Protection Officer of the Parliament of Andalusia, the Electoral Board of Andalusia, and the Ombudsman of Andalusia, Mr. Iñaki González-Pol and Ms. Sara Degli Esposti, researcher at the Institute of Policies and Public Goods of CSIC, have collaborated. 
+ 
+Page: 4 of 60 
+INDEX 
+I. 
+INTRODUCTION 
+6 
+A. 
+Technology and public service 
+6 
+B. 
+The risk to rights and freedoms in PAs 
+7 
+C. 
+Structure of the document 
+8 
+II. 
+COOKIES AND OTHER TRACKING TECHNOLOGIES 
+10 
+A. 
+What are cookies 
+10 
+B. 
+Cookies and PAs 
+11 
+Applicability of the LSSI 
+11 
+Use of cookies on official portals and apps 
+12 
+Use of tracking technologies in third-party components 
+14 
+C. 
+Risks to rights and freedoms associated with the use of cookies 
+14 
+III. SOCIAL NETWORKS 
+16 
+A. 
+What are social networks 
+16 
+B. 
+Social networks and PAs 
+17 
+General aspects 
+17 
+Use of social networks internally 
+18 
+Employees posting on social networks individually 
+18 
+The use of social networks by PAs to provide services to citizens 
+19 
+C. 
+Risks to rights and freedoms associated with the social networks of the Administrations 
+21 
+IV. CLOUD COMPUTING 
+25 
+A. 
+What is cloud computing 
+25 
+B. 
+Cloud computing and PAs 
+25 
+C. 
+Risks to rights and freedoms associated with cloud computing 
+27 
+V. 
+BIG DATA OR MASS DATA PROCESSING 
+30 
+A. 
+What is Big Data 
+30 
+B. 
+Big Data and PAs 
+31 
+C. 
+Risks to rights and freedoms associated with Big Data 
+32 
+VI. ARTIFICIAL INTELLIGENCE 
+37 
+A. 
+What is Artificial Intelligence 
+37 
+B. 
+AI in PAs 
+39 
+C. 
+Risks to rights and freedoms associated with the use of Artificial Intelligence in PAs 
+41 
+VII. BLOCKCHAIN AND DISTRIBUTED LEDGER TECHNOLOGIES 
+44 
+A. 
+What is Blockchain 
+44 
+B. 
+Blockchain in PAs 
+46 
+C. 
+Risks to rights and freedoms associated with Blockchain 
+48 
+VIII. SMART CITIES 
+50 
+A. 
+What are smart cities 
+50 
+B. 
+Smart City and PAs 
+50 
+C. 
+Risks to rights and freedoms associated with smart cities 
+52 
+IX. CONCLUSIONS 
+55 
+ 
+Page: 5 of 60 
+X. 
+ANNEXES 
+57 
+A. 
+References and useful resources 
+57 
+B. 
+Contact with data protection authorities 
+60
+Page: 6 of 60  
+I. INTRODUCTION  
+A.  
+TECHNOLOGY AND PUBLIC SERVICE  
+Technology invades us, envelops us, and should make our lives easier while preserving, even enriching, our rights and freedoms. A significant part of our personal and professional lives consists of interacting through computers and mobile phones using technology that compels us to continuously renew ourselves and develop new skills.  
+Technology has made available to us possibilities that were previously unimaginable. We can shop from home, talk while seeing people who are kilometers away, and manage much more complex tasks in a much faster manner than before. However, this same technology, which serves as an ally to facilitate our daily lives, can, when misunderstood, pose a threat to our rights and freedoms. Our dependence on machines and their proper functioning is practically total; never in human history have so many people known so much about us, our tastes, customs, or secrets, and never has an individual in front of a computer had so much power in their hands to help or harm others.  
+The use of information and communication technologies (ICT) by the public sector, the Digital Administration, allows for the provision of more advanced mechanisms to implement both the services they provide and those required for their own internal functioning. These services are, in many cases, treatments of personal data that are implemented using one or more technologies, providing effectiveness, efficiency, availability, interoperability, and the rationalization of resources, among other benefits.  
+Public managers, who carry out the processing of personal data, have the obligation to comply with the regulations on data protection within their area of competence, and must apply the necessary technical and organizational measures in each case to guarantee, among other things, the rights of citizens, transparency, and the application of the principles of proactive responsibility, as well as the other processing principles required in the General Data Protection Regulation1 (hereinafter GDPR).  
+The adequacy of a processing activity to the GDPR requires that any step taken in the design, implementation, and management of the processing has all the guarantees from the outset. To put it in a very informal way, it is necessary to respond to the following questions: “who?” (Articles 24 and 26 on responsibility), “for what purpose?” (Article 5.1.b GDPR. Principle of purpose limitation), “why?” (Article 5.1.a Principle of lawfulness and fairness and the rest of Chapter II), “how much?” (Article 5.1.c Principle of data minimization), “when?” (Article 5.1.e Principle of storage limitation). Then come the “how?” (Article 5.2 Principle of proactive responsibility, which also encompasses 6.1.d and e, and Chapters IV and V), the “where?” (Articles 28 on the processor, 29, and Chapter V), and the “in what manner?” regarding the rights of the data subjects that must be preserved (Article 5.1.a Principle of transparency and Chapter III).  
+It would have been possible to create a formal and exhaustive guide from both a technical perspective and the legal aspects of data protection to analyze all  
+
+1 Regulation (EU) 2016/679 of the European Parliament and of the Council of April 27, 2016, on the protection of natural persons with regard to the processing of personal data and on the free movement of such data, and repealing Directive 95/46/EC (General Data Protection Regulation). https://www.boe.es/doue/2016/119/L00001-00088.pdf
+Page: 7 of 60  
+these issues. Had this been done, a more comprehensive and very useful document for those specialized in technology and data protection would likely have been obtained. However, the decision was made to create a document aimed at readers who do not know, nor need to know, the details of these technologies, but are interested in understanding how they work and how they can affect data processing. For them, a simple text has been written, prioritizing clarity over detail, which offers a horizontal view of the technologies and their risks. Nevertheless, for those who need to delve deeper into any of the concepts discussed, links and footnote references have been added to provide additional information on articles, recitals, and supplementary documentation of interest.  
+B.  
+THE RISK TO RIGHTS AND FREEDOMS IN PUBLIC ADMINISTRATIONS  
+The General Data Protection Regulation and the Organic Law on Personal Data Protection and Guarantee of Digital Rights2 (hereinafter, LOPDGDD) contemplate the possibility that the introduction of disruptive, innovative, or not sufficiently mature technologies in processing activities may be a factor that increases the risk to the rights and freedoms of the data subjects; a risk that must be assessed.  
+The assessment, management, and minimization of the risk to rights and freedoms is an obligation of the data controller (Articles 23.2.g, 24.1, 25, 32, 33, 34, 35, and 36 among others) and is part of the compliance checklist. The GDPR, although it provides some indications, is not specific in identifying and outlining how to manage the risk of each processing activity in a specific manner.  
+Any processing implemented within public administrations entails a series of risks that must be managed just like any other process developed within an organization. This management does not differ from that which any other entity must carry out in the scope of its activities involving the processing of personal data. For example, any entity when launching a product or service must manage, among others, the financial risk of undertaking and implementing a new initiative, the cost risk in relation to the benefit it provides, the risk that the new service can be deployed according to a schedule, the opportunity cost risk, the risk of reliability of the technical options or technologies to be used, the legal risk of future regulatory changes, the compliance risk that exposes it to administrative, civil, or criminal sanctions, the environmental risk, the security risk concerning the continuity of the system, the risk of reputational attacks, the risk of fraud, etc. All these risks are not analyzed separately but must be analyzed integrally3 to reach a decision within the framework of a holistic approach that considers the overall context of the processing.  
+Part of this integral analysis includes the management of risks to the rights and freedoms of individuals. This assessment is not related to the risk of compliance with the principles of processing, rights, and obligations established in the GDPR, that is, with the assessment of the possibility of incurring sanctions, significant financial losses, or reputational losses due to non-compliance with laws, regulations, internal standards, and codes of conduct.  
+The management of risk to rights and freedoms in the context of personal data processing must consider the possibility that, even when formally complying with the provisions of data protection regulations, the context and scope in which  
+
+2 Organic Law 3/2018, of December 5, on Personal Data Protection and Guarantee of Digital Rights.  
+https://www.boe.es/boe/dias/2018/12/06/pdfs/BOE-A-2018-16673.pdf  
+
+3 ISO Standard 31000:2018: Framework for Risk Management
+Page: 8 of 60  
+the processing may introduce a certain degree of uncertainty regarding its necessity and proportionality, as well as the effectiveness and efficiency of the legal and technical safeguards applied.  
+It should be noted that the processing of personal data in public authorities (AA.PP.) involves different risks compared to the risks of processing that may be carried out by any other data controller, which arise, at least, from the volume of affected subjects, the extent of the data collected, the impossibility, in many cases, of opposing the processing, and the inherent power or asymmetry that exists between public authorities and the citizens or interested parties whose data is being processed. On the other hand, regardless of the fact that all processing in public authorities is guided by a spirit of public service, the same spirit that motivates the work of their employees, these potential risks could materialize for citizens in certain situations, such as, for example, situations of breakdowns in the rule of law, situations of abuse by public officials, in circumstances of mass or selective filtering of personal data as a result of security breaches, in cases of possible legislative changes even in third countries to which the data may have been transferred, in cases of corruption, in situations of uncontrolled emergencies, etc.  
+Consequently, public authorities, as they are responsible for processing citizens' data, must identify those risks to which the processing may be exposed before launching new processing activities or modifying existing services that make use of new technologies. They must also adopt the necessary technical and organizational measures that, from the design and by default, allow for the elimination or at least mitigation to an acceptable level of the harm that may arise from the processing for the rights and freedoms of individuals.  
+It should be noted that the citizens who may find themselves in a risky situation are not only the administered but also the public employees themselves in the exercise of their functions.  
+It is evident that there is no zero risk; both ignoring it and even attempting to address it to reduce its impact or likelihood of occurrence will not make it disappear. Risk is not static and evolves continuously as a result of the very evolution of the environment. This is why, once identified, it requires the controller to make a continuous supervisory effort and ongoing management of that risk. The correct attitude is to know the risk, assess its consequences, take measures to minimize it, and control its effectiveness in a changing context. This continuous supervision scheme is what is defined as risk management.  
+C.  
+STRUCTURE OF THE DOCUMENT  
+The following sections review a series of technologies that have been incorporated into public authorities as means and support for different personal data processing activities. Specifically, the document focuses on the analysis of some specific compliance aspects and the risks that may arise in the processing due to the use of these technologies:  
+• Cookies and tracking technologies  
+• Social networks  
+• Cloud Computing  
+• Big Data  
+
+4 In addition to those mentioned in this document, the controller must analyze the case law and risks not specifically linked to the technology used that may arise from other circumstances, derived from its nature, scope, context, and purposes.
+Page: 9 of 60  
+•  
+Artificial Intelligence  
+•  
+Blockchain and Distributed Ledger Technologies  
+•  
+Smart Cities  
+In this edition, the selection has been limited to those technologies that are most widely used or that have the greatest potential for implementation at present. In future revisions of the document, new technological solutions may be incorporated that will undoubtedly bring new risks that must be assessed.  
+For each of them, a brief description, purpose, and functioning are provided first. Next, some compliance specifics are noted when the technologies are incorporated into a processing activity within the scope of Public Administrations (AA.PP.). It is important to highlight that these compliance specifics are concrete aspects that are emphasized in relation to the technology used, not in relation to the specific processing in which they are employed, whose compliance requirements will be much more extensive.  
+Finally, for each technology, some of the possible risks are listed that, in the same sense as the compliance requirements, are specific to the application of that technology, without assessing the general risks associated with the specific processing in which they are implemented. The latter would require a global, complete, and comprehensive analysis focused on the processing and, therefore, much deeper and broader. On the other hand, it should not be overlooked that some of the identified risks and the guarantees to address them may be common to other technologies and, consequently, extrapolate the study conducted and the conclusions reached.  
+This document aims to expose some characteristic aspects of these technologies concerning data protection when employed by Public Administrations (AA.PP.) and to complement what is already established in the GDPR, national and sectoral regulations, and the specific guidelines already published, such as the Compliance Regulatory Guide and List, Data Protection Guide and Local Administration, Code of Good Practices in Big Data Projects, Guide for Clients Contracting Cloud Computing Services, Guide on the Use of Cookies, Guide for GDPR Compliance of Processing Activities Incorporating AI, Privacy by Design Guide, Data Protection by Default Guide, Practical Guide for Risk Analysis, and Practical Guide for Conducting Data Protection Impact Assessments, Guide for Managing Security Breaches, etc. Its objective is to serve as assistance and a starting point for the analysis of compliance and risk management related to the incorporation of technologies in those processing activities that, carried out within the scope of Public Administrations (AA.PP.), are fully supported or partially utilize the technological solutions described in this document.
+Page: 10 of 60  
+II.  
+COOKIES AND OTHER TRACKING TECHNOLOGIES  
+A.  
+WHAT ARE COOKIES  
+Once the use of the Internet became widespread, the opportunity soon arose to know, for example, whether a visitor to a website was doing so for the first time, where they had come from, which other pages of the portal users had visited, whether they had registered, or to give them the possibility to save settings or session data. Cookies allow for the implementation of these functionalities and many more. For example, cookies enable advertisers to know which websites users visit in order to offer them products that match their preferences; portal managers may also be interested in knowing the pages visited to obtain statistics and make decisions, and so on.  
+User activity tracking on the network is implemented through devices that are generically referred to as cookies. This is a strategy used by servers to store and retrieve information from a user's device, allowing for the processing of personal data when they browse and interact with the various applications and content displayed on the Internet. In reality, many techniques that allow for the active or passive tracking of users fall under the term cookies, often in a non-transparent manner. Among these tracking technologies, there are those that utilize device characteristics, unique identifiers, and user browsing habits. Each time we request a page, an image, or content from a web server, we are communicating, at the very least, our IP address, which reveals our geographical location; but also the model of the browser we are using, and consequently, our operating system, the device we are connecting with, and how up-to-date it is. A web server can know if the browsing user has a pop-up blocker, how much memory their device has, what graphics card they are using, or how they move the mouse across the screen. All this information is grouped under the generic name of fingerprint or device fingerprint and can be used on Internet servers to link all user activity and thus create a profile of them.  
+The GDPR addresses cookies in its recital 308, recognizing their ability to create profiles of individuals and identify them. The special regulation that governs the use of cookies for information society services is included in Article 22.2 of Law 34/2002, of July 11, on information society services and electronic commerce (LSSI). The criteria of the AEPD for compliance with cookie regulations for information society service providers are outlined in the Spanish regulation as a translation of the English word "device" used in Directive 2002/58/EC or the ePrivacy Directive. The semantic extension of the word "device" includes: artifact, strategy, gadget, or resource.  
+What is GeoIP and its benefits? https://serverguy.com/news/what-is-geoip/  
+The AEPD published a guide in September 2019 called Fingerprinting or Device Fingerprint, which is available at https://www.aepd.es/sites/default/files/2019-09/estudio-fingerprinting-huella-digital.pdf  
+“Natural persons may be associated with online identifiers […] such as Internet protocol addresses, session identifiers in the form of ‘cookies’ or other identifiers […]. This can leave traces that, in particular, when combined with unique identifiers and other data received by servers, can be used to create profiles of natural persons and identify them.”  
+The European Commission is working on a proposal for a Regulation of the European Parliament and the Council regarding respect for privacy and the protection of personal data in the electronic communications sector, better known as the ePrivacy Regulation Proposal https://eur-lex.europa.eu/legal-content/ES/TXT/PDF/?uri=CELEX:52017PC0010&from=ES, which would repeal Directive 2002/58/EC  
+Law 34/2002, on information society services and electronic commerce https://www.boe.es/buscar/act.php?id=BOE-A-2002-13758
+Page: 11 of 60  
+The information is detailed in the Guide on the Use of Cookies11 published in November 2019 and updated in July 2020. This guide also includes definitions of the different types of cookies, the obligations of publishers regarding the information to be provided to users, the manner of obtaining prior consent before their use, and the responsibilities of the parties in the use of cookies. This document, in relation to these topics, refers to that guide, and the following section will address certain peculiarities of the use of cookies by Public Administrations.  
+B.  
+COOKIES AND PUBLIC ADMINISTRATIONS  
+The Applicability of the LSSI  
+The subjects obligated by the special regulations governing cookies are the service providers of the information society, understood as “any natural or legal person who provides services normally for a fee, at a distance, by electronic means and at the individual request of the recipient, as well as those services not remunerated by their recipients, insofar as they constitute an economic activity for the service provider” 12.  
+As explained on the page about the Law on Information Society Services13 of the Ministry of Economic Affairs and Digital Agenda:  
+In general, the LSSI does not apply to Public Administrations, since they do not have the character of a service provider of the information society defined in its annex. Thus, certain typical activities of the Administrations, such as the electronic management of tax collection or information about third-party services (such as mere information on a Town Hall's website about existing rural houses in the municipal area) are considered public or general interest activities distinct from the "economic activity" referred to in the LSSI.  
+However, when the activity of an Administration does have an economic character (for example, the sale of tourist books by a public entity dependent on a Town Hall), the LSSI will be applicable.  
+That is to say, under this approach and generally speaking, a Public Administration that has a website, by virtue of having it, would not necessarily be considered a provider of services of the information society and, consequently, as a subject obligated by the LSSI. It can only be considered as such if it offers a “service normally provided for a fee, at a distance, by electronic means and at the individual request of the recipient,” for example, if a service involving an economic activity, such as the sale of books, tickets, etc., is provided on a domain belonging to a Public Administration. In that case, the LSSI will apply to those specific domains where such economic activity is carried out.  
+
+11 It is available at https://www.aepd.es/media/guias/guia-cookies.pdf. Other authorities in countries around us have also recently published guides such as the British ICO (https://ico.org.uk/for-organisations/guide-to-pecr/guidance-on-the-use-of-cookies-and-similar-technologies/), the French CNIL (https://www.cnil.fr/en/cookies-and-other-tracking-devices-cnil-publishes-new-guidelines) or the German Data Protection Authorities Conference https://www.datenschutzkonferenz-online.de/media/oh/20190405_oh_tmg.pdf. There is an interesting comparison at https://iapp.org/resources/article/ico-and-cnil-revised-cookie-guidelines-convergence-and-divergence/. The guide on the use of cookies published by the AEPD has been updated to adapt it to the new Guidelines on consent revised by the European Data Protection Committee in May 2020, with the adaptation to these new criteria being necessary by no later than October 31, 2020.  
+12 Law 34/2002, of July 11, on services of the information society and electronic commerce, or LSSI.  
+13 http://www.lssi.gob.es/la-ley/Paginas/preguntas-frecuentes.aspx?Faq=%C3%81mbito+de+aplicaci%C3%B3n
+Page: 12 of 60  
+On the other hand, the same definition of information society service details: “the concept of information society service also includes services that are not remunerated by their recipients, to the extent that they constitute an economic activity for the service provider…”. It is common for a website to contain embedded components from third parties, tools, and applications such as social networks (Twitter, Facebook, etc.), content distribution channels (YouTube, Vimeo, etc.), or other services like maps or translators that involve the use of tracking, analysis, or advertising cookies. Allowing the use of such cookies in exchange for the possibility of including these services on the website could constitute an economic activity, provided that these tools or applications are executed embedded within the Public Administration's own domain and are not links to third-party pages. Under these circumstances, the bodies of the Public Administrations that make use of third-party services involving the use of cookies must apply the obligations and guarantees established in the special regulations and the guidelines of the AEPD.  
+Whenever third-party cookies are included, also when means are provided that allow the processing of personal data by third parties, whether in the previous cases or other cases such as allowing the use of third-party analytical cookies, the Public Administration must be diligent in identifying that these treatments take place and in ensuring that the duties of information and obtaining user consent are fulfilled.  
+In any case, when the Public Administration is not a subject obliged by the LSSI, as long as the processing carried out through cookies involves personal data, it will be subject to the GDPR and all applicable data protection regulations. However, the Public Administrations, for reasons of transparency, could provide information about the cookies used when obtaining consent is not necessary. To address the corresponding obligations, the Public Administrations can make use of the guidelines described in the Guide on the use of cookies published by the AEPD previously referenced.  
+Use of cookies in official portals and apps  
+The web portals of organizations are generally not a set of static pages with fixed content, but rather rely on a content management system (CMS). These managers run on the web server and dynamically build the pages requested by users from pieces of content stored in a database. There are portals that use custom-built managers, but most employ commercial or open-source programs. These managers may be using cookies for their operation, so the official portal may require the use of cookies as a technological prerequisite. The use of cookies can extend as plugins are incorporated to enhance the functionality and features of the CMS. The same occurs with the apps or mobile applications distributed by some Public Administrations. Normally, these are built on a commercial or open-source programming environment and include third-party SDKs that allow for the rapid and agile incorporation of functionality, but that  
+14 See techniques such as Cookie Syncing or CNAME Cloaking in the risks section.  
+15 Wikipedia has a very comprehensive page on CMS, which includes references to the most used ones at https://es.wikipedia.org/wiki/Sistema_de_gesti%C3%B3n_de_contenidos  
+16 Wikipedia in English dedicates an article to them https://en.wikipedia.org/wiki/Mobile_development_framework  
+17 A software development kit (or SDK, from the English Software Development Kit) is a set of software development tools that allows a developer to create a software application for a specific system. They usually include an application programming interface (API), an integrated development environment (IDE), and other utilities, including sample codes, technical notes, and support documentation to assist the programmer in developing their task.
+Page: 13 of 60  
+they may also be incorporating the use of additional cookies18 or other tracking techniques, such as the processing of unique advertising identifiers19.  
+Under these circumstances, the person responsible for the official portal must inform themselves, and if applicable, verify what type of cookies the content manager and the plugins to be used require. If necessary, the responsible party must take the necessary measures to eliminate those that are not essential for the provision of the service, opting for those content managers that use their own technical cookies. Likewise, in the case of mobile applications, similar precautions must be taken20, especially concerning the tracking techniques that are more commonly used in that environment, to prevent the incorporation of non-legitimate personal data processing through third-party SDKs.  
+In addition to establishing this as a contracting requirement and demanding it from their suppliers, this behavior should be audited by the responsible party to verify compliance.  
+On the other hand, under no circumstances can the refusal to use non-essential cookies for the implementation of the service impede access to the Public Administration portal, nor can it limit or prevent access to the exercise of rights and freedoms. In this regard, it should be noted that the use of certain technologies, due to their specific requirements, may hinder navigation and access to relevant content for users who freely choose not to accept cookies or who, due to the technological equipment they have or limitations in it (there are many users who browse with outdated equipment, limited-functionality mobile devices, or who have to use accessibility aids or adapted devices), cannot support the use of such technologies. In this context, it is important to consider, when designing both public sector portals or mobile applications and the content they serve, that Public Administrations are obliged to comply with Royal Decree 1112/2018, of September 7, on the accessibility of websites and applications for mobile devices in the public sector21 22.  
+In any case, if opting to use this technology to conduct traffic analysis, even partially to measure, for example, user interest in certain sections of a website, it is advisable to follow the principle of data minimization23 and collect browsing data anonymously or pseudonymously, establishing measures24 that allow for the loss of the link to any personal information or, at least, minimize it.  
+Finally, if third-party tools are used to conduct web traffic analysis and collect information on user visit frequency or the time they spend browsing, the various alternatives offered by the market must be studied.  
+
+18 It should be emphasized that technical cookies that allow for the functioning and provision of the web service are exempt from the duties established in the LSSI and are part of the legitimized processing.  
+19 User control in ad personalization: https://www.aepd.es/sites/default/files/2019-12/nota-tecnica-android-advertising-id.pdf  
+20 The duty to inform and other measures of proactive responsibility in mobile device apps https://www.aepd.es/sites/default/files/2019-11/nota-tecnica-apps-moviles.pdf  
+21 Royal Decree 1112/2018, of September 7, on the accessibility of websites and applications for mobile devices in the public sector https://www.boe.es/diario_boe/txt.php?id=BOE-A-2018-12699  
+22 The Electronic Administration Portal has incorporated materials related to the main novelties introduced by RD 1112/2018 compared to previous regulations, and in particular, a summary directed at the obligated entities, both public and private, that must apply the requirements of RD 1112/2018 (https://administracionelectronica.gob.es/pae_Home/dam/jcr:21516ff3-7f1e-4db1-b46a-889014a9ddea/2020-03-27-Resumen_AAPP_RD-1112-2018_v_2_0.pdf) and the link to the application standard for compliance with the requirements (https://www.etsi.org/deliver/etsi_en/301500_301599/301549/02.01.02_60/en_301549v020102p.pdf)  
+23 Article 5.1.c of the GDPR – Principles relating to processing. Principle of minimization.  
+24 A possible measure could be, for example, reducing the browsing IP address to the last range of digits.
+Page: 14 of 60  
+analyzing their technical characteristics, mode of operation, and configuration options to avoid potential regulatory non-compliance.  
+Use of tracking technologies in third-party components  
+As mentioned in the previous section, portals and mobile applications often serve as large containers or structures from which elements provided by third-party suppliers hang. When browsing web pages, users are actually accessing multiple components such as images, embedded videos, fonts, styles, advertisements, statistical counters, social media widgets, or various plugins that are distributed across multiple third-party servers, and each of them can install its cookie or record our visit. When public administrations build their services using such components, they must audit whether these use tracking technologies, not only when designing the system but also during the operational period (system and processing lifecycle) and remain vigilant about the emergence of these potential tracking elements in updates of their official portals, as well as in HTML emails or images, RSS news feeds, or any other product.  
+C.  
+RISKS TO RIGHTS AND FREEDOMS ASSOCIATED WITH THE USE OF COOKIES  
+One of the main risks of using cookies or other tracking technologies is the collection of personal information beyond what is necessary for the purpose of processing, especially concerning special categories of data, whether directly or indirectly, or providing means for third parties to do so. Therefore, it is necessary to assess, even for technical cookies, to what extent their use may lead to the collection or inference of additional information about the subject and to take appropriate measures to minimize such risk.  
+This circumstance will be more serious when tracking technologies are used by third parties, as is the case with tracking technologies employed by components embedded in the website or in a mobile application of the Administration. This can even occur indirectly when websites or apps are built using elements such as fonts served by third parties, images, maps, tools, or other applications. Also, when, to facilitate the availability of the page, the content is distributed among multiple servers that do not belong to the responsible party.  
+It is important to consider the risks in the use of tools for implementing websites, such as the aforementioned CMS, as they tend to update dynamically. Configurations may vary between versions, resulting from automatic updates, and in some cases, these are not subject to prior quality control.  
+
+25 For example, the Google Analytics tool is particularly problematic regarding data protection standards, as users' IP addresses are stored on servers located in the United States, and the recent ruling by the Court of Justice of the European Union has declared the "Privacy Shield" agreement between the EU and the U.S. invalid (Decision 2016/1250 on the adequacy of the protection conferred by the EU-U.S. Privacy Shield).  
+26 Cookies and user identification https://developers.google.com/analytics/devguides/collection/analyticsjs/cookies-user-id?hl=es-419  
+27 HTML stands for Hyper Text Markup Language, the language of web pages. https://es.wikipedia.org/wiki/HTML  
+28 Known as Tracking Pixel https://es.ryte.com/wiki/P%C3%ADxel_de_Seguimiento  
+29 RSS stands for Really Simple Syndication, a news aggregation protocol, whose use has significantly declined in recent years due to the presence of Twitter as a means of redistribution. https://es.wikipedia.org/wiki/RSS  
+30 There are some websites that allow visualizing this 'call tree' that occurs when we display a web page graphically. For example, we can mention https://webbkoll.dataskydd.net/en/ or https://requestmap.webperf.tools/.
+Page: 15 of 60  
+Therefore, they may include new cookies or third-party components that carry out additional processing. Consequently, updates or changes must be documented, subjected to prior checks before being put into production, and, as a precaution, limited to those new versions that have proven improvements in areas of interest for processing, such as security enhancements.  
+One element to manage this risk, although not the only one, is to conduct periodic audits of the components, the type of data processed, the destination of the traffic generated by the applications, the degree of linkage of that information with the user's operations in the Public Administration, as well as an analysis of the additional inferences and collateral effects that could be made regarding the managed individual.  
+In cases where the Public Administration provides services in which there is no need to identify the user, or where it is even advisable that there be no identification, such as advisory services for minors or victims, health consultations, anonymous reporting boxes, etc., the risk of re-identification, profiling, or recording of browsing history that the use of cookies and other tracking technologies entails must be analyzed.  
+Techniques known as Cookie Syncing31 and CNAME Cloaking32 allow third-party cookies to be disguised as first-party cookies in the user's browser, which poses a direct risk to data protection by enabling the avoidance of controls established in web browsers to limit third-party cookies or tracking.  
+Finally, there are security risks related to cookies that can affect data protection, such as the capture of authentication information over insecure channels and session hijacking, cross-site scripting (XSS) techniques, the use of malicious cookies injected by subdomains (cookie tossing), etc. These types of attacks evolve over time and imply the need to reassess the robustness of the web portal based on the state of the art.  
+
+31 What is Cookie Syncing and How Does it Work? (https://clearcode.cc/blog/cookie-syncing/)  
+32 Characterizing CNAME cloaking-based tracking (https://blog.apnic.net/2020/08/04/characterizing-cname-cloaking-based-tracking/)
+Page: 16 of 60  
+III.  
+SOCIAL NETWORKS  
+A.  
+WHAT ARE SOCIAL NETWORKS  
+Social networks are one of the most used information channels on the Internet. In fact, along with television (72%) and newspaper websites and applications (44%), social networks (53%) are the media that Internet users rely on the most for information.  
+The information contained in social networks can be of various types:  
+• Publications of documents, texts, photographs, videos, links, physical activity data, etc.  
+• Comments and responses to publications, forming a dialogue thread between publishers and readers.  
+• User profiles, which can be both individuals and organizations. They contain personal and contact information, as well as a history of their publications and their connections with other elements of the network (friends, followers, etc.). Social networks offer different mechanisms for protecting their users' content.  
+Users find in social networks a simple, accessible, and immediate channel through which they can share content, socialize, or even provide a showcase to promote their products or services, generally at no cost (or even receiving money for their publications, as in the case of influencers). In social networks, there is a processing that goes beyond mere content exchange between users and allows for the monetization (earning money) of social network activity. On one hand, the social network profiles users to publish personalized ads that, being tailored to their tastes and characteristics, have a very high impact. On the other hand, it could sell users' data to companies or institutions interested in profiling their customers and potential customers to offer them products or services through other channels. These processes are usually legitimized either by the user's consent or within the framework of the execution of a contract with or without economic consideration.  
+To publish, and sometimes to access content on a social network, it is necessary to register as a user. Depending on the social network, it may be mandatory for the user to identify themselves with a real identity, thus preventing the user from registering anonymously, with pseudonyms, or from having multiple accounts with various identities. Other networks, however, preserve the anonymity of their users at least at the time of registration.  
+Within social networks, the rules for acceptable publications or etiquette are established by the service provider, which generally relies on a community or participatory structure. Social networks, for European users, are subject to the legislation of the European Union (EU), such as the GDPR, and to the applicable laws where their users are located. This multiple jurisdiction sometimes creates tensions between the  
+33 Digital News Report 2019 (http://www.digitalnewsreport.es/2019/el-45-de-los-usuarios-elige-la-television-como-medio-principal-para-informarse-mientras-el-40-opta-por-las-fuentes-online/)  
+34 The AEPD Blog contains an article titled How Much Does Facebook Know About Me? https://www.aepd.es/es/prensa-y-comunicacion/blog/cuanto-sabe-facebook-sobre-mi  
+35 The term does not yet exist in Spanish. If we look at its meaning in English at https://dictionary.cambridge.org/es/diccionario/ingles/influencer: someone who affects or changes the way that other people behave / a person who is paid by a company to show and describe its products and services on social media, encouraging other people to buy them  
+36 https://www.cnet.com/news/facebook-took-down-more-than-3-billion-fake-accounts/ In May 2019, Facebook estimated that about 5% of its active accounts were fake. For its part, Twitter cleaned up 70 million fake accounts in 2018 (https://www.bbc.com/news/technology-44682354)  
+37 Examples include the Facebook Community Standards (https://www.facebook.com/communitystandards/)
+Page: 17 of 60  
+providers and national authorities, for example, when it comes to removing content about a specific person38, fake news, or content that violates the rights of minorities or groups with special vulnerabilities.  
+Regarding the personal data processed in the interaction with the social network, it should be noted that it will not only involve the information associated with the profile of the user accessing the network, but also the information generated in the interaction with the published content (which, depending on the type of social network, may include "likes," reaction icons to the content, classification tags, timestamps, forwards or reposts, comments, etc.) and general browsing information that includes the possible collection of data such as: visited pages, IP addresses or other location information, device fingerprint, browser fingerprint, and cookies.  
+Interaction with the social network can also occur from a third-party website through the inclusion of social media widgets. These widgets are usually icons that link to a social network. Behind the widgets, there are cookies and other mechanisms for processing browsing information, as explained above, as well as cookies and information processing mechanisms related to the specific interaction on the third-party page where the widget is located.  
+B.  
+SOCIAL NETWORKS AND PUBLIC ADMINISTRATIONS  
+General Aspects  
+Unlike websites managed directly or indirectly by the public administrations themselves, over which there is total control of the content and type of service provided, the social network is an environment that is not initially designed for administrative use and, in general, does not adapt to it. In any case, it involves processing that must comply with the provisions of the GDPR.  
+Sometimes social networks are used as a vehicle to echo official information (republication or linking) and at the same time to provide agile information to users as would be done, for example, through a telephone channel or an information desk39. In this scenario, the role played by community managers or social media administrators is very important. They are the ones who generate content of interest for citizens in relation to the administrative competencies, and who respond to the questions that come through this channel.  
+The work of community managers should always be framed within the objectives defined by the agency, within the framework of a communication strategy40, and they must be aware of the obligation to apply data protection regulations.  
+The relationship of public administrations with social networks can take many forms. The most well-known would be the presence of 'official' profiles of the agencies on social networks.  
+
+38 When we talk about removing content that affects a person, we usually refer to the right to be forgotten. The AEPD has a page with more details on its exercise at https://www.aepd.es/es/areas-de-actuacion/internet-y-redes-sociales/derecho-al-olvido  
+39 Several ministries and public administrations in Spain have their page on Facebook, such as the Ministry of Health: https://www.facebook.com/MinSanidad/. The Digital Communication Guide for the General State Administration (https://administracionelectronica.gob.es/pae_Home/pae_Documentacion/pae_Metodolog/pae_Guia_de_Comunicacion_Digital_para_la_Administracion_General_del_Estado.html) in its section 8 provides good indications to guide the presence of administrations on social networks.  
+On the other hand, the social media guide of the Generalitat of Catalonia (http://atenciociutadana.gencat.cat/ca/serveis/xarxes-i-missatgeria-instantania/xarxes-socials/guies-i-normativa/guia-de-xarxes-socials/) is another useful resource for administrations.  
+40 The Digital Communication Guide for the General State Administration provides a framework of criteria, recommendations, and best practices to be considered by its Departments and agencies when creating, generating content, or evolving websites and portals, electronic headquarters, or sites related to new web technologies 2.0 (blogs, accounts, or social media profiles accessed under the official names of the Departments or agencies of the AGE).
+Page: 18 of 60  
+open or commercial, although other uses such as closed social networks used as a vehicle for internal communication, unofficial employee networks or groups, employees posting on social media in their individual capacity, and finally, we could even talk about the appearance and reference to the Administrations in profiles, publications, or comments from third parties.  
+Use of social networks internally  
+The Administrations can use social networks internally or to interact with the general public. In internal use, we may encounter closed networks designed for employees as an evolution of corporate intranets to which social features have been added. These networks rely on specific software packages, and access is restricted or even prohibited to third parties.  
+Another possible internal use of social networks is the result of informal communications among employees, who form groups to discuss or exchange messages and news as they would informally in the hallways of the organization. This type of network sometimes arises spontaneously and other times may be promoted by the organizations themselves to create a bond among their employees. We may find employees from the same organization (and sometimes also former employees and outsiders) talking to each other through an insecure network, often without being aware of it. An employee, unconsciously and without assessing the risks involved, may even confuse the social network of colleagues with the intranet or established internal channels and publish documents, strategies, or corporate data that may be accessible, and even easily copied, by unauthorized third parties. In turn, this employee may also post opinions or make comments of a highly personal nature that a malicious reader could misrepresent as official. In this same context and closely related, the AEPD has echoed on various occasions the danger that employee groups and the comments made in them can represent in situations of workplace harassment, sexual harassment, and cases of discrimination.  
+The entity's Information Policy must clearly define the limits of social network use outside the strictly personal environment, as well as the use of BYOD (Bring Your Own Device). If the policy allows these types of communication channels, it is accepting a treatment for which the entity will be responsible and, therefore, must comply with the provisions of the GDPR and the ENS (First additional provision of the LOPDGDD).  
+Employees posting on social media individually  
+Social networks have given many people the opportunity to share their knowledge or ideas, either anonymously or using their real name. These individuals have created a sort of personal brand where prestige is measured in followers, links, and citations. In the most successful cases, we have the so-called influencers who have made their fame around posting their opinions and judgments on social media.  
+Without reaching these extremes, it is quite common for professionals from all sectors to publish content on social media, contributing their experience to the common knowledge. In some companies, it is even common to promote the use of social media by the organization's experts as a form of promotion, especially on networks.  
+
+41 Examples could include IBM Notes, Jive, or Ms SharePoint  
+42 The AEPD produced a document on data protection as a guarantee in harassment prevention policies. It can be downloaded at https://www.aepd.es/sites/default/files/2019-11/191107-recomendaciones-sobre-acoso-digital-aepd_0.pdf  
+43 5 ways to turn employees into advocates for your brand on Twitter https://business.twitter.com/es/blog/employees-advocates-on-twitter.html
+Page: 19 of 60  
+social networks where the intention is to share the employee's work experience. However, the publication of professional information by employees may infringe data protection principles when personal information is included and there is a lack of legitimacy.  
+The entity's Information Policy must clearly state, at least from the perspective of data protection, the prohibition of processing personal data related to the entity's activities through employees' personal profiles on social networks, with employees who carry out such illegitimate processing being considered responsible for the processing.  
+The use of social networks by Public Administrations to offer services to citizens  
+When a Public Administration decides to provide information or services to citizens through a social network, it cannot require the individual to have profiles on the same, to the extent that these networks carry out additional data processing based on user consent.  
+According to Recitals 42 and 43 and Article 7 of the GDPR, for processing based on consent to be lawful, the consent given must meet a series of conditions; specifically, it must be informed, specific, free, and unambiguous, and it must not be given under conditions where there is a clear imbalance between the data subject and the data controller. In the event that the Administration provides such a channel as the only means for a service, without providing alternative channels through which this can be offered on an equal footing, consent could not be considered free, and it would pose an obstacle for those citizens most affected by the digital divide due to the inability to access the information provided or exercise their rights.  
+For example, conducting citizen participation initiatives solely through social networks forces those individuals who wish to influence such initiatives to consent to the processing of a third party and, consequently, to grant consent that does not meet the requirements set by the GDPR.  
+The service provided through the social network must comply with all obligations established in the GDPR, including the duty to inform. This obligation could be implemented in a pinned post at the beginning of the account so that the user can easily access it and that it provides the privacy policy or a link to it.  
+A special case is the implementation of services on social networks specifically aimed at minors. In these situations, when the activity on the social network involves the processing of data from minors under 14 years of age, it must be ensured that consent for the processing of the data has been given by the parents or guardians of the minor.  
+The processing of data by the networks where users have accounts will generally be based on those necessary for the execution of the service contract or on the consent given. It is necessary to distinguish these grounds for legitimacy from those of the processing of citizens' data carried out by Public Administrations with profiles on social networks derived from interaction with individuals as a result of the  
+
+44 Article 5.1.a) of the GDPR - Principles relating to processing. Principle of lawfulness, fairness, and transparency  
+45 Article 7 of the GDPR - Conditions for consent  
+46 Article 14 of Law 39/2015, of October 1, on the common administrative procedure, establishes the right of individuals to choose at all times whether to interact with Public Administrations for the exercise of their rights and obligations through electronic means, except in cases where they are required to interact in this manner.  
+https://www.boe.es/buscar/act.php?id=BOE-A-2015-10565&p=20200911&tn=1#a14  
+47 Article 8 of the GDPR - Conditions applicable to a child's consent in relation to information society services
+Page: 20 of 60  
+information provided by the Administration through its official account and whose  
+legitimacy for being processed by the Public Administration would be based on the fulfillment of a mission  
+carried out in the public interest or in the exercise of the public powers conferred.  
+Furthermore, regarding the responsibilities assumed by the Public Administration, and related to the  
+tracking technologies (cookies) discussed in the previous section of this document, the  
+data processing carried out by the social network could lead to the collection of a greater volume  
+of personal data from the citizen than necessary by the Public Administration in managing  
+its official profile or additional data that have no relation to such management. The role that the Public Administration and the social network play  
+concerning the processing of the personal data collected could change to co-responsible  
+depending on whether the Public Administration is not diligent in knowing this  
+circumstance, or, knowing them, has options to configure or limit the processing that  
+the social network performs and does not make use of them, or actively allows the  
+processing to occur. For example, in the case of widgets to social networks included in the  
+portals of the Public Administrations, before allowing the use of cookies by such resources, it is necessary  
+for the Public Administrations to obtain the prior consent of the visitor to their pages, keeping  
+the widgets disabled until such consent is obtained. The Public Administrations, in any circumstance, must  
+ensure that the data processed is strictly necessary for the fulfillment of the legitimized  
+purposes, in compliance with the principle of minimization.  
+Most social networks do not offer sufficiently verified levels of service quality  
+to become notification instruments, as the integrity of the information provided cannot  
+be guaranteed and that it will not be trimmed or enriched with advertising or other unrelated content. There are also  
+no guarantees of confidentiality in the transmission of information to the social network, as, in  
+some of them, access to the content by the social network itself is possible, or the  
+privacy settings of the user's profile may allow indiscriminate access  
+to the posts made, consent that is not implicit regarding the content  
+sent by an Administration.  
+Normally, the entity must have a social media communication policy that reflects aspects of the Data Protection Policy  
+of the entity such as:  
+•  
+A clear responsibility embedded efficiently in the chain of  
+responsibilities of the organization, so that communication via the network or  
+social networks is well aligned with the rest of the institutional communication policy.  
+•  
+An informative document for public employees indicating what  
+they can and cannot do on the Administration's social network. If it is assumed that  
+social networks are a support or complement to a website and an  
+official headquarters, it is easier to limit the service and avoid risks.  
+•  
+Adequate training for those responsible for publishing content and  
+addressing comments and questions, detailing:  
+
+48 According to what is established by the EDPB in its document Guidelines 07/2020 regarding the concept of controller and  
+processor in the GDPR (https://edpb.europa.eu/sites/edpb/files/consultation/edpb_guidelines_202007_controllerprocessor_en.pdf) and in  
+the ruling of the Court of Justice of the European Union Unabhängiges Landeszentrum für Datenschutz Schleswig-Holstein v  
+Wirtschaftsakademie Schleswig-Holstein GmbH, Case C-210/16, 5 June 2018, they may imply co-responsibility in the processing  
+of the collected data. However, this latter ruling establishes that the mere use of a social network does not imply the  
+establishment of co-responsibility, but rather when one participates in determining the purpose and means of processing.  
+49 Some social networks access content to profile the user for marketing purposes. Others to apply policies against  
+pedophilia, digital violence, psychological analysis, etc., which may intrude on their privacy in the case of misinterpreting  
+official communications.  
+50 Article 24 of the GDPR – Responsibility of the data controller.
+Page: 21 of 60  
+o What personal information can be published and what cannot.  
+o In the case that extracted or anonymized documents are published, it must be done with guarantees to avoid disclosing, for example, the electronic signature data of the signer or the secure verification code51 that would allow the entire document to be retrieved.  
+o The manner in which communication with users should be conducted.  
+o How messages and notices received through the channel that contain personal data and require attention, such as requests for content removal, requests that reveal the requestor's data to third parties, or even terrorist threats or suicidal messages, should be escalated or communicated internally.  
+Social networks can be a means for administrations to obtain statistical data52 about their users, through the information provided by the platform itself. This could lead to profiling users, their interests, and their browsing trends. To the extent that they involve the processing of personal data, in addition to being legitimized, especially when browsing can infer special categories of data, information about such processing must be provided in accordance with Articles 13 and 14 of the GDPR.  
+It should be noted that some social networks allow content to be forwarded to third parties. In the case that there may be content with personal data, attention must be paid to what is stated in Recital 66 of the GDPR: In order to strengthen the "right to be forgotten" in the online environment, the right to erasure must be extended in such a way that the data controller who has made personal data public is obliged to inform the data controllers who are processing such personal data to delete all links to them, or copies or replicas of such data. In doing so, the data controller must take reasonable measures, taking into account the technology and means at their disposal, including technical measures, to inform the request of the data subject to the controllers who are processing the personal data.  
+Seeking positioning or influence, as could be done in other areas, even resorting to illicit techniques such as buying followers53, posting false reviews, or abusing the most searched tags and terms, could be interpreted as a lack of transparency and legality concerning the processing based on the use of a social network, without losing sight of the lack of data quality54 linked to the breach of the principle of accuracy.  
+C.  
+RISKS TO THE RIGHTS AND FREEDOMS ASSOCIATED WITH SOCIAL NETWORKS OF ADMINISTRATIONS  
+Once a processing operation through social networks that complies with the requirements established in the GDPR has been designed, it is necessary to analyze the risks that may arise for the rights and freedoms of citizens, in order to carry out their proper management.  
+One of the risks is that errors may occur in the application of communication policies through social networks that reveal personal data inappropriately.  
+
+51 Secure verification code in the Government of Spain: https://sede.administracion.gob.es/PAG_Sede/ayuda/ayudaCSV.html  
+52 For example, Facebook offers statistics for professional pages or fan pages, unlike personal profiles or pages. (https://es-la.facebook.com/business/insights/tools/audience-insights)  
+53 Article on buying fake followers on social networks https://www.genbeta.com/redes-sociales-y-comunidades/hemos-comprado-seguidores-falsos-twitter-instagram-facebook-se-nos-ha-quedado-cara-tonto  
+54 Article 5.1.d) of the GDPR – Principles relating to processing. Principle of accuracy.
+Page: 22 of 60  
+unwanted both from the administered and from the public employees themselves (publication of CSV55, metadata, ...). To reduce the risk, it is necessary to define a clear internal policy that is well known by the staff regarding the implications and consequences of participation in social networks.  
+This policy should define both the guidelines for managing official accounts, internal networks, as well as advice for personal participation in unofficial networks. In particular, it should detail what can or cannot be published on social media56, the consequences for those who violate the rules, the training activities that employees must follow, the periodic auditing of publication processes, as well as ongoing monitoring by the individuals in the organization who manage the presence on the networks, to ensure the security of the treatments57 carried out in this context and to provide a proactive response to any incidents58.  
+For example, in the dissemination of content by Public Administrations through instant messaging services, the use of broadcast lists or channels, instead of groups, prevents the identification of participants among themselves.  
+It is also advisable, in addition to the training courses provided to the involved staff, to periodically verify that the policies defined by the entity regarding internal social networks, the use of BYOD, or the use of personal networks where personal information related to the entity is disclosed are being followed.  
+Among the elements that need to be checked and continuously monitored are:  
+• Personal data of Administration employees: Are publishers doing so with their name, or are complete ID numbers59, payrolls, or assets of high-ranking officials being published directly online?60 Are photographs of offices or internal events being published without taking appropriate measures?  
+• Files or cases processed by the Administration: Are poorly anonymized examples or complete resolutions being published, or is information about the status of processing being provided to individuals claiming to be interested without any prior verification?  
+• Applicants for employment or students of training courses: Are lists, grades, or photographs of courses taken without due precautions being published?  
+• Users of the social network: Is their identity being revealed in comments?  
+• Inferred data that could be deduced regarding a specific individual as a result of a publication.  
+Tools to carry out this verification may include, for example, periodic manual or automatic content reviews, surveys among employees, or periodic audits.  
+
+55 https://www.rtve.es/noticias/20181018/cgpj-atribuye-fallo-sistemico-filtracion-datos-victima-manada/1822280.shtml  
+56 The more precise term is a Social Media Policy. https://www.forbes.com/sites/forbeshumanresourcescouncil/2017/05/25/why-your-business-needs-a-social-media-policy-and-eight-things-it-should-cover/#3f09e7495264  
+57 Article 32 of the GDPR – Security of processing  
+58 The AEPD has a specific document on administrative, disciplinary, civil, and criminal consequences of the dissemination of sensitive content at https://www.aepd.es/sites/default/files/2019-12/consecuencias-administrativas-disciplinarias-civiles-penales.pdf  
+59 The AEPD published guidance in 2019 for the provisional application of the seventh additional provision of the LOPDGDD. https://www.aepd.es/sites/default/files/2019-09/orientaciones-da7.pdf  
+60 In the publication of public information, the joint interpretative criteria issued by the Spanish Agency for Data Protection and the Council for Transparency and Good Governance regarding the scope of the bodies, agencies, and entities of the state public sector in terms of access to public information about their Job Position Relationships (RPT), catalogs, organic templates, etc., and the remuneration of their public employees or officials (CI/001/2015) and temporary staff in the General State Administration and the application of art. 19.3 of the Transparency Law (CI/001/2020) should be followed.
+Page: 23 of 60  
+Regarding the publication of anonymized information, as previously noted, the published anonymized content must undergo both automatic and manual review to ensure that no errors occurred in the anonymization process that could expose personal data of the managed individuals or public employees. Procedures must be included to review the metadata that may be included in the published documentation, both those that reveal information about public employees and other data that could allow access to the original information of anonymized documents, such as CSVs.  
+In the processes of anonymizing the content that will be published on the social network, it is advisable to have a clear compartmentalization between anonymized content and non-anonymized content, as well as other safeguards that make it difficult to mistakenly publish content containing personal data. In particular, it is recommended to avoid easy access for the social network manager to non-anonymized content.  
+Following the principle of minimization, whenever identification of the managed individual is not necessary for processing, that data should be avoided from being collected and processed. There is a risk of re-identification and profiling of the managed individuals through the analysis of visits made as well as the consultation of specific content. As in the case of cookies, there are more sensitive services, such as counseling for minors or victims, health consultations, anonymous reporting boxes, etc., that can compromise the user themselves by recording browsing habits, displaying content based on contextual profiling, or the aforementioned re-identification, which generates risks that need to be managed.  
+For example, when conducting participation processes or citizen surveys through the social network, the risks of re-identification by third parties linked to the metadata collected during the survey process, such as IP addresses or signatures of the devices used by the users, should be analyzed, as well as the possible linking of responses with other personal data held by the Public Administration.  
+Accounts opened on a social network by a Public Administration can be compromised, and therefore content can be infiltrated into them with the purpose of collecting personal data. This must be taken into account when managing the processes of assigning and renewing access keys.  
+On the other hand, third-party content, inserted as advertisements or otherwise, can mislead users and make them believe that these are links belonging to Public Administration services that collect personal data, so such content must be under supervision or control the type of content that can be offered, particularly content related to ideologies and beliefs of any kind.  
+In the event that spaces are provided for the managed individuals to upload their own content, it is recommended to avoid allowing the publication of such content without supervision to prevent the disclosure of personal information of third parties without their consent, particularly sensitive content or any conduct that implies acts of digital violence.  
+If access to the content of the social network requires the managed individual to log in, the Public Administration must evaluate the privacy guarantees, including the privacy-oriented security measures provided by that network, especially the user and password creation policy. This analysis must be conducted in the interest of the citizens, but also in that of the space managers, as an attacker could impersonate the publishers.  
+Furthermore, regarding the responsibilities assumed by the Public Administrations and related to the tracking technologies seen in the previous point of this document, it is preferable that on the Administration's website, or in the newsletters that are distributed, static links to the official profile on the social network are included, rather than using embedded widgets in the content.  
+In that case, the Public Administrations have the obligation to verify that such a link leads citizens to an Internet service that complies with the established regulations. For example, if such a website uses cookies for which it is necessary to inform and obtain prior consent for processing such as profiling and tracking, it is necessary to have periodic checks to ensure that this circumstance is effectively met.  
+Finally, although the obligations of compliance regarding minors have been previously mentioned, it is important to be aware that current techniques do not always allow for total effectiveness in determining whether the user may be a minor. The risk that this poses must be evaluated concerning the type of content being offered through the network, and based on this risk, additional procedures should be established for more precise verification of the users' age.  
+
+61 On the AEPD blog, there is a post dedicated to Security Measures on Facebook (https://www.aepd.es/es/prensa-y-comunicacion/blog/medidas-de-seguridad-en-facebook)
+Page: 25 of 60  
+IV.  
+CLOUD COMPUTING  
+A.  
+WHAT IS CLOUD COMPUTING  
+Cloud computing is a way of using servers in remote locations flexibly and transparently. Instead of having their own equipment, purchased and hosted on the organization's premises, a provider 'rents' virtual equipment or specific services, which are managed over the network. This model eliminates the issues of initial investments and obsolescence, allowing the customer to pay at any given moment for the computing capacity, bandwidth, or services they need. The service provider can contractually guarantee service quality parameters, privacy guarantees, security aimed at other purposes, maintenance, software package updates, etc.  
+Although in the early days of cloud computing the tools offered by the provider were the same as those a customer could purchase and host on their machines, there are now databases, libraries, programming languages, and specific software components for the cloud, as well as certifications, specialists, and an entire academic discipline.  
+Depending on the type of services offered to the customer, we can distinguish between IaaS (Infrastructure as a Service) solutions if the provider only provides raw storage and processing capacity; PaaS (Platform as a Service) if the basic utilities to build applications are provided on which to develop solutions, and SaaS (Software as a Service) when the customer finds all the final tools in the cloud to implement their organization's processes. Another possible classification of clouds is the separation between public and private. We speak of a public cloud when providers offer 'loose' services to different clients, such as web space, storage, or processing capacity. At the other end, we speak of a private cloud when the provider offers a series of grouped services in a closed manner to third parties. We could compare a private cloud to a private network or an intranet of an organization, with its elements isolated from the outside, except for localized access, and with centralized management.  
+With the popularization of cloud services, there were occasions when services were offered that were not transparent about the location where the data is processed. This virtualization and delocalization is not without risks for both security and the protection of personal data.  
+B.  
+CLOUD COMPUTING AND PUBLIC ADMINISTRATIONS  
+Public administrations use the cloud as part of the services provided to citizens and as an element of their internal management. In fact, the General Secretariat of Digital Administration provides the General State Administration and its public bodies with a service.
+Page: 26 of 60  
+of computing and storage in hybrid cloud mode through the shared service  
+Cloud SARA68.  
+Cloud services facilitate that Administrations can have a 'white label' service catalog, and adapt and deploy it69 without an investment in assets, opting for a very flexible and scalable governance model, which could be interesting in the case of small Administrations with few resources, such as Provincial Councils or Local Entities. To ensure that this ease does not become a problem, it is necessary to plan carefully, at least from the perspective of compliance with data protection regulations, how to implement the services and with which partners they will be implemented.  
+Moreover, the cloud does not allow for direct control over the services, and when errors, breaches, or service discontinuities occur, one depends on the knowledge of external third parties and on response times regulated by service level agreements (SLA70), established by contract. When opting to contract cloud services, it is the responsibility of the data controller to ensure that they select the appropriate provider71 and to guarantee that the contract contains the necessary clauses and guarantees that commit the service provider to comply with data protection regulations, as well as any other applicable regulations for a specific public entity. In any case, it is important to keep in mind that the advertising information or the technical descriptive documents published on the provider's website about the offered cloud services do not constitute, by themselves, contractual and binding conditions regarding the provision of a service, unless they are incorporated into the offer subscribed with the awarded provider of the tender. Under no circumstances can a generic adhesion contract to a specific service be understood as binding when conditions are established outside the general contracting requirements for Public Administrations determined by the Public Sector Contracts Law72.  
+Often, there is a tendency to identify the cloud with the public cloud, which is cheaper and more popular, overlooking the possibility of configuring and sharing private clouds for an Administration or a group of them. There are providers that offer private clouds with security certifications, thus allowing them to provide their clients not only with ease in the development of their services but also in the security certification of their Administrations.  
+Contracting a cloud service does not imply the total transfer of security management obligations to the data processor but corresponds  
+
+68 According to the Digital Administration Service Catalog published on the Electronic Administration Portal, Cloud SARA is part of the services declared as shared (CETIC 15/09/2015) and provides hybrid cloud computing and storage services for the AGE and its Public Bodies, through the configuration of consolidation nodes both in Administration data centers (private cloud) and external providers (public cloud), allowing the client TIC units of the service to obtain capabilities in both private and public clouds for each of the services they need to implement according to their characteristics and the costs they can assume. Although it initially focuses on infrastructure as a service, the idea is to gradually provide more mature services, such as platform as a service and application as a service (for example, payroll management in the cloud). The components of the service provided will be the usual ones in services of these characteristics: provision of virtual servers with different configurable characteristics, shared storage, communications, backup, high availability of components, monitoring, consumption control, …  
+69 There are various technologies that facilitate the rapid deployment of service instances in a lighter way than virtual machines. The interested reader can read, for example, about Docker (https://www.docker.com/resources/what-container) or Kubernetes (https://kubernetes.io/es/docs/concepts/overview/what-is-kubernetes/)  
+70 Service level agreement on Wikipedia https://es.wikipedia.org/wiki/Acuerdo_de_nivel_de_servicio  
+71 Article 28.1 GDPR: “When processing is to be carried out on behalf of a data controller, the controller shall choose only a processor that provides sufficient guarantees to implement appropriate technical and organizational measures, so that the processing will meet the requirements of this Regulation and ensure the protection of the rights of the data subject.”  
+72 https://www.boe.es/buscar/act.php?id=BOE-A-2017-12902
+Page: 27 of 60  
+always the data controller is responsible for decision-making regarding the requirements for personal data protection, among which, necessarily, the security requirements established by Article 32 of the GDPR must be included. Apart from the supervisory obligations that the controller has over the measures taken by the processor, the controller will always have the obligation to implement some of those measures, such as defining and managing the access control policy.  
+Another obligation of the Public Administration is to request and obtain information on whether or not third parties (subcontractors) are involved in the provision of cloud computing services and to execute control over them as described in the Guide for clients contracting Cloud Computing services. Additionally, it must be clear in the cloud contract where the servers that will host personal data are physically located. If the servers are located in another country, we must ensure that it maintains equivalent guarantees in personal data protection.  
+There is another restriction regarding the location of the servers of the contracted cloud computing service provider introduced by Royal Decree-Law 14/2019, of October 31, which adopts urgent measures for reasons of public security in the field of Digital Administration, public sector contracting, and telecommunications. This regulation, through the amendment of Law 9/2017, of November 8, on Public Sector Contracts, establishes the obligation for the awarded company to present, before the formalization of the contract, a declaration indicating where the servers will be located and from where the associated services will be provided. This information may be important for national security interests.  
+It is also necessary to ensure that the execution of that contract is subject to national and European Union regulations on data protection.  
+The Public Administration must take into account the data protection requirements throughout the entire lifecycle of service provision, not only from the moment of choosing the service provider or during the provision of the service itself, but also, once the contractual relationship has concluded, it must ensure that the information is destroyed, returned to the contracting entity, or transferred to a new data processor that has been designated, for which it must necessarily take into account what is established in the National Interoperability Framework. For this purpose, and in order to ensure regulatory compliance, it is advisable to conduct audits and require periodic compliance certifications.  
+C.  
+RISKS TO RIGHTS AND FREEDOMS ASSOCIATED WITH CLOUD COMPUTING  
+Despite the advantages that the cloud offers, this type of solution also presents a series of risks that must be taken into account. Among them would be the privacy of the stored information, as well as the continuity of services, legal changes, and the loss of control over the infrastructure and applications used. In the particular case of Public Administrations, due to the volume and sensitivity of the data they manage, these risks must be subject to rigorous analysis in each scenario in which cloud computing is considered.  
+
+73 Detailed in the chapter "What I need to know for contracting Cloud Computing Services," particularly in section 4.  
+74 Article 44 of the GDPR – General principle of transfers  
+75 BOE No. 266, of November 5, 2019 https://www.boe.es/diario_boe/txt.php?id=BOE-A-2019-15790  
+76 Law 9/2017, of November 8, on Public Sector Contracts, which transposes into Spanish law the Directives of the European Parliament and of the Council 2014/23/EU and 2014/24/EU, of February 26, 2014. https://www.boe.es/buscar/act.php?id=BOE-A-2017-12902  
+77 https://www.boe.es/buscar/act.php?id=BOE-A-2010-1331
+Page: 28 of 60  
+the use of such solutions, particularly when the services deployed in the cloud affect the rights and freedoms of citizens.  
+It is also important to evaluate which type of cloud architecture, public or private, represents a lower level of risk for the specific processing that is intended to be implemented. It should not be overlooked that the inability to technically comply with any of the obligations required by the GDPR from the data controller should not be considered a risk that can be managed, but rather a regulatory breach. Under no circumstances can the compliance requirements of the GDPR and the LOPDGDD be replaced by technical and organizational measures.  
+When designing the processing, it is advisable to assess the incorporation and application of data minimization mechanisms based on risk, particularly limiting the extent of the data, uploading anonymized or pseudonymized data to the cloud, employing homomorphic encryption, etc.  
+Public employees' data may also be exposed. The risk that information about employees, especially when they are teleworking and/or using BYOD, may be exposed to third parties must be evaluated, particularly metadata that exposes their private lives. The context in which public employees' work activities may be located does not exempt, in any case, the responsibility of Public Administrations regarding data protection regulations.  
+When identifying the information that is uploaded to the cloud, there is often doubt as to whether it truly corresponds to personal data and complies with the principle of minimization. It may involve aggregated, compressed data, or data to which some technique has been applied to unlink it from individuals, but that does not mean it ceases to be personal data if there are individuals behind it who could, with some possibility, be identifiable. This is a matter that must be formally analyzed and the risks of re-identification must be rigorously and seriously assessed, avoiding simplistic responses aimed at evading the responsibility of processing personal data. This approach should be part of a more comprehensive one that evaluates the maturity level of the anonymization processes used by the organization.  
+During the life of the system, it is important that its functioning is adequately monitored and the implementation of the service is audited, which will evolve over time. This proactive attitude is, first and foremost, a responsibility of the 'controllers' of the service, but they must extend it throughout the entire chain of assignments and subcontracting. In the event of a breach of data protection regulations, the controller cannot hide behind the claim that they did not know what their processors were doing, as, as already indicated, according to Article 28 of the GDPR, they are responsible both for choosing a processor that provides guarantees and for formally stipulating, through a contract, the instructions and the manner of proceeding of the processor when processing personal data.  
+It is not unlikely that security breaches may occur in cloud services that endanger the availability, integrity, or confidentiality of the data.  
+
+78 Recital 78 and Article 25 GDPR.  
+79 Homomorphic encryption is a technique that allows operations to be performed on encrypted data and obtain results, also encrypted, equivalent to the operations performed directly on the original information. More information about this data minimization technique can be found in the post "Encryption and Privacy III: Homomorphic Encryption" (https://www.aepd.es/es/prensa-y-comunicacion/blog/cifrado-privacidad-iii-cifrado-homomorfico) published by the Spanish Data Protection Agency.  
+80 Article 5.1.c) of the GDPR – Principles relating to processing. Principle of minimization.  
+81 Privacy Analytics, “The De-identification Maturity Model”, Khaled El Emam, PhD, Waël Hassan, PhD. 2013 https://iapp.org/media/pdf/resource_center/2014-14-05%20Privacy%20Analytics%20The%20De-identification%20Maturity%20Model.pdf  
+82 Article 5.2 of the GDPR – Principles relating to processing. Proactive responsibility.
+Page: 29 of 60  
+personal data with consequences for the rights and freedoms of individuals. A cyberattack, a system malfunction, or human error can jeopardize the data of citizens and public employees. As previously indicated, the management of information security risk does not rest solely with the service provider; rather, it is the responsibility of the data controller to determine the security measures that must be required of the data processor, which must be contractually reflected.  
+Regarding this last point, in the event of a security breach affecting personal data, the data controller must urgently implement a series of mechanisms. On one hand, they must address the contingency itself in the manner they deem least risky for the data and the service in general. Simultaneously, within a period of 72 hours, they must notify the Data Protection Authority of the information they have regarding the breach. This is not merely a statistical or bureaucratic procedure; its purpose is to create a more resilient society by allowing the Control Authority and other entities to gain knowledge regarding the materialization of certain risks and thus be able to react proactively. Furthermore, in certain situations, the Control Authority may order the data controller to inform the users whose data has been affected by the security breach so that they remain alert or take their own security and protection measures in response to the incident.  
+The Administration, as the data controller, must also manage risks in the event that the cloud provider unilaterally decides to discontinue the service or change the conditions under which it is provided, as well as manage the legal risk of any regulatory or other changes that may prevent the use of such services. This latter point is particularly important for those providers that are not located within the national territory, which is why the data controller, in response to an analysis of potential risks, must develop the necessary measures and have contingency plans and migration strategies for transferring services to other systems.  
+ 
+The AEPD has published a Guide for the management and notification of security breaches. It is available at https://www.aepd.es/sites/default/files/2019-09/guia-brechas-seguridad.pdf. There are also several articles on this topic in their blog (https://www.aepd.es/es/prensa-y-comunicacion/blog). The WP29 also published guidelines in February 2018 (https://ec.europa.eu/newsroom/article29/item-detail.cfm?item_id=612052).  
+Article 33 of the GDPR – Notification of a personal data security breach to the supervisory authority  
+Article 34 of the GDPR – Communication of a personal data security breach to the data subject  
+Article 32 of the GDPR – Security of processing
+Page: 30 of 60  
+V.  
+BIG DATA OR MASS DATA PROCESSING  
+A.  
+WHAT IS BIG DATA  
+According to the definition provided by ISO, when we talk about Big Data87, or mass data processing, we refer to large sets of data characterized by their volume, variety, velocity, and/or variability, which require scalable technology for efficient storage, manipulation, management, and analysis.  
+Mass data processing technologies have developed significantly in recent years, opening a wide range of treatments. The Internet has made a vast amount of data available to all of us that can be utilized. Public Administrations themselves, through the Aporta Initiative88 and the portal datos.gob.es, promoted by the Ministry of Economic Affairs and Digital Transformation and the Public Business Entity Red.es, promote the opening and reuse of public information and the development of advanced services based on data.  
+The massive analysis of data has allowed us to obtain information in real time, or almost real time, from information sources and datasets distributed around the world. There are specific software platforms to extract, load, and transform (the acronyms ELT or Extract, Load and Transform are used as opposed to the acronym ETL for dashboards) data from different sources and exploit that information. This exploitation can take very varied forms, ranging from presenting it graphically, for example, as dashboards, to constructing new information or profiles by regrouping the data in a way different from how it was obtained.  
+From the perspective of personal data protection, it is crucial to ensure that there is a legitimacy89 for such mass data processing and, in the case that special categories of data are included, it is necessary to lift the prohibition for their processing90 beforehand. These conditions must be met not only for the data included in the collection of collected data but also for those that may be inferred from the crossing and connection of the original data.  
+In the design phase of Big Data treatments, it is necessary to objectively analyze what amount of data is necessary and sufficient in relation to the purpose of the processing91, to adhere to the principle of data minimization92, and not to adopt "just in case" strategies where, without having established prior selection criteria, the maximum possible amount of data is collected. This problem can be exacerbated in the case of mass data collection supported by sensors in processing contexts such as those carried out in Smart Cities.  
+This technology allows for profiling or enriching profiles of individuals, a processing that requires legitimacy and must meet certain requirements and conditions, including those related to automated individual decisions93, and where applicable, the  
+
+87 ISO/IEC 20546:2019 Information technology – Big Data – Summary and vocabulary  
+88 The Aporta Initiative https://datos.gob.es/sites/default/files/datosgobes/190522_iniciativa_aporta_-_contexto_y_directrices.pdf is developed in the context of the current legislative framework https://datos.gob.es/sites/default/files/datosgobes/190522_iniciativa_aporta_-_contexto_y_directrices.pdf and the datos.gob.es platform is articulated as a meeting point between Administrations, companies, and citizens that are part of the open data ecosystem in Spain.  
+89 Article 6 of the GDPR – Lawfulness of processing  
+90 Article 9 of the GDPR – Processing of special categories of personal data https://eur-lex.europa.eu/legal-content/ES/TXT/HTML/?uri=CELEX:32016R0679&from=ES#d1e2114-1-1  
+91 Regarding the application of the principle of minimization, consult the AEPD Data Protection by Default Guide.  
+92 Article 5.1.c) of the GDPR – Principles relating to processing. Principle of minimization  
+93 Article 22 of the GDPR - Automated individual decisions, including profiling
+Page: 31 of 60  
+carrying out an impact assessment for data protection94 and, if applicable, the prior consultation95 with the Control Authority.  
+If personal data has been inferred, we must handle it as personal data, with all guarantees regarding security96, rights97, international transfers98, and others.  
+If the same data controller who processes large amounts of data has collected the personal information directly from the data subjects99, for example through apps, online forms, or using cookies or other technologies, they must ensure that they can do so, and in the case that this legitimacy100 is provided by the consent of the users, that it is obtained appropriately101 and that the transparency of the information97 is maximized so that users are fully aware of where, how, and for what their data will be used and the existing mechanisms to claim their rights over it or withdraw the consent given. In the event that personal data has not been collected directly by the data controller performing the processing, the obligations and information requirements established by the regulations102 must also be taken into account.  
+If the processing is carried out on behalf of a third party acting as a processor103, as seen in other technologies already analyzed, it is necessary to formalize a contract detailing how the data will be processed from its availability until it is returned or destroyed, including the security measures and additional guarantees that must be adopted.  
+B.  
+BIG DATA AND PUBLIC ADMINISTRATIONS  
+Big Data, in conjunction with other technologies mentioned in this document, such as cloud computing or artificial intelligence, is a tool that allows processing and extracting value from the large volumes of information generated by Public Administrations.  
+On one hand, Administrations release many data in simple formats within open data initiatives104. These increasingly widespread initiatives consider data openness as a form of transparency105 and aim to make accessible and reusable the data related to population, transportation, environment, health, energy, territory, education, etc., that Public Administrations have stored in their systems. The purpose is to provide information to citizens in an exercise of transparency that helps to generate greater trust in the organization, and also to the business sector so that it integrates this data into its systems and leverages it in its own processes, thus contributing to the promotion of the economy and innovation.  
+
+94 Article 35 of the GDPR – Impact assessment regarding data protection  
+95 Article 36 of the GDPR – Prior consultation  
+96 Article 32 of the GDPR – Security of processing  
+97 Article 12 of the GDPR - Transparency of information, communication, and modalities for exercising the rights of the data subject  
+98 Article 44 of the GDPR – General principle for transfers  
+99 Article 13 of the GDPR - Information to be provided when personal data is obtained from the data subject  
+100 Article 6 of the GDPR – Lawfulness of processing  
+101 Article 7 of the GDPR – Conditions for consent  
+102 Article 14 of the GDPR - Information to be provided when personal data has not been obtained from the data subject  
+103 Article 28 of the GDPR – Processor  
+104 Open Data Initiative of the Government of Spain https://datos.gob.es/  
+105 In Europe, we start from Directive 2003/98/EC, of November 17, 2003, updated by Directive 2013/37/EU of the European Parliament and of the Council, of June 26. In Spain, this has led to Law 37/2007, of November 16, on the re-use of public sector information, updated by Law 18/2015, of July 9. More regulatory information can be found at https://datos.gob.es/sites/default/files/datosgobes/190522_iniciativa_aporta_-_contexto_y_directrices.pdf
+Page: 32 of 60  
+On the other hand, those Administrations with the capacity to analyze large datasets have developed teams and are cross-referencing different sources of information to extract knowledge and apply the great potential that massive data analysis represents in various sectors and scenarios such as healthcare, tourism, research, sustainable development, security, or the fight against fraud.  
+However, it should not be overlooked that this massive analysis and cross-referencing of heterogeneous information sources can also have negative consequences from an ethical standpoint, regarding privacy, and particularly in data protection, if the information obtained is misused.  
+As with any processing, the principles of legality, loyalty, and limitation of processing must be adhered to. In the case of treatments based on Big Data, due to their very nature, it seems relatively easy to end up in situations where the initial purpose of the processing becomes blurred when the data is exploited for secondary purposes, as data protection regulations do not prevent personal data from being reused for purposes different from those for which they were collected, provided that these do not conflict with the initial purposes. Therefore, for their reuse in new projects, it is crucial to conduct a compatibility analysis that must take into account the following considerations outlined in Article 6.4 and Recital 50 of the GDPR:  
+• There must be a relationship between the initial purpose of the processing and other subsequent purposes.  
+• Such subsequent processing must fall within the reasonable expectations of the data subjects.  
+• The nature and sensitivity of the data being processed.  
+• The impact that the subsequent processing may have on the data subjects.  
+• Appropriate technical and organizational protective measures have been adopted.  
+It is important to note that not all legitimizing bases can be invoked in the case of processing carried out by Public Administrations, particularly the limitations established for invoking legitimate interest.  
+C.  
+RISKS TO RIGHTS AND FREEDOMS ASSOCIATED WITH BIG DATA  
+The General Data Protection Regulation addresses the issue of large-scale processing and requires that special precautions be taken, as from the perspective of personal data protection, processing large volumes of information can pose risks that need to be managed. The mass processing of personal data is one of the scenarios for which the GDPR requires a more systematic risk assessment, necessitating the conduct of a data protection impact assessment and, where applicable, based on the outcome obtained, a prior consultation with the Supervisory Authority.  
+
+Article 5.1.a) of the GDPR - Principles relating to processing. Principle of legality, loyalty, and transparency  
+Article 5.1.b) of the GDPR - Principles relating to processing. Principle of purpose limitation  
+Large-scale processing appears in Article 35 and 37, and in Recitals 80, 91, and 97. There may be large-scale processing that does not use Big Data, and uses of Big Data that do not involve large-scale processing.  
+The AEPD published a Code of Good Practices in Data Protection for Big Data projects a few years ago.  
+Article 35 of the GDPR - Data protection impact assessment  
+Article 36 of the GDPR – Prior consultation
+Page: 33 of 60  
+In this regard, it is important to note that the massive nature of a processing operation or the processing of data on a large scale is not defined exclusively by the quantity of data or by the number of individuals whose data may be processed at a given time. According to the document from the Article 29 Working Party of the previous Directive on “Guidelines on Data Protection Officers (DPOs),” the term “on a large scale” associated with Big Data processes must be understood in several dimensions:  
+•  
+In relation to the number of affected data subjects  
+•  
+In relation to the volume or variety of data elements being processed  
+•  
+In relation to the duration or permanence of the data processing activity  
+•  
+And in relation to the geographical scope of Big Data processing  
+Without prejudice to other considerations that may arise from the specific context of certain data processing operations, such as the frequency with which certain processing operations may be carried out based on the initially obtained data.  
+Thus, when addressing the development of a Big Data-based solution, the responsible Administration, after conducting an impact assessment or DPIA, must take into account a series of considerations to minimize the risks that processing may pose to the rights and freedoms of individuals, adopting a series of precautions and guarantees in the design of the different operations that are part of the processing:  
+•  
+Data acquisition phase: the data processed must be minimized through a prior selection of the data that needs to be collected and minimizing the level of detail with which the data is processed by resorting to anonymization or pseudonymization of the source data, data masking, or encryption of the information.  
+•  
+Analysis and validation phase: as in the previous operation, the detail of the data must be minimized, as much as possible, through anonymization and encryption techniques.  
+•  
+Dissociation, anonymization, or pseudonymization of information phase: preferably, the individuals carrying out this activity should not be the same as those participating in the information exploitation phase, a recommendation that becomes an obligation for the responsible party when it comes to health data, as indicated in the seventeenth additional provision of the LOPDGDD, without prejudice to the other obligations indicated in that additional provision and in particular the guarantee of traceability of the information within the framework of the guarantees provided in the GDPR. It should be noted that the process of dissociation, anonymization, or pseudonymization is itself a processing of personal data and, therefore, the guarantees provided in the applicable personal data regulations apply.  
+•  
+Storage phase: confidentiality of the data must be guaranteed, ensuring that it is not accessed by unauthorized third parties, using encryption techniques and authentication and access control mechanisms. It is also important, in order to avoid possible inferences derived from unauthorized cross-referencing of different information sources, to resort to data distribution strategies that hinder making connections between the data.  
+•  
+Exploitation phase: when using the data to extract value and present the information derived from it, its anonymization must be guaranteed, using different techniques and, where applicable, legal guarantees aimed at  
+112 Opinion 05/2014 on anonymization techniques
+Page: 34 of 60  
+to avoid re-identification113, if prior use has not been made of these and the data at this stage still allows for the identification of the data subjects.  
+The aggregation process to obtain knowledge involves combining data, often from different sources of information, with the privacy risks this represents for the data subjects:  
+1. Re-identification of individuals or singularization, increasing the likelihood of this occurring the larger the volume of data processed, even in those datasets that apparently may not contain primary or explicit identifiers114.  
+2. Linkability of different records of the same data subject or group of data subjects, whether in the same dataset or through the connection of heterogeneous and independent data sources, via correlation analysis.  
+3. Inference, from personal data classified as quasi-identifiers115, of much more critical personal information that was not intended to be processed.  
+These privacy risks must be evaluated from the very conception of the processing that makes use of Big Data techniques and their analytical tools for information exploitation, incorporating, from the design stage, the necessary strategies to mitigate them, which will have been identified as a result of the data protection impact assessment carried out.  
+When the information of the same person is enriched with data from different sources of information, we may likely discover new connections or nuances of their personality that would not have manifested separately. That is, we deduce and derive new information about the individual, so that, regardless of the specific purpose of the processing, it is necessary to analyze the risk of unwanted inferences occurring, especially regarding special categories of data.  
+Moreover, it is even possible that, by cross-referencing several data sources that were supposedly anonymous, through data aggregation, the identity of specific individuals may be revealed: from general traits, the number of individuals in the intersection of all of them decreases, until specific individuals are identified116. The risks of re-identification must be measured, evaluated, and managed by taking the necessary measures to reduce the likelihood of such re-identification occurring, even anticipating possible reactive measures to mitigate any potential harm that could arise to a natural person in cases where re-identification does occur. If it concerns data of special categories, such as medical data, we find ourselves in a situation of greater risk due to the greater impact it represents on the rights and freedoms of individuals, so the guarantees to be adopted must be superior, a matter that must also be considered when processing data of minors or individuals in conditions of special vulnerability.  
+
+113 It is recommended to consult the publications of the AEPD such as: Guidelines and guarantees in the procedures for Anonymization of personal data, the Introduction to hashing as a technique for pseudonymization of personal data, or K-anonymity as a privacy measure.  
+114 Primary or explicit identifiers are those that uniquely identify an individual, such as their tax identification number, social security number, or mobile phone number.  
+115 Quasi-identifiers are attributes that do not directly identify a person (date of birth, postal code, gender, profession, etc.) but can allow for their re-identification if combined or cross-referenced with other datasets that share those same quasi-identifiers.  
+116 The closest analogy we have is in the children's game 'Guess Who?' (¿Quién es quién?) on Wikipedia.  
+https://en.wikipedia.org/wiki/Guess_Who%3F
+Page: 35 of 60  
+If this analysis is important for the internal use of data by the public authorities themselves, it is even more important and must also be carried out before the transfer of anonymized data by public authorities to third parties. In cases where the risk of re-identification is high, such processing would be subject to data protection regulations and must be legitimized.  
+For the case of risks related to the re-identification of data subjects and the inference of information, the following approaches are useful:  
+• Data minimization: the processing of data should be limited as much as possible and to what is necessary to achieve the purpose of the processing, both from the perspective of the population volume (number of records) and the data analyzed (processed attributes).  
+• Maximization of the level of aggregation: efforts should be made to avoid re-identifying individuals or inferring information about them within the dataset, which requires minimizing the detail of the information processed.  
+• Abstraction of information: personal data should be protected and their relationships concealed.  
+• Distribution of data: as much as possible, data should be distributed and processed in environments that are, if not physically, at least logically separated, with the aim of making it difficult to infer information through data cross-referencing. Another approach, similar to techniques used in AI, is the use of federated exploitation models.  
+To implement these strategies, various techniques can be employed, among which the techniques of anonymization (suppression, generalization, perturbation, and permutation of data) stand out in the case of minimization and aggregation strategies, and encryption of information for abstraction and data distribution strategies. Data masking techniques are also useful.  
+These strategies aimed at ensuring the anonymization and dissociation of data must be complemented by other measures aimed at guaranteeing transparency, user control over their data through appropriate mechanisms to exercise their rights, and the application of the principle of proactive responsibility by the data controller through monitoring, auditing, and traceability of the decisions made and actions taken.  
+
+117 These models follow an approach of “bringing the processing to the data instead of the data to the processing,” which allows for managing issues of privacy, ownership, and data localization.  
+118 The AEPD published in 2016 the Guidelines and guarantees in the procedures for anonymizing personal data. https://www.aepd.es/sites/default/files/2019-09/guia-orientaciones-procedimientos-anonimizacion.pdf. There is also Opinion 05/2014 on anonymization techniques from the Article 29 Working Group, which details these and other anonymization techniques, their robustness and guarantees, as well as typical errors in their application https://www.aepd.es/sites/default/files/2019-12/wp216-es.pdf  
+119 Suppression completely eliminates the value of an attribute (usually explicit identifiers) or replaces it with a pattern (for example, “*”).  
+120 Generalization is a technique usually performed on quasi-identifiers and consists of replacing the values of an attribute with another more abstract and general value within the taxonomy of the attribute (for example, replacing the exact age with an age range or replacing the complete postal code that identifies the municipality with the first two digits that only identify the province).  
+121 Perturbation consists of replacing the original values of the data (for example, by adding noise) in such a way that the linkage that may exist between the original records is eliminated while preserving the statistical properties of the original data.  
+122 Permutation consists of dividing the data into groups and exchanging the values of sensitive attributes within each group, thereby eliminating the relationship between quasi-identifiers and sensitive data.  
+123 The Privacy by Design guide published by the AEPD describes different privacy strategies aimed at data processing.  
+124 Data masking is the process by which certain elements of the data in a data warehouse are changed, altering their information while ensuring that the structure remains similar, so that sensitive information is protected. https://www.powerdata.es/enmascaramientode-datos
+Page: 36 of 60  
+The risks associated with those solutions for which data processing leads to decision-making cannot be overlooked125. In that case, the same recommendations established in the chapter on AI of this document must be followed.  
+Finally, and although it is a 'classic' risk in the use of technologies, the system must be secure126 and designed with data protection as a requirement from the outset and by default127. Neither the ease of contracting cloud services, nor the variety and sometimes free availability of tools for massive computing, nor access to open data should serve as an excuse to propose projects where the security and protection of information from end to end and throughout the entire lifecycle of processing is not taken into account in operations involving customers, suppliers, employees, and the users themselves.  
+
+125 Article 22 of the GDPR establishes a general prohibition on adopting automated individualized decisions based on sensitive personal data (ethnic or racial origin, political opinions, religious or philosophical beliefs, trade union affiliation, genetic data, biometric data, or data related to health, life, and sexual orientation) unless there is explicit consent from the data subject or for reasons of public interest, provided that appropriate measures have been taken to safeguard the rights and freedoms, and the legitimate interests of the data subject.  
+126 Article 32 of the GDPR – Security of processing  
+127 Article 25 of the GDPR – Data protection by design and by default  
+
+Page: 37 of 60  
+VI.  
+ARTIFICIAL INTELLIGENCE  
+A.  
+WHAT IS ARTIFICIAL INTELLIGENCE  
+The term artificial intelligence or AI is associated with machines or information systems that, in the performance of their functions, are capable of learning from their own experiences and solving problems, more or less complex, in different situations, such that they give the impression of 'thinking' or showing some intelligence128.  
+This intelligence, in a process like adjusting the focus of a camera129, may seem of little importance, but it can also be very sophisticated, as in the case of an expert medical diagnosis system. In recent years, artificial intelligence has emerged from laboratories and has been incorporated into multiple everyday systems: internet search engines, machine translation, smartwatches, smart refrigerators, smart mobile apps, and of course, intelligent systems in public administrations.  
+Under the umbrella of artificial intelligence, very diverse techniques130 are included.  
+We could talk about natural language recognition, machine learning, pattern recognition, etc. Many times, the intelligent system is capable of performing very complex tasks, such as playing chess or planning logistics routes, but at other times it is used in the context of small decisions that would be easy and repetitive for a human, thus allowing machines to replace people. This is the case with text or telephone chatbots131, for scheduling appointments or maintaining a closed dialogue with a user, or also with spam filters or facial recognition in photographs, or even the recognition of expressions or moods.  
+Another element that has favored the introduction of artificial intelligence in many processes is the way applications are developed. While traditional program development is based on precisely defining a process by specifying a series of elementary instructions, systems based on machine learning132 employ a different technique. This development starts from less precise instructions on how to do the work133, but sufficient to begin operating, and the system is 'trained' with test data, learns the relationships between inputs and outputs, and corrects its results when it fails, ultimately obtaining a system that knows how to work thanks to its 'previous experience'. This way of developing systems, which closely resembles how humans learn certain skills, works well with some tasks that are difficult to define and detail.  
+
+128 The Independent High-Level Expert Group on Artificial Intelligence (AI – HLEG) created by the European Commission to develop the European Strategy on Artificial Intelligence, in its document “A DEFINITION OF AI: MAIN CAPABILITIES AND DISCIPLINES” proposes the application of the term Artificial Intelligence to “those systems that exhibit intelligent behavior, being capable of analyzing the environment and performing actions, with a certain degree of autonomy, in order to achieve specific objectives.”  
+129 Canon. What is AI-focus https://www.canon.com.au/explore/glossary/ai-focus  
+130 The guide “Compliance with the GDPR for processing that incorporates Artificial Intelligence. An introduction,” in its section “Introduction to the AI framework and data protection,” develops, among other things, a brief description of AI techniques, the lifecycle of an AI solution, and the possible treatments at each of these stages. https://www.aepd.es/sites/default/files/2020-02/adecuacion-rgpd-ia.pdf  
+131 Chatbots or conversational bots. https://es.wikipedia.org/wiki/Bot_conversacional  
+132 Machine Learning: the ability of an intelligent system to adapt and generate new decision rules, based on a series of predefined rules, with the aim of improving its accuracy rate.  
+Deep Learning: a more detailed learning system than Machine Learning that has several layers between the input and output that allow it to learn the general relationship between them in successive steps. In this way, the margin of error is reduced and the accuracy of the conclusions is increased, requiring less gra
+do of human orientation.  
+133 In the fields of Artificial Intelligence and related aspects such as Machine Learning, natural language processing, or the construction of expert systems, logical (or declarative) programming languages are used, which describe, through algorithms, the necessary computation logic to solve a problem without describing any type of control flow. This paradigm is based on the formula "algorithms = logic + control" (the so-called Informal Kowalski Equation), which means that an algorithm is created by specifying knowledge through axioms (logic) and the problem is solved through an inference mechanism that acts upon it (control). https://www.genbeta.com/desarrollo/lenguaje-prolog-ejemplo-paradigma-programacion-logica  
+
+Page: 38 of 60  
+AI algorithms are designed to recognize patterns and thus learn to make decisions autonomously. The use of these algorithms for decision-making does not always allow for tracing or explaining the decisions made. Such scenarios are referred to as 'black box'134. This lack of transparency affects various aspects, such as how the algorithm makes decisions, the influence of each piece of information, the coherence between different inferences, the accuracy or precision of the inferences, or the biases introduced, among others. Therefore, there is a great interest in developing methodologies that allow for auditing algorithms that infer new information and make decisions directly or indirectly about individuals135.  
+Artificial intelligence also raises doubts among users, researchers, specialists, authorities, and the industry regarding regulatory compliance, the guarantee of the rights of the data subjects, and the legal security of all parties involved. The guarantee of the rights and freedoms of individuals whose data is processed by such solutions requires appropriate data governance that covers the quality and integrity of the data used, its relevance in light of the domain in which AI systems will be deployed, their access protocols, the quality of the algorithms used, and the ability to process data in a way that protects privacy.  
+Furthermore, since the models of AI systems can rely on enormous amounts of data to learn and make decisions, when dealing with personal data, it is important to understand how this data influences the behavior of the systems and to ensure its quality and integrity, in addition to avoiding biases, inaccuracies, errors, and socially constructed mistakes that lead the system to draw incorrect generalizations and the possibility of making unfair decisions that favor some groups over others. But, above all, it is essential that there is legitimacy for its processing. This need for real data can lead a responsible party to use data collected for a different and incompatible purpose to train their systems, conflicting with lawfulness136 and processing principles137.  
+Many times, artificial intelligence systems are processing personal data and even specially protected data such as health, sex, race, beliefs, or political opinions. Such processing can go beyond input data, including inferred data obtained from that information. For this, it is crucial to keep in mind the restrictions established by Article 9 of the GDPR138 and the LOPDGDD139 and the conditions for lifting such limitations.  
+As soon as an AI has autonomy in decision-making, it must be considered that the GDPR, in its recital 71, as well as in its Article 22140, limits and establishes rights concerning the fact that data subjects are not subjected to decisions solely  
+
+134 Inability to understand and/or reproduce the decision made by the AI.  
+135 The European Commission published a document in February 2020 titled On Artificial Intelligence - A European approach to excellence and trust, (https://ec.europa.eu/info/publications/white-paper-artificial-intelligence-european-approach-excellence-and-trust_en). The Council of Europe has expressed its concerns in the document Artificial Intelligence and Data Protection: Challenges and Possible Remedies (https://rm.coe.int/report-on-artificial-intelligence-artificial-intelligence-and-data-pro/16808e6012). The Ministry of Science and Innovation is actively working on the development of the National Artificial Intelligence Strategy. http://www.ciencia.gob.es/stfls/MICINN/Ciencia/Ficheros/Estrategia_Inteligencia_Artificial_IDI.pdf  
+136 Article 6 of the GDPR – Lawfulness of processing  
+137 Article 5.1.b) of the GDPR – Principles relating to processing. Purpose limitation  
+138 Article 9 of the GDPR - Processing of special categories of personal data  
+139 Article 9 of the LOPDGDD – Special categories of data  
+140 Article 22 of the GDPR - Automated individual decision-making, including profiling
+Page: 39 of 60  
+automated141 that have legal effects or significantly affect the data subject, including the automatic creation of profiles142,143.  
+Another key obligation that must be taken into account is to inform the data subjects, which should be adapted to each stage of the life cycle of the AI solution in which the processing is being carried out. In this regard, in addition to the information that the regulations establish must be provided, it is of particular interest in those cases where the data subject is subject to automated decisions or in cases of profiling referred to in Article 22 of the GDPR, as in those cases the data subject must have 'meaningful information about the logic applied' and 'the significance and expected consequences.'  
+As a good practice, and beyond requirements arising from data protection, qualified human oversight is recommended in any AI-based processing, and in general, for those that make automated decisions. When designing systems, human oversight is an option that must be considered to be part of the procedures and mechanisms associated with the processing, so that it allows for the possibility that a human operator can disregard the algorithm at a given moment. In this way, an element of control would be introduced aimed at responding to the possible risk that the decision made by the system may not be correct and may be limiting the rights and freedoms of the data subjects.  
+Furthermore, it is necessary to establish the procedure to be followed in those situations where this mode of action must be opted for, for which it is advisable to document any request for human intervention or questioning of the automatic decision received from the data subjects, so that, from its analysis, it is possible to detect situations in which this intervention is needed because the model may not be functioning as expected.  
+We can also find systems that are sending personal data, without applying any guarantees over them144, to third countries that do not have adequate safeguards, in order to execute part of the functionalities of the intelligent system on their servers.  
+To assist organizations that include AI components in their processing in complying with the GDPR, the AEPD has published the document Adequacy to the GDPR of treatments incorporating Artificial Intelligence. An introduction, which details aspects of responsibility, legitimacy, exercise of rights, application of proactive responsibility, etc.  
+B.  
+AI IN PUBLIC ADMINISTRATIONS  
+It is undeniable that artificial intelligence is a reality that has come to stay and that, increasingly, it will be present in our future. The volume and variety of available data and the increase in processing capacity are the breeding ground for developing solutions in different areas or sectors of activity, including the public sector.  
+
+141 For human participation to be considered, the oversight of the decision must be carried out by an authorized and competent person to modify the decision, and must perform a significant and not merely symbolic action.  
+142 The Article 29 Working Party has analyzed the implications of this right in the Guidelines on automated individual decisions and profiling for the purposes of Regulation 2016/679 https://www.aepd.es/sites/default/files/2019-12/wp251rev01-es.pdf  
+143 Article 22 Automated individual decisions, including profiling (https://eur-lex.europa.eu/legal-content/ES/TXT/HTML/?uri=CELEX:32016R0679&from=ES#d1e2856-1-1). The GT29 published a clarifying document in October 2017 titled Guidelines on automated individual decisions and profiling for the purposes of Regulation 2016/679 (https://ec.europa.eu/newsroom/article29/item-detail.cfm?item_id=612053)  
+144 Article 46 of the GDPR - Transfers with adequate safeguards
+Page: 40 of 60  
+public145, with the aim of automating processes and offering more efficient and improved services.  
+The European Commission, in compliance with its AI strategy, has developed a coordinated plan with the Member States to promote the development and use of AI in Europe. This plan includes the establishment of a group of experts on artificial intelligence (AI HLEG, which stands for Artificial Intelligence High-Level Expert Group), composed of representatives from academia, civil society, and industry. Its objective is to support the implementation of the European Strategy on Artificial Intelligence, taking into account different areas including data protection, and to work on the definition of trustworthy artificial intelligence. To achieve this trustworthiness, the Commission considers that AI must meet seven key requirements: human action and oversight, technical robustness and safety, privacy and data management, transparency, diversity, non-discrimination and fairness, social and environmental well-being, and accountability.  
+At the national level, the Government of Spain is actively working on the development of the National Artificial Intelligence Strategy, which aims to align national policies aimed at promoting the development and use of AI in Spain. Its tools are increasing investment, strengthening excellence in AI technologies and applications, and enhancing collaboration between the public and private sectors. Its goal is to create a significant impact on Spanish society and the economy.  
+The Spanish R&D&I Strategy in Artificial Intelligence146 identifies numerous fields for the development of AI in the public sector, with some of the identified use cases being:  
+• Interaction with citizens, for example, through the use of chatbots147,148 based on natural language processing as the first interface between citizens and the Public Administration.  
+• Health, both for treatment and management.  
+• Security in matters of surveillance, mobility, and traffic, or, for example, in specific matters such as urban planning inspections.  
+• Prevention against corruption.  
+While the use of the adjective 'intelligent' is often associated with a system as a synonym for advanced, careful, or personalized, leading to an attractive label for a particular system; there are also cases of failed AI use when its application has been based on commercially attractive expectations that have resulted in developments and deployments lacking a well-defined purpose or acquired without adequate proportionality and necessity analyses149.  
+Any AI component that is developed will not be isolated and will be integrated into a specific treatment alongside other components, potentially encountering personal data in  
+
+145  
+https://analiticapublica.es/ia-y-administraciones-  
+publicas?utm_source=inapsocial&utm_medium=pagado&utm_term=nuevo&utm_content=ia&utm_campaign=transformaciondigital  
+146 Ministry of Science, Innovation and Universities – Spanish R&D&I Strategy in Artificial Intelligence (2019) -  
+http://www.ciencia.gob.es/stfls/MICINN/Ciencia/Ficheros/Estrategia_Inteligencia_Artificial_IDI.pdf  
+147 Among these types of artificial intelligence software or programs are chatbots, which are bots (BOT: a computer program designed to perform repetitive tasks using artificial intelligence) specialized and created to maintain conversations and provide pre-conceived responses.  
+148 Victoria la Malagueña is a chatbot that helps locals and tourists learn about the city of Málaga, providing, among other things, information about parking occupancy, transportation information, beach information, weather, news, route information, street reviews, city event agendas, and much more. https://googlechatbots.es/victoria/  
+149 There are also disappointments associated with ‘AI solutionism’ (https://towardsdatascience.com/risks-of-ai-solutionism-dangers-of-machine-  
+learning-and-artificial-intelligence-in-politics-and-government-728b7577a243)
+Page: 41 of 60  
+the different stages of the solution's life cycle: training, validation, deployment,  
+operation, and withdrawal. This is why public authorities (AA.PP.) that resort to this type of  
+solutions must verify that they meet a minimum set of conditions to ensure  
+compliance with the processing carried out, the first of which is the existence of a legal  
+basis, which may differ for each of the stages of the solution's life cycle in which the  
+processing of personal data occurs and which may be different.  
+It should be noted that some legal bases, such as legitimate interest, are prohibited for  
+public authorities. This does not imply that if a third party has developed an AI system  
+using that legal basis, the processing built on the AI cannot be used by public authorities.  
+What will happen is that public authorities will not be able to use that legal basis to  
+justify further processing. The selection of legal bases is closely related to the purpose of  
+the processing and the purpose pursued in each of the phases of the system's life cycle  
+and, in the case of public authorities, with their assigned competencies.  
+C.  
+RISKS TO RIGHTS AND FREEDOMS ASSOCIATED WITH THE USE OF ARTIFICIAL INTELLIGENCE IN  
+PUBLIC AUTHORITIES  
+Some specific risks of AI are related to the type of development used. For example, if  
+massive data is used to train the system, as in Machine Learning, it is advisable to take  
+into account the same risks that have been described in the case of treatments based on  
+Big Data.  
+Systems integrate artificial intelligence often in the form of engines and third-party  
+components that are embedded in the processing of the controller, interacting with them.  
+These embedded components can be simply libraries or source codes, but there can also  
+be complete systems processing data on their suppliers' machines. That is, I can have an  
+information system in a public authority but that integrates an artificial intelligence engine  
+that is running, in real time, on a server in Asia, receiving data and returning results.  
+This way of working 'in the cloud' or simply with pieces from others and with several  
+controllers in a chain is a source of risks that must be managed.  
+As a treatment can have an AI in continuous evolution and the data varies over time,  
+there is a risk that its scope may drift in the accuracy of the inference made or that it  
+introduces biases in the results.  
+Furthermore, when AI models contain personal data, there is a risk that some type of  
+attack could reveal such personal data to third parties. Various techniques can be used for  
+this, similar to those used for Big Data, both for privacy and security by design to ensure  
+the protection of personal data.  
+If the AI-based processing makes decisions based solely on the automated processing of  
+the exploited data, it is advisable for public bodies to analyze the risk that arises from  
+this decision-making method and adopt mechanisms for its analysis and management such as:  
+
+150 Some of the most popular examples of these engines or AI engines include IBM Watson, Google’s Tensor Flow, Amazon Lex, or  
+Microsoft Azure Machine Learning. A good comparison of engines can be found here: https://www.agicent.com/blog/best-ai-engines/
+Page: 42 of 60  
+• The establishment of ethics and data protection committees151 responsible for assessing the potential harms and benefits that a particular processing may entail for the stakeholders in particular and for society in general.  
+• Establish periodic quality assurance controls of their systems to ensure that individuals receive fair and non-discriminatory treatment.  
+• Conduct audits to verify that the components used in automated decision-making systems function as intended152.  
+• To avoid fully delegating to the autonomy of the system and falling into conclusions that no one reviews and that may have a significant impact on the rights and freedoms of individuals, it is advisable to introduce the guarantees of a subjective approach that explains a true connection between the data and the outcomes.  
+• Implement mechanisms that allow the stakeholder to express their viewpoint and challenge the decision, if applicable, with information about the agreed timelines for review and a designated contact point for consultation.  
+• Even when it is deemed that there is an obligation for human oversight153, in processes involving automated decision-making, the risk must be assessed that there may not be a qualified human operator who can disregard the outcome of the decision made at a given moment. To this end, it is key to develop procedures for those situations identified as problematic based on the analysis of cases or incidents in which the processing has not behaved as expected and where the "de facto" incorporation of a human supervisor who verifies the quality of the decision made must be opted for. Another risk to consider is that AI systems can be manipulated to generate erroneous inferences about individuals or groups of individuals. These manipulations can originate from the factory and be included as backdoors that allow for subsequent manipulation or can simply be attacked by exploiting possible vulnerabilities in the system. Therefore, the need to conduct audits to detect these vulnerabilities must be assessed, and if necessary, plan them by defining their frequency and scope. It should also not be overlooked that during the operation of the system, an "authority criterion" effect can be created in which the operators responsible for interacting with the solution do not critically review the decisions or inferences generated by the AI, leading to a loss of the characteristic of truly qualified human oversight, or even,  
+
+151 In the R&D&I strategy in AI of the Government of Spain, the involvement of the Spanish Committee of Ethics in Research in the use and implementation of AI is proposed in the development of priority 1, developing it in priority 6, which highlights that it must lead the activities of analysis and assessment of the ethical aspects of the use and implementation of AI in the activities developed in the State R&D&I Plans. (https://www.ciencia.gob.es/stfls/MICINN/Ciencia/Ficheros/Estrategia_Inteligencia_Artificial_IDI.pdf) There are already initiatives in this regard, such as the Ethics Committee of Artificial Intelligence created by the Mutualidad de la Abogacía for the financial and insurance sectors (https://www.mutualidadabogacia.com/sala_de_prensa/cronica-comite-etica-presentacion/)  
+152 The COVID-19 pandemic and the absence of in-person exams have forced the academic authorities in the United Kingdom to use an algorithm to grade students in the GCE exams for access to university studies. The algorithm, in addition to considering consistent factors such as the student's history, has included more controversial ones such as the history of their peers and the institution to which the student belongs, leading to numerous criticisms as it has been shown that the algorithm has been particularly unfair to ethnic minorities from poorer and disadvantaged backgrounds who have seen their grades lowered compared to students from wealthier areas. https://www.xataka.com/robotica-e-ia/cuando-nota-no-te-pone-profesor-sino-algoritmo-caos-estudiantes-reino-unido  
+153 According to Article 22.3 of the GDPR, in the conclusion or execution of contracts between the stakeholder and the data controller or if it is based on the explicit consent of the stakeholder, the controller must take appropriate measures to safeguard the rights and freedoms and the legitimate interests of the stakeholder and, at a minimum, the right to obtain human intervention by the controller, to express their viewpoint, and to contest the decision.
+Page: 43 of 60  
+even if that decision is reviewed, it remains recorded as erroneous and creates doubts or biases in future human decisions. The need for human oversight should be understood as a form of continuous improvement of AI processes, in which all personnel involved in the framework of the processing carried out must be engaged.  
+For chatbots or intelligent dialogues used in communication channels with the Administration, there is a risk that they may not be accessible to people with disabilities. In these cases, the risk must be assessed that there is no rational and natural way, through human interlocutors, to address the Administration to study and take charge of these cases, thus avoiding possible risks of discrimination resulting from the use of AI.  
+In addition to this, chatbots have other risks, such as collecting and distributing personal information to third parties in the event that they have a continuous learning model based on the information provided by users. In the same case, if the algorithm evolves without oversight, there is a risk that it may change its reasoning model towards erroneous inferences. Chatbots may have security vulnerabilities and be used by hackers to access personal information154; they may also collect more information than necessary, include biases that affect data quality, or make inferences about special categories. These risks are more pronounced when such chatbots are employed to provide assistance on mental health issues or support for victims and minors.  
+Regarding the previously mentioned audit155, given the difficulty in analyzing the actual behavior of these systems, it is not always sufficient to conduct an analysis of the requirements or preliminary tests before operation; rather, it is necessary to continuously audit that the results obtained are appropriate and evolve in accordance with social changes.  
+154 Their vulnerabilities can be exploited to implement social engineering attacks: https://venturebeat.com/2017/05/29/what-happens-when-hackers-attack-chatbots/  
+155 The conduct of audits, as a tool to verify compliance with the obligations imposed by the regulations on the data controller, is explicitly stated in Article 28.3.h) of the GDPR concerning the data processor and in Article 39.1.b) concerning the functions of the data protection officer.
+Page: 44 of 60  
+VII.  
+BLOCKCHAIN AND DISTRIBUTED LEDGER TECHNOLOGIES  
+A.  
+WHAT IS BLOCKCHAIN  
+Blockchain or chain of blocks156, DLT or Bitcoin are terms that have emerged forcefully in recent times and have generated a lot of interest in recent years. Technologists and many people have been surprised by the novelty of virtual currencies like Bitcoin157, and by their apparent transparency and integrity of the stored information.  
+In simple terms, we can define blockchain as a network of participants (peers or nodes) that share a distributed ledger in which it is recorded who owns what (assets) and who transacts with whom (transactions). Unlike traditional centralized systems where databases are controlled by a single central authority, in blockchain all nodes maintain a copy of this ledger, making it extremely difficult to manipulate the recorded information without the network, understood as the set of participants, being aware of the attempted change. Blockchain gets its name from the way this ledger is organized: a set of blocks in which transactions are grouped and that are linked to each other, in chronological order, through a cryptographic mechanism called hash that guarantees the integrity and immutability of the information recorded in the chain.  
+Blockchain is a particular case of a broader concept known as distributed ledger technologies or DLT, which refer to distributed and decentralized databases managed by several participants, typically equivalent from an authority standpoint. In the absence of a central entity that performs the functions of verification and validation of information, mechanisms of consensus among participants are established to decide how decisions are made, how data is updated, and how the stored information is maintained in a consistent state.  
+Proponents of blockchain envision a future where intermediaries or notaries are not needed to safeguard an account, a contract, or a record. All transactions would be recorded in seemingly immutable and transparent chains that could even be automatically updated through smart contracts158 hosted on the chain itself (the so-called smart contracts).  
+There are several types of blockchains, but they all share, to a greater or lesser extent, some common characteristics: transparency, immutability, decentralization, integrity, and trust. These characteristics enable one of their main attractions, which is the elimination of intermediaries in the processing of transactions between parties, which is also one of their main weaknesses when it comes to establishing legal guarantees for their operation.  
+To move towards this scenario, several blockchain infrastructures have been promoted, which differ from each other in the visibility or scope of their operations (public or private) and in the management of the blockchain (permissioned or non-permissioned).  
+
+156 Wikipedia provides a good introduction https://es.wikipedia.org/wiki/Cadena_de_bloques  
+157 Bitcoin: A Peer-to-Peer Electronic Cash System. Satoshi Nakamoto https://bitcoin.org/bitcoin.pdf  
+158 https://es.wikipedia.org/wiki/Contrato_inteligente
+Page: 45 of 60  
+As with any other technology, a blockchain implementation may be exclusively processing information that does not contain personal data, such as, for example, a record of the movement of goods. However, once a blockchain network is used for the custody of personal data, it is evident that the processing involved must comply with the requirements established in the GDPR, including, among others, a clear identification of the controllers (and other roles), a legal basis for the processing, guarantees of confidentiality and availability of the data, and the possibility for the data subject to exercise rights.  
+Another issue to consider in the deployment of such networks is how they will be affected by the location of the data. The GDPR is very clear regarding data transfers between countries with different levels of protection, and the idea of a decentralized storage network does not facilitate the application of those guarantees. On the other hand, information encryption algorithms are becoming increasingly robust, but we also discover every day how the presumed robustness of a few years ago is now compromised using increasingly accessible equipment.  
+Before launching a blockchain project, the compatibility of the solution with the regulatory requirements imposed by the General Data Protection Regulation must be analyzed. Specifically, the following aspects must be carefully examined:  
+•  
+Responsibility for processing. The blockchain, although it depends on the type of blockchain network implemented, is, by definition, a decentralized system where it is difficult to identify the controller(s) of the processing.  
+•  
+Right to erasure and rectification. One of the principles on which blockchain is based is the impossibility of altering the content without producing an inconsistency, so the existence of solutions for the deletion or modification of recorded information must be carefully analyzed.  
+•  
+Limited data retention. One of the principles of processing personal data is that “they should only be kept in a way that allows the identification of the data subjects for no longer than is necessary for the purposes of processing the personal data,” so it is necessary to implement alternative mechanisms that address the immutability inherent to the network.  
+•  
+Security. In some blockchain implementations, there are two important security aspects that may be at risk. The first is the confidentiality of the data when information is exposed on the network. The second, and less obvious, is availability, since, although in principle the information is distributed across many nodes, there is generally no guarantee of the availability of those nodes (service level agreements), not even of a single node.  
+
+159 There exists and is quite updated a Regulation (EU) 2018/1807 of the European Parliament and of the Council of November 14, 2018, regarding a framework for the free movement of non-personal data in the European Union (https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:32018R1807&from=EN)  
+160 Chapter V of the General Data Protection Regulation is entirely dedicated to international data transfers.  
+161 Blockchain and Data Protection in the European Union, Michèle Finck, Max Planck Institute for Innovation and Competition; University of Oxford, February 2018 https://papers.ssrn.com/sol3/Delivery.cfm/SSRN_ID3119584_code1137858.pdf?abstractid=3080322&mirid=1  
+162 Article 24 of the GDPR – Responsibility of the data controller  
+163 Article 17 of the GDPR – Right to erasure  
+164 Article 16 of the GDPR – Right to rectification  
+165 Article 5.1.e) of the GDPR – Principles relating to processing. Data retention limitation  
+166 Article 32 of the GDPR – Security of processing
+Page: 46 of 60  
+commitment to its future existence. This occurs especially in the case of implementations of public blockchain networks.  
+•  
+International data transfers167. It should be noted that the use of blockchain as a technological solution in many scenarios may result in the existence of international data transfers due to the very nature of the technology, especially in the case of using public blockchain networks. A good way to address this risk is to apply privacy principles by design, carefully choosing both the type of network to be used (opting for hybrid or private blockchain networks) as well as the information governance model (for example, off-chain storage of data).  
+B.  
+BLOCKCHAIN IN PUBLIC ADMINISTRATIONS  
+The practical applicability of blockchain, aside from cryptocurrencies and those environments where there is a lack of legal certainty, has encountered problems for its takeoff. This is the case for public administrations when acting within the framework of their competencies. Their actions are characterized by the existence of a regulatory legal framework and the recognition of a trusted third party, which differs significantly from the blockchain approach. However, a large number of initiatives168 and proof of concepts for possible uses of blockchain have been developed both in companies and in public administrations. Regarding the latter, pilot projects have emerged in many parts of the world, such as property registries, title and offer registries, traceability of food products, or identity management and electronic voting.  
+As we mentioned with previous technologies, if their use involves publishing content belonging to the Administration that may contain personal data of both citizens and public employees, the provisions of the GDPR must be complied with.  
+On April 10, 2018, EU member states and Norway signed a joint declaration to create the European Blockchain Partnership (EBP)169 and agreed to cooperate in establishing a European Blockchain Services Infrastructure (EBSI) responsible for supporting the delivery of cross-border digital public services, with the highest standards of security and privacy.  
+Some governments170 and public institutions are developing strategies or projects with blockchain such as:  
+•  
+Qualifications: Returning control to citizens when managing their educational credentials; significantly reducing verification costs and improving trust in authenticity, preventing fraud in official titles, ownership, and private certifications.  
+•  
+Notary: Leveraging the power of blockchain to create shared records of digital audit documents, automating compliance checks in time-sensitive processes, and demonstrating data integrity.  
+•  
+European Self-Sovereign Identity: Allows users to create and control their own identity across borders without relying on centralized authorities. The goal of the project is for citizens to manage and  
+
+167 Article 44 of the GDPR – General principle of transfers  
+168 EU-Funded Projects in Blockchain Technology https://ec.europa.eu/digital-single-market/en/news/eu-funded-projects-blockchain-technology  
+169 European Blockchain Services Infrastructure (EBSI) - https://ec.europa.eu/cefdigital/wiki/display/CEFDIGITAL/EBSI  
+170 Malta, Germany, Australia, the United Kingdom, Finland, Sweden, have projects implemented on blockchain technology.
+Page: 47 of 60  
+to own their digital identity and decide who can access their data and which data.  
+•  
+Reliable data exchange: Leverage blockchain technology to securely share data among EU customs and tax authorities.  
+The European Commission launched a pilot network in 2019 to test all use cases through a user story titled 'Eva's Journey'171 developed on the European Blockchain Services Infrastructure (EBSI), and they are developing new use cases.  
+At the national level, various pilot projects and proof of concepts are also being developed to analyze the potential that technology could have in the public sector and identify specific cases where its use could effectively improve the provision of services to citizens, among others:  
+•  
+Academic Certifications: In the context of the Degrees project developed in the EBSI, CRUE-TIC, through the BLUE network (Blockchain Network of Spanish Universities), is developing a proof of concept to register academic degrees, as well as competencies and other training skills, which will allow students to manage their exchange with the involved sector agents.  
+•  
+Electronic Power of Attorney Registry: The City Council of Bilbao is in the development phase of a blockchain network and a software application to manage the REA (Electronic Power of Attorney Registry) interoperable with other public administration registries in order to comply with the provisions of Article 6 of Law 39/2015, of October 1, on the Common Administrative Procedure of Public Administrations. To this end, it relies on the existing platform deployed by the Information Society of the Basque Government - EJIE (Eusko Jaurlaritzaren Informatika Elkartea), which awarded a contract at the end of 2017 for the development and implementation of a blockchain solution to cover scenarios related to the registration of contractors of the Basque Government.  
+•  
+Bidding Registry and Automated Evaluation: In a similar vein, the General Directorate of Contracting, Heritage, and Organization of the Government of Aragon is developing a distributed service for registering bids and their automated evaluation in electronic public procurement procedures, which was tendered at the end of 2018 with the aim of increasing transparency and security in public bidding procedures.  
+Blockchain is one piece in the overall treatment, but it does not replace the other organizational and technical elements that make up that treatment. As with any project involving the development of a new service or a new implementation of the same, it must be subject to an analysis of suitability, proportionality, and necessity172. If, after a preliminary analysis of the technical and regulatory feasibility and adequacy, the agency decides to opt for the development of an application or service based on this type of technology, it must carry out a careful analysis of the treatment it wishes to carry out and understand the context, scope, and implications of this in order to identify and assess any possible risks to the rights and freedoms of individuals that may arise.  
+Regarding the development of projects on DLT technologies, it is necessary to take into account Regulation (EU) No. 910/2014 of the European Parliament and of the Council, of 23 of  
+
+171 There is a very illustrative video at https://www.youtube.com/watch?v=m2uj7fgb2JI  
+172 Blockchain Technology Overview. Dylan Yaga, Peter Mell, Nik Roby, Karen Scarfone. On page 42 of this document, there is an interesting flowchart about the feasibility of projects with Blockchain. https://nvlpubs.nist.gov/nistpubs/ir/2018/NIST.IR.8202.pdf#page=53
+Page: 48 of 60  
+July 2014, regarding electronic identification and trust services for electronic transactions in the internal market and repealing Directive 1999/93/EC, known as the eIDAS Regulation and Royal Decree-Law 14/2019, of October 31, which adopts urgent measures for reasons of public security in the area of digital administration, public sector contracting, and telecommunications. The latter, in order to ensure public security concerning the use of identification and electronic signature systems, establishes the obligation that, in relation to the systems provided for in letter c) of section 2 of articles 9 and 10 of Law 39/2015, of October 1, on Common Administrative Procedure of Public Administrations, namely, the systems of agreed key and any other system that the Administrations consider valid under the terms and conditions established for interested parties to electronically identify themselves before the Public Administrations, the necessary technical resources for the collection, storage, processing, and management of such systems must be located in the territory of the European Union, and in Spanish territory in the case of special categories of data referred to in article 9 of the GDPR. These data, except for the exceptions introduced in the law, may not be subject to transfer to a third country or international organization and, in any case, will be available for access by the competent judicial and administrative authorities. Additionally, article 3 of the aforementioned Royal Decree-Law incorporates a sixth additional provision to Law 39/2015, of October 1, which provides that in the relationships of interested parties with the Public Administrations, identification systems based on distributed ledger technologies and signature systems based on the former shall not be admissible under any circumstances and, therefore, may not be authorized, as long as they are not subject to specific regulation by the State within the framework of European Union law. Furthermore, the new sixth additional provision establishes that any identification system based on distributed ledger technology that is provided for by state legislation must contemplate that the General State Administration will act as an intermediary authority that will exercise the functions necessary to ensure public security.  
+C.  
+RISKS TO RIGHTS AND FREEDOMS ASSOCIATED WITH BLOCKCHAIN  
+Prior to the implementation of a blockchain-based solution that requires the processing of personal data, it is necessary to assess, within the framework of a data protection impact assessment, the necessity and proportionality of using this technology compared to other possible alternatives and the additional risks it introduces by its very definition and design.  
+Another important decision, once blockchain has been chosen as the technological solution, relates to the choice of the type of network that will be implemented to support the processing. If there is already a processing project that complies with the provisions of the GDPR, the risk of opting for other types of blockchain instead of choosing a private and governed blockchain network that is under the total control of a Public Administration must be evaluated.  
+The implementation of blockchain over the services offered requires Public Administrations to conduct a proportionality assessment, evaluating the main benefits of the services offered against the main challenges in terms of data protection mentioned above. It is the responsibility of the Public Administration to assess whether the adopted technological solution is the most appropriate or, on the contrary, introduces risks that cannot be managed. In particular, it is important to evaluate which type of blockchain network architecture (public, private, permissioned, and non-permissioned) best fits the solution, as not all of them represent the same level of risk, in addition to defining the most appropriate governance model. It should not be overlooked that the failure to...
+Page: 49 of 60  
+The possibility of technically complying with any of the obligations required by the GDPR for the data controller should not be considered a risk susceptible to treatment but rather a regulatory non-compliance.  
+In the event that the blockchain network used relies on a governance mechanism that is not under the control of the public authorities, it must be anticipated that changes may be introduced that jeopardize the principles and rights of data protection. Furthermore, it is necessary to determine whether there is a risk that the quality of service levels, in terms of node availability or response times, may not be met. In an extreme case, we could find ourselves in a situation where the nodes of the blockchain network cease their activity. Therefore, in addition to legal guarantees, contingency plans must be in place to ensure the continuity of processing, which could include, for example, portability options to ensure that at least the rights of the data subjects can be protected.  
+The security of blockchain fundamentally relies on the robustness of its cryptographic mechanisms. Every cryptographic system has a limited and indeterminate lifespan. Therefore, it is necessary to manage the obsolescence timeline and the possibility that at some point the entire system may be compromised.  
+The nature of the distributed system makes it more complex to control access to data, as well as to maintain a record of accesses. This circumstance can be exacerbated when the chosen blockchain model allows for the dynamic entry and exit of participants.  
+In relation to this point and the dynamic configuration of participants in blockchain, it is necessary to manage the chosen consensus mechanism model when generating the blockchain and continuously assess the risk of manipulation.  
+By virtue of data protection by design173, a pseudonymization strategy is to limit the information uploaded to the blockchain to commitments174 or, if this is not possible, in the form of hashes175 using a hash function with a key or, at least, in the form of encryption to ensure the confidentiality of the information recorded on the chain. The publication of personal data in clear text on the blockchain should be avoided; such data should be stored off-chain, in traditional databases or other information systems of the data controller.  
+It should not be forgotten that blockchain is the solution, or one of the technological solutions, that supports data processing, within which there will be other tools for access, management, and even, intermediary mechanisms for users. All these elements have their own vulnerabilities, specifically regarding security, so risks must be analyzed and necessary measures implemented to prevent identity theft in the execution of transactions176 177 178 179 and ensure comprehensive security.  
+
+173 Article 25 of the GDPR – Data protection by design and by default  
+174 A commitment scheme is a cryptographic method that allows sending secret information, which remains hidden from others and whose result is revealed at a later stage, in such a way that they are binding and cannot be altered at a later stage either by the sender or the receiver. A very common example is zero-knowledge proofs (ZKP).  
+175 In the study "Introduction to Hash as a Technique for Pseudonymization of Personal Data" published by the Spanish Data Protection Agency, it explains what a hash function is, its usefulness as a pseudonymization technique, as well as its risks and limits of use. https://www.aepd.es/sites/default/files/2020-05/estudio-hash-anonimidad.pdf  
+176 https://es.cointelegraph.com/news/cisco-and-ukrainian-cyber-police-uncover-50-mln-bitcoin-phishing-scam  
+177 https://criptomonedaseico.com/noticias/los-ciberdelincuentes-generan-bitcoin-utilizando-la-estafa-falsa-de-la-pagina-web-de-la-bbc/  
+178 https://www.criptonoticias.com/seguridad-bitcoin/detectan-campana-phishing-robar-bitcoins-basada-dominio-blockchain-info/  
+179 A. A. Andryukhin, "Phishing Attacks and Preventions in Blockchain Based Projects," 2019 International Conference on Engineering Technologies and Computer Science (EnT), Moscow, Russia, 2019, pp. 15-19, doi: 10.1109/EnT.2019.00008. https://www.researchgate.net/publication/333072391_Phishing_Attacks_and_Preventions_in_Blockchain_Based_Projects
+Page: 50 of 60  
+VIII. SMARTCITIES OR INTELLIGENT CITIES  
+A.  
+WHAT ARE INTELLIGENT CITIES  
+The concept of intelligent city or Smart City has been used by the European Commission to group a set of very diverse technological projects aimed at optimizing resource management in cities through the use of technology applied to manage, in a more efficient manner, the typical services of a city, such as transportation, infrastructure, electricity, water and gas supply, waste management, or social assistance.  
+The most characteristic projects of intelligent cities are based, first of all, on the automated collection of data through various types of sensors distributed throughout the city: traffic sensors, human movement sensors, air quality sensors, energy consumption sensors, etc. Next, there is an automated analysis of this data, which can be carried out in an integrated manner and even enriching the data from other sources. If these data are properly combined, they can serve to size and predict what services and in what quantity need to be offered. Finally, there is a phase of drawing conclusions or making decisions that could, in some cases, be applied automatically through triggers, for example, to regulate vehicular traffic in a large city, and that may involve other technologies reviewed in this document such as artificial intelligence.  
+In other words, although one can speak of Smart City technology, it could be considered as the integration with a purpose of urban management of different technologies such as artificial intelligence techniques and Big Data, which also appear in this document, and, in particular, the development of IoT (Internet of Things) projects.  
+B.  
+SMART CITY AND PUBLIC ADMINISTRATIONS  
+Within the framework of the competencies of Public Administrations to provide quality services to citizens with the greatest possible efficiency and sustainability, Smart City technology offers municipal leaders the ability to obtain information, in real-time through sensors or data sources of certain services, about the behavior of cities and their inhabitants. Some data sources could be smart counters for pedestrians, the use of mobile phone data, transport card data, among many others.  
+Recently, IESE Business School of Navarra published its sixth edition of the Cities in Motion Index (CIMI) corresponding to the year 2019. The study evaluates aspects of 176 of the main cities in the world with the aim of scoring and comparing, among other aspects, the use of technologies that improve the quality of life and facilities for their citizens. Here are some real applications found in the mentioned cities:  
+• Energy efficiency in facilities: through the installation of cameras or sensors that detect the presence of people in the facility and, in  
+
+Once again, the Wikipedia editors have done a good job searching for definitions and references.  
+https://es.wikipedia.org/wiki/Ciudad_inteligente  
+Web of Smart cities/Smart living of the European Commission. https://ec.europa.eu/digital-single-market/en/smart-cities  
+An introduction to the Internet of Things https://es.wikipedia.org/wiki/Internet_de_las_cosas  
+The IESE Business School – Cities in Motion report can be consulted at the following link:  
+https://media.iese.edu/research/pdfs/ST-0509-E.pdf  
+Several Spanish cities have been included in this list, specifically occupying the following positions in the world ranking: Madrid (24), Barcelona (28), Valencia (61), Sevilla (76), Málaga (80), Palma de Mallorca (88), Zaragoza (101), A Coruña (102), Murcia (105), Bilbao (107).
+Page: 51 of 60  
+consequently, turning on the lights or activating the cooling system.  
+•  
+Mobility and efficient traffic management: by installing cameras and sensors at strategic points that allow for counting the people and vehicles in the area, prioritizing one or the other based on volume and need.  
+•  
+Waste elimination through smart waste systems: sensors are used to detect the levels of waste in containers and notify waste collection trucks when it is time to pick up, thus reducing the noise pollution from garbage trucks and lowering costs by developing more efficient routes adapted to the actual level of waste generated in each location.  
+In the last example, we can see that not all data processed in a smart city is personal. Furthermore, the achievement of efficiency objectives in Smart Cities does not justify mass and indiscriminate collection of personal data.  
+Following the principle of minimization185, the data collected must be adequate, relevant, and limited to what is necessary in relation to the purposes for which they are processed.  
+The purpose of the information collected may be to execute both public functions and scientific research or statistical purposes. In such cases, the compatibility of these latter treatments with the previous purposes must be considered, as established in Article 5.1.b and Article 89 of the GDPR, provided they are subject to appropriate safeguards. For example, when it comes to the automatic, real-time collection of information for statistical purposes, among other legal, technical, and organizational measures, the size of the sample must be analyzed, determined by the number of subjects or elements of a population necessary for the obtained data to be representative and effective. The amount of personal data collected, understood both as the extent of the number of subjects and the set of data collected from the same subject, must undergo a proportionality and necessity analysis.  
+In this regard, for many treatments related to the Smart City, it does not seem necessary to uniquely identify citizens; rather, the purpose could be fulfilled by using anonymous and aggregated data. To predict when and where traffic peaks occur, where it is necessary to optimize energy supply, or where waste collection needs improvement, it is not necessary to process the identifiers of the individuals receiving these services.  
+Public Administrations, adhering to the principle of minimization and considering the necessity and proportionality of the treatment, must analyze whether it is required to identify citizens, assessing whether the use of anonymous and aggregated data is sufficient for the objectives of the treatment. To predict when and where traffic peaks occur, where it is necessary to optimize energy supply, or where waste collection needs improvement, the use of identifiers of the individuals receiving these services should be avoided.  
+Another aspect to consider is that the principle of fairness186 of the treatment must be adhered to, meaning that the data collected will be used for the intended purpose and the original objective. For example, when a treatment aims to ensure that a certain area of the city has access restrictions, it is necessary to differentiate the purpose of controlling that access from the sanctioning activity against those who do not comply with such restrictions. Therefore, the treatment must seek maximum effectiveness in the original purpose while being proportional to the degree of intrusion into privacy.  
+
+185 Article 5.1.c) of the GDPR – Principles relating to processing. Data minimization  
+186 Article 5.1.a) of the GDPR – Principles relating to processing. Lawfulness, fairness, and transparency
+Page: 52 of 60  
+of the administered, should not focus exclusively on seeking maximum efficiency in one of its application instruments.  
+To manage a collection of projects such as those associated with smart cities, collaboration between public administrations and private companies, as well as other groups, may be required to exchange data among themselves. This exchange requires interoperable formats and accessible data.  
+Another issue that must be resolved in projects like these, where several participants carry out part of the processing, is who makes decisions at each moment acting as the data controller. It is also important to clarify who the joint controllers and processors are and how the relationship between them is formalized. Specifically, it is necessary to delineate what data each party uses and for what purpose. Whenever data is collected from individuals, and even if it is subsequently anonymized, it is essential to adequately inform them of the framework of the service in which this collection occurs, what data is collected and for what purpose, and how they can exercise their rights regarding the same. The public administration's website can be a good place to publish and, above all, to keep this information updated.  
+Citizens are an essential part of a Smart City project. Providing them with the appropriate information regarding the collection and use of data, beyond strict compliance with Articles 13 and 14 of the GDPR and the application of privacy by design principles as stated in Recital 39, allows citizens to be aware of the risks, rules, safeguards, and rights related to the processing of personal data as well as how to exercise their rights in relation to the processing, thus increasing their level of trust and commitment to the project. The public administration's website is also a good place to publicize specific data-sharing projects with other public or private entities, thereby clarifying and extending aspects of the purpose and highlighting the added value intended to be achieved with these projects. The demands for the generation of open data and data sharing with third parties must be reconciled with the principles of transparency that allow for the legitimization of the processing to be preserved.  
+C.  
+RISKS TO RIGHTS AND FREEDOMS ASSOCIATED WITH SMART CITIES  
+When drafting contracts between controllers, joint controllers, and processors, it is important to consider that Smart City projects are long-term approaches, with consequences that may evolve significantly due to changes in the social or technological context. The maintenance of devices and systems, ownership and responsibility for updating them, as well as support for the controller to manage all risks to rights and freedoms (including the likely DPIA) are aspects that must be reflected in these contracts.  
+Public administrations must be aware that the greater the amount of information collected and the frequency of its acquisition, the greater the inherent risk to the protection of citizens' data. These processes are inherently high-risk.  
+
+187 Article 24 of the GDPR – Responsibility of the data controller  
+188 Article 26 of the GDPR – Joint controllers  
+189 Article 28 of the GDPR – Processor  
+190 Articles 13 and 14 of the GDPR – Information to be provided when personal data is obtained from the data subject or when it has not been obtained from the data subject, respectively.
+Page: 53 of 60  
+risk191 in most cases due to the large accumulation of data carried out by the Public Administrations. Therefore, the Guide for Local Administrations192 highlights the need to conduct the following before deploying a ‘Smart City’ project:  
+•  
+A prior analysis of the project regarding the volume of information to be processed, the number and type of sources from which this information is to be obtained, the frequency of data collection, and the duration for which this information is to be retained.  
+•  
+An analysis of data enrichment, both planned in the processing and the risk of it occurring.  
+•  
+An impact assessment in the terms established in Article 35 of the GDPR, even considering the need, depending on the characteristics of the project, to submit a prior consultation to the Data Protection Authority.  
+The governance of the Smart City system must integrate compliance with a data protection policy that must be foreseen to correct any issues that arise. In addition to the specific risks of a Smart City processing, it must also consider managing the risks of the involved technologies.  
+Even when, in the Smart City project, initially anonymized data is collected, the extent, frequency, combination, and enrichment of data can result in the re-identification of individuals. We all have unique behavioral habits that reveal our work, whom we live with, our health, or even our political and religious beliefs. The risk of re-identification must be assessed, and measures must be taken to mitigate it, such as applying differential privacy techniques, employing information aggregation strategies to avoid correlations, resorting to local and distributed processing to reduce the amount of data stored centrally by a single controller, etc.193  
+The mass installation of sensors and actuators increases the likelihood of security failures in the three domains: confidentiality, availability, and integrity, so a very delicate aspect to consider is security against possible failures and intentional attacks194. This situation materialized massively in 2007 in the city of Tallinn195. The security risk analysis from the perspective of data protection must provide maximum guarantees to prevent unauthorized access that allows monitoring of individuals or massive filtering of personal data, one of the major risks faced by Smart Cities.  
+Security cannot be absolute, but preventive plans for continuous auditing can be implemented, such as ethical hacking, analysis of how risks evolve based on context (for example, with the deployment of new services and technologies), and measures that minimize the impact that a breach may have, no matter how unlikely it may be. These measures include applying data minimization criteria, separating data across different systems, in time and categories, obscuring data through encryption techniques or early pseudonymization, or blocking data. In some cases, it might be interesting to allow the data subject to have control over the automatic collection of their data, implementing autonomous and transparent mechanisms that involve the participation of the citizens themselves, so that they can verify the effective compliance with the established guarantees.  
+There are two critical moments that may pose a greater risk to rights and freedoms: the moment of deployment and the moment of withdrawal of the system. The first implies that the system will not be adjusted, particularly concerning data protection risks, so it is advisable for deployments to be limited and to seek the advice of the supervisory authorities. The second is at the moment of withdrawal or replacement of the entire system, as an abandoned or semi-abandoned system can result in an added vulnerability.  
+ 
+Page: 54 of 60
+Page: 55 of 60  
+IX.  
+CONCLUSIONS  
+The digital transformation of public administrations (AA.PP.) is a reality resulting from the intensive use of new technologies, some of which are cutting-edge, aimed at improving both their internal operations and the quality of service to citizens. The possibilities they offer in various sectors such as health, education, or research are infinite, and it is undeniable that they are a key element for improving the effectiveness and efficiency in the provision of public services.  
+Regardless of the fact that all services implemented in public administrations are guided by a spirit of public service, the processing of personal data within these organizations carries a characteristic risk that arises from the volume of affected subjects, the extent of the data collected, the impossibility, in many cases, of opposing the processing, and the existing imbalance between the administration and citizens.  
+The inherent risks can materialize for the interested parties in situations of breakdowns of the rule of law, abuse by public officials, mass or selective leaks of personal data, security breaches, legislative changes even in third countries, corruption, uncontrolled emergencies, etc.  
+The fundamental right to data protection originated from the need to prevent and avoid the tragic excesses that occurred in the 20th century, which were based on extensive, intrusive, and, in some cases, somewhat automated processing of personal data, even despite the efforts of public employees who fought against a system that had already surpassed them.  
+In this regard, it is important to remember that data protection regulations are an instrument that, in addition to protecting the rights and freedoms of citizens, allows emerging technologies in society to be employed in public administrations in a sustainable manner and in line with the social responsibility policies of the institutions.  
+Data protection regulations in Europe and in Spain are modern and well-aligned with good practices in current engineering and project management. This is essentially a proactive approach that anticipates problems and highlights the responsibility of the actors; and a continuous risk management process, avoiding it, detecting it early, and planning the response. In this sense, it can be said that complying with the law and doing things sensibly go hand in hand.  
+Technology is changing the world, and it is important to design treatments that ensure that this change is for the better, at least in terms of respecting the rights and freedoms of individuals. Introducing technology into the traditional processes of public administrations, or implementing new processes based on it, is becoming increasingly easier, but this does not mean it should be more risky, intrusive, or uncontrolled. On the contrary, the creation of new services in a constantly developing society, both socially and technologically, introduces a greater exposure to risk that requires individual analysis and management in each case and conditions that those responsible for the processing must...  
+
+196 The Dutch civil registries in 1940 contained information about the religion of citizens and fell intact into German hands:  
+https://en.wikipedia.org/wiki/History_of_the_Jews_in_the_Netherlands#The_Holocaust  
+https://en.wikipedia.org/wiki/1943_bombing_of_the_Amsterdam_civil_registry_office  
+197 Data collected by the services of the GDR: https://elpais.com/diario/1991/10/07/internacional/686790013_850215.html  
+198 IBM and the Holocaust: The Strategic Alliance Between Nazi Germany and America's Most Powerful Corporation. Editor: Dialog Press 2012 ISBN-13: 978-0914153276  
+199 Brief review of René Carmille: https://hipertextual.com/2018/12/rene-carmille-hombre-que-hackeo-nazis-ii-guerra-mundial  
+200 Despite its age, in many cases the so-called iron triangle or project management triangle remains relevant. The phrase "good, fast, or cheap: choose two" has become famous in many fields.  
+https://en.wikipedia.org/wiki/Project_management_triangle.
+Page: 56 of 60  
+better outline the consequences derived from these, considering that things do not always work as expected.  
+Public officials must also keep in mind an additional factor: that technologies are not accessible to all citizens. And we are not only thinking about communication networks, computers, or tablets. Many people, because they were educated in a different era, due to their limitations, or simply because they have not had the curiosity or time to inform themselves, do not understand technology. It may be that all legal requirements are met to inform them about what will be done with their data, but that is not enough: it is necessary to introduce guarantees to explain things in a way that they can understand.  
+None of us can protect an asset if we do not know we have it, that it has value, or that its loss or misuse can cause us harm. It is a responsibility of the Public Administrations, but also of all those responsible for data processing, to inform their users why they should be careful with their data, how it will be used, and what they will gain if they allow us to use it.  
+This document has analyzed a set of technologies, more or less cutting-edge, pointing out some of the risks that Public Administrations, as responsible parties, must take into account when incorporating them as support for the treatments they carry out. It is important to point out to the reader that this analysis is neither complete nor exhaustive, both from the perspective of the possible relationship of risks and the range of technologies contemplated, as it has aimed to serve as a sample of the reflective exercise that data processing managers must carry out when they decide to use a new solution as part of their digital transformation process in the development of their competencies: analysis of suitability, necessity, and proportionality of its use, identification of the risks it introduces, impact assessment for data protection that its use represents, and obstacles it may pose in complying with other obligations set by data protection regulations.  
+A proactive management of risk in data protection by the Administrations, along with the adoption of appropriate criteria of transparency, proportionality, minimization, and limitation of processing, act as determining factors to guarantee and promote citizens' trust in the services provided.  
+
+201 The digital divide is any unequal distribution in access, use, or impact of Information and Communication Technologies (ICT) among social groups. These groups can be defined based on criteria of gender, geographic or geopolitical, cultural, or other types. https://en.wikipedia.org/wiki/Digital_divide  
+202 The CIS barometer of May 2018 asked respondents about the protection of personal data and the possible use of personal information by others (question 9). 37.3% were very concerned, and 38.8% were quite concerned. (http://datos.cis.es/pdf/Es3213mar_A.pdf)  
+
+Page: 57 of 60  
+X. ANNEXES  
+A.  
+REFERENCES AND USEFUL RESOURCES  
+▪  
+Regulation (EU) 2016/679 of the European Parliament and of the Council of April 27, 2016, on the protection of natural persons with regard to the processing of personal data and on the free movement of such data, and repealing Directive 95/46/EC (General Data Protection Regulation).  
+https://www.boe.es/doue/2016/119/L00001-00088.pdf  
+▪  
+Organic Law 3/2018, of December 5, on the Protection of Personal Data and Guarantee of Digital Rights.  
+https://www.boe.es/boe/dias/2018/12/06/pdfs/BOE-A-2018-16673.pdf  
+▪  
+Privacy by Design Guide  
+Spanish Agency for Data Protection, October 2019  
+https://www.aepd.es/sites/default/files/2019-11/guia-privacidad-desde-diseno.pdf  
+▪  
+Data Protection by Design Guide  
+Spanish Agency for Data Protection, October 2020  
+https://www.aepd.es/media/guias/guia-proteccion-datos-por-defecto.pdf  
+▪  
+Guide for Managing Security Breaches  
+Spanish Agency for Data Protection, June 2018  
+https://www.aepd.es/sites/default/files/2019-09/guia-brechas-seguridad.pdf  
+▪  
+Practical Guide for Risk Analysis for the Processing of Personal Data  
+Spanish Agency for Data Protection, February 2018  
+https://www.aepd.es/sites/default/files/2019-09/guia-analisis-de-riesgos-rgpd.pdf  
+▪  
+Practical Guide for Impact Assessments in Data Protection Subject to the GDPR  
+Spanish Agency for Data Protection, October 2018  
+https://www.aepd.es/sites/default/files/2019-09/guia-evaluaciones-de-impacto-rgpd.pdf  
+▪  
+Model Report for Data Protection Impact Assessment (DPIA) for Public Administrations  
+Spanish Agency for Data Protection,  
+https://www.aepd.es/sites/default/files/2020-03/modelo-informe-EIPD-AAPP.rtf  
+▪  
+Lists of types of data processing that require DPIA (art 35.4)  
+Spanish Agency for Data Protection, September 2019  
+https://www.aepd.es/sites/default/files/2019-09/listas-dpia-es-35-4.pdf  
+▪  
+Indicative List of Types of Data Processing that Do Not Require a Data Protection Impact Assessment (art 35.5)  
+Spanish Agency for Data Protection, August 2019  
+https://www.aepd.es/sites/default/files/2019-09/ListasDPIA-35.5l.pdf
+Page: 58 of 60  
+▪  
+Guide on the Use of Cookies  
+Spanish Agency for Data Protection, July 2020  
+https://www.aepd.es/media/guias/guia-cookies.pdf  
+▪  
+Fingerprinting Study or Device Fingerprint  
+Spanish Agency for Data Protection, February 2019  
+https://www.aepd.es/sites/default/files/2019-09/estudio-fingerprinting-huella-digital.pdf  
+▪  
+Report on Internet Privacy Policies  
+Spanish Agency for Data Protection, October 2018  
+https://www.aepd.es/sites/default/files/2019-12/informe-politicas-de-privacidad-adaptacion-RGPD.pdf  
+▪  
+Decalogue for Adapting Internet Privacy Policies to the GDPR  
+Spanish Agency for Data Protection, October 2018  
+https://www.aepd.es/sites/default/files/2019-09/decalogo-politicas-de-privacidad-adaptacion-RGPD.pdf  
+▪  
+Guide for Compliance with the Duty to Inform  
+Spanish Agency for Data Protection; Catalan Data Protection Authority, Basque Data Protection Agency, January 2017  
+https://www.aepd.es/sites/default/files/2019-09/guia-modelo-clausula-informativa.pdf  
+▪  
+Adaptation to the GDPR of Processes Incorporating Artificial Intelligence. An Introduction.  
+Spanish Agency for Data Protection, February 2020  
+https://www.aepd.es/sites/default/files/2020-02/adecuacion-rgpd-ia.pdf  
+▪  
+Blockchain and the General Data Protection Regulation.  
+European Parliamentary Research Service, EPRS, July 2019  
+https://www.europarl.europa.eu/RegData/etudes/STUD/2019/634445/EPRS_STU(2019)634445_EN.pdf  
+▪  
+Data Protection Guide and Local Administration  
+Spanish Agency for Data Protection, April 2018  
+https://www.aepd.es/sites/default/files/2019-09/guia-proteccion-datos-administracion-local.pdf  
+▪  
+Guide for Clients Contracting Cloud Computing Services  
+Spanish Agency for Data Protection, September 2018  
+https://www.aepd.es/sites/default/files/2019-09/guia-cloud-clientes.pdf  
+▪  
+Guidelines for Cloud Computing Service Providers  
+Spanish Agency for Data Protection, September 2018  
+https://www.aepd.es/sites/default/files/2019-09/guia-cloud-prestadores.pdf  
+▪  
+Code of Good Practices in Data Protection for Big Data Projects  
+Spanish Agency for Data Protection, May 2017  
+https://www.aepd.es/sites/default/files/2019-09/guia-codigo-de-buenas-practicas-proyectos-de-big-data.pdf  
+▪  
+Guidelines and Guarantees in the Procedures for Anonymization of Personal Data  
+
+Page: 59 of 60  
+Spanish Agency for Data Protection, 2016  
+https://www.aepd.es/sites/default/files/2019-09/guia-orientaciones-procedimientos-anonimizacion.pdf  
+▪  
+Opinion 05/2014 on Anonymization Techniques  
+Article 29 Data Protection Working Party, April 2014  
+https://www.aepd.es/sites/default/files/2019-12/wp216-es.pdf  
+▪  
+Introduction to Hashing as a Technique for Pseudonymization of Personal Data  
+Spanish Agency for Data Protection, November 2019  
+https://www.aepd.es/sites/default/files/2019-11/estudio-hash-anonimidad.pdf  
+▪  
+K-anonymity as a Privacy Measure  
+Spanish Agency for Data Protection, June 2019  
+https://www.aepd.es/sites/default/files/2019-09/nota-tecnica-kanonimidad.pdf  
+
+You can access more resources and links of interest to documents and technological material in the Innovation and Technology area of the Spanish Agency for Data Protection's website.  
+
+Page: 60 of 60  
+B.  
+CONTACT WITH DATA PROTECTION AUTHORITIES  
+The Spanish Agency for Data Protection is the independent administrative authority at the state level responsible for supervising the application of the LOPDGDD and the GDPR. In addition, the Autonomous Communities of Andalusia, Catalonia, and the Basque Country also have autonomous data protection authorities that can exercise the functions and powers attributed by the Regulation to the supervisory authorities, in the cases provided for in Article 57.1 of the LOPDGDD, namely:  
+a) Processing for which the entities comprising the public sector of the corresponding Autonomous Community or the Local Entities included in its territorial scope are responsible, or those providing services through any form of direct or indirect management.  
+b) Processing carried out by natural or legal persons for the exercise of public functions in matters that fall under the competence of the corresponding Autonomous or Local Administration.  
+c) Processing that is expressly provided for, where applicable, in the respective Statutes of Autonomy.  
+In accordance with all of the above, in general, Public Authorities must notify security breaches to the AEPD through the channel enabled on the electronic headquarters. However, in the case of Andalusia, Catalonia, and the Basque Country, when security breaches occur in the aforementioned cases, the competent supervisory authority will be that of the corresponding Autonomous Community, namely:  
+•  
+In the case of Andalusia: the Council of Transparency and Data Protection of Andalusia through its electronic window  
+•  
+In the case of Catalonia: the Catalan Data Protection Authority (https://apdcat.gencat.cat/es/inici/) through its electronic headquarters.  
+•  
+In the case of the Basque Country: the Basque Data Protection Agency via email avpd@avpd.eus

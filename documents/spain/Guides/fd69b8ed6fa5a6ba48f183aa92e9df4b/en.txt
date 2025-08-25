@@ -1,0 +1,1113 @@
+**Compliance with the GDPR for Treatments Incorporating Artificial Intelligence.**  
+**An Introduction**  
+**February 2020**  
+
+**Page: 2 of 53**  
+
+**EXECUTIVE SUMMARY**  
+This document aims to be a first approach for compliance with Regulation (EU) 2016/679, General Data Protection Regulation (GDPR) for products and services that include components of Artificial Intelligence. Under the label "Artificial Intelligence," or AI, there are many types of solutions that employ different techniques, particularly those based on machine learning. AI has become an additional component of data processing carried out by data controllers and, in many cases, appears in the form of solutions developed by third parties. Artificial Intelligence generates many questions among users, researchers, specialists, authorities, and the industry regarding aspects of regulatory compliance, respect for the rights of data subjects, and legal certainty for all parties involved. These questions represent a challenge for the proper technological development.  
+This document does not intend to provide a comprehensive review of what is established in the GDPR, but rather to address the questions raised within the framework of personal data protection and to highlight the most relevant aspects in the AI-GDPR relationship that must be considered from the design stage and in the implementation of treatments that include AI. The document will pay special attention, among others, to the legitimacy for processing, information and transparency, the exercise of rights, automated decisions, accuracy, data minimization, impact assessment, and the analysis of the proportionality of the processing. The text is directed at controllers who include AI components in their processing, as well as developers, processors, or others who support such processing.  
+
+**Keywords:** Artificial intelligence, AI, GDPR, LOPDGDD, rights, privacy, ethics, data protection, design, impact assessment, machine learning, ML, automated decisions, minimization, transparency, accuracy, bias.  
+
+**Page: 3 of 53**  
+
+**INDEX**  
+I. **INTRODUCTION TO THE AI AND DATA PROTECTION FRAMEWORK**  
+5  
+A. **AI Techniques**  
+5  
+B. **Processes with AI Components**  
+6  
+C. **Data Protection and the Ethical Dimension**  
+7  
+D. **Definitions in the GDPR**  
+8  
+- Object of the GDPR  
+8  
+- Personal Data  
+8  
+- Pseudonymization and Anonymization  
+9  
+- Special Categories of Data  
+9  
+- Processing  
+9  
+- Profiling  
+10  
+- Automated Decisions  
+10  
+- Users of the AI Solution  
+10  
+- Controller  
+11  
+- Joint Controller  
+11  
+- Processor  
+11  
+- Domestic Exception  
+11  
+E. **Lifecycle of an AI Solution**  
+11  
+F. **Processing of Personal Data Using AI**  
+12  
+G. **Evaluation of AI Solutions**  
+15  
+H. **Brief Summary of Obligations Established by the GDPR**  
+15  
+II. **ROLES, RELATIONSHIPS, AND RESPONSIBLE PARTIES**  
+17  
+III. **COMPLIANCE**  
+20  
+A. **Legitimacy and Limitation of Processing**  
+20  
+- Legitimate Interest  
+22  
+- Special Categories  
+22  
+- Processing for Compatible Purposes  
+23  
+B. **Information**  
+23  
+- Meaningful Information about the Logic Applied  
+24  
+C. **Generalities on the Exercise of Rights**  
+24  
+D. **Right of Access**  
+25  
+E. **Right to Erasure**  
+25  
+- Limitations on Erasure.  
+26  
+F. **Blocking of Data**  
+26  
+G. **Right to Rectification**  
+27  
+H. **Portability**  
+27  
+I. **Decision-Making Based Solely on Automated Processing**  
+28  
+IV. **RISK MANAGEMENT FOR RIGHTS AND FREEDOMS**  
+30  
+A. **Risk Level Assessment**  
+30  
+B. **Privacy Impact Assessment - PIA**  
+31  
+C. **Transparency**  
+33  
+- During the Training Stage  
+33  
+- Certification  
+34  
+- Automated Decisions and Profiling  
+34  
+- Staff of the Controller  
+34  
+- The Data Protection Officer as a Tool for Transparency  
+35  
+D. **Accuracy**  
+35  
+- Factors Affecting Accuracy  
+36  
+- Biometric Information  
+37  
+- Combination of Profiling  
+37  
+- Verification vs. Validation  
+38  
+- Ensuring Accuracy as a Continuous Process  
+38  
+E. **Minimization**  
+38  
+- Training Data  
+39  
+- Minimization Techniques  
+39  
+- Extension of Data Categories in the AI Solution  
+40  
+- Extension of the Training Set  
+41  
+- Personal Data in the AI Solution  
+41  
+F. **Security**  
+42  
+- Specific Threats in AI Components  
+42  
+- Activity Logs  
+43  
+G. **Assessment of Proportionality and Necessity of Such Processing**  
+44  
+H. **Audit**  
+45  
+V. **INTERNATIONAL TRANSFERS**  
+48  
+VI. **CONCLUSIONS**  
+49  
+VII. **REFERENCES**  
+50  
+VIII. **ANNEX: CURRENT AI-BASED SERVICES**  
+52
+Page: 5 of 53  
+I.  
+INTRODUCTION TO AI FRAMEWORK AND DATA PROTECTION  
+The term Artificial Intelligence, or AI, was first used in 1956 by John McCarthy to refer to “the science and engineering of creating intelligent machines, especially intelligent computer programs.” The High-Level Expert Group on Artificial Intelligence (AI – HLEG) established by the European Commission to develop the European Strategy on Artificial Intelligence applies it to “systems that exhibit intelligent behavior, being able to analyze the environment and perform actions, with a certain degree of autonomy, in order to achieve specific objectives.” Other definitions suggest that AI is the ability of a machine to act as a human mind does, considering its aspects of creativity and the capacity to perform analysis and inferences from complex, and even incomplete, information.  
+Depending on the scope and application of artificial intelligence, three different categories of AI are distinguished: strong AI, general AI, and weak AI. General AI could solve any intellectual task that a human can solve; strong AI or superintelligence would go beyond human capabilities. However, the type of AI that has triggered the practical application of this discipline is known as weak AI, which, in contrast to strong and general AI, is characterized by developing solutions capable of solving a specific and limited problem. The application of this type of system is extensive: from video games to defense systems, including healthcare, industrial control, robotics, internet search engines, natural language processing, marketing, personal assistants, human resources, optimization of public services, energy management, the environment, and any other activity one can imagine. The scope of application of AI solutions extends to all sectors, each with specific cases and the need to comply with both general regulations and sector-specific regulations.  
+The application of Artificial Intelligence raises doubts among users, researchers, specialists, authorities, and the industry regarding compliance aspects, respect for the rights of data subjects, and legal certainty for all parties involved. These doubts can be an obstacle to the proper technological development, which is why it is necessary to develop guidelines and aids that address and resolve the encountered difficulties. In this document, we will focus on addressing the compliance of treatments that incorporate components of weak AI with the GDPR.  
+A.  
+AI TECHNIQUES  
+There are various ways to approach an AI solution: through neural networks, rule-based systems, fuzzy logic, machine learning, expert systems, adaptive systems, genetic algorithms, multi-agent systems, etc., terms that overlap with each other. What all these techniques aim to achieve is to obtain models to handle complex systems for which it is not known how, or it is not possible to handle with sequential algorithms, due to their difficulty in modeling behaviors governed by multiple variables. Among these variables, non-linear relationships are established, or relationships that cannot be approximated by linear methods, and that may even vary over time.  
+
+1 Artificial Intelligence for Europe, European Commission  
+2 RAE. Inference: action and effect of inferring. To infer: to deduce something or derive it as a conclusion from something else.  
+3 In this case, inference may attempt to solve a classification problem, such as identifying suspicious individuals; or a “clustering” problem, such as recommending an item to a customer based on previous purchases; or a regression problem (estimating a value), such as detecting the voting intentions of a group.  
+4 The AI Index 2018 Annual Report http://cdn.aiindex.org/2018/AI%20Index%202018%20Annual%20Report.pdf contains a report on the extent and market of AI components.  
+5 An expert system can be created by modeling the knowledge of a series of experts using rules in fuzzy logic.
+Page: 6 of 53  
+One of the most successful branches of AI in commercial applications is Machine Learning (ML). ML designs predictive models that autonomously build the relationship between the variables to be studied through the analysis of an initial dataset, the identification of patterns, and the establishment of classification criteria. Once the criteria are set, by introducing a new dataset, the AI component is capable of making an inference. Machine learning is related to data mining techniques, optimization, and big data. Moreover, there are different types of machine learning such as supervised, unsupervised, reinforcement, and their variants, which employ different techniques. There are also specializations of ML such as Deep Learning, and different learning models, such as centralized, decentralized, or federated. A system with an AI component can be said to be adaptive when the inference model dynamically adjusts based on each new input dataset, refining the already established relationships.  
+B.  
+TREATMENTS WITH AI COMPONENTS  
+There may be treatments that include AI components handling data of natural persons, such as in a marketing or electoral profiling model, or there may be treatments in which personal data does not appear, as could happen in a weather prediction model that collects data from geographically distributed stations.  
+A treatment that makes automated decisions using artificial intelligence may affect natural persons, such as an authentication system for users, or it may not affect individuals, such as an industrial control system. In the case that decisions are made that affect individuals, these decisions may relate to the person's interaction in their social context, such as access to a contract or service, or relate to the personalization of that service, such as the customization of car controls or the programming of a television. Decisions may make predictions about the subject's evolution, perform an assessment of their current state, or decide on the execution of a set of actions.  
+Furthermore, in decision-making, AI can adopt two roles:  
+•  
+That of an aid for the decision-making process, providing an inference or profile about a subject or situation, for a human to make the final decision.  
+•  
+That of making and executing the decision.  
+In any of the above cases, the AI component will not be isolated but will be part of a broader treatment. Additionally, it will have a physical implementation in a system where other applications will be found, there will be data communications, user interfaces, and other elements. The inherent synergy in applications where AI components are found can relate these treatments to Big Data.  
+
+6 Although with a dataset of high predictive capacity, it is possible to perform ML with "small data."  
+7 The system is trained with a set of examples where the output results are known; the algorithms work with "labeled" data trying to find a function that, given the input variables, assigns the appropriate output label.  
+8 It aims to extract meaningful information without reference to known output variables, and through the exploration of the structure of such unlabeled data. It starts from unlabeled data where there is no classification information or continuous dependent event. The algorithm's task is to find the internal structure of the data.  
+9 There is human intervention during the learning process, rewarding or penalizing partial decisions.  
+10 A ML technique that employs multiple layers of non-linear processing of information, each layer adapted to capture a specific feature through learning, and organized in a hierarchy from a lower level of abstraction to a higher one.  
+11 For example, in the healthcare field, predicting a patient's evolution, making an automatic diagnosis after examination, or prescribing a specific treatment.
+Page: 7 of 53  
+Internet of Things (IoT), 5G/mobile systems, Edge Computing12, and Cloud Computing. In short, multiple technical elements, but also human ones, intervene directly or collaterally, which must be taken into account to determine the implications of using a treatment that incorporates an AI solution.  
+Finally, it must be noted that not every system that makes an automated decision is AI, not all AI is Machine Learning, nor is everything advertised as AI truly AI13; rather, such a label can be a marketing tool or can be used to implement other types of business strategies.  
+C.  
+DATA PROTECTION AND THE ETHICAL DIMENSION  
+The protection of individuals in relation to the processing of personal data is a fundamental right. Article 8, paragraph 1, of the Charter of Fundamental Rights of the European Union and Article 16, paragraph 1, of the Treaty on the Functioning of the European Union establish that everyone has the right to the protection of personal data concerning them14. The fundamental right to data protection is developed within a regulatory framework that currently includes Regulation 619/2016 of the European Parliament and of the Council, of April 27, 2016, regarding the protection of individuals with regard to the processing of personal data and the free movement of such data, which repeals Directive 95/46/EC (GDPR), and is complemented by Organic Law 3/2018, of December 5, on the Protection of Personal Data and the Guarantee of Digital Rights (LOPDGDD), in addition to all sectoral regulations published before and after the entry into force of the GDPR.  
+The ethical perspective of AI, as part of "digital ethics," is one of the aspects that raises the most concern15. The ethics of AI seeks to protect values such as dignity, freedom, democracy, equality, individual autonomy, and justice against the governance of mechanical reasoning. The European Commission is working on defining trustworthy Artificial Intelligence, establishing that to achieve this, it must meet seven key requirements: human action and oversight, technical robustness and safety, privacy and data management, transparency, diversity, non-discrimination and fairness, social and environmental well-being, and accountability.  
+These requirements must be continuously evaluated throughout the entire lifecycle of an AI system. It is necessary to be vigilant both about the ethical legitimacy of the treatments and the unexpected effects of these. Furthermore, the possible collateral impact of such treatments in a social environment must be considered, beyond the initially conceived limitations of purpose, duration, and scope.  
+That is to say, the AI solution must be analyzed per se, but also within the framework of the treatment in which it is integrated, and the relationships of that treatment with the environment in various aspects:  
+•  
+In the cultural aspect, with its scale of values.  
+•  
+In the context in which the service is deployed, with its quality requirements.  
+•  
+In the aspects arising from the massive interconnection of components in the information society.  
+A critical aspect of AI systems is the possible existence of biases. A bias is an inappropriate deviation in the inference process. Biases are particularly severe when, for example, they result in discrimination against a  
+12 Processing that takes place at the physical location of the user's device, the data source, or near them.  
+13 The Artificial Intelligence Scam: 40% of companies use it as a lure to finance themselves  
+https://www.elmundo.es/tecnologia/2019/03/12/5c829c0d21efa0760a8b45fa.html. DANIEL J. OLLERO, March 12, 2019  
+14 Recital 1 of the GDPR  
+15 Weapons of Math Destruction: How Big Data Increases Inequality and Threatens Democracy, Cathy O’Neil, Broadway Books 2016
+Page: 8 of 53  
+group in favor of another. This problem is not particular to AI systems, but is general to any decision-making process, whether human or automatic.  
+However, there is another type of bias that can be even more concerning, which is the bias in the interpretation of AI results. This human bias consists of accepting, without critical spirit, the results of an AI as certain and unchangeable, assuming a "principle of authority" derived from the expectations created by such systems.  
+The extent and depth of individuals' ethical values largely depend on the cultural environment in which they develop as persons. Privacy and intimacy of individuals form an important part of ethical principles, and similarly, the perception that each society may have of such values can be very different, although some globally accepted principles have been agreed upon internationally.  
+D.  
+DEFINITIONS IN THE GDPR  
+The GDPR establishes definitions and framework concepts, primarily in its Article 4, and without failing to refer to that article, we will further develop some of them below that are particularly interesting in relation to AI:  
+Object of the GDPR  
+Article 1 of the GDPR establishes the object of the regulation as the protection of the rights and fundamental freedoms of natural persons, particularly with regard to the protection of personal data.  
+Personal data  
+The concept of personal data is defined in Article 4.1 of the GDPR as "any information relating to an identified or identifiable natural person ('the data subject'); an identifiable natural person is one who can be identified, directly or indirectly, in particular by reference to an identifier, such as a name, an identification number, location data, an online identifier, or to one or more factors specific to the physical, physiological, genetic, mental, economic, cultural, or social identity of that natural person."  
+This definition is further developed in depth in Opinion 4/2007 on the concept of personal data by the Article 29 Working Party (WP29).  
+
+16 "systematically and unfairly discriminate against certain individuals or groups of individuals in favor of others. A system discriminates unfairly if it denies an opportunity or a good or if it assigns an undesirable outcome to an individual or group of individuals on grounds that are unreasonable or inappropriate" (Friedman, B., & Nissenbaum, H. (1996). Bias in computer systems. ACM Transactions on Information Systems (TOIS), 14(3), 330-347).  
+17 In some countries, access to tax information is one of the most private aspects of a person, while in others it is public information: "Norway, the country where no one can hide their salary" https://www.bbc.com/mundo/noticias-internacional-40691744  
+18 Article 12 of the Universal Declaration of Human Rights. Convention for the Protection of Human Rights and Fundamental Freedoms, 1950. International Covenant on Civil and Political Rights, 1966. Resolution 509 of the Assembly of the Council of Europe on human rights and new scientific and technical achievements. OECD Recommendation on the international circulation of personal data for the protection of privacy, 1980 and updated in 2002. Council of Europe Convention 108 for the protection of individuals with regard to the automatic processing of personal data, 1981. Resolution of January 14, 1990, of the United Nations General Assembly, regarding the guiding principles for the regulation of computerized personal data files...  
+19 Article 1 Object. 1. This Regulation establishes rules concerning the protection of natural persons with regard to the processing of personal data and rules concerning the free movement of such data. 2. This Regulation protects the fundamental rights and freedoms of natural persons and, in particular, their right to the protection of personal data...
+Page: 9 of 53  
+Pseudonymization and Anonymization  
+Pseudonymization is defined in Article 4.5 of the GDPR as “the processing of personal data in such a way that the data can no longer be attributed to a specific data subject without the use of additional information, provided that such additional information is kept separately and is subject to technical and organizational measures to ensure that the personal data cannot be attributed to an identified or identifiable natural person.”  
+Anonymization is the process that allows for the elimination or minimization of the risks of re-identification of an individual from their personal data by removing all direct or indirect references to their identity, while maintaining the accuracy of the results of the processing of such data. In other words, in addition to preventing the identification of individuals, anonymized data must ensure that any operation or processing that may be carried out after anonymization does not lead to a distortion of the actual data.  
+Both definitions are complemented in Opinion 05/2014 on anonymization techniques by WP29 and in the Guidelines and guarantees in the processes of anonymization of personal data published by the AEPD.  
+Special Categories of Data  
+The special categories of data are established in Article 9 of the GDPR as those data that “reveal racial or ethnic origin, political opinions, religious or philosophical beliefs, or trade union membership, and the processing of genetic data, biometric data aimed at uniquely identifying a natural person, data concerning health, or data concerning a natural person's sex life or sexual orientation.”  
+The GDPR establishes in this article a general prohibition on their processing, a prohibition that is extended in Article 9 of the LOPDGDD, unless a series of circumstances detailed in paragraphs 2, 3, and 4 of Article 9 of the GDPR and paragraphs 1 and 2 of Article 9 of the LOPDGDD are met.  
+Processing  
+Article 4.2 of the GDPR defines processing as any operation or set of operations performed on personal data or sets of personal data, whether by automated means or not, such as collection, recording, organization, structuring, storage, adaptation or alteration, retrieval, consultation, use, communication by transmission, dissemination or any other form of enabling access, alignment, combination, restriction, erasure, or destruction.  
+
+20 “Guidelines and guarantees in the processes of anonymization of personal data” AEPD 2016  
+21 Article 4.13: personal data relating to the inherited or acquired genetic characteristics of a natural person that provide unique information about the physiology or health of that person, obtained in particular from the analysis of a biological sample of that person  
+22 Article 4.14: personal data obtained from a specific technical processing, relating to the physical, physiological, or behavioral characteristics of a natural person that allow or confirm the unique identification of that person, such as facial images or fingerprint data  
+23 Article 4.15: personal data relating to the physical or mental health of a natural person, including the provision of health care services, that reveal information about their health status
+Page: 10 of 53  
+The profiling (see definition below) and the making of a decision about an individual are treatments according to Recitals 24 and 72 of the GDPR.  
+Profiling  
+Article 4.4 of the GDPR defines profiling as a form of processing personal data that allows for inferring more information about an individual by evaluating, analyzing, or predicting personal aspects.  
+A processing operation that involves profiling is characterized by three elements:  
+• It must be an automated form of processing, including those processes that have partial human involvement.  
+• It must be carried out concerning personal data;  
+• And the objective of profiling must be to evaluate personal aspects about an individual.  
+Automated decisions  
+Decisions based solely on automated processing represent the ability to make decisions by technological means without human involvement. The GDPR, in its Recitals 71 and 72 as well as in its Article 22, limits and establishes rights concerning data subjects not to be subjected to exclusively automated decisions that have legal effects or significantly affect the data subject. Automated profiling falls within this framework of automated decisions. The Article 29 Working Party has analyzed the implications of this right in the Guidelines on Automated Individual Decision-Making and Profiling for the purposes of Regulation 2016/679 of the WP29. However, it should be noted that automated decisions can be made with or without profiling, and profiling can occur without making automated decisions.  
+Users of the AI solution  
+From a data protection perspective, users of processing that utilize AI could be classified as follows:  
+• Entities that employ such AI on data of data subjects (employees, customers, or others), such as a company that uses AI to determine marketing policies based on the preferences of its customers.  
+  
+24 Recital 24 of the GDPR: “… the potential subsequent use of personal data processing techniques that consist of profiling an individual for the purpose, in particular, of making decisions about them or analyzing or predicting their personal preferences, behaviors, and attitudes.”  
+25 Recital 72: Profiling is subject to the rules of this Regulation governing the processing of personal data, such as the legal bases for processing or the principles of data protection. The European Data Protection Board established by this Regulation (hereinafter, the “Board”) must have the opportunity to provide guidance in this context.  
+26 Article 4.4 “profiling”: any form of automated processing of personal data consisting of using personal data to evaluate certain personal aspects of an individual, in particular to analyze or predict aspects related to professional performance, economic situation, health, personal preferences, interests, reliability, behavior, location, or movements of that individual.  
+27 Guidelines on Automated Individual Decision-Making and Profiling for the purposes of Regulation 2016/679. Article 29 Working Party  
+28 Guidelines on Automated Individual Decision-Making and Profiling for the purposes of Regulation 2016/679  
+29 For human involvement to be considered present, the oversight of the decision must be carried out by an authorized and competent person to modify the decision, and must perform a significant and not merely symbolic action.
+Page: 11 of 53  
+•  
+Natural persons who acquire a product or service that includes an AI component for the purpose of processing their own personal data, such as an individual who purchases a fitness tracker that plans their training.  
+Responsible  
+The figure of the data controller is defined in the GDPR, in Article 4.730 of the GDPR, as the person who determines the purposes and means of the processing, and the scope of their obligations, which are framed in Article 24, includes, among others, the obligation to “implement appropriate technical and organizational measures to ensure and be able to demonstrate that the processing is in compliance with this Regulation.”  
+Joint Controller  
+The GDPR introduces the figure of the joint controller in Article 26, as those controllers (two or more) who jointly determine the purposes and means of the processing. The joint controllers shall transparently and by mutual agreement determine their respective responsibilities in complying with the obligations imposed by the GDPR.  
+Processor  
+The processor is the person who processes personal data on behalf of the controller, as established in Article 4.831 of the GDPR, and the scope of their obligations, which are framed in Article 28, includes, among others, that their relationship with the controller “shall be governed by a contract or other legal act in accordance with the law of the Union or of the Member States, which binds the processor to the controller.”  
+Domestic Exception  
+In Article 2.c it is established, and further developed in Recital 18, that the GDPR does not apply when the processing is carried out by a natural person in the course of an exclusively personal or domestic activity.  
+These activities include, for example, “correspondence and maintaining a directory of addresses, or activity on social networks and online activity carried out in the context of the aforementioned activities” and, in general, those “with no connection whatsoever to a professional or commercial activity.”  
+However, it must be noted that the domestic exception does not apply to controllers or processors who provide the means to process personal data related to such activities.  
+E.  
+LIFECYCLE OF AN AI SOLUTION  
+Once some framework concepts have been defined, an analysis of the processing that includes a solution or uses an AI component as part of it can begin.  
+
+30 Article 4.7 “data controller” or “controller”: the natural or legal person, public authority, service, or other body that, alone or jointly with others, determines the purposes and means of the processing; if the law of the Union or of the Member States determines the purposes and means of the processing, the data controller or the specific criteria for their appointment may be established by the law of the Union or of the Member States.  
+31 Article 4.8 “processor” or “processor”: the natural or legal person, public authority, service, or other body that processes personal data on behalf of the data controller.
+Page: 12 of 53  
+An AI solution will be a data processing element that will be included in one or more phases of a processing operation. In some cases, the AI component will be specifically developed for that processing operation; in many other cases, the component will be developed by third parties different from the data controller. The AI component will not be isolated and will be integrated into a specific processing operation alongside other components such as: data collection, filing systems, security modules, user interfaces, and others. Moreover, once developed, an AI component could be integrated into processing operations of different data controllers.  
+The life cycle of an AI system, from its genesis to its disposal, will go through different stages common to all technological developments. However, depending on the AI technology that is implemented, it may have some nuances or particularities. These stages are:  
+•  
+Conception and analysis, in which the functional and non-functional requirements of the AI solution are established. These will be determined by business objectives derived from the processing operation in which it will be incorporated or from the market where the component is intended to be commercialized. It will include project plans, regulatory constraints, etc.  
+•  
+Development: including stages of research, prototyping, design, testing, training, and validation. Not all stages will always be present, and their existence will be subject to the specific AI solution adopted. For example, the training stage will be present in AI components based on machine learning (ML).  
+•  
+Exploitation: this stage includes the execution of various actions, some of which will be executed in parallel: integration, production, deployment, inference, decision-making, maintenance, and evolution.  
+•  
+Final withdrawal of the processing/component.  
+It should not be forgotten that, for the purpose of this document, we have focused on the AI component, but when conducting an analysis of the processing operation, the AI component and the other elements that make up the processing must be studied as a whole. Furthermore, depending on the type of application, some of the previous stages may overlap. For example, validation could overlap during the development and exploitation stages, or the evolution stage could develop simultaneously with the inference stage.  
+F.  
+PROCESSING OF PERSONAL DATA USING AI  
+Adopting an extensive view of the possible processing operations in an AI solution, personal data can be found in the following stages of the life cycle:  
+•  
+Training: if it is an AI model based, for example, on ML techniques, personal data could be used in its development. On other occasions, as is the case when training an AI model through the capture of data.  
+32 As is the case, for example, with the development of chatbots or conversational customer service platforms.  
+33 Amazon Web Services offers AI modules to incorporate into processing operations, and as stated on their page “No machine learning required” https://aws.amazon.com/es/machine-learning/ai-services/.  
+34 It should not be confused with the life cycle stages of an AI component, of a component of a processing operation, with the phases into which a processing operation can be divided for analysis. The AEPD's Practical Guide for Data Protection Impact Assessments outlines a division of processing operations into phases from the data perspective: data capture, classification/storage, transfer of data to third parties, and destruction of data. This division is generic, a first approximation for analyzing a processing operation at the time of its exploitation, and each processing operation must adapt this division to its specific conditions. For example, the development stage of an ML-based AI component is a processing operation with its different phases that must be analyzed.  
+35 Evolutionary maintenance  
+36 As noted earlier, not all of them will be found in the implementation of some AI solutions.
+Page: 13 of 53  
+knowledge of an expert, it could be considered a priori that there is no processing of personal data.  
+In the event that the training involves personal data, this constitutes processing in itself. In its broadest sense, it could include the following activities: definition, search, and acquisition of the dataset of interest37, preprocessing of the information (processing of unstructured data, cleaning, balancing, selection, transformation), splitting or partitioning of the dataset for verification, and information for traceability and auditing.  
+•  
+Validation38: in this operation, personal data processing could occur when data corresponding to the actual situation of the processing is used to experimentally determine the goodness of the model. The dataset may differ from those used in the training stage (if it exists and involves personal data) and could even be conducted by a third party for the auditing or certification of the model.  
+•  
+Deployment: in the case that the AI solution is a component, a module that is distributed to third parties for inclusion in their processing, it can be considered that there is a communication of personal data when the AI solution includes personal data or there is a way to obtain them. For example, some AI solutions, such as Support Vector Machines (SVM39), could contain within the logic of the model examples of the training data. In other cases, patterns may be found in the model that identify a singular individual.  
+•  
+Exploitation: in the various activities of exploiting the AI solution, it is possible to find processing of personal data:  
+•  
+Inference: when data from the data subject is used to obtain a result, when data from third parties is used for the same purpose, or when data and inferences about the data subject are stored. If the data subject themselves has the AI as a component of their property, the domestic exception would apply.  
+•  
+Decision: as previously noted, a decision regarding a data subject is a processing of personal data.  
+•  
+Evolution: in the AI solution, the data and results of the data subjects could be used to refine the AI model. When we find that this evolution occurs in the component acquired by the data subject themselves, in an isolated and autonomous manner, the domestic exception would apply. However, if they are sent to third parties, we would have a communication of data, a possible storage processing, processing to modify the model, or even new communications if that data is incorporated into the model and is accessible to other third parties.  
+•  
+Withdrawal: the withdrawal of the service can have two distinct extensions: the AI component is withdrawn as obsolete in all processing in which it is implemented, or a specific user decides not to use the AI component. That user can be an entity or a natural person and may have effects on the  
+
+37 Part of the data mining activity.  
+38 Validation can be performed or complemented by other methods, such as analytical methods. The approach of this text focuses on the use of personal data.  
+39 Support Vector Machines (SVMs) are a set of supervised learning algorithms. These methods are related to classification and regression problems. Given a set of labeled training examples in classes, an SVM is trained to build a model that predicts the class of a new sample. Intuitively, an SVM is a model that represents sample points in space, separating the classes into two spaces as widely as possible by a separating hyperplane defined as the vector between the two closest points of the two classes, known as the support vector.
+Page: 14 of 53  
+local, centralized, or distributed suppression of data, as well as on the portability of the service.  
+Before continuing, it should be noted that not all AI solutions process personal data at any stage of their lifecycle, nor do they make decisions based solely on automated processing that affects individuals. Some examples of AI solutions without personal data could be industrial product quality control systems, or those decision-making systems regarding the buying and selling of financial products.  
+If an AI component processes personal data, creates profiles about an individual, or makes decisions about the same, it will have to comply with the GDPR. Otherwise, it will not be necessary. In many cases, it is not straightforward to determine whether personal data is processed at any stage of the lifecycle of an AI-based system.  
+During the lifecycle of an AI solution, personal data may have been used in some way, for example, in the development stage. In that case, that stage constitutes processing and is subject to compliance with the GDPR. In later stages of the lifecycle of the AI solution, for example, when it is integrated into processing, it must be assessed whether personal data is processed to determine if the processing is subject to compliance with the GDPR, at least concerning the AI solution. If it is considered that personal data is not processed, because it has been deleted or anonymized, it must be demonstrated that these processes have been truly effective and assess what the risk of re-identification is.  
+If we want to rule out that personal data is processed in later stages of its lifecycle, for example, when the AI solution is integrated into processing, and therefore, this processing is not subject to compliance with the GDPR, it must be demonstrated that the deletion or anonymization of personal data is truly effective and assess what the possible risk of re-identification exists.  
+In the operational stage of the system that incorporates the AI solution, we may encounter several situations:  
+• The owner of the AI system grants access to it to the interested parties subject to the AI processing. This is, for example, the case of the psychological evaluation of Facebook users conducted by the social network itself in certain countries.  
+• The owner of the AI system decides to transfer the rights to use that AI as a component to a third party, treating it as an off-the-shelf module, dissociating from the operation of the system. An example could be an AI driving assistant system that a car manufacturer acquires as a component and incorporates into its models.  
+• An entity decides the purposes of a processing operation and hires the owner of the AI system to execute one of the phases of that processing. In this way, the owner of the AI is the one who effectively processes the personal data under the commission and instructions of a controller.
+Page: 15 of 53  
+G.  
+EVALUATION OF AI SOLUTIONS  
+Both the AI model included in a processing operation and the processing itself must have the purpose of addressing a real need of the company and the industry. We are talking about solutions that transcend the experimental realm and will be subject to market laws, a regulated market that is obliged to comply with certain norms and quality standards.  
+Regarding their ability to meet the requirements of the processing, there are certain parameters common to any technical solution that must be specified, such as, for example:  
+• Precision, accuracy, or error measures required by the processing.  
+• Quality requirements for the input data to the AI component.  
+• Effective precision, accuracy, or error measures of the AI solution based on the appropriate metric to measure its goodness.  
+• Convergence of the model when we encounter training and adaptive solutions.  
+• Consistency between the results of the inference process.  
+• Predictability of the algorithm.  
+• And any other evaluation parameter of the AI component.  
+A technical solution that does not credibly answer these questions cannot be considered based on mature technology, but rather on technology that lacks the capacity to meet the basic requirements of accountability, transparency, and legality. Furthermore, those answers will derive essential requirements from the perspective of data protection, such as the application of the principle of minimization.  
+H.  
+BRIEF SUMMARY OF OBLIGATIONS ESTABLISHED BY THE GDPR  
+The purpose of this document is not to reproduce the content of the GDPR, for which reference is made to the text of the regulation. Briefly, the GDPR is developed in 6 principles established in Chapter II:  
+1. Lawfulness, fairness, and transparency  
+2. Purpose limitation (specification of purpose)  
+3. Data minimization  
+4. Accuracy  
+5. Storage limitation  
+6. Integrity and confidentiality  
+In the same chapter, the conditions for the legitimate processing of personal data are established.  
+
+45 What’s your ML Test Score? A rubric for ML production systems, Eric Breck, 2018, Google Inc. https://www.eecs.tufts.edu/~dsculley/papers/ml_test_score.pdf  
+46 These measures will depend on the type of AI model used, whether classification, regression, or others. Precision refers to the dispersion of the set of values obtained in repeated measurements of a magnitude. A common measure of variability is the standard deviation of the measurements. In classification models, precision can be evaluated as the proportion of correctly classified instances or with ROC curves. Accuracy is related to the bias of an estimate and refers to how close the measured value is to the true value. Accuracy can be modeled with total error parameters, mean error, mean absolute error, or mean squared error.  
+47 This precision and accuracy could exceed the requirements of the processing, or not.  
+48 Predictability allows for a precise statement of the behavior of the AI component under specified conditions. Although the "Halting Problem" states that there is no computable automatic way to know if all possible programs terminate, it does not deny that there are testing methods for the analysis of specific components.  
+49 One should not confuse the factual unpredictability of an algorithm due to the lack of analysis of it, the ignorance of internal states, or the absence of thorough testing procedures with randomness.  
+
+Page: 16 of 53  
+In Chapter III, the set of rights that assist data subjects is established, along with the obligation to guarantee them and to implement effective mechanisms for their exercise, particularly the rights to transparency, information, access, rectification, erasure, restriction, objection, portability, and one more that is of great importance in certain AI applications, which are the rights that citizens have concerning automated decision-making.  
+In Chapter IV, the model of responsibility and compliance established based on accountability, or proactive responsibility, is set forth, and its guiding elements are:  
+• The identification of responsibility in processing.  
+• The analysis of risk to rights and freedoms.  
+• The study of the necessity and proportionality of processing operations concerning their purpose.  
+• The deployment of measures for risk management, privacy by default and by design, security measures, incident management, etc.  
+To conclude this brief overview, Chapter V establishes the conditions for the execution of transfers of personal data to third countries or international organizations.
+Page: 17 of 53  
+II.  
+ROLES, RELATIONSHIPS, AND RESPONSIBLE PARTIES  
+One of the key aspects of the GDPR, and crucial for determining the correct application of accountability and transparency policies, is that responsibilities in data processing are clearly identified.  
+At the different stages of the life cycle of an AI component, the person, legal entity, public authority, or other party that decides to carry out the processing of personal data, as previously defined, will be responsible for the processing. Therefore, different responsibilities will imply different obligations within the framework of processing. It is possible that the responsible party may hire third parties to carry out different tasks on their behalf and under their instructions. Such third parties will be considered data processors as long as all processing of personal data is carried out under the instructions of that responsible party. Any additional processing of such data that they may carry out for their own purposes will make them responsible for those processing activities.  
+Furthermore, at the different stages, various responsible parties and processors may be involved, in addition to situations of data communications between responsible parties:  
+
+Stage  
+Responsible Party  
+Processor  
+Development/Training  
+The entity that defines the purposes of the AI component and decides which data will be used to train the system.  
+If the development is contracted to a third party, but this third party makes decisions about the personal data used to train the AI component for its own purposes, the contracted entity will be considered responsible.  
+In the case where the party defining the purposes acquires a set of personal data, they will be responsible for processing.  
+The contracted entity, for training or development, as long as the contracting party sets the terms that define the purposes of the processing and the substantial characteristics of the data, whether the contracting party is the one providing such data or if the contracted party obtains it themselves, and the processor uses it only to fulfill the purposes of the responsible party.  
+Validation  
+Same as in the previous case.  
+Same as in the previous case.  
+Deployment  
+In the case where the AI solution is a component that is sold to another entity (it could be part of processing), and that component includes personal data, both entities carry out a communication of personal data and both are responsible.  
+The entity that provides a model to a responsible party for it to exploit within a service provision framework without intervening in that exploitation or that, in case of doing so, does not use the personal data for its own purposes.  
+If the marketing aims to sell a product that includes an AI component to a natural person for their personal use, even if the model includes personal data, the domestic exception will apply, unless they carry out processing for their own purposes of the included personal data, in which case they will also be considered responsible.  
+Inference/profiling  
+The entity that decides to process the data of the data subjects with the AI system for its own purposes.  
+If the processing is carried out by a natural person on their own personal data or that of people in their environment for an exclusively personal or domestic activity, the domestic exception will apply. This exception does not apply to those who provide means to process personal data related to such personal or domestic activities for their own purposes.  
+Same as in the previous case.  
+Decision  
+The entity that makes automated decisions about the data subjects for its own purposes.  
+Same as in the previous case.  
+Evolution  
+The entity that decides to process the data of the data subjects with the AI system; if it communicates the users' data to a third entity, it will be responsible for the communication of data if there is no responsible-processor relationship.  
+The entity that determines the evolution of the AI component.  
+In the case where the entity that decides to process the data of the data subjects contracts the AI processing to a third party, that third party will act as a data processor, as long as it does not process the data for its own purposes.  
+
+Considering 18. This Regulation does not apply to the processing of personal data by a natural person in the course of an exclusively personal or domestic activity and, therefore, without any connection to a professional or commercial activity. Personal or domestic activities may include correspondence and maintaining an address book, or activity on social networks and online activity carried out in the context of the aforementioned activities. However, this Regulation applies to the responsible parties or processors that provide the means to process personal data related to such personal or domestic activities.
+Page: 19 of 53  
+based on user data,  
+whether the data is provided  
+directly by the data subjects  
+or by the entity that provides  
+them with service, is  
+responsible for such processing  
+of evolution or retraining.  
+
+The responsibility-processor model can become complicated in the case of cooperative  
+networks, such as “blockchain,” that may incorporate AI models. The table above  
+aims to cover the most common cases and serve as a guide for new situations that  
+may arise in the market. It also does not detail the relationships between the  
+participants who may collect data within the framework of Big Data to put such data  
+in the hands of developers. In particular, models of shared responsibility are not  
+specifically analyzed.  
+It must be understood that the issue of responsibility is being addressed from the  
+perspective of data protection, without delving into other legal or ethical considerations  
+that may arise from the use of the AI solution.  
+The decision to adopt, within the framework of a processing operation, a technical  
+solution based on AI or any other technology, is made by the controller, who is the  
+one that “determines the means and purposes of the processing” and is, therefore,  
+responsible for the decision to select one technological solution over another. The  
+responsible party bears the obligation to be diligent when selecting the most suitable  
+solution, particularly when contracting its development or acquiring it; to demand and  
+analyze the quality specifications of the solution; and to determine the scope of the  
+processing and the burden of facing the consequences of their decisions. The one who  
+makes the decision to carry out the processing is responsible and cannot hide behind  
+a lack of information or technical ignorance to evade their responsibility when auditing  
+and deciding the adequacy of the system.  
+What is in no case acceptable is to shift the responsibility to the AI system itself.  
+
+54 Article 28.1 of the GDPR “When processing is to be carried out on behalf of a data controller, the controller shall choose only a processor that provides sufficient guarantees to implement appropriate technical and organizational measures in such a way that the processing will meet the requirements of this Regulation and ensure the protection of the rights of the data subject.”  
+
+Page: 20 of 53  
+III.  
+COMPLIANCE  
+The GDPR can provide extraordinary flexibility to ensure and demonstrate the adequacy of  
+a processing operation to the regulation. However, there is a minimum set of conditions  
+that must be met to ensure the compliance of the processing carried out. Among them,  
+the following can be cited:  
+•  
+The existence of a legal basis for legitimizing the processing of personal data,  
+(articles 6 to 11 of the GDPR).  
+•  
+The obligation to inform data subjects and be transparent (articles  
+12 to 14 of the GDPR).  
+•  
+The obligation to provide data subjects with mechanisms for the  
+exercise of their rights (articles 15 to 23 of the GDPR).  
+•  
+The application of the principle of proactive responsibility (articles 24 to 43)  
+which establishes the need to incorporate a series of additional guarantees, beyond  
+a minimum, documented and aimed at managing the risk to the  
+rights and freedoms of individuals. In particular, the obligation to maintain  
+a record of processing activities (article 30 of the GDPR).  
+•  
+Compliance with the conditions for carrying out international data transfers  
+(articles 44 to 50 of the GDPR).  
+The referenced articles of the GDPR are developed in the guide Compliance Checklist  
+published by the AEPD. In this chapter, we will begin with those key aspects that must  
+be taken into account when defining a processing operation that uses AI solutions to  
+ensure that it respects the principles established in the GDPR. In subsequent chapters,  
+other aspects such as proactive responsibility and international transfers will be reviewed.  
+A.  
+LEGITIMIZATION AND LIMITATION OF PROCESSING  
+Establishing a legal basis for legitimization is the first step in determining the  
+compliance of the AI solution with the GDPR. Legitimization for the different stages of  
+the lifecycle and for each processing operation must be established in the design phase  
+of the processing, whether this processing involves the creation of an AI component or  
+a processing operation that involves the use of an AI component. From the perspective of  
+Data Protection, legitimization is the first element that must be established within the  
+design phase of the processing. If a legitimizing basis is not found, the processing  
+should not be carried out.  
+In section 1.E of this document, the different stages of the lifecycle of an AI solution  
+in which personal data processing could take place have been listed. Each of these stages  
+has a different purpose, and in addition to processing data of the subject to whom the  
+service is being provided, data of third parties may also be processed.  
+Due to the nature of AI systems, at each stage of the lifecycle, a different legal basis  
+could be used for:  
+•  
+The training and/or validation of the model.  
+•  
+The use of third-party data in inference.  
+•  
+The communication of data implicit in the model.  
+•  
+The processing of the data of the data subject within the framework of the  
+service provided by the AI.  
+•  
+The processing of data of the data subject for the evolution of the model.
+Page: 21 of 53  
+Article 6 of the GDPR establishes the six legal bases under which the processing of personal data can be considered lawful. The most common legal bases that will legitimize processing in an AI solution are:  
+•  
+The processing is necessary for the performance of a contract in which the data subject is a party, or for the implementation of pre-contractual measures at the request of the data subject. This could be the case for developers who hire individuals to use their personal data in the training stage of the system. It could also be that the data controller, who provides a service to third parties that includes the AI solution, uses the data of these parties within the framework of the service contract.  
+•  
+Legitimate interest, provided that such interests do not override the interests or fundamental rights and freedoms of the data subject which require the protection of personal data, particularly when the data subject is a child.  
+•  
+The consent of the data subjects, which, as established in Article 4.11 of the GDPR, is any manifestation of will that is free, specific, informed, and unambiguous by which the data subject agrees, either by a statement or a clear affirmative action, to the processing of personal data concerning them. In certain more specific cases from the perspective of AI solutions, the following may also be legal bases:  
+•  
+Protection of vital interests55.  
+•  
+Reasons of public interest or the exercise of public powers56.  
+•  
+Compliance with legal obligations.  
+It is very important to note that the last two legal bases must be established by EU law or the laws of the Member States, which will establish the legal basis for the processing. That is, a controller cannot claim reasons, for example, of public interest if it is not established in a norm of appropriate rank.  
+Another important aspect is that the principle of limitation of processing must be taken into account. A legal basis does not authorize the use of data for any purpose and at all times57, but must be restricted to those specific, explicit, and legitimate purposes that have been identified, avoiding processing them in a manner incompatible with those purposes. Furthermore, the data subjects whose data are processed must be aware of how their data will be used, which is closely related to the principle of information and transparency.  
+The extinction of a legal basis for legitimacy, such as the withdrawal of consent, does not have a retroactive effect concerning the results obtained in a processing that has already been carried out. For example, when personal data have been used to train an AI component, the extinction of the legal basis does not invalidate the exploitation of the model, although the data controller must pay attention to requests for the exercise of rights in data protection matters.  
+If the data controller uses third-party datasets for the training of an AI component, they must show due diligence in verifying the legitimacy of the acquired data source, including in the purchase or service provision contract the contractual clauses that require evidence and commitments regarding such legitimacy.  
+
+55 Article 9.2.c of the GDPR “the processing is necessary to protect the vital interests of the data subject or of another natural person, in the event that the data subject is not physically or legally able to give consent.”  
+56 As is the case with Smart Cities or border control.  
+57 With the exceptions noted in Article 5.1b “…in accordance with Article 89, paragraph 1, further processing of personal data for archiving purposes in the public interest, scientific or historical research purposes, or statistical purposes shall not be considered incompatible with the initial purposes” and Article 6.4 regarding processing for compatible purposes by the controller.
+Page: 22 of 53  
+Legitimate Interest  
+The Opinion 06/2014 on the concept of legitimate interest, from the Article 29 Working Party, detailed how to evaluate the factors that legitimize the controller's interest in processing personal data and balance it with the rights and interests, also legitimate, of the data subjects. Legitimate interest is an alternative basis for legitimizing processing that requires, as in some cases of ML, access to training data, provided that the circumstances allowing its use are present.  
+It should be noted that using legitimate interest as a legal basis requires the controller to demonstrate a higher degree of commitment, formality, and competence. It demands a careful assessment that their legitimate interests prevail over the possible impact on the rights, freedoms, and interests of the data subjects. This assessment must take into account, among other things, any compensatory measures derived from maintaining the processing under continuous supervision; the adoption of a high degree of proactive responsibility; the incorporation of stricter privacy by default and by design measures; or the application of good practices such as providing the option to opt-out to the data subjects. In any case, the controller must be able to demonstrate that such impact is not of such magnitude as to prevent the processing from being carried out on that basis, and all this analysis and decision-making process must be documented in compliance with the principle of “accountability.”  
+If the processing is based on legitimate interest, it is not necessary to obtain the consent of the data subject, but the information obligations provided in Articles 13 and 14 of the GDPR remain.  
+Special Categories  
+To determine the legal basis for processing, it is important to consider that the special categories of data, established in Article 9 of the GDPR, have additional requirements for their processing. In these cases, and before analyzing a legal basis that legitimizes the processing under Article 6 of the GDPR, it is necessary to lift the prior prohibition established in the aforementioned Article 9 based on one of the circumstances contemplated therein, without losing sight of the additional limitations established in the LOPDGDD also in its Article 9. In particular, it must be considered that consent does not lift the prohibition for processing whose main purpose is to identify the ideology, union affiliation, religion, sexual orientation, beliefs, or racial or ethnic origin of the data subject.  
+Furthermore, Recital 71 of the GDPR establishes an additional restriction on the processing of special categories of data when they are intended to be used in automated decisions and for profiling, setting the limitation that these can only be employed under specific conditions. In particular, Article 22.4 establishes that decisions based solely on automated processing, including profiling, which produce legal effects concerning the data subject or significantly affect them in a similar manner, shall not be based on special categories of personal data unless the data subject has given consent or the processing is necessary for reasons of substantial public interest, based on Union or Member State law, and appropriate measures have been taken to safeguard the rights and freedoms and the legitimate interests of the data subject.  
+
+58 Opinion 7/2015 Meeting the challenges of big data. European Data Protection Supervisor. EDPS  
+59 Organic Law 3/2018, of December 5, on the Protection of Personal Data and Guarantee of Digital Rights  
+60 Recital 71: … Automated decisions and profiling based on particular categories of personal data should only be permitted under specific conditions.
+Page: 23 of 53  
+These limitations apply both to the data collected from the data subjects for the development or exploitation of the AI component, as well as to the special categories of data that are inferred in the course of the processing.  
+Processing for Compatible Purposes  
+As established in Article 6, paragraph 4, it is possible to process personal data for purposes different from those for which they were initially collected. The legal basis for that new purpose could be based on new consent from the data subject, on a legal basis that allows it, but also in cases where the purposes are compatible. Of course, the controller must meet all the requirements for the lawfulness of the original processing and must assess that compatibility taking into account the relationship between the purpose for which the data was collected and the purpose for which it is intended to be processed, the context in which it was collected, the nature of the data, paying special attention, among others, to the special categories of data, the consequences for the data subjects, and the safeguards implemented in the processing to manage the risk to rights and freedoms.  
+In particular, further processing operations for archiving purposes in the public interest, for scientific and historical research purposes, or for statistical purposes must be considered lawful compatible processing operations, with the safeguards and exceptions established in Article 89 of the GDPR.  
+B.  
+INFORMATION  
+The information that each controller must provide to the data subjects is established in Articles 13 and 14 of the GDPR, and the specific content must be adapted to the stage of the AI lifecycle in which the processing is being carried out. To support compliance with this obligation, the AEPD has published, in general, the Guide for Compliance with the Duty to Inform as well as a specific note on The Duty to Inform and Other Proactive Responsibility Measures in Mobile Device Apps. Article 11 of the LOPDGDD establishes the possibility for the controller to provide this information through a layered or tiered approach: a first layer, of a general nature, with basic information about the processing and a second layer that completes the information of the first with a higher level of detail and that is easily and immediately accessible from it, even by electronic means:  
+•  
+The first layer must include:  
+•  
+The identity of the data controller or their representative.  
+•  
+The purpose of the processing.  
+•  
+The possibility of exercising rights 15 to 22 of the GDPR.  
+•  
+If the processing includes profiling or automated decision-making:  
+•  
+It must be clearly stated that this circumstance occurs.  
+•  
+Informing of their right to object to the adoption of automated individual decisions in accordance with Article 22 of the GDPR.  
+•  
+Significant information about the logic applied,  
+•  
+The importance and the expected consequences of such processing for the data subject.  
+•  
+If the personal data subject to processing has not been obtained directly from the affected party, the basic information will also include:  
+•  
+The categories of data subject to processing.  
+
+61 Recital 50 is related to Article 6.4.  
+62 Not only to the special categories established in Article 9, but also to personal data related to criminal convictions and offenses, in accordance with Article 10.
+Page: 24 of 53  
+•  
+The sources from which the data originated.  
+•  
+In the second layer, the remaining information established in Articles 13 and 14 of the GDPR.  
+In the event that the AI component contains recoverable personal data, it is necessary to inform the data subjects of this circumstance and, where applicable, have a legitimate legal basis for its communication or subsequent processing.  
+Significant information about the applied logic  
+In the event that the data subject is subject to automated decisions or profiling as referred to in Article 22 of the GDPR, an important aspect established in Article 13.2.f of the GDPR is that they must "have significant information about the logic applied" and "the importance and the expected consequences."  
+The word "significant," which according to the RAE denotes "That makes something understood or known precisely," should be interpreted as information that, provided to the data subject, makes them aware of the type of processing being carried out with their data and provides them with certainty and trust regarding its outcomes.  
+Complying with this obligation by offering a technical reference to the implementation of the algorithm can be opaque, confusing, and even lead to information fatigue. Information should be provided that allows understanding of the behavior of the processing. Although it will depend on the type of AI component used, an example of information that could be relevant to the data subject would be:  
+•  
+The details of the data used for decision-making, beyond the category, and in particular information about the timeframes for data use (its age).  
+•  
+The relative importance that each of them has in the decision-making process.  
+•  
+The quality of the training data and the types of patterns used.  
+•  
+The profiling carried out and its implications.  
+•  
+Precision or error values according to the appropriate metric for measuring the goodness of the inference.  
+•  
+The existence or absence of qualified human oversight.  
+•  
+References to audits, especially regarding possible deviations in the results of the inferences, as well as any certifications performed on the AI system. In the case of adaptive or evolutionary systems, the most recent audit conducted.  
+•  
+In the event that the AI system contains identifiable third-party information, the prohibition of processing that information without legitimization and the consequences of doing so.  
+C.  
+GENERALITIES ON THE EXERCISE OF RIGHTS  
+Controllers who use AI solutions to process personal data, create profiles, or make automated decisions must be aware that data subjects have rights in the field of data protection that must be addressed. Therefore, during the design phase of the processing, controllers must be aware that they need to establish adequate mechanisms and procedures to respond to the requests they receive, and that such mechanisms must be appropriately scaled to the extent of the processing they are carrying out.  
+63 This is related to the concept of "explainability" of processing through AI.
+Page: 25 of 53  
+In the event that personal data is distributed among a network of controllers, for example, in the case that an AI model includes personal data, either in the training or in the evolution of the system, it is necessary, following the principle of proactive responsibility or “accountability”64, to include an effective information governance model that allows for the traceability of the information in order to identify the controller and enable the exercise of such rights. This information governance model must also be foreseen when a processor is involved in the processing and must include in the processing agreement those tasks that will be delegated to it concerning the processing of rights.  
+Finally, it should be noted that Article 11 of the GDPR establishes that, when exercising the rights of access, erasure, or restriction of processing, when it is not possible to identify the data subject, the controller shall not be obliged to maintain, obtain, or process additional information to identify the data subject solely for the purpose of complying with the GDPR, although the affected individual shall have the right to provide information that enables their identification to allow the exercise of rights.  
+D.  
+RIGHT OF ACCESS  
+The right of access must be executed by the controller of each of the stages of the life cycle of the AI solution that involve personal data. This includes the training data that may be included in the AI components and that can be retrieved by the controller exploiting the AI solution.  
+E.  
+RIGHTS OF ERASURE  
+The right of erasure implies a proactive approach from the data controller to, as established in Recital 39, ensure that data is erased when it is no longer necessary for the purposes of processing and, in particular, to include procedures for the periodic review of the dataset and deadlines for its erasure.  
+Article 17.1 establishes the obligation to erase personal data without undue delay when the following situations occur:  
+• the personal data are no longer necessary in relation to the purposes for which they were collected or otherwise processed;  
+• the data subject withdraws consent and the processing is not based on another legal ground;  
+• the data subject objects to the processing and there are no overriding legitimate grounds;  
+• the data subject objects to the processing for direct marketing purposes;  
+• the personal data have been unlawfully processed;  
+• the personal data must be erased for compliance with a legal obligation;  
+• the personal data have been collected in relation to the offer of information society services.  
+The data collected for the training stage, in accordance with what is stated regarding Article 11 of the GDPR and in compliance with the principle of data minimization, must be purged of all information not strictly necessary for the training of the model.  
+
+64 In particular, the obligations established in Articles 24, 25, 26, and Recital 66.  
+65 Recital 39: … ensure that its retention period is limited to a strict minimum. Personal data should only be processed if the purpose of the processing cannot reasonably be achieved by other means. …, the data controller must establish deadlines for its erasure or periodic review…
+Page: 26 of 53  
+When the training stage of the AI system has been completed, the organization must execute its deletion, unless the need to retain them for the refinement or evaluation of the system is justified, or the need and legitimacy to retain them for other purposes that are compatible with those that originated their collection in accordance with the conditions of Article 6.4 of the GDPR and applying the principles of data minimization is justified. In the event that deletion requests are received from the data subjects, the controller would need to adopt a case-by-case approach, taking into account the possible limitations to this right provided for in the Regulation.  
+At the time of distributing the AI solution, if it incorporates data from data subjects, it will be necessary:  
+•  
+To delete them or, conversely, to justify the impossibility of doing so, in whole or in part, due to the degradation that it would entail for the model.  
+•  
+To determine the legal basis for carrying out the communication of data to third parties, especially if special categories of data are included.  
+•  
+To inform the data subjects about this circumstance (as previously indicated).  
+•  
+To demonstrate that privacy measures by default and by design have been implemented (especially data minimization).  
+•  
+Depending on the risks that it could pose to the data subjects, and taking into account the volume or categories of data, to conduct a data protection impact assessment.  
+In the event that the controller retains the data of the data subject for the personalization of the service that the AI solution is offering, once the service relationship has ended, this data must be deleted.  
+Limitations on deletion.  
+Article 17.3 of the GDPR establishes certain limitations on deletion. Furthermore, Article 32 of the LOPDGDD establishes the obligation of the controller to block the data when proceeding with its rectification or deletion.  
+F.  
+BLOCKING OF DATA  
+Blocking is an obligation of the controller solely for the purpose of responding to possible liabilities arising from processing, in order to obtain evidence of possible non-compliance and only for the limitation period of such liabilities.  
+Article 32 of the LOPDGDD establishes the blocking of data as the retention of such data outside the scope of processing, applying technical and organizational measures that prevent any type of processing, including viewing, except for making the data available to judges and courts, the Public Prosecutor's Office, or the competent Public Administrations, particularly data protection authorities.  
+Therefore, it must be taken into account in the design of processing as one of the requirements. In particular, when selecting or developing an AI solution, it will be necessary to include the aforementioned measures to block data related to the inference process (at least inputs and obtained results) that may be needed to address a challenge.  
+
+66 Article 6.4 When processing for a purpose other than that for which the personal data were collected is not based on the consent of the data subject or on Union or Member State law that constitutes a necessary and proportionate measure in a democratic society to safeguard the objectives set out in Article 23(1), the controller, in order to determine whether processing for another purpose is compatible with the purpose for which the personal data were initially collected, shall take into account, among other things:…
+Page: 27 of 53  
+or claim by the data subjects. These mechanisms are also related to the log files67 that will be discussed later.  
+G.  
+RIGHT TO RECTIFICATION  
+The data controller is obligated to address the right of rectification of the data of the data subjects, especially those generated by the inferences and profiles created by the AI solution.  
+On the other hand, to the extent that there are inaccurate training data in the model that do not have an effect on the data subject, for example, if there is no possible link between the inaccurate information and any data subject when distributing the AI solution, the inaccuracy in the data may be advisable as part of the strategies of abstraction and concealment aimed at ensuring the application of the principle of minimization68. If such strategies lead to preventing the re-identification of an individual, referring to Article 11 of the aforementioned GDPR, the execution of the right to rectification would not be applicable.  
+Conversely, if the model itself contains inaccurate personal data of third parties that can be re-identified, associating erroneous information with those third parties, it is necessary to respond to the right of rectification.  
+H.  
+PORTABILITY  
+Article 20 of the GDPR establishes that, when processing is carried out by automated means, the data subject shall have the right to receive the personal data they have provided to a controller in a structured, commonly used, and machine-readable format, and to transmit it to another controller, when the legitimacy is based on consent or the processing is necessary for the performance of a contract.  
+The existence of this right, developed in the Guidelines on the right to data portability of the Article 29 Working Party, classifies personal data into: provided, actively and consciously by the data subject; observed from the data subject, by virtue of the use of the service or device; and inferred, deduced, or created by the data controller based on the previous data. The right to portability applies to the first two types of personal data.  
+The data controller of a processing operation that includes an AI component must evaluate and document whether its processing is required to provide portability for the data provided or observed from the data subject, based on what is established in the aforementioned Article 20. In that case, the portability requirement must be taken into account from the earliest stages of conception and design of the processing, in the selection of the AI component and/or by the developers of AI components.  
+Article 20.2 of the GDPR establishes the right to the transmission of data directly from controller to controller, but only when technically feasible. In the event that there are limitations to portability, it is a matter of transparency to inform users in advance of such limitations.  
+
+67 Log files of the events executed in a system.  
+68 Such as the application of differential privacy techniques.
+Page: 28 of 53  
+I.  
+DECISION-MAKING BASED SOLELY ON AUTOMATED PROCESSING  
+Applications that offer or support a service based on AI solutions may make decisions that affect individuals, their private lives, their physical safety, their social standing, and their interactions with others.  
+The GDPR guarantees the right not to be subject to automated decisions, including profiling, when:  
+•  
+There is no human intervention. For human participation to be considered present, the oversight of the decision must be conducted by a competent person authorized to modify the decision, and this must involve a significant and not merely symbolic action.  
+•  
+They produce legal effects.  
+•  
+Or similarly and significantly affect the data subject.  
+The following exceptions are allowed when the processing:  
+•  
+Is based on explicit consent and safeguards are applied to protect rights and freedoms.  
+•  
+Is necessary for the conclusion or performance of a contract, does not affect special categories of data, and, additionally, safeguards are applied to protect rights and freedoms.  
+•  
+Is based on EU or Spanish law and does not affect special categories of data.  
+•  
+Is based on EU or Spanish law and is necessary to protect an essential public interest.  
+In the section "B. Information" previously addressed, particularly in the subsection "Significant information about the logic applied," as well as in the section "IV.C Transparency," the information requirements for these processes are discussed.  
+When the legal basis is explicit consent, the data controller must design the processing in a way that protects the users' freedom of choice. On one hand, providing them at the time of requesting consent with viable and equivalent alternatives to the automated decision. On the other hand, ensuring that if they choose not to be subject to the automated decision, no bias detrimental to the interests of the affected individual will be introduced into the decision. If these conditions are not met, consent cannot be considered free. These courses of action must be contemplated from the very design phase of the processing.  
+As a good practice, and beyond requirements arising from data protection, human oversight should be an option in AI-based processing and, in general, in automated decisions. The design of systems should avoid the "dead man switch" orientation and always provide the option for a human operator to override the algorithm at a given moment, proceduralizing those situations in which this mode of action should be chosen. It is advisable to document incidents or inquiries regarding automated decisions received from data subjects, so that from their analysis, it is possible to detect situations where human intervention is necessary because the processing may not be functioning as expected.  
+Regarding the processing of minors' data, Recital 71 establishes that decisions based solely on automated processing, including profiling, with legal effects or significantly similar effects, should not be applied to them. However, since this prohibition is not reflected in the articles, it is not considered to have an absolute character, and exceptions may occur when it is essential to protect the minor's well-being and appropriate safeguards are implemented.  
+
+73 Opinion 02/2013 on the applications of smart devices (WP 202) of the Article 29 Working Party, adopted on February 27, 2013, in section 3.10 specifically about children, specifies on page 32 that "data controllers should not process data about children for behavioral advertising purposes, neither directly nor indirectly, as this falls outside the child's understanding and, therefore, exceeds the limits of lawful processing."
+Page: 30 of 53  
+IV.  
+RISK MANAGEMENT FOR RIGHTS AND FREEDOMS  
+Risk management for rights and freedoms is a continuous activity and is part of the concept of Proactive Responsibility or “accountability” established in the GDPR.  
+When dealing with personal data and proportional to the processing activities, the organization must systematize compliance measures in a Data Protection Policy, as established in Article 24 of the GDPR. This policy will coexist with a quality policy, an information systems policy, a security policy, and a decision-making policy, among others.  
+The GDPR does not specifically establish which elements of proactive responsibility must be implemented mandatorily or how to implement them, limiting itself to providing a broad degree of flexibility for very different processing activities to comply with the regulation. However, it does establish that such measures must be selected following a risk-based analysis (RBT74), specifically concerning the risk to the rights and freedoms of individuals in relation to the processing of their personal data and the creation of profiles75.  
+The RBT has two fundamental phases: the first is the identification of threats and assessment of the existing intrinsic risk level; and the second is the management of this risk through the implementation of appropriate and proportional technical and organizational measures to eliminate it or at least mitigate it, reducing the impact or the probability of the identified threats materializing. Finally, once the selected measures have been implemented, the remaining residual76 risk must be assessed and kept under control.  
+Both to determine the risk and to establish the appropriate measures to manage it, it is necessary to conduct a treatment analysis, dividing it into its different phases and managing the peculiarities of each of them.  
+To determine the level of risk of a treatment based on or containing phases where there is an AI component, the following must be taken into account:  
+• The risks arising from the treatment itself, the most characteristic being that which arises from bias in decision-making systems about individuals or their discrimination (algorithmic discrimination77).  
+• The risks arising from the treatment concerning the social context and the collateral effects that may arise from it, indirectly related to the object of treatment.  
+A.  
+RISK LEVEL ASSESSMENT  
+Assessing the risk level of a treatment is a necessary operation to determine how the measures aimed at eliminating or minimizing it will be applied, particularly when the detected risk is high according to the conditions established in the regulation, fundamentally in:  
+• Article 35.3 of the GDPR.  
+
+74 Risk Based Thinking  
+75 There are many types of risk: business continuity, fraud, financial, reputational, opportunity, technology reliability, security, etc.  
+76 ISO 31000 defines residual risk as the risk that remains after controls have been implemented. Controls are all those preventive, detective, or corrective measures aimed at minimizing risk.  
+77 This involves transferring existing societal biases linked to spatial categories of data or other attributes, such as nationality, to the implementation of the AI component. https://eticasfoundation.org/wp-content/uploads/2018/03/IG_AlgoritmicAFinal.pdf.
+Page: 31 of 53  
+•  
+Article 28.2 of the LOPDGDD.  
+•  
+The Lists of types of data processing that require DPIA (art 35.4) published by the AEPD.  
+The previous articles and lists establish certain conditions that must be met in a processing operation, sometimes simultaneously, for it to be considered high risk. The previous lists should not be seen as exhaustive but rather as a guide for risk analysis. In any case, the data controller must be able to identify additional risks arising from the novelty of the AI solution and its mode of implementation, such as, for example, in the case where the distributed AI component includes personal data. It is important to emphasize that this analysis transcends the limits of the responsible entity and is aimed at measuring the impact that the activity carried out may have on the social environment in which the application is performed or deployed.  
+The developer, maintainer, and/or distributor of an AI component, as well as the controller of a processing operation that includes AI components, must take appropriate measures at each of the respective stages and responsibilities to minimize or eliminate risk factors.  
+B.  
+THE PRIVACY IMPACT ASSESSMENT - DPIA  
+The DPIA is an obligation established in the GDPR when the risk levels associated with the processing are high. This obligation implies going beyond merely managing the risk of processing, as it requires an additional formality when executing such management.  
+The necessity for each controller to carry out a data protection impact assessment is established in Article 35 of the GDPR when, according to paragraph 1, “the processing is likely to result in a high risk to the rights and freedoms of natural persons.” In particular, but not exclusively, and as established in Article 35.3.a78, it is necessary to carry out a DPIA when profiling is performed based on automated processing (but not necessarily exclusively automated79), on which decisions are made that produce legal effects for natural persons or that significantly affect them.  
+The DPIA must be carried out before the actual processing of personal data is executed, that is, before initiating the processing80. Therefore, validation must be carried out before the design/selection and implementation of the AI solution for a specific processing operation, so that it is possible to identify what privacy requirements need to be incorporated and to effectively apply privacy measures from the design and by default.  
+Article 35.2 of the GDPR establishes the obligation of the controller to seek the advice of the data protection officer, if one has been appointed.  
+It is also important to note that Article 35.981 of the GDPR establishes that, where appropriate, the opinion of the data subjects will be sought.  
+
+78 Article 35.3.a systematic and comprehensive evaluation of personal aspects relating to natural persons based on automated processing, such as profiling, and on which decisions are made that produce legal effects for natural persons or that significantly affect them in a similar manner.  
+79 Guidelines on automated individual decision-making and profiling for the purposes of Regulation 2016/679.  
+80 Article 35.1.… the controller shall carry out, prior to the processing, an assessment of the impact of the processing operations on the protection of personal data.  
+81 Article 35.9 Where appropriate, the controller shall seek the views of data subjects or their representatives on the intended processing, without prejudice to the protection of public or commercial interests or the security of processing operations.
+Page: 32 of 53  
+In the case of AI solutions, this opinion is particularly important for understanding, in addition to the technology itself, the precise context in which it will be employed and the specific risk models for the rights and freedoms of the data subjects. The concept of data subject should be understood as extending to both human operators who interpret or supervise the results of the AI and the individuals subjected to its processing.  
+In particular, when the processing, in an automated manner, creates profiles and makes decisions, all these decisions must be identified in the different phases of processing, detailed, analyzed regarding the operating parameters, such as margins of error, and carefully evaluated for their effects on the data subjects.  
+The DPIA must be documented and, when a high residual risk is evident, it must be submitted for consultation with the supervisory authority under the conditions established in Article 36 of the GDPR.  
+A DPIA must result in the adoption of a series of specific and concrete measures for risk management, some of which are aimed at reinforcing compliance obligations based on that risk and that affect:  
+• The design of the processing, in its phases, procedures, technologies, and scope.  
+• The incorporation of privacy measures by default and by design in the processing, following the principles of:  
+  o Minimizing the amount of data processed, both in terms of the volume of information collected and the size of the study population, as well as throughout the different phases of processing.  
+  o Aggregating personal data as much as possible to minimize the level of detail that can be obtained.  
+  o Concealing personal data and their interrelations to limit their exposure and ensure they are not visible to unrelated parties.  
+  o Separating processing contexts to hinder the correlation of independent information sources, as well as the possibility of inferring information.  
+  o Improving information to data subjects, in a timely and appropriate manner, regarding the characteristics and legal bases of their processing to promote transparency and allow data subjects to make informed decisions about the processing of their data.  
+  o Providing means for data subjects to control how their data is collected, processed, used, and communicated to third parties by implementing mechanisms tailored to the level of risk that allows them to exercise their rights regarding data protection.  
+  o Complying with a privacy policy compatible with the obligations and legal requirements imposed by the regulations.  
+  o Demonstrating, in application of the principle of proactive accountability, compliance with the data protection policy being applied, as well as with the other requirements and legal obligations imposed by the Regulation, both to data subjects and to supervisory authorities.  
+This implies dynamically auditing the results/conclusions of the processing, evaluating divergences or deviations from those initially anticipated or assessed as foreseeable, including the executed algorithms, to adopt, where appropriate, corrective measures, including the deletion of information, and to document in detail the analysis conducted and the measures adopted.
+Page: 33 of 53  
+•  
+The identification of security requirements that minimize the risk to privacy.  
+•  
+The adoption of specific measures aimed at implementing a governance system for personal data that allows for the demonstration of compliance with principles, rights, and guarantees to manage the risk of the treatments carried out.  
+The AEPD provides guidelines to address the above aspects concretely for any type of generic treatment, highlighting the Practical Guide for Data Protection Impact Assessments, the Privacy by Design Guide, the Impact Assessment Report Model for Public Administrations, as well as tools that assist in conducting the DPIA, such as GESTIONA.  
+Before reiterating what can be found in these guides, to which we refer, some aspects that may be more decisive for treatments employing AI solutions will be developed.  
+C.  
+TRANSPARENCY  
+According to Recital 7882, the principle of transparency is a default privacy measure to allow, among other things, data subjects to monitor the processing to which they are subjected.  
+The principle of transparency is developed in Recitals 39 and 58. In these Recitals, the obligation to inform data subjects is interpreted in a way that goes beyond what is provided in the wording of Articles 13 and 14 of the GDPR. In particular, the Recitals comment on the obligation that “all information and communication regarding the processing of such data should be easily accessible and easy to understand,” “should be concise,” “should use simple and clear language,” that “where appropriate, it should be visualized,” that “it could be provided electronically,” that “additional information should be provided to ensure fair and transparent processing,” and that data subjects “must be aware of the risks, rules, and safeguards” of the processing.  
+In the case of treatments based on AI, transparency can be considered a critical aspect. It must allow data subjects to be aware of the impact that the use of such solutions may entail. Hence, transparency is directed both at data subjects and at the operators of the processing. In particular, transparency is linked to truthful information about the efficiency, capabilities, and real limitations of AI systems, which avoids creating false expectations among users and data subjects that may lead to a misinterpretation of the inferences made within the framework of the processing. Additionally, transparency is related to information about the context and situation of the processing, such as the existence of third parties, the physical/virtual location of the AI solution, etc.  
+Transparency is not limited to a specific moment but should be understood as a principle around which the processing revolves dynamically and that affects each and every one of the elements and participants involved in the solution.  
+During the training stage  
+During the training stage, if personal data is used, it is necessary to clearly inform the data subject about the possibility of being re-identifiable based on  
+
+82 Recital 79 …, the data controller must adopt internal policies and apply measures that comply in particular with the principles of data protection by design and by default. Such measures could consist, among others, … providing transparency regarding the functions and processing of personal data, allowing data subjects to monitor the processing of data and enabling the data controller to create and improve security elements.
+Page: 34 of 53  
+the model data or, as established in Article 11.2 of the GDPR, inform you that it is not possible to carry out such re-identification.  
+Certification  
+One of the issues that arises when providing transparency regarding AI algorithms is the question of the confidentiality necessary to preserve industrial property.  
+This problem is not exclusive to AI, but is common to any technological development, such as, for example, cryptographic modules in secure systems, or the integrated circuits of credit cards. However, in the sectors where these solutions are employed, it is imperative not to rely solely on the statements of manufacturers and distributors, but rather to establish mechanisms based on trusted third parties to determine the necessary levels of quality and reliability.  
+These mechanisms are realized either by granting access to the control authorities to the internal aspects of such solutions, or by establishing certification mechanisms by independent third parties.  
+Similarly, when AI evolves from being an experimental element to a product, it is necessary to incorporate the same guarantees that are required of any other technological service. The development and application of certification schemes that establish reference frameworks (for manufacturers, controllers, authorities, and users) that allow for independent third-party accreditation that both the AI solution in particular, as well as the implementation of the processing in general, comply with the provisions of the GDPR and what is developed in this guide, is a key element for the application of the principle of transparency.  
+The GDPR establishes in Article 42 the possibility of developing specific certification mechanisms in the field of data protection and data protection seals and marks as tools to demonstrate compliance with the GDPR. These schemes can cover various aspects of the use of AI and serve as tools to demonstrate due diligence. As explained in Recital 100, certification mechanisms also serve to increase transparency in the processing of personal data.  
+Automated Decisions and Profiling  
+Controllers must provide data subjects with sufficient information regarding the processing to which they are being subjected, as well as information about the mechanisms that allow them to request human intervention in the evaluation or challenge the decision made by the system automatically, beyond what is strictly established in Articles 13 and 14 of the GDPR and which has been described in the section “III B. Information” of this document.  
+Personnel of the Controller  
+Controllers who acquire this type of solutions and systems must provide precise information and specific training to their personnel regarding the limitations of the AI system.  
+When the processing is a decision-support tool, it is necessary to adopt measures to manage the risk that the human element behaves as  
+83 As is the case with certification based on Common Criteria or CC, where lists of certified products can be found: https://www.commoncriteriaportal.org/
+Page: 35 of 53  
+a mere transmission belt for the inferences made by an AI solution. These measures include information to the operator (as indicated above), training, and audits of their behavior.  
+On the other hand, it is necessary to prevent interpretability errors by the operators. The inferred values must be represented in a way that reflects the reality of the inference and its limits to human operators or subsequent phases of processing. When exploiting the system, it is necessary to provide real-time information to the operator or end user regarding the accuracy and/or quality of the inferred information at any given moment. When the inferred information does not meet minimum quality thresholds, it must be explicitly indicated that such information is null or has no value.  
+In the case that the solutions are acquired from a third party, they must provide sufficient information to the controller so that they can manage these risks, as well as the best way to do so.  
+The Data Protection Officer as a tool for transparency  
+The appointment of a DPO is one of the best measures that the controller can adopt to guide the implementation of transparency policies, in particular, to manage a channel of information to stakeholders. The user can thus obtain information about the AI solution (whether from the development of the AI, its maintenance, or its exploitation within the framework of processing) directly from the controller.  
+Article 37.1 of the GDPR and Article 34 of the LOPDGDD establish the conditions that require a controller/processor to have a Data Protection Officer (DPO), either due to the nature of the processing or the type of activity.  
+Using an AI solution in processing does not, per se, imply an obligation to have a DPO, although there are two cases, detailed in letters b) and c) of the previous Article 37.1, that will determine the obligation to have their presence in the organization: regular and systematic observation on a large scale and the processing of special categories of data or data related to criminal convictions and offenses also on a large scale.  
+According to the Guidelines on Data Protection Officers published by WP2985, the DPO is a key element to ensure compliance and risk management for the rights and freedoms of data subjects.  
+Therefore, the DPO, even in cases where it is not mandatory, can be of great utility in those entities that employ AI-based solutions and process personal data, or that develop AI solutions that use personal data for training the models. The DPO becomes a key element for managing risk and effectively applying proactive accountability mechanisms. In particular, Article 35 identifies the DPO as a fundamental role in conducting the DPIA and one of the tools for implementing transparency towards the user.  
+D.  
+ACCURACY  
+The term "accuracy" is defined in Article 5.1(d) of the GDPR as one of the principles of personal data protection. In the case of processing that incorporates  
+
+84 For example, in the case of systems that detect suspicious bodily behavior, a subject should not be indicated on the operator's screen simply because there is no other with a higher risk assessment.  
+85 "The DPO plays a fundamental role in promoting a culture of data protection within the organization and contributes to the application of essential elements of the GDPR, such as principles related to data processing, the rights of data subjects, data protection by design and by default, the record of processing activities, processing security, and the notification and communication of data security breaches."
+Page: 36 of 53  
+AI solutions, the existence of biases in inference models is closely linked to the accuracy or quality of the data.  
+According to the second paragraph of Recital 71 of the GDPR, the data associated with the data subjects, whether directly collected or inferred, must be accurate. In particular, it is explicitly stated that the data controller must use "appropriate mathematical or statistical procedures for profiling" that ensure that the data linked to the data subject is accurate. It is mandatory to demonstrate and document that the procedures used for inferring information about a data subject are precise and, therefore, stable and predictable.  
+When a controller chooses to employ an AI component for processing, they must diligently ensure that the data processed, generated, and linked to the data subject meets the aforementioned conditions.  
+Factors Influencing Accuracy  
+Regarding the accuracy of the inferred data about the data subject, there are three factors that can influence that accuracy:  
+• The implementation of the AI system itself. There are AIs, such as rule-based expert systems, where the design of the system itself can introduce errors that lead to incorrect inferences; or ML-based systems that are unable to model the desired processing. Errors can occur because external elements to the AI, such as biometric readers, introduce errors in the input data. On the other hand, there is the possibility of programming or design errors that incorrectly transfer the model to its practical implementation. In these cases, it can be said that the bias is "hardwired" by the decisions made when constructing the analysis model (evaluation and aggregation biases).  
+• The training or validation dataset is flawed with errors, deliberately incorrect information, or biases that prevent correct inferences. These biases could be inherent if they already exist in the data feeding the system, such as poor data quality, missing data, or selective sampling. They could also be representation and measurement biases, due to how the dataset is formatted to feed the system.  
+• The biased evolution of the AI model. In the case of AI that implements adaptive techniques, the AI solution may be predominantly used by a group of subjects with particular characteristics that introduce new feedback biases.  
+Regarding the accuracy required in the case of training data, metrics and debugging and traceability techniques must be employed to ensure the fidelity and integrity of the dataset. Although it is not common to all AI solutions, in some models, training and operational data can be classified into "hard" data and "soft" data. The former are objective data, generally quantifiable, such as grades, attendance percentages, analytical values, test results, etc. "Soft" data are generally qualitative data that contain a subjective or uncertain component. Examples of "soft" data could be those obtained through  
+86 The term "data quality" appears in the GDPR in Article 47.2.d  
+87 All data subjects have the same rights regarding data protection, not just those from groups classified as "at risk," and positive discrimination is not permissible.  
+88 Incorrect information may arise either from an attack on the dataset or from the inclusion of backdoors through the conscious manipulation of the data.
+Page: 37 of 53  
+of natural language processing, opinions, personal assessments, surveys, etc. Although "hard" data is not free from errors and biases, the responsible party must take special care in evaluating the accuracy issues that may arise from using or giving greater relevance to "soft" data as a source of information. Bias is not an issue exclusive to an AI system; it can appear in any automatic/non-automatic processing system that makes decisions or performs profiling. There are known techniques such as Algorithmic Impact Assessment (AIA), aimed at examining and determining the possible existence of biases in the algorithms used in AI solutions and ensuring fairness in the implementation of the model. These metrics must analyze the implemented logic so that it does not produce inaccuracies by design, and employ mature testing models and logic tests to detect design errors.  
+Biometric Information  
+Accuracy is particularly critical when processing is based on biometric information, such as AI for facial recognition, fingerprints, voice, etc. In that case, performance factors (false positives, false negatives, and others) must be taken into account, as well as the impact on the collection of data from individuals with any disability or physical uniqueness. Especially when the AI solution is unable to identify the individual as such, erroneous profiling occurs even before the execution of the main processing. The responsible party must take into account that, although such users may be a minority, alternative mechanisms must be established to avoid the exclusion of a subject because the AI solution is unable to process the biometric characteristics of the interested parties.  
+Combination of Profiling  
+It may occur that the AI component creates profiles or makes decisions about the same individual, but in different situations or for different objectives. For example, there could be treatments in the criminal field that use AI solutions that allow evaluating a profile regarding the likelihood that an individual will not appear at a court summons and, simultaneously, a profile regarding the risk that the same individual has of reoffending. In that case, and unless documented justification is provided, it is advisable that these profiles be developed independently, without the values or inferred risk for one influencing the inference made for the other.  
+
+Algorithmic Impact Assessments are tools to allow stakeholders to evaluate that AI components meet certain quality parameters and are suitable for the assigned task. References on them can be found, for example, at https://ainowinstitute.org/aiareport2018.pdf  
+Recent work has raised concerns about the risk of unintentional biases in these models, which negatively affect individuals from certain groups. While many bias metrics and definitions of fairness have been proposed, there is no consensus on which definitions and metrics should be used in practice to evaluate and audit these systems. Nevertheless, different metrics aimed at assessing algorithmic discrimination have been developed, such as Aequitas, an open-source bias auditing toolkit developed by the Center for Data Science and Public Policy.  
+In the study "Discrimination, Artificial Intelligence, and Algorithmic Decision-Making" published by the Council of Europe, the following examples are listed: Hewlett Packard's facial tracking software did not recognize dark faces as faces, the Google Photos application labeled a photo of an African American couple as "gorillas," a Nikon camera kept asking people of Asian descent: "Is anyone blinking?", an Asian man had his passport photo rejected automatically because "the subject's eyes are closed," Buolamwini and Gebru discovered that "women with darker skin are the most misclassified group (with error rates of up to 34.7%). The maximum error rate for lighter-skinned men is 0.8%."  
+There are cases of individuals with faint fingerprints who, when subjected to access systems using fingerprint identification, encounter continuous access problems.  
+In summary, to avoid discrimination for not being "biometrically adequate."
+Page: 38 of 53  
+Verification vs. Validation  
+The performance of tests and/or verification of the AI component is a crucial part of its development, as well as an important criterion for selecting one component or another by the data controller. The controller must take into account that the inclusion of a verified AI component in a processing operation does not imply that the entire processing operation is validated, nor does it guarantee the suitability of the AI component for that specific processing operation. Testing of the AI component ensures that the results of the design and development meet the requirements of the component. Validation of the processing goes further, as it ensures that the resulting products and services meet the requirements related to a specific application or intended use.94 Validation guarantees that the processing, as well as the AI solution on which it relies, meets the planned outcomes for a specific product or service.  
+In other words, the validation of processing that includes an AI component must be carried out under conditions that reflect the real environment in which the processing is intended to be deployed.95 Furthermore, the validation process requires periodic review, as those conditions or the processing itself evolve.  
+Guarantee of accuracy as a continuous process  
+In cases where AI solutions evolve, especially when they are fed back through their interaction with the data subject as well as with interactions with third parties other than the data subject, it is necessary to carry out model recalibration processes.  
+The drift in the accuracy of profiling performed by an AI solution due to the "filter bubble" effect96 can reinforce the biases that the user of the processing operation, which includes AI, has about themselves or about third parties.97  
+E.  
+MINIMIZATION  
+Minimization is implicitly defined in Article 5.1(c) of the regulation as the process aimed at ensuring that personal data is adequate, relevant, and limited to what is necessary in relation to the purposes for which it is processed. According to Recital 59, personal data should only be processed if the purpose of the processing cannot reasonably be achieved by other means.  
+The data subjects, the categories of data, and the retention period of the data that can be processed in a processing operation are linked to the legitimacy of that processing.  
+Minimization seeks to optimize processing from the perspective of data protection by analyzing the data processing needs at different stages and complying with the aforementioned requirements. It consists of:  
+
+94 ISO 9001:2015 Quality management systems. Requirements.  
+95 In the "Practical Manual of Artificial Intelligence in Healthcare Environments" referenced in the bibliography, a case is described in which a system for the pediatric diagnosis of pneumonia achieved an accuracy of 97% during its development. However, when this algorithm was applied to a population in Madrid, the accuracy dropped to 64%. The analysis of the training data revealed that the population used was aged 0 to 5 years, while the scope of pediatric treatment in Madrid includes children up to 14 years old.  
+96 A filter bubble or echo chamber is a very common situation in content search engines, which learn from the user's preferences and only offer content that they believe the user will like, overlooking any other options and causing the user to be trapped in a "bubble" that does not allow access to all possible options.  
+97 For example, an AI that evaluates the psychological state of the subject may reinforce the individual's self-perception, leading to a drift in their perception.
+Page: 39 of 53  
+•  
+Limit the scope of the categories of data98 used in each phase of the processing to those that are strictly necessary and relevant.  
+•  
+Limit the degree of detail or accuracy of the information99, the granularity of the collection in terms of time and frequency, and the age of the information used.  
+•  
+Limit the extent in the number of data subjects from whom the data is processed.  
+•  
+Limit the accessibility of the different categories of data to the staff of the data controller/processor or even to the end user (if there is third-party data in the AI models) in all phases of the processing.  
+It is necessary that in the design of the AI solution, the way to implement these restrictions is studied, describing and analyzing the data lifecycle throughout all stages of processing. The analysis cannot focus solely on the AI solution from a technical perspective, but must encompass all processing in which it is included, addressing both the automated and non-automated aspects of each phase of processing.  
+Training Data  
+In the case of ML, it is necessary to balance the need for data to train the systems with the risks to the rights and freedoms of the data subjects. The quality of the training data is not simply measured by the accumulation of data, but by the parameters of relevance, timeliness, reliability, robustness100, and the extent of the data types to the relevant areas of processing. To apply this proportionality criterion, it is advisable to consult professionals with knowledge of data science101, a discipline that goes beyond specialization in ML algorithms. It will also be necessary to listen to experts knowledgeable about data protection principles, business logic specialists, and the data protection officer when appointed102.  
+Minimization Techniques  
+There are different data minimization techniques103 for Artificial Intelligence applications, some of which are specific to ML. The techniques are continuously evolving, but we can mention:  
+•  
+Conducting a preliminary analysis of the conditions that the data must meet to be considered high quality and with a strong predictive capacity for the specific application.  
+•  
+Critically analyzing the extent of the data types used at each stage of the AI solution.  
+•  
+Eliminating unstructured data or unnecessary information collected during the preprocessing of the information.  
+
+98 The scope of the data category refers to the number of data fields associated with a natural person: name, physical and logical addresses, fields about their health, employment status, social situation, relationships, preferences, beliefs, ideology, etc. The more fields that are collected from an individual with greater precision and diversity, the greater the scope of the data categories processed.  
+99 Something as simple as the date of birth can be specified from identifying the decade to specifying the year, day, and hour.  
+100 As applicable to training for different treatments.  
+101 Data science is an interdisciplinary field that involves scientific methods, processes, and systems to extract knowledge or a better understanding of data in its various forms, whether structured or unstructured, which is a continuation of some fields of data analysis such as statistics, data mining, machine learning, and predictive analytics.  
+102 For example, the book "Practical Manual of Artificial Intelligence in Healthcare Environments" states that 80% of the development time of an algorithm is related to data acquisition, cleaning, and preprocessing, and that only 20% affects the actual training of the algorithm.  
+103 See the AEPD Privacy by Design Guide.
+Page: 40 of 53  
+• Identification and suppression, during the training process, of those categories of data that do not have a significant influence on learning or on the outcome of inference.  
+• Suppression of irrelevant conclusions associated with personal information during the training process, for example, in the case of unsupervised training.  
+• Use of verification techniques that require fewer data, such as cross-validation104.  
+• Analysis and configuration of hyperparameters105 of the algorithm that may influence the amount or extent of data processed to minimize these.  
+• Use of federated learning models instead of centralized106.  
+• Application of differential privacy strategies.  
+• Training with encrypted data using homomorphic techniques.  
+• Data aggregation.  
+• Anonymization and pseudonymization, not only in data communication but also in training data, possible personal data contained in the model107, and in the inference processing.  
+
+Extension of data categories in the AI solution  
+In each phase of processing, regardless of whether it includes an AI component or not, a different extent of the total personal data related to the same data subject will need to be processed. Normally, it will not be necessary to access the entire extent of available personal data108 in each phase, so the data minimization strategies employed in each phase of processing should be different. They should also differ in each of the stages of the AI solution's lifecycle, whether it is the training stage, inference stage, or model evolution stage. All of this should be done without forgetting the limitations established by the legal basis109 itself.  
+In particular, one aspect that must be justified when establishing the extent of the data categories to be used in the AI component is the use of proxy variables. A proxy variable is a type of data that, in itself, seems unrelated to the object of processing but could have a strong correlation with the inferred value110. When addressing the processing of proxy variables, it is necessary to demonstrate the validity of that correlation to legitimize its processing.  
+There are two important aspects that need to be analyzed concerning proxy variables. The first is that their use is not linked to any bias in the reasoning model. An example would be using the nationality of the data subject as an element.  
+
+104 Cross-validation involves dividing the database into training and testing several times with different data selection in each subgroup, comparing the overall result of training and testing the algorithm in each iteration.  
+105 Hyperparameters are those parameters that allow configuring the operation of a specific AI model. For example, in neural networks, hyperparameters would be the number of layers, the number of neurons per layer, the learning rate, etc.  
+106 Federated Learning or FL is a distributed ML model that allows model training on end devices (process over the edge). It is an approach to “bring the processing to the data instead of the data to the processing” and allows managing issues of privacy, ownership, and data localization. https://arxiv.org/pdf/1902.01046.pdf  
+107 Releasing the SVM Classifier with Privacy-Preservation https://ieeexplore.ieee.org/document/4781198  
+108 This principle is related to the “need-to-know” principle used in security, but in this case, it is interpreted from the perspective of privacy. For example, if the processing set has a phase in which a communication is sent to the data subject, in that phase it will be necessary to process contact data, but not necessarily to process all the information held about the data subject. Even for those executing the communication, it will not be necessary to access its content.  
+109 The legitimization for processing a data point within the framework of a processing activity, for example, the delivery address of a package, does not extend to using that address as input data for the AI component to profile the customer's creditworthiness during the contracting phase.  
+110 Proxy variables such as pizza consumption in decision-making centers in the United States or parking occupancy in the same, revealed the precise date of Operation Desert Storm in 1991 and prompted changes in security procedures https://www.army.mil/article/2758/army_releases_new_opsec_regulation
+Page: 41 of 53  
+to assess their fraud profile or social situation to evaluate their likelihood of reoffending. The second aspect is to audit that the correlation between the proxy variables used and the purpose of processing remains over time and within the scope of application, as this relationship is subject to change and may be susceptible to fraud.  
+
+Training Set Extension  
+A specific aspect of the principle of minimization in AI solutions is related to the size of the population from which data will be collected to train the models, particularly when such processing is based on legitimate interest.  
+In this case, the number of affected data subjects must be justified based on:  
+• The accuracy that the AI solution must achieve in its inferences for the specific processing.  
+• The convergence factor of the training algorithm towards the desired accuracy value based on the volume of examples provided.  
+• That the volume of data used, either due to a lack of availability of data covering a balanced spectrum of the population (by age, gender, status, race, culture, etc.), or due to the obsolescence of such data reflecting outdated social contexts, introduces biases in the inference.  
+Feeding an AI learning model with data without any prior control or analysis, in addition to being unjustified, especially in cases where the processing is based on legitimate interest, can cause the AI to lose accuracy and become a multiplier of biases. The dataset to be used must be carefully analyzed to avoid such risks and legitimize its use if, for example, the processing is based on legitimate interest.  
+Moreover, an excess of training data (overfitting) can cause the model to be overly tailored to easily re-identifiable cases, making it more vulnerable to privacy attacks (see in the section “F. Security” attacks by model inversion).  
+
+Personal Data in the AI Solution  
+In the event that the AI is distributed as a component of a system and that, as part of this, third-party data is included, a formal assessment must be conducted to determine which personal data of the affected data subjects could become identifiable.  
+Furthermore, technical, organizational, or legal measures must be applied to minimize identification or the extent of identification to the smallest number of possible data points.  
+On the other hand, during the operational or inference stage, it is advisable to use early data deletion strategies for the data subject in the AI solution, even when the domestic exception applies.  
+
+111 It is related to the principle of accuracy.  
+112 In the book “Weapons of Math Destruction” referenced in the bibliography, the case is described of using the proxy variable “Twitter followers” to evaluate the suitability of candidates for a Social Media Expert position, instead of carefully assessing the marketing campaigns conducted. Once the proxy variable is known, it is easy to deceive the system by hiring a service that increases the number of followers on the candidate's Twitter account for very little money.  
+113 Such as using information about women's professional preferences that includes data from many years ago, or outside of the cultural context, which creates an outdated image of the current population.  
+114 In addition to other problems, such as poor performance for a population not included in the training set.
+Page: 42 of 53  
+F.  
+SECURITY  
+The GDPR establishes in its Article 32 that both the controller and the processor shall implement appropriate technical and organizational measures to ensure a level of security appropriate to the risk to the rights and freedoms of the data subjects. These measures shall be proportionate to the costs of implementation, the nature, scope, context, and purposes of the processing, as well as to the risks of varying probability and severity. In other words, there is no standard solution for all types of processing, much less for those that include an AI component. The solution must be established through a risk analysis that, from a data protection perspective, must relate to the risks to the rights and freedoms of the data subjects.  
+Specific threats in AI components  
+The analysis of the security measures common to any system is equally necessary to protect an AI solution. For example, those that arise from components being developed by third parties or from data communications to third parties that may occur must be considered. Additionally, there is a need to implement specific measures aimed at preventing attacks that are specific to this type of application.  
+There are studied typologies of attack and defense against AI components. Among the security measures, it is recommended to pay special attention to those that manage these types of threats:  
+• Access and manipulation of the training dataset, prior to the model configuration, for example, through poisoning techniques with adversarial patterns.  
+• Inclusion of trojans and backdoors during the AI development process, either in the code itself or in the development tools.  
+• Manipulation of the user API to gain access to the model, both at the black box and white box levels, for the manipulation of model parameters, filtering the model to third parties, and attacks on the integrity or availability of the inferences.  
+• Attacks by "adversarial machine learning," necessitating an analysis of robustness and control of the data feeding into the model.  
+• Attacks by imitation of patterns that are known to be accepted by the system.  
+
+A Survey on Security Threats and Defensive Techniques of Machine, Qiang Liu et al., IEEE Access, ISSN:2169-3536, February 2018  
+Trojans in AI, IARPA https://www.iarpa.gov/index.php?option=com_content&view=article&id=1150&Itemid=448  
+Example of manipulation of an image recognition algorithm https://www.bleepingcomputer.com/news/security/ai-training-algorithms-susceptible-to-backdoors-manipulation/ also Backdoor Embedding in Convolutional Neural Network Models via Invisible Perturbation https://arxiv.org/pdf/1808.10307.pdf  
+Vulnerability in a ML model development library: https://cyware.com/news/critical-vulnerability-in-numpy-could-allow-attackers-to-perform-remote-code-execution-33117832  
+With the purpose of increasing the rate of false positives or false negatives.  
+Adversarial machine learning attack technique that consists of feeding the AI with example data that, from a human perception standpoint, may be indistinguishable from normal data, but includes small perturbations that force the AI to make erroneous inferences.  
+Exploring the Landscape of Spatial Robustness, Logan Engstrom∗ MIT https://arxiv.org/pdf/1712.02779.pdf  
+Oriented towards applications such as facial recognition or intrusion detection and often related to "adversarial machine learning" techniques.
+Page: 43 of 53  
+•  
+Reidentification of personal data included in the model (inference of belonging123 or model inversion124) by internal125 and external users.  
+•  
+Fraud or deception to the AI by interested parties, especially in cases that may cause harm to other interested parties126, which implies the need to conduct an analysis of robustness against such actions and the performance of audits.  
+•  
+Filtering to third parties of profiling results or decisions inferred by the AI (also related to user APIs).  
+•  
+Filtering or access to logs resulting from the inferences generated in the interaction with the interested parties.  
+Activity logs  
+The existence of log files or activity records, the performance of audits (whether automatic or manual), and the certification of the process are an inherent part of "accountability" or proactive responsibility strategies. They also stem from legal requirements specifically established in sectoral regulations.  
+Log files will be necessary to support audit processes and security mechanisms. Regarding data protection, these log files must provide evidence to:  
+•  
+Determine who and under what circumstances accesses the personal data that may be included in the model.  
+•  
+Provide traceability regarding the updating of inference models, the communications of the user API with the model, and the detection of attempts at abuse or intrusion.  
+•  
+Provide traceability to enable governance in the communication of data among all participants in the AI solution concerning the obligations arising from Recital 66 of the GDPR.  
+•  
+Provide monitoring of the quality parameters of inference when the AI is used for decision-making or decision-support processes.  
+The legitimate interest of the data controller, as a legitimizing basis for the processing of personal data in activity log files for security purposes, is developed in Recital 49127 of the GDPR, in "the strictly necessary and proportionate measure to ensure the security of the network and information." In other cases, sectoral regulations establish obligations regarding the retention and processing of activity logs. This is the case of Law 10/2010 on the prevention of money laundering.  
+
+123 When it can be determined whether a particular individual, their data, is or is not part of the training model.  
+124 The model inversion attack in ML occurs when the attacker has access to certain personal data of the interested party included in the AI model and can infer additional personal information about those individuals by analyzing the inputs and outputs of the model.  
+125 Particularly when AI models are acquired from the developer by third parties.  
+126 A classic example of fraud in AI analysis of CVs is writing non-existent merits in a font color that matches the background of the document, making it impossible for a human to read but detectable by a machine, thus deceiving the candidate selection system to the detriment of honest candidates. This system was already used to deceive the Google search engine into indexing pages by keywords that were not visible to the user and had no relation to the actual content of the page.  
+127 Recital 49 - The processing of personal data by the data controller constitutes a legitimate interest to the extent strictly necessary and proportionate to ensure the security of the network and information, that is, the ability of a network or information system to withstand, at a certain level of trust, accidental events or unlawful or malicious actions that compromise the availability, authenticity, integrity, and confidentiality of the personal data stored or transmitted, and the security of the related services offered by or accessible through these systems and networks, by public authorities, computer emergency response teams (CERT), computer security incident response teams (CSIRT), providers of networks and electronic communication services, and providers of technologies and security services. This may include, for example, preventing unauthorized access to electronic communication networks and the malicious distribution of codes, and thwarting denial-of-service attacks and damage to computer and electronic communication systems.
+Page: 44 of 53  
+and of the financing of terrorism128. In that case, the legal basis for processing would be compliance with a legal obligation applicable to the data controller. Additionally, other legal bases could be used to legitimize the processing of data in log records.  
+The data controller must be aware of the obligations and limits established in the sectoral regulation, as these legal bases do not authorize the processing of personal data contained in the log file for purposes other than those for which there is a legal basis, such as performance evaluation or the evolution of the AI system. The data controller must ensure that safeguards are implemented to prevent access to and exploitation of such records for purposes for which there is no legal basis.  
+Developers of the AI component, when using ML-based solutions and with the purpose of documenting and complying with the principle of proactive responsibility, must implement other records, such as those that allow for traceability regarding the origin of the training and validation data, as well as records of the analyses conducted on the validity of such data and their results.  
+G.  
+EVALUATION OF THE PROPORTIONALITY AND NECESSITY OF SUCH PROCESSING  
+Article 35.7.b of the GDPR establishes that, when conducting a DPIA, an evaluation of the necessity and proportionality of the processing concerning its purpose must be carried out.  
+The use of AI-based solutions places data controllers and processors in a scenario where the processing, due to its characteristics and, in particular, the chosen technology, may entail a high level of risk. Therefore, it should be assessed whether the objective of the processing can be achieved using another type of solution that achieves the same functionality, with an acceptable performance margin and a lower level of risk.  
+That is to say, the availability or novelty of a technology does not justify, by itself, its use; rather, it must be subject to weighing, conducting an analysis of whether the processing, in the manner proposed, is balanced because it yields more benefits and specific advantages for the general interest and society as a whole than detriments, understood as the risks to the rights and freedoms of the subjects whose data is being processed.  
+
+128 Article 25. Document retention.  
+1. Obligated subjects shall retain the documentation formalizing compliance with the obligations established in this law for a period of ten years, proceeding thereafter to its elimination. After five years from the termination of the business relationship or the execution of the occasional operation, the retained documentation shall only be accessible by the internal control bodies of the obligated subject, including the technical prevention units, and, where applicable, those responsible for its legal defense.  
+In particular, obligated subjects shall retain for use in any investigation or analysis regarding possible cases of money laundering or financing of terrorism, by the Executive Service of the Commission or any other legally competent authority:  
+a) A copy of the documents required under the due diligence measures, for a period of ten years from the termination of the business relationship or the execution of the operation.  
+b) The original or a copy with evidentiary value of the documents or records that adequately substantiate the operations, the parties involved, and the business relationships, for a period of ten years from the execution of the operation or the termination of the business relationship.  
+2. Obligated subjects, with the exceptions determined by regulation, shall store copies of the identification documents referred to in Article 3.2 on optical, magnetic, or electronic media that guarantee their integrity, the correct reading of the data, the impossibility of manipulation, and their proper preservation and location.  
+In any case, the filing system of the obligated subjects must ensure the proper management and availability of the documentation, both for internal control purposes and for timely and proper response to the requirements of the authorities.
+Page: 45 of 53  
+The ISO-3100 standard "Risk Management. Principles and Guidelines" outlines in section 5.5 "Risk Treatment" the general conditions for risk management in any type of field:  
+“THE SELECTION OF THE MOST APPROPRIATE RISK TREATMENT OPTION INVOLVES OBTAINING A COMPENSATION OF THE COSTS AND IMPLEMENTATION EFFORTS BASED ON THE BENEFITS GAINED, TAKING INTO ACCOUNT LEGAL, REGULATORY, AND OTHER REQUIREMENTS, SUCH AS SOCIAL RESPONSIBILITY AND THE PROTECTION OF THE NATURAL ENVIRONMENT. DECISIONS SHOULD ALSO BE MADE CONSIDERING RISKS WHOSE TREATMENT IS NOT JUSTIFIABLE ON AN ECONOMIC LEVEL, FOR EXAMPLE, SEVERE RISKS (HIGHLY NEGATIVE CONSEQUENCES) BUT RARE (LOW PROBABILITY).”  
+In the field of personal data protection, the risks that must be considered are those related to the rights and freedoms of the data subjects. If the risks are being borne by society, the benefits obtained must be evaluated not only from the perspective of the entity but also from the social point of view in the area where the treatment is deployed.  
+In particular, in the case of treatments that use AI solutions for decision-making or to assist in such decisions, it is recommended that the DPIA evaluate conducting a comparative analysis between the performance obtained by a qualified human operator versus the results produced by models capable of predicting scenarios or taking actions automatically. In that case, the actual input conditions of the data as well as the context in which the treatment is deployed must be taken into account. Furthermore, this analysis should cover both the strict aspects of decision-making and the collateral benefits for the data subjects.  
+H.  
+AUDIT  
+The audit process for a treatment that includes an AI component can vary in scope: auditing the development process of the component, the distribution of the model, specific aspects of the treatment, operation, security, and robustness against attacks on the model, etc. Additionally, the audit can be conducted internally or externally and can serve both a control purpose and as a tool for transparency.  
+As established by the principle of proactive responsibility, the guarantees established to manage risk must be documented and include sufficient information to satisfactorily and demonstrably substantiate the actions taken. This documentation must allow for the traceability of the decisions and checks made following the aforementioned minimization principles. It is not only necessary to audit the treatment, but it must also be auditable throughout its lifecycle, including its withdrawal.  
+It is necessary to conduct the audit to determine compliance with the requirements of the GDPR and to verify the validity of the treatment based on AI solutions. The audit process, to be effective, must be carried out under the same conditions as a real operational environment, particularly to evaluate:  
+• The existence of a documented analysis, development, and/or implementation process including, where appropriate, the relevant evidence of traceability.  
+• The existence or absence of personal data, profiling, or automated decisions about data subjects without human intervention, as well as the analysis of the effectiveness of anonymization and pseudonymization methods.  
+
+In particular, in applications where the complexity of the treatment has multiple aspects and collateral elements that cannot be simplified. A reflection on this aspect can be found in: Why we cannot trust artificial intelligence in medicine, Matthew DeCamp, Jon C Tilburt, The Lancet, correspondence, volume 1, issue 8, December 01, 2019.
+Page: 46 of 53  
+•  
+Analysis of the existence and legitimacy of the processing of special categories of data, particularly in inferred information.  
+•  
+The legal basis for processing and the identification of responsibilities.  
+•  
+In particular, when the legal basis is legitimate interest, assessment of the balance between different interests and impacts on rights and freedoms based on the guarantees adopted.  
+•  
+The information and effectiveness of the transparency mechanisms implemented.  
+•  
+The application of the principle of proactive responsibility and risk management for the rights and freedoms of data subjects and, in particular, whether the obligation or necessity of conducting DPIAs has been assessed and, if so, their results.  
+•  
+In relation to the above, the application of data protection measures by default and by design, including:  
+  o The prior analysis of the needs for processing personal data, in quantity and extent, at different stages following minimization criteria.  
+  o The analysis of the accuracy, fidelity, quality, and biases of the data used or captured for the development or operation of the AI component, as well as the data cleansing methods used.  
+  o The verification and execution of testing and validation processes for the accuracy, precision, convergence, consistency, predictability, and any other metrics of the goodness of the algorithms employed, profiling, and inferences. Furthermore, the verification that these parameters meet the necessary requirements for processing.  
+•  
+The adequacy of security measures to prevent risks to privacy.  
+•  
+The training and education of the personnel of the data controller involved, when appropriate, with the development or exploitation of the AI component, in the latter case with special attention to the correct interpretation of inferences.  
+•  
+The necessity and, if applicable, capacity of the DPO.  
+•  
+The incorporation of mechanisms that ensure attention to the rights of data subjects, particularly the ex officio deletion of personal data, and paying special attention to the rights of minors.  
+•  
+Compliance with the limitations on automatic decisions without human intervention, the evaluation, if applicable, of the quality of human intervention, and the supervision mechanisms adopted. In particular, when the legal basis is explicit consent, identification of the guarantees adopted to determine whether it is free.  
+•  
+The application of any of the guarantees established in Chapter V of the GDPR in the case of international data transfers.  
+•  
+In general, compliance with the requirements and obligations of the GDPR and, in particular, those outlined in this document.  
+As previously established, the AI solution will be integrated into a specific processing context, with unique characteristics and in a defined operational environment. An audit of the isolated AI solution, without considering the context and environment, will be incomplete and provide partial results that will not be realistic.  
+A critical aspect of the audit is to ensure that the AI solution is being used for the purpose for which it was designed, with particular attention to its use by system operators.  
+Additionally, when it is a component acquired from a third party, it is necessary to determine what other collateral functions that component is performing and whether they may have regulatory implications.  
+The use of real-time automated auditing solutions or tools is recommended in automated decision-making systems to ensure that the results are consistent and accurate, as well as to support the possibility that erroneous decisions are aborted or canceled before irreversible consequences occur.  
+
+Page: 47 of 53  
+For example, the Google reCAPTCHA component also performs analytical functions: https://developers.google.com/recaptcha/docs/analytics  
+
+Page: 48 of 53  
+V.  
+INTERNATIONAL TRANSFERS  
+The development or deployment of a cloud-based AI component, the communication of user data to third parties to evolve the AI model, or the distribution of the AI component in cases where there are personal data inherent to the model, may involve cross-border data flows to third countries. Data flows occurring within the framework of the European Economic Area (the EU Member States plus Iceland, Norway, and Liechtenstein) are not considered international data transfers.  
+Such transfers must apply the guarantees established in Chapter V of the GDPR "Transfers of personal data to third countries or international organizations." It is especially important to establish mechanisms to ensure that contracts made in this context of international transfers are managed smoothly, while ensuring that the responsible client has sufficient information about contractors or potential contractors and retains the ability to make decisions. When international transfers occur, data subjects must be informed in accordance with the terms of Articles 13 and 14 of the GDPR and this must be included in the record of processing activities.
+Page: 49 of 53  
+VI.  
+CONCLUSIONS  
+The marketing of treatments that include solutions based on disruptive technologies, such as those based on AI components, for entities and consumers in general, requires the implementation of quality and safety guarantees. The availability of a technology or its novelty is not sufficient reason to market products that do not meet an adequate level of service quality, especially when these requirements are established in a standard. On the other hand, researchers and the AI-based industry need guidelines and support that assist them in regulatory compliance and provide legal certainty in their projects, products, and services.  
+Regarding the protection of personal data, compliance with the provisions of the GDPR requires a certain level of maturity in AI solutions that allows for an objective determination of the adequacy of the treatments and the existence of guarantees and measures to manage their risks.  
+For these risks, technology in general, and in particular AI technologies, can have a multiplying effect on the ethical shortcomings that are already present in society or those that have persisted from the past and are recorded in historical data. The application of the GDPR and the guarantees it incorporates allows for the minimization of such risks.  
+The use of transparency strategies, risk management, and auditing and certification mechanisms will not only enable compliance with the provisions of the GDPR but will also enhance user trust in AI-based products and services, in addition to opening a new market in this sector: privacy engineers, auditors, certification schemes, accredited professionals, etc. These new development opportunities also extend to the creation of portability schemes.  
+Moreover, AI applications can provide significant support for protecting privacy and implementing mechanisms that ensure data protection.  
+This document aims to be a mere introduction to the adequacy of treatments that include AI components and does not cover all the possibilities and risks that may arise from the use of AI solutions in personal data processing.  
+In conclusion, it should be emphasized that one of the main problems with AI solutions is not the AI itself, but how people will use AI technology and the new psychological biases that arise from its use. In particular, special attention must be paid to attributing responsibilities to AI components without oversight and without adopting a critical stance. The delegation of decision-making to machines is not new; it already occurs with deterministic algorithms, but the bias of attributing greater authority or weight to a result inferred by an AI solution can increase the risks arising from this delegation of responsibility.  
+
+132 Safety understood as "safety," that is, not causing harm or detriment.  
+133 As in cases of bullying, harassment, or fake news.  
+134 Such as AI applications for cleaning databases or analyzing system security.  
+135 There are many other issues that remain pending, such as cases of human-machine hybridization, the problem of group privacy, demutualization, or even to what extent a decision made by an AI in military applications falls within the category of automatic decisions with legal effects.
+Page: 50 of 53  
+VII.  
+REFERENCES  
+The references listed below are ordered based on their relevance in the preparation of this document:  
+
+Regulation (EU) 2016/679 of the European Parliament and of the Council of April 27, 2016, on the protection of natural persons with regard to the processing of personal data and on the free movement of such data, and repealing Directive 95/46/EC (General Data Protection Regulation).  
+Organic Law 3/2018, of December 5, on Personal Data Protection and the guarantee of digital rights  
+Big data, artificial intelligence, machine learning and data protection. ICO Information Commissioner’s Office, September 2017  
+How can humans keep the upper hand? The ethical matters raised by algorithms and artificial intelligence, CNIL, December 2017  
+Draft Ethics Guidelines for Trustworthy AI, High-Level Expert Group on Artificial Intelligence, European Commission, December 2018, Brussels  
+Artificial Intelligence for Europe. Communication from the Commission to the European Parliament, the European Council, the Council, the European Economic and Social Committee and the Committee of the Regions, European Commission, April 2018, Brussels.  
+Discrimination, artificial intelligence, and algorithmic decision-making, Prof. Frederik Zuiderveen Borgesius, Council of Europe 2018  
+Robustness and Explainability of Artificial Intelligence. From technical to policy solutions. European Commission. 2020  
+Spanish Strategy for R&D&I in Artificial Intelligence, Ministry of Science, Innovation and Universities, 2019  
+Automating Society, Taking Stock of Automated Decision-Making in the EU, AW AlgorithmWatch gGmbH, January 2019, Berlin  
+Opinion 7/2015 Meeting the challenges of big data. European Data Protection Supervisor. EDPS, November 19, 2015.  
+Practical Manual of Artificial Intelligence in Health Environments, Beunza Nuin J.J., Puertas Sanz E., Emilia Condés Moreno E., Elsevier, January 2020  
+Recommendations for the processing of personal data in artificial intelligence. Text approved by the Entities comprising the Ibero-American Network for Data Protection in the session of June 21, 2019, in the city of Naucalpan de Juárez, Mexico.  
+Artificial Intelligence and Data Protection in Tension, Centre for Information Policy Leadership, October 2018  
+AI and Data Protection – Balancing tensions – Slaughter and May, PLC Magazine, August 2019  
+Artificial Intelligence in Finance, Alan Turing Institute, Hanken School of Economics, April 2019, Finland  
+Report on Algorithmic Risk Assessment Tools in the U.S. Criminal Justice System, Partnership on AI (PAI), April 2019  
+https://www.partnershiponai.org/report-on-machine-learning-in-risk-assessment-tools-in-the-u-s-criminal-justice-system/  
+Human-AI Collaboration Framework & Case Studies, Partnership on AI (PAI), September 2019  
+https://www.partnershiponai.org/human-ai-collaboration-framework-case-studies/  
+AI Index 2018 Annual Report, Zoe Bauer et al., AI Index Steering Committee, Human-Centered AI Initiative, Stanford University, Stanford, CA, December 2018  
+
+Page: 51 of 53  
+Artificial Intelligence and the Future of Humans, J. Anderson et al., Pew Research Center, December 2018  
+AI-related series from the ICO blog https://ico.org.uk/about-the-ico/what-we-do/tech-and-innovation/blogs/  
+Artificial Intelligence Safety and Cybersecurity: a Timeline of AI Failures, Roman V. Yampolskiy, University of Louisville 2018  
+Why we cannot trust artificial intelligence in medicine, Matthew DeCamp, Jon C Tilburt, The Lancet, correspondence, volume 1, issue 8, December 01, 2019  
+Exploring the landscape of spatial robustness, Logan Engstrom, MIT  
+https://arxiv.org/pdf/1712.02779.pdf  
+Towards federated learning at scale: system design, Keith, Bonawitz et al.  
+https://arxiv.org/pdf/1902.01046.pdf  
+What’s your ML Test Score? A rubric for ML production systems, Eric Breck, 2018, Google Inc.  
+https://www.eecs.tufts.edu/~dsculley/papers/ml_test_score.pdf  
+A Survey on Security Threats and Defensive Techniques of Machine, Qiang Liu et al., IEEE Access, ISSN: 2169-3536, February 2018  
+Opinion 05/2014 on anonymization techniques, Article 29 Working Party, 2014  
+Opinion 06/2014 on the concept of legitimate interest of the data controller under Article 7 of Directive 95/46/EC, Article 29 Working Party, April 2014  
+Guidelines on the right to data portability, Article 29 Working Party. Adopted on December 13, 2016. Last revised and adopted on April 5, 2017  
+Guidelines on automated individual decision-making and profiling for the purposes of Regulation 2016/679. Article 29 Working Party. Adopted on October 3, 2017. Last revised and adopted on February 6, 2018  
+Guidelines on Data Protection Officers (DPO), Article 29 Working Party. Adopted on December 13, 2016. Last revised and adopted on April 5, 2017  
+Privacy by Design Guide, AEPD, October 2019  
+Practical Guide for Data Protection Impact Assessments, AEPD, October 2018  
+Guidelines and guarantees in the processes of anonymization of personal data, AEPD, 2016  
+Lists of types of data processing that require DPIA (art 35.4) AEPD, 2019  
+Model report for Data Protection Impact Assessment for Public Administrations, AEPD, July 2019  
+ISO-3100 “Risk Management. Principles and Guidelines”
+Page: 52 of 53  
+VIII. ANNEX: CURRENT AI-BASED SERVICES  
+The list presented in this annex is not intended to be exhaustive but rather an example to illustrate the extent of the services currently being provided based on AI:  
+•  
+Internet Services  
+  o Captchas, chatbots, fraud detection, ad personalization.  
+•  
+Human Resources  
+  o Candidate selection.  
+•  
+Financial Services  
+  o Mortgage prediction based on customer profile analysis, transaction monitoring to detect fraudulent activities based on consumption habits, automatic financial investment.  
+•  
+Health and Healthcare  
+  o Diagnosis based on image analysis, prediction of patient readmission rates based on data analysis, health maps, mental health analysis, suicide prevention, mental health chatbots, risk prediction based on analytical parameters, diagnosis through pathological sample analysis, natural language processing of medical records, genetic analysis, electrodiagnosis, vaccine and medication development.  
+•  
+Commerce and Communication:  
+  o Product recommendations based on customer profile and purchase analysis, maximizing the reach of products and services to a group of customers, virtual travel agents, social media monitoring.  
+•  
+Public Services and Supplies:  
+  o Smart meters and prediction of customer consumption demand, estimation of the cost of certain maintenance services, allocation of treatments in the public health system, automatic processing of fines, decision support in the administration of justice.  
+•  
+Transportation:  
+  o Autonomous vehicles, smart traffic lights, optimization of routes and schedules for public transport services.  
+•  
+Education:  
+  o Content and training personalized to the needs of students, exam correction, detection of plagiarism or fraud in assignments, automatic tutoring, detection of anomalous students.  
+•  
+Security:  
+  o Facial recognition, fingerprints, behavior detection, border control, analysis of deception indicators, activity log analysis, intrusion detection, communication analysis.  
+•  
+Home:  
+  o Smart assistants, smart mirrors, appliances, security.  
+•  
+Others  
+  o Drawing tools, aids for artistic creation, optimization of sports training programs.

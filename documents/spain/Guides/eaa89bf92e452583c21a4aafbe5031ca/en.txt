@@ -1,0 +1,633 @@
+INTRODUCTION TO HASH 
+AS A TECHNIQUE FOR 
+PSEUDONYMIZATION OF 
+PERSONAL DATA 
+v. October 2019
+
+Page: 2 of 31
+
+EXECUTIVE SUMMARY
+
+This study is aimed at those responsible who wish to use hash techniques in their processing as a guarantee of pseudonymization of personal data. Throughout the text, the fundamentals of hash techniques and their properties are introduced. In the application of these techniques, in some cases, there is a high risk of identifying the message that generated the hash. The document analyzes the sources of reidentification risk in the application of hash techniques and establishes the need to conduct an objective analysis of these risks to determine the suitability of this as a technique for pseudonymization or even anonymization. This analysis involves both the process employed and the other elements that make up the hash system, with particular attention to the entropy of the messages and the information linked or linkable to the value represented by the hash.
+
+Page: 3 of 31
+
+INDEX
+I. INTRODUCTION AND OBJECTIVE OF THE STUDY 5
+II. HASH FUNCTION 5
+Desired properties in a Hash function 7
+Description of a hash function 7
+III. HASH AS A UNIQUE IDENTIFIER 8
+Analysis based on a specific treatment 9
+IV. REIDENTIFICATION ISSUE 10
+Hash treatment of phone numbers 10
+Analysis of the treatment 11
+Analysis of reidentification 12
+Order, disorder, and information 12
+V. LINKING INFORMATION TO THE HASH 13
+Identifiers linked to the hash 13
+Pseudonyms linked to the hash 13
+Linking other types of information 14
+VI. STRATEGIES TO HINDER REIDENTIFICATION 14
+Perform encryption with key reuse 14
+Appending a header to the message or salt with reuse 17
+Single-use salt models 18
+Differential models 20
+VII. ANALYSIS OF HASH AS A SYSTEM OF PSEUDONYMIZATION OR ANONYMIZATION OF PERSONAL DATA 20
+
+Page: 4 of 31
+VIII. CONCLUSIONS 22
+IX. BIBLIOGRAPHY 23
+X. ANNEXES 23
+Extracts from the GDPR 23
+Extracts from Opinion 5/2014 on anonymization techniques 26
+Extracts from the Guidelines and Guarantees in the Personal Data Anonymization Procedures of the AEPD 27
+Extracts from ENISA document. Recommendations on shaping technology according to GDPR provisions. An overview on data pseudonymisation 28
+
+Page: 5 of 31
+
+I. INTRODUCTION AND OBJECTIVE OF THE STUDY
+The value of data is currently indisputable. Data has become a key factor for scientific research, public administration, and a growing digital economy. The development of promising technologies such as Big Data or Machine Learning largely depends on the amount of data that can be provided to them. This growing demand for personal data has led to renewed interest in anonymization processes and techniques. Hash functions have long been used to provide additional protection in the processing of personal data. However, there are doubts about the extent to which hash is an effective technique for pseudonymization and whether, under certain circumstances, such as when the original message has been deleted, it can even be considered that the value of the hash is anonymized. This decision is of paramount importance to determine, among other things, the effective compliance with the rights established in the GDPR in certain types of processing, such as in research, traffic data analysis, geolocation, blockchain, and others. When making this decision, legal, technical, and process management considerations come into play, so those involved need to have a basic understanding of hash techniques and their potential risks. This study is directed at those responsible for processing who wish to use implementations based on the use of hash functions to pseudonymize or anonymize personal data. It briefly presents the fundamentals of hash functions, their properties, the possibilities of reidentifying the message that generated the hash, and establishes certain guidelines for analyzing the suitability of a treatment that uses hash functions.
+
+II. HASH FUNCTION
+A hash function is a process that transforms any arbitrary set of data into a new series of characters with a fixed length, regardless of the size of the input data. The result obtained is called a hash, digest, or image. Often, the term "hash" is used both to refer to the hash function and to the resulting value of executing that function on a particular message. The data that will be processed by the hash function is called a message or preimage. The set of all possible messages or preimages is the domain or message space. For example, if the SHA256 hash function is used to determine the hash value of "Hello," the following digest will be obtained: 
+
+1 Blockchain and the General Data Protection Regulation. http://www.europarl.europa.eu/thinktank/en/document.html?reference=EPRS_STU%282019%29634445 
+2 A list of hash function simulators can be found at https://hash.online-convert.com/
+Page: 6 of 31  
+SHA256(Hello) =  
+10412375520728980495627208923307217150057402816369478709346449899807  
+31601655193  
+
+In this case, "Hello" is translated into a set of bits, from which, after a series of operations, a 256-bit string is obtained (represented here with its decimal value).  
+If, on the contrary, I input a more complex message into the hash function, for example, the full text of Don Quixote in PDF format (471 pages), the result of the hash function will be different, but the result will be a summary of the same size in bits:  
+SHA256 (<<Text of Don Quixote in PDF>>) =  
+60306958082729627487200375730074782666835392077101919947310301380935  
+6525721695  
+
+In the first case, the message "Hello" occupied 32 bits, while in the second case, that edition of Don Quixote was in a document that had a size greater than 8 million bits. Therefore, we could represent the hash function as follows:  
+
+On the left, the message space is represented, or all possible sets of data that can be created and from which a hash can be generated. In the figure, this set is represented with blurry boundaries since this space can be infinite, as a message of a larger size can always be created.  
+On the right side of the image, the hash space is represented as a box with defined boundaries and a smaller size. The size of the hash space will depend on the number of bits used as the hash result. For example, in the case of SHA-256, since the hash result is 256 bits in size, but depending on the algorithm it could be of any size, with the most common being from 32 to 512 bits. To get an idea of  
+
+3 Hexadecimal notation is usually used since there is a direct correspondence between these digits and the underlying bits, a correspondence that is lost in decimal notation. The corresponding hexadecimal of the previous information is:  
+E633F4FC79BADEA1DC5DB970CF397C8248BAC47CC3ACF9915BA60B5D76B0E88F  
+Hexadecimal: a way of representing numbers that, instead of using notation from 0 to 9, extends it to 10 (A) 11 (B) 12 (C) 13 (D) 14 (E) and 15 (F). In this way, numbers are represented from 0 to F. Its advantage lies in the fact that with a single digit, 4 bits are represented. With 4 bits, there are 16 distinct combinations.  
+4 A clarifying description of the process can be found at https://medium.com/biffures/part-5-hashing-with-sha-256-4c2afc191c40  
+5 60306958082729627487200375730074782666835392077101919947310301380935652572169  
+6 Encoded in ASCII  
+
+Page: 7 of 31  
+how many distinct hash values can be obtained with a hash size of 256 bits, the total number will exceed multiplying one million by itself thirteen times.  
+DESIRABLE PROPERTIES IN A HASH FUNCTION  
+The ideal properties of a hash function are:  
+• It allows execution on digital content of any size and format. In the end, all digital content is numbers for the computer: texts, photographs, videos, etc.  
+• Given any input, it produces a fixed-size numerical output.  
+• The result is deterministic, meaning that for the same message or set of input data, the same result is always obtained.  
+• Reconstructing the original message from the hash function result must be extremely costly, if not impossible.  
+• A minimal variation in the original message (one bit) must produce a completely different hash (avalanche effect).  
+• If an input message is selected, finding another message that has the same hash must be extremely costly (weak collision).  
+• It must also be extremely costly to find any two messages that have the same hash (strong collision).  
+• The hash algorithm must uniformly cover the entire hash space, which means that any result of the hash function has, a priori, the same probability of occurrence as any other. Therefore, all values in the hash space can be the result of the hash function.  
+DESCRIPTION OF A HASH FUNCTION  
+In general, a hash function works as follows:  
+• The input message is divided into blocks.  
+• A formula calculates the hash, a fixed-size value, for the first block.  
+• The hash of the next block is calculated and added to the previous result.  
+• The same process is repeated until all blocks have been processed.  
+A very simple example of a hash function can be outlined below.  
+Let’s design a hash function that generates a hash of three decimal digits (from 000 to 999) from a text. For this example, let the message to calculate the hash be the text of Don Quixote:  
+In a place in La Mancha, the name of which I do not want to remember, not long ago there lived a gentleman of those of lance in the lance rack... etc.  
+First, the text would be divided into blocks of, for this example, twenty characters. In this way, in the following table, each row would represent a block:  
+
+1  
+2  
+3  
+4  
+5  
+6  
+7  
+8  
+9  
+10  
+11  
+12  
+13  
+14  
+15  
+16  
+17  
+18  
+19  
+20  
+I  
+n  
+
+a  
+p  
+l  
+a  
+c  
+e  
+
+i  
+n  
+
+L  
+a  
+
+M  
+a  
+n  
+c  
+h  
+a  
+
+o  
+f  
+
+w  
+h  
+i  
+c  
+h  
+
+I  
+
+d  
+o  
+
+n  
+o  
+t  
+
+w  
+a  
+n  
+t  
+
+t  
+o  
+
+r  
+e  
+m  
+e  
+m  
+b  
+e  
+r  
+
+7 To calculate the approximate value of a set of bits, it can be taken into account that with 10 bits, 1024 states can be encoded, therefore with 20, a little more than a million (1024x1024). In the case of 256, we divide that value by 20, resulting in 13.
+Page: 8 of 31  
+n  
+o  
+h  
+a  
+m  
+u  
+c  
+h  
+o  
+t  
+i  
+e  
+m  
+p  
+o  
+q  
+u  
+e  
+v  
+i  
+v  
+í  
+a  
+u  
+n  
+h  
+i  
+d  
+a  
+l  
+g  
+o  
+d  
+e  
+l  
+o  
+s  
+d  
+e  
+l  
+a  
+n  
+z  
+a  
+e  
+n  
+a  
+s  
+t  
+i  
+l  
+l  
+e  
+r  
+…  
+
+Next, each character would be assigned a numerical value, for example: A – 1; B-2; C-3; … And finally zero for the space. For the first block of the example, the following encoding would be obtained:  
+
+1  
+2  
+3  
+4  
+5  
+6  
+7  
+8  
+9  
+10  
+11  
+12  
+13  
+14  
+15  
+16  
+17  
+18  
+19  
+20  
+5  
+14  
+0  
+22  
+14  
+0  
+12  
+22  
+7  
+1  
+19  
+0  
+4  
+5  
+0  
+12  
+1  
+0  
+13  
+1  
+
+The hash value could be calculated in many ways, for example, the value associated with a character can be multiplied by its position in the block8 and then all the results summed. For this specific block, this process would yield the value 1331. As we have mentioned that this hash function will result in only three decimal digits, we can truncate the result directly by eliminating the digits above the third, therefore, the hash value obtained for the first block would be 331.  
+Next, we would proceed with the second row or block:  
+1  
+2  
+3  
+4  
+5  
+6  
+7  
+8  
+9  
+10  
+11  
+12  
+13  
+14  
+15  
+16  
+17  
+18  
+19  
+20  
+14  
+3  
+8  
+1  
+0  
+4  
+5  
+0  
+3  
+22  
+26  
+16  
+0  
+14  
+16  
+13  
+2  
+19  
+5  
+0  
+Operating the hash function on the same block would yield the value 1947, truncating above the third digit the final result would be 947.  
+Next, the two blocks would be chained together by summing the results of the two blocks 331+947 = 1278, truncating again the hash value of the first two blocks would result in 278. The process would be repeated with all the rows or blocks until the final result is obtained.  
+The system presented here does not have good properties as a hash function: the hash value has a length that is too small (there are only 1000 possible values), there are means to alter the text and preserve the hash9, its implementation is not efficient, etc. Therefore, other types of hash functions have been developed that are more suitable, such as the SHA10 family, MD511, or others12.  
+III.  
+HASH AS A UNIQUE IDENTIFIER  
+The number of possible results of a hash function is very high, but not infinite. Since the message space can be infinite, there will be infinite messages that can yield the same hash value. The set of messages that result in the same hash value is called the preimage set.  
+
+8 This would prevent obtaining the same hash by rearranging the letters within the same text, for example, replacing “En un lugar de la Ma…” with “De un lugar en la Ma…”.  
+9 The letter with value 5 in position 6 contributes the same as the letter with value 6 in position 5. The use of weights as prime factors would prevent taking advantage of these equivalences.  
+10 FIPS PUB 180-4 Secure Hash Standard (SHS) https://ws680.nist.gov/publication/get_pdf.cfm?pub_id=910977  
+11 RFC1321 The MD5 Message-Digest Algorithm https://www.ietf.org/rfc/rfc1321.txt  
+12 https://en.wikipedia.org/wiki/List_of_hash_functions  
+
+Page: 9 of 31  
+
+The existence of preimage sets, which could raise doubts about the utility of the hash function as a unique identifier, is only raised when considering a theoretical environment and not within the framework of a specific treatment.  
+ANALYSIS BASED ON A SPECIFIC TREATMENT  
+Let us suppose that a treatment wants to associate a hash value with each of the books that have been published in the world, based on the digitization of their contents. A few years ago, Google published that the number of books published in the world was 130 million13.  
+This is a figure significantly lower than the number of possible hash results for a function like SHA-256. Even if we multiplied it by 7,000, the number of books, reaching a trillion, we would still be far from saturating the hash value space.  
+If we were to represent it graphically, the set of published books is a subset of all possible messages, and it is small enough that the preimages of, for example, Don Quixote, are outside of it.  
+
+With a shadow over the hash space, the set of hash values that would be generated by obtaining the hash of all published books is represented, which would cover an infinitesimal part of the set of possible hash values.  
+Despite the number of published books, if in the previous figure the box corresponding to these were drawn to the same scale as the box corresponding to the hash space, the former would be practically invisible due to its small size.  
+
+13 http://booksearch.blogspot.com/2010/08/books-of-world-stand-up-and-be-counted.html
+Page: 10 of 31  
+The difference between the set of published books and the rest of the possible messages that could be a preimage of El Quijote lies in the concept of "order." Books are not formed by any combination of letters, but rather by words of a specific language, forming sentences with a particular syntax, with a narrative structure, and expressing a meaningful message. Therefore, if a meaningless message had the same hash as that corresponding to a specific book, we would discard it as belonging to our effective space of messages, that is, as belonging to our processing.  
+The stricter that "order" is, for example, in the case where only books in Spanish are allowed and not in any language, the smaller the set of books (the message space of my processing) will be, and there will be less probability of collision. Even so, nothing guarantees that two hash values corresponding to two different books do not match, although the probability is indeed very low in a well-constructed algorithm, and this possibility can be determined analytically through a generalization of the birthday paradox. Therefore, if we were to represent within the space of hashes a diagram that contains all the hashes corresponding to the real message space, it would have a diffuse limit, that is, if there are a trillion published books and their hashes are generated, it is highly probable that a trillion distinct hashes will be generated, but it is not guaranteed, although, for practical purposes, the correspondence between books and hashes is one-to-one, bijective.  
+IV.  
+REIDENTIFICATION PROBLEM  
+Hash functions aim to be irreversible (see their desirable properties), and therefore the result of applying a hash function to a direct identifier should prevent its reidentification. Nevertheless, the same "order" that is implicit in a processing and that guarantees the effectiveness of the hash as a unique identifier also increases the probability of identifying the original message from the hash.  
+PROCESSING OF PHONE NUMBER HASH  
+As an example, let us suppose that in a processing the hash of a mobile phone number from a telecommunications company is evaluated. The designer of the processing uses a hash function that generates a hash value of size 64 bits.  
+A mobile phone number consists of 9 digits, plus two for the area code and preceded by the symbol "+", totaling 12 symbols. If each symbol is stored in one byte, the total number of bits is equal to: 12*8 = 96 bits.  
+
+In the previous figure, it is represented how the space of phone numbers is greater than the space of hashes. If all possible hashes for all combinations of 96 bits were calculated, inevitably the entire hash space would be covered, resulting in more than four billion collisions. In principle, the hash function would have to "compress" the 96 bits of the number into the 64 bits of the hash.  
+On one hand, if the 96 bits of the number contained information, converting that number to a 64-bit hash would necessarily lose information and make the hash irreversible. On the other hand, one might wonder whether such a design of the processing meets the requirement of having a unique identifier.  
+ANALYSIS OF THE PROCESSING  
+A more detailed analysis would answer these questions:  
+• On one hand, eleven of the digits are numeric, which implies 100 billion combinations. If we assume that there are only 20 possible symbols on a keyboard, the encoding of an additional symbol to register the initial "+" would increase the number of combinations to 2 trillion. It seems like a very high number, but if we translate it to bits, we have reduced the amount of data from 96 bits to approximately 41 bits. That is, much less than the initial 96 and already below the 64 bits of the hash size, therefore, it would be useful as a unique identifier.  
+• As the framework of the processing assumes that all numbers are from Spanish subscribers, it is known that the prefix +34 is common, therefore, this data is fixed and with the remaining 9 digits there are one billion combinations (approximately 30 bits).  
+• If Spanish mobile phone numbers are being processed, they will start with 6 or 7. Therefore, with the first digit fixed, there are only 200 million combinations (approximately 28 bits).  
+• But there are not 200 million subscribers in Spain. The current number of mobile lines does not reach 60 million (26 bits).  
+• The operator with the most mobile lines does not reach 20 million (20 bits of information), therefore, if the mobile operator to which the hash of the number corresponds is known, and access to the list of numbers is available, the number of combinations decreases enormously, and the actual information contained in the original 96 data bits is only 20 bits of information.  
+
+16 Trillion in the sense of a million million.
+Page: 12 of 31
+
+As the example shows, in the definition of processing there is an implicit order that limits the set of possible messages within that processing (its message space). The number of valid possible messages (220) is much lower than the number of possible hashes (264), which means the possibility of collision is very low17 and the hash would practically behave as a unique identifier.  
+ANALYSIS OF REIDENTIFICATION  
+Regarding the possibility of determining the number corresponding to a given hash, considering that a desktop computer can calculate more than 1 million hashes per second, it is possible to create a dictionary for all possible hashes of the phones of a given operator in less than 20 seconds, practically in real time18. That is to say, the information referenced by the hash can be recovered.  
+In this case, the amount of information was small, but even for much larger message spaces, with more information, there are known techniques such as Rainbow Tables19 that allow for the reversibility of the hash.  
+ORDER, DISORDER, AND INFORMATION  
+When the data used in a processing has an implicit order, the set of possible messages (message space) is greatly reduced, which facilitates the reversibility of the messages (reidentification).  
+The greater the implicit order in a dataset, the more determined the message is, and the less real information it contains. Knowledge derives from the very structure of the data (e.g., Spanish mobile phone numbers start with +346 or +347) or knowledge about the processing environment (e.g., the phone numbers managed by an operator are known). For all these reasons, it is necessary to distinguish between the data of a message (96 bits in the previous example) and the information contained in that data (20 bits in the previous example).  
+
+17 Very low but not zero. If we analyze it as a memoryless system, the probability that two or more hashes coincide with 20 million occurrences in this case would be calculated as: P=1- [264! / ((264*20,000,000)*(264-20,000,000)!)]. Due to the complexity of calculating large numbers, it could be guaranteed that the probability is much lower than 0.002%.  
+18 https://automationrhapsody.com/md5-sha-1-sha-256-sha-512-speed-performance/  
+19 Rainbow Table Attack: A data attack method that uses a pre-computed table of hash strings (fixed-length message digest) to identify the original source of the data. CCN-STIC 401
+Page: 13 of 31  
+The degree of order, rather disorder, of a set of data is known as entropy. The greater the entropy, the more information a set of data will contain. Conversely, less disorder (less entropy) implies the existence of fewer alternatives, and therefore the same data will contain less information.  
+The smaller the message space, and the lower the entropy, the lower the risk of collision in hash processing, but re-identification will be more likely. Conversely, with greater entropy, the possibility of a collision will be higher, but the risk of re-identification will be lower.  
+The measure of the amount of information, which is very different from the number of bits being used to record a message, is one of the most important analyses to be carried out whenever there is an intention to protect a message, whether through hashes or using other techniques such as encryption, and requires rigorous analysis.  
+V.  
+LINKING INFORMATION TO THE HASH  
+In the case of the previous chapter, the more information available from the potential message space (its structure, the geographical location of users, the company to which they belonged), the greater the "order" implicit in the message and the less information the hash itself contained, making its re-identification more likely.  
+IDENTIFIERS LINKED TO THE HASH  
+A file with personal data may contain "identifiers" that are uniquely associated with an individual (e.g., ID number, full name, or passport).  
+If there are identifiers linked to a hash, for example, if the ID number and the hash of a phone number associated with that ID number are stored, it is evident that the information belongs to a specific individual. Regarding the confidentiality of the information represented in the hash, having a linked identifier will add an additional vulnerability to the weakness of the hash in question, as information from the ID number could be used to reduce the effective message space for that specific hash.  
+That is to say, the more personal information linked to the hash, the greater the risk of identifying the content of the hash.  
+PSEUDOIDENTIFIERS LINKED TO THE HASH  
+Files with personal data may also contain other data that, when appropriately grouped and cross-referenced with other sources of information, can lead to the identification of an individual. These data are referred to as "pseudo-identifiers," "quasi-identifiers," or indirect identifiers. The relationship between these and the hash value can be established in two ways.  
+The first is that the hash can be linked to pseudo-identifiers as a secondary effect that is not the object of the processing. The second case arises when the purpose of the processing is to link pseudo-identifiers to each other through a hash value.  
+In one way or another, the information these provide decreases the effectiveness of hash functions by providing clues about the information contained in the hash value that will allow for the identification of the subject. The risk of re-identification will depend not only on the type of pseudo-identifiers but also on the correct application of randomization or generalization techniques on the indirect identifiers. To determine to what extent that set of information is anonymous, it would be necessary to conduct an analysis of, for example, k-anonymity.  
+LINKING OTHER TYPES OF INFORMATION  
+There may be additional conditions that arise when the theoretical design of a processing operation is concretized in an implementation on an ICT system and with specific work procedures. The actual operation may generate circumstances that allow for the linking of additional information to the hash, which was not foreseen in the original concept of the processing, for example:  
+• The relative position of the hash in a table or data chain allows for establishing relationships between previously or subsequently stored information.  
+• The date of registration of the hash in a table allows for linking it with information stored in other tables or chains that were recorded on the same date.  
+• Similarly, log files associated with transmission, use of computing services, access to storage systems, etc., are sources of information that allow for cross-referencing data.  
+All these possibilities must be taken into account when determining the difficulty of re-identifying the hash.  
+VI.  
+STRATEGIES TO HINDER RE-IDENTIFICATION  
+PERFORMING ENCRYPTION WITH KEY REUSE  
+One strategy to hinder the re-identification of the hash value is to use an encryption algorithm with a key that is stored confidentially by the responsible party.
+Page: 15 of 31  
+or participants in the processing, who either encrypt the message before calculating the hash, or encrypt the hash once it has been calculated. The encryption process produces a new message (cipher text) from the original (plain text), with an efficient process to obtain one from the other using keys.  
+Both strategies are represented in the figure below:  
+
+As shown in the previous figure, encryption establishes a correspondence between different message spaces, in the first case, or when the hash is encrypted, between two hash spaces.  
+The encryption process, unlike the process of calculating the hash, is an inherently reversible process that, by its very nature, preserves the encrypted information. That is to say, the information is there; it neither increases nor decreases with the encryption process, and the encrypted and unencrypted spaces are linked by the key.  
+In that case, we could represent the correspondence between message spaces and encrypted spaces (cipher text) for a given key as follows:  
+
+In the figure, the point in both spaces represents the same unencrypted message (left) and encrypted message (right).  
+If the key is unknown, an observer will only have the reference that there is an encrypted message; they would not know the key, and this message could correspond to almost as many keys as could be conceived:  
+
+Page: 16 of 31  
+
+But if multiple encrypted texts of multiple messages are available, there will come a time when all of them can only correspond to a single space of cipher texts that can be generated with a single key:  
+
+This principle is known as Uniqueness Distance26 and establishes that, above a threshold of encrypted text, both the plain text and the key are determined. This implies that, even if the key could be erased by the data controller, the key is implicitly contained in the encrypted text, so neither the key nor the information it protects disappears and, therefore, they are susceptible to being recovered27.  
+Therefore, re-identification will be protected with a certain level of guarantee that will depend on the inherent weaknesses of any encryption system:  
+• The commitment to the confidentiality of the key. Working in distributed environments could increase this risk28.  
+• The strength in key generation.  
+• Vulnerability to known plaintext or chosen plaintext attacks29.  
+• The volume of encrypted information; the more information, the easier it is to cryptanalyze.  
+• The principle of uniqueness distance.  
+• The development of computing power and new cryptanalysis algorithms.  
+• The existence of unknown weaknesses in the encryption system.  
+
+26 Established by Shannon in the report "Communication Theory of Secrecy Systems," it is stated as follows: depending on the entropy of the encryption system, the message length from which, given a cipher text and a specific encryption algorithm, both the key and the plain message are fully determined.  
+27 This distance can be very short; if Uniqueness Distance = Log2(number of keys) / Redundancy = Log2(number of keys) / (log2(symbols) - entropy), in the case of a Spanish text encrypted with AES256, the uniqueness distance is equal to log2(2256)/(log2(27)-2), approximately 95 characters. That is, with a single encrypted text of 100 characters, this distance has been exceeded.  
+28 Security can always be increased with asymmetric cryptosystems and key relationship management strategies.  
+29 The first refers to cases where the information that has been encrypted is public, the second that a third party can cause a chosen message to be encrypted.
+Page: 17 of 31  
+ATTACHMENT OF A HEADER TO THE MESSAGE OR SAL WITH REUSE  
+Another strategy to hinder re-identification is to add a constant value or "salt" to all messages before evaluating the hash. A salt is a random value that is added to the original message. If it is random, it must be independent of the same message or any other information.  
+The format of the message changes, as the salt field must be added to the original message. The new expanded message will have the following form:  
+
+Let us assume we are dealing with the hashing of phone numbers. With this new strategy, the message space of the processing would not consist solely of phone numbers, but rather of the pair "salt+phone number." For example, before calculating the hash of the number "+34654323211," a pre-calculated random value would be added to the message: "112358314…+3465323211." Once the expanded message has been created, the hash is calculated. To verify the hash for any message, one only needs to add the salt stored in the system to the original message. If, due to a collision, the hash of a phone number matches a stored hash, that match does not validate the number, as isolated numbers are not part of the expanded message space.  
+As in the case of using a key, the value of the salt must remain secret, and the amount of information in the message space remains constant, neither increasing nor decreasing. The process can be graphically represented as follows:  
+
+If the value of the salt is removed by the data controller, the information does not disappear, but its access will be protected with a certain level of guarantee, as an approximation to the principle of uniqueness distance is fulfilled, as in the case of encryption. Although the hash algorithm is not inherently reversible, the situation in which the message space is found in relation to the salt+messages space is similar to what occurs with the encryption model. Moreover, the salt is also implicitly found in the generated hash space.  
+Additionally, re-identification will be protected with a certain level of guarantee that will depend on the weaknesses of the system, among others:  
+• The commitment to the confidentiality of the unique salt used, whose control is more difficult in distributed environments.  
+• The properties of the salt, which will depend on its length and the randomness of the salt generation system. A shorter salt will be vulnerable to brute force attacks and Rainbow Tables. A salt value generation system with weaknesses may infer that it takes a value within a limited set of options.  
+• The level of development of computing power and new hash-breaking algorithms, which necessitate the generation of increasingly longer salts.  
+• The existence of unknown weaknesses in the hash algorithm or in the processing system.  
+MODELS OF SINGLE-USE SALT  
+The use of single-use salt allows for the development of models in which the risk of re-identification of the hash is reduced. In the event that such salt is removed, the original message, provided that certain guarantees are met, could be considered anonymized.  
+Single-use salt entails generating a distinct random element for each of the messages. This random element must be completely independent of any message and of any other salt generated for another message.  
+A didactic example of this model could be as follows:  
+First, the format of the original message is expanded to an expanded message consisting of three fields:  
+• The message itself.  
+• An additional salt that we will call nonce, whose purpose is to increase the entropy of the message to a value approximately equal to the number of output bits of the hash function. Of course, this nonce value must be generated randomly, must be independent of the message, and independent of any other nonce value, that is, also single-use.  
+• A single-use salt value, independent of the two previous ones and of any other salt value. That is, also single-use.  
+The format of the expanded message for processing would be as follows:  
+
+A very simplified example, which does not take into account block chaining: assuming a hash algorithm A that works with blocks of size k and uses a salt S, of size n=k. The attacker knows or manages to calculate the hash H of a message M of size k: A(S || M) = H. By working in blocks, I know that A(S)+A(M) = H. Therefore, A(S) = H-A(M). Knowing the hash of S, I can develop a Rainbow Table attack or other strategies to obtain an equivalent salt.  
+In particular, due to Bitcoin mining, which consists of obtaining hash values with certain characteristics, significant development is being made in optimizing the speed of the SHA256 algorithm.  
+See the section related to hash analysis as a pseudonymization system in this document.  
+Nonce is an arbitrary number, typically generated randomly, that can only be used in the encryption scheme once.
+Page: 19 of 31
+
+A valid message in the message space of the processing should have the previous structure, which we will call an expanded message. The expanded message is stored by the responsible party, and the salt and nonce fields are kept confidential for each of those messages. This strategy would have the following effects:
+• On one hand, by adding a nonce to each possible message that expands the entropy of the message space, a message space on the order of the hash space would be obtained, making a homogeneous coverage of the latter highly probable. That is, there is a high likelihood that every possible hash value could correspond to a valid message.
+
+• On the other hand, since the salt is single-use and not shared, the space of possible (salt+nonce+messages) grows in such a way that each hash value has a high probability of corresponding to as many (salt+nonce+message) triples as there are hash values. That is, the possibility of collision is guaranteed.
+
+The characteristics that this model would have are as follows:
+• To compromise re-identification, access to the salt and nonce value associated with each message is required.
+• The possibility of collision in the expanded message space is guaranteed, since for the same message there is a high probability that all messages from the original space could have the same hashes if the appropriate salt and nonce are selected.
+• The hash value does not identify a single expanded message within the space of possible expanded messages, although the current state of technology makes it very difficult to construct an expanded message (salt+nonce+false message) that has the same hash as that generated from the expanded message (salt+nonce+true message). Therefore, it fulfills its function as a unique identifier. For this, the length of the salt+nonce must be sufficiently large.
+• On the other hand, the entity that possesses the trio (salt+nonce+message) can validate the hash.
+In the event that such an expanded message is deleted by the responsible party, that is, the message is removed, but also the salt and nonce associated with that specific message, it is not possible to validate the hash at first instance. By using random information that is single-use, and if there is no linkage between the salts of the different hashes, re-identification is made more difficult. If the salt is sufficiently large, and the original salt has been deleted, for any message a salt could be constructed that would validate the hash (as long as there is no additional linked information), which would weaken the association of the hash with the original message.
+
+DIFFERENTIAL MODELS
+In the same line as the previous model, and with the same precautions and conclusions, is the application of differential privacy models.
+In this case, the strategy consists of adding a noise value to the message that, unlike a salt that is included as a header of the message, is incorporated into the message itself. This noise value can be applied in many ways to both graphical, sound, or other types of scalar data, using differential privacy techniques to design and implement them, such as those used in digital watermarks.
+
+For the noise value to be considered acceptable, it would be necessary for it to meet certain conditions. First, it is essential to analyze its random nature and its disconnection from the content of the message. On the other hand, it would be necessary to ensure the non-correlation of the introduced noise between different messages, in addition to ensuring that it adds entropy well above the number of bits of the hash result, and finally, it must be verified that the state of technology does not allow processing models that enable re-identification.
+
+One of the advantages of these models over the previous single-use salt model is the elimination of the vulnerability associated with block processing in the implementation of most hash algorithms.
+
+VII.
+ANALYSIS OF THE HASH AS A SYSTEM OF PSEUDONYMIZATION OR ANONYMIZATION OF PERSONAL DATA
+The previous sections describe the operation of hash techniques from a theoretical point of view. However, to assess their suitability for protecting personal data, various elements must be taken into account. 
+
+Digital watermarking is an identification code that is directly inserted into the content of a multimedia file (image, audio, video), in such a way that it is difficult to perceive by the human perceptual system, but easy to detect using a given algorithm and a key, on a computer. http://digital.csic.es/bitstream/10261/8864/1/Marcas_de_agua_en_el_mundo_real.pdf
+
+For example, models are already being developed to prevent the noise introduced in the image scanning process from affecting the hash for comparison between copy and original: Ahmad, Fawad and Lee-Ming Cheng. “Paper Document Authentication Using Print-Scan Resistant Image Hashing and Public-Key Cryptography.” SpaCCS (2019).
+Page: 21 of 31  
+constitute a real treatment, some of which have already been presented and others will depend on the implementation, such as:  
+• The calculation of the hash itself, which includes several elements, among others:  
+  o The selection of a specific algorithm37 (e.g. SHA-512, BLAKE-256 or SWIFFT).  
+  o The specific implementation of that algorithm in code or circuit (e.g. OpenSSL, Bouncy Castle or Libgcrypt).  
+  o The type of system on which the treatment is implemented: local, remote, transactional, some cloud service, etc.  
+• The message space of the treatment, which will have aspects to consider such as:  
+  o Its entropy.  
+  o The preprocessing of the message before executing the hash, such as the addition of padding38 or random elements.  
+  o And, related to the previous point, the redundancy and repetitive elements of the message structure.  
+• The linkage of the hash with other information from the treatment environment, in particular:  
+  o Information directly linked to the records in which the hash is included, both identifiers and pseudonyms.  
+  o Indirectly linked information, such as the correlation established between previous and subsequent records, correspondence of update dates of records from different tables, log files of the services that constitute the treatment, etc., and any other element derived from the implementation procedures of the treatment.  
+• The passwords and random elements introduced, whether salt or other techniques:  
+  o Mechanisms for generation, storage, distribution, and deletion.  
+  o Size and entropy of these and their involvement in the preprocessing of the message, as previously indicated.  
+• The continuous management and auditing of the previous elements, including physical security and the human factor, which are affected by technological evolution and the modification of treatments.  
+All the previous elements include a series of weaknesses and introduce different risk elements whose materialization has a probability that increases over time due to the accumulation of information, discovered vulnerabilities, technological development, etc.  
+These weaknesses also affect cryptographic systems.  
+Establishing a parallel, the adequacy of a cryptographic system for a specific treatment is determined based on the "lifetime" of the message being encrypted. The lifetime of a message is defined by the moment when the message ceases to have value39 or importance. A cryptographic system will be adequate for a treatment if there is a reasonable expectation of protecting the message throughout its entire lifetime.  
+
+37 https://en.wikipedia.org/wiki/List_of_hash_functions  
+38 Padding refers to techniques for adding data to the end of a message so that it has sufficient size to form an input block in the hash algorithms.  
+39 The information from the output of stock values or news loses its value in hours or days, a trade secret may have value for a few years, while diplomatic secrets must remain confidential for decades.
+Page: 22 of 31  
+A piece of personal data, in general, has a lifespan as long as that of the subject to whom it belongs, especially if we are dealing with special categories of data. A cryptographic system that required reasonable expectations of protection for over seventy years would be an exceptionally robust system. Therefore, the requirements imposed on a hash system to consider it an adequate technique for pseudonymization, or even anonymization, are very high.  
+Finally, it is important to emphasize that, to anonymize a file, the data must be processed "in such a way that it cannot be used to identify a natural person by 'the set of means that may reasonably be used' by the data controller or by third parties."40 Hence, the anonymization processes must ensure that the data controller cannot re-identify individuals from an anonymized file either. If the hash function has been implemented considering the listed factors, when the data controller deletes the random elements introduced or the added noise, the data is anonymized. As a natural consequence, the data controller will lose the ability to validate the hash.  
+VIII.  
+CONCLUSIONS  
+Opinion 5/2014 on anonymization techniques includes hash functions in the section on pseudonymization techniques.41  
+The use of hash techniques to pseudonymize or anonymize personal information must be accompanied by an analysis of the re-identification risks associated with the specific hash technique used in the processing. This risk analysis must examine both the hashing process and the other elements that make up the hash system, with particular attention to the information linked or linkable to the value represented by the hash itself. The analysis must result in an objective evaluation42 of the probability of long-term re-identification.  
+Regardless of the risk analysis, the basic elements to consider for the use of hash functions for information protection include, among others:  
+• High entropy of the information to be hashed.  
+• Use of one-time salt/random values.  
+• If applicable, the size of a salt value above the hash block size, without being a multiple of the block size.  
+• Use appropriate random information generators for cryptographic techniques.  
+• Secure access to the hash execution process.  
+• No linkage with identifiers, pseudonyms, or other information, particularly within the same record and between records or parallel tables/chains.  
+• Conduct periodic audits of the hash system management processes.  
+To consider the hash technique as an anonymization technique, this risk analysis must also evaluate:  
+40 WP29: Opinion 05/2014 on anonymization techniques. Section 2.1  
+41 An excerpt from Opinion 5/2014 is included in the annex.  
+42 GDPR – Recital 76: …The risk must be weighed based on an objective assessment….  
+
+Page: 23 of 31  
+• The organizational measures that ensure the elimination of information that allows re-identification.  
+• A reasonable guarantee that the system will be robust beyond the expected lifespan of the personal data.  
+In short, the adoption of safeguards for the application of the principles established in the GDPR requires a rigorous qualitative prior analysis to determine their appropriateness objectively.  
+IX.  
+BIBLIOGRAPHY  
+• Regulation (EU) 2016/679 of the European Parliament and of the Council, of April 27, 2016, on the protection of natural persons with regard to the processing of personal data and on the free movement of such data, and repealing Directive 95/46/EC  
+• WP29: Opinion 05/2014 on anonymization techniques.  
+• AEPD: Guidelines and Guarantees in the Anonymization Procedures of Personal Data from the AEPD  
+• AEPD: K-anonymity as a measure of privacy.  
+• ENISA: Recommendations on shaping technology according to GDPR provisions. An overview on data pseudonymization  
+• FIPS PUB 180-4 Secure Hash Standard (SHS) Federal Information Processing Standards Publication National Institute of Standards and Technology Gaithersburg, MD 20899-8900  
+RFC1321 The MD5 Message-Digest Algorithm  
+• Blockchain and the General Data Protection Regulation. Can distributed ledgers be squared with European data protection law? European Parliament. European Parliamentary Research Service. July 2019  
+• C.E. Shannon Communication Theory of Secrecy Systems  
+• B. Schneier: Applied Cryptography, 2nd edition. Wiley  
+X.  
+ANNEXES  
+EXCERPTS FROM THE GDPR  
+In recitals 26, 28, 29, 75, 78, 85, and 156, pseudonymization is addressed, the most relevant for the topic discussed in this document are:  
+26. The principles of data protection should apply to all information relating to an identified or identifiable natural person. Pseudonymized personal data, which could be attributed to a natural person through the use of additional information, should be considered information about an identifiable natural person. To determine whether a natural person is identifiable, all means, such as singling out, that may reasonably be used by the data controller or any other person to identify the natural person directly or indirectly must be taken into account. To determine whether there is a reasonable probability that means will be used to identify a natural person, all objective factors must be considered, such as the costs and time required for identification, taking into account both the...
+Page: 24 of 31  
+available technology at the time of processing as well as technological advances. Therefore, the principles of data protection should not apply to anonymous information, that is, information that does not relate to an identified or identifiable natural person, nor to data that has been rendered anonymous in such a way that the data subject is no longer identifiable, or ceases to be so. Consequently, this Regulation does not affect the processing of such anonymous information, including for statistical or research purposes.  
+28. The application of pseudonymization to personal data can reduce risks for the affected data subjects and help controllers and processors comply with their data protection obligations. Thus, the explicit introduction of "pseudonymization" in this Regulation is not intended to exclude any other measures related to data protection.  
+29. To encourage the application of pseudonymization in the processing of personal data, it must be possible to establish pseudonymization measures, while allowing for a general analysis by the same data controller, when they have adopted the necessary technical and organizational measures to ensure that this Regulation applies to the corresponding processing and that additional information for attributing personal data to a specific person is kept separate. The controller processing personal data must indicate who their authorized persons are.  
+75. The risks to the rights and freedoms of natural persons, varying in severity and probability, may arise from the processing of data that could cause physical, material, or immaterial harm, particularly in cases where the processing may lead to issues of discrimination, identity theft or fraud, financial losses, damage to reputation, loss of confidentiality of data subject to professional secrecy, unauthorized reversal of pseudonymization, or any other significant economic or social harm; in cases where data subjects are deprived of their rights and freedoms or prevented from exercising control over their personal data; in cases where the processed personal data reveal ethnic or racial origin, political opinions, religion or philosophical beliefs, trade union membership, and the processing of genetic data, health data, or data concerning sexual life, or criminal convictions and related security measures; in cases where personal aspects are evaluated, particularly the analysis or prediction of aspects related to work performance, economic situation, health, personal preferences or interests, reliability or behavior, situation or movements, in order to create or use personal profiles; in cases where personal data of vulnerable persons, particularly children, are processed; or in cases where the processing involves a large amount of personal data and affects a large number of data subjects.  
+78. The protection of the rights and freedoms of natural persons with respect to the processing of personal data requires the adoption of appropriate technical and organizational measures to ensure compliance with the requirements of this Regulation. In order to demonstrate compliance with this Regulation, the data controller must adopt internal policies and implement measures that comply in particular with the principles of data protection by design and by default. Such measures could consist, among others, of minimizing the processing of personal data, pseudonymizing personal data as soon as possible, providing transparency regarding the functions and processing of...
+Page: 25 of 31  
+personal data, allowing interested parties to supervise the processing of data and the data controller to create and improve security elements. In developing, designing, selecting, and using applications, services, and products that are based on the processing of personal data or that process personal data to fulfill their function, producers of products, services, and applications should be encouraged to take into account the right to data protection when developing and designing these products, services, and applications, and to ensure, with due regard to the state of the art, that data controllers and processors are in a position to fulfill their obligations regarding data protection. The principles of data protection by design and by default should also be taken into account in the context of public contracts.  
+Article 4.5 of the GDPR states:  
+“pseudonymization”: the processing of personal data in such a way that the data can no longer be attributed to a specific data subject without the use of additional information, provided that such additional information is kept separately and is subject to technical and organizational measures to ensure that the personal data cannot be attributed to an identified or identifiable natural person.  
+The following references are also included in the rest of the text:  
+• Article 6 Lawfulness of Processing in paragraph 4 regarding processing for a different purpose, in its letter e):  
+e) the existence of adequate safeguards, which may include encryption or pseudonymization.  
+
+• Article 25 Data Protection by Design and by Default  
+1. Taking into account the state of the art, the cost of implementation, and the nature, scope, context, and purposes of the processing, as well as the risks of varying likelihood and severity that the processing poses to the rights and freedoms of natural persons, the data controller shall implement, both at the time of determining the means of processing and at the time of the processing itself, appropriate technical and organizational measures, such as pseudonymization, designed to effectively apply the principles of data protection, such as data minimization, and to integrate the necessary safeguards into the processing, in order to comply with the requirements of this Regulation and protect the rights of data subjects.  
+
+• Article 32 Security of Processing  
+1. Taking into account the state of the art, the costs of implementation, and the nature, scope, context, and purposes of the processing, as well as the risks of varying likelihood and severity for the rights and freedoms of natural persons, the data controller and the processor shall implement appropriate technical and organizational measures to ensure a level of security appropriate to the risk, which may include, among others:  
+a) the pseudonymization and encryption of personal data;  
+
+• Article 40 Codes of Conduct
+Page: 26 of 31  
+2. Associations and other representative bodies of categories of data controllers or processors may develop codes of conduct or modify or expand such codes in order to specify the application of this Regulation, particularly regarding:  
+d) the pseudonymization of personal data  
+
+• Article 89 Guarantees and exceptions applicable to processing for archiving purposes in the public interest, scientific or historical research purposes, or statistical purposes  
+1. Processing for archiving purposes in the public interest, scientific or historical research purposes, or statistical purposes shall be subject to appropriate safeguards, in accordance with this Regulation, for the rights and freedoms of data subjects. Such safeguards shall ensure that technical and organizational measures are in place, particularly to ensure compliance with the principle of data minimization. Such measures may include pseudonymization, provided that such purposes can be achieved in this manner. Whenever those purposes can be achieved through further processing that does not allow or no longer allows the identification of data subjects, those purposes shall be achieved in that way.  
+EXTRACTS FROM OPINION 5/2014 ON ANONYMIZATION TECHNIQUES  
+Opinion 5/2014 on anonymization techniques establishes hash functions as one of the pseudonymization techniques:  
+Hash function: This is a function that returns a fixed-size output from an input value of any size (this input may consist of a single attribute or a set of attributes). This function is not reversible, meaning there is no risk of reversing the output, as is the case with encryption. However, if the range of input values for the hash function is known, these values can be passed through the function to obtain the actual value of a specific record.  
+For example, if the hash function is applied to the national identification number to pseudonymize a dataset, that attribute can be obtained simply by running the function with all possible input values and comparing the results with the values in the dataset. Typically, hash functions are designed to be executed relatively quickly, making them susceptible to brute force attacks (These attacks consist of testing all possible inputs to create correspondence tables). Precomputed tables can also be created to achieve a massive reversal of a large number of hash values.  
+The use of a "salted" hash function (where a random value, known as "salt," is added to the attribute to which the hash function is applied) can reduce the likelihood of obtaining the input value.  
+Nevertheless, using reasonable means, there is still a possibility of calculating the original value of the attribute that is hidden behind the output of a salted hash function, especially if the type of attribute is known (name, social security number, date of birth, etc.). To add computational difficulty, a key derivation hash function could be used, where the computed value is hashed multiple times with little salt.
+Page: 27 of 31  
+Stored Key Function: This is a type of hash function that uses a secret key as an additional input value (which differentiates it from a salted hash function, as salt is typically not secret). The data controller can reproduce the execution of the function with the attribute and the secret key. However, attackers, who do not know the key, would find it much more difficult: the number of combinations that would need to be tested would be so large that it would render this procedure impractical.  
+Deterministic Encryption or Keyed Hash Function with Key Deletion: This technique is equivalent to generating a random number as a pseudonym for each attribute in the database and then deleting the correspondence table. This solution reduces the risk of linkability between the personal data contained in the dataset and the personal data relating to the same person contained in another dataset where a different pseudonym is used. If the most advanced algorithms are executed, the computational effort that an attacker would need to perform to decrypt or reproduce the execution of the function would be very large, as they would have to test every possible key, since it is unknown.  
+…  
+One of the most widespread misconceptions about anonymization is that it is equivalent to encryption or key-based encoding. This misconception is based on two assumptions, namely, a) that once encryption is applied to certain attributes of a record in a database (e.g., name, address, date of birth), or if these attributes are replaced with a supposedly randomized character string through a key-based encoding operation (such as a keyed hash function), then that record has been anonymized;  
+…  
+It is misleading to rely solely on the strength of the encryption mechanism as a measure of the degree of anonymization of a dataset, as there are many other technical and organizational factors that affect the overall security of an encryption mechanism or hash function.  
+EXTRACTS FROM THE GUIDELINES AND GUARANTEES IN THE PERSONAL DATA ANONYMIZATION PROCEDURES OF THE AEPD  
+3.8 SELECTION OF ANONYMIZATION TECHNIQUES: KEYS  
+1. HASH ALGORITHMS: The utility of encryption algorithms when we need to anonymize microdata is unquestionable, with "hash" algorithms being particularly useful. A hash algorithm is a mechanism that, when applied to a specific piece of data, generates a unique or almost unique key that can be used to represent that data. For example, we have a piece of data that we want to hide or anonymize, and for this, we use a hash algorithm, such as SHA1 or MD5. From the application of the algorithm to a specific piece of data, we obtain a key or digital fingerprint that can be used to replace the actual data. The hash algorithm generates a digital fingerprint and makes it impossible to reconstruct the original data from the fingerprint, and on the other hand, any variation in the original data will result in a different digital fingerprint, which, expressed in computational terms, could be said that modifying a single bit in the original information stored on a computer would result in a different key or a different digital fingerprint.
+Page: 28 of 31  
+The hash algorithm allows us to generate the same digital fingerprint from the same data or microdata, but starting from a specific digital fingerprint, we will never be able to obtain the original data, ensuring confidentiality as it is a one-way mathematical operation. The keys resulting from the application of a hash algorithm are commonly known as "digital fingerprints" because they are understood to uniquely represent a specific data or microdata.  
+However, a hash algorithm alone is not sufficient to make anonymization irreversible, as small text strings, such as the microdata corresponding to a person's postal code, a phone number, etc., can be easily reidentified with a computer program that generates consecutive numbers and their corresponding digital fingerprints. If what we want is to guarantee the anonymization of a microdata, it is necessary to use a cryptographic mechanism that ensures the secrecy of the digital fingerprint we have generated. A good option is the HMAC algorithm based on RFC2014. HMAC can be used in combination with various hash algorithms, such as MD5, and applies a cryptographic algorithm to the resulting digital fingerprint or key from the hash algorithm, generating a new digital fingerprint or key based on a secret key.  
+The use of HMAC in combination with non-trivial secret keys and a diligent key destruction policy can help ensure the irreversibility of the anonymization process. When the keys used with HMAC are retained, they can be used to generate pseudonymized data that require subsequent reidentification of the data subjects. Secret key hashing mechanisms can be useful for masking data. However, there must be a procedure that allows for the secure deletion of the keys and the possibility of proving that the procedure has been followed to guarantee the irreversibility of the process.  
+EXTRACTS FROM ENISA DOCUMENT. RECOMMENDATIONS ON SHAPING TECHNOLOGY ACCORDING TO GDPR PROVISIONS. AN OVERVIEW ON DATA PSEUDONYMISATION  
+
+Hashing without key  
+Hashing is a technique that can be used to derive pseudonyms, but, as will be shown later in this Section, has some serious drawbacks with regard to the design goals set in Section 3.1. Still, it is a starting point for understanding other stronger techniques in the field and this is why we present it first. Moreover, hashing can be a useful tool to support data accuracy. A cryptographic hash function h is a function with specific properties (as described next) which transforms any input message m of arbitrary length to a fixed-size output h(m) (e.g. of size 256 bits, that is 32 characters), being called hash value or message digest. The message digest satisfies the following properties [Menezes, 1996]:  
+i) given h(m), it is computationally infeasible to compute the unknown m, and this holds for any output h(m) - i.e. the function h is mathematically irreversible (pre-image resistance),  
+ii) for any given m, it is computationally infeasible to find another m’≠ m such that h(m’)=h(m) (2nd pre-image resistance),
+Page: 29 of 31  
+iii)  
+it is computationally infeasible to find any two distinct inputs m, m’ (free choice) such that h(m’)=h(m) (collision resistance). Clearly, if a function is collision-resistant, then it is 2nd pre-image resistant too.  
+In other words, a cryptographic hash algorithm is one that generates a unique digest (which is also usually called fingerprint) of a fixed size for any single block of data of arbitrary size (e.g. an initial identifier of any kind). Note that for any given hash function, the same unique digest is always produced for the same input (same block of data). It is important to point out that state-of-the-art hash functions should be chosen; therefore, commonly used hash functions such as MD5 and SHA-1 [Menezes,1996] with known vulnerabilities – with respect to the probability of finding collisions - should be avoided (see [Wang, 2005], [Dougherty,2008], [Stevens, 2017a], [Stevens,2017b]). Instead, cryptographically resistant hash functions should be preferable, e.g. SHA-2 and SHA-3 are currently considered as state-of-the-art [FIPS, 2012], [FIPS,2015].  
+The above properties of hash functions allow them to be used in several applications, including data integrity and entity authentication. For instance, once an app market has a hash server storing hash values of app source codes, any user can verify whether the source code has been modified or not via a simple validation of its hash value - since any modification of the code would lead to a different hash value (see, e.g., [Jeun, 2011]). Similarly, recalling the discussion in Section 3.1 on data accuracy, a pseudonym that is generated via hashing user’s identifiers may be a convenient way for a data controller to verify a user’s identity. However, when it comes to pseudonymisation, despite the aforementioned properties of a cryptographic hash function, simple hashing of data subjects’ identifiers to provide pseudonyms has major drawbacks. More precisely, with regard to the aforementioned D1 and D2 design goals, we have the following:  
+• The D2 property does not hold, since any third party that applies the same hash function to the same identifier gets the same pseudonym.  
+• In relation to the above observation, the D1 property also does not necessarily hold, since it is trivial for any third party to check, for a given identifier, whether a pseudonym corresponds to this identifier (i.e. through hashing the identifier).  
+Therefore, a reversal of pseudonymisation is possible whenever such an approach is adopted, as having a list of the (possible) initial identifiers is adequate for any third party to associate these identifiers with the corresponding pseudonyms, with no other association being in place. In fact, following the GDPR definition of pseudonymisation, one could argue that hashing is a weak pseudonymisation technique as it can be reversed without the use of additional information. Relevant examples are provided in [Demir, 2018] (and in references therein), where the researchers refer to the Gravatar service and describe how users’ email addresses can be derived through their hash value, which is shown in the URL that corresponds to the gravatar of the user, without any additional information.  
+Hence, hash functions are generally not recommended for pseudonymisation of personal data, although they can still contribute to enhancing security in specific contexts with negligible privacy risks and when the initial identifiers cannot be guessed or easily inferred by a third party. For the vast majority of cases, such pseudonymisation technique does not seem to be sufficient as a data protection mechanism [Demir, 2018]. However, a simple hashing procedure may still have its own importance in terms of data accuracy, as stated previously.  
+Hashing with key or salt
+Page: 30 of 31  
+A robust approach to generate pseudonyms is based on the use of keyed hash functions – i.e. hash functions whose output depends not only on the input but on a secret key too; in cryptography, such primitives are being called message authentication codes (see, e.g., [Menezes, 1996]). The main difference from the conventional hash functions is that, for the same input (a data subject’s identifier), several different pseudonyms can be produced, according to the choice of the specific key – and, thus, the D2 property is ensured. Moreover, the D1 property also holds, as long as any third party, i.e. other than the controller or the processor, (e.g. an adversary) does not have knowledge of the key and, thus, is not in the position to verify whether a pseudonym corresponds to a specific known identifier. Apparently, if the data controller needs to assign the same pseudonym to the same individual, then the same secret key should be used. To ensure the aforementioned properties, a secure keyed-hash function, with properly chosen parameters, is needed. A known such standard is the HMAC [FIPS, 2008], whose strength is contingent on the strength of the underlying simple hash function (and, thus, incorporating SHA-2 or SHA-3 in HMAC is currently a right option). Moreover, the secret key needs to be unpredictable and of sufficient length, e.g. 256 bits, which could be considered as adequate even for the post-quantum era. If the secret key is disclosed to a third party, then the keyed hash function actually becomes a conventional hash function in terms of evaluating its pseudonymisation strength. Hence, recalling the definition of pseudonymisation in the GDPR, the data controller should keep the secret key securely stored separately from other data, as it constitutes the additional information, i.e. it provides the means for associating the individuals – i.e. the original identifiers – with the derived pseudonyms.  
+Keyed hash functions are especially applicable as pseudonymisation techniques in cases that a data controller needs - in specific data processing context - to track the individuals without, however, storing their initial identifiers (see also [Digital Summit, 2017]). Indeed, if the data controller applies - always with the same secret key - a keyed hash function on a data subject’s identifier to produce a pseudonym, without though storing the initial user’s identifier, then we have the following outcomes:  
+• The same pseudonym will always be computed for each data subject (i.e. allowing tracking of the data subject).  
+• Associating a pseudonym to the initial identifier is practically not feasible (provided that the controller does not have knowledge of the initial identifiers).  
+Therefore, if only tracking of data subjects is required, the controller needs to have access to the key but does not need to have access to the initial identifiers, after pseudonymisation has been performed. This is an important consideration that adheres to the principle of data minimization and should be considered by the controller as a data protection by design aspect. Moreover, a keyed hash function has also the following property: if the secret key is securely destroyed and the hash function is cryptographically strong, it is computationally hard, even for the data controller, to reverse the pseudonym to the initial identifier, even if the controller has knowledge of the initial identifiers. Therefore, the usage of a keyed hash function may allow for subsequent anonymisation of data, if necessary, since deleting the secret key actually deletes any association between the pseudonyms and the initial identifiers. More generally, using a keyed hash function to generate a pseudonym and subsequently deleting the secret key is somehow equivalent to generating random pseudonyms, without any connection with the initial identifiers.  
+
+Page: 31 of 31  
+Another approach that is often presented as an alternative to the keyed hash function is the usage of an unkeyed (i.e. conventional) hash function with a so-called “salt” – that is the input to the hash function is being augmented via adding auxiliary random-looking data that are being called “salt”. Again, if such a technique is appropriately applied, for the same identifier, several different pseudonyms can be produced, according to the choice of the salt – and, thus, the D2 property is ensured, whilst the D1 property also holds with regard to third parties provided that they do not have knowledge of the salt. Of course, this conclusion is valid only as long as the salt is appropriately secured and separated from the hash. Note that, as in the case of keyed hash, the same salt should be used by the controller in cases that there is need to assign always the same pseudonym to the same individual. Moreover, salted hash functions can be utilized in cases where the controller does need to store the initial identifiers, while still being able to track the data subjects. Last, if the salt is securely destroyed by the controller, it is not trivial to restore the association between pseudonyms and identifiers.  
+However, it should be stressed that in several typical cases employing salts for protecting hashes has some serious drawbacks:  
+On one hand, the salt does not share the same unpredictability properties as secret keys (e.g. a salt may consist of 8 characters, i.e. 64 bits, as in the cases of protecting users’ passwords in some Linux systems). More generally, from a cryptographic point of view, a keyed hash function is considered as a more powerful approach than a salted hash function. There exist though several cryptographically strong techniques for generating salted hashes, which in turn could be considered as appropriate candidates for generating pseudonyms – a notable example being the bcrypt [Provos, 1999].

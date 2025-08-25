@@ -1,0 +1,1435 @@
+Guide on the Erasure and Destruction of Information Media | Version 1.0 - 07/01/2021  
+1  
+Data Protection Authority  
+
+Recommendation on  
+Data Cleaning Techniques  
+and Data Media Destruction  
+
+Guide on the Erasure and Destruction of Information Media | Version 1.0 - 07/01/2021  
+2  
+
+WARNING: This document aims to provide additional explanations to the applicable rules and does not exempt the data controller from its obligations and responsibilities arising from both the GDPR and other applicable texts. Taking into account its needs and the risk analysis it performs or considers, it is up to the data controller to choose to use one tool or method over another, particularly considering the evolution of knowledge and techniques. The various tools and brands mentioned in this document are provided solely for illustrative purposes. The Authority does not express any opinion regarding their compliance with the GDPR and other regulations nor regarding their qualities and performances.  
+
+Guide on the Erasure and Destruction of Information Media | Version 1.0 - 07/01/2021  
+3  
+TABLE OF CONTENTS  
+Summary ............................................................................................................................................................................. 6  
+1. Introduction .................................................................................................................................................................. 7  
+Limitations ................................................................................................................................................................... 9  
+Target Audience ......................................................................................................................................................... 10  
+Objectives ..................................................................................................................................................................... 11  
+2. Principles and Preliminary Concepts ........................................................................................................... 12  
+2.1. Inventory and Classification of Information ......................................................................................... 12  
+2.1.1. The Nature and Categories of Data Present on the Media .................................................. 12  
+2.1.2. The Nature and Characteristics of the Media ........................................................................... 13  
+2.2. Stages of Processing ........................................................................................................................................ 14  
+A. Policy (Security and Confidentiality) .................................................................................................. 14  
+B. Inventory ........................................................................................................................................................... 15  
+C. Risk Analysis .................................................................................................................................................. 16  
+D. Security Measures ......................................................................................................................................... 17  
+E. Evaluation .......................................................................................................................................................... 17  
+F. Documentation ................................................................................................................................................ 17  
+G. Example .............................................................................................................................................................. 18  
+2.3. In a Perfect World ............................................................................................................................................. 19  
+3. The Different Methods and Techniques ..................................................................................................... 20  
+3.1. Introduction ....................................................................................................................................................... 20  
+3.1.1. Important Clarifications .................................................................................................................. 20  
+3.1.2. Three Levels of Confidentiality ....................................................................................................... 20  
+3.1.3. Unsupervised Processing by the Data Controller .................................................................. 21  
+3.2. The Data Media is Retained ....................................................................................................................... 22  
+3.2.1. Erasure - Overwriting ......................................................................................................................... 22  
+3.2.1.1. ‘Clear’ Level - Third-Party Software ...................................................................................... 23  
+A. Magnetic Hard Drives ...................................................................................................................... 23  
+B. Flash Memory Media ......................................................................................................................... 25  
+Solid-State Drives (SSD) of ATA or SCSI Type ............................................................................. 26  
+USB Flash Drives ........................................................................................................................................ 27  
+C. Points of Attention ................................................................................................................................. 28
+......................... 27  
+3.2.1.2. Purge Level - Built-in Commands .................................................................................. 27  
+A. IDE/ATA Magnetic Hard Drives ............................................................................................... 27  
+ATA Commands - Clarifications .................................................................................................. 28  
+Secure Erase - Confusion ............................................................................................................. 29  
+B. SCSI Magnetic Hard Drives ....................................................................................................... 30  
+C. Common Remarks for ATA and SCSI Hard Drives ................................................................. 30  
+
+Guide to Information Media Erasure and Destruction | Version 1.0 - 07/01/2021  
+4  
+D. Solid State Drives (SSD) .............................................................................................................. 31  
+3.2.2. Anonymization .................................................................................................................................. 32  
+3.2.3. Demagnetization - Degaussing ............................................................................................ 32  
+3.2.4. Cryptographic Erasure (cryptographic erase - crypto-erase - CE) .......................... 33  
+3.2.4.1. Built-in Commands ............................................................................................................. 34  
+3.2.4.2. SEDs ............................................................................................................................................... 35  
+3.2.4.3. Security Flaws of SEDs ......................................................................................................... 35  
+3.2.4.4. Points of Attention ................................................................................................................ 36  
+3.2.4.5. Risks ............................................................................................................................................... 36  
+Ideally ......................................................................................................................................................... 37  
+3.3. The Data Medium is Destroyed .................................................................................................... 38  
+3.3.1. Segmentation of Techniques .................................................................................................... 38  
+3.3.2. Physical Deformation ................................................................................................................ 39  
+3.3.3. Shredding, Crushing, and Disintegration ......................................................................... 40  
+3.3.3.1. Shredding .................................................................................................................................... 40  
+Solid State Drives - SSDs .................................................................................................................. 41  
+3.3.3.2. Crushing ......................................................................................................................................... 41  
+3.3.3.3. Disintegration .......................................................................................................................... 42  
+3.3.3.4. Remarks ....................................................................................................................................... 42  
+3.3.4. Incineration ........................................................................................................................................ 43  
+3.3.5. Demagnetization - Degaussing ............................................................................................ 44  
+3.3.6. DIN 66399 Standard .................................................................................................................. 44  
+Three Classes of Protection ............................................................................................................... 45  
+Six Categories of Data Media ........................................................................................................... 45  
+Seven Levels of Security .................................................................................................................... 46  
+Tables .............................................................................................................................................................. 47  
+Interpretation Examples .................................................................................................................... 47  
+Practical Use of the DIN Standard .................................................................................................. 48  
+DIN and ISO ................................................................................................................................................ 48  
+DIN - NSA - NIST Comparison ......................................................................................................... 49  
+4. Special Cases .................................................................................................................................................. 51  
+5. Verification ....................................................................................................................................................... 52  
+Erasure - Rewriting ....................................................................................................................................... 52  
+Cryptographic Erasure .............................................................................................................................. 53  
+Shredding, Crushing, Disintegration
+Integration .................................................................................................. 53  
+Demagnetization ................................................................................................................................................... 53  
+6. Recording ............................................................................................................................................................. 54  
+Subcontracting ....................................................................................................................................................... 54  
+
+Guide on the Erasure and Destruction of Information Media | Version 1.0 - 07/01/2021  
+5  
+The Certificate ......................................................................................................................................................... 55  
+Annex A: Recommended Techniques for Main Types of Media .................................................. 57  
+Annex B: Extracts from the GDPR .................................................................................................................... 63  
+Annex C: References ............................................................................................................................................. 67  
+Main References: ............................................................................................................................................... 67  
+Other References: ............................................................................................................................................... 67  
+
+Guide on the Erasure and Destruction of Information Media | Version 1.0 - 07/01/2021  
+6  
+Summary  
+The Data Protection Authority (DPA) has many missions, including informing citizens, businesses, and public actors about certain issues related to data protection. Among these issues, those related to a 'secure' elimination of data or data media are certainly recurring.  
+Regardless of their motivations, data controllers wish to carry out this operation but sometimes lack a clear vision of what constitutes a satisfactory outcome (particularly in terms of personal data protection) and how to achieve such an outcome.  
+The scarcity, at the international level, of reference documents on the subject, or their absence at the European and national levels, combined with the DPA's desire to provide stakeholders with a useful guide in the form of clear, up-to-date, and comprehensive guidelines, is the basis for this recommendation.  
+This document presents the various existing "cleaning" techniques (rewriting, cryptographic erasure, demagnetization, etc.) for different types of media (HDD, SSD, paper, etc.) that either make access to data impossible on a preserved medium (erasure without the possibility of reconstruction and encryption) or result in the destruction of the medium (without the possibility of reconstruction).  
+The recommendation also addresses this treatment (cleaning and destruction) in a broader manner by detailing its various aspects, both legal (notably related to the GDPR) and technical or organizational, and examines the treatment from before the purchase of the media to the stages of verification and recording of results.  
+Finally, a summary table presents to the reader, depending on the type of media, the recommended cleaning and destruction techniques that allow achieving the desired level of confidentiality.  
+While the principles and concepts mentioned in this document are inherently relatively enduring, there are certain tools, methods, or examples presented that, in light of the evolution of knowledge and techniques in the field, may need to be updated more quickly. The paragraphs or parts of text potentially concerned are preceded by the characters ‘\\’ (double backslashes).
+Guide on the Erasure and Destruction of Information Media | Version 1.0 - 07/01/2021  
+7  
+1. Introduction  
+01. In the context of its activities, the data controller1 encounters numerous situations in which it wishes to ensure that the transfer of information media to another environment does not lead to unauthorized disclosure of the data contained on these media.  
+These situations in which the data controller must make a decision regarding the "cleaning2" of data are often related to the end of their life cycle or that of their media, or to their reuse in a different security context3.  
+02. For example:  
+ The disposal of decommissioned IT equipment (in the broad sense4);  
+ The sending of a photocopier for repair;  
+ The removal of paper archives;  
+ The sorting of HR department files;  
+ The transfer of computers to a charitable organization;  
+ The return of PCs under a leasing agreement;  
+ The end of the lease contract for a multifunction printer;  
+ Or the sale, after depreciation, of the company's desktops and laptops to staff members.  
+03. The motivations of the data controller can be varied, such as the need to protect data that has particular value in their eyes or is classified  
+                                                             
+1 Article 4.7 of the GDPR defines the "data controller" as the natural or legal person, public authority, service, or other body that, alone or jointly with others, determines the purposes and means of the processing.  
+2 The English expression "data sanitization" corresponding to this process encompasses the notion of deep cleaning (disinfection, sanitization) that leaves no trace of the data. We will simply translate it as "cleaning" of data or data media. The U.S. National Institute of Standards and Technology (NIST) defines "media sanitization" as a general term referring to actions taken to render data written on media unrecoverable by ordinary and extraordinary means.  
+3 Will this media be given or sold to a third party? Will it be disposed of or reused internally? If the media is reused as is, the data controller must ensure that the media will be used in a security context at least equivalent to the context in which the media was previously used (e.g., an information access policy comparable to that which prevailed in the initial environment of the media, or even stricter).  
+4 Such as PCs, servers, printers containing hard drives, removable media (USB drives, DVDs, external hard drives, etc.), or mobile devices (laptops, tablets, mobile phones, etc.).
+Guide on the Erasure and Destruction of Information Media | Version 1.0 - 07/01/2021  
+8  
+‘confidential’, the desire to stand out from the competition, the fear of a sanction5  
+and/or the intention to comply with current legislation.  
+In this regard, it should be noted that the data controller is obliged, under penalty of  
+sanction6, to comply with Article 5.1.e of the GDPR, which states that “personal data must  
+be kept in a form which permits identification of the data subjects for no longer than is  
+necessary for the purposes for which the personal data are processed.” When this  
+duration is exceeded, the data controller must therefore anonymize this data or destroy it  
+permanently7 (see exceptions in the same article).  
+04. It should be noted that, while the protection of data leaving their initial environment is  
+a growing concern for organizations of all types, this is partly because their protection  
+within these organizations is being strengthened. Thus, a stricter data access control policy  
+reduces the likelihood that an unauthorized person can directly access this data. As a  
+result, this person may be tempted to turn to other channels for accessing information,  
+requiring less effort, such as retrieving data from media that leave the controlled  
+environment of the organization or are placed in a lower confidentiality/security level  
+environment.  
+
+05. Regarding current legislation, we will specifically highlight, in the context of this  
+document, the European General Data Protection Regulation (GDPR8) and in particular its  
+Article 32 (see Annex B) on the security of processing and its Articles 33 and 34 (see  
+Annex B) relating to personal data breaches. We also note its Article 5.1.f, which establishes  
+the obligation to protect personal data against, among other things, their processing without  
+                                                             
+5 It should be recalled that the GDPR provides for administrative fines for violations of the  
+provisions relating to the obligations of the data controller/sub-processor, including Article 32  
+(security), which can amount to up to 10 million EUR or, in the case of a company, up to 2% of the  
+total worldwide annual turnover of the previous financial year, whichever is higher  
+(Article 83.4.a of the GDPR).  
+The highest administrative fines to date (11/2020) imposed in relation to security under the GDPR  
+already amount to millions of euros. Thus, the British supervisory authority (ICO), in agreement  
+with other European data protection authorities (under the cooperation mechanism provided by the  
+GDPR, called the “one-stop shop”), imposed fines of nearly 21 million euros on the Marriott hotel  
+group and nearly 22 million euros on British Airways for security breaches (violations of  
+Articles 5.1.f and 32 - see Annex B).  
+6 See for example, the fine of 160,000 euros imposed by the Danish authority against a taxi company  
+that retained telephone numbers for more than two years from customers who made a reservation,  
+and the fine (200,000 euros) imposed by the same authority against a furniture store for failing to  
+delete customer data during a computer hardware renewal.  
+7 A temporary organization needs to collect data from a number of members in order to submit a  
+petition, which members must be authenticated as real persons. After authentication, this  
+organization, which pursues no other purpose, must not retain any personal data and must  
+therefore delete all of it as well as the petition media containing it since only the number of  
+validated signatories is important (deletion following the achievement of the purposes).  
+8 Regulation (EU) 2016/679 of the European Parliament and of the Council of April 27, 2016, on the  
+protection of natural persons with regard to the processing of personal data and on the free  
+movement of such data, and repealing Directive 95/46/EC. The GDPR has been in effect since May  
+25, 2018.
+Guide on the Erasure and Destruction of Information Media | Version 1.0 - 07/01/2021  
+9  
+authorized and their loss, using appropriate technical or organizational measures.  
+
+06. Let us recall that Article 4.14 of the GDPR defines a personal data breach as "a security breach that leads to the accidental or unlawful destruction, loss, alteration, unauthorized disclosure of personal data transmitted, stored, or otherwise processed, or unauthorized access to such data."  
+
+07. Data controllers and processors, who are required to comply with their legal obligations, must therefore take appropriate technical and organizational measures to ensure the confidentiality of personal data present on the information media they wish to clean.  
+
+08. The Data Protection Authority (DPA), responsible for ensuring compliance with the fundamental principles of personal data protection, of which the principles of security and confidentiality are essential elements, aims through this document to assist data controllers and processors in adhering to these principles.  
+
+09. To this end, this document presents various "cleaning" techniques that either render access to the data impossible on a preserved medium (erasure without possibility of reconstruction and encryption) or result in the destruction of the medium (without possibility of reconstruction).  
+
+10. The data controller will make their choice from this range of techniques, taking into account, in particular, the type of medium, its subsequent use, and the level of confidentiality of the data.  
+Limitations  
+11. Only techniques leading to a "cleaning" of the entire medium or its destruction are addressed in this document. The specific erasure of files, directories, or partitions is therefore not covered.  
+
+9 Article 4.8 of the GDPR defines the "processor" as the natural or legal person, public authority, service, or other body that processes personal data on behalf of the data controller.  
+10 Article 4.1 of the GDPR defines "personal data" as any information relating to an identified or identifiable natural person (hereinafter referred to as "data subject"); an identifiable natural person is one who can be identified, directly or indirectly, particularly by reference to an identifier, such as a name, an identification number, location data, an online identifier, or to one or more specific elements characteristic of their physical, physiological, genetic, mental, economic, cultural, or social identity.  
+11 The data controller and the processor must ensure the security and confidentiality of the information they process. They must in particular ensure that only authorized persons have access to this information.
+Guide on the Erasure and Destruction of Information Media | Version 1.0 - 07/01/2021  
+10  
+12. The following cases are not addressed in this document:  
+   Cases where access to media/data for the purpose of erasure or destruction is not possible, such as cloud storage or hardware resulting from a PCaaS contract. It is the responsibility of the data controller, before choosing their cloud provider or other remote storage provider, to examine what service they offer for securely deleting data;  
+
+   The deletion of data contained in vehicles (navigation data, data from contact synchronization with mobile phones, etc.) during repairs at a garage or at the end of a leasing contract, for example;  
+
+   The deletion of data on mobile devices via specific software or centralized management (e.g., Active Directory). Apple provides an online procedure for deleting personal data for the iPhone and iPad, as does Google for Android devices;  
+
+   The restoration of factory settings. However, the data controller must ensure that the non-volatile memory no longer contains personal data;  
+
+   The use of images created by imaging software for the reinstallation of devices.  
+
+Target Audience  
+13. This document is intended for data controllers and processors (whether in the public or private sector), their information security advisors, and data protection officers (DPOs) or any other person and organization that must or wishes to make access to personal data impossible.  
+
+Objectives  
+14. This document aims to:  
+   Assist the target audience in formalizing and integrating the various steps to consciously choose an appropriate "cleaning" technique;  
+
+   Provide information on the different methods and techniques available, their levels of confidentiality, and the results that can be expected based on the type of media concerned.  
+
+   Help the target audience comply with certain requirements of the GDPR, including those related to accountability (the principle of responsibility defined in Article 5.2 of the GDPR) and those aimed at preventing unauthorized disclosure of data.
+Guide on the Erasure and Destruction of Information Media | Version 1.0 - 07/01/2021  
+12  
+2. Principles and Preliminary Concepts  
+15. The ‘cleaning’ or destruction of a data medium18 will be:  
+ Authorized (according to an internal procedure and/or applicable law);  
+
+ Appropriate (irreversible, in accordance with risk analysis and the resulting security/confidentiality requirements);  
+
+ Supervised by the data controller (in case of subcontracting, see section 3.1.3. for additional measures to be taken);  
+
+ Documented (proof of destruction, see section 6);  
+
+ And executed in a timely manner (taking into account legal deadlines, issues related to waiting storage).  
+
+2.1. Inventory and Classification of Information  
+16. In order to determine which method will be used to best mitigate the risks of unauthorized data disclosure, the data controller must know:  
+2.1.1. The nature and categories of data present on the medium  
+17. They must, at the very least, know whether personal data is present or not, and if so, they may also want to:  
+ Identify, among this data, those that are referred to as “sensitive” (belonging to a particular category19) or related to criminal convictions or offenses (Article 10 of the GDPR);  
+
+ Distinguish data that is encrypted20, and/or pseudonymized21;  
+                                                             
+18 It should be noted that we indiscriminately use the terms “information” or “data,” not knowing whether the medium contains the former, the latter, or both. Data are raw facts used to obtain information after analysis. Information is interpreted and gives meaning to data. Thus, the data ‘21122021’ becomes information if we know that it is a date (December 21, 2021).  
+19 Article 9.1 of the GDPR inventories these particular categories of personal data. These are data revealing racial or ethnic origin, political opinions, religious or philosophical beliefs, or trade union membership, genetic data, biometric data processed to uniquely identify a natural person, data concerning health, and data concerning the sexual life or sexual orientation of a natural person.  
+20 Encrypted data are data that have been rendered incomprehensible to individuals who do not have the appropriate decryption key.  
+21 Article 4.5 of the GDPR defines “pseudonymization” as the processing of personal data in such a way that the data can no longer be attributed to a specific data subject without the use of additional information, provided that such additional information is kept separately and subject to technical and organizational measures.
+Guide on the Erasure and Destruction of Information Media | Version 1.0 - 07/01/2021  
+13  
+
+Classify the data according to the risk that an unauthorized disclosure of all or part of the personal data contained on the medium would pose to the individual concerned. It is preferable, when estimating the risk, to consider a disclosure of all the data contained on a medium or device, which often corresponds to the reality on the ground. For example, when a database server is hacked, it is generally all databases that are accessed simultaneously.  
+
+18. Indeed, the procedure established by the data controller to determine the appropriate "cleaning" method may rely in whole or in part on the information developed in paragraph 17.  
+
+19. We would like to remind here that anonymized data no longer meets the definition of personal data insofar as it can no longer be linked to an identified or identifiable natural person.  
+
+20. The nature and categories of data must be associated, according to a policy validated by the data controller, with a technique that allows achieving the required level of confidentiality (clear, purge, or destroy – see section 3.1.2.).  
+
+21. It is therefore necessary to have an inventory and classification of information.  
+2.1.2. The nature and characteristics of the medium  
+22. There are many types (hard drives, SSDs, magnetic tapes, floppy disks, iPhones, SD cards, microfilms, etc.) and classes (optical, electronic, magnetic, non-rewritable, paper, etc.) of media.  
+
+23. It is logical that the very different technical and physical characteristics of these information media influence the choice of the "cleaning" method. Not all techniques are available for all types and classes of media. For example, consider demagnetization for a paper medium or rewriting for a non-rewritable medium.  
+
+24. The classification of data and the nature of the medium are the main criteria used to determine the treatment of the media and the method that will be employed. To make this choice, the classification will serve as the first filter, to the extent that organizational measures are in place to ensure that personal data is not attributed to an identified or identifiable natural person.  
+22 Excerpt from Recital 26 of the GDPR: […] There is therefore no need to apply the principles relating to the protection of data to anonymous information, that is to say, information that does not concern an identified or identifiable natural person, nor to personal data rendered anonymous in such a way that the data subject is not or no longer identifiable. […]  
+23 The inventory of assets and the classification of information are integral parts of an information management system. Thus, measure 8.2.1 (Asset Management) of ISO 27002 classifies information in terms of value, sensitivity to disclosure or modification, legal requirements, or their critical nature. NB: measure 6.5.2.1 of ISO 27701 (additional implementation guidance for 8.2.1 of ISO 27002), which is dedicated to personal data, provides little precision on a specific classification.
+Guide on the Erasure and Destruction of Information Media | Version 1.0 - 07/01/2021  
+14  
+it provides information on the level of sensitivity/confidentiality of the data  
+and on the risk to the individuals concerned in the event of unauthorized disclosure.  
+Considerations based on the type and class of the media will be used at a  
+later stage.  
+
+25. Other additional factors may be taken into account such as cost,  
+environmental impact, subsequent allocation, or the duration of the process.  
+
+2.2. Processing Steps  
+26. In summary, the main steps of the ‘cleaning’ and  
+destruction operations may be as follows:  
+A. Policy (security and confidentiality)  
+27. The first step is to draft a document, validated by management,  
+encompassing the entire issue of ‘data sanitization’ and including all the data  
+media existing in the organization. This document must notably describe the  
+context, the objectives to be achieved, the authorization procedure for ‘cleaning’ or  
+destruction (including for backups) and the various steps of the processing. It  
+will also detail the responsibilities of the stakeholders (and management) regarding  
+the execution as well as the control of the different steps of the processing  
+(chain of responsibility). It is important that each step, without  
+exception, is placed under the responsibility of a duly designated person (see  
+e.g. par.240).  
+
+28. The responsibility of the stakeholders extends beyond the actual  
+cleaning/destruction procedure. It may be useful to determine who would be  
+responsible for reputational damage, and any potential sanctions if, at a later stage,  
+it turns out that certain data media were not processed according to the validated  
+procedure.  
+
+29. The authors of the document will ensure top-down, full, and complete  
+support from the hierarchy. In binding areas, such as security and  
+confidentiality, management support is essential, otherwise these  
+policies may only be paper with content that is not applied. It must be ensured that  
+the responsibility for the ‘cleaning’ of the media is entrusted to a member of  
+the organization with an appropriate level of authority.  
+
+30. The person or persons responsible for implementation will also ensure that the  
+policy is known to all actors who have a role in it, that it is properly  
+                                                             
+24  
+https://www.realwire.com/releases/More-than-half-of-enterprises-fail-to-communicate-  
+data-sanitization-policies: Although 96% of the leaders of the consulted organizations have a  
+data sanitization policy, 31% still need to communicate it to the entire company.  
+20% of respondents also do not believe that their organization’s policies are complete.  
+Overall, 56% have not implemented a data cleaning policy that is  
+regularly communicated effectively to the entire company, which increases the risks of  
+potential data breaches.
+Guide on the Erasure and Destruction of Information Media | Version 1.0 - 07/01/2021  
+15  
+executed in practice and updated as necessary25. It is important that this  
+execution of instructions and their results are also monitored.  
+
+31. A report26 from Blancco shows that the gaps between the creation, communication, and execution of the media cleaning policy endanger sensitive data. The study identifies the following risks:  
+- Not assuming direct responsibility for the erasure of IT assets;  
+- Allowing hardware to languish in storage areas without securing it;  
+- Off-site erasure without complete visibility of the chain of custody;  
+- Unclear designation of owners of data cleaning policies.  
+
+B. Inventory  
+32. Prepare a complete inventory of all equipment that you have marked for ‘cleaning’ or destruction. Determine the type(s) of media involved. If not already done, conduct an inventory of the data contained on the information media to sort them according to a relevant classification, namely:  
+- based on the type of personal data contained therein,  
+- and whether their disclosure would represent a high risk to the rights and freedoms of the data subjects (as is presumably the case for special categories of data listed in Article 9 of the GDPR).  
+
+33. If the data controller does not know the content of the information media (damaged media or obsolete technology, lack of time or personnel, etc.), they will treat this media as if it contained personal data whose disclosure would represent a high risk to the rights and freedoms of the data subjects.  
+
+34. We would also like to remind that the GDPR requires data controllers to maintain a record of processing activities (of personal data) which includes, among other things, a description of the categories of personal data processed (Article 30.1.c).  
+
+25 Like all other policies, this one must be part of a cycle that includes an update step. The reasons for which an update may be necessary can be numerous. Consider a change in the security/confidentiality context within the organization or a technical evolution (for example, the coercive force of a degausser to be adapted according to the evolution of media, see para. 120).  
+26 Data Sanitization: Policy vs. Reality, produced in partnership with Coleman Parkes (06/02/2020)  
+https://www.blancco.com/resources/rs-data-sanitization-policy-vs-reality/  
+
+Guide on the Erasure and Destruction of Information Media | Version 1.0 - 07/01/2021  
+16  
+35. If the data controller wishes to make this document a tool for broader compliance than just a simple register, they may usefully include information such as the nature of the media used for processing, the destruction or cleaning technique, and its trigger (replacement or obsolescence of hardware, departure of a colleague, purpose fulfilled, legal deadlines reached, etc.).  
+
+C. Risk Analysis  
+36. The main objective is to determine what risk is incurred if an unauthorized person accesses personal data contained on the information media, which constitutes a data breach and an infringement of Articles 5.1.f and 32.2 of the GDPR (see Annex B). Also consider any potential security vulnerabilities associated with each technique27.  
+37. It is important to note that the concern of the GDPR (and the DPA) focuses on the impact of the disclosure of data  
+- “personal data” (and not all the data of the organization),  
+- on the data subject (i.e., the person to whom the data relates) and not on the organization.  
+
+38. If the risk analysis is an essential step, the data controller, assisted by their Data Protection Officer if applicable, may also usefully carry out a “data protection impact assessment” (DPIA, Article 35 of the GDPR28), whether it is mandatory or not.  
+The DPIA will help the data controller to ask the right questions;  
+- It will contain useful information for filling out the record of processing activities (Article 30 of the GDPR);  
+- It will help to comply with the obligation of data protection by design (Article 25 of the GDPR). Given that the DPIA also serves, even before processing, to identify measures to address risks to the rights and freedoms of data subjects, the DPIA can provide valuable assistance in this regard.  
+
+39. If the DPIA indicates that the processing still presents a high risk, after the data controller has taken measures to mitigate the risks  
+27 Search online for any vulnerabilities associated with the selected technique or tool. You can, for example, consult the CVE (Common Vulnerabilities and Exposures) list, which catalogs the largest number of publicly known cybersecurity vulnerabilities. Other sources of interest: Exploit Database, U.S. National Vulnerability Database (NVD) from NIST, packet storm.  
+28 See also the Recommendation on the data protection impact assessment and prior consultation (CO-AR-2018-001) from the former Privacy Protection Commission. (https://www.autoriteprotectiondonnees.be/publications/recommandation-n-01-2018.pdf)
+Guide on the Erasure and Destruction of Information Media | Version 1.0 - 07/01/2021  
+17  
+identified, the data controller must consult the Data Protection Authority prior to the implementation of the processing (Article 36 of the GDPR).  
+
+D. Security Measures  
+40. The next step is to implement the technical and organizational measures that allow for the reduction of any identified risks to an acceptable level (for the organization and for the individuals concerned).  
+
+41. This step also includes identifying actions that could be taken quickly and effectively to respond to a potential data breach. If personal data were to be compromised during the 'cleaning' of the media or even after leaving your organization, you could still be held responsible for the breach (you remain responsible for the processing until the end of the data lifecycle).  
+
+E. Evaluation  
+42. It is then necessary to evaluate to what extent the actions taken have achieved the set objective (preventing the loss of confidentiality). If necessary, choose another technique.  
+
+F. Documentation  
+43. The various steps must be documented in detail. The principle of accountability of the GDPR (the principle of responsibility defined in Article 5.2) implies that the data controller must be able to demonstrate compliance with the rules regarding data protection. The following will be documented: the justification29 for the chosen method, the description of the measures taken (steps of the method, including verification), and proof of their proper execution (for example, through the issuance of a document containing all information related to the 'cleaning' or destruction of the media and, after a verification step, the result, failure or success).  
+
+44. In order to enhance transparency towards the individuals concerned, we recommend that the data controller communicate, in addition to the information that must be disclosed under Articles 13, 14, and 15 of the GDPR, certain additional information. Thus, in addition to the data retention period (Articles 13.2.a, 14.2.a, and 15.1.d), they could, without effort, using the documentation they already have, inform them more concretely about what will happen to their data once this period has expired.  
+
+29 The justification may be based on a balancing of the interests of the data controller with the rights and interests of the data subject and/or an assessment of the inherent risk of the processing taking into account the state of knowledge and the costs of implementation in relation to the risks and the nature of the personal data to be protected.  
+
+Guide on the Erasure and Destruction of Information Media | Version 1.0 - 07/01/2021  
+18  
+45. Similarly, we will recommend that the data controller adopt the same transparent attitude in their communication with the data subject regarding Article 17 of the GDPR (right to erasure).  
+
+G. Example  
+46. Here is a more concrete example illustrating the main steps of a data cleaning and/or media destruction project:  
+1. You plan to replace certain computers in your organization and sell them to a company that will refurbish them before reselling them.  
+2. You determined during the inventory phase that the media contained in the PCs were ATA hard drives with a capacity of 500GB and contained the HR files of the staff, which included particular categories of personal data (sensitive data such as union membership or related to absences due to illness).  
+3. According to your security/privacy policy, personal data must remain under your control at all times, and no data can leave the physical and/or logical perimeter of your company.  
+4. In the risk analysis, you compare the different methods that meet this objective (erasure, storage, destruction).  
+5. You estimate, given the nature of the data, the time required to erase the hard drives, the possibility that some data may remain accessible, the low resale value of the PCs, that the risk to the organization (e.g., reputation, financial, legal proceedings, etc.) and the risk to the rights and freedoms of the individuals concerned (e.g., identity theft, fraud, phishing, blackmail, discrimination, etc.) are not worth taking.  
+6. Consequently, in order to bring the risk to an acceptable level, you opt for the physical destruction of the media and take the following measures:  
+
+A. Whether the destruction is done within the organization or by an external partner, you appoint the individuals responsible for the project: the operational manager will be a member of the IT department while overall supervision will be provided by the DPO who will give a positive (or not) opinion at the end of the procedure, knowing that a final decision, whether it concerns the choice of cleaning method, the level of confidentiality achieved, or the agreement to release/transfer the media always rests with the data controller (the management of your organization). This decision or these decisions may be referenced in the processing activities register;  
+B. You decide that the destruction must be carried out within the premises of the organization, in the presence of the project manager;
+Guide on the Erasure and Destruction of Information Media | Version 1.0 - 07/01/2021  
+19  
+C. You choose an external specialized partner, offering guarantees of quality and confidentiality, who can implement the technique you have selected using mobile equipment. You verify with the provider that the technical characteristics of the equipment used (e.g., maximum size of destruction residues) meet the requirements of your security/confidentiality policy.  
+7. You verify that the destruction has been carried out according to the established procedure and that the data is no longer usable. You collect and retain evidence of the effective destruction of the media (for all or specific to each media) as well as all useful information to demonstrate your compliance with legal obligations.  
+
+2.3. In a Perfect World  
+47. In a perfect world, you would have already considered the ‘secure cleaning’ step of your media, even before their acquisition, and consulted the supplier of these media on this matter. For organizations that need to draft a specifications document, it may include specifications related to integrated erasure commands in the equipment (if applicable - see articles 3.2.1.2. and 3.2.4.1.) and require the supplier's assistance and the provision of certain related information (e.g., execution time, description of supported commands and their options, or excluded areas). This should facilitate the informed choice of a storage medium or a device containing a storage medium, based on the secure erasure possibilities offered by the product.  
+
+48. Similarly, gathering all necessary technical information at the time of acquisition will facilitate not only the ‘inventory’ step of the processing but also the ‘risk analysis’ step where you will need to compare the different available erasure techniques based on the characteristics of the medium.  
+
+49. For example, by knowing the coercivity of a magnetic medium, one can include or exclude degaussing (see section 3.2.3.) from the list of available techniques. Additionally, having noted that two different types of disks (hard/magnetic and SSD/electronic) are present in the organization’s computers, the operational manager will know that they must be distinguished when choosing the ‘cleaning’ method. It should be noted that both types of disks can be present simultaneously in devices (SSD disks being much faster but more expensive are often used for booting the computer and paired with a slower magnetic hard disk that handles storing the majority of the data).  
+
+30 Let us recall here that the data controller has responsibility and obligations in the choice of the subcontractor (art. 28 of the GDPR). The reputation of the supplier does not constitute sufficient assurance. The written contract, mandatory between the data controller and the subcontractor, will help ensure that an appropriate level of security is in place and will mention as precisely as possible the chosen method, its characteristics, and the means to be implemented.  
+31 In this context, coercivity refers, in non-technical terms, to the force required by a magnetic field to modify data stored on a magnetic medium. The higher it is, the more difficult it will be to modify (‘erase’) the data using a degaussing technique.
+Guide on the Erasure and Destruction of Information Media | Version 1.0 - 07/01/2021  
+20  
+3. The Different Methods and Techniques  
+3.1. Introduction  
+3.1.1. Important Clarifications  
+50. Let us start with an important remark, clarifying that simply deleting (by pressing the ‘delete’ key on your keyboard, for example) files or directories via your device's interface only removes the pointers to these files and not the data itself. By deleting the pointers, the device makes the area where the files were located available again for writing other data. By analogy, it is as if to erase a chapter of a book, you removed all references to that chapter from the table of contents. Thus, by browsing through the book, you could still find the content of the chapter.  
+
+51. This is why this action, which does not result in any real erasure, is not discussed in this document.  
+
+52. It should also be noted that formatting does not erase the data either, whether it is quick or standard.  
+3.1.2. Three Levels of Confidentiality  
+53. In specialized literature, different techniques are often classified according to the desired level of confidentiality (security) or, in other words, the probability of recovering the original data. Three levels of confidentiality are distinguished, associated with three classes of techniques: clear, purge, and destroy.  
+The "clear" level techniques aim to prevent data recovery using software. They offer moderate confidentiality (some data may be recoverable if one has the time, knowledge, and necessary skills). These are purely logical techniques.  
+
+Examples: partial rewriting using standard commands (read and write) and resetting the device or media (factory reset - often recommended for mobile devices and routers/switches).  
+
+The "purge" level techniques aim to prevent data recovery using advanced laboratory techniques. They offer a higher level of confidentiality and are appropriate when the media is intended to be reused in a security/confidentiality context different from the initial context. These techniques are both logical and physical.  
+
+Examples: rewriting using dedicated commands, degaussing, and cryptographic erasure (see section 3.2.4.).  
+
+32 The difference between the two mainly lies in the fact that a full format will check all 'bad sectors', which explains the length of the operation compared to a quick format.  
+33 The term 'logical' refers to a technique whose mechanisms are executed via software.  
+
+Guide on the Erasure and Destruction of Information Media | Version 1.0 - 07/01/2021  
+21  
+
+The "destroy" type techniques offer the highest level of confidentiality/security. Data recovery is indeed impossible, even using cutting-edge laboratory techniques. They rely on physical destruction and are therefore incompatible with the reuse of the media. It should be noted that a technique rendering the media unusable will not achieve the destroy level if some data remains recoverable.  
+
+Examples: incineration, shredding, and grinding.  
+
+54. The different techniques presented in this document all fall into one of these three classes. The reader will find in Appendix A a table summarizing the most common types of information media, associated with the different techniques that can be applied to them based on the required level of confidentiality/security (clear, purge, and destroy).  
+
+55. The level of confidentiality to be achieved and the choice of a technique to reach that same level, depending on the type of media, relies on a prior risk analysis.  
+Techniques Available Based on Desired Level of Confidentiality  
+Clear  
+Purge  
+Destroy  
+  
+Rewriting (standard commands)  
+  
+Resetting (restoration of factory settings, see para. 12)  
+  
+Rewriting (dedicated/integrated commands)  
+  
+Degaussing  
+  
+Cryptographic erasure  
+  
+Incineration  
+  
+Shredding  
+  
+Grinding  
+  
+Disintegration  
+  
+Degaussing  
+
+56. We will divide the methods used into two groups, depending on whether they result in physical destruction of the information media or not.  
+3.1.3. Unsupervised Processing by the Data Controller  
+57. When the destruction or 'cleaning' of the media is outsourced or partially outsourced and is therefore not performed under the end-to-end control of the data controller, the latter must obtain assurances regarding the proper conduct of the various stages of processing. To achieve this, we recommend the following measures:  
+The use of eyewitnesses (validated by the service provider and/or the data controller);  
+
+The transport of media in secure and locked vehicles. Although the protection provided by security seals is not absolute, it can be...  
+34 For a more complete list of media, the reader may refer to Appendix A of the "Guidelines for Media Sanitization" from “NIST Special Publication 800-88”.  
+https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-88r1.pdf  
+35 https://web.archive.org/web/20081007232536/http://www.ne.anl.gov/capabilities/vat/defeat.html
+Guide on the Erasure and Destruction of Information Media | Version 1.0 - 07/01/2021  
+22  
+possibly be defeated by trained and equipped attackers), vehicles may be usefully equipped;  
+
+The  
+taking  
+of  
+photographs  
+or  
+the use  
+of  
+other  
+documentation techniques at each stage of processing;  
+
+The establishment of a continuous process without interruption involving temporary storage;  
+
+Control and selection procedures for personnel participating in the processing;  
+
+The issuance of a destruction certificate by the subcontractor (see section 6).  
+
+58. It is advisable to include these measures in the contract binding the data controller and the subcontractor and to describe, where applicable, the elements constituting proof of destruction (notably the method used and the result obtained). In this regard, the reader may draw inspiration from the clauses included in a document36 from the government services of New Brunswick (Canada).  
+
+3.2. The data medium is retained  
+59. As a preamble to the various techniques outlined in this chapter, it is important to note that, apart from a destruction method that leaves no part of the medium intact (regardless of the nature of the medium, whether paper, magnetic, or other), it is difficult to guarantee that no data will be recoverable from the entirety of the surface of the medium, including by specialized laboratories.  
+
+60. If the risk that data may remain on the medium or that it could be reconstructed is not acceptable to the data controller (taking into account the risk to the individuals concerned), a method leading to the destruction of the medium will be preferred (see chapter 3.3.).  
+3.2.1. Erasure - Overwriting  
+61. "Erasure" (also referred to as overwriting) consists of writing, in the same location as where the existing data is located on an information medium, one or more series of information elements, determined, random, or both (depending on the chosen protocol), in order to reduce the possibility of recovering the data thus covered (or 'overwritten').  
+
+62. It would therefore be more appropriate to speak of an "overwriting" method rather than an erasure method37 because the initial information or parts of that information are still potentially present on the medium, depending on the effectiveness of this overwriting.  
+
+36 Secure destruction of documents: Guidelines - Annex C, p.15 - Standard contractual clauses on the secure destruction of documents  
+37 It should be noted that the term "erasure" is regularly used in the literature on the subject or in the description of software used for the secure deletion of digital information.  
+
+Guide on the Erasure and Destruction of Information Media | Version 1.0 - 07/01/2021  
+23  
+63. Overwriting is obviously not applicable to natively non-(re)writable media or those that no longer support writing due to damage (failure, partial destruction, wear).  
+
+64. This method can result in two levels of confidentiality, namely 'clear' and 'purge'. The level achieved will depend on the combination of the type of medium containing the data, the software used (hardware-related or independent), and the associated commands (standard or dedicated). The choice and proper use of the software and commands will depend on the level of computer knowledge of the person in charge of the procedure.  
+
+65. Disks, whether magnetic (see point 3.2.1.1.a) or electronic (see point 3.2.1.1.b), contain different zones. Some of these zones are, in principle, inaccessible to software independent of the hardware, the operating system, or the BIOS/UEFI38, making it impossible to clean the entirety of the storage areas of the medium.  
+
+66. Among these zones that are, in principle, inaccessible, we find:  
+The 'Bad/unmapped/corrupted' sectors  
+
+The 'over-provisioned' space  
+
+The 'trimmed' cells  
+
+The 'Device Configuration Overlay' (DCO)  
+
+The 'Host Protected Area' (HPA)  
+
+The 'Garbage Collection' (GC)  
+
+3.2.1.1. 'Clear' Level - Third-Party Software  
+A. Magnetic Hard Drives  
+67. The 'clear' level can be achieved for hard drives (internal and external) and floppy disks using third-party software39, independent of the hardware, such as BitRaser, Blancco Drive Erasure, PartedMagic, Active@KillDisk, or the open-source project DBAN. These software programs often offer a wide range of different protocols (up to several dozen) among which the uninformed user will have difficulty choosing.  
+
+38 The BIOS (Basic Input Output System) is firmware stored on a memory chip and used to initialize hardware during the boot process and to provide execution services for operating systems and programs. It is non-volatile, meaning its settings are saved and retrievable even after the device is powered off. UEFI, on the other hand, is essentially an improved version of the BIOS.  
+39 Search in your usual search engine (the APD currently uses startpage.com) for the terms "data erasing" or "data sanitization" to find information on paid software or freewares offering this type of function.
+Guide on the Erasure and Destruction of Information Media | Version 1.0 - 07/01/2021  
+24  
+68. What differentiates these various protocols includes, on one hand, the number of overwrites, that is to say, the number of successive rewriting passes that the surface of the disk will undergo, and on the other hand, the final step of the protocol, namely the verification of the effect of the rewriting passes.  
+
+69. For example, the DoD 5220.22-M protocol, which is very commonly used and present in all leading software on the market, recommends writing to all addressable spaces of the medium, a binary character (in this case 0), then its complement (1), and finally a random binary character (0/1). The verification of the result constitutes the last step of the protocol.  
+
+70. The version of this "erasure" protocol, still perceived as a true standard and which is delivered in most third-party software, corresponds to an obsolete version of a standard from the U.S. Department of Defense (DoD). The triple rewriting of the disk imposed by this old version of the protocol is more than sufficient to prevent data recovery by commercially available software (level 'clear'). While the effectiveness of erasure protocols seems logically and a priori related to the number of rewriting passes that all areas of the disk will have undergone, this logic is, however, outdated.  
+
+71. Indeed, for several years now, a consensus has emerged (NIST, HMG British Standard, BSI-GS, CMRR) asserting that, following the technological evolution of media (notably related to the increase in their density and thus their capacity), the number of rewriting passes can be reduced to 1, without increasing the possibility of recovering data from the disk using logical solutions. However, a verification pass must be executed.  
+
+72. If one writing pass and one verification pass are sufficient (except for older hardware dating from before 2000 or of unknown age), one can therefore conclude that a protocol proposing 3 rewriting passes and one final verification or a verification after each writing pass (such as the old version of the very popular DoD 5220.22-M) is also sufficient.  
+
+73. On the other hand, although they are not strictly discouraged, protocols proposing a number of passes greater than one writing pass and one verification pass can be qualified, based on our current knowledge and the techniques used, as unnecessary.  
+                                                             
+40 In the literature, the term "pass" is more commonly used. Thus, DoD 5220.22-M is a 4-pass protocol, with 3 dedicated to writing (erasure/overwrite) and one to verification.  
+41 To be precise, the current version of this protocol no longer specifies these steps, and it is therefore to an older version of the protocol that these software refer. For more information: https://www.blancco.com/blog-dod-5220-22-m-wiping-standard-method/  
+42 Excerpt from the “Tutorial on Disk Drive Data Sanitization” (p.8) from the Center for Magnetic Resonance Research (CMRR): “The U.S. National Security Agency published an Information Assurance Approval of single pass overwrite, after technical testing at CMRR showed that multiple on-track overwrite passes gave no additional erasure.”  
+43 The Gutmann protocol (1996), a reminiscence of a bygone era when the techniques used for writing on hard disks theoretically allowed specialized laboratories to recover overwritten data, corresponds to no less than 35 rewriting passes plus one verification pass. Current hard disks have rendered this protocol, which is also very resource-intensive, completely obsolete.
+Guide on the Erasure and Destruction of Information Media | Version 1.0 - 07/01/2021  
+25  
+74. When choosing software, prefer software that has been analyzed by an independent laboratory and/or that meets the requirements of specialized government agencies.  
+
+75. \\ Here are some links to organizations that evaluate products or services in the field of data destruction:  
+ADISA Research Centre (UK),  
+
+BSI - Bundesamt für Sicherheit in der Informationstechnik (DE),  
+
+National Association for Information Destruction - NAID (USA),  
+
+ANSSI - Agence nationale de la sécurité des systèmes d'information (FR),  
+
+NCSC - National Cyber Security Centre (UK),  
+
+NBV - Nationaal Bureau voor Verbindingsbeveiliging (NL),  
+
+NCI - NATO Communications and Information Agency (USA),  
+
+NSA | CSS - National Security Agency Central Security Service (USA).  
+
+B. Flash Memory Media  
+76. Unlike disks and floppy disks (see previous point 3.2.1.1.a), which are magnetic media, flash memory is electronic media. This non-volatile memory (it does not erase in the absence of power, unlike RAM, for example) can be erased and reprogrammed electrically.  
+
+77. Thanks in particular to decreasing prices, excellent performance, and the absence of mechanical failures, flash memory has emerged over time as an increasingly prevalent information storage technology in electronic devices and information media. It can therefore be found in mobile phones, computers, digital cameras, USB drives, memory cards, SSDs (see below), calculators, medical devices, Hi-Tech toys, etc.  
+
+78. \\ Regarding information media specifically, we can distinguish two main families of devices44 containing flash memory:  
+memory cards of which there are many types (e.g., Secure Digital SD, SDHC, SDXC, micro and mini SD, xD card, CompactFlash or even obsolete*. It is still included in the list of protocols offered by the main software on the market.  
+*For specialists: this protocol became obsolete with the advent of high-density (high-capacity) disks and the technology of hard disks transitioned from MFM/RLL coding techniques to PRML techniques towards the end of the 1990s.  
+44 https://fr.wikipedia.org/wiki/M%C3%A9moire_flash#Grandes_familles
+Guide on the Erasure and Destruction of Information Media | Version 1.0 - 07/01/2021  
+26  
+MemoryStick). They are intended for small devices such as digital cameras or mobile phones;  
+
+solid-state drives (SSD), which can be translated as static disks, semiconductor disks, or simply electronic disks. They are available in many formats and interfaces (PCIe, SATA, USB, etc.). By linguistic extension, any type of media that does not have 'moving' parts (unlike rotating magnetic hard drives, for example) is sometimes referred to as SSD (RAM, ROM, Smart Cards, Flash).  
+
+NB: For several years, all SSDs have been based on flash memory (hence the confusion between the two terms), but this has not always been the case (RAM), and it could change again in the future.  
+
+Solid-State Drives (SSD) of ATA or SCSI type  
+79. We have seen that certain areas of 'traditional' hard drives (see point 3.2.1.1.a) are inaccessible to third-party software. It should be emphasized that for flash memory, a technological peculiarity (see paras. 81 and 82) related to this type of media exacerbates this access problem.  
+
+80. That is why, even if the use of independent software for 'electronic' disks could allow reaching the 'clear' confidentiality level through a rewrite pass (all the more so through several), the sole use of these third-party software will be considered insufficient to achieve the desired objective.  
+
+81. For information, the technological peculiarity mentioned in para. 79 is due to the fact that any writing on this type of media leads to its wear. Its components are therefore only guaranteed by the manufacturer for a finite number of write/erase cycles (program/erase cycle or p/e cycle). To extend the lifespan of flash memories and avoid any premature wear of the cells of certain blocks45 compared to others46, manufacturers have developed strategies such as wear-leveling47, dedicated file systems, or exclusive allocation of storage spaces to the SSD controller (overprovisioning)48.  
+
+45 Flash memories are divided into blocks that consist of pages, which are themselves composed of memory cells. Writing and reading are done at the page level. However, before being able to rewrite in the same location, it is necessary to reset (erase) the memory cells, which can only be done by entire block (generally consisting of several hundred pages). Therefore, the entire block must be copied to another location, the original block erased, and then the content of the old block written with the new pages.  
+46 In this case, avoiding premature wear of blocks that are often erased compared to those that store data that is not or rarely modified.  
+47 The principle is to copy data that is never or rarely modified onto already worn cells in order to more evenly distribute the number of erases/writes per cell (and thus the wear).  
+48 The use of these techniques and the absence of mechanical parts nevertheless allow current SSDs to obtain warranties equivalent to hard drives.
+Guide on the Erasure and Destruction of Information Media | Version 1.0 - 07/01/2021  
+27  
+82. The use of these techniques consequently results in the copying of the same data in multiple locations, including areas that independent software cannot access (examples: bad blocks or wear-leveling blocks).  
+USB Drives  
+83. Known by many other names49 and with flash memory of lower quality than that of SSDs, they encounter, just like memory cards50 intended for small devices (e.g., digital cameras and mobile phones), the same limitations at the ‘clear’ level as SSDs.  
+C. Points of Attention  
+84. Let us recall that in the context of rewriting media by third-party software (level ‘clear’):  
+   The level of confidentiality achieved does not exceed the ‘clear’ level;  
+   These software programs do not, in principle, have access to all writable areas of the media;  
+   For flash memory media, the creation of copies of data blocks increases the possibilities of recovery after deletion.  
+85. This is why, depending on the risk (mainly incurred by the individuals concerned), it may be necessary to couple erasure with another technique such as encryption (see para. 126) or physical destruction (see chapter 3.2).  
+3.2.1.2. Level ‘purge’ - Built-in Commands  
+86. Storage media have, depending on the models, different interfaces (ATA, SCSI, NVMe). These interfaces, used to communicate between host systems and storage devices, have a different set of commands for cleaning the media depending on their type.  
+A. IDE/ATA Magnetic Hard Drives  
+87. Most modern IDE/ATA51 hard drives52 (including PATA53, SATA53, eSATA, etc.) come with “Secure Erase” commands (generalized since 2001 for drives over 15GB). Secure Erase is the name given to a set of commands stored in and available from the firmware54 of the drive.  
+88. These built-in commands55 erase (overwrite) all data contained on a drive (including on sectors marked as defective or inaccessible) and allow for achieving a ‘purge’ level of confidentiality.  
+89. \\ A third-party software distinguishes itself from those discussed in article 3.2.1.1: HDDerase. Developed by CMRR42, this utility indeed incorporates the Secure Erase command and can therefore access certain storage areas that are inaccessible to traditional third-party software.  
+90. \\ It should also be noted under Linux, the command-line program ‘hdparm’ (NB: both GParted and Parted Magic include hdparm).  
+ATA Commands - Clarifications  
+91. We have so far discussed the ‘Secure Erase’ command. This is the term most frequently used in the literature, but it is often used imprecisely.  
+92. Indeed, among the commands of the ATA standard, it is more accurate to refer to the ‘Security Erase Unit’ command, which is available in two modes: the standard mode ‘Secure Erase’ or ‘Normal Erase’ and the mode called ‘Enhanced Secure Erase’ or ‘Enhanced Erase’.  
+93. The ‘enhanced’ mode, which targets "sectors that are no longer used due to reassignment, is not supported by all ATA media.  
+94. Although their names are similar, these two modes present differences. When the normal erase mode is selected, the ‘Security Erase Unit’ command writes zeros (in binary) to all areas where data has been written by the user.  
+95. When the enhanced erase mode is selected, the ‘Security Erase Unit’ command writes data according to predefined patterns and also rewrites the sectors of the disk that are no longer used or marked inaccessible to the user. The implementation of this mode is optional and is not supported by all manufacturers. However, if available, it will be preferred over the standard mode.  
+54 Firmware is software embedded in hardware that provides the necessary instructions for the operation of that hardware.  
+55 These commands (firmware commands) cannot be executed on a hard drive in the same way as commands are executed in Windows from the command prompt. To execute the Secure Erase commands, a program that provides direct (I/O) access to the ATA interface of the hard drive and allows sending ATA commands to that drive must be used. Even in this case, the user often will not execute the command manually.
+Guide on the Erasure and Destruction of Information Media | Version 1.0 - 07/01/2021  
+29  
+96. From the perspective of the ATA specification, these are two different commands, and it is sometimes difficult to know which one is implemented by manufacturers. Similarly, if a medium claims to implement both commands, it is possible that it associates both with a single action/version.  
+
+97. More recently, another ATA command, ‘Sanitize Device’, has emerged. Also optional, it is therefore not implemented on all media. Just like the equivalent command for SCSI and NVMe interfaces56 (‘sanitize’, see para. 103), it consists of three modes: crypto scramble, block erase, and overwrite, the latter attempting to clean all user data areas, including defective, spare, and unallocated blocks. Overwrite57 allows the user to specify the rewrite pass(es) they want to apply (e.g., 3 passes, the 2nd using the ‘invert’ option57 and the 3rd being identical to the 1st).  
+
+Crypto scramble initiates cryptographic erasure that modifies/deletes the encryption keys of the medium (see section 3.2.4.):  
+
+Block erase is used to erase flash memory media.  
+
+98. The command-line software ‘hdparm’, already mentioned, has integrated the ‘Sanitize Device’ feature set since 2016 (v. 9.49). It offers an alternative for wary users who would prefer not to rely on manufacturer utilities (and their variable quality implementation) to ‘clean’ their media.  
+
+99. In order of preference, when supported by the data medium, it is preferable to use the ‘sanitize device’ command, then the ‘Enhanced Secure Erase’ mode, and finally the ‘Secure Erase’ mode (the two modes of the ‘Security Erase Unit’ command).  
+Secure Erase - confusion  
+100. Both certain information media destruction devices (see chapter 3.3) and some ‘cleaning’ software include the words ‘secure erase’ in their name or claim that they securely erase data from a hard drive (‘it securely erases data’).  
+
+101. However, unless these devices and software specifically state that they use the ‘Secure Erase’ mode of the ATA 'Security Erase Unit' command, it is likely that this is not the case. In other words, although many data erasure techniques may be considered ‘secure’ compared to a simple ‘delete’, not all include the ‘ATA Secure Erase’ command.  
+
+56 The ‘Sanitize’ command for the NVMe interface also has the three modes: block erase, crypto erase, and overwrite.  
+57 The ‘overwrite ext’ mode fills the user data area with a four-byte pattern. The parameters of this mode include a number of multiple rewrites and the ability to invert the four-byte pattern between consecutive rewrite passes (parameter ‘Invert’).
+Guide on the Erasure and Destruction of Information Media | Version 1.0 - 07/01/2021  
+30  
+Unit’, which alone allows reaching the ‘purge’ confidentiality level and thus achieving an effectively secure erasure.  
+
+102. If applicable, when choosing software, the reader should pay attention to this point. As examples, we mention the software ‘Secure Eraser’ and the command line ‘SDelete’58 (Secure Delete), which may seem to support Secure Erase, but do not actually do so. It should be noted that programs like HDDErase (see par. 89) or hdparm (see par. 90) are examples of free programs that utilize Secure Erase.  
+B. SCSI Magnetic Hard Drives  
+103. Most SCSI-type hard drives59 (including Parallel SCSI, Serial Attached SCSI, Fibre Channel, USB Attached Storage, and SCSI Express interfaces61) support (are provided with) the ‘sanitize’62 command.  
+
+104. Similar to the equivalent command for ATA and NVMe interfaces, the ‘sanitize’ command, with the ‘overwrite’ option, performs one or more overwrite passes on all addressable63 areas of the disk and allows reaching the ‘purge’ confidentiality level. The other two options (‘block erase’ and ‘cryptographic erase’) are also similar to those of ATA and NVMe interfaces.  
+C. Common Remarks for ATA and SCSI Hard Drives  
+105. The result of these dedicated commands, originating from the disk manager64 itself, is generally more reliable65 than using third-party software (see article 3.2.1.1.) because the manufacturer has perfect knowledge of its hardware and these commands take  
+
+58 SDelete is part of the ‘sysinternals’ suite of administration and troubleshooting tools for Windows. Excerpt from the ‘sysinternals’ tools documentation: “Secure delete applications overwrite a deleted file's on-disk data using techniques that are shown to make disk data unrecoverable, even using recovery technology that can read patterns in magnetic media that reveal weakly deleted files. SDelete (Secure Delete) is such an application. You can use SDelete both to securely delete existing files, as well as to securely erase any file data that exists in the unallocated portions of a disk (including files that you have already deleted or encrypted).”  
+59 To be distinguished from SCSI SSD (solid-state drives).  
+60 SCSI (Small Computer System Interface) is a set of standards describing the physical connection and data transfer between computers and devices. SCSI standards define commands, protocols, electrical, optical, and logical interfaces.  
+61 Some interfaces do not comply with all SCSI standards but still implement the SCSI command protocol.  
+62 For a complete description of SCSI commands: https://www.t10.org - SCSI Block Commands (T10/BSR INCITS 506 - Rev.22 15/09/2020)  
+63 Area receiving a unique address (identifying its location on the medium) to be accessible for read/write (sector).  
+64 Tool used to perform usual disk administration tasks such as formatting, partition management (creation, deletion, resizing…), changing a drive letter, etc.  
+65 It seems that in some cases (the frequency of which is difficult to assess), and at least for ATA interfaces, these commands have not been or have not always been correctly implemented by certain manufacturers. http://www.hddoracle.com/viewtopic.php?f=56&t=1412.
+Guide on the Erasure and Destruction of Information Media | Version 1.0 - 07/01/2021  
+31  
+taking into account all the writable areas66 of the media that are invisible to the operating system and the BIOS/UEFI. This technique is also faster than third-party software. Furthermore, built-in commands are less susceptible to malware attacks than third-party software.  
+
+106. Knowing that some problematic implementations of the 'sanitize' command have been reported65, whether the erasure is performed via third-party software or via a built-in command, it is always necessary to verify the proper execution of the instructions67, meaning that the command has resulted in the expected erasure.  
+D. Solid State Drives (SSD)  
+107. As with magnetic hard drives, most manufacturers generally provide software to use with their SSD media (ATA, SCSI, and NVM Express interfaces), including a firmware update tool54, secure erase commands68, and possibly a media cloning tool.  
+
+108. \\ As examples, the reader will find below links to SSD tools from some well-known suppliers:  
+Samsung Magician (secure erase is available in the Data Management section)  
+
+Western Digital SSD Dashboard (secure erase and sanitize are available in the Drive Management section)  
+
+Seagate: SeaTools SSD GUI (with graphical interface - secure erase is available in the Operations - Maintenance - Erase section) and SeaTools SSD CLI (without graphical interface - the sanitize command provides block-erase and overwrite options)  
+
+Lenovo ThinkPad Drive Erase Utility: This utility resets the cryptographic key of supported hard drives (HDD) (Full Disk Encryption - FDE, see article 3.2.4.2.) and erases the SSD (Solid State Drive).  
+
+109. The manufacturer's website is the first place to look for a suitable secure erasure tool. However, these tools do not always allow the execution of built-in commands, or if they do, the quality of the result of their execution is uncertain.  
+
+66 Most hard drives support the creation of hidden storage areas that are not known to the operating system or the BIOS. Two examples are: the Host Protected Area (HPA) and the Device Configuration Overlay (DCO). https://site.aleratec.com/blog/2011/03/31/remember-hpa-dco-sanitizing-hard-drives/  
+67 Third-party software generally allows for the inclusion of a verification pass, with the safest option remaining the use of specialized software, such as data recovery tools or disk editors.  
+68 In practice, when the secure erase command is executed, the SSD controller simultaneously applies an electrical voltage to all storage cells and resets them (releasing the stored electrons). The command therefore writes nothing to the media.
+Guide on the Erasure and Destruction of Information Media | Version 1.0 - 07/01/2021  
+32  
+110. Therefore, in light of the characteristics of SSDs and the above, it will be indicated that, in order to achieve a sufficient level of security/confidentiality, an additional 'cleaning' should be performed using a different technique.  
+3.2.2. Anonymization  
+111. \\ An anonymization, making it impossible to re-identify the individuals concerned, is becoming increasingly difficult to ensure as access to larger and larger online databases intensifies.  
+
+112. \\ For this reason, this technique will not be considered to provide a sufficient level of confidentiality/security. This is regardless of the resources (time and personnel) required for its execution, which further diminishes its appeal compared to other techniques.  
+
+113. If anonymization has already been performed, it will be necessary, before any transfer of an information medium, to examine the validity of the method used and preferably to conduct a re-identification test carried out by personnel independent of those who performed the anonymization (which will be justified all the more as the amounts of data on the medium are large).  
+
+114. Finally, let us not forget that modifying the data contained on a medium (values in a database, for example) does not necessarily remove them from the medium (no data overwriting).  
+3.2.3. Demagnetization - degaussing  
+115. Demagnetization involves applying a magnetic force of sufficient strength to erase all data from a particular magnetic medium. The effectiveness of this technique is related to the relative intensity of the magnetic force provided by the degaussing device and the magnetic properties of the data medium.  
+
+116. Although it is an important technique for cleaning magnetic media, the reader can deduce from the above that demagnetization is not effective, given their nature, on most flash memory devices, including SSDs. Indeed, they use integrated circuits to store data instead of storing it magnetically. It will also not be used on mixed information media consisting of at least one non-magnetic non-volatile medium.  
+
+117. This reminds us of the necessity for proper inventorying of media, with mention of their type and the associated cleaning method, because if care is not taken to distinguish SSDs from hard drives during demagnetization, the data stored on the SSDs will remain intact.  
+
+118. Let us not forget that some devices may integrate both types of media (electronic and magnetic). If demagnetization is considered for these media,  
+69 In this case for ATA, a block erase will be followed by an overwrite and cryptographic erase by a secure erase. For SCSI, a sanitize-block erase will be executed after a cryptographic erase, and finally for NVM Express, the user data erase command will be initiated after a cryptographic erase.
+Guide on Erasure and Destruction of Information Media | Version 1.0 - 07/01/2021  
+33  
+For hybrid devices, care should also be taken to apply a cleaning technique suitable for the electronic storage medium.  
+
+119. The ideal inventory (see chapter 2.3.) must mention the necessary demagnetization strength for the 'cleaning' of the medium, that is, its coercivity. In fact, coercivity can be difficult to determine based solely on the information present on the product label. Therefore, consulting the manufacturer of the device beforehand to obtain this information can prove useful.  
+
+120. It is important to systematically verify that the appropriate power is applied to the media (if too high, the medium may become unusable, and if too low, the data may not be properly 'cleaned'), especially since the necessary power evolves alongside technology. Indeed, the coercivity of media increases as their density/capacity increases. Newer and higher-capacity media therefore require more powerful degaussers.  
+
+121. Depending on the intensity of the degaussing, the medium may become unusable. In this case, demagnetization also becomes a destruction technique (see section 3.3.5.). In the same vein, demagnetization may also be considered in the case of a damaged medium that can no longer be 'cleaned' by a method requiring the operation of the medium.  
+
+122. Since degaussers do not all operate in the same way, it is essential to ensure that the operators using them are familiar with their specific modes of operation. Thus, some devices require only a single pass while others require multiple passes; likewise, some models necessitate that the information media be disassembled while others do not.  
+
+123. For informational purposes, the NSA publishes an updated list of degaussers that allow for the safe 'cleaning' of magnetic tapes and hard drives. The devices listed in this document are listed alongside the coercivity of the storage device they can safely erase.  
+3.2.4. Cryptographic Erasure (cryptographic erase - crypto-erase - CE)  
+124. This is the last of the "cleaning" techniques that preserves the medium, as although it is a standalone technique, it is often used in conjunction with others.  
+
+70 To increase magnetic storage density, the surface allocated to each bit must be reduced. To achieve this, magnetic materials with increased coercivity must be used to prevent information from being erased due to interactions with nearby bits. This makes recording bits more difficult, as it requires a higher magnetic field. This also explains why, with increasing capacities, it becomes more difficult to demagnetize (the necessary power increases) the affected media.  
+71 https://www.nsa.gov/Portals/70/documents/resources/everyone/media-destruction/NSAEPLMagneticDegaussersMarch2020.pdf?ver=2020-03-17-094749-040
+Guide on the Erasure and Destruction of Information Media | Version 1.0 - 07/01/2021  
+34  
+125. The purpose of the methods presented in this document is, ultimately, to render the data contained on a medium permanently inaccessible. Encryption72 of this data can, at first glance, also achieve this objective by making the data incomprehensible to anyone who does not have access to the decryption key. It is this additional step, namely the permanent destruction of the key that allows for decryption, that constitutes the difference between encryption and cryptographic erasure and allows this technique to be a "cleaning" technique.  
+
+126. Encryption is, of course, very useful in many other scenarios related to data protection. It is indeed a key measure to counter a loss of confidentiality in the event of theft, unauthorized access, or loss of the medium. Encryption is also mentioned in the GDPR73 as a potential means of mitigating risks to the affected individuals, and in certain cases, it exempts from the obligation to communicate a data breach to the affected individuals (art.34.3.a of the GDPR)74. However, this does not fall within the scope of the analysis addressed in this document.  
+3.2.4.1. Integrated Commands  
+127. Both the ATA/IDE command groups (option 'crypto scramble') and SCSI (option 'cryptographic erase') discussed in section 3.2.1.2, include specific commands that activate the cryptographic erasure of data located on the medium. However, they are not implemented on all media from all manufacturers.  
+
+128. If this technique is used, the NIST (guidelines SP.880-88r1) recommends subsequently rewriting the medium, either through other integrated commands or using third-party software (see section 3.2.1.1.). This is to reduce the potential risk posed by a decryption key still present and accessible on the medium following ineffective or absent destruction.  
+
+129. NB: We have seen (par.92) that 2 distinct ATA commands, bearing a similar name, exist and present differences for rewriting operations (Secure Erase and Enhanced Secure Erase). When they are used for the  
+                                                             
+72 The encryption of an information medium most often relies on an authentication key and a data encryption key. The encryption key is the key with which the data is actually encrypted and decrypted. The authentication key is based on the user's password or passphrase and is used to decrypt the data encryption key (which in turn decrypts the data). With this two-level approach, the user can therefore change their password without needing to re-encrypt all their data, as the encryption key remains unchanged (it will need to be re-encrypted using the user's new password).  
+73 Encryption is mentioned in arts.6§4.e (lawfulness), art.32§1.a (security), and art.34§3.a (communication to the data subject) of the GDPR.  
+74 Article 34.3.a of the GDPR: "The communication to the data subject referred to in paragraph 1 is not necessary if one of the following conditions is met: a) the controller has implemented appropriate technical and organizational protection measures and those measures have been applied to the personal data affected by the breach, in particular the measures that make the personal data incomprehensible to any person not authorized to access it, such as encryption;"
+Guide on the Erasure and Destruction of Information Media | Version 1.0 - 07/01/2021  
+35  
+Encryption of the media, whether one or the other is used, will yield the same result.  
+3.2.4.2. SEDs  
+130. Many information media contain built-in "self-encryption" mechanisms. They are collectively referred to as "hardware-based full disk encryption" (FDE) and more specifically as "self-encrypting devices" (SEDs75) when it comes to hard drives or solid state drives (SSD). Self-encryption implies that all data written to the media is encrypted by the media before writing and decrypted by the media at the time of reading76. The encryption key is known only to the media but can nonetheless be changed by an authorized user. If the key is modified, any data previously written with the initial key becomes undecipherable. Changing the key can therefore serve to 'destroy' the data by making it unrecoverable (undecipherable).  
+
+131. The technique of cryptographic erasure is therefore easy and especially quick to execute on SEDs since the encryption phase has already been performed.  
+
+132. SEDs that comply with the OPAL77 standard of the Trusted Computing Group78 use the AES79 (Advanced Encryption Standard) encryption algorithm with 128 or 256-bit keys. For these media, cryptographic erasure is referred to as "PSID Revert" because it requires, before launching the actual command and erasing the keys, the introduction of a unique identifier specific to each media: the PSID80 or Physical Security ID.  
+3.2.4.3. Security Vulnerabilities of SEDs  
+133. \\ Another point of concern lies in the publication of a study highlighting a security vulnerability in the built-in "self-encryption" mechanism of SSDs, allowing this encryption to be bypassed as long as one has physical access to the information media.  
+
+75 For example, here is the link to the detailed technical guide (EN) regarding the implementation of security and full encryption of Seagate brand SED models: https://www.seagate.com/files/staticfiles/support/docs/manual/Interface%20manuals/100515636c.pdf.  
+76 In practice, for FDE media, data is always encrypted (via the data encryption key) when stored on the media, even if no password is set (in the case, for example, of a new disk or a user who does not wish to set a password).  
+77 Set of specifications for self-encrypting drives developed by the TCG aimed at protecting the confidentiality of stored data.  
+78 The TCG is a consortium of companies created to develop and promote trusted computing standards and technologies that enable hardware manufacturers to control what can operate on their systems and deny the execution of unvalidated (unsigned) software. Among its members are Western Digital, Samsung, Seagate, HP, Toshiba, Lenovo, Dell, and Microsoft.  
+79 AES encrypts plaintext in blocks of 128 bits at a time, using symmetric keys of 128, 192, or 256 bits. A symmetric key is a key that is used both to encrypt a text and to decrypt that same text.  
+80 The PSID is a unique identifier composed of 32 alphanumeric characters that is most often printed on the media label.
+Guide on the Erasure and Destruction of Information Media | Version 1.0 - 07/01/2021  
+36  
+134. Depending on the risk analysis, a software encryption solution, such as the open-source software VeraCrypt (for Windows, Mac OSX, and Linux) and LUKS (Linux Unified Key Setup), may be preferred over a hardware-based solution.  
+
+135. It should be noted that some manufacturers take into account these potential violations of SSDs and issue warnings (e.g., Samsung).  
+3.2.4.4. Points of Attention  
+136. This technique (encryption followed by cryptographic erasure) can be used on other media (that are not SEDs or do not support built-in commands), by employing third-party encryption software and permanently deleting the keys once encryption is performed. However, the preliminary encryption phase of the media can be a very time-consuming process (several hours, depending on the capacity of the media, its write/read speed, and the computing power allocated to the operation).  
+
+137. In contrast, on-the-fly encryption of SEDs makes the technique of cryptographic erasure very fast and almost immediately prevents access to the data contained on the media.  
+
+138. In the case of cryptographic erasure, it is also necessary to ensure that no personal data has been written before on-the-fly encryption, as this data will not be protected by cryptographic erasure.  
+
+139. In the risk analysis prior to the choice of this technique, the responsible party must take into account future technological developments that may render current encryption methods less secure.  
+
+140. The encryption operation, performed to prevent access to the data contained on the media, must be carried out according to a procedure validated by the data controller.  
+3.2.4.5. Risks  
+141. Once encrypted, the data, although recorded in another form, is still present on the media. The use of this technique implies that the encryption algorithm must be sufficiently robust to withstand decryption without knowledge of the key and, on the other hand, that the initial key (i.e., before its modification/destruction) must, in no way, be recoverable, either on the media itself or elsewhere (also consider potential backups). These requirements are common to techniques using encryption.  
+
+142. This procedure will provide that:  
+
+Guide on the Erasure and Destruction of Information Media | Version 1.0 - 07/01/2021  
+37  
+- The encryption algorithm used is recognized and secure (do not use obsolete algorithms such as DES or 3DES, for example);  
+
+- The encryption keys used are of sufficient length;  
+
+- The encryption keys used are managed correctly (they should not be on the media and, in any case, not in clear text);  
+
+- The encryption is applied to the entirety of the media or to a logical subdivision of it (as opposed to encrypting individual directories or files).  
+
+It should be noted that most modern encryption techniques meet these requirements.  
+
+143. Alongside the risks associated with technological developments, cryptographic erasure, or more precisely encryption, also presents intrinsic risks related to a potential weakness of the password protecting the authentication key (if applicable), the presence of keys in memory, the existence of unencrypted data in temporary files, or the weakness of the encryption protocol used. Furthermore, the certainty that the encryption keys are indeed rendered permanently inaccessible can be difficult to obtain.  
+
+144. Finally, it should be noted that, regarding inaccessible areas of the media, software encryption independent of the hardware is subject to the same limitations as third-party 'cleaning' software (see Article 3.2.1.1.).  
+
+145. That is why, similar to NIST, we recommend that following a cryptographic erasure, a wiping/rewriting of the media (with verification) be performed. This is to, among other things, reduce the potential risk posed by a decryption key still present and accessible on the media following ineffective or absent destruction.  
+Ideally  
+146. In the best of worlds, manufacturers of SEDs or media offering 'secure erase' type commands should provide, in detail, all necessary information on the implemented commands and especially guarantee the result of the erasure, preferably contractually. Nothing prevents the data controller from requesting written assurances in this regard at the time of purchase of these media.  
+
+81 \\ For example, Annex B1 of the general security reference published by ANSSI recommends the symmetric encryption mechanism AES (links in Annex C).  
+82 ENISA (European Union Agency for Cybersecurity) also publishes documents related to recommended algorithms, key lengths, parameters, and encryption protocols on its website.  
+83 \\ For example, Annex B1 of the general security reference published by ANSSI recommends a minimum symmetric key size of 128 bits (links in Annex C).  
+84 See in this regard, section 4.7.3 (Verification of Sanitization Results) of the NIST guidelines SP.880-88r1, which addresses on p.21 the specific case of cryptographic erase.
+Guide on the Erasure and Destruction of Information Carriers | Version 1.0 - 07/01/2021  
+38  
+
+3.3. The data carrier is destroyed  
+147. It should be noted from the outset that there are a number of cases where the physical destruction of the information carrier should be preferred to its 'cleaning':  
+- If the carrier is defective;  
+- If the reader is defective;  
+- If the equipment necessary to access the data is no longer available;  
+- If the type of carrier makes 'cleaning' impossible, such as WORM media (write once, read many - for example: non-rewritable CD-ROM);  
+- If the verification step that concludes the 'purge' or 'clear' methods does not yield reliable results or fails (for known or unknown reasons).  
+
+148. Regardless of environmental concerns, it may be more economical to proceed with the destruction of the carriers than to 'clean' them for reuse.  
+
+149. Finally, it should be noted that chemical destruction will not be considered in this document. Even though certain chemical agents can attack and destroy data carriers, this rarely used technique is also dangerous to health and harmful to the environment.  
+3.3.1. Segmentation of Techniques  
+150. A) Some destruction techniques only partially damage the carrier.  
+Consequently, the data stored on the intact parts may remain accessible. This is the case for the deformation techniques discussed in the following section 3.3.2.  
+
+151. B) Other techniques, such as shredding, grinding, or disintegration, break the carrier into pieces (see section 3.3.3.).  
+It is important to realize that in this case as well, the data is still present on the targeted carrier. It is simply divided into smaller parts. If one knows that a hard drive can contain terabytes of data, it will be easily understood that a fragment of a hard drive platter, measuring barely 1 cm², could still contain several gigabytes of data.  
+
+The level of security/confidentiality provided by fragmenting the carrier will be linked to the size of the fragments obtained. The smaller the fragments, the more resources and time will be required to reconstruct the data. This link (fragment size - security/confidentiality) is at the heart of the DIN 66399 standard, discussed in section 3.3.6.  
+
+Guide on the Erasure and Destruction of Information Carriers | Version 1.0 - 07/01/2021  
+39  
+152. C) Finally, a third group of techniques allows for the complete destruction of the carrier and, by extension, the data it contains.  
+The result is achieved by changing the state of the carrier, that is, by transitioning from a solid state to a gaseous state (sublimation) or to a liquid state (melting).  
+
+3.3.2. Physical Deformation  
+153. A large number of different techniques are covered by the term 'physical deformation techniques'. They can be implemented by both large industrial machines and common tools such as a hammer, a pneumatic nailer, a drill, or a press.  
+
+154. Among these techniques, one will find in particular:  
+- Folding;  
+- Cutting;  
+- Drilling / puncturing / punching / piercing.  
+
+155. Benders use a metal wedge to bend a carrier (essentially hard drives) along its length at a 90-degree angle. The metal wedge, pressed with great force, damages the platters, read heads, electric motor, and electronics of the hard drive so that it can no longer be accessed via its interface.  
+
+156. As for perforation, while the image of a technician using a drill to make holes in a hard drive immediately comes to mind, this is not the method recommended by the ITAD (IT Asset Disposition) sector. Dedicated machines for this method do exist. A perforator uses a hardened steel pin to drill the carriers. When drilling a hard drive, the platters, read heads, electric motor, and electronics of the hard drive are damaged so that it is no longer accessible via its interface.  
+
+157. Some devices optionally offer a module that can also destroy SSDs (Solid State Drives) by perforation. Depending on the model, the SSD is pierced in several places with metal pins or cracked in a wave-like pattern.  
+
+158. These techniques have in common that they only partially damage the carrier and leave the data stored on the unaffected parts accessible.  
+
+159. Consequently, these techniques do not achieve the level of confidentiality "destroy," even if they may render the data impossible to recover via the carriers' interface and that they can no longer be used for further storage. The carrier is indeed not considered 'destroyed' until...
+Guide on the Erasure and Destruction of Information Media | Version 1.0 - 07/01/2021  
+40  
+that data recovery is possible, even if it requires advanced laboratory techniques.  
+
+160. As a confirmation, in its reference document86 on the subject, the NSA (‘National Security Agency’ of the United States) only cites deformation techniques as complementary87 and nonetheless highly recommended measures, to degaussing magnetic hard drives. Deformation alone is therefore not validated by the NSA as a method of ‘cleaning’.  
+3.3.3. Shredding, Crushing, and Disintegration88  
+161. Although these techniques are different, they all result in the disaggregation of the media, transforming it into smaller components. The size of the debris will depend on the technique, the materials composing the media, and the technical characteristics of the device used for this purpose.  
+
+162. Shredders, for example, come in a wide range of sizes and depending on the model, can reduce almost anything from tires to hard drives or SSDs, as well as paper or a sofa. The average size of the debris will depend on the model, while their individual size will depend on the materials involved in their composition. Thus, for a hard drive, the plastic pieces of the casing will likely be larger than the pieces of the platters.  
+
+163. The choice of one technique over another is secondary to the size of the debris obtained. That is why we will not dwell, beyond the simple description, on the techniques themselves.  
+
+164. As specified by the ISO/IEC 21964 standard, “in this context (destruction of the media), securely destroying means destroying data media containing personal data in such a way that the recovery of information concerning them is impossible or only possible with considerable expense (in terms of personnel, material resources, and time).”  
+3.3.3.1. Shredding  
+165. Shredders consist of juxtaposed cylinders with hardened steel knives that rotate in opposite directions to cut, tear, and extrude materials. For the materials that interest us more specifically, there are shredders that only accept thin media, such as optical media (CDs, DVDs, Blu-Rays), memory media (USB drives, memory cards), magnetic tapes (audio, video, data), magnetic or chip cards of any type, while others also accept smartphones, tablets, hard drives, and possibly SSDs, and finally other devices dedicated to paper destruction.  
+
+                                                             
+86 NSA/CSS Storage Device Sanitization Manual  
+87 The NSA nevertheless assesses the ability of certain devices to deform the platter(s) of a hard drive (magnetic) in 30 seconds or less, by bending, punching, or waffling. Devices meeting these criteria are compiled in the document ‘NSA/CSS Evaluated Products List for Hard Disk Drive Destruction Devices’  
+88 In English: shredding, crushing, and disintegration
+Guide on the Erasure and Destruction of Information Media | Version 1.0 - 07/01/2021  
+41  
+166. A paper shredder is a mechanical device used to cut paper into strips or particles. It should be noted that it can also be used to destroy flexible media such as floppy disks, once the media have been physically removed from their outer containers. The size of the shreds must be small enough to provide a reasonable assurance, proportional to the confidentiality of the data, that the data cannot be reconstructed. To be approved by the NSA, paper shredders must be capable of reducing paper documents to fragments measuring no more than one millimeter by five millimeters89. Disintegrator-type devices can also destroy paper documents (see para. 178).  
+Solid State Drives - SSDs  
+167. Let us reiterate that hard drives (magnetic) and SSDs (electronic) have very different technical characteristics and therefore cannot, in principle, be 'cleaned'/destroyed in the same manner.  
+
+168. Shredders not specifically adapted for these media will produce debris that is too large to securely destroy the data on high-density semiconductor chips.  
+
+169. NSA security standards require that hard drives be reduced to a final particle size of two millimeters, or be demagnetized and then physically destroyed (shredders or grinders). This second option is not feasible for SSDs. However, according to a study conducted by Blancco (Dec. 2018), many organizations (33% in the USA and Canada) do not have a different process for handling these two types of media.  
+
+170. With an ever-increasing data storage density, the size of chips on SSDs is decreasing. Shredding at sizes larger than these components can therefore leave the information contained on the media completely intact.  
+
+171. To make data reconstruction even more difficult, the shredded material can be mixed with non-sensitive material of the same type (shredded paper or shredded flexible media), with a greater quantity of debris further increasing the difficulty of reconstruction. This is also valid for all techniques and types of destruction residues.  
+3.3.3.2. Grinding  
+172. Grinders/crushers use compression force to crush the media by breaking it into pieces (examples: between two jaws, one of which is fixed - jaw crusher or by impact - impact crusher).  
+
+173. The term grinder is sometimes used for "devices capable of reducing the data-bearing layer of an optical disc to fine dust while leaving the disc itself intact, which will be recycled or disposed of. However, it cannot be used  
+                                                             
+89 https://www.nsa.gov/Portals/70/documents/resources/everyone/media-destruction/NSAEPLPaperShreddersMarch2020.pdf?ver=2020-03-17-094747-943
+Guide on the Erasure and Destruction of Information Media | Version 1.0 - 07/01/2021  
+42  
+this method for DVDs since their information carrier layer is sandwiched in the center" (source: BCSS90). However, in this case, it will rather be a grinding technique (abrasion). We would like to add that the problem is identical for Blu-Ray discs.  
+
+174. Still regarding optical media, it should be noted that the NSA also publishes, as with hard drives87 and other types of media91, a list of validated devices92 for destruction by fragmentation. To be included, the devices must produce residues whose side does not exceed:  
+For CDs, a length of 5 millimeters;  
+
+For DVDs and Blu-Ray, a length of 2 millimeters.  
+
+3.3.3.3. Disintegration  
+175. The term disintegration/disintegrator is often used when the size of the obtained fragments is less than or equal to two millimeters on each side. This size is related to the requirements of the NSA, mentioned in the NSA/CSS Storage Device Sanitization Manual. If the equipment has been tested by the NSA and meets the requirements of the manual, it will be included in the NSA/CSS Evaluated Products List for Hard Disk Drive Destruction Devices.  
+
+176. In parallel, it is recommended to disintegrate the media (both HD and SSD) in batches with other storage devices.  
+
+177. Disk disintegrators use knife milling technology to cut the media into pieces continuously until they are small enough to pass through a specified waste sizing screen. Disintegration is slower than shredding, but the size of the debris is smaller and the level of security/confidentiality achieved is higher.  
+
+178. Paper disintegrators (different from paper shredders - see par.166) must, to be approved by the NSA, produce shreds whose side does not exceed three millimeters by five millimeters93.  
+3.3.3.4. Remarks  
+179. It should be noted that translation tools are quite imprecise, often providing several different translations for the same technique within the same sentence. Websites addressing the physical destruction of information media (including some manufacturers) also frequently mix up the names of the devices.  
+
+90 BCSS document (Crossroads Bank for Social Security): Information Security & Privacy Guidelines - Erasure of Electronic Information Media (March 2017) p.7  
+91 https://www.nsa.gov/resources/everyone/media-destruction/  
+92 NSA/CSS Evaluated Products List for Optical Destruction Devices  
+93 https://www.nsa.gov/Portals/70/documents/resources/everyone/media-destruction/NSAEPLPaperDisintegratorsMarch2020.pdf?ver=2020-03-17-094733-413
+Guide on the Erasure and Destruction of Information Media | Version 1.0 - 07/01/2021  
+43  
+and techniques, or use names unrelated to the technology employed (destroyer, disassembly device, cracker, …).  
+
+180. We have seen, for example, that for an information medium such as hard drives and SSDs to be considered by the NSA as 'adequately cleaned' through a disaggregation technique, two conditions must be met: the residues must not exceed 2mm on any side, and the device used must be listed among the approved devices (which only includes American companies). The same does not apply to the DIN 66399 standard.  
+
+181. This standard specifies, depending on the size of the residues, what level of security is achieved by any destruction method, and this applies to six major classes of information media (e.g., paper, optical, electronic, or magnetic), but we will return to this in section 3.3.6.  
+
+182. The data controller must keep in mind that when choosing to engage an external provider to eliminate their media using the techniques discussed in chapter 3.3, once the destruction is completed, this provider will likely recycle them or dispose of them in a landfill.  
+
+183. This means that the data, if the media have not been securely destroyed, will potentially be accessible again to third parties. The remnants of the media could even end up in different parts of the world if they are sold to waste management or recycling companies. Incineration eliminates this risk.  
+3.3.4. Incineration  
+184. Incineration, although less commonly used and having a significant environmental impact, is an effective technique because, if carried out properly in suitable incinerators, it guarantees the total and irreversible destruction of data and media. These can consist of large waste incinerators, as well as smaller mobile and compact incinerators that specialized companies can bring to the site of the data controller upon request. Some mobile models are dedicated to the disposal of paper, while others are capable of melting metal.  
+
+185. As part of their digital transformation, many organizations digitize documents to store them online or archive them, and then find themselves with the originals to dispose of. When the quantities of paper to be disposed of are large, incineration can be an alternative to shredding.  
+
+186. Other types of media can also be destroyed by this technique. In its manual on media cleaning, the NSA cites magnetic tapes, floppy disks, optical media, electronic media, and paper as being able to be securely destroyed by incineration, provided that the material has been reduced to ash. Regarding hard drives, it specifies that the coating of the internal platters must be reduced to ash and/or the internal platters must be physically deformed by the action of heat.  
+
+94 Unit that allows for almost total combustion of the combustible constituents of waste.
+Guide on the Erasure and Destruction of Information Media | Version 1.0 - 07/01/2021  
+44  
+187. If incineration occurs outside the control of the data controller, the latter will ensure that a treatment of the media, providing a complete traceability chain, is implemented by the external service provider(s).  
+3.3.5. Demagnetization - degaussing  
+188. Demagnetization, already presented as a 'cleaning' technique (with preservation of the media - see section 3.2.3.), also allows for the destruction (rendering unusable) of magnetic media if they are subjected to a sufficient magnetic force, regardless of their operating system and interface, even if they are damaged.  
+
+189. It should be emphasized again that demagnetization is, however, not effective on flash memory devices such as SSDs. Similarly, this technique is not suitable for paper and optical media.  
+
+190. Demagnetization subjects magnetic media to a powerful magnetic field that can be created either by strong magnets or by an electromagnetic discharge.  
+
+191. It is recommended to follow demagnetization with another destruction technique; this will achieve the highest level of confidentiality/security, address a failure of the degausser or an oversight by the technician, and provide a visual verification that the media has been destroyed and is ready for disposal. Under these conditions and using an approved device, the NSA validates the technique at the 'purge' level.  
+3.3.6. The DIN 66399 Standard  
+192. The DIN 66399 standard from the Deutsches Institut für Normung, titled "Büro- und Datentechnik - Vernichten von Datenträgern," specifies, based on the size of the debris resulting from the destruction of the media, what level of security is achieved by devices intended to destroy data carriers.  
+
+193. Very popular in Europe, it takes less into account the technique employed than the results of that technique, and this for six major classes of information media.  
+
+194. This standard (for a fee) or more precisely this series of standards consists of three parts:  
+ Part 1: Principles and definitions (publication 10/12);  
+
+95 Examples of degaussers capable of destroying hard drives and magnetic tapes  
+96 The degausser is a finely tuned magnet that comes into contact with other magnetic media and can destroy the magnetic signature of any stored data.  
+97 German Institute for Standardization - "Office machines - Destruction of data carriers"  
+98 Each part costs several dozen euros.  
+99 Part 1: Principles and definitions, Part 2: Requirements for equipment for destruction of data carriers, and Part 3: Process for destruction of data carriers.  
+
+Guide on the Erasure and Destruction of Information Media | Version 1.0 - 07/01/2021  
+45  
+ Part 2: Requirements for equipment for destruction of data carriers (publication 10/12);  
+
+ Part 3: Process for destruction of data carriers (publication 02/13).  
+
+195. Although replaced since 2012 by the DIN 66399 standard, the classification related to the obsolete DIN 32357 standard (1995), which applied exclusively to paper, is still often cited in the descriptions of the relevant devices (mainly shredders).  
+
+196. The DIN 66399 standard defines protection classes, categories of media, and security levels.  
+Three protection classes  
+197. They determine the extent to which data must be protected, based on an assessment of the type of data present on the media. The requirement for protection/security is divided into normal, high, and very high categories:  
+ Protection Class 1 - Normal security requirement for internal data. The loss of data would have a negative impact on the organization or pose a risk of identity theft for the individuals concerned;  
+
+ Protection Class 2 - Higher security requirements for confidential data. The loss of data would have a very negative impact on the organization or could violate its legal obligations or pose a financial or social risk to the individuals concerned;  
+
+ Protection Class 3 - Very high protection requirements for highly confidential and secret data. The loss of data could have irreparable consequences for the organization or pose a risk to the health and safety or individual freedoms of the individuals concerned.  
+
+Six categories of data media  
+198. The standard divides different types of data media into 6 categories or classes:  
+ Class P (paper) - Original format (paper, radiographic films);  
+
+ Class F (microfilm) - Reduced format (microfilm);  
+
+ Class O (optical) - Optical data media (CD, DVD, Blu-Ray);  
+
+ Class T (tape) - Magnetic data media (tapes, floppy disks, credit cards);  
+
+100 The DIN 32757 standard defines 5 security levels. A 6th unofficial level, 'Level 6 - Highest Security,' is also found in the literature. These security levels are related to the fineness of the shredding of the material and therefore express the level of security offered by shredders.
+Guide on the Erasure and Destruction of Information Carriers | Version 1.0 - 07/01/2021  
+46  
+Class H (hard drive) - Magnetic hard drives;  
+
+Class E (electronic) - Electronic data carriers (USB drives, SSDs, memory cards, smart cards, flash memory of smartphones and tablets, memory cards of digital cameras).  
+
+Seven Levels of Security  
+199. The seven levels of security are derived from the three classes of protection, each class covering three levels of security:  
+Protection Class 1 - Security Levels 1, 2, and 3  
+
+Protection Class 2 - Security Levels 3, 4, and 5  
+
+Protection Class 3 - Security Levels 5, 6, and 7  
+
+200. These security levels determine the amount of effort and resources required if one wanted to recover data from a destroyed carrier (the higher the security level, the smaller the debris must be):  
+Security Level 1 - Data recovery requires a simple effort (concerns general documents to be rendered unreadable).  
+
+In other words, Level 1 is selected for ordinary data, for which little or no protection is necessary (for example, brochures and newspapers) and from which eventual reconstruction from the destroyed carrier would pose no data protection issues;  
+
+Security Level 2 - Data recovery requires specific effort and tools (concerns internal documents to be rendered unreadable);  
+
+Security Level 3 - Data recovery requires considerable labor, time, and tools (concerns sensitive/confidential data as well as personal data subject to high protection requirements);  
+
+Security Level 4 - Data recovery requires exceptional effort and unusual tools (concerns highly sensitive/confidential data as well as personal data subject to high protection requirements);  
+
+Security Level 5 - Data recovery possible only with unusual tools (concerns confidential data of fundamental importance to an organization or the individuals concerned);  
+
+Security Level 6 - Data recovery is unlikely with the current state of technology (concerns confidential data subject to extraordinary protection requirements);  
+
+Guide on the Erasure and Destruction of Information Carriers | Version 1.0 - 07/01/2021  
+47  
+Security Level 7 - Data recovery is impossible with the current state of technology (concerns strictly confidential data subject to the highest protection requirements).  
+
+In other words, Level 7 is selected for ‘top-secret’ data (intelligence services, military documents), when the possibility of reconstructing the data from the destroyed carrier must be absolutely excluded (according to the current state of knowledge).  
+
+Tables  
+201. We can group all these elements into a table that allows finding the necessary level of destruction.  
+
+202. As examples, here are the recommended security levels for categories of carriers H and P:  
+
+203. Note: at level H1, the disk may be out of service for mechanical or electronic reasons.  
+Examples of Interpretation  
+204. Many manufacturers and resellers attach to the description of their data destruction devices references such as “E-1 / H-3” or “T-1 / E-2 / H-3”. These refer, according to the manufacturers, to the security levels based on the carrier class of the DIN 66399 standard that the equipment can achieve. Here are some examples of interpretation of these security levels:  
+A hard drive belonging to the carrier category “H” (see table above) and containing sensitive or confidential data requiring a security level 3 (i.e., level H-3) must be deformed to meet the requirements of the DIN 66399 standard.
+Guide on the Erasure and Destruction of Information Carriers | Version 1.0 - 07/01/2021  
+48  
+
+If a destruction device claims to reach level P-5 (see table above), this means that it meets, for carriers in their original format (e.g., paper - data carrier category "P"), security level 5 and is therefore capable of fragmenting the carrier into particles of 30 mm². Such a device will thus meet the requirements of the DIN standard for highly confidential data (for example, medical documents). Once destroyed by this device, these data can no longer be reconstructed using conventional techniques.  
+
+A microfilm belonging to the "F" carrier category (table not provided above), which is of a very confidential nature and requires a security level of 5 (i.e., level F-5), must be shredded to a particle size of a maximum of 1 mm².  
+
+Use of the DIN Standard in Practice  
+205. Steps to follow to determine the security level to be achieved and the maximum size of residues after the destruction of the carrier in order to select the appropriate destruction device:  
+A. Among the 3 protection classes, choose the one corresponding to the confidentiality/security level of the data contained on the carriers to be destroyed (internal document, confidential, or highly confidential)  
+
+B. The selected protection class then offers you a choice among 3 security levels (the higher the selected security level, the smaller the residues will be).  
+
+C. Next, select the type of carrier to be destroyed (paper, electronic, magnetic tapes, etc.)  
+
+D. Now link the data carrier and the security level. You can then use this information to select an appropriate document shredder.  
+
+DIN and ISO  
+206. In 2018, ISO/IEC JTC101 standardized the DIN 66399 standard developed in 2013 at the international level. Numbered ISO/IEC 21964, this standard is now referenced by organizations worldwide regarding data destruction requirements. The materials referenced in the security levels are identical to those referenced in the DIN 66399 standard.  
+
+207. The 3 parts of the DIN standard (see par.194) correspond to the following 3 parts of the ISO standard:  
+
+101 Joint Technical Committee of the International Organization for Standardization (ISO) and the International Electrotechnical Commission.  
+
+Guide on the Erasure and Destruction of Information Carriers | Version 1.0 - 07/01/2021  
+49  
+ISO/IEC 21964-1:2018 - Information technology — Destruction of data carriers — Part 1: Principles and definitions  
+
+ISO/IEC 21964-2:2018 - Information technology — Destruction of data carriers — Part 2: Requirements for equipment for destruction of data carriers  
+
+ISO/IEC 21964-3:2018 - Information technology — Destruction of data carriers — Part 3: Process of destruction of data carriers  
+
+Comparison DIN - NSA - NIST  
+208. Generally speaking, the DIN 66399 standard is not as demanding as the guidelines and standards of NIST or NSA.  
+
+209. Thus, unlike the DIN standard, the NSA recommends that the destruction of hard disks (magnetic and electronic) be preceded by demagnetization. Furthermore, destruction must be carried out with devices approved by the NSA.  
+
+210. Moreover, demagnetization, like any technique that does not result in fragmentation of the carrier, is not taken into account by the DIN standard, whereas the NSA incorporates it and recommends that it be followed by a deformation or destruction technique, and the NIST incorporates it at the "purge" level (and indirectly at the "destroy" level, given the irreparable damage that the technique can cause).  
+
+211. Regarding the security levels themselves, the NIST requires, for example for paper carriers, shredding that produces residues not exceeding 1 mm x 5 mm in size, or pulverization/disintegration using a device equipped with a safety screen102 of 2.4 mm. Only the last security level of DIN (P-7) meets this requirement (maximum residue size of 5 mm²).  
+
+212. Another feature, associated with each security level of the DIN standard and absent from the guidelines and standards of the NIST and NSA, also lowers the level of requirement. This is the allowable deviation or tolerance, which is the permitted deviation from the recommended particle size for each security level of the DIN standard.  
+
+213. For example, the security level H5 (see table par.202) of the DIN standard specifies a maximum residue size of 320 mm², but the complete specifications of this level actually stipulate that only 90% of these particles must be less than or equal to this size and allow 10% of them to reach 800 mm². This in itself would tend to disqualify H5 as acceptable for confidential data of fundamental importance to an organization or the individual concerned.  
+
+214. This allowable deviation is defined at each security level for each type of carrier.  
+
+102 The carrier is continuously cut until the resulting particles are small enough to pass through a specific sizing screen.
+**Guide on the Erasure and Destruction of Information Media | Version 1.0 - 07/01/2021**  
+50  
+215. In summary, the DIN 66399 standard is easy to read and useful for the business world but is probably less suitable for media containing highly confidential data that require a high level of security than the guidelines and standards of NIST and NSA.  
+
+**Guide on the Erasure and Destruction of Information Media | Version 1.0 - 07/01/2021**  
+51  
+4. Special Cases  
+216. It is not always possible for the data controller to proceed with the erasure or destruction of information media.  
+
+217. This is the case when the media does not belong to them. One might think, for example, of computer equipment under a rental contract (printers/copy machines, server infrastructure at the IT service provider, cloud computing, or even video surveillance systems with recording).  
+
+218. The data controller must then ensure that the contract provides for the possibility of erasing the data or destroying the media according to a method that they approve and which they can verify the proper execution and result. If contractual adaptation or control proves difficult, the data controller may also negotiate a buyback of the media contained in the devices.  
+
+219. We cannot emphasize enough the necessity of addressing data protection points before signing the contract. This often proves difficult afterward.  
+
+220. This is also the case when a device containing information media (or the media itself) needs to be repaired, replaced, or undergo maintenance outside of your control perimeter. You must then assess the risk associated with access to the data by the service provider. Let us recall that the GDPR focuses on the impact of a loss of confidentiality for the data subjects (the individuals to whom the data relates).  
+
+221. If this operation poses a risk to the data subjects, it must remain under the control of the data controller (e.g., on-site repair or purchase of a replacement media to keep the defective one).  
+
+103 It should be noted that some suppliers (including HP, Dell, and Lenovo) offer the possibility of subscribing to an additional warranty of the "keep your drive" type, allowing the customer to retain a defective media that needs to be replaced.  
+
+**Guide on the Erasure and Destruction of Information Media | Version 1.0 - 07/01/2021**  
+52  
+5. Verification  
+222. The last step of the procedure, before issuing a document certifying the cleaning or destruction (see section 6 "Recording"), consists of verifying the destruction of the data, which should ensure that they have been properly cleaned or destroyed. This is essential because the sources of possible failure are numerous. Think of human errors (e.g., an untreated disk placed in the stack of treated disks, lack of training, desire to hurry), hardware errors (e.g., a damaged shredder knife or failure of one of the components located between the erasure software and the data on the disks), and software errors (lack of updates, quality of the software).  
+
+223. When the data controller engages a subcontractor for cleaning or destruction operations, this will require discussing with them the verification modalities and possibly defining them contractually.  
+
+224. Verification is ideally performed by an independent person who has not participated in the actual destruction or cleaning of the data media. Following the same logic, when software is used for data cleaning, the verification part should be ensured by software different from that used for cleaning.  
+
+225. This quality control process is documented just like the other steps of the destruction/cleaning procedure. For example, the number of samples to be tested will be specified in the documentation.  
+
+226. In parallel to this documentation, the data controller must have an information system that allows, upon request, to produce proof of compliance (i.e., confirm the successful erasure of the data) for each media.  
+
+227. We will conclude this section 5 with some information on verification specific to different "cleaning" techniques.  
+Erasure - Rewriting  
+228. Depending on its extent, the result of the verification may be more or less reliable, with the best assurance of effective data "cleaning" generally obtained by a complete read of all accessible areas of the media, to verify that the expected values (binary numbers 0 or 1) are indeed found, that is to say, those determined in the configuration of the rewriting pass.  
+
+229. This verification read is obviously only possible when the media is not destroyed.  
+
+230. Even though verification is a time-consuming process, the percentage of the media surface to be verified should, depending on the time available, be as large as possible, and in any case should not be less than 10% (which is often the percentage proposed by default by third-party software).  
+
+231. Third-party software and built-in commands offer verification possibilities. However, if one wishes to proceed with a manual verification and...
+Guide on the Erasure and Destruction of Information Media | Version 1.0 - 07/01/2021  
+53  
+independent of the tool used for cleaning, a 'disk editor' (often coupled with a 'hex editor') may be used. These software programs are also most commonly used for data recovery and digital forensics. \\  
+As examples, we will mention three of these software programs: Active@ Disk Editor and HxD (freewares) as well as WinHex (well-known commercial software).  
+
+232. For the 'clear' and 'purge' levels, whether using third-party software or when an integrated overwrite command is used, the verification must confirm that the expected values (see para. 228) are present on the media. In cases where multiple overwrite passes have been applied, the values from the last pass will be sought.  
+Cryptographic Erasure  
+233. In the case of cryptographic erasure, the most effective verification will consist of reading random locations before the erasure, and then again after the cryptographic erasure to compare the results.  
+
+234. This implies that if cryptographic erasure is followed by another technique (such as destruction), the verification must be performed before the latter. A verification through rapid sampling will also be conducted after the application of the additional technique.  
+Shredding, Grinding, Disintegration  
+235. For media that have been reduced to pieces, a verification of the size of the residues will be performed visually or using a sieve corresponding to the maximum accepted size or another measuring instrument (e.g., high-precision digital caliper).  
+Degaussing  
+236. The assurance of correct degaussing primarily relies on the selection of an effective degausser, its proper use, and periodic spot checks of the results to ensure it operates as intended.  
+
+Guide on the Erasure and Destruction of Information Media | Version 1.0 - 07/01/2021  
+54  
+6. Record Keeping  
+237. Proof of destruction is an essential element of the traceability chain. In accordance with the principle of accountability under the GDPR (art. 5.2), it will allow the data controller to demonstrate compliance with the principles regarding the processing of personal data, including those related to data retention limitation and integrity and confidentiality (art. 5.1.e and f - see Annex B).  
+
+238. It is therefore important to record and retain information regarding the proper execution of the cleaning and/or destruction and the technique (and thus the level of confidentiality/security selected), whether the procedure is carried out internally or with the assistance of a subcontractor. Proof of destruction/cleaning is generally issued by the person in charge of the operation (under the authority of the subcontractor or the data controller) and validated by a person designated by the data controller.  
+
+239. Although this proof is often referred to as a 'certificate' of destruction by various industry players, we prefer the terms attestation or declaration, for their less official connotation104.  
+Subcontracting  
+240. When a subcontractor is engaged for the cleaning and/or destruction of information media, these may be gathered and stored by the data controller in a location that is not secure until the subcontractor retrieves them. The temporary storage of these media does not exclude the possibility of loss or theft. Therefore, it may be useful to compare the list of media that have been stored with the list of media that are actually taken over by the external service provider. We will again emphasize the necessity of designating one or more responsible persons for each step of the processing, including those for the collection of the media and their storage.  
+
+241. The actual cleaning process can take place on the premises of the data controller or off-site (depending on the technical capabilities of the subcontractor or the request of the data controller). In the case of off-site processing, it would ideally require that an agent of the data controller be physically present throughout the destruction process to ensure that the media have indeed been properly destroyed. Without this, the "proof of destruction" provided by the subcontractor may not correspond to reality and may not constitute a valid document. The data controller may also engage bailiffs to oversee and record all operations.  
+
+242. As already mentioned in para. 58, the issuance by the subcontractor of a cleaning/destruction attestation must be part of the contractual agreement made with them. If data that was to be processed under the contract is later  
+
+104 The Larousse defines a certificate as a "written document, official or duly signed by an authorized person that certifies a fact."
+Guide on the Erasure and Destruction of Information Media | Version 1.0 - 07/01/2021  
+55  
+found, the certificate may serve as evidence that the subcontractor has committed a fault.  
+The Certificate  
+243. Evidence of cleaning/destruction will take the form of a detailed certificate for each medium that has been processed. Whether in paper or digital format, this is a critical element that must validate that the data has been rendered irretrievable from the medium that has been cleaned.  
+
+244. It generally lists each storage device by serial number, describes the level of confidentiality/security aimed for (clear, purge, destroy, H-1, P-5, …), the cleaning technique used (degaussing, shredding, cryptographic erasure, …), the tools used to achieve this, the verification method used and its result, as well as other information elements related to the date, location, and individuals involved.  
+
+245. In summary, the destruction certificate will contain information related to:  
+- The date and location of the procedure;  
+- The organization, the person performing the destruction (identification);  
+- The data medium and the hardware incorporating this medium (serial number, type, …);  
+- The technique employed (software and hardware tools, level of confidentiality/security, reference standard, method, …);  
+- The verification (method) and its final result;  
+- The destination of the medium (reuse, disposal, return to the supplier, …);  
+- The validation of the certificate (contact details of the person verifying the certificate, this person being different from the one who carried out the destruction).  
+
+246. The certificate must be retained and made available upon request. Although the Crossroads Bank for Social Security (CBSS) recommends a retention period for the certificate of "at least 2 years105", we consider it prudent to take into account the legal limitation periods106. These periods will generally be 5107 or 10 years108.  
+
+105 https://ksz-bcss.fgov.be/sites/default/files/assets/protection_des_donnees/bld_erase_effacement_ 
+supports.pdf  
+106 The limitation periods are detailed in Articles 2262bis and following of the Civil Code.  
+107 Personal actions arising from a non-contractual event: 5 years (Art. 2262 bis §1, al. 2 and 3 Civil Code)  
+108 Personal actions arising from the execution of a contract: 10 years (Art. 2262 bis §1, al. 1 Civil Code).  
+
+Guide on the Erasure and Destruction of Information Media | Version 1.0 - 07/01/2021  
+56  
+247. Indeed, as long as the limitation period has not expired, a person or organization that has suffered damage due to deficient data cleaning or insufficient destruction of a data medium may take legal action to obtain compensation for their damage or even other sanctions against the data controller.  
+
+Guide on the Erasure and Destruction of Information Media | Version 1.0 - 07/01/2021  
+57  
+Annex A: Recommended Techniques for Main Types of Media  
+Magnetic Media  
+Floppy Disks  
+Clear  
+ Rewriting (overwriting) the medium using software approved by the organization and then validating (verification).  
+The Clear level must involve at least one write pass with a fixed data value (e.g., all zeros).  
+Optional: multiple write passes or more complex values may be used.  
+Purge  
+ Degaussing the medium using a degausser approved by the organization (possibly refer to the list of devices approved by the NSA).  
+Destroy  
+ Incineration of the medium: the medium must be reduced to ashes.  
+
+ Shredding - Disintegration  
+(possibly refer to the list of devices approved by the NSA).  
+The DIN standard recommends for levels T2 a debris size of max. 2000 mm², T3 max. 320 mm², T4 max. 160 mm², T5 max. 30 mm², T6 max. 10 mm², and T7 max. 2.5 mm².  
+Optical Discs  
+CD/DVD/BD  
+Clear  
+Not available.  
+Purge  
+Not available.  
+Destroy  
+ Grinding (abrasion). Removal of layers containing information from the medium using a commercial optical disc grinding device. This technique is not suitable for DVDs and Blu-Rays (see par.173).  
+
+ Incineration of the medium: the medium must be reduced to ashes.  
+
+ Shredding - Disintegration - Grinding  
+The NSA cites a maximum debris size of 2mm on each side for DVDs and Blu-Rays and 5mm on each side for CDs (see par.174) (possibly refer to the list of devices approved by the NSA).  
+The DIN standard recommends for levels O1 a debris size of max. 2000 mm², O2 max. 800 mm², O3 max. 160 mm², O4 max. 30 mm², O5 max. 10 mm², O6 5 mm², and O7 max. 0.2 mm².
+Guide on the Erasure and Destruction of Information Media | Version 1.0 - 07/01/2021  
+58  
+
+Magnetic Media  
+ATA Hard Drives  
+Clear  
+ Overwriting (data destruction) of the media using software approved by the organization, followed by validation (verification).  
+The Clear level must involve at least one write pass with a fixed data value (e.g., all zeros).  
+Optional: multiple write passes or more complex values may be used.  
+Purge  
+In order of preference:  
+ 1. Sanitize Device Command: If supported, use one of the commands from the ATA Sanitize Device feature set (preferable to the Secure Erase command). One or both of the following options may be available:  
+1.a) Overwriting (overwrite ext command). Apply a write pass with a fixed data value (e.g., all zeros). A single write pass should suffice to purge the media.  
+Optional: instead of a single write pass, use three write passes, utilizing the ‘invert’ option so that the second write pass is the inverted version of the specified pattern.  
+1.b) Cryptographic Erasure (crypto scramble ext command).  
+Optional: Once the cryptographic erasure has been successfully applied, use the overwrite command to write a pass of zeros or a pseudo-random pattern to the media. If this command is not supported, the Secure Erase or Clear procedure may also be applied after the cryptographic erasure.  
+
+ 2. Secure Erase Command: If supported, use the Secure Erase Unit command in ‘enhanced’ mode.  
+
+ 3. Cryptographic Erasure via the Opal Security Subsystem class (see par.132), if built-in commands are not available.  
+Optional: Once the cryptographic erasure has been successfully applied, use the overwrite command to write a pass of zeros or a pseudo-random pattern to the media. If this command is not supported, the Secure Erase or Clear procedure may also be applied after the cryptographic erasure.  
+
+ 4. Demagnetization of the media using a degausser approved by the organization (refer to the list of NSA-approved devices if necessary). It is recommended to damage the hard drive by distorting its internal platters before disposing of it.  
+
+Guide on the Erasure and Destruction of Information Media | Version 1.0 - 07/01/2021  
+59  
+Destroy  
+ Incineration of the media: the media must be reduced to ashes. The coating of the internal platters must be reduced to ashes and/or the internal platters must be physically deformed by heat.  
+
+ Shredding - Disintegration  
+The NSA cites a maximum debris size of 2mm on each side and recommends batch destruction with other storage devices (refer to the list of NSA-approved devices if necessary).  
+The DIN standard recommends for level H1 a mechanically/electronically inoperable media, for level H2 a damaged media, and for level H3 a deformed media. It recommends a maximum debris size for level H4 of 2000 mm², H5 max. 320 mm², H6 max. 10 mm², and H7 max. 5 mm².  
+
+Guide on the Erasure and Destruction of Information Media | Version 1.0 - 07/01/2021  
+60  
+Magnetic Media  
+SCSI Drives  
+Clear  
+ Overwriting (data destruction) of the media using software approved by the organization, followed by validation (verification).  
+Purge  
+ Sanitize Command (see Sanitize Device command for ATA Hard Drives)  
+
+ Demagnetization of the media using a degausser approved by the organization (refer to the list of NSA-approved devices if necessary). It is recommended to damage the hard drive by distorting its internal platters before disposing of it.  
+Destroy  
+ Incineration of the media: the media must be reduced to ashes. The coating of the internal platters must be reduced to ashes and/or the internal platters must be physically deformed by heat.  
+
+ Shredding - Disintegration  
+The NSA cites a maximum debris size of 2mm on each side and recommends batch destruction with other storage devices (refer to the list of NSA-approved devices if necessary).  
+The DIN standard recommends for level H1 a mechanically/electronically inoperable media, for level H2 a damaged media, and for level H3 a deformed media. It recommends a maximum debris size for level H4 of 2000 mm², H5 max. 320 mm², H6 max. 10 mm², and H7 max. 5 mm².  
+
+Paper  
+Clear  
+Not available.  
+Purge  
+Not available.  
+Destroy  
+ Incineration of the media: the media must be reduced to ashes.  
+
+ Shredding - Disintegration  
+NIST recommends a maximum debris size produced by shredders of 5 mm² and the use of a 2.4 mm sieve for disintegrators (refer to the list of NSA-approved disintegrators and NSA-approved shredders if necessary).  
+The DIN standard recommends for level P1 a maximum strip width of 12 mm and for P2 of 6 mm. It recommends for levels P3 a maximum debris size of 320 mm², P4 max. 160 mm², P5 max. 30 mm², P6 max. 10 mm², and P7 max. 5 mm².
+Guide on the Erasure and Destruction of Information Media | Version 1.0 - 07/01/2021  
+61  
+Media  
+Flash  
+- USB  
+Removable  
+Drives  
+- Memory  
+Cards  
+- Solid State  
+Drives  
+Clear  
+ Overwriting (scrubbing) the media using software approved by the organization, then validating (verification).  
+
+For ATA & SCSI Solid State Drives, USB Removable Media, and Memory Cards:  
+ Overwriting (scrubbing) the media using software approved by the organization, then validating (verification). The Clear level must involve at least one write pass with a fixed data value (e.g., all zeros).  
+Optional: multiple write passes or more complex values may be used.  
+
+For ATA Solid State Drives (only):  
+ Secure Erase Command: If supported, use the Secure Erase Unit command in ‘enhanced’ mode.  
+Purge  
+A) ATA Solid State Drives  
+ 1. Sanitize Device Command: If supported, use one of the commands from the ATA Sanitize Device feature set (preferable to the Secure Erase command). One or both of the following options may be available:  
+1.a) Block Erase Command  
+Optional: once the command has been successfully applied, write binary 1s in the user-addressable area of the media, then perform a second block erase.  
+1.b) Cryptographic Erasure (crypto scramble command).  
+Optional: Once the cryptographic erasure has been successfully applied, use the block erase command. If this command is not supported, the Secure Erase or Clear procedure may also be applied after the cryptographic erasure.  
+
+ 2. Cryptographic Erasure via the Opal Security Subsystem Class (see par.132), if built-in commands are not available.  
+Optional: Once the cryptographic erasure has been successfully applied, use the block erase command. If this command is not supported, the Secure Erase or Clear procedure may also be applied after the cryptographic erasure.  
+
+B) SCSI Solid State Drives  
+ 1. Sanitize Command: If supported, use one of the commands from the SCSI Sanitize feature set. One or both of the following options may be available:  
+1.a) Block Erase Command  
+1.b) Cryptographic Erasure (cryptographic erase command).  
+Optional: Once the cryptographic erasure has been successfully applied, use the block erase command. If this command is not supported, the Secure Erase or Clear procedure may also be applied after the cryptographic erasure.  
+
+ 2. Cryptographic Erasure via the Opal Security Subsystem Class (see par.132), if built-in commands are not available.  
+Optional: Once the cryptographic erasure has been successfully applied, use the block erase command. If this command is not supported, the Secure Erase or Clear procedure may also be applied after the cryptographic erasure.  
+
+C) USB Removable Media and Memory Cards - Not available  
+Most of these media do not support built-in commands, or if they are supported, the interfaces are not standardized.  
+Destroy  
+ Incineration of the media: the media must be reduced to ashes.  
+
+ Shredding - Disintegration  
+The NSA cites a maximum debris size of 2mm on each side and recommends batch destruction with other storage devices (possibly refer to the list of NSA-approved devices).  
+The DIN standard recommends for levels E3 a maximum debris size of 160 mm², E4 max. 30 mm², E5 max. 10 mm², E6 1 mm², and P7 max. 0.5 mm².
+Guide on the Erasure and Destruction of Information Media | Version 1.0 - 07/01/2021  
+63  
+Annex B: Extracts from the GDPR  
+Article 5: Principles relating to the processing of personal data  
+1. Personal data must be:  
+
+a) processed lawfully, fairly, and transparently in relation to the data subject (lawfulness, fairness, transparency);  
+
+b) collected for specified, legitimate, and explicit purposes and not further processed in a manner incompatible with those purposes; further processing for archiving purposes in the public interest, for scientific or historical research, or for statistical purposes is not considered incompatible with the initial purposes, in accordance with Article 89, paragraph 1 (purpose limitation);  
+
+c) adequate, relevant, and limited to what is necessary in relation to the purposes for which they are processed (data minimization);  
+
+d) accurate and, where necessary, kept up to date; all reasonable steps must be taken to ensure that personal data that is inaccurate, in relation to the purposes for which it is processed, is erased or rectified without delay (accuracy); 4.5.2016 L 119/35 Official Journal of the European Union FR.  
+
+e) kept in a form which permits identification of data subjects for no longer than is necessary for the purposes for which the personal data are processed; personal data may be stored for longer periods insofar as they will be processed solely for archiving purposes in the public interest, for scientific or historical research, or for statistical purposes in accordance with Article 89, paragraph 1, provided that the appropriate technical and organizational measures required by this Regulation are implemented to safeguard the rights and freedoms of the data subject (storage limitation);  
+
+f) processed in a manner that ensures appropriate security of the personal data, including protection against unauthorized or unlawful processing and against accidental loss, destruction, or damage, using appropriate technical or organizational measures (integrity and confidentiality);  
+
+2. The data controller is responsible for compliance with paragraph 1 and is able to demonstrate that compliance (accountability).  
+
+Article 32: Security of processing  
+1. Taking into account the state of the art, the costs of implementation, and the nature, scope, context, and purposes of processing as well as the risks, varying in probability and severity, to the rights and freedoms of natural persons, the data controller and the processor shall implement appropriate technical and organizational measures to ensure a level of security appropriate to the risk, including, among others, as appropriate:  
+
+a) the pseudonymization and encryption of personal data;  
+
+b) the ability to ensure the ongoing confidentiality, integrity, availability, and resilience of processing systems and services;  
+
+c) the ability to restore the availability and access to personal data in a timely manner in the event of a physical or technical incident;  
+
+d) a process for regularly testing, assessing, and evaluating the effectiveness of technical and organizational measures for ensuring the security of processing.  
+
+2. In assessing the appropriate level of security, account shall be taken in particular of the risks presented by processing, which may result from the destruction, loss, alteration, unauthorized disclosure of, or access to personal data transmitted, stored, or otherwise processed, whether accidental or unlawful.  
+
+3. The application of an approved code of conduct as referred to in Article 40 or an approved certification mechanism as referred to in Article 42 may be used as an element to demonstrate compliance with the requirements set out in paragraph 1 of this Article.  
+
+4. The data controller and the processor shall take measures to ensure that any person acting under the authority of the data controller or of the processor, who has access to personal data, does not process them except on instructions from the data controller, unless required to do so by Union law or the law of a Member State.  
+
+Article 33: Notification to the supervisory authority of a personal data breach  
+1. In the event of a personal data breach, the data controller shall notify the breach to the competent supervisory authority in accordance with Article 55, without undue delay and, where feasible, not later than 72 hours after becoming aware of it, unless the personal data breach is unlikely to result in a risk to the rights and freedoms of natural persons. When the notification to the supervisory authority is not made within 72 hours, it shall be accompanied by the reasons for the delay.  
+
+2. The processor shall notify the data controller of any personal data breach without undue delay after becoming aware of it.
+Guide on the Erasure and Destruction of Information Media | Version 1.0 - 07/01/2021  
+65  
+3. The notification referred to in paragraph 1 must, at a minimum:  
+
+a) describe the nature of the personal data breach including, if possible, the categories and approximate number of individuals concerned by the breach and the categories and approximate number of personal data records affected;  
+
+b) communicate the name and contact details of the data protection officer or another point of contact from whom further information can be obtained;  
+
+c) describe the likely consequences of the personal data breach;  
+
+d) describe the measures taken or that the data controller proposes to take to remedy the personal data breach, including, where appropriate, measures to mitigate any possible negative consequences.  
+
+4. If, and to the extent that, it is not possible to provide all the information at the same time, the information may be communicated in phases without any further undue delay.  
+
+5. The data controller documents any personal data breach, indicating the facts relating to the personal data breach, its effects, and the measures taken to remedy it. The documentation thus created enables the supervisory authority to verify compliance with this article.  
+
+Article 34: Communication to the Data Subject of a Personal Data Breach  
+1. When a personal data breach is likely to result in a high risk to the rights and freedoms of a natural person, the data controller shall communicate the personal data breach to the data subject without undue delay.  
+
+2. The communication to the data subject referred to in paragraph 1 of this article shall describe, in clear and plain language, the nature of the personal data breach and shall at least contain the information and measures referred to in Article 33, paragraph 3, points b), c), and d).  
+
+3. The communication to the data subject referred to in paragraph 1 is not necessary if one of the following conditions is met:  
+
+a) the data controller has implemented appropriate technical and organizational protection measures and those measures have been applied to the personal data affected by the breach, in particular measures that render the personal data incomprehensible to any person not authorized to access it, such as encryption;  
+
+b) the data controller has taken subsequent measures that ensure that the high risk to the rights and freedoms of the data subjects referred to in paragraph 1 is no longer likely to materialize;  
+
+c) it would involve disproportionate effort. In this case, a public communication or a similar measure is taken to inform the data subjects in an equally effective manner.  
+
+4. If the data controller has not already communicated the personal data breach concerning the data subject, the supervisory authority may, after assessing whether this personal data breach is likely to result in a high risk, require the data controller to make that communication or decide that one of the conditions referred to in paragraph 3 is met.
+Guide on the Erasure and Destruction of Information Media | Version 1.0 - 07/01/2021  
+67  
+Annex C: References  
+Main References:  
+“Guidelines for Media Sanitization” by the National Institute of Standards and Technology – NIST Special Publication 800-88 Revision 1:  
+ https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-88r1.pdf  
+ https://www.nist.gov/publications/nist-special-publication-800-88-revision-1-guidelines-media-sanitization  
+Publications from the National Security Agency (NSA):  
+ NSA/CSS Storage Device Sanitization Manual (12/2017)  
+ NSA/CSS Evaluated Products List for Hard Disk Drive Destruction Devices (03/2020)  
+ NSA/CSS Evaluated Products List for Magnetic Degaussers (03/2020)  
+ NSA/CSS Evaluated Products List for Optical Destruction Devices (03/2020)  
+ NSA/CSS Evaluated Products List for Paper Disintegrators (03/2020)  
+ NSA/CSS Evaluated Products List for Paper Shredders (03/2020)  
+ NSA/CSS Evaluated Product List for Punched Tape Disintegrators (03/2020)  
+ NSA/CSS Evaluated Product List for Solid State Disintegrators (03/2020)  
+Other References:  
+https://www.blancco.com/blog-many-overwriting-rounds-required-erase-hard-disk/  
+https://cmrr.ucsd.edu/_files/data-sanitization-tutorial.pdf  
+(“Tutorial on Disk Drive Data Sanitization” by the “Center for Magnetic Recording Research” (CMRR))  
+https://dban.org/  
+https://www.enterprisestorageforum.com/storage-hardware/flash-vs-ssd-storage-whats-the-difference.html  
+https://eprint.iacr.org/2015/1002.pdf  
+https://www.irs.gov/privacy-disclosure/media-sanitization-guidelines  
+(“Media Sanitization Guidelines” by the IRS)  
+https://www.killdisk.com/blog-gutmann-method.htm  
+https://www.ksz-bcss.fgov.be/sites/default/files/assets/protection_des_donnees/bld_data_data_securite.pdf  
+https://www.ksz-bcss.fgov.be/sites/default/files/assets/protection_des_donnees/bld_erase_effacement_supports.pdf  
+(“Guidelines on Information Security & Privacy Regarding the Erasure of Electronic Information Media from Social Security”)  
+https://www.seagate.com/files/staticfiles/support/docs/manual/Interface%20manuals/100293068j.pdf  
+https://www.semshred.com/data-destruction-devices/paper-destruction/  
+https://www.ssi.gouv.fr/rgs  
+https://www.ssi.gouv.fr/uploads/2014/11/RGS_v-2-0_Corps_du_texte.pdf  
+and its annexes B: https://www.ssi.gouv.fr/uploads/2014/11/RGS_v-2-0_B1.pdf  
+https://tinyapps.org/docs/wipe_drives_hdparm.html  
+https://en.wikipedia.org/wiki/Data_remanence  
+https://en.wikipedia.org/wiki/Flash_memory  
+https://en.wikipedia.org/wiki/Hardware-based_full_disk_encryption  
+https://en.wikipedia.org/wiki/Write_amplification

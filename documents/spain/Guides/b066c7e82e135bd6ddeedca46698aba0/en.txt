@@ -1,0 +1,992 @@
+WI-FI TRACKING TECHNOLOGIES:  
+Guidelines for Data Controllers
+
+Guide published in  
+May 2024
+
+3  
+Wi-Fi tracking technologies: guidelines for data controllers  
+Wi-Fi tracking is a technology that allows for the identification and tracking of mobile devices through the Wi-Fi signals they emit, to detect the presence of the device in a specific area and to identify movement patterns. It is used, for example, in estimating occupancy, analyzing flows of people, or measuring time spent in a location.  
+Practical applications can be found in shopping centers, museums, places of special interest, workplaces, public areas, public transport, or large public events. However, this practice poses serious privacy risks, as it can allow for the tracking of individuals' movements without their action or knowledge and without an appropriate legal basis.  
+It is crucial to be aware that many of these uses of Wi-Fi tracking involve the collection and other processing of personal data and, therefore, must comply with the set of principles, rights of individuals, and obligations for data controllers established in the GDPR.  
+The guidelines analyze both the technical and legal implications of using this technology, identify the main risks associated with it, and offer a series of concrete recommendations for responsible use that is compliant with data protection regulations.  
+These guidelines have been jointly developed by the Spanish Data Protection Agency, the Catalan Data Protection Authority, the Basque Data Protection Authority, and the Transparency and Data Protection Council of Andalusia, resulting from the collaboration of the four supervisory authorities in light of the impact that inappropriate use of Wi-Fi tracking technology can have on the privacy and data protection of individuals.  
+EXECUTIVE SUMMARY  
+3  
+Executive Summary  
+
+4  
+Wi-Fi tracking technologies: guidelines for data controllers  
+1. INTRODUCTION  
+8  
+2. DESCRIPTION OF THE TECHNOLOGICAL FRAMEWORK  
+10  
+A. THE USE OF FIXED AND RANDOM MAC ADDRESSES  
+10  
+B. DATA USED IN WI-FI TRACKING  
+11  
+C. DEVICE IDENTIFICATION  
+13  
+3. PERSONAL DATA AND INVOLVED PROCESSING  
+14  
+A. SCOPE OF THE TERM "PERSONAL DATA"  
+14  
+B. WI-FI TRACKING AND "FINGERPRINTING" AS PERSONAL DATA  
+16  
+C. WI-FI TRACKING AND LOCATION AND TRAJECTORY DATA  
+17  
+D. PROCESSING OF PERSONAL DATA  
+17  
+4. LEGITIMATE BASES FOR PROCESSING PERSONAL DATA  
+18  
+A. CONSENT (ARTICLE 6.1.A OF THE GDPR)  
+19  
+B. PERFORMANCE OF A CONTRACT (ARTICLE 6.1.B OF THE GDPR)  
+20  
+C. COMPLIANCE WITH A LEGAL OBLIGATION (ARTICLE 6.1.C OF THE GDPR)  
+20  
+D. PROTECTION OF VITAL INTERESTS (ARTICLE 6.1.D OF THE GDPR)  
+20  
+E. PUBLIC INTEREST OR EXERCISE OF PUBLIC INTERESTS (ARTICLE 6.1.E OF THE GDPR)  
+21  
+F. LEGITIMATE INTERESTS (ARTICLE 6.1.F OF THE GDPR)  
+21  
+Index  
+INDEX  
+
+5  
+Wi-Fi tracking technologies: guidelines for data controllers  
+5. RISKS TO THE RIGHTS AND FREEDOMS OF INDIVIDUALS  
+23  
+A. IMPACT ON INDIVIDUALS' PRIVACY  
+24  
+B. INTRUSION INTO HOMES OR PUBLIC AREAS  
+25  
+C. SCALE OF PROCESSING AND RESTRICTION OF FREEDOM OF MOVEMENT  
+25  
+D. TRACKING BY OMISSION: INTRUSION INTO RELIGIOUS FREEDOM OR THE PROCESSING  
+    OF SPECIAL CATEGORIES OF DATA  
+26  
+E. PERSONAL FREEDOM AND SELF-CENSORSHIP  
+27  
+F. THE IMPACT OF REIDENTIFICATION  
+27  
+G. RISKS ASSOCIATED WITH LOCATION DATA  
+29  
+H. LACK OF "ACCOUNTABILITY" CAPACITY OF MEANS  
+30  
+I. SCENARIOS OF PERSONAL DATA BREACHES  
+31  
+J. INTERNATIONAL TRANSFERS AND THE INTERNATIONAL REGULATORY CONTEXT  
+32  
+K. CONCLUSION ON RISK MANAGEMENT  
+33  
+6. OBLIGATION TO CONDUCT A DATA PROTECTION IMPACT ASSESSMENT  
+33  
+7. ASSESSMENT OF THE NECESSITY AND PROPORTIONALITY OF PROCESSING  
+35  
+A. OBJECTIVE ASSESSMENT OF THE SUITABILITY OF PROCESSING  
+36  
+B. OBJECTIVE ASSESSMENT OF THE NECESSITY OF PROCESSING PERSONAL DATA  
+36  
+Index  
+
+6  
+Wi-Fi tracking technologies: guidelines for data controllers  
+8. APPROPRIATE TECHNICAL AND ORGANIZATIONAL MEASURES  
+37  
+A. ANONYMIZATION  
+39  
+B. MASKING OF MAC ADDRESSES AND METADATA  
+40  
+C. DISASSOCIATION  
+41  
+D. AGGREGATION  
+41  
+E. DATA MINIMIZATION  
+41  
+F. DATA RETENTION PERIOD  
+42  
+G. SECURITY MEASURES AND THIRD-PARTY AUDITS  
+42  
+H. ORGANIZATIONAL MEASURES  
+43  
+I. CONTINUOUS RISK MANAGEMENT  
+44  
+9. TRANSPARENCY AND INFORMATION  
+44  
+A. LAYERED INFORMATION  
+45  
+10. EXERCISING RIGHTS RECOGNIZED IN THE GDPR  
+46  
+A. RIGHT OF ACCESS (ARTICLE 15 GDPR)  
+47  
+B. RIGHT TO ERASURE (ARTICLE 17 GDPR)  
+47  
+C. RIGHT TO RESTRICT PROCESSING (ARTICLE 18 GDPR)  
+48  
+D. RIGHT TO DATA PORTABILITY (ARTICLE 20 GDPR)  
+49  
+E. RIGHT TO OBJECT (ARTICLE 21 GDPR)  
+49  
+F. AUTOMATED INDIVIDUAL DECISIONS, INCLUDING PROFILING (ARTICLE 22 GDPR)  
+49  
+11. ARTIFICIAL INTELLIGENCE REGULATION  
+50  
+Index
+7  
+Wi-Fi Tracking Technologies: Guidelines for Data Controllers  
+AP: “Access Point”. Wi-Fi Access Point  
+CEPD: European Data Protection Committee  
+CNIL: National Commission on Informatics and Liberty of France  
+DPD: Data Protection Officer  
+EEE: European Economic Area  
+EIPD: Data Protection Impact Assessment  
+ENS: National Security Scheme  
+GT29: Article 29 Working Party  
+IA: Artificial Intelligence  
+IEEE: “Institute of Electrical and Electronics Engineers”  
+IOT: “Internet of Things”. Internet of Things  
+LOPDGDD: Organic Law 3/2018, of December 5, on Personal Data Protection and Guarantee of Digital Rights  
+MAC: “Media Access Control”  
+RGPD: General Data Protection Regulation  
+RIA: Artificial Intelligence Regulation  
+RSSI: “Received Signal Strength Indicator”. Received Signal Strength Indicator  
+WPS: “Wi-Fi Protected Setup”  
+Acronyms  
+
+ACRONYMS  
+
+8  
+Wi-Fi Tracking Technologies: Guidelines for Data Controllers  
+Currently, the mobile phone is a ubiquitous personal device equipped with various wireless technologies such as Wi-Fi and Bluetooth, in addition to supporting current and past generations of mobile network technologies (i.e., 2G–5G).  
+To carry out communications, all these technologies rely on the exchange of messages between these devices and other network equipment such as base stations and access points.  
+In particular, Wi-Fi technology is a wireless technology based on standardized communication protocols (IEEE802.11 protocol family), characterized by a set of terminals (mobile or not) that connect to an “Access Point” (AP). A set of APs managed under the same entity constitutes a Wi-Fi network.  
+Wi-Fi communication occurs through messages called “frames,” a set of bytes that always contains a header including the identifier of the originating device known as the MAC address (Media Access Control). Some of these frames are unencrypted and are emitted from the device periodically, even when it is not connected to any Wi-Fi network.  
+The data contained in these frames, using various technologies currently available, can be captured, analyzed, and processed to determine an identifier that allows for the singularization of the terminal originating these frames. Just as in the world of the Internet, this set of technologies is known as “device fingerprinting,” or simply “fingerprinting,” in Spanish, huella digital del dispositivo or huella del dispositivo. Throughout the text, these terms will be used interchangeably.  
+The information used to determine this digital fingerprint is sent by the device without any action or knowledge on the part of the person carrying it, which makes these technologies particularly sensitive from the perspective of privacy and data protection.  
+Through the construction, storage, and analysis of this fingerprint, it is possible to detect the presence of the device in a specific area and identify its movement patterns and therefore, the person carrying it.  
+These types of technologies that collect data from the Wi-Fi messages exchanged between terminals and APs for subsequent processing and analysis are referred to as “Wi-Fi tracking.”  
+The two main types of analytics offered by these technologies are presence analytics and location analytics. Presence analytics focuses on studying the existence of terminals in a specific area and their duration in the same, while location analytics aims to trace the path followed by the terminal within a study area.  
+Among its main uses, one can mention the estimation of occupancy, analysis of people flows, calculation of attendance statistics and average times of stay in specific locations or waiting in a queue, determination of the most common routes, or calculation of the visit repeat rate.  
+Introduction to the Guide  
+INTRODUCTION TO THE GUIDE  
+1.
+9  
+Wi-Fi Tracking Technologies: Guidelines for Data Controllers  
+Introduction to the Guide  
+Practical applications can be found in shopping centers, museums, places of special interest, workplaces, public areas, public transport, large public events, emergency scenarios, etc.  
+Depending on the characteristics of the digital footprint generated by these technologies, the storage time, and its processing, the use of Wi-Fi tracking may involve the processing of personal data, sometimes not only unknown to the terminal user but also to the data controller themselves, to the extent that they believe it is not personal data, which may be erroneous, as explained in section 3.  
+When considering the deployment of such technologies, the privacy of individuals must come first.  
+Everyone should have the right to move freely without "feeling spied on," without a third party, whether a public administration or a private company, being able to observe or keep a record of what they are doing.  
+No one should be able to track which stores, healthcare centers, or places of worship a person visits. This data should remain in their private sphere, so they can be themselves without feeling inhibited by a possible recording or use of that information.  
+These guidelines analyze both technically and legally the implications of using this technology, identify the main risks associated with it, and offer a series of specific recommendations for responsible use that complies with data protection regulations.  
+1 https://edpb.europa.eu/news/national-news/2021/dutch-dpa-fines-municipality-wi-fi-tracking_en  
+
+10  
+Wi-Fi Tracking Technologies: Guidelines for Data Controllers  
+A. THE USE OF FIXED AND RANDOM MAC ADDRESSES  
+Description of the Theoretical Framework  
+DESCRIPTION OF THE  
+TECHNOLOGICAL FRAMEWORK  
+2.  
+The MAC address is a generally fixed and unique identifier for every device, used in communications between the various elements of a network.  
+When a device connects to an Access Point (AP) of a Wi-Fi network, all its messages start by identifying the MAC address of the device itself. In this way, the AP can read the content of the frames and, through the MAC address, uniquely identify the terminal.  
+The coverage of Wi-Fi networks is provided by the APs that make them up. These APs can be located in open public spaces or inside buildings or facilities.  
+However, most mobile terminals that enter the coverage area of Wi-Fi networks do not connect to them. Nevertheless, devices with Wi-Fi capability periodically search for networks that may be available within their coverage area. This search is conducted by periodically sending frames called "Probe Requests" that the device transmits even if it is not connected to a Wi-Fi network and sometimes even if the Wi-Fi functionality is not activated.  
+The main purpose of this type of frame is to send a "probe request" to the various Wi-Fi networks that may exist in the area. The APs are prepared to respond to these messages, sending the terminal information that will allow it to connect to the network if the user chooses to do so.  
+A few years ago, in the Probe Request frames, in addition to certain technical information, the fixed and unique MAC address of the terminal was sent. Therefore, by collecting these frames over time along with location technologies, it was possible to uniquely identify the terminal using that identifier and record its path within the coverage area of the Wi-Fi network even without being connected to it.  
+Due to the privacy issues that this situation posed, mobile terminal manufacturers widely incorporated the use of random MAC addresses. This process began with Apple iOS8 and was followed and extended by Android.  
+The random MAC address is a "virtual" address used in Probe Request frames. In this way, different messages sent from a terminal do not share the same unique identifier (fixed MAC address), and therefore it is no longer possible to know the real MAC address of the device by capturing it through the analysis of Probe Request frames. On the other hand, since the random MAC address is frequently modified and the frames themselves are sent randomly, it is also not easy to identify the device using the random MAC addresses directly.
+11  
+Wi-Fi Tracking Technologies: Guidelines for Data Controllers  
+Description of the Theoretical Framework  
+This measure strengthened the privacy of individuals; however, the following factors must be taken into account:  
+
+◤ The procedure for generating random MAC addresses is not standardized, which leads to disparate behaviors among devices.  
+
+◤ Once a device has connected to a specific Access Point (AP), the MAC address used remains constant throughout the connection, even if it was generated randomly, and therefore allows linking the actions performed by the device during the entire connection, for example, its absolute and relative location with respect to the location of other devices.  
+
+B. DATA USED IN WI-FI TRACKING  
+
+◤ It is estimated that currently between 5% and 10% of devices do not use random MAC addresses.  
+
+◤ There are numerous techniques capable of uniquely identifying, in a high percentage of cases, mobile devices even when they use a changing random MAC address. These are the current techniques employed in Wi-Fi tracking, based on the diverse information contained (or deduced from) the Probe Request frames combined with the detection of statistical patterns of random MAC addresses. The most advanced techniques for linking information from different frames to the same device employ machine learning algorithms and data analytics based on Big Data.  
+The various Wi-Fi tracking techniques aim to uniquely and accurately identify and track devices in Wi-Fi environments. This method relies on the use of a wide variety of parameters and physical characteristics of both the devices and the transmission conditions themselves to generate an individualized digital fingerprint for each device.  
+The use of pattern recognition techniques and data analytics in general, combined with the continuous evolution of the techniques employed by device manufacturers in defense of privacy, leads to a situation of constant change. As a result, some techniques that were fully effective a few years ago have lost their utility today. The main methods currently employed are described below.  
+The "Probe Request" frame is a type of management frame contemplated by the Wi-Fi standard and is used when the device (for example, a smartphone) is not connected to a Wi-Fi AP. The device, on each of the available Wi-Fi channels, polls by "asking" for available APs within its coverage area to which it can connect.  
+When a specific AP receives the Probe Request frame, it responds with a frame called "Probe Response." With this frame, the device becomes aware of the existence of that AP and its characteristics, should it wish to connect.  
+This type of frame is emitted by all devices in Wi-Fi communications automatically, without user control and unencrypted, so that it can be received and decoded not only by any AP but also by any low-cost device listening to the Wi-Fi channel.  
+The specific characteristics of the emission of this type of frame depend on many circumstances, such as the manufacturer, the model, and the operating system of the device. In some cases, the data sent
+12  
+Wi-Fi Tracking Technologies: Guidelines for Data Controllers  
+Description of the Theoretical Framework  
+In the same (for example, the SSID) can directly provide information related to the person.2  
+Wi-Fi tracking technologies leverage these characteristics of Probe Request frames (sent by all devices, sent unencrypted, and containing a large amount of data) to generate a unique digital footprint that allows for device identification.  
+In addition to the information directly sent in the Probe Request frames, it is possible to obtain information through indirect measurements based on combinations of these or through heuristic techniques.  
+In practice, any measure or data that assists in the identification of the device can be used. Among the physical measures or additional data that can employ this type of technology are the received signal strength (RSSI, which stands for Received Signal Strength Indicator), which can also be used to determine the approximate location of the device, the time interval between the sending of the Probe Request frames, the statistical distribution of both the sequence number of the frames and the random MAC addresses, or the inherent deviations of the device clocks. In summary, all of these can ultimately allow for the generation of a digital footprint.  
+The objective of collecting and analyzing data as previously described (and others depending on the specific solution of the manufacturer) is to generate a unique digital footprint that allows for the identification of each device.  
+The process of generating the digital footprint of mobile terminals in a Wi-Fi network generally involves the following phases:  
+
+◤Capture of Probe Request frames: Probe Request frames received at the various APs of the observed Wi-Fi network are collected en masse. In addition to the information from the frames, data related to the physical conditions of the transmission, such as RSSI and others, can be collected. To carry out this capture, specialized equipment or even conventional Wi-Fi network equipment that provides these additional capabilities can be used.  
+
+◤Extraction and sending of information: Relevant information is extracted from the captured frames and the physical characteristics of the transmission. This information is sent to a centralized server for processing and analysis. The specific data sent will depend on the Wi-Fi tracking model implemented in the network.  
+
+◤Pattern analysis and generation of the digital footprint: After extracting the information, a pattern analysis of the collected data is carried out. The objective is to combine specific characteristics of the collected data that allow distinguishing one device from another. This analysis will vary according to the system used and is fundamental to achieving a unique identification of mobile terminals in the monitored area, with the use of advanced techniques, such as machine learning and probabilistic modeling, already being common.  
+
+Machine learning algorithms are capable of learning patterns and establishing correlations between the different parameters of the frames to determine the probability that a frame belongs to a previously identified device or is from a new one. By combining these characteristics in a probabilistic model, a unique digital footprint is generated for each device. These models can integrate different sources of information, such as  
+2 https://svs.informatik.uni-hamburg.de/publications/2022/2022-06-08_Probing_for_Passwords.pdf
+13  
+Wi-Fi Tracking Technologies: Guidelines for Data Controllers  
+Description of the Theoretical Framework  
+Historical data from previously identified devices, contextual information, and behavioral patterns are used to generate more robust and accurate fingerprints.  
+
+In summary, a digital fingerprint is created that represents the device through a combination of multiple attributes, allowing for its singularization.  
+C. DEVICE IDENTIFICATION  
+
+◤Comparison and Recognition: Once the digital fingerprints of different devices have been constructed, a comparison and recognition process is carried out to identify devices and determine if they have been previously detected by the system. After generating the digital fingerprint of the device, it becomes identified. If tracking is performed through its digital fingerprint, it will be possible to obtain the following types of information:  
+
+◤Presence in the Coverage Area of the AP: The digital fingerprint allows determining whether the device is present or not in the area where the AP is located. This is particularly useful for counting the number of devices present in a location or for obtaining data on visitor influx on different days.  
+
+◤Approximate Duration of Stay: In addition to indicating the presence of the device, the digital fingerprint allows estimating the approximate time the mobile terminal spends in the coverage area. This data can be useful for understanding user habits and obtaining information about the duration and frequency of visits.  
+
+◤Trajectory Tracking: The digital fingerprint of the device enables tracking its trajectory over time. This involves recording the movements of the device within the coverage area of the Wi-Fi network and obtaining information about the places it has visited. To improve the accuracy of tracking a mobile terminal's trajectory, triangulation techniques based on the signal strength received from three or more APs in the network can be employed. By combining the information from these APs, it is possible to achieve high precision in locating the device, reaching levels of up to 0.5 meters, according to studies conducted. This greater accuracy facilitates the tracking and analysis of the device's trajectory, providing more detail on users' movement patterns.  
+It is important to highlight that retaining the digital fingerprint of the same terminal over several days would allow for more intense and extensive tracking. Thus, by storing and recognizing the digital fingerprint of a device over time, it would be possible to identify behavioral patterns, discover preferences or routines, daily activities, frequented places, among other intimate aspects of people's lives.
+14  
+Wi-Fi Tracking Technologies: Guidelines for Data Controllers  
+3 Section 4.2.2. Opinion 13/2011 on geolocation services in smart mobile devices (GT29, WP185)  
+4 Recital 24 of Directive 2002/58/EC of July 12, 2002, on the processing of personal data and the protection of privacy in the electronic communications sector  
+5 Paragraphs 34 and 35. CJEU ruling of December 20, 2017, case C 434/16  
+
+Personal Data and Involved Processing  
+PERSONAL DATA AND INVOLVED PROCESSING  
+3.  
+Wi-Fi tracking technology has evolved significantly, allowing for the collection and analysis of multiple characteristics of devices. This capability is not limited to identification through the MAC address but also includes the creation of unique fingerprints. These fingerprints, created by combining multiple characteristics, enable continuous identification of devices, surpassing anonymization measures such as MAC address randomization. In turn, the mobile phone, which has become an everyday and inseparable element, acts as a direct link to its user, generating both direct and indirect identifiability. These devices are part of the private sphere of users, and therefore must be protected in accordance with the European Convention on Human Rights and Fundamental Freedoms and the regulations governing the protection of personal data. Thus, in this technological context, it is crucial to analyze the possible existence of personal data processing, as well as, where applicable, the content thereof.  
+
+A. SCOPE OF THE TERM "PERSONAL DATA"  
+The concept of "personal data" as established in the GDPR has a very broad scope. Article 4.1 of the GDPR defines "personal data" as "any information relating to an identified or identifiable natural person." The reference to "any information" in this definition highlights the legislator's intention to give this concept a very broad meaning, which is not limited to confidential data or data related to privacy but can encompass all kinds of information, both objective and subjective, as long as it is "about" the person in question. For this purpose, it is sufficient that the information is related to a specific person due to its content, purpose, or effects.  
+
+Regarding the concept of "identifiable," the same Article 4.1 states that a natural person shall be considered identifiable if "their identity can be determined, directly or indirectly, particularly by means of an identifier, such as a name, an identification number, location data, an online identifier, or one or more specific elements of the physical, physiological, genetic, mental, economic, cultural, or social identity of that person." Therefore, to qualify information as personal data, it is not necessary for that information to allow, by itself, the identification of the data subject.  
+
+15  
+Wi-Fi Tracking Technologies: Guidelines for Data Controllers  
+Personal Data and Involved Processing  
+Moreover, a natural person is identifiable from the moment the data holder is able to distinguish and treat them differently, even when that data alone is not sufficient to do so.  
+
+In this regard, it is useful to establish a differentiation between unique identifying data that allow for unequivocal identification of the person and "quasi-identifiers." The latter, at first glance, do not allow for the identification of a specific person. However, when combined with each other or with other data, they can identify the person due to "unique combinations." This phenomenon, known as the "mosaic effect," illustrates how the accumulation of "quasi-identifying" data can lead to the identification of a person, a process facilitated by big data analytics technologies. It is perfectly possible to speak of the existence of personal data even in cases where there is no direct or express identification of the data subject.  
+
+Example:  
+Information is available about a mobile phone that has visited (knowing the date, time, and duration of stay) the store A on two occasions, the establishment B on three occasions, has stayed at the hotel C for 16 days, and is classified as a tourist with a stay of more than 15 days and less than 1 month. This information alone is so detailed that with very little additional information, the person carrying that mobile device could be identified.  
+
+Regarding the capacity to be "identifiable" as a person, Recital 26 of the GDPR emphasizes that "all means, such as singling out, that could reasonably be used by the data controller or any other person to identify the natural person directly or indirectly must be considered." In other words, it is not necessary for all the information that allows for the identification of the data subject to be held by a single person or within a single processing operation. What must be analyzed is whether there is a reasonable possibility that using additional means, the person could be identified.  
+
+On the other hand, this is a dynamic analysis, so the degree of technological advancement at the time of processing and its possible development during the period in which the data will be processed must be taken into account. Ultimately, this identifiability is also related to the fact that it does not require disproportionate efforts, and, as just indicated, the constant technological evolution facilitates this.
+16  
+Wi-Fi Tracking Technologies: Guidelines for Data Controllers  
+Personal Data and Involved Processing  
+B. WI-FI TRACKING AND “FINGERPRINTING” AS PERSONAL DATA  
+This broad definition of the concept of personal data established by the GDPR is particularly relevant in the context of Wi-Fi tracking. This technology affects all devices with Wi-Fi functionality, regardless of whether they are connected to any specific network, and sometimes even when that functionality is not activated. These devices include mobile phones, tablets, laptops, desktop computers, routers, printers, household appliances, toys, wearable devices (the so-called “wearables,” including pacemakers, portable oxygen systems, devices for diabetics, neural implants, etc.), and even automobiles.  
+
+The GDPR, in its Recital 30, warns of the ability to identify individuals through device fingerprints:  
+“Natural persons can be associated with online identifiers provided by their devices,[...] This can leave traces that, in particular, when combined with unique identifiers and other data received by servers, can be used to create profiles of natural persons and identify them.”  
+According to the above, the data transmitted by Wi-Fi signals used in such processes can be considered personal data insofar as they are related to identifiable individuals and are capable of being used for their direct or indirect identification. In particular, “fingerprinting” in the context of Wi-Fi tracking may constitute, according to what is established in the GDPR, a processing of personal data.  
+The concept of “fingerprinting” is defined as “a set of information elements that identifies a device or application instance,” thus encompassing any information that can be used to individualize, link, or infer a user or device over time.  
+This may include, among others, data derived from:  
+
+◤ the configuration of a user agent/device;  
+
+◤ or data exposed by the use of network communication protocols.  
+Therefore, fingerprinting provides the ability to distinguish one device from another and could be used to track a user's location or behavior over time, even if there is no direct or explicit identification of the person.  
+Some supervisory authorities, such as the Unabhängige Landeszentrum für Datenschutz (Schleswig Holstein, Germany), have expressed concern about the application of these technologies to automobiles that incorporate Wi-Fi access points, allowing for the tracking of individuals. Location Services can Systematically Track Vehicles with WiFi Access Points at Large Scale.  
+9 Paragraph 3 Opinion 9/2014 on the application of Directive 2002/58/EC to device fingerprinting.
+17  
+Wi-Fi Tracking Technologies: Guidelines for Data Controllers  
+Personal Data and Involved Processing  
+C. WI-FI TRACKING AND LOCATION AND TRAJECTORY DATA  
+D. PROCESSING OF PERSONAL DATA  
+The position of a device can be known either approximately by "presence" (proximity to the sensor) or more precisely through triangulation. By maintaining the identification or individualization of the device and determining its position over time, it is possible to establish a trajectory during the time the device is within the coverage area of the sensors.  
+This location data represents a type of high-risk personal data.  
+Wi-Fi tracking technology itself is not a processing of personal data, but it could be part of one in certain cases. In fact, when deciding how to develop a processing operation or achieve a purpose, the controller may choose solutions other than Wi-Fi Tracking or options that do not involve the processing of personal data.  
+Wi-Fi tracking technology may appear in operations of personal data processing derived from two main types of analytics: presence analytics and location analytics. Presence analytics focuses on studying the existence of terminals in a specific area and their duration in the same, while location analytics aims to trace the path followed by the terminal within a specific study area, even for an indefinite period.  
+In many cases, its purpose is to detect and analyze collective behaviors; however, it should not be forgotten that it starts from the detection of individual data.  
+For the privacy of individuals, as detailed in the section on risks to the rights and freedoms of natural persons, when the spatial and temporal scope of the data collected through Wi-Fi tracking is maintained, these may be sufficient on their own or in combination with others to allow the identification of individuals, and the data controller should consider this type of data as personal data.  
+By way of illustration, some processing operations in which Wi-Fi tracking technologies have been employed are noted:  
+
+◤ Device geolocation service, with or without the user's consent.  
+
+◤ Tracking of individuals in workplaces.  
+
+◤ Emergency services, through search or location as part of providing vital assistance to individuals. This is a mechanism by which emergency call centers can automatically receive information about the caller's location, enriched by Wi-Fi location data.  
+
+◤ Surveillance of individuals, using Wi-Fi tracking to detect if there are people in certain premises or locations, and individual control of access to these areas.  
+10 The list provided does not imply a position either in favor of or against by the data protection supervisory authorities.
+18  
+Wi-Fi Tracking Technologies: Guidelines for Data Controllers  
+Legitimizing Bases for the Processing of Personal Data  
+
+◤Linking individuals to determine if two or more people have shared the same space, have come close to each other, have stopped at the same point, etc.  
+
+◤Analysis of the flow of people in private facilities (for example, workplaces or shopping centers) to optimize the design of physical space or staffing.  
+
+◤Crowd management in public access areas: in crowded places such as airports, public transport, stadiums, public roads, etc., to control maximum capacities, manage the flow of people or vehicles efficiently, optimize routes, or provide real-time information, improving safety and comfort. These uses are commonly found within “smart city” projects.  
+
+◤Targeted marketing and advertising, to send promotions or advertisements to users' devices when they access or approach a specific location or based on behavior or movement patterns.  
+
+◤Creation of user profiles based on movement patterns and behavior.  
+In summary, it is important to consider that many of these uses involve the collection and processing of personal data and, therefore, must comply with the set of principles, rights of natural persons, and obligations for data controllers established in the GDPR and the LOPDGDD.  
+LEGITIMIZING BASES FOR THE PROCESSING OF PERSONAL DATA  
+4.  
+Any processing of personal data must comply with the principles established in Article 5 of the GDPR and meet one of the lawful conditions listed in Article 6 of the GDPR, which applies to Wi-Fi tracking in cases where the data controller opts for a technological option that enables such processing.  
+The processing must be fair and transparent, and it must be entirely clear to individuals what data is being processed and how it is being processed through Wi-Fi tracking, providing this information in an easily accessible and understandable manner, regardless of the technical or practical difficulties that Wi-Fi tracking may pose for the data controller in complying with these principles.  
+The purposes of the processing through Wi-Fi tracking must be explicit, meaning they must be clearly stated, must be legitimate, and must be communicated to the individuals concerned, at the latest, at the time of collection. Additionally, the data collected for a specific purpose through Wi-Fi tracking may not be used for a subsequent purpose that is incompatible. To this end, it is essential to ensure that the subsequent processing does not deviate from the purposes already established for the processing, and of which the individuals concerned must be informed. For example, if data processing of individuals' movements within a commercial establishment were carried out to optimize the physical location of certain products based on a legitimate interest of the controller, it would likely be difficult to justify...
+19  
+Wi-Fi Tracking Technologies: Guidelines for Data Controllers  
+Legitimizing Bases for the Processing of Personal Data  
+the compatibility of a processing that would imply those individuals receiving notifications related to commercial offers of such products.  
+It is also essential that the personal data processed is adequate and relevant, limited to what is strictly necessary for its purpose. It should be noted that the purpose of the processing is not to carry out Wi-Fi tracking, so if it is possible to achieve the ultimate purpose with a less intrusive technique, the principle of data minimization would not be fulfilled. If no technique other than Wi-Fi tracking is possible, to comply with the principle of minimization, the processed data must be adjusted, in its categories, frequency, granularity, etc., to what is strictly necessary, as well as ensuring that its retention period is the minimum necessary, proceeding with its elimination or effective anonymization, through automated processes whenever possible.  
+It will also be necessary to comply with the principle of accuracy, particularly if probabilistic techniques are being used to link actions to an individual, rectifying or deleting inaccurate data when appropriate, and ensuring the security and confidentiality of personal data, as will be analyzed in detail later.  
+The data controller, in addition to complying with the principles previously outlined and being able to demonstrate this, must ensure that the processing complies with one of the lawfulness conditions established in Article 6.1 of the GDPR.  
+However, before determining or considering the application of any lawfulness condition, it is important to remember that personal data should only be processed if the purpose of the processing cannot reasonably be achieved by other means.  
+The applicable legitimizing basis for each processing requires a detailed analysis of the specific case by the data controller, in accordance with the principle of proactive responsibility (Article 5.2 of the GDPR), which will take into account the nature, scope, context, and purposes of the processing. Nevertheless, it is possible to provide general guidelines to controllers to assist them in identifying whether any of the conditions that would legitimize a specific processing using Wi-Fi tracking technologies are met.  
+A. CONSENT (ARTICLE 6.1.A OF THE GDPR)  
+According to the analysis conducted previously, most Wi-Fi tracking techniques operate without the need for the device to be connected to the Wi-Fi network and without the knowledge of the device owner. That is to say, there is no communication channel between the data subject and the data controller. Therefore, it would be materially impossible to request consent from the data subject and thus, it should in principle be ruled out as a legitimizing basis.  
+However, it could be proposed that there is a specific scenario where the user voluntarily connects to the Wi-Fi network, and after this connection, they are informed and asked for consent to process their data through Wi-Fi tracking. We must not forget that in these cases, such consent would have to be free, specific, informed, and unambiguous.  
+A practical example:  
+This could occur in scenarios where, through an application, users are invited to allow tracking of their location in exchange for commercial offers.
+20  
+Wi-Fi Tracking Technologies: Guidelines for Data Controllers  
+Legitimizing Bases for the Processing of Personal Data  
+In these cases, systems should be articulated that guarantee compliance with the principle of transparency, allowing the information to be concise, easily accessible, and easy to understand, using clear and simple language, and, where applicable, visualized, as analyzed in section 9.  
+In certain cases, such as in the workplace, educational settings, or the public sector, it will be necessary to analyze whether a clear power imbalance may occur in the relationship between the data controller and the data subject, which means that the assessment of the freedom of consent must be carried out carefully.  
+B. EXECUTION OF A CONTRACT (ARTICLE 6.1.B OF THE GDPR)  
+D. PROTECTION OF VITAL INTERESTS (ARTICLE 6.1.D OF THE GDPR)  
+C. COMPLIANCE WITH A LEGAL OBLIGATION (ARTICLE 6.1.C OF THE GDPR)  
+The execution of a contract or pre-contractual measures could legitimize the processing of data only if it is related to the provision of a specific service in the context of Wi-Fi tracking.  
+This condition of legality could only apply when the processing is necessary to protect the life or physical integrity of a person. In principle, the processing of personal data in the context of Wi-Fi tracking could hardly be justified for these reasons.  
+This basis would only be applicable when there is a legal obligation requiring the controller to fulfill a purpose for which the use of Wi-Fi tracking techniques is necessary. Additionally, in accordance with the LOPDGDD, such an obligation would have to be provided for in a regulation of European Union law or a law of equivalent rank.  
+In that case, it will be essential to demonstrate that the processing is necessary to comply with contractual obligations, which will not be common, except in certain cases of geolocation services requested by the user.  
+However, its application cannot be completely ruled out in situations where vital interests are genuinely at risk, such as emergencies, assistance, or search and rescue of missing persons, which would require a rigorous analysis of the specific case justifying its application.  
+Such legal basis or legislative measure must be clear and precise, and its application foreseeable for its recipients, in accordance with the jurisprudence of the CJEU, including measures to ensure lawful and equitable processing, fulfilling a public interest objective and proportional to the legitimate aim pursued.  
+11 Recital 17. Opinion 01/2017 on the proposal for a Regulation on Privacy and Electronic Communications (2002/58/EC) (GT29, WP247).  
+12 Report 39/2019 from the Legal Department of the AEPD.
+21  
+Wi-Fi Tracking Technologies: Guidelines for Data Controllers  
+Legitimizing Bases for the Processing of Personal Data  
+E. PUBLIC INTEREST OR EXERCISE OF PUBLIC POWERS  
+(ARTICLE 6.1.E OF THE GDPR)  
+F. LEGITIMATE INTERESTS (ARTICLE 6.1.F OF THE GDPR)  
+Justifying the processing of data of this nature on this legitimizing basis requires a careful analysis of the requirements established in data protection regulations. Thus, the data controller must identify the legal norm that grants them a specific competence in which they can demonstrate that such processing through Wi-Fi tracking is necessary and proportionate to carry out a mission of public interest or to exercise public powers. This legal basis or legislative measure must be clear and precise, and its application predictable for its recipients, in accordance with the jurisprudence of the CJEU, including measures to ensure lawful and equitable processing, fulfilling a public interest objective and proportional to the legitimate aim pursued.  
+In the private sector, legitimate interest can be considered a valid condition for lawfulness as long as it is necessary for the satisfaction of such interests and does not prevail over the interests or the rights and freedoms of the data subjects, taking into account their reasonable expectations.  
+In any case, a meticulous assessment is required to determine whether the processing can be carried out, including a balancing test, even if a data subject can reasonably foresee it at the time and in the context of the collection of personal data.  
+It should be warned against the use of excessively generic legal provisions as a basis for legitimacy. Since there is no express legislation on this matter, it would be advisable to develop legislative measures that, in accordance with the aforementioned, contemplate and regulate this type of processing.  
+It should be noted that the actions of the Administration will primarily focus on public spaces and that individuals have a legitimate expectation to enjoy freedom of movement without being monitored. In these scenarios, the intrusion into individuals' privacy can be very high if the data controller does not implement stringent guarantees.  
+It is the responsibility of the controller to provide evidence of the "balancing" test. In Opinion 6/2014, dated April 9, on the concept of legitimate interest of the data controller, from the working group established by Article 29 of Directive 95/46/EC - WP 217, various guidelines and orientations are incorporated to analyze the existence of legitimate interest, as well as the necessary safeguards in consideration of respecting and guaranteeing the rights of those affected by this type of processing.  
+13 See the decision of the Dutch Data Protection Authority regarding the processing of personal data of users of mobile devices where Wi-Fi was activated in the city center of Enschede without an appropriate legal basis.  
+14 Recital 47 GDPR: “In particular, the interests and fundamental rights of the data subject could override the interests of the data controller when processing personal data in circumstances where the data subject does not reasonably expect further processing to occur.”
+22  
+Wi-Fi Tracking Technologies: Guidelines for Data Controllers  
+Legitimizing Bases for the Processing of Personal Data  
+In a first approach, the interests and rights of the data subject and the processing that the controller intends to carry out should be weighed, considering the impact on privacy. It should not be forgotten that Recital 47 of the GDPR indicates that, for the purposes of legitimate interest, “the interests and fundamental rights of the data subject may override the interests of the data controller when processing personal data in circumstances where the data subject does not reasonably expect further processing to occur,” and, in the case of Wi-Fi tracking, the collection of data, as mentioned at the outset, is often unknown to the owner of the device.  
+In short, in these cases, it should be clearly demonstrated that the legitimate interest of the controller is predominant.  
+Only in cases where, as a result of the weighing carried out, the interests and fundamental rights of the affected parties do not prevail, can the processing of personal data justified by a legitimate interest be carried out, which would also require that safeguards, guarantees, and technical and organizational measures, including those related to information security, be incorporated into the processing as necessary to protect the personal data processed.  
+That is to say, the lawfulness of the processing based on this ground is also subject to the existence and intensity of adequate guarantees. These guarantees will undoubtedly depend on the more or less invasive nature of the proposed processing and, to a large extent, on how and when the irreversible dissociation of the personal data is carried out.  
+In general terms, the processing will be considered less intrusive when the anonymization of the data occurs closer to the moment when the traffic data was generated or received through the device with Wi-Fi activated.  
+Without prejudice to the need for a case-by-case analysis and always with full respect for all the requirements of the GDPR, measures such as prompt anonymization of the collected data, obtaining exclusively aggregated information about the number of visitors and the more or less visited areas (heat maps) within an establishment, ensuring that no data is collected outside, in common passage areas, or in public spaces, and ensuring that tracking of individuals is not possible, could lead to a favorable assessment, without prejudice to the outcome of the impact assessment related to data protection.  
+Other scenarios that involve a greater collection of personal data in space (larger coverage areas), in time (longer periods), or in scope (mobility data, repeat visits, etc.) move away from the possibility of a favorable assessment, considering the difficulty of effective and practical mechanisms that allow individuals to oppose the processing (opt-out mechanisms) in Wi-Fi tracking.
+23  
+Wi-Fi Tracking Technologies: Guidelines for Data Controllers  
+Risks to the Rights and Freedoms of Natural Persons  
+RISKS TO THE RIGHTS AND  
+FREEDOMS OF NATURAL PERSONS  
+5.  
+Article 24.1 of the GDPR establishes the obligation to manage the risk that the processing of personal data poses to the rights and freedoms of individuals, taking into account the nature, scope, context, and purposes of the processing. Therefore, any organization that decides to initiate the processing of personal data must manage these risks.  
+This section presents the main risks that could be associated with the processing of personal data implemented using Wi-Fi tracking technology. It is not an exhaustive list of risks, but rather an overview of the main risks to consider, and in any case, data controllers must determine, based on the specifics of the particular processing, which risks are applicable in their case and identify the existence of other possible risks not identified in this guide.  
+The management of risks to the rights and freedoms of individuals is distinct from the management of compliance risks concerning the principles established in the GDPR and applicable data protection regulations. Compliance risk management, like other risk management for different objectives (legal, financial, business, fraud, project, etc.), may be necessary to achieve certain organizational goals, but it does not address the obligations of risk management for the rights and freedoms of natural persons imposed by the GDPR. If the processing intended to be initiated does not comply with the principles of the GDPR, for example, due to lacking an adequate legal basis or failing to meet the principles of necessity and proportionality, the processing would be unlawful and prohibited. The use of Wi-Fi tracking will fall under the processing of personal data, and the organization implementing it is obliged to comply with the requirements and obligations established in the GDPR, including managing the risks for individuals who will be affected by the processing as a whole.  
+Example:  
+In order to preserve the safety of individuals at access points to a mass event, it may be necessary to determine if some of the access routes are becoming congested. To measure this congestion, the use of Wi-Fi tracking technology could be proposed to conduct an approximate count, and it will be a means to implement one of the processing operations, the measurement of congestion. Merely measuring congestion will not achieve the purpose of preserving the safety of individuals, as the processing must include other operations, such as the decision-making process to reduce congestion at a given moment, the ability to do so effectively, and actions to ensure that this occurs efficiently and in an orderly manner. If these operations that give meaning to the ultimate purpose of the processing are not correctly implemented, the processing is not fulfilling a purpose that has a legal basis. Likewise, if there are already means by which these objectives are being achieved (video surveillance, people counters, etc.), the processing would also not be necessary; at the same time, it could prove unsuitable since this measure entails an additional risk as there are less intrusive means to achieve the possible purpose of this system.
+24  
+Wi-Fi Tracking Technologies: Guidelines for Data Controllers
+
+Example:  
+The implementation of this technique in the workplace, for instance, in a building, can provide information about part of the activity that is currently protected by labor regulations, such as monitoring how much time is spent in common areas, with whom conversations occur and for how long, attendance at restrooms, location outside strictly working hours (library, recreational areas), etc.  
+Risk management must be carried out considering the processing of personal data as a whole. A mere isolated analysis of the possible risks of Wi-Fi tracking technology would be meaningless and insufficient under the GDPR, since this technology is a means that can be used in processing of varying complexity that involves the combined use of other technologies (cloud, blockchain, AI, IoT, etc.).
+
+Example:  
+The risks are not the same for a processing activity whose sole purpose is to monitor occupancy to ensure the security of an individual physical store of an SME that decides to implement Wi-Fi tracking, as compared to a processing activity with the same purpose but across all physical stores of a chain at a national level, or a processing activity whose purpose is to offer online advertising targeted at individuals based on the establishments or sections visited within a store.  
+Using the same technology at a provincial or regional level to determine usual tourist flows, obtaining rates of repeat tourist visits for which a public authority or agency is responsible, will involve more risk than using it in a single physical store to estimate occupancy. Essentially using the same technology, the processing activities are different and the risks are also different.
+
+A. IMPACT ON INDIVIDUALS' PRIVACY  
+The use of Wi-Fi tracking technology implies that under certain circumstances it is possible to single out individuals, locate them in a precise location, and infer data related to individuals based on the context of the location.  
+15 Singling out refers to the possibility of individualizing a person within a dataset by highlighting certain records. Singling out can occur even without the need for the person to be identified.  
+16 Inference occurs when it is possible to deduce the value of a personal characteristic with a high degree of probability from the values of a series of other attributes, such as location in certain places, the context of such locations, or others.
+
+Risks to the rights and freedoms of individuals
+
+25  
+Wi-Fi Tracking Technologies: Guidelines for Data Controllers  
+Example:  
+The installation of a Wi-Fi tracking system in a building may be collecting signals from devices located in homes or private residences that are behind a wall, from workers of other entities, or from the entity itself that should not be data subjects of the processing, or even from individuals passing through public streets. Such intrusion would not be a risk but a breach of the principle of legitimacy of processing.  
+Example:  
+A security company offers, in addition to its usual services, a Wi-Fi tracking service for small businesses, such that 30% of commercial premises in a city implement this service, which allows for the registration of identifiers of passersby near the commercial premises. In this way, it would be possible to have records and control the wandering of any citizen in the city at a given moment.
+
+B. INTRUSION INTO THE HOME OR PUBLIC AREAS  
+C. SCALE OF PROCESSING AND LIMITATION OF FREEDOM OF MOVEMENT  
+Wi-Fi tracking technology makes it difficult to establish clear and defined physical boundaries regarding where the device signal is collected and where it cannot be collected. In a video camera, certain masks can be established and lenses oriented, but this type of limitation is more costly to implement in a radiofrequency-based system.  
+Analyzing the impact of certain technological systems solely based on the scope of an entity provides a limited view of the possible intrusion into individuals' privacy.  
+Technologies are currently implemented on a large scale, and it is necessary to analyze their impact when they are implemented en masse, as they can jointly produce a limiting effect on the rights and freedoms of citizens.
+
+Risks to the rights and freedoms of individuals
+26  
+Wi-Fi Tracking Technologies: Guidelines for Data Controllers  
+D. TRACKING BY OMISSION: INTERFERENCE WITH RELIGIOUS FREEDOM OR THE PROCESSING OF SPECIAL CATEGORIES OF DATA  
+The record of which sites are visited by a person allows for the inference of lifestyle habits and tastes or interests related to the locations where they can be found. However, it should be noted that areas that a person does not visit also provide a lot of information, or even more, which can allow for profiling based on special categories of data. Furthermore, it is independent of whether the information revealed by the processing in question is accurate or not and whether the data controller acts with the intention of obtaining information included in any of the special categories.  
+Example:  
+In the context of processing that incorporates Wi-Fi tracking technology at a shopping center, which allows for the identification of a person, they could be tracked visiting sports stores, traditional restaurants from a specific country, with pauses during the usual worship times of a particular religion, not accessing establishments linked to other religions, and never stopping at alcohol displays. This could allow for profiling their age, sex, religion, and estimated origin, with or without sufficient basis. Similarly, a shopping center that has a specific religious center nearby could obtain information about individuals who regularly attend to practice their religious beliefs, including minors or individuals at risk of social exclusion or other risk situations.  
+
+In essence, when these processes are carried out in places related to special categories of data, such as a hospital, a clinic of a medical specialty, or the headquarters of a political party, the data controller could be engaging in the processing of special categories of data, which increases the risk to the rights and freedoms of individuals.  
+
+Example:  
+The possibility of attributing to an individual visits to an oncology clinic in a hospital where Wi-Fi tracking technology is used may lead to the inference of the person's illness, and in the future, they may encounter difficulties in obtaining health insurance.  
+Risks to the Rights and Freedoms of Natural Persons
+27  
+Wi-Fi Tracking Technologies: Guidelines for Data Controllers  
+18 Pseudonymization and anonymization are distinct data processing operations and should not be confused. See Anonymization and Pseudonymization.  
+19 Anonymization (III); the risk of reidentification.  
+Example:  
+A person who has an interest in a certain type of product, service, or leisure activity offered in a shopping center but that contravenes some ethical precept of their social environment may face media repercussions or may be misinterpreted in any other circumstance, which could change their behavior if they know that merely wandering nearby may be recorded.  
+
+E. PERSONAL FREEDOM AND SELF-CENSORSHIP  
+A person's awareness that they will be tracked while wandering through public areas, a building, or a shopping center may lead them to exercise self-censorship to preserve their interest in certain political or religious associations, cultural centers, or leisure activities, and may condition their personal freedom, their freedom of movement, and produce situations of self-censorship.  
+This can occur even in cases where the individual is adequately informed about the processing of their personal data, due to their own expectations regarding the treatment that will be applied to the data captured from their mobile device.  
+
+F. THE IMPACT OF REIDENTIFICATION  
+Even when the goal is to obtain collective data or aggregated statistics and not to single out individuals, the origin of the data will stem from processing operations on unique identifiers, such as MAC addresses of devices, a digital fingerprint of the same, or others to which, in the best-case scenario, some treatment of pseudonymization or anonymization of personal data will be applied.  
+Pseudonymization is a processing of personal data that generates, from a set of personal data, a new set of pseudonymous information and the information that allows for the reidentification of individuals. The GDPR continues to apply to a pseudonymized data set since individuals are identifiable.  
+For example:  
+Replacing the MAC addresses of a data set with a hash of the MAC address could be a pseudonymization processing operation.  
+Anonymization is a processing of personal data that generates, from a set of personal data, a new set of anonymous information. Therefore, in any case, from the moment the data is collected until it is anonymized, there is always a phase in which there is processing of personal data.  
+In any data anonymization processing, there is a certain probability that reidentification of the individuals may occur.  
+Risks to the rights and freedoms of natural persons  
+
+28  
+Wi-Fi Tracking Technologies: Guidelines for Data Controllers  
+That is, a set of supposedly anonymous data ceases to be anonymous because the individuals have been identified or can be identified.  
+When this occurs, the risk to the rights and freedoms of individuals materializes because, among other consequences, it enables singularization, linking, or inference.  
+Even when applying anonymization strategies, it is necessary to assess the probability of reidentification and personal data breaches, as well as the impact that this may have on the rights and freedoms of the individuals concerned.  
+To do this, the worst-case conditions must be considered, such as attempts at reidentification by internal or external individuals to the organization, with access to auxiliary data, including those available through illegal means, by court orders, or by information agencies, in addition to considering that adequate resources are available and taking into account both the technology available at the time of processing and technological advancements.  
+
+Example:  
+In some applications, it is intended to ensure the impossibility of reusing Wi-Fi tracking information by using a specific hashing method, using "salts" or keys for each owner. While this is a method to increase security, it should be noted that it follows a technique of "security through obscurity," which any security principle states should not be the pillar of guarantees due to its intrinsic weakness. In any case, it can be one of many measures to adopt, without a guarantee of absolute effectiveness.  
+Such probability exists due to the type of data collected, a possible absence of a robust anonymization mechanism, the moment or phase of processing in which anonymization is applied, the possibility that the anonymization may not be truly effective, or the existence of technology that would allow for that reidentification.  
+
+Example:  
+In a supposedly anonymized database with data from over 8 million Probe Request frames, through one of the fields (WPS) contained in this type of frame, it was possible to reidentify more than 90% of the identifying data of those terminals that transmitted that field.  
+Risks to the rights and freedoms of natural persons
+29  
+Wi-Fi Tracking Technologies: Guidelines for Data Controllers  
+G. RISKS ASSOCIATED WITH LOCATION DATA  
+It is essential to emphasize the particular difficulty of anonymizing datasets when they include various location data of the same person or trajectory data due to the ease of re-identification they present.  
+Example:  
+The trips of 173 million taxis in New York were published, supposedly anonymizing the license number of each taxi with a hash. The data included the hash of the license number, start, end, duration, time, cost, and tip. In a very short time, the license number of the taxis was re-identified, and with Google searches, images of publicly relevant individuals taking the re-identified taxis were obtained.  
+
+The European Data Protection Board (EDPB) and previously the Article 29 Working Party have warned on several occasions about the particularly sensitive nature of location data. Movements of a person can provide revealing information, such as their workplace, residence, and centers of interest, including places of worship or activities related to their sexual orientation, which could allow for the creation of a detailed profile of their behaviors.  
+The identification capability of location data is well known, and often only a few spatial points are needed to uniquely identify a person within a population with high precision, considering usual mobility patterns. This means that even when unique identifiers such as the MAC address are removed, as the device is singularized, the location data can lead to the identification of a person. Logically, the greater the temporal and spatial scope of the location, the more feasible identification will be.  
+A data pattern that contains a person's location over time cannot be completely anonymized, even if the precision of the recorded geographic coordinates is reduced or specific details of the itinerary are removed.  
+Moreover, this also applies to incompletely aggregated location data. That is, simply anonymizing data does not guarantee privacy protection, as if the mobility patterns are unique enough, external information can be used to re-link the data to a specific individual.  
+Thus, specific circumstances may arise, such as the existence of sparsely populated areas at certain times where it would be easy to identify the person and their behaviors or even combine the capture of an indicator with images from a surveillance system leading to the automatic identification of the person.  
+22 de Montjoye, YA., Hidalgo, C., Verleysen, M. et al. Unique in the Crowd: The privacy bounds of human mobility. Sci Rep 3, 1376 (2013).  
+23 On Taxis and Rainbow Tables: Lessons for researchers and governments from NYC’s improperly anonymized taxi logs.  
+24 See Opinion 13/2011 and 01/2017 of the GT29, and the Guidelines 04/2020 of the EDPB  
+Risks to the rights and freedoms of natural persons
+30  
+Wi-Fi Tracking Technologies: Guidelines for Data Controllers  
+H. LACK OF “ACCOUNTABILITY” CAPACITY OF THE MEANS  
+It is common for data controllers who incorporate such technologies into their processing to do so through data processors or providers offering Wi-Fi tracking services, even in combination with other technologies.  
+In these types of projects, there is often insufficient control by the data controller over the means being used to implement the processing. Many controllers, instead of seeking independent professional advice, will make decisions based on purely commercial information, unaware of the implications for rights and freedoms, potential collateral processing, and loss of control over the processing.  
+Data is typically found in the technological environment of data processors with very complex relationships, involving multiple data transfers, often utilizing cloud infrastructures, subject to advanced data analytics, and including in many scenarios machine learning techniques and processing on behalf of the data processors.  
+In the event of a potential generalization of such services, and given the competitiveness of economies of scale, the situation will likely be that a single data processor, or a few, will provide their services to almost all or many of the controllers. Therefore, these processors will handle data from multiple different sources, from various controllers, with the multiplying impact that personal data breaches are already having on processors serving multiple entities and could use the data for their own purposes25 such as improving their service, offering personalized online advertising, or profiting from the data by making it available to third parties. This poses a risk to the rights and freedoms of individuals that must be managed by the data controller.  
+Example:  
+A Wi-Fi tracking service provider offers all establishments on a street, gallery, or shopping center the possibility of providing a Wi-Fi connectivity service to their customers that includes Wi-Fi tracking technology, which all controllers can independently benefit from. Each controller will only obtain statistical and supposedly anonymized data from the customers who enter their establishment. However, the processor will receive data from all establishments. The processor may retain the data without anonymization or may have even linked the data with other databases of its own or third parties to keep individuals singularized or identified and base its business model on the sale of that personal data, in which case it could be using data outside of its role as a processor and become a controller of a processing for which it would not be legitimized.  
+In fact, even if the controller does not intend to identify the data subjects and does not intend to carry out processing for other purposes, some data processor or third party may indeed have the intention to do so.  
+25 In such a case, the processor becomes a controller for those own processing activities and cannot carry them out without informing the initial controller, obtaining their approval, and ensuring that the new purposes are compatible with the initial ones.  
+Risks to the rights and freedoms of natural persons
+31  
+Wi-Fi Tracking Technologies: Guidelines for Data Controllers  
+to carry out other processing, leverage the  
+data for their own purposes, link26 the  
+data with other databases that allow for  
+the identification of individuals, and ensure that  
+the anonymization of the data is not truly  
+effective.  
+Although these processes will be manifestly  
+unlawful, the environment of such processing  
+often prevents having guarantees or control over  
+whether they are occurring.  
+I. SCENARIOS OF PERSONAL DATA BREACHES  
+The fact that neither the data controller nor the  
+processors intend to single out or identify the  
+data subjects, or profile the data subjects, does  
+not imply that it cannot happen27. In particular,  
+this risk materializes when personal data breaches  
+occur both from internal or external elements to  
+the organization itself. Any processing of personal  
+data is susceptible to experiencing a personal data  
+breach regardless of the technical and organizational  
+measures implemented in the processing.  
+When a personal data breach occurs not only in  
+a controller but also in one of the processors or  
+sub-processors providing services to multiple  
+controllers, the impact could be much greater  
+both due to the volume of data and the different  
+aspects of the personal lives of the affected data  
+subjects.  
+In general, in personal data processing that uses  
+Wi-Fi tracking, it is especially important to consider  
+the likelihood of a confidentiality breach occurring,  
+either due to data exfiltration or because the  
+anonymization applied to the dataset can be  
+reversed.  
+Example:  
+A security company offers,  
+in addition to its usual services,  
+a Wi-Fi tracking service for small  
+businesses, such that 30% of  
+the commercial premises in a city  
+implement this service, which allows  
+for the registration of identifiers of  
+passersby near the commercial premises.  
+The data is anonymized by the  
+security company, so that  
+the small businesses only  
+have access to anonymized data. The  
+security company suffers a cyber  
+incident and data is exfiltrated that includes  
+logs from the Wi-Fi tracking system for the  
+last 5 years from a phase of the  
+processing in which the data is still  
+not anonymized. This data  
+allows for the singling out of individuals, in  
+some cases identifying them, obtaining their  
+location, and tracking their movements in the  
+city over the last 5 years.  
+The reality of personal data breaches  
+makes it evident that the materialization of  
+threats to datasets is a matter of time, and that  
+the only unknown is the extent to which the  
+breach will reach.  
+26 Linkability refers to the possibility of linking at least two records about the same data subject or group of data subjects  
+(in the same database or in two different databases).  
+27 See the decision of the Dutch Data Protection Authority regarding the processing of personal data of users of mobile  
+devices in which Wi-Fi was turned on in the city center of Enschede without an appropriate legal basis. “The fact that  
+they do not use these resources in practice to identify individuals in the city center does not detract from the fact that  
+they could reasonably do so.”  
+Risks to the Rights and Freedoms of Natural Persons
+32  
+Wi-Fi Tracking Technologies: Guidelines for Data Controllers  
+In these cases, the problem is not only the set of data that has been leaked from a controller but also when that set of data is linked to data from previous breaches, not only within the framework of treatments using Wi-Fi tracking but also from other Internet services.  
+Example:  
+A Wi-Fi tracking database may be leaked to the dark web. It must be considered that other databases may be found on the dark web that allow linking actions of the same individual in two completely different environments, or a previously leaked database may allow linking Wi-Fi data with other personal data.  
+Therefore, before implementing a treatment using Wi-Fi tracking technology, particularly when selecting technology providers and processors, it is essential to consider what could go wrong and what consequences a breach of personal data could have for the rights and freedoms of individuals, in order to design privacy safeguards to minimize the impact of a breach and establish response mechanisms to minimize risks to the rights and freedoms of the affected individuals.28  
+28 Recital 83 GDPR: …When assessing the risk in relation to the security of data, the risks arising from the processing of personal data must be taken into account, such as the destruction, loss, or unauthorized communication or access to such data, which are particularly likely to cause physical, material, or immaterial damage.  
+J. INTERNATIONAL TRANSFERS AND THE INTERNATIONAL REGULATORY CONTEXT  
+Alongside the use of technological infrastructures of processors and the combined use of multiple technologies, often with subprocessors and cloud-based technological infrastructures, there is the possibility that the processing may involve international data transfers to countries outside the European Economic Area (EEA).  
+In situations where international data transfers occur, the controller must evaluate scenarios such as breakdowns of the rule of law, national or international emergencies, or crises in international relations and agreements.  
+Example:  
+A processing operation that incorporates Wi-Fi tracking, which enables the linking of a person to the headquarters of a political party or union associated with a particular ideology, using processors with cloud technologies, could imply international data transfers to third countries. The possibility of identifying it could have consequences, including legal ones, for individuals (for example, denial of a visa or criminal charges).  
+Risks to the rights and freedoms of individuals  
+
+33  
+Wi-Fi Tracking Technologies: Guidelines for Data Controllers  
+K. CONCLUSION ON RISK MANAGEMENT  
+The controller must take into account and manage all risks to the fundamental rights and freedoms of the data subjects applicable to the processing, reviewing each of the threats, how they may affect fundamental rights, considering the specific case in its context, scope, nature, and purposes, and analyzing the complete processing, not just some of the processing operations.  
+Often, the risks are interconnected, and the realization of some threats or risk factors implies that others may also materialize.  
+The technical and organizational measures to minimize these risks will be addressed in a specific subsequent section.  
+OBLIGATION TO CONDUCT A DATA PROTECTION IMPACT ASSESSMENT  
+6.  
+The GDPR establishes the obligations related to the data protection impact assessment (DPIA) in Articles 35 and 36. It does not require a DPIA for every processing of personal data, but it does for those where it is likely to pose a high risk.  
+The existence of a reasonable degree of presumption that the processing may entail a high risk makes the conduct of a DPIA essential.  
+The DPIA is a process of evaluating a processing operation that extends over time, throughout its entire lifecycle, and must be continuously reviewed, at least when there is a change in the risk posed by the processing operations. In no case should it be considered a mere documentary formality.  
+In general terms, a DPIA:  
+
+◤ Is required when there may be a high risk to rights and freedoms.  
+
+◤ Is a specific obligation of the controller.  
+
+◤ Requires surpassing an assessment of the suitability, necessity, and proportionality of the processing in relation to its purposes.  
+
+◤ Requires that the assessment determines that the residual risk has been reduced through the application of measures and guarantees to a tolerable level.  
+
+◤ Requires its completion before the commencement of processing activities.  
+
+◤ Requires the advice of the DPO when one must be designated or has been voluntarily appointed by the controller.  
+
+◤ Will take into account compliance with approved codes of conduct and applicable certifications.  
+Obligation to conduct a data protection impact assessment
+34  
+Wi-Fi Tracking Technologies: Guidelines for Data Controllers  
+
+◤ Its outcome must be taken into account to evaluate the feasibility or infeasibility of the processing from the perspective of data protection. The result of the DPIA is binding for the data controller, and depending on the level of residual risk, it requires a prior consultation with the competent data protection supervisory authority or even a decision not to carry out the processing.  
+For processing that incorporates Wi-Fi tracking technology, as for any other processing, the risk assessment and the assessment of the need to carry out a DPIA must be considered taking into account the processing as a whole, that is, considering its purpose, nature, scope, and context.  
+In accordance with Article 35.3 of the GDPR, in those processing activities that incorporate Wi-Fi tracking and involve systematic large-scale observation of a public access area, the DPIA will be mandatory. Even if the data controller does not intend to carry out such systematic large-scale observation, the DPIA will also be mandatory, since in view of the inherent risk of the processing, we would be talking about high-risk processing and, consequently, the requirements of the GDPR for such processing apply. Likewise, it should be considered as an aggravating factor, due to the very nature of many of the operations that are part of Wi-Fi tracking, that it will be more difficult for data subjects to exercise their rights.  
+If the processing meets two or more criteria from the list of types of data processing that require a data protection impact assessment (Article 35.4) published by the AEPD, a DPIA will also be necessary.  
+Some of the relevant criteria from this list for processing that incorporates Wi-Fi tracking are:  
+
+◤ that involve the observation, monitoring, supervision, geolocation, or control of the data subject in a systematic and comprehensive manner, including the collection of data and metadata through networks, applications, or in public access areas, as well as the processing of unique identifiers that allow the identification of users of information society services such as web services, interactive TV, mobile applications, etc.  
+
+◤ that involve the use of special categories of data referred to in Article 9.1 of the GDPR, data related to criminal convictions or offenses referred to in Article 10 of the GDPR, or data that allow determining the financial situation or asset solvency or deducing information about individuals related to special categories of data.  
+
+◤ that involve the use of data on a large scale. To determine whether processing can be considered large scale, the criteria established in the WP243 guidelines “Guidelines on Data Protection Officers (DPOs)” of the Article 29 Working Party will be considered.  
+
+◤ that involve the association, combination, or linking of records from databases of two or more processing activities with different purposes or by different controllers.  
+
+◤ that involve the use of new technologies or an innovative use of established technologies, including the use of technologies on a new scale, for a new purpose, or combined with others, in such a way that it entails new forms of data collection and use with risks to the rights and freedoms of individuals.  
+29 WP243 explains the term large scale and not exclusively in absolute terms of the number of data subjects.  
+30 Recital 91 of the General Data Protection Regulation.  
+31 Guide on Risk Management and Impact Assessment in Personal Data Processing – Section XIII. Assessment of the necessity and proportionality of the processing.  
+Obligation to carry out a data protection impact assessment.
+35  
+Wi-Fi Tracking Technologies: Guidelines for Data Controllers  
+Assessment of the Necessity and Proportionality of Processing  
+These criteria must be taken into account both by the data controller themselves and by the data processor(s) used by the controller.  
+It is also important to remember the obligation of processors and sub-processors to assist the controller in carrying out the DPIA and the due diligence required of controllers when hiring processors that provide adequate guarantees. Given the risk factors and elements inherent in the use of Wi-Fi tracking technology outlined in this guide, the conditions will generally be met for the DPIA to be mandatory in personal data processing that employs Wi-Fi tracking technology. Even in cases where the controller may not be clear about the obligation to conduct a DPIA, which does not exclude the analysis and updating of associated risks, the recommendation from data protection supervisory authorities, given the risk factors outlined in this guide, is to carry it out.  
+Finally, it should be noted that when appropriate, the controller must seek the opinion of the data subjects or their representatives regarding the intended processing. In particular, within the realm of public administrations, it may be appropriate to carry out a participation procedure so that the affected citizens can express their opinion on the matter, especially when it involves actions carried out under letters c) and e) of Article 6.1 GDPR.  
+ASSESSMENT OF THE NECESSITY AND PROPORTIONALITY OF PROCESSING  
+7.  
+The first step in the DPIA process is the obligation to conduct an assessment of the necessity and proportionality of the processing in relation to the purpose pursued, which involves weighing three criteria: suitability judgment, necessity judgment, and strict proportionality judgment.  
+This assessment must conclude with a decision on whether to proceed with the processing or, if necessary, modify it until it passes the analysis of the aforementioned triple judgment.  
+The controller must opt for the least intrusive option for privacy that involves fewer risks for individuals.  
+Example  
+A controller intends to monitor the maximum occupancy of a venue in order to ensure the safety of individuals. In implementing the processing, they might decide to use basic elements for counting the people entering/exiting the venue, employ human resources, or any other set of sensors, such as volumetric sensors, CO2 sensors, photoelectric cells, pressure sensors, video surveillance with some degree of analysis, or use Wi-Fi tracking technology. While pursuing the same objective in all cases, some options do not inherently involve the processing of personal data, while others may involve personal data processing with varying degrees of intrusiveness into individuals' privacy; we could even be talking about high-risk processing for the rights and freedoms of natural persons, and it will be necessary to determine the necessity and proportionality of the different available options.
+36  
+Wi-Fi Tracking Technologies: Guidelines for Data Controllers  
+Development of the Employment Relationship  
+A. OBJECTIVE EVALUATION OF THE SUITABILITY OF THE PROCESSING  
+B. OBJECTIVE EVALUATION OF THE NECESSITY OF THE PROCESSING  
+When defining the requirements for the processing that could be implemented with Wi-Fi tracking, it is necessary to determine whether the quality of the data that can be obtained through this technology is suitable for carrying out the necessary actions of the processing, considering that it will not be infallible.  
+Example:  
+Consider a processing to apply a legal obligation that no more than 30 people are in a certain room. Using Wi-Fi tracking, it may occur that some individuals may not carry a phone, be minors without a phone, have it turned off to avoid being counted, or have a dead battery; others may carry two or more phones (personal, professional, etc.), and all of this may depend on age.  
+Depending on the purpose of the processing, a certain degree of individualization may be intrinsically necessary to fulfill the objectives of the processing, but at other times, individualization may not be necessary for the intended purpose.  
+Example:  
+A processing that incorporates Wi-Fi tracking in a physical store with several rooms, whose sole purpose is to determine the occupancy of each room to not exceed the maximum capacity, would not, in principle, need to individualize individuals in any way. It would suffice to determine the total number of devices present at any given moment. It could even be unnecessary to process any identifier, but only to keep a count of the Probe Request frames being generated.  
+However, a similar processing in a museum where the intention is to obtain the usual routes between rooms will require individualization of individuals at least during certain periods of time and before anonymizing the data to determine, for example, the order of visits to the rooms by each individual or a heat map of the most trafficked spaces.  
+
+37  
+Wi-Fi Tracking Technologies: Guidelines for Data Controllers  
+In any case, for processing that is already being carried out and where a technological update is decided that implies greater intrusion into users' privacy, it will be necessary to consider what need is being met that was not previously achieved within reasonable effectiveness margins:  
+Example:  
+The intention is to update attendance control using Wi-Fi tracking. Attendance control is a processing that has been carried out for many years with a reasonable degree of effectiveness. It is necessary to consider the need to switch to a more intrusive technology that may also incorporate limitations in its effectiveness and possibilities of fraud that are not known.  
+Likewise, throughout the lifecycle of the processing, it will be necessary to verify that these needs continue to be met and remain necessary for the objective purposes of the processing, establishing expiration dates to limit the execution of a processing that no longer responds to these needs.  
+APPROPRIATE TECHNICAL AND ORGANIZATIONAL MEASURES  
+8.  
+Once the risk factors have been identified and the level of risk of the processing has been determined, this level of risk must be reduced to an acceptable value through appropriate technical and organizational controls and measures, data protection policies, data protection and privacy by design, and security measures. These measures should aim to reduce the impact or probability of the materialization of one or more specific risk factors. Accumulating measures and guarantees without a specific objective may generate new vulnerabilities.  
+However, the management of risks to the rights and freedoms of the data subjects should not be confused with the strict compliance with the other provisions and principles imposed by data protection regulations. The nature of the GDPR gives freedom to the data controller and the processor in how to implement the guarantees of compliance with the principles and other obligations of the GDPR, without this implying that the controller or the processor can choose which provisions to comply with and which not. One of the data protection measures by design to be applied is anonymization, but it is neither the only possible option nor should the controller renounce the application of other additional measures such as differential privacy, "compute-to-data," and others.  
+In its Legal Report 2019/017, the AEPD highlights the obligations for data controllers that use Wi-Fi tracking technology. These should be understood as obligations established by data protection regulations, among which some technical and organizational measures may also be found. Below are some of them:  
+◤ Measures must be adopted to ensure the early anonymization of the data.  
+32 Anonymization and pseudonymization (II): differential privacy  
+Appropriate technical and organizational measures
+38  
+Wi-Fi Tracking Technologies: Guidelines for Data Controllers
+
+◤ The scope in which Wi-Fi tracking is conducted must be assessed. For example, in the private sphere, attention should be paid to the existence of a commercial relationship, so that it concerns customers or potential customers, avoiding, in any case, its use in public spaces.
+
+◤ The areas in which tracking is conducted should be limited and defined, avoiding monitoring movements in very large areas, as well as in those that may imply excessive interference in a person's privacy, such as, for example, in the case of restrooms.
+
+◤ It may not be used, without the consent of the affected individuals, in areas where it may reveal special categories of data, such as, for example, those related to health products.
+
+◤ Under no circumstances may the geolocation data obtained be combined with other data from other sources (such as, for example, credit card payments or images captured by surveillance systems) that could allow for the identification of the individual.
+
+◤ Following the principle of data minimization, even if data collection must be continuous, the storage and subsequent processing operations of the position must be limited to indicating the areas identified as of interest, preventing detailed and continuous collection of the movements of the individuals concerned.
+
+◤ The data collected from an individual in the premises of different controllers should not be combined. If the controller has several premises, different identifiers must also be collected.
+
+◤ The same identifier should not be assigned to the same mobile device during different visits to the same location over time.
+
+◤ Access to the controller's Wi-Fi shall not be conditioned on the consent to the processing of data through Wi-Fi tracking of the individual.
+
+◤ When the legal basis for processing is the legitimate interest of the controller or the fulfillment of a mission of public interest, individuals must be allowed to exercise their right to object through an opt-out option for the collection of their data.
+
+◤ It must be ensured that individuals are fully aware that their personal data is being processed at every moment it occurs, as well as the exercise of their rights under the GDPR. In the same vein, the National Commission for Informatics and Liberty of France (CNIL) and the European Data Protection Board (EDPB) express the following measures:
+
+◤ Anonymization must be carried out immediately after collection, in such a way that re-identifying individuals is technically excluded.  
+33 Do not confuse with data pseudonymization.  
+34 The use of probe requests with random MACs can seriously hinder the possibility of offering an opt-out option.  
+35 Do not confuse with data pseudonymization.  
+35 CNIL: Audience and attendance measurement devices in spaces accessible to the public: the CNIL recalls the rules.  
+36 Opinion 01/2017 on the proposal for a Regulation on privacy and electronic communications (2002/58/EC) (GT29, WP247)  
+Appropriate Technical and Organizational Measures
+39  
+Wi-Fi Tracking Technologies: Guidelines for Data Controllers  
+
+◤If immediate anonymization is not possible given the purpose (for example, due to tracking a trajectory), personal data may be processed for a period during which they are not anonymized only under the following conditions:  
+• The purpose of data collection must be limited to mere statistical counting.  
+• The tracking is limited in time and space to the extent strictly necessary for that purpose.  
+• The data is deleted or anonymized immediately afterward.  
+• There is an effective possibility of voluntary exclusion.  
+
+Data controllers must also take other mitigation measures to ensure that there is no impact on the fundamental rights of third parties, for example, protecting the privacy of individuals living near a data collection point.  
+
+In section VIII. Controls to Reduce Risk of the Risk Management and Impact Assessment Guidelines for Personal Data Processing, a comprehensive overview of controls to reduce risk that may be appropriate for any personal data processing is presented. The controller who decides to implement processing with Wi-Fi tracking technology must implement all those that are applicable to the specific processing they intend to carry out.  
+
+Below are some relevant technical and organizational measures that could help manage risks in processing that incorporates Wi-Fi tracking technology, listed non-exhaustively.  
+
+A. ANONYMIZATION  
+Anonymization is a processing of personal data that generates, from a set of personal data, a new set of anonymous information.  
+Like all processing, it must comply with the principles of the GDPR, including the principle of proactive responsibility. This implies that the controller must take appropriate measures to carry out the anonymization process with the necessary guarantees and, in particular, must consider what risk it poses to individuals if the anonymization process can be reversed.  
+
+The AEPD provides controllers with various tools with extensive information on data anonymization on the Innovation and Technology microsite as well as Opinion 05/2014 on anonymization techniques from the Article 29 Working Group.  
+
+The anonymization process is not trivial and involves a probability of re-identification that depends on various factors, among others:  
+
+◤The moment when the data is anonymized. In general, the sooner the anonymization of the data occurs, the less personal data processing there is and the lower the risk for the data subjects37. However, to achieve certain purposes in processing, it may be necessary to anonymize at later stages. For example, when the aim is to track individuals' trajectories over a significant period, there is a possibility that the data may be stored without anonymization for extended periods. Late anonymization of data entails an increase in certain risks.  
+37 Article 25.2 GDPR.  
+Appropriate technical and organizational measures
+40  
+Wi-Fi Tracking Technologies: Guidelines for Data Controllers  
+
+◤ Anonymization Technique Used: There is a risk of using weak anonymization procedures that may be reversible.  
+
+◤ Regardless of the proposed anonymization, specific circumstances may arise, such as the existence of sparsely populated areas at certain times or the availability of multiple location points on the same device38, where it would be easy to identify the person or even their behaviors. For this reason, after an anonymization process, the data controller must determine through analysis and practical tests that it is not possible to reidentify the dataset. The controller must conduct a risk analysis of reidentification and consider worst-case conditions, and it is advisable that this be carried out periodically by a third party. If under those conditions it is possible to reidentify all or part of the dataset, it cannot be said that there is a risk of reidentification; simply put, that dataset is not anonymous. Regarding the timing of anonymization, early anonymization is the most effective measure to protect the rights and freedoms of individuals. To achieve this, it is necessary to bring the anonymization process as close as possible to the moment of data acquisition. A system that acquires personal data and anonymizes it at the point of acquisition, before any other type of processing and even before storage, will generally pose fewer risks to the rights and freedoms of individuals than a system that anonymizes the data after several hours, days, or months. Essentially, whenever possible, anonymization should be applied immediately and as close as possible to the data collection point, preferably locally on the capture device. In cases where the intended purpose requires delaying the moment when anonymization operations are performed, early pseudonymization should be applied until anonymization is possible. However, pseudonymization cannot be a substitute for anonymization, nor does the pseudonymization of data justify delaying or not applying the anonymization of the data.  
+38 de Montjoye, YA., Hidalgo, C., Verleysen, M. et al. Unique in the Crowd: The privacy bounds of human mobility. Sci Rep 3, 1376 (2013).  
+
+B. MASKING OF MAC ADDRESSES AND METADATA  
+Masking is a widely used technical data protection measure in the processing of personal data. Masking unique identifiers, such as the MAC address, at the moment of data capture and through the same capture interface before they are even stored in logs, is a measure that in certain scenarios can be effective in hindering the singling out and identification of individuals.  
+Example  
+A MAC address has 24 bits that identify the manufacturer and 24 bits for free assignment by the manufacturer. If the intention is to track different individuals in a venue, it may not be necessary to use all 48 bits; it is possible to mask from the moment of data capture and use only a fragment of the MAC address, for example, the last 24 bits.  
+Appropriate Technical and Organizational Measures  
+
+41  
+Wi-Fi Tracking Technologies: Guidelines for Data Controllers  
+If the intention is to distinguish between 1,000 individuals at once, with 14 bits there will only be a 6% chance that two will match. If the intention is to distinguish between 100 individuals, with 11 bits there will only be a 5% chance that two will match.  
+However, this technique will not be useful when the MAC address is not the identifier used or when devices send Probe Request frames with random MAC addresses. When what is used to identify user devices is a fingerprint, masking the metadata at the moment of capture will be the measure to apply to hinder the singling out and identification of individuals.  
+
+C. DISASSOCIATION  
+D. AGGREGATION  
+E. DATA MINIMIZATION  
+This involves applying measures that allow for the disassociation of data captured in different geographical areas and over different periods of time.  
+This involves grouping information related to several subjects using generalization and suppression techniques39. It is used when individual records are not required and the aggregated data is sufficient for the intended purpose, as may occur in some treatments that use Wi-Fi tracking.  
+This involves adopting measures aimed at ensuring compliance with the data minimization principle established in the GDPR (personal data shall be “adequate, relevant, and limited to what is necessary in relation to the purposes for which they are processed”) in the design of treatments that use Wi-Fi tracking.  
+Example:  
+Device fingerprints (or any other identifier) are replaced by a salted hash, with the particularity that a different salt is used at each location and changes randomly every certain period (every 12/24 hours). The historical record of salts used is not stored, as they are discarded and deleted each time a new one is generated.  
+Example:  
+To obtain heat maps of the main paths followed by individuals in a museum, unique identifiers would not be necessary; a simple statistical count would suffice.  
+39 k-anonymity as a measure of privacy.  
+Appropriate Technical and Organizational Measures
+42  
+Wi-Fi Tracking Technologies: Guidelines for Data Controllers  
+Practical examples of this would be:  
+
+◤ Limit the activity period of the sensors to the minimum necessary.  
+
+◤ Limit the area subject to Wi-Fi tracking, avoiding the inclusion of private zones.  
+
+◤ Minimize the area subject to monitoring the trajectories of individuals.  
+
+◤ Avoid the capture and storage of data from Wi-Fi frames that facilitate the identification of individuals (for example, the SSID).  
+
+◤ Avoid capturing data from certain types of devices (fixed devices, IoT sensors, bodily/health implants, etc.)  
+
+F. DATA RETENTION PERIOD  
+G. SECURITY MEASURES AND THIRD-PARTY AUDITS  
+As with any processing of personal data, the effective limitation of the data retention period is particularly relevant. Security measures should be understood in a broad sense. In the case of processing carried out by Public Administrations, the information systems used will be subject to the National Security Scheme (ENS) in the category corresponding to the level of risk to rights and freedoms according to the corresponding DPIA. This obligation also includes information systems of private sector entities when they provide services or solutions to public sector entities for the exercise of their administrative powers and competencies. Appropriate security measures are not limited to those listed in the ENS but should extend, if necessary, to those required to ensure an adequate level of security relative to the risk to the fundamental rights and freedoms of each specific processing in accordance with Article 32 of the GDPR, both non-anonymized and anonymized due to the residual risk of re-identification.  
+In the case of processing that is not subject to the obligation to comply with the ENS, necessary measures must be implemented to manage the level of risk to the fundamental rights and freedoms of each specific processing in accordance with Article 32 of the GDPR.  
+It should be noted that Article 32 of the GDPR, in its section 1.d), requires a process of regular verification, evaluation, and assessment of security measures.  
+Independent audits by third parties help to demonstrate compliance with security measures appropriate to the level of risk to fundamental rights.  
+
+40 Only when it is necessary to monitor trajectories for the purpose pursued by the processing.  
+41 First additional provision LOPDGDD: “Security measures in the public sector: 2. The controllers listed in Article 77.1 of this organic law must apply to the processing of personal data the security measures corresponding to those provided in the National Security Scheme, as well as promote a degree of implementation of equivalent measures in companies or foundations linked to them subject to private law.”  
+Appropriate technical and organizational measures
+43  
+Wi-Fi Tracking Technologies: Guidelines for Data Controllers  
+H. ORGANIZATIONAL MEASURES AND ON DATA PROCESSORS  
+The GDPR requires data controllers to maintain due diligence to ensure that processing complies with data protection regulations and to be able to demonstrate this.  
+The controller must select data processors with sufficient guarantees to implement appropriate technical and organizational measures so that the processing is in accordance with the requirements of the GDPR. This provision also extends to processors when they subcontract processing operations to other subprocessors.  
+Processing by the processor must be governed by a contract or any other equivalent legal link. Likewise, the processor may not process the data for its own purposes, but only following the documented instructions of the controller, and avoiding international data transfers without sufficient guarantees.  
+Following the obligations of the GDPR for data processing agreements, these must explicitly contain clauses that prevent the processor from engaging another processor without the prior written authorization of the controller and the processing of personal data by the data processor for its own purposes, or, where applicable, that limit and condition what compatible processing with the purpose of the initial processing the processor may carry out on its own behalf. Furthermore, they must explicitly establish the response to a personal data breach that may occur at the processor, both for the processing carried out on behalf of the controller and for any potential processing by the processor itself.  
+The controller must ensure that international data transfers without adequate guarantees are prevented.  
+Likewise, controllers must implement data protection measures from the design stage and by default to minimize the risks to the rights and freedoms that a personal data breach could cause. Regarding security measures, it is important to remember that, according to the experience and doctrine of the Supreme Court, they imply an obligation of means, but not of results.  
+In general, in personal data processing that uses Wi-Fi tracking, it is especially important to consider the likelihood of a confidentiality breach occurring, so the controller must adopt prior measures to minimize risks to the data subjects and, in the event that they occur, have a response plan from the controller and processors to minimize the impact on the rights and freedoms of individuals.  
+It is important to identify in advance the degree of responsibility of each of the parties involved in the processing in the different scenarios where a confidentiality breach may occur, and what obligations each of them will undertake to adequately manage the breach, including the obligations to notify the competent data protection supervisory authority and communicate with the affected individuals, when these are mandatory.  
+42 C.G.P.J - Judicial News (poderjudicial.es)  
+Appropriate technical and organizational measures
+44  
+Wi-Fi Tracking Technologies: Guidelines for Data Controllers  
+Transparency and Information  
+I. CONTINUOUS RISK MANAGEMENT  
+The data controller must analyze the risks of processing, taking into account all its particularities and circumstances, and if at any time there is a change in the processing or in factors affecting the processing, the risks must be re-evaluated and managed.  
+The GDPR (Article 24) and the Organic Law 7/2021 (Article 27, which transposes Article 19 of Directive 680/2016) require that the data controller review and update the measures implemented in the processing to ensure compliance with data protection regulations. The regulation itself establishes that such review and update must be carried out when necessary.43  
+43 When to review data protection measures.  
+
+TRANSPARENCY AND INFORMATION  
+9.  
+It should be considered that the use of Wi-Fi tracking technology, which collects information as a result of communication between a terminal (mobile phone or any other device) of a natural person and a Wi-Fi network, in order to generate a digital footprint of the device that differentiates it from other terminals, may constitute the processing of personal data, and therefore the data controller and processor must respect the principles and rights set out in the GDPR.  
+Among those principles, Article 5.1 a) of the GDPR recognizes the principle of transparency along with the principles of lawfulness and fairness.  
+The particularity that implies that this processing may go unnoticed by the owners of the terminals makes compliance with the principle of transparency through clear and accessible information even more necessary.  
+Article 13 of the GDPR details the necessary information that must be provided to the data subject when personal data is obtained from them.  
+Individuals must be informed in advance regarding the following aspects:  
+
+◤ Identity and contact details of the data controller and, where applicable, their representative.  
+
+◤ Contact details of the data protection officer.  
+
+◤ Purposes and legal basis of the processing.  
+
+◤ Legitimate interests of the controller or a third party.  
+
+◤ Recipients or categories of recipients of the personal data.  
+
+◤ Planned international transfers.  
+
+◤ Retention period.  
+
+◤ Rights of access, rectification or erasure, restriction of processing, objection, and data portability.  
+
+◤ Possibility of revocation of consent.  
+
+◤ Right to lodge a complaint with a supervisory authority.  
+
+45  
+Wi-Fi Tracking Technologies: Guidelines for Data Controllers  
+A. LAYERED INFORMATION  
+The information provided must be concise, transparent, accessible, easy to understand, and presented in clear and simple language, especially when directed specifically at children.  
+Thus, Article 11 of the LOPDGDD has provided that the controller may fulfill the information duty established in Article 13 of the GDPR by providing the data subject with basic information and indicating an email address or other means that allows easy and immediate access to the remaining information (this is what has come to be known as "layered information").  
+The minimum content that basic information must include is:  
+
+◤ The identity of the data controller.  
+
+◤ The purpose of the processing.  
+
+◤ The possibility of exercising the rights established in Articles 15 to 22 of the GDPR.  
+
+◤ Information on whether the personal data obtained will be processed for profiling, and their right to object to the adoption of automated individual decisions that produce legal effects concerning them or significantly affect them in a similar manner, when this right applies according to Article 22 of the GDPR.  
+
+◤ The information will be provided in writing or by other means, including electronic means, if appropriate. The information may be provided verbally when requested by the data subject, provided that the identity of the requester is demonstrated by other means.  
+The Guidelines of the Article 29 Working Party on transparency under the GDPR, adopted on November 29, 2017 (revised on April 11, 2018), included as possible ways to convey information to data subjects, in an environment such as Wi-Fi tracking, the use of:  
+
+◤ Clearly visible panels with information.  
+
+◤ Public signage throughout the coverage area.  
+
+◤ Public information campaigns.  
+
+◤ Icons (standardized icons that allow for a readily visible, intelligible, and clearly legible overview of the intended processing, according to Article 12.7 GDPR).  
+
+◤ Voice alerts.  
+
+◤ Written details included in configuration instructions.  
+
+◤ Videos integrated into digital configuration instructions.  
+
+◤ Written information about smart devices, messages via SMS or email.  
+In the specific case of the use of these technologies by public administrations, the following set of transparency measures is additionally recommended, through publication of:44  
+
+◤ A register of Wi-Fi tracking sensors deployed in public spaces.  
+
+◤ The specific objectives pursued, indicating the start and end dates of the processing.  
+44 More information in the Investigation Report on the Protection of Personal Data in the Development of Dutch Smart Cities  
+Transparency and Information
+46  
+Wi-Fi Tracking Technologies: Guidelines for Data Controllers  
+Exercise of Rights Recognized in the GDPR  
+
+◤An appropriate extract (without sensitive information) of the impact assessments carried out.  
+
+◤Relevant information about the anonymization algorithms used.  
+
+◤Information available in several languages if it is an area of high tourist influx.  
+In any case, in accordance with Article 31 of the LOPDGDD, data controllers and processors or, where applicable, their representatives must maintain the record of processing activities referred to in Article 30 of the GDPR, unless the exception provided for in its paragraph 5 applies. The subjects listed in Article 77.1 of the LOPDGDD must make a publicly accessible inventory of their processing activities available by electronic means and their legal basis.  
+
+EXERCISE OF RIGHTS RECOGNIZED IN THE GDPR  
+10.  
+In accordance with Article 11 of the GDPR, if the purposes for which a controller processes personal data do not require or no longer require the identification of a data subject by the controller, the controller shall not be obliged to maintain, obtain, or process additional information for the sole purpose of identifying the data subject in order to comply with the GDPR, and in such cases, if the controller can demonstrate that it is not in a position to identify the data subject, it will inform them accordingly, if possible, and Articles 15 to 20 of the GDPR (rights of access, rectification, erasure, right to restriction of processing, and data portability) shall not apply, except when the data subject, for the purposes of exercising their rights under those articles, provides additional information that allows for their identification.  
+This will be the case when the data controller has carried out a process of anonymization of the personal data processed and is able to demonstrate that it is not in a position to identify the data subject. Articles 15 to 20 of the GDPR shall not apply to anonymized data, but shall apply to personal data that the controller is processing in phases of processing prior to its anonymization.  
+The data controller shall be obliged to inform the affected person about the means available to exercise the rights recognized in Articles 15 to 22 of the GDPR. The means must be easily accessible to the affected person. The controller must establish visible, accessible, and simple mechanisms, including electronic means, for the exercise of rights.  
+These mechanisms, in particular when it comes to exercising rights by electronic means, must incorporate procedures to verify the identity of the affected persons using them, as well as the receipt of the exercise of the corresponding right, and its timely response.
+47  
+Wi-Fi Tracking Technologies: Guidelines for Data Controllers  
+A. RIGHT OF ACCESS (ARTICLE 15 GDPR)  
+B. RIGHT TO ERASURE (ARTICLE 17 GDPR)  
+The data subject has the right to obtain from the data controller confirmation as to whether or not personal data concerning them is being processed and, if so, the right of access to the personal data and to the information specified in Article 15.1 of the GDPR.  
+The exercise of the right of access may be considered repetitive if exercised more than once within a period of six months, unless there is a legitimate reason for doing so (Art. 13.3 LOPDGDD), in which case the data controller may charge a reasonable fee based on administrative costs or refuse to act on the request. In any case, the data subject has the right to know and to be informed, in particular, of the purposes for which the personal data is processed, the categories of personal data, the recipients, the retention period, information about its origin, the existence of automated decision-making, including profiling referred to in Article 22 of the GDPR, and, at least in such cases, information about the logic involved, as well as the significance and the expected consequences of such processing for the data subject.  
+Even when the controller has carried out anonymization processes that prevent them from identifying the data of the data subject and providing a copy of their personal data subject to processing, they must still provide all necessary information about the processing to comply with the principle of transparency.  
+
+◤ The personal data is no longer necessary in relation to the purposes for which it was collected or otherwise processed.  
+
+◤ The data subject withdraws consent on which the processing is based, in accordance with Article 6.1.a) or Article 9.2.a) of the GDPR, and this is not based on another legal ground.  
+
+◤ The data subject objects to the processing pursuant to Article 21.1 of the GDPR, and there are no overriding legitimate grounds for the processing, or the data subject objects to the processing pursuant to Article 21.2 GDPR.  
+
+◤ The personal data has been unlawfully processed.  
+
+◤ The personal data must be erased for compliance with a legal obligation established by Union or Member State law applicable to the data controller.  
+
+◤ The personal data has been obtained in relation to the offering of information society services referred to in Article 8.1 GDPR.  
+
+When the data controller has made the personal data public and one of the aforementioned circumstances applies, they are obliged to erase such data, taking into account the available technology and the cost of its application, and will take reasonable measures, including technical measures, to inform the controllers who are processing the data.  
+Exercise of rights recognized in the GDPR
+48  
+Wi-Fi Tracking Technologies: Guidelines for Data Controllers  
+regarding the personal data of the request,  
+of the interested party, for the deletion of any  
+link to that personal data, or any copy or replica of the same. The deletion of personal data will not proceed in the cases contemplated in Article 17.3 of the GDPR.  
+The data controller shall be obliged to block the data when proceeding with its deletion (Article 32 LOPDGDD). The blocked data will be available exclusively to judges and courts, the Public Prosecutor's Office, or the competent Public Administrations, particularly data protection authorities, for the enforcement of possible liabilities arising from the processing and for the statute of limitations thereof. After that period, the data must be destroyed. The blocked data may not be processed for any purpose other than those indicated. The supervisory authorities may set exceptions to the obligation to block.  
+The data controller will communicate the deletion to each of the recipients to whom the personal data has been communicated, unless it is impossible or requires a disproportionate effort, and will inform the interested party about such recipients if they so request (Article 19 GDPR).  
+C. RIGHT TO RESTRICT PROCESSING (ARTICLE 18 GDPR)  
+Allows the affected person to request the data controller to suspend the processing of data when:  
+
+◤ The accuracy of the data is contested, while its accuracy is verified by the controller.  
+
+◤ The affected person has exercised their right to object to the processing of data, while it is verified whether the legitimate grounds of the controller override those of the affected person.  
+
+◤ Request the data controller to retain their personal data when:  
+• The processing of data is unlawful and the affected person opposes the deletion of their data and instead requests the restriction of its use.  
+• The controller no longer needs the data for the purposes of processing, but the affected person does need it for the formulation, exercise, or defense of claims.  
+Once the processing of the personal data of the affected person is restricted, such data may only be processed, except for its retention, with the consent of the affected person or for the formulation, exercise, or defense of claims, or for the protection of the rights of another natural or legal person or for important public interest reasons of the Union or a Member State.  
+The fact that the processing of personal data is restricted must be clearly recorded in the information systems of the data controller (Article 16.2 LOPDGDD).  
+Any interested person who has obtained the restriction of processing will be informed by the controller before the lifting of such restriction. The data controller will communicate the restriction to each of the recipients to whom the personal data has been communicated, unless it is impossible or requires a disproportionate effort, and will inform the interested party about such recipients if they so request (Article 19 GDPR).  
+Exercise of rights recognized in the GDPR
+49  
+Wi-Fi Tracking Technologies: Guidelines for Data Controllers  
+D. RIGHT TO DATA PORTABILITY (ARTICLE 20 GDPR)  
+F. AUTOMATED INDIVIDUAL DECISIONS, INCLUDING PROFILING (ARTICLE 22 GDPR)  
+E. RIGHT TO OBJECT (ARTICLE 21 GDPR)  
+
+The data subject has the right to receive the data provided to the data controller in a structured, commonly used, and machine-readable format, as well as to have the data transferred directly to another controller, provided that the processing is based on the consent of the data subject or is carried out in the context of the execution of a contract and that such processing is performed by automated means.  
+
+The very nature of Wi-Fi tracking technology makes it feasible to carry out processing based on it that involves automated decision-making, including profiling.  
+
+The data subject has the right not to be subject to a decision made by the data controller based solely on the automated processing of their personal data, including profiling, which produces legal effects concerning them or significantly affects them in a similar manner.  
+
+The data subject has the right to object at any time, for reasons related to their personal situation, to the processing of personal data concerning them by the controller based on the provisions of Article 6.1, letters e) and f) of the GDPR, including profiling based on such provisions.  
+
+In the event of exercising the right to object, the data controller will cease processing the personal data, unless they demonstrate compelling legitimate grounds for the processing that override the interests, rights, and freedoms of the data subject, or for the formulation, exercise, or defense of claims.  
+
+However, this right shall not apply when the processing is necessary for the performance of a task carried out in the public interest or in the exercise of official authority vested in the data controller.  
+
+Notwithstanding, it will be lawful to carry out processing and make an automated decision:  
+◤ When it is necessary for the conclusion or execution of a contract between the data subject and a data controller or when it is based on the explicit consent of the data subject.  
+
+The right to object must be explicitly communicated to the data subject, being presented clearly and separately from any other information.  
+
+Data subjects should be provided with a simple means to object to the processing.  
+
+As an additional guarantee to reduce or mitigate the impact on data subjects whose personal data is collected through Wi-Fi tracking, the controller may choose to enable a general "opt-out" option, beyond the objection itself; ceasing data processing without the need for any justification.  
+
+Exercise of rights recognized in the GDPR
+50  
+Wi-Fi Tracking Technologies: Guidelines for Data Controllers  
+Artificial Intelligence Regulation  
+
+◤When authorized by Union or Member State law applicable to the data controller and that also establishes appropriate measures to safeguard the rights and freedoms and the legitimate interests of the data subject.  
+In both cases, the controller must take appropriate measures to safeguard the rights and freedoms and the legitimate interests of the data subject, at a minimum, the right to obtain human intervention by the controller, to express their point of view, and to contest the decision.  
+In these processes, special categories of personal data referred to in Article 9.1 of the GDPR will not be used, unless the processing is carried out with the consent of the data subject or concerns an essential public interest imposed by Union or Member State law. In these cases, it will be ensured that appropriate measures have been taken to safeguard the rights and freedoms and the legitimate interests of the data subject.  
+ARTIFICIAL INTELLIGENCE REGULATION  
+11.  
+Given the current technological situation, it is possible that personal data processing may occur that combines the use of Wi-Fi tracking technology and artificial intelligence (AI) systems. This type of personal data processing is subject to the system of principles, obligations for controllers, and rights for data subjects established by the GDPR. Additionally, the use of certain AI systems will be regulated by the Artificial Intelligence Regulation (RIA).  
+At the time of the publication of this Guide, the Artificial Intelligence Regulation (RIA) has not yet been published, which will come into force 20 days after its publication and will be applicable in most of its provisions two years after that.  
+From the perspective of personal data protection, the RIA is not intended to affect the application of the fundamental right to data protection. The RIA is complementary to the GDPR and will apply without prejudice to it in order to enable controllers and processors to comply with their obligations regarding data protection when incorporating AI systems into their processing (Recital 78 GDPR) to implement data protection by design.  
+Therefore, the introduction to the market, the commissioning, and the use of AI systems must facilitate effective application and allow the exercise of the rights and other remedies of data subjects guaranteed by data protection legislation, as well as other fundamental rights.  
+This includes the obligations of providers and controllers of deployment, or other interveners and operators when appropriate, of AI systems to the extent that the design, development, or use of AI systems involves the processing of personal data, as well as the functions and powers of independent data protection supervisory authorities. Among others, these authorities will have the power to request any documentation created or preserved under the RIA related to high-risk AI systems mentioned in Annex III of that Regulation when access to such documentation is necessary for the effective fulfillment of their competencies.  
+It is also worth clarifying that data subjects continue to enjoy all the rights and guarantees conferred upon them by data protection legislation, including rights related to fully automated individual decisions, such as profiling.  
+In this regard, as an example, when decisions that produce legal effects for a person or significantly affect them are implemented based on data obtained through Wi-Fi tracking technology as input information, using AI systems (regardless of their type) based solely on the automated processing of personal data, the provisions already established in the GDPR (Articles 13, 14, 15, and 22 and Recital 71 GDPR) will apply.  
+Furthermore, in this case, if the AI system on which the decision is based is classified as high-risk according to the RIA, in addition to the rights provided in the GDPR, when the person considers that the decision has an adverse impact on their health, safety, or fundamental rights, the provisions of the AI Regulation will apply regarding the affected person’s right to receive clear and meaningful explanations about the role of the AI system in the decision-making process and the main elements of the decision made.  
+Artificial Intelligence Regulation

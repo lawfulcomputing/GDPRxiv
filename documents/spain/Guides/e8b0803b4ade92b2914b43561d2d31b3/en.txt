@@ -1,0 +1,148 @@
+TECHNICAL NOTE  
+DESCRIPTION OF THE PROOF OF CONCEPT ON AGE VERIFICATION SYSTEMS AND PROTECTION OF MINORS AGAINST INAPPROPRIATE CONTENT  
+
+December 2023  
+
+Page: 2 of 17  
+
+INDEX  
+
+I. INTRODUCTION 3  
+II. PROOF OF CONCEPT 5  
+A. General description of the proof of concept 6  
+B. Proof of concept oriented to computers or video game consoles 8  
+C. Proof of concept oriented to Android mobile phones 10  
+D. Proof of concept oriented to iOS mobile phones 13  
+III. CONCLUSION 17  
+
+Page: 3 of 17  
+I. INTRODUCTION  
+The AEPD has prepared the "Decalogue of Principles. Age Verification and Protection of Minors Against Inappropriate Content" (the Decalogue), which outlines the principles that an age verification and minor protection system must comply with regarding inappropriate content for minors. The objective of this Decalogue is to ensure the protection of the best interests of the minor, the principles, rights, and obligations established in the GDPR within the framework of these systems, and to outline guidelines to ensure the protection of the fundamental rights of all Internet users.  
+The protection of minors against inappropriate content must be framed within the protection of the best interests of the minor. The best interests of the minor encompass more than just preventing access to inappropriate content. It includes the protection of all their fundamental rights, particularly all aspects that may affect their safety, health, and development, as well as their privacy.  
+The protection of minors against inappropriate content cannot be an excuse to violate fundamental rights, particularly those of the minors themselves. The fundamental rights of all Internet users must be protected regardless of their age. Similarly, fundamental rights, especially those related to data protection, cannot be used as an excuse to avoid developing appropriate measures to protect minors.  
+The protection of minors against uncontrolled exposure to content or sites inappropriate for them should not turn into surveillance of all Internet users. In particular, this protection does not legitimize the continuous and massive collection of data from minors for profiling purposes and for the ongoing exposure of this vulnerable group to advertising that enriches these sites.  
+There are already solutions on the market that serve to verify the age of Internet users, and many of them do not address the overall protection of the rights and freedoms of citizens. Some are based on sharing credentials or identity attributes with content providers so they can perform checks directly, others rely on incorporating specialized identity providers that collect browsing information, others depend on age estimations made by applying artificial intelligence techniques to facial images captured in real-time, and many operate with a combination of the aforementioned characteristics. However, many of these solutions involve data processing that fails to meet the basic requirements of the GDPR, include high-risk operations for the rights and freedoms of users, and, worse, impose significant limitations on the protection of the best interests of minors and their fundamental rights.  
+A system that will affect all Internet users, particularly minors, must scrupulously comply with data protection regulations and represents a high-risk processing as it can have a significant impact on fundamental rights. Age verification for access to inappropriate content for minors cannot involve the identification of Internet users, their detection (especially if they are minors), linking their activity across different services, excessive processing of their data, profiling, the use of potentially discriminatory systems that limit the ability to act in the digital world, etc.  
+The Decalogue of Principles published by the AEPD establishes how to reconcile both aspects: the best interests of the minor and the fundamental rights of all Internet users. This Decalogue sets forth the minimum conditions that an age verification and protection system against inappropriate content for minors must meet, including, among others, preventing a minor from being located through the Internet using these systems, ensuring the anonymity of all adult users, minimizing the data processed or disclosed to third parties, ensuring that families are involved in the criteria for protecting minors, or establishing systems that generate trust, are suitable, and protect the best interests of the minor and the fundamental rights of citizens.
+Page: 5 of 17  
+II.  
+PROOF OF CONCEPT  
+In order to demonstrate that compliance with the Decalogue is possible, and that such solutions could already be offered on the Internet, the AEPD, in collaboration with the General Council of Professional Associations of Computer Engineering, has developed a series of proof of concept tests that implement a protection system derived from said Decalogue.  
+The proof of concept tests developed by the AEPD demonstrate that it is possible to bring these principles into practice in real scenarios, testing their suitability and the effective application of the principles of necessity and data minimization.  
+The proof of concept tests are fundamentally based on the possibility of a clear separation between identity management, age verification, and content filtering. Therefore, they demonstrate that the identity providers currently implementing the right to personal identity for Spanish and European citizens are already sufficient, and that it is not necessary to build parallel digital identity systems for the specific purpose of accessing content inappropriate for minors. A fundamental aspect to avoid discrimination and bias is that the age verification solution can interact with those identity providers that are most suitable for the user and that provide greater trust. In particular, aimed at being compatible with the digital wallet and with the privacy guarantees on the Internet that guide the eIDAS initiative, and at the same time, that can be extrapolated to universal identity providers, such as those issuing passports or other physical or digital solutions.  
+The proof of concept tests also rely on the fact that protection against inappropriate content can be carried out on the device itself, allowing individuals to have total control over the use of their identity and age, so that the systems are fully auditable and transparent.  
+Finally, the proof of concept tests demonstrate that localization, tracking, and profiling of minors on the Internet (or Internet users in general) is not necessary to implement protection against inappropriate content.  
+The trust generated in citizens regarding these systems is fundamental to guarantee their suitability. A system that does not generate sufficient trust among users will lead to discrimination, self-censorship, and ultimately, rejection by them.  
+These proof of concept tests leave the door open to other solutions or alternatives that may also comply with the principles by opting for different architectures or design decisions.  
+
+Page: 6 of 17  
+A.  
+GENERAL DESCRIPTION OF THE PROOF OF CONCEPT TESTS  
+The proof of concept tests are based on the use of two applications:  
+• An application for accessing content, either a browser or a specific app for an Internet service (the app to access a social network, for example). This application receives content from the content provider on the Internet. If it is labeled as "suitable for all audiences," it displays it without limitations. If it is labeled as "for adults" or "inappropriate for minors," it only displays it after verifying the age of the user.  
+• An age verification application, which receives the verification request from the previous application, checks the user's age, and generates the condition of "authorized to access" if the user can prove the necessary age to access that content (which could be 14 years, 18 years, or other conditions).  
+A fundamental aspect is that the entire process of age verification and protection against inappropriate content is carried out without leaving the user's device or accessing external resources.  
+
+High-level description of the system implemented in the proof of concept tests  
+
+To avoid the identification of minors on the Internet, it is important to consider that when the age verification application does not respond with the condition of "authorized to access," it may be for several reasons: because the user does not have the required age, but also because they may not have been able or willing to prove it, or because an error has occurred, etc. All these situations should not be distinguishable from one another.  
+
+Page: 7 of 17  
+
+Situations in which the condition of "authorized to access" is not verified  
+It is also important to mention that the age verification application requires the user to prove their age with certainty, but without exposing their identity. To this end, an age verification app is used, which acts as an intermediary between different identity providers and the application that must verify the age to allow access to certain content. The developed proof of concept tests have been based on the use of QR codes, digital identities stored in electronic wallets, or physical identity documents. Both processes, the registration in an identity management system and the use of that identity, and the age verification process, are considered independent. The age verification app, running solely on the personal device and provided by an entity selected by the user, prevents the dissemination of identity. This app, by situating itself between the identity and the generation of the condition of "authorized to access," allows for auditing that identity is never disclosed to content providers or third parties.  
+
+Accreditation of identity independent of age verification for access to content, which will therefore be anonymous.
+Page: 8 of 17  
+To implement strategies that prevent the exposure of the user's minor status, that is, to avoid any means of locating minors through the Internet, content filtering policies are also executed on the device itself. The protection of minors does not aim for Internet providers to locate, identify, and profile minors. On the contrary, providers must remain unaware of the minor status of users. Furthermore, the execution of content filtering policies on the device itself has other collateral advantages: greater transparency, auditability of policy execution, parental adjustment of the same for minors with special vulnerabilities, etc.  
+In the proof of concept, Internet providers that provide content labeled in a simple manner have been simulated. For example, the scheme proposed by Age.xml1 can be used, which emerged in the context of the MIRACLE project (Machine-readable and interoperable age classification labels in Europe), funded by the European Commission.  
+B.  
+PROOF OF CONCEPT FOCUSED ON COMPUTERS OR VIDEO GAME CONSOLES  
+The first proof of concept is aimed at demonstrating a solution to the problem of accessing content from a device such as a computer or video game console, with a Windows family operating system installed. An example of the execution of the developed solution can be viewed at the following link.  
+The user must have installed on that device the age verification application developed at the Agency and a modified browser to be able to work with it.  
+The brief description of this proof of concept is as follows. Before using the system, the user would obtain a QR code, provided for example by the developments of the FNMT for the Ministry of Interior on their mobile phone. The information from the QR could be anonymous or not, as the verification application will block the dissemination of identity. The user's age attribute will be stored in the verification application for a limited period to avoid correlations between QR requests and access to inappropriate content.  
+Next:  
+1. The user requests access to content labeled for adults from the browser.  
+2. The content with its label is received, and the display of the content on the device is preemptively blocked (in the proof of concept, the content is simply shown as blurred or obscured). In this way, the minor status is not revealed to the Internet service, and the content is always served.  
+
+1 https://age-label.com/  
+
+Page: 9 of 17  
+
+Browser that downloads labeled content but does not display it if age verification is required  
+3. The browser calls the verification app to determine if the user is of the appropriate age to access the content (over 14, over 18, or other conditions). The age verification application asks the user to bring their QR code (on their mobile phone) close to the camera of the computer or console.  
+
+Reading and checking the QR in the age verification application  
+
+4. Next, two different situations may arise:  
+a. The verification application responds with the status of "authorized to access," without revealing identity information. The browser removes the filter, and access to the content is granted without any restrictions.  
+
+Page: 10 of 17  
+
+Successful age verification, the status of "authorized to access" is confirmed, and consequently, the content is displayed without limitations  
+b. The verification application does not respond with the status of "authorized to access." In fact, it does not respond in any way, so after a while, the browser stops waiting for a response and maintains the filter on the content. This may occur because the person does not have the required age (but the minor status is not revealed), or because the age verification application has not been installed, or because its use is not authorized, or because the QR code is not available, or due to any other circumstance.  
+
+Unsuccessful age verification, the status of "authorized to access" is not confirmed (the Send Verification button is not enabled in this example because the user does not have sufficient age), and consequently, the content continues to be hidden  
+C.  
+PROOF OF CONCEPT FOCUSED ON MOBILE PHONES WITH ANDROID  
+In the second proof of concept, access to content is performed with a mobile phone with the Android operating system installed. The user must install on this
+Page: 11 of 17  
+phone the age verification app developed by the AEPD and a modified browser to work with it. The following link provides a visual example of the proof of concept execution.  
+The brief description of this proof of concept is as follows. Before using the system, the user needs to have a digital wallet app (ewallet) on their phone; for example, one of them will be the wallet provided by the General Secretariat of Digital Administration (SGAD) compatible with the European eIDAS regulation. This approach is valid for use with any document or certificate issued by a trusted entity or provider that includes age information.  
+The digital wallet will provide an age attribute that could be anonymous or not, as the verification app will block the dissemination of identity. The user's age attribute will be stored in the verification app for a limited period to prevent correlations between requests to the digital wallet and access to inappropriate content.  
+Next:  
+1. The person requests access to content labeled for adults from the browser.  
+2. The content with its label is received, and the display of the content on the device is proactively blocked (in the proof of concept, the content is simply shown as blurred or obscured). In this way, the minor's status is not revealed to the Internet service; the content is always served.  
+
+Browser that downloads labeled content but does not display it if age verification is required  
+
+Page: 12 of 17  
+
+3. The browser calls the verification app to check if the user has the appropriate age to access the content (over 14, over 18, or other conditions). The age verification application refers to the information stored in the digital wallet to carry out the necessary checks.  
+
+The age verification app receives the request from the browser and queries the digital wallet  
+4. Next, two different situations may arise:  
+a. The verification app responds with the status of "authorized to access," without revealing identity information. The browser removes the filter, and access to the content is granted without any restrictions.  
+
+Successful age verification, the status of "authorized to access" is confirmed, and consequently, the content is displayed without limitations  
+
+Page: 13 of 17  
+b. The verification app does not respond with the status of "authorized to access." In fact, it does not respond in any way, so after a while, the browser stops waiting for a response and maintains the filter on the content. This may occur because the person does not have the required age (but the minor status is not revealed), or because the age verification app has not been installed, or because its use is not authorized, or because there is no digital wallet or identity stored in it that includes age information, or for any other circumstance.  
+
+Unsuccessful age verification, the status of "authorized to access" is not confirmed (the Verify Age button is not enabled in this example because the user does not have sufficient age), and consequently, the content remains undisplayed.  
+D.  
+PROOF OF CONCEPT ORIENTED TO MOBILE PHONES WITH IOS  
+In the third and final test, access to content is again performed with a mobile phone, but in this case, with the iOS operating system installed. The following link provides a visual example of the proof of concept execution.  
+The brief description of this proof of concept is as follows. Before using the system, the user needs to have an app on their phone that can retrieve data related to their age from physical identity documents (DNI, TIE, passport, etc.). This can be done through an image of the document via OCR or by reading the certificate from the chips that include it via NFC.  
+Next, the user is authenticated using digital signature or biometrics (comparing the photo of the document with the one obtained via a selfie) to verify that the document provided for age verification is theirs. In all cases, the processing is carried out on the local device, including biometrics, without access to third parties, making it an exclusively personal processing. The age verification app will block the dissemination of the identity obtained from the official document, storing the user's age attribute for a limited period.  
+1. The person requests access to content labeled for adults from a content access application.  
+2. The content with its label is received, and the display of the content on the device is proactively blocked. In this way, the minor's status is not revealed to the Internet service; the content is always served.  
+
+Application that downloads labeled content but does not display it if age verification is required  
+
+3. The content access application calls the verification app to check if the user has the appropriate age to access the content (over 14, over 18, or other conditions). The age verification app refers to the information retrieved from the physical documents to carry out the necessary checks.
+Page: 15 of 17
+
+The verification app receives the request from the content access application (everything occurs with the knowledge of the user, who is aware of the process and must Accept the age verification for it to take place)
+
+4. Next, two different situations may arise:
+a. The verification app responds with the condition of “authorized person to access,” without revealing identity information. The content access application removes the filter and access to the content is granted without any restrictions.
+
+Successful age verification, the condition of “authorized person to access” is accredited, and consequently, the content is displayed without limitations.
+b. The verification app does not respond with the condition of “authorized person to access.” In fact, it does not respond in any way, so after a certain time, the content access application stops waiting for a response and maintains the filter on the content. This may occur because the person does not meet the required age (but the condition of being a minor is not revealed), or because the age verification app has not been installed, or because its use is not authorized, or because it has been unable to retrieve information about the user's age from the provided physical document, or due to any other circumstance.
+
+Unsuccessful age verification, the condition of “authorized person to access” is not accredited, and consequently, the content remains undisplayed.
+
+Page: 16 of 17
+
+III. 
+CONCLUSION
+The protection of minors from inappropriate content cannot be an excuse to violate fundamental rights. Similarly, fundamental rights, particularly those related to data protection, cannot be used as an excuse to avoid developing appropriate measures to protect minors. The protection of minors must consider the best interests of the child in all its facets. The urgency of the need for solutions to protect against inappropriate content does not justify the use of data processing that violates the principles, rights, and obligations of the GDPR, includes high-risk operations for the rights and freedoms of users, and, worse, establishes significant limitations on the protection of the best interests of the child and fundamental rights. 
+
+In the three proof-of-concept tests developed by the AEPD in collaboration with the General Council of Professional Colleges of Computer Engineering, it is demonstrated how the “Decalogue of Principles. Age Verification and Protection of Minors from Inappropriate Content” can be effectively and efficiently complied with. 
+
+These proof-of-concept tests demonstrate that there are options that avoid exposing minors, regulatory non-compliance, and the risks and threats identified in the current solutions available on the market, which can also be transparent, auditable, and do not require the development of new digital identity providers different from those already established in Europe. They also demonstrate that it is possible to develop solutions for different devices, operating systems, and ways to verify that one has sufficient age to access the content in each case (computers or video game consoles, Android phones, iOS phones), from a necessary technological neutrality. 
+
+For a more extensive explanation of some of the questions that may arise from these proof-of-concept tests, the following FAQ page can be consulted. 
+
+Page: 17 of 17

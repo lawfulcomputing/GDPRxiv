@@ -1,0 +1,327 @@
+0
+
+THE ADOPTION OF 
+PSEUDONYMIZATION 
+TECHNIQUES 
+The case of the healthcare sector 
+MARCH 2022
+
+THE ADOPTION OF PSEUDONYMIZATION TECHNIQUES 
+March 2022
+
+1
+
+ABOUT ENISA 
+The European Union Agency for Cybersecurity (ENISA) is the Union's agency whose goal is to achieve a high common level of cybersecurity across Europe. Established in 2004 and strengthened by the EU Cybersecurity Regulation, the European Union Agency for Cybersecurity contributes to the EU's cybersecurity policy, enhances the reliability of ICT products, services, and processes through cybersecurity certification programs, cooperates with Member States and EU bodies, and helps Europe prepare for tomorrow's cybersecurity challenges. Through knowledge sharing, training, and awareness campaigns, the Agency collaborates with its key stakeholders to strengthen trust in the connected economy, enhance the resilience of the Union's infrastructure, and ultimately protect society and citizens in Europe digitally. For more information about ENISA and its work, you can visit: www.enisa.europa.eu. 
+
+CONTACT INFORMATION 
+To contact the authors, please use the email address isdp@enisa.europa.eu. Media inquiries regarding this document should be directed to press@enisa.europa.eu. 
+
+CONTRIBUTIONS 
+Fabio Guasconi (Bl4ckswan), Pantelis Angelidis (UOWM & Vidavo), Prokopios Drogkaris (ENISA) 
+
+EDITOR 
+Prokopios Drogkaris (ENISA) 
+
+ACKNOWLEDGMENTS 
+We would like to thank the members of the ENISA Expert Group on eHealth Security1 Fotios Gioulekas, Merja Ikäheimonen, Konstantinos Chondropoulos, Ben Kokx, Martha De Cunha Maluf-Burgman, Marta Carbonell Cobo, and ENISA colleagues Athanasios Drougkas and Athena Bourka for their valuable comments and review of the document. 
+
+LEGAL NOTICE 
+This document is a translation of the original English version produced by ENISA and supervised by the Spanish Data Protection Agency. In case of conflict between the original English version and this document, the original version prevails. 
+The original version is available at: https://www.enisa.europa.eu/publications/deploying-pseudonymisation-techniques 
+Unless otherwise stated, this publication reflects the opinions and interpretations of ENISA. It does not endorse any regulatory obligation of ENISA or ENISA bodies under Regulation (EU) 2019/881. 
+ENISA reserves the right to modify, update, or remove the publication or any part of its content. Its purpose is purely informative and should be accessible free of charge. In any reference to this report or use of it, whether in whole or in part, ENISA should be cited as the source. 
+Corresponding third-party sources are cited where appropriate. ENISA disclaims all responsibility for the content of external sources, including external websites referenced in this publication. 
+Neither ENISA nor any person acting on its behalf accepts any liability in relation to the use that may be made of the information included in this publication. 
+ENISA maintains its intellectual property rights related to this publication. 
+
+COPYRIGHT NOTICE 
+© European Union Agency for Cybersecurity (ENISA), 2022 
+This publication is licensed under CC-BY 4.0. "Unless otherwise stated, the reuse of this document is permitted under the Creative Commons Attribution 4.0 International (CC BY 4.0) license (https://creativecommons.org/licenses/by/4.0/). This means that reuse is allowed, provided appropriate credit is given and changes are indicated." 
+To use or reproduce photographs or any other material for which ENISA does not hold copyright, permission must be obtained directly from the copyright holders. 
+ISBN 978-92-9204-576-0, DOI 10.2824/092874 
+
+THE ADOPTION OF PSEUDONYMIZATION TECHNIQUES 
+March 2022 
+
+3 
+
+INDEX 
+1. INTRODUCTION 
+5 
+1.1 THE DIGITAL TRANSFORMATION OF THE HEALTHCARE SECTOR 
+5 
+1.2 PROTECTION OF HEALTH DATA 
+6 
+1.3 SCOPE — TARGET AUDIENCE 
+7 
+1.4 STRUCTURE OF THE DOCUMENT 
+7 
+2. PSEUDONYMIZATION 
+8 
+2.1 CONTEXT 
+8 
+2.2 THE IMPORTANCE OF PSEUDONYMIZATION 
+8 
+2.3 BASIC PSEUDONYMIZATION TECHNIQUES 
+9 
+2.4 CONSIDERATIONS ON PSEUDONYMIZATION 
+11 
+3. USE CASES 
+12 
+3.1 THE EXCHANGE OF PATIENT HEALTH DATA 
+12 
+3.2 CLINICAL TRIALS 
+14 
+3.3 MONITORING PATIENT-GENERATED HEALTH DATA 
+16 
+4. CONCLUSIONS 
+19 
+5. BIBLIOGRAPHY 
+20
+THE ADOPTION OF PSEUDONYMIZATION TECHNIQUES  
+March 2022  
+
+EXECUTIVE SUMMARY  
+As the healthcare sector evolves into one that maximizes the benefits of technical advancements and adapts services to timely meet the growing needs of patients, additional challenges arise in terms of cybersecurity and data protection. Integrating new technologies into already complex IT infrastructures presents new challenges regarding data protection and cybersecurity.  
+This is due to the increasing need to exchange and share information related to patients' health among various stakeholders. Therefore, it is important that, on one hand, entities that process personal data collect and subsequently process only the data they need, and on the other hand, that they adopt appropriate organizational and technical measures to protect such personal data.  
+Pseudonymization is becoming an important security technique that provides a means to facilitate the processing of personal data while simultaneously offering robust guarantees to protect personal data and, therefore, safeguard the rights and freedoms of individuals.  
+This report, which complements previous relevant work by ENISA, demonstrates how pseudonymization can be practically adopted to better protect health data during processing. There is no doubt that there is no one-size-fits-all solution regarding how and when to apply this technique; in fact, equally good results could be achieved with other solutions in specific cases, depending on protection requirements, utility, scalability, etc.  
+Pseudonymization can range from a "simple" option to a very complex process, both technically and organizationally. For this reason, it is truly important to define both the goals and objectives of pseudonymization in each particular case as well as the processing operation.  
+This report highlights the added value that pseudonymization has for the healthcare sector and demonstrates its applicability through simple yet concrete use cases. As a complement to ENISA's publications in this area, this report shows how these techniques can better protect personal data processed in the healthcare context and, ultimately, promote such technical measures and raise awareness of their ease of use and application.
+THE ADOPTION OF PSEUDONYMIZATION TECHNIQUES  
+March 2022  
+
+1. INTRODUCTION  
+In recent decades, we have witnessed rapid advances in the development and adoption of new technologies. These swift technological changes have also reached the healthcare sector, which is digitalizing and continuously adopting new technologies to improve patient care, offer new services focused on home care for patients, and even in prevention plans.  
+
+Integrating new technologies into already complex IT infrastructures poses new challenges regarding data protection and cybersecurity, as there is a growing need to exchange and share health-related information among various stakeholders, in some cases across countries, in order to provide better healthcare services. Therefore, it is important that entities processing personal data collect and subsequently process only the data they need and, furthermore, adopt appropriate organizational and technical measures to protect such data. Pseudonymization is a widely recognized measure that can significantly contribute to this end.  
+In general terms, pseudonymization aims to protect personal data by concealing the identity of individuals in a dataset, for example, by replacing one or several personal identifiers with so-called pseudonyms (and adequately protecting the link between the pseudonyms and the initial identifiers).  
+This is by no means a new process in the design of information systems, but it has received special attention following the adoption of the General Data Protection Regulation (GDPR) [1], in which pseudonymization is explicitly mentioned as a technique that can promote data protection by design (Article 25 of the GDPR), as well as the security of personal data processing (Article 32 of the GDPR).  
+
+1.1 THE DIGITAL TRANSFORMATION OF THE HEALTHCARE SECTOR  
+Health data has always been a valuable source of knowledge in the field of healthcare. Historically, this field has generated enormous amounts of data, both for patient treatment and for subsequent research and analysis. Data was primarily processed on paper, but in recent decades, the accessibility and quantity of digitized data have increased significantly.  
+More recently, numerous new sources of health data have emerged as a result of the widespread use of electronic health records, health applications, and wearable electronic devices [2]. Furthermore, advancements in computational power have facilitated the development of new data analysis techniques and machine learning that assist in diagnosis, treatment, and management in healthcare.  
+As a result, approaches are changing, and hospitalizations are losing ground in favor of a more distributed healthcare system that is managed by both public and private operators, all in an environment closer to the patient's home, as shown in Chart 1.  
+
+Chart 1: Shift in value in healthcare as a result of digital transformation [3]  
+
+These technological advancements have increased the demand for medical big data banks to provide solutions, for example, for disease diagnosis and phenotyping, modeling clinical outcomes, predicting early intervention strategies, precision medicine, etc. However, the growing processing of digitized medical data has also increased risks in terms of cybersecurity, data protection, and the likelihood of data security breaches.  
+These risks and related threats have already been identified in relevant publications from ENISA in the field of e-health security [4], [5], and [6]. The relevant EU legal instruments, such as the SRI Directive [7], the General Data Protection Regulation [1], the Medical Devices Regulation [8], the Directive on the application of patients' rights in cross-border healthcare [9], etc., have imposed obligations on healthcare providers and manufacturers of medical products to ensure an adequate and uniform level of protection for medical data and the products and services that utilize them.  
+
+1.2 PROTECTION OF HEALTH DATA  
+The protection of health data is considered a high-priority issue due to its sensitive nature and the importance it holds for individuals ("data subjects"). Since the
+THE ADOPTION OF PSEUDONYMIZATION TECHNIQUES  
+March 2022  
+
+7  
+
+From the perspective of cybersecurity, confidentiality, availability, and integrity of medical data and the relevant infrastructure are considered essential for providing timely, adequate, and uninterrupted medical care. This is also highlighted in the SRI Directive[7], which classifies the healthcare sector as an operator of essential services and calls for minimum security requirements to ensure an appropriate level of security commensurate with the level of risks presented. Furthermore, the GDPR distinguishes, in its Article 9, health-related data as a special category of data (sensitive) and establishes additional requirements and stricter obligations for the processing and protection of such data, in order to safeguard the rights and freedoms of individuals ("data subjects"). Finally, the Medical Devices Regulation imposes requirements related to the safety, quality, and protection of medical products to achieve a high common level of safety.  
+
+1.3 SCOPE — TARGET AUDIENCE  
+The objective of this report is to highlight the added value of pseudonymization in the healthcare sector and demonstrate its applicability through simple yet specific use cases. As a complement to the relevant publications from ENISA in this area [10], [11], [12], the purpose of this report is to show how these techniques can better protect personal data processed in the context of healthcare and, ultimately, promote such technical measures and raise awareness about their ease of use and application. This document is intended for professionals and developers of information technologies in the healthcare sector, as well as health authorities, who may provide recommendations on the security of the processing of health data.  
+
+1.4 STRUCTURE OF THE DOCUMENT  
+Section 2 presents pseudonymization and analyzes its advantages and the most common techniques used. Section 3 shows the use of pseudonymization in three use cases that focus on the collection of health data from patients and the processing of such data by healthcare providers and medical research centers. Finally, Section 4 outlines the main conclusions and relevant recommendations.  
+
+THE ADOPTION OF PSEUDONYMIZATION TECHNIQUES  
+March 2022  
+
+8  
+
+2. PSEUDONYMIZATION  
+2.1 CONTEXT  
+The GDPR defines pseudonymization in Article 4, paragraph 5, as: "the processing of personal data in such a way that the data can no longer be attributed to a specific data subject without the use of additional information, provided that such additional information is kept separate and is subject to technical and organizational measures to ensure that the personal data cannot be attributed to an identified or identifiable natural person."  
+
+In general terms, pseudonymization aims to protect personal data by concealing the identity of individuals (data subjects) in a dataset, for example, by replacing one or more identifiers of personal data with so-called pseudonyms and adequately protecting the link between the pseudonyms and the original identifiers. This link, often referred to as the pseudonymization secret, is usually stored in a mapping table and can be used to re-identify the person by associating the pseudonyms with the original data, as shown in Chart 2. Only the entity that initially performed the pseudonymization, commonly referred to as the "pseudonymization entity," can access the mapping table.  
+Chart 2: Example of Pseudonymization  
+
+Pseudonymization is one of the various "de-identification" techniques (such as aggregation, obfuscation, masking, etc.) aimed at eliminating the association between a set of identification data and the data subject. Other definitions of pseudonymization, such as those from ISO and specifically ISO 25237:2017, "Health Informatics — Pseudonymization" [13], are based on this principle and are similar to the aforementioned GDPR definition.  
+
+2.2 THE IMPORTANCE OF PSEUDONYMIZATION  
+The main advantage of pseudonymization, when applied correctly, is that it allows for the concealment of a person's identity in the context of a specific dataset, making it impossible to associate the data with the individual in question. Therefore, it also helps to reduce the risk of linking personal data of a specific individual across different data processing contexts.  
+
+Thus, for example, if a personal data breach occurs, pseudonymization makes it more difficult for those who are not the data controller to associate the data.  
+Pseudonymization is a well-established technique aimed at protecting personal data by concealing the identity of individuals.
+THE ADOPTION OF PSEUDONYMIZATION TECHNIQUES  
+March 2022  
+
+9  
+
+the compromised data to certain individuals without using additional information. It is important to indicate that it can also reduce the level of risk to which the pseudonymized data are exposed. The difference lies in knowing that our example "John SMITH" from chart 2 suffers from a chronic illness and that a person identified as "aa1f ac4fb" also suffers from a chronic illness. Even if pseudonymized data were leaked, a third company would not be able to target John SMITH with its marketing campaigns based on that information, unless the information about the mechanism for associating pseudonyms with the data subjects is also compromised. The use of pseudonymized data should, for example, give more confidence to the data subjects when giving their consent to the use of their health data for research purposes and even increase the effectiveness of other security controls that must be applied to non-pseudonymized data, such as encryption. Finally, it should be noted that pseudonymization and anonymization do not follow the same process and that the GDPR considers pseudonymized data to be personal data, while anonymous data are not.  
+
+2.3 BASIC PSEUDONYMIZATION TECHNIQUES  
+As explained in [10], [11], and [12], there are several pseudonymization techniques. The main differences between them lie in how the pseudonym is generated. The following table provides a comprehensive summary of the most common techniques.  
+
+Table 1: Summary of Basic Pseudonymization Techniques  
+Technique  
+Pseudonym Generator  
+Counter  
+Monotonic counter that starts with a certain value that increments when a new pseudonym is needed  
+Random Number  
+Random value extracted between a minimum limit and a maximum limit when a new pseudonym is needed  
+Hash Function  
+One-way cryptographic function (non-reversible) that transforms input personal data into fixed-length values  
+Hashed Message Authentication Code (HMAC)  
+One-way cryptographic function (non-reversible) that adds a key making it less predictable than a hash function  
+Encryption  
+Bidirectional cryptographic function (reversible) that transforms input personal data into values that can be transformed back into their original format using a key  
+
+As mentioned in [10], although the hash function can significantly contribute to ensuring data integrity, it is generally considered a weak pseudonymization technique, as it is vulnerable to brute force and dictionary attacks. Similarly, counters are also considered a weak pseudonymization technique, as they cannot be scaled. A robust approach to generating pseudonyms may consist of using keyed hash functions as shown in chart 8, that is, hash functions whose output value depends not only on the input value but also on a secret key (salt). Chart 3 presents some practical examples of the application of the mentioned techniques:  
+
+Chart 3: Application of Basic Pseudonymization Techniques  
+
+The difference between the last three techniques illustrated in Table 1 and Chart 3 may not be immediately apparent; however, it is substantial in terms of the application of these techniques, as well as being key to choose the scope and approach, that is, the policy with which these techniques will be applied. In general, the policy could involve:  
+1)  
+deterministic pseudonymization: always using the same pseudonym for the same data;  
+2)  
+random document pseudonymization: using the same pseudonyms for the same data only within the same application scope;  
+3)  
+fully randomized pseudonymization: always using a different pseudonym for the same data.  
+
+Chart 4 shows the policies applied to the counter technique, previously discussed, in three cases with the same personal data in two different databases:
+THE ADOPTION OF PSEUDONYMIZATION TECHNIQUES  
+March 2022  
+
+11  
+
+Graph 4: Application of pseudonymization policies  
+
+In practice, there are more advanced methods, and since this is a topic of great interest, the techniques are also evolving. However, in general, there is a tendency to combine the most common techniques described above or to introduce a series of variations.  
+2.4 CONSIDERATIONS ON PSEUDONYMIZATION  
+Data controllers and processors can use pseudonymization techniques and related policies either jointly—using the same criteria—or separately. The first case usually occurs when the data controller needs the data processor to adopt the same criteria. Apart from the use of criteria, the most important difference would be the sharing of the correspondence table shown in Graph 2.  
+If this table is not shared, the entity receiving pseudonymized data—provided that all mechanisms are applied correctly—would have no way to recover the original personal data. If the table is shared, it must be done with the same care as is given to the exchange of encryption keys, except for possible differences due to the larger volume of data.  
+A data controller may ask processors to pseudonymize personal data or even instruct them on how to do so, especially if the pseudonymized data needs to be exchanged between different parties. Such specifications must include at least the following elements and always be based on the results of previously conducted risk or impact assessments:  
+▪ the target personal data (for example, a set of identifiers);  
+▪ the technique to be used;  
+▪ the parameters applicable to the technique (for example, counter logic, randomness management, employed algorithms, key lengths);  
+▪ the policy to be used.  
+Depending on the applicable requirements, which will likely include regulations, speed, simplicity, predictability, and budget, the technique and related parameters may vary.  
+
+THE ADOPTION OF PSEUDONYMIZATION TECHNIQUES  
+March 2022  
+
+12  
+
+3. USE CASES  
+In an attempt to demonstrate the added value of pseudonymization in the field of healthcare, this section presents three use cases in which personal medical data subject to processing has been pseudonymized. Although specific pseudonymization techniques are not analyzed in depth, the different use cases aim to provide an overview of the possibilities and key aspects of their application, regarding the higher level of protection of personal data processed due to the removal of direct personal identifiers.  
+It should be noted that these use cases serve to demonstrate the application of pseudonymization and do not intend to cover operational use cases in their entirety. In such cases, a more in-depth analysis of the context, the data processors, and the data processing involved, as well as all relevant processing operations, would be necessary.  
+3.1 THE EXCHANGE OF PATIENT HEALTH DATA  
+
+In current medical practice, the exchange of data between organizations is a common practice and is mainly used for diagnostic and therapeutic purposes. This includes exchanges between different units of the same entity (for example, a hospital) and the exchange between specific recipients (for example, medical professionals, laboratories, etc.).  
+
+For example, Anne undergoes a series of medical tests at the medical laboratory Mlabs that must subsequently be reviewed by her doctor. When Anne visits Mlabs for the first time, she is asked to provide contextual health information (medication, medical history, etc.) and personal data (name, contact details, social security number), and Mlabs assigns her a Patient_ID. From this moment on, all data, such as results, etc., related to a medical check-up are associated with this Patient_ID and not with her personal data, as shown in Graph 6. The patient identifier, which can even be a simple progressive record counter, is used to dissociate Anne's personal data from the results and acts as a simple yet effective pseudonym.  
+
+The data transferred from Mlabs to the treating physician does not contain Anne's personal identifiers, but only the pseudonym and the results of the medical tests.
+THE ADOPTION OF PSEUDONYMIZATION TECHNIQUES  
+March 2022  
+
+13  
+
+Graph 5: The exchange of patients' health data  
+
+Once the medical tests are completed, Mlabs will associate the laboratory results with the ID_Patient and not with personal data. When Anne requests a copy of the results, Mlabs will have to look for the ID_Patient assigned to her and then perform the matching, as the ID_Patient and personal data are stored separately. If the patient requests that the results be sent directly to her treating physician, who will be responsible for analyzing them and deciding if further tests or medication are needed, Mlabs can inform the physician of the results of the ID_Patient assigned to Anne. The association between Anne and ID_Patient must be communicated to the treating physician only once; thereafter, the physician will already know that this specific ID_Patient refers to Anne. However, at this point, the physician gains access to the pseudonymization secret and can directly identify Anne, which ends the level of protection of personal data that the previously performed pseudonymization process offers. This level of protection would remain in effect if Anne only shared the results of the medical tests and not the pseudonymization secret.  
+The same principle can be extended to an entity, such as a hospital, where a patient undergoes different tests in various clinical units. Once again, the units conducting the tests will process the data using the ID_Patient, and the treating physician will be able to relate that identifier to Anne as shown below. Access to medical data among the practitioners of the same medical center (for example, a hospital) must be based on authentication and relevant user rights. Depending on the processing operation, physicians may have access to the pseudonymization secret, allowing them to directly identify Anne, or have access only to Anne's pseudonymized identifier, meaning they could not identify her directly.  
+
+THE ADOPTION OF PSEUDONYMIZATION TECHNIQUES  
+March 2022  
+
+14  
+
+Graph 6: The dissociation of pseudonyms  
+
+It should be noted that this use case does not directly apply to those cases where electronic medical record systems or interoperable electronic medical records are already in use, as the means for data communication and identification of individuals could already be defined here. However, in such cases, pseudonymization could be used in the early design phases as a technique to increase the level of protection, support regulatory compliance, and promote broader adoption of electronic medical records.  
+3.2 CLINICAL TRIALS  
+
+Clinical trials study new procedures and medical treatments and evaluate their effects and possible adverse effects. They are considered a prerequisite for obtaining the necessary authorizations from the competent authorities. Generally, they are not conducted by the manufacturer (for example, the pharmaceutical company), but by independent organizations known as "clinical research organizations."  
+A typical case is the so-called double-blind study, in which a cohort of individuals with similar characteristics (for example, patients with the same disease) is divided into two subgroups. Members of one group receive the medication being tested, while members of the other group receive a placebo. In a double-blind study, neither the participants nor the researcher knows who belongs to each group. During the trial, the same medical data is collected for both cohorts. Once all the data is obtained, researchers can compare the results of each group and determine if the new medical mediation (independent variable) has had any impact on the treatment (dependent variable).  
+Beyond merely comparing patient data records, another common use of this medical data is to detect associations and patterns between different variables (for example, age, sex, occupation), with a view to identifying the upper limits of efficiency and effectiveness, as well as additional safety information, for example, regarding dosage. Therefore, in these research organizations, data from all patients must be analyzed to establish common patterns with medical relevance.  
+For these analyses, the identity of the participants does not have direct importance, and researchers typically do not need to access the actual identity of the participants in the research whose data the clinical research organization analyzes. However, the  
+
+4 Recommendation of the Commission, dated February 6, 2019, on a format for the exchange of electronic medical records at the European level, C (2019) 800 final.  
+Pseudonymized data from clinical trials allow for the detection of associations during the trials and the re-identification of specific individuals if necessary.
+THE ADOPTION OF PSEUDONYMIZATION TECHNIQUES  
+March 2022  
+
+15  
+
+the risk of a patient being identified through indirect information is not minimal. In the case of clinical trials, information such as age, sex, occupation, or place of residence may be relevant to the study and, under certain conditions, may lead to the identification of trial participants.  
+In this context, an appropriate pseudonymization system would be optimal for carrying out tasks of detecting associations and statistical patterns without revealing the actual value of the different data entries. In some trials, this may even extend to associations and statistical patterns of symptoms and medication. Given that various types of personal data are usually collected during clinical trials, pseudonymization must be done carefully to avoid exposing patients to unauthorized reidentification. To achieve this, two approaches could be combined, for example, as shown in Chart 8:  
+1) employ pseudonymization on the main identifying data of each participant;  
+2) use more than one pseudonym for each identifying data of different clinical parameters.  
+
+Chart 7: Summary of pseudonymization in clinical trials  
+
+This approach could limit the personal data related to each pseudonym which, along with the robustness that can be obtained using a strong hash function like SHA-2 with a random seed value, as shown in the following example, would further hinder reidentification.  
+
+THE ADOPTION OF PSEUDONYMIZATION TECHNIQUES  
+March 2022  
+
+16  
+
+Chart 8: The association of parameters to pseudonyms  
+
+Another exception to the basic hypothesis may arise when a patient's data may reveal a risk to their health (for example, a new diagnosis) and the research team would benefit from contacting the clinical research organization and activating a notification to the patient. This is a case very similar to the one discussed in [12] in section 4.2.2.  
+3.3 MONITORING OF PATIENT-GENERATED HEALTH DATA  
+
+Currently, smart wearable devices monitor vital signs such as heart rate, oxygen saturation, and blood pressure. Periodic monitoring of vital signs is a common practice in patient care and helps to early recognize abnormal physiological parameters. However, it is usual for only the patient themselves to see the measurements and contact the doctor when they observe an abnormal value.  
+The normal ranges for a person's vital signs usually vary based on age, weight, sex, and overall health status, making it difficult to set predefined values. This use case contemplates the provision of a health monitoring system (HMS) in which the doctor can access medical information, monitor vital signs, and also receive notifications of their abnormal values, through appropriately predefined value ranges.  
+
+THE ADOPTION OF PSEUDONYMIZATION TECHNIQUES  
+March 2022  
+
+17  
+
+Chart 9: Pseudonymization in monitoring patient-generated health data  
+
+For example, John has been diagnosed with cardiovascular disease and arrhythmia; bradycardia or tachycardia can increase the risk of stroke. John's doctor has defined three sets of values regarding his resting heart: low, normal, and high. John's wearable device regularly monitors his heart rate and physical activity, and alerts him when his resting heart rate exceeds the low or high thresholds. At the same time, this notification can also be sent to the treating physician, who can assist John immediately or contact him later to advise him on what to do next.  
+Instead of transmitting John's heart values and data, the wearable device can perform the pseudonymization process and transmit a pseudonym for John and the range of parameters of his resting heart rate. The doctor will receive the pseudonym and will be able to access the corresponding patient information and the patient's resting heart rate status. Just like in the use case analyzed in section 3.1, if the doctor has access to the pseudonymization secret and can directly identify John, the pseudonymization process will primarily be considered a security measure in favor of confidentiality during transmission, rather than a data protection measure.  
+Chart 10: Pseudonym mapping table  
+
+The pseudonymized transfer from the medical product to the treating physician reduces the risk of data being compromised during transit.  
+
+THE ADOPTION OF PSEUDONYMIZATION TECHNIQUES  
+March 2022  
+
+18  
+
+If we delve further into this use case, the wearable device could very well be subject to the provisions of the Medical Devices Regulation [8] and the guidelines on the cybersecurity of medical devices [14] approved by the Medical Device Coordination Group (MDCG). If so, the adoption of pseudonymization techniques, for example, during the communication and storage of personal medical data could help comply with both security and data protection principles by design, while also reinforcing the confidentiality of the transferred data.
+THE ADOPTION OF PSEUDONYMIZATION TECHNIQUES  
+March 2022  
+
+4. CONCLUSIONS  
+As the healthcare sector evolves towards one that maximizes the benefits of technical advancements and adapts services to timely meet the growing needs of patients of all ages and cultures worldwide, additional challenges arise in terms of cybersecurity and data protection.  
+Pseudonymization is becoming an important security technique that provides a means to facilitate the processing of personal data while simultaneously offering robust guarantees to protect personal data and, therefore, safeguard the rights and freedoms of individuals.  
+This report, which complements previous relevant work by ENISA, demonstrates how pseudonymization can be practically adopted to better protect the exchange of health data.  
+There is no doubt that there is no one-size-fits-all solution regarding how and when to apply pseudonymization; in fact, equally good results could be achieved with other solutions in specific cases, depending on protection requirements, utility, scalability, etc.  
+Starting from a simple token, pseudonymization can range from a "simple" option to a very complex process, both technically and organizationally. For this reason, it is truly important to define the goals and objectives of pseudonymization in each particular case and each processing operation. To this end, good practices and relevant examples of pseudonymization in the context of the GDPR can be very valuable for healthcare providers and developers of health applications.  
+Developers and national and European regulators should promote the exchange of good practices and provide practical guidance on the use of pseudonymization.  
+Advancements in technology and the types of healthcare services offered to the population could compromise the effectiveness and applicability of current pseudonymization solutions. This is relevant not only for the choice of technique but also for the overall design of the pseudonymization process, which includes, in particular, the protection of additional information (i.e., information that allows associating pseudonyms with the initial identifiers).  
+The proposed pseudonymization solutions largely depend on technological advancements, and over time, problems or application limitations may arise for each technique.  
+The research community must continue to work on data protection and security engineering, including more advanced pseudonymization techniques and their possible applications, with the support of EU institutions in terms of policy guidance and research funding.  
+
+THE ADOPTION OF PSEUDONYMIZATION TECHNIQUES  
+March 2022  
+
+5. BIBLIOGRAPHY  
+1. Regulation (EU) 2016/679 of the European Parliament and of the Council of 27 April 2016 on the protection of natural persons with regard to the processing of personal data and on the free movement of such data, and repealing Directive 95/46/EC (General Data Protection Regulation) (2016)  
+2. Topol, E.: Individualized Medicine from Prewomb to Tomb. (2014)  
+3. Angelidis, P.: UOWM Lecture Notes. (2019)  
+4. ENISA: Security and Resilience in eHealth Infrastructures and Services. (2015)  
+5. ENISA: Procurement Guidelines for Cybersecurity in Hospitals. (2020)  
+6. ENISA: Cloud Security for Healthcare Services. (2021)  
+7. Directive (EU) 2016/1148 of the European Parliament and of the Council of 6 July 2016 concerning measures for a high common level of security of network and information systems across the Union. (2016)  
+8. Regulation (EU) 2017/745 of the European Parliament and of the Council of 5 April 2017 on medical devices, amending Directive 2001/83/EC, Regulation (EC) No 178/2002 and Regulation (EC) No 1223/2009 and repealing Council Directives 90/385/EEC and 93/42/EEC. (2017)  
+9. Directive 2011/24/EU of the European Parliament and of the Council of 9 March 2011 on the application of patients’ rights in cross-border healthcare. (2011)  
+10. ENISA: Recommendations on shaping technology according to GDPR provisions - An overview on data pseudonymisation. (2019)  
+11. ENISA: Pseudonymisation techniques and best practices. (2019)  
+12. ENISA: Data Pseudonymisation: Advanced Techniques and Use Cases. (2021)  
+13. ISO: 25237:2017 Health informatics — Pseudonymization. (2017)  
+14. Medical Device Coordination Group: 2019-16 - Guidance on Cybersecurity for medical devices. (2019)  
+
+ABOUT ENISA  
+The European Union Agency for Cybersecurity (ENISA) is the Union's agency whose objective is to achieve a high common level of cybersecurity across Europe.  
+Established in 2004 and strengthened by the EU Cybersecurity Regulation, the European Union Agency for Cybersecurity contributes to the EU's cybersecurity policy, enhances the reliability of ICT products, services, and processes through cybersecurity certification programs, cooperates with Member States and EU bodies, and helps Europe prepare for tomorrow's cybersecurity challenges. Through knowledge sharing, capacity building, and awareness-raising, the Agency collaborates with its key stakeholders to strengthen trust in the connected economy, enhance the resilience of the Union's infrastructure, and ultimately protect society and citizens digitally in Europe. For more information about ENISA and its work, you can visit: www.enisa.europa.eu.  
+
+ISBN 978-92-9204-576-0  
+DOI 10.2824/092874

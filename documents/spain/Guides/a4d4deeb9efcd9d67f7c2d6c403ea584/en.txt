@@ -1,0 +1,818 @@
+Data Protection by Default Guide
+
+October 2020
+
+Page: 2 of 39
+
+EXECUTIVE SUMMARY
+This guide practically develops the application of data protection by default, or DPbD, in the processing of personal data based on the provisions of Article 25 of the GDPR and the guidelines published by the European Data Protection Board “Guidelines 4/2019 on Article 25 Data Protection by Design and by Default.” 
+The DPbD measures revolve around the rational application of the principle of data minimization, under the criteria of adequacy, relevance, and necessity concerning the purposes in the design of the various phases of processing, as established in Article 25.2. 
+This document identifies the strategies that should guide the application of DPbD, such as optimization, configurability, and restriction in the processing of personal data by default. It then develops specific measures for the implementation of DPbD concerning the amount of personal data collected, the extent of processing, the retention period, and the accessibility of the data. 
+Finally, it outlines the documentation and auditing requirements related to DPbD. 
+The intended recipients are data controllers and Data Protection Officers, as well as those units or departments that, within the responsible entity, are in charge of the design, selection, development, deployment, and operation of applications and services. It is also directed at those in the role of processors, developers, or suppliers, to the extent that they provide products and services to controllers and seek to ensure that they comply with the DPbD requirements established in the GDPR.
+
+Keywords: GDPR, proactive responsibility, data protection by default, data protection by design, risk, data minimization.
+
+Page: 3 of 39
+
+INDEX
+I. OBJECTIVE AND RECIPIENTS 4
+II. INTRODUCTION 5
+III. APPLICATION OF DATA PROTECTION BY DEFAULT 7
+IV. OPTIMIZATION OF PROCESSING 9
+A. Analysis of Processing 9
+B. Use Cases 11
+C. Relationships between Processing 12
+D. Adaptation of Processing 13
+V. CONFIGURABILITY 15
+A. Configurability of a Processing 15
+B. Configurability in Components 17
+C. User Control 18
+VI. RESTRICTION BY DEFAULT 20
+VII. MEASURES OF DATA PROTECTION BY DEFAULT 21
+A. Amount of Personal Data Collected 21
+B. The Extent of Processing 21
+C. The Retention Period 22
+D. Accessibility of Data 22
+E. Practical Application of Measures to Implement: Configuration Options 22
+VIII. DOCUMENTATION AND AUDIT 24
+IX. CONCLUSIONS 27
+X. ANNEX I: GDPR 28
+A. Article 6.4 28
+B. Article 25 Data Protection by Design and by Default 28
+C. Recital 78 28
+XI. ANNEX II: LIST OF CONFIGURATION OPTIONS 30
+XII. BIBLIOGRAPHY 39
+
+Page: 4 of 39
+
+I. OBJECTIVE AND RECIPIENTS
+The objective of this document is to provide a practical guide for the application of concrete measures of data protection by default. 
+As established in the second section of Article 25 of Regulation (EU) 2016/679, General Data Protection Regulation (hereinafter GDPR), it is the responsibility of the data controller to implement the measures of Data Protection by Default (hereinafter, DPbD). 
+This guide is directed at Data Protection Officers and, specifically, at those units or departments that, within the responsible data processing entity, are in charge of the design, selection, development, deployment, and use of applications and services. 
+In the event that the responsible entity uses third-party services for the effective implementation of processing, the controller has the obligation, according to Article 28 of the GDPR, to “choose only a processor that offers sufficient guarantees to implement appropriate technical and organizational measures, so that the processing is in compliance with the requirements of the Regulation and guarantees the protection of the rights of the data subject.” 
+In this regard, the controller must keep in mind their obligation to apply data protection by design and by default when selecting both the processors and the providers of products and solutions they use for their processing. On the other hand, Recital 78 of the GDPR urges developers of products, services, and applications to consider the right to data protection when developing and designing these products, services, and applications, and to ensure, with due regard to the state of the art, that controllers and processors are in a position to fulfill their obligations regarding data protection. 
+Thus, this guide is also directed at processors, developers, or suppliers who want their products or services to enable controllers to comply with the DPbD requirements established in the GDPR. 
+However, it should be noted that the criterion for establishing responsibility in processing is based on determining who specifies the pursued purposes and the means used. When the processor, or the supplier of systems/solutions, includes collateral processing of personal data of end users in their products (for example, to “improve the service,” “debug the system,” “offer advertising,” “track the use of licenses,” “maintain the solution,” etc.), they could be assuming, in these cases, the status of data controller.
+Page: 5 of 39  
+II.  
+INTRODUCTION  
+Article 25 of the GDPR establishes that the principles, rights, and obligations related to the protection of data set forth in this Regulation must be taken into account "from the design and by default." In this sense, a demonstrable application of data protection by default becomes one of the proactive accountability measures that allows for the verification of compliance with the obligations established in the regulation.  
+While compliance with the requirements set forth in the Regulation is mandatory regardless of the nature and size of the entity responsible for processing, the GDPR is flexible when it comes to selecting the measures to ensure this compliance, allowing for different approaches and alternatives when implementing the data protection by design (DPbD) dimension.  
+The "by default" configuration of applications, products, and services is common in the development and production deployment of systems when determining their operation. The GDPR has established the obligation for controllers to ensure data protection by design of the personal data being processed in line with this "by default" configuration.  
+Paragraph 2 of this article states that:  
+"The controller shall implement appropriate technical and organizational measures to ensure that, by default, only personal data which are necessary for each specific purpose of the processing are processed. This obligation shall apply to the amount of personal data collected, the extent of their processing, the duration of their storage, and their accessibility. Such measures shall ensure in particular that, by default, personal data are not accessible, without the intervention of the data subject, to an indefinite number of natural persons."  
+The parameters of the various configuration options that define the implementation of processing must be established by the controller. In some cases, depending on the nature of the processing, some of these configuration options may be made available to the user in the design carried out by the controller.  
+Furthermore, the document "Guidelines 4/2019 on Article 25 Data Protection by Design and by Default" (Guidelines on Article 25 Data Protection by Design and by Default) from the European Data Protection Board (hereinafter the EDPB Guidelines) states in section 2.2 "Data Protection by Default" that DPbD refers to the choices made regarding the configuration values or processing options set in the systems and procedures that implement the processing and determine the amount of personal data collected, the scope of its processing, the duration of its storage, and its accessibility.  
+The GDPR requires the controller to have a default configuration of processing that is respectful of the principles of data protection, advocating for minimally intrusive processing: minimum amount of personal data, minimum extent of processing, minimum duration of storage, and minimum accessibility to personal data. All of this, moreover, without the need for the intervention of the data subject to ensure that these minimums are established. Hence, DPbD is not limited to requirements regarding
+Page: 6 of 39  
+the programs or devices, but also affects the very design of the processing, regardless of the medium in which it is developed.  
+In paragraph 47 of the same Guide, it is stated that security measures must always be included by default:  
+The security of information must always be by default in all systems, transfers, solutions, and options when processing personal data.  
+This means that, even if the risk of processing for the rights and freedoms is low, the controller cannot ignore the establishment of security measures.  
+However, when choosing the specific security measures to be implemented, the selection process for each of them must be guided by a risk analysis for the rights and freedoms of individuals, as established in Article 32 of the GDPR.  
+The GDPR does not intend to be exhaustive in the measures that must be implemented simply because there is personal data processing. To this end, it includes the concept of Data Protection by Design (DPbD), to encompass all those measures and guarantees of "default configuration" that, regardless of the risk, must be established due to "the nature, scope, context, and purposes of the processing."  
+Like any other measure of proactive responsibility, DPbD must be approached integrated with the rest of the guarantees established in the GDPR and as an integral part of the organization's procedures and culture.  
+On one hand, as emphasized by the EDPB Guide, DPbD is related to data protection from the design stage, as DPbD measures must be considered from the conception of the processing and implemented through the data protection measures and guarantees identified in the design of the solution.  
+The selection of measures and guarantees for DPbD influences the requirements established regarding security domains (confidentiality, availability, integrity, and authenticity) from a "security by default" perspective. However, it must be taken into account that security by default, in certain situations, may come into tension with DPbD. A specific example is excessively carrying out monitoring or user authentication activities in such a way that the personal information obtained from the user may pose a risk to the rights and freedoms of the users whose access to the system, product, or service is intended to be managed.  
+Finally, DPbD is related to transparency, as only by knowing the characteristics of the processing will the user be in a position to decide, freely and with knowledge of the possible consequences, to go beyond the initial configuration that is more respectful of privacy, selecting those options of the application, product, or service that significantly affect it.  
+
+2 The risk of processing, no matter how low, will never be zero.  
+3 Article 24.1 of the GDPR  
+4 A risk to their rights and freedoms regarding a systematic and comprehensive observation or assessment of personal aspects.
+Page: 7 of 39  
+III.  
+APPLICATION OF DATA PROTECTION BY DEFAULT  
+In section 2.2 of the EDPB Guidelines, an analysis of section 2 of Article 25 of the GDPR is conducted. The opinion established by the European Data Protection Board regarding the implementation of Data Protection by Design and by Default (DPbD) measures focuses on three strategies:  
+•  
+Optimize: The optimization of processing aims to analyze it from the perspective of data protection, which involves applying measures concerning the amount of data collected, the extent of processing, its retention, and accessibility.  
+•  
+Configure: This strategy should allow processing to be configurable concerning personal data through values (settings) available in the applications, devices, or systems that implement it. Part of that configurability must be under the control of the user.  
+•  
+Restrict: Restriction ensures that, by default, processing is as respectful of privacy as possible, so that the configuration options must be set, by default, to those values that limit the amount of data collected, the extent of processing, its retention, and accessibility.  
+These three strategies are linked to the corresponding strategies of minimizing and controlling defined in the Data Protection by Design Guidelines of the AEPD, as further specified in section 2.2 of the EDPB Guidelines.  
+The EDPB Guidelines emphasize that DPbD measures must be aligned with those adopted within the framework of data protection by design, specifically aimed at implementing the principle of data minimization, and that such measures must be selected based on their suitability for achieving that objective in the terms previously indicated. Furthermore, it is specified that only personal data necessary for the specific purpose of processing should be processed. Explicit reference is made to Articles 5.1.b, c, d, and e of the GDPR. In particular, Article 5.1.c of the GDPR establishes the principle of minimization as that personal data shall be “adequate, relevant, and limited to what is necessary in relation to the purposes for which they are processed.”  
+Moreover, the EDPB Guidelines state that the fact that personal data is needed to fulfill a purpose does not mean that all types of operations can be carried out in the processing of such data and at any frequency. This implies that processing must be analyzed in its various phases, and in each of them, only the minimum essential data for the operation performed in each phase will be processed, the duration of the phases in which the data is processed will be the minimum necessary, the retention period of the information will be the shortest possible, and accessibility to personal data will be the minimum essential, as established in Article 25.2 of the GDPR:  
+Art. 25.2 …This obligation shall apply to the amount of personal data collected, to the extent of its processing, to its retention period, and to its accessibility.  
+The application of the principle of minimization is not trivial, as it requires studying, justifying, and establishing what data is necessary for processing. The necessary data is determined through an analysis of the dataset concerning the effectiveness that needs to be achieved to fulfill the purposes of processing. Such analysis, in terms of the subjects involved and the extent of the data processed for each subject, will depend on the type of processing. For example, concerning the extent of affected individuals, statistical science establishes that the universe of subjects necessary to obtain the desired level and confidence interval in a processing does not imply access to the data of the entire population, but rather that there are analytical procedures to establish the necessary volume.  
+However, it is a mistake to apply the principle of minimization in a way that compromises the purpose of processing. For example, concerning the extent of data processed from a subject, designing a clinical assessment that collects insufficient information such that it is not possible to reach a diagnosis of the individual with the appropriate levels of precision would not only fail to comply with the principle of minimization but would also go against the principle of fairness of processing, as it would be unfeasible to fulfill the declared purpose. Therefore, the application of the principle of minimization involves an objective and rational analysis of the processing.  
+5 For example, to conduct an analysis of a population of 40 million with a confidence level of 99% and a confidence interval of 1%, data from fewer than 20,000 people may be necessary (https://www.surveysystem.com/sscalc.htm, https://www.calculator.net/sample-size-calculator.html)
+Page: 9 of 39  
+IV.  
+OPTIMIZATION OF PROCESSING  
+The optimization of processing is a fundamental activity in any entity with the aim of achieving continuous improvement in its effectiveness and efficiency. In this section, such optimization will only be addressed from the perspective of personal data protection, a view that should be integrated into the entity's overall quality process.  
+For the adoption of any proactive responsibility measure, it is essential to analyze the processing activity, break it down into its phases, determine the processing operations carried out in each of them, understand the particularities of each phase, and optimize it, at least from the perspective of data protection. As previously indicated, this task is not exclusive to the DPO, but is part of the strategy for the rational application of proactive responsibility measures.  
+The optimization of processing for the implementation of the DPO must be carried out by performing the following activities, which in some cases will be conducted in parallel:  
+•  
+A decomposition and analysis of the processing into phases  
+•  
+The definition of use cases  
+•  
+The study of the relationship between processing carried out by the same controller.  
+•  
+The optimization of processing  
+A.  
+ANALYSIS OF PROCESSING  
+For the correct adaptation of DPO measures, the controller must analyze the processing they intend to carry out. The analysis must go beyond considering processing as a black box. It is necessary to identify within it those singular operations that are carried out and the relationship between them.  
+The operations that may form part of a processing activity, and that are of interest for data protection, are defined, in a non-exhaustive manner, in Article 4.2 of the GDPR as:  
+… collection, recording, organization, structuring, storage, adaptation or modification, extraction, consultation, use, communication by transmission, dissemination or any other form of enabling access, comparison or interconnection, restriction, erasure or destruction.  
+
+Page: 10 of 39  
+Figure 1. Simplified example of a processing activity related to personnel selection.  
+In this case, the operation or operations performed are marked for each phase. Highlighted are those phases that, in this example, would not process personal data.  
+Processing activities are structured into phases that implement operations. However, it is possible that, as part of a processing activity, there are phases that do not process personal data, so, initially, such phases would be transparent from the perspective of data protection.  
+
+Figure 2. Elements that configure the phases of a processing  
+The implementation of operations in each phase in which the processing is structured can be carried out with organizational measures and/or technical elements. Organizational measures, which may include aspects such as the roles assigned to each person, the physical distribution of facilities (for example, the isolation of interview areas), or the generation and destruction of physical reports, can even be more important and effective than technical components.  
+The operations of a processing activity can be implemented through components developed ad-hoc, that is, specifically for that processing, or through standard components or adaptations of ad-hoc developments from other processing activities. These components can range from applications, servers, operating systems, network components, libraries, development environments, etc. They can also be third-party components, standard components, or simply components available to the controller, which are reused for a new purpose. Among these are even components that may have a more organizational than technical nature, such as customer service.  
+In these cases, the term off-the-shelf components is commonly used, which means pre-existing components that are "taken off the shelf." Off-the-shelf components are those prefabricated, designed for another specific purpose, that come even from previous uses by the same entity, or of general purpose, that are incorporated into the implementation of a processing activity.  
+The GDPR establishes that, when setting the default configuration, the controller must take into account the necessity requirements for the specific purpose pursued by the processing. Therefore, in the analysis carried out of the processing activity, the relevance and necessity of carrying out each and every one of the different phases/operations of personal data processing that have been identified must be determined.  
+
+6 Although the phases that do not process personal data or do not indirectly affect what is established in the GDPR may influence the analysis of the effectiveness and efficiency of the processing, it would not fall within the competencies of the GDPR to evaluate the adequacy of such phases strictly.  
+7 Term also used in the EDPB Guidelines
+Page: 11 of 39  
+Ultimately, a critical review of each phase and its purpose is mandatory to apply the principle of minimization.  
+B.  
+USE CASES  
+The treatments can be very simple and linear, where the default configuration options are very limited, but we can also encounter complex treatments that may offer different functionalities to adapt to users of various profiles or specific needs. The adjustment of the service may depend on different circumstances: normal or premium services, suitability for a minor, adult, or elderly audience, presence of value-added services, etc. The different service adjustments are what configure different use cases.  
+Depending on the type of service that the user requires, or that the responsible party intends to offer within the framework of the same treatment, it will be necessary to collect and process a different extent of personal data. A simplified example could be the different use cases of a banking app:  
+
+Figure 3. Breakdown of phases of treatment in a simplified banking app.  
+In the previous example, a treatment is shown in which several use cases can be proposed according to the functionality desired by the end user:  
+• Account management, which requires identification.  
+• Payments, which in addition to identification, requires communication with a payment interface.  
+• Location of offices, which needs access to the current position.  
+• Receipt of proximity offers, which requires continuous geolocation of the interested party.  
+Depending on the use cases, the responsible party must process a different extent of personal data, including user identification, interfaces with payment gateways, point geolocation, or continuous geolocation. This implies that the treatment must be configurable in the type and extent of such data and that this configuration must be conditioned by the use case chosen by the user at any given moment. Data that would be necessary for a potential use of all future functionalities, including those that could be at the user's choice, should not be collected by default. For example, in the case of data collection in a web form to reserve a spot in a service, such as repair, where the request may be rejected due to lack of availability, no more data than necessary to make the reservation should initially be collected, and no additional data that would be used...
+Page: 12 of 39  
+to provide the service in the event that vacancies exist. If applicable, these should be requested once availability is guaranteed.  
+Other treatments in which different use cases can be found include, among others:  
+• In a social network, depending on the degree of dissemination of personal information desired by the user.  
+• In fitness bracelets, depending on the selected services: training, tracking, statistics, health…  
+• In apps for tracking epidemics, concerning diagnostic or monitoring services.  
+• In telemedicine devices, depending on the desired treatment.  
+• In platforms and apps in educational and training environments, depending on the type of training or assessment.  
+• Etc.  
+The use cases of a treatment are linked to specific purposes and identify and group configuration options for the treatment in such a way that the choice of a use case by the controller or the user determines the value of a series of configuration options.  
+The use cases must be determined by the controller, who defines the different purposes of the treatment, and must establish the commitments between privacy, usability, functionality, and security. The controller must evaluate the adequacy of the use cases they have defined to the reality and needs of the users, as well as their adaptation depending on whether the context of the treatment changes over time.  
+Following the same principle of minimization, this evaluation must be as non-intrusive as possible from the perspective of data protection. For example, it could be considered intrusive and disproportionate to automatically track users' usage habits for this purpose, while conducting usage surveys would be a less intrusive way. An important aspect to consider in defining the use cases is to take into account the needs of individuals belonging to vulnerable groups, especially minors.  
+The use cases defined by the controller must be adjustable by the user. Under no circumstances may the use cases defined by the controller present the user with a "take it or leave it" dilemma to access the contracted service, thereby imposing some type of requirement for the processing of personal data that exceeds what is necessary. Access to a service cannot be denied simply because the user has opted for a restrictive configuration regarding the amount of data processed or the extent of the treatment.  
+C.  
+RELATIONSHIPS BETWEEN TREATMENTS  
+In an entity, it is common for several treatments to access the same data sets and make use of common data collection, processing, or communication services. These components that implement operations and are shared among treatments are often legacy systems. In other cases, such as the implementation of apps on mobile systems, treatments are developed using standard third-party components shared among various applications that commonly access data processing services.  
+
+Figure 4. In this case, treatments 1 and 2 include phases of retention of personal data, which are implemented in the entity's database services, while treatments 2 and 3 include phases of data collection implemented on the same data capture libraries (for example, an API in Android).  
+The controller must analyze each treatment in the context of the organization to identify the configuration needs regarding the services common to different treatments to, for example, and depending on their specific type:  
+• Determine the minimum necessary data for each treatment, regardless of what is available.  
+• Perform a logical and/or physical separation of personal data used in each treatment.  
+• Manage access rights according to each treatment.  
+• Establish an independent space, which could be logical or physical depending on the cases, for sensitive data treatments.  
+This analysis is closely related to the application of Article 6.4 of the GDPR and the limits expressed in section 2.2 of the EDPB Guidelines, in the sense that controllers must be careful not to extend the limits of "compatible purposes" and keep in mind what processes will be within the reasonable expectations of the data subjects.  
+D.  
+ADAPTATION OF THE TREATMENT  
+Along with the activities of analysis, determination of use cases, and selection of shared components, it is necessary to study each of the phases or stages of the treatment for each of the use cases defined by the controller and determine:  
+• The necessity of the phase, to determine whether it is superfluous or avoidable from the perspective of personal data processing.  
+• The applicable minimization, establishing:
+Page: 14 of 39  
+- The minimum set of personal data that must be processed in this phase and that must be strictly necessary for the specific operations they support.  
+- The necessity of inferred data, if any.  
+- Whether the phase can be implemented without using personal data.  
+•  
+The retention period during which it is necessary to keep the personal data.  
+•  
+The access criteria for applications, services, and individuals:  
+- What defined roles within the entity should have what access privileges and to which data.  
+- What external roles have been defined and with what access privileges and to which data.  
+•  
+The level of control that will be given to the user over the above options.  
+
+Page: 15 of 39  
+V.  
+CONFIGURABILITY  
+A.  
+CONFIGURABILITY OF A PROCESSING  
+A service, system, or application is “non-configurable” when its design and implementation have fixed parameters that unalterably determine how the processing will be executed, either because it has acquired a non-configurable implementation or it has been configured with fixed values. In these cases, it is said that the functionality is “wired-in.”  
+When the processing is configurable, it implies that it has been designed with a set of options that can be altered by the responsible party or even by the user. For example, it is possible to configure the collection of geolocation data, the information stored in activity logs, access permissions to device content, the identity information that will be requested from a system user, the possibility of encrypting communications, the use of advertising identifiers, etc.  
+Furthermore, each configuration option can be defined by a set of parameters, for example, in the case of configuring the application’s activity log, in addition to a parameter to generally activate that log, there could be parameters to determine the maximum retention time, the actions subject to logging, the granularity of the log at the level of access types, the time or identification information of the user and the device, etc.  
+At the time of implementation, there will be parameters that can take any value, while others will be limited to a range of values. In turn, these parameters will take initial default values. The set of different options, their parameters, and default values are established by the responsible party as requirements of the service, system, or application.  
+
+Figure 5 List of configuration options, parameters, ranges, and default values  
+According to the PDpD, the data controller must establish the configurability requirements at each of its phases, based on the analysis that has been conducted on it and the use cases that have been identified. These requirements must be transferred to the design and implementation of the processing.  
+The default configuration determines the usual use of the service and the characteristics of the processing as long as the responsible party does not offer the user the possibility of  
+
+In the case that there is an option to configure the encryption of communications, or the option to encrypt stored data, there will be several parameters that could be set, such as, for example, the type of algorithm, block size, key length, key robustness characteristics, key reuse possibilities, mechanisms for generating random values, etc.
+Page: 16 of 39  
+to customize it or that, by doing so, the user does not make use of it. The "default" setting will consist of the set of "parameter-value" pairs preselected or preassigned in a system, application, or service, which condition, in whole or in part, the way this operates.  
+Configurability has four aspects:  
+•  
+The identification of configurability requirements, which will be integrated as part of the privacy-by-design requirements of the processing and translate into the determination and selection of a set of configuration options, understood as the set of parameters that can be modified and their possible values, including the default value, which determine the behavior of the system, application, product, or service. It will therefore be necessary to:  
+o  Identify the configurable parameters  
+o  The ranges of values technically available  
+o The default value assigned to each parameter  
+•  
+Determine which of the configuration options will be under the exclusive control of the data controller and with what limits.  
+•  
+In cases where certain configuration options, due to the nature of the processing, are under the control of the user, it is necessary to determine which configuration options are considered and with what limits.  
+•  
+Determine whether the off-the-shelf components with which the processing will be built meet these configurability requirements and adjust their value.  
+This aspect of configurability should be particularly valued when dealing with data of minors or data of groups of people who are in vulnerable situations (victims of gender-based violence, people at risk of social exclusion, etc.). For example, enabling access to victim assistance services not to appear in call logs or on the device's history.  
+Finally, the determination of configuration options and use cases must be input information in the risk analysis stage for the rights and freedoms of individuals, in order to establish how the values assigned to the different parameters may affect users' privacy, as well as the possible consequences of their subsequent modification by them or potential manipulation by third parties. Users must be informed of the consequences and risks of configuration clearly and concisely so that they can make an informed decision regarding the impact on their privacy.  
+Choosing the default configuration is not a trivial matter. To do this, it is necessary to determine:  
+•  
+The different use cases of the processing that are offered to the user based on the pursued purposes.  
+•  
+The minimum data required at each stage and for each of the different identified use cases.  
+•  
+Which of the available use cases will be configured as the default use case.  
+•  
+The configuration parameters and their values based on the use case selected by default.  
+  
+For example, a processing operation may allow the user to activate geolocation options, then it is necessary to analyze the risk that a third party may manage or access such geolocation.
+Page: 17 of 39  
+A configurable parameter will not accept any value; rather, the possible values will be limited to a range or a defined set of configuration options. However, the degree of configurability must be broad enough to offer real configuration options to the controller or user of the system. Additionally, the various configurable parameters may not be independent of one another, and there may be technical linkages between them. Therefore, the configurability of a particular parameter is not measured by a “yes” or “no,” but by a certain degree of configurability that, at times, may require an analysis of dependencies between parameters, as could be the case in the configuration of authentication or security systems.  
+The default configuration also affects organizational measures, as stated in section 2.2 of the CEPD Guide.  
+Among the desirable additional requirements, as stated in the CEPD Guide, is that the values and treatment options should be universal for all instances of the application model, device, or service implemented by the controller, and that “out-of-the-box” approaches should be preferred in the deployment of systems, minimizing the processing of personal data and without the need to undergo a lengthy configuration process before use.  
+B.  
+CONFIGURABILITY IN COMPONENTS  
+The use of third-party components (previously addressed in section IV.A “Analysis of Processing”) may limit the controller's ability, or the processor's ability, as it may affect the proper execution of the requirements set by the controller, for the application of configurability requirements. Therefore, it is important to determine, for these components, which values are preset and unalterable, which parameters are configurable, and the default value with which they are configured, as well as the set of possible values they could take.  
+The problem that standard components may present in a processing context is that they were developed with a purpose and aim that may be different, even completely different, from that posed in the processing in which the controller uses them. Hence, a key aspect of the configuration process is to ascertain whether these components perform processing activities that are not necessary for the analyzed processing. That is, whether they are implementing additional and non-configurable functionalities that generate collateral effects such as, for example, communications to third parties, collection of traffic data, logs, etc.  
+In selecting components, the controller must take into account the use of PETs or “Privacy Enhancing Technologies.” PETs are an organized and coherent set of ICT solutions that implement privacy strategies and patterns, including configurability features of the treatments.  
+In the event that such standard components do not comply with the principles of minimization, the legitimizing basis of the processing must be analyzed and, if applicable, the possibility of deactivating the additional functionalities and, if necessary, the eventuality of not using them and opting for an alternative component.  
+
+This limitation can be technical; for example, the length of a key cannot have an infinite value, but rather a maximum value. It can also be a functional limitation; for example, the configurability of passwords can be limited to only those that meet certain robustness requirements.
+Page: 18 of 39  
+C.  
+USER CONTROL  
+Once a parameter related to processing is configurable, it must be determined whether to grant the user control over its configuration. For example, a service that allows search engines to index user data under certain configuration conditions could allow the user to determine the extent of indexable data, either individually or by categories.  
+It is not always necessary to give the user control over configuration options. On the contrary, in some cases, it is not appropriate, and that option should not be provided. For example, the user should not be allowed to set their own access role to the system; this task should rest with the administrator.  
+User control means that the user has the ability to make decisions regarding configuration actions, but it also implies transparency and information about the results and consequences of the options they can choose.  
+In this case, it is important that the user is adequately informed and understands the consequences regarding their privacy, rights, and freedoms of choosing one configuration over another or modifying the default values (for example, in cases where the user wants to expand the initial purposes of processing with extended functionalities). Adequate information must align with the expectations that the user has or has developed about the system. Furthermore, the user must have relevant information about third-party access to their personal data and about when this is occurring, such as receiving information that continuous capture of their geolocation is taking place via an icon on the screen. This information must facilitate the subject's exercise of their rights, for which it will also be necessary to have appropriate and agile tools.  
+The way to implement the effects of the configuration changes chosen by the user must be a perfectly established aspect by the controller to inform the user of the precise moment when they become effective, as well as any additional actions they may need to take (for example, restarting the system). These should be as least traumatic as possible for the user, avoiding consequences such as data loss or the loss of previously configured personalization features.  
+In this regard, it is necessary to consider that an excess of information or configuration options required to start and use the system may lead the user to make erroneous decisions that could affect their rights and freedoms. It is necessary to weigh the volume and frequency of changes along with the volume of information provided to the user. Therefore, in the interest of usability, an appropriate way to avoid, or at least limit, the informational fatigue that comes with a high number of configuration questions is to offer the user the option to choose from use cases that group configuration options. In this way, a smooth mode of interaction is provided, and the end user is not overwhelmed with a multitude of questions to answer and options to select.  
+The information provided about the different functionalities of the use cases must make the user aware of what data (and their associated metadata) will be necessary for the system, application, product, or service to provide and manage that specific functionality.  
+The use of use cases allows for a two-layer approach to user control over processing: a first layer for selecting general use cases and a second layer for detailed configuration of each of them.  
+In any case, if a modification takes place, it must be possible to revert the change to the initially preset values and recover the "privacy-friendly" configuration established at the origin in an easy, simple, and intuitive manner.  
+User actions that change configuration options must be active, conscious, and informed and cannot be confused with any other. For this, reference is made to the guidelines on consent published by the EDPB.  
+17 Guidelines 05/2020 on consent under Regulation 2016/679”  
+https://edpb.europa.eu/sites/edpb/files/files/file1/edpb_guidelines_202005_consent_en.pdf
+Page: 20 of 39  
+VI.  
+RESTRICTION BY DEFAULT  
+The use case that, being the most restrictive by default, allows access to the basic functionality of the system (initial functionality, factory settings, etc.) must always be available and initially selected without any changes required by the controller or the user.  
+The default use case must be the one that complies, in the most restrictive manner possible, with the principle of minimization. Data controllers must select the appropriate configuration options to ensure that only the data strictly necessary to achieve the purpose of the processing that has been enabled will be collected. It should be noted that this case of minimal intrusion may not be unique and that, depending on the complexity of the processing, there may be several restrictive use cases. In that circumstance, the controller must justify the choice of the one that has been established by default.  
+The user will have to modify the default configuration if they wish to expand the processing of personal data beyond the legal basis on which the main processing for which the configuration was made "by default" is based, or if the new functionalities involve purposes incompatible with the original purpose for which the personal data was initially collected.  
+In application of the principle of fairness established in Article 5.1.a of the GDPR, the data controller must ensure that "dark patterns" are not used, that is, user interfaces designed to influence, through psychological manipulations and in a covert manner, the choices of the data subject, at least, in relation to the processing of their personal data. An example of such patterns is offering the user an attractive purpose based on their behavioral analysis to mask a data transfer to a third party for purposes that have not been clearly defined.18  
+
+18 An explanation of "dark patterns" can be found at https://en.wikipedia.org/wiki/Dark_pattern and examples at www.darkpatterns.org.  
+
+Page: 21 of 39  
+VII.  
+DATA PROTECTION MEASURES BY DEFAULT  
+As described in the chapter "III Application of Data Protection by Default," to implement the strategies of Data Protection by Default (DPbD), it is necessary to adopt measures regarding:  
+•  
+The amount of personal data collected.  
+•  
+The extent of the processing.  
+•  
+The retention period.  
+•  
+The accessibility of the data.  
+These DPbD measures are grouped through configuration options that allow determining the extent of the processing. Within the configuration options are those that will allow the controller to configure the processing, those that are under the user's control in their "privacy panel," and the configuration requirements of the shared components.  
+
+Figure 6. DPbD Strategies, Measures, and Configuration Options  
+And to facilitate the practical application of DPbD, in the last section of this chapter, information is provided, for guidance purposes, on the characteristics of the configuration options that could be included in a processing operation.  
+A.  
+AMOUNT OF PERSONAL DATA COLLECTED.  
+As noted in the EDPB Guide, the term "amount" implies qualitative and quantitative factors of the data. The data controller must consider the volume of personal data processed, the level of detail, the different categories, the sensitivity (special categories of data), and the types of personal data required and necessary to carry out a processing operation, including both the data collected and the data generated or inferred from it.  
+B.  
+THE EXTENT OF ITS PROCESSING.  
+The implementation of DPbD implies that the processing operations on personal data carried out by the controller will be limited to what is strictly necessary to fulfill the declared purpose.  
+Consequently, when processing is studied as a set of phases, it must be ensured that the operations performed in each of them are only those necessary, and on the necessary data, for the fulfillment of the purpose of that phase. In particular, the controller and, where appropriate, the user, must be able to configure the extent of the processing in each phase, particularly based on the use cases.
+Page: 22 of 39  
+C.  
+THE RETENTION PERIOD.  
+The limitations on the retention period are linked to the extent of processing, as the retention of data is, in itself, an operation of processing. However, due to its specificity, it is analyzed independently.  
+The application of the principle of minimization regarding the retention period establishes that if a personal data is no longer needed after executing a phase of processing, the data must be deleted (which could in some cases involve blocking or anonymization). Any retention must be objectively justifiable and substantiated. For example, in cases where it is necessary to use captchas on websites that process biometric information to detect bots, such as mouse movement, the retention of that information for use in later phases of processing must be justified.  
+D.  
+DATA ACCESSIBILITY  
+As stated in the EDPB Guide, the data controller must establish who can access personal data, both concerning personnel within the organization and third parties, whether other entities and bodies or even automated systems such as search engines, cloud servers, or any other application or service that accesses the data used in processing. The level of accessibility to the data must be established based on a necessity analysis to fulfill the purpose of processing.  
+This analysis must be conducted for each phase of processing and will be implemented through:  
+•  
+A definition of roles and responsibilities of the members of the organization.  
+•  
+A policy for controlling access privileges as part of the organizational measures adopted.  
+•  
+The incorporation of access control mechanisms to the information that implement the defined policy, which will be partly organizational and partly technical.  
+The controller must limit the accessibility of personal data by default and, when necessary, consult the data subject before publishing or making it accessible in any way to an indefinite number of people. For this purpose, the processing must be configurable by the controller, and where applicable, by the user, to adjust the level of accessibility to different use cases.  
+When implementing operations on the data, the processing may use standard components. In practice, it will be very common for different processes to share such standard components and access shared services with other processes in tasks of collection, retention, and transmission of data. Therefore, it is necessary to be able to configure (limit) the possible communication of data with other processes that is not necessary for the original purpose of the same.  
+E.  
+PRACTICAL APPLICATION OF THE MEASURES TO BE IMPLEMENTED: CONFIGURATION OPTIONS  
+Annex II develops a list, for guidance purposes, of those options in which a processing could be configurable to implement measures concerning the amount of personal data used, the extent of processing, the retention period, data accessibility, and any other circumstance in the processing process that may affect the privacy of users.  
+Associated with each of these configuration options, the controller must determine the specific parameters, establishing the ranges or possible values that the parameters may accept, as well as which of those parameters or values is set by default, depending on the use cases.  
+Therefore, the configurability requirements of the processing will contain the list of options, detailing parameters, ranges, and default values. These requirements will apply from the design stage, both for the development of ad-hoc components and for the use or acquisition of standard components, as well as for the definition of part of the user interface.  
+The options that may be configurable by the user will form part of their "privacy panel," allowing them to modify at their discretion the default value originally configured for these options. It is important to reiterate that not all configuration options must be available to the user, or to all types of users, and their determination will be limited to the process of defining the configurability requirements of the processing.  
+It is important to highlight that not all options presented in the list are applicable to all cases, nor do they contemplate all possible configuration options that a given processing may have. For each specific processing, the list developed in Annex II will need to be adapted, and in some cases extended. Therefore, the list will also be available in a spreadsheet on the AEPD's Innovation and Technology microsite, to be utilized by controllers, processors, and developers and updated more agilely.
+Page: 24 of 39  
+VIII. DOCUMENTATION AND AUDIT  
+As established by the principle of proactive responsibility in Article 24.1 of the GDPR, the measures and guarantees of Data Protection by Design (DPbD) must be documented and include sufficient information to satisfactorily and demonstrably prove compliance with the GDPR. This documentation must allow for the traceability of the decisions made and the checks carried out following the aforementioned minimization principles.  
+Part of the documentation of the processing must include documentation related to standard components, which the controller is obliged to ensure is complete and sufficient to justify the decision to include the component in the processing. In particular, when such a standard component corresponds to a service developed by a third party, the controller must ensure that the documentation describes the necessary information to determine the correct application of the DPbD principle in that system, product, or service.  
+In short, the processing must be auditable throughout its lifecycle, including the withdrawal stage.  
+The audit to determine the correct application of the DPbD will be integrated within a data protection audit plan, which, in turn, will be part of the general processing audit plan that may cover objectives beyond the GDPR.  
+The DPbD is part of the strict compliance conditions of the GDPR that is not subject to or conditioned by the result of a risk analysis for rights and freedoms, such as, among others, the existence of a legal basis that legitimizes the processing or the information obligations established in Articles 13 and 14. Therefore, the controls to be analyzed in the case of an audit that includes the DPbD will not be selected as a consequence of a risk analysis for rights and freedoms.  
+Below are listed, in an indicative and non-exhaustive manner, the basic controls that should be considered to determine compliance of the processing in relation to the DPbD. As previously mentioned, this checklist should be considered confined to an isolated DPbD audit that must be integrated into the overall framework of a data protection audit:  
+1. Verify that the necessary documentation to apply DPbD objectively is available within the responsible entity; in particular, the definition of roles and obligations of the members of the organization, the access control policy, the information policy, and any other significant documentation.  
+2. Verify that the entity has implemented procedures that ensure compliance with the aforementioned policies and that they are operational.  
+3. Verify that basic information related to the processing is available, in particular, regarding the nature, scope, context, and purposes, as well as the proportionality and necessity analysis.  
+4. Have a documented analysis of the processing from the perspective of DPbD.  
+   a. Verify that the processing analysis has been broken down into phases and identify for each phase the operations, the organizational and technical implementation, the personal data, and the internal and external participants.  
+
+22 Commercial information or that contained in advertising actions cannot be considered complete and sufficient information.
+Page: 25 of 39  
+b. The standard components are identified.  
+c. Likewise, interactions, services, systems, and operations shared with other treatments must be identified.  
+d. Each phase has been studied for optimization concerning necessity, minimization, conservation, access, and controls.  
+e. The use cases of the treatment and the criteria considered by the controller for their determination have been defined.  
+f. In particular, in defining the use cases, the protection of the privacy of subjects from vulnerable groups, especially minors, has been taken into account.  
+5. Verify that the data lifecycle is aligned with the use cases.  
+6. Verify that the controller adjusts the use cases to the actual operations and needs of the user and that they monitor the evolution of this operation over time.  
+7. Verify that the controller does not require the user to accept a more intrusive treatment (greater amount of data or a broader scope of operations) as a condition for accessing a service.  
+8. Verify that the configuration options are correctly identified and defined concerning:  
+   a. Type of data protection measures (the amount of personal data collected, the extent of the treatment, the retention period, the accessibility of the data, or others),  
+   b. Configurable parameters and the range of values associated with a sufficiently broad set of alternatives.  
+   c. Default values associated with each parameter.  
+   d. Dependencies of the configuration parameters and possible conflicts between the selected values, even with other options.  
+   e. Which roles (controller or types of users) have control over the configuration options and the limits of such control.  
+9. Verify that the configurability requirements established by the controller have been transferred from the design and are correctly implemented.  
+   a. Verify that there is a justified decision regarding the non-configurable options, identifying the functional or legal reasons that motivate it.  
+   b. In particular, verify which off-the-shelf components meet the configuration requirements established in the documentation and, if applicable, determine the configuration limitations they have and how they affect the treatment.  
+10. Verify the possibility of coexistence of alternative configurations in different instances of the application across different devices.  
+
+23 For example, in the case of implementing a corporate blog, if a tool developed by a third party (WordPress, Blogger, SharePoint, etc.) is used, in each case, the default configuration will be different and will need to be evaluated.  
+
+Page: 26 of 39  
+11. Verify that security measures have been implemented.  
+12. Verify that the default use case is the one that most restrictively complies with the principle of minimization.  
+13. Verify that the configuration change options offered to the user provide explanations that allow the user to make an informed decision.  
+   a. Verify that the user receives sufficient information about the effects and consequences of configuration changes to make a conscious choice. For example, in the case of opting for a lower protection encryption in exchange for being able to access or have greater performance, inform about the possible consequences of such a change.  
+   b. In particular, provide information about when the configuration changes take effect.  
+   c. Verify that "dark patterns" are not used to manipulate the user's choice process or covertly influence their decision regarding the scope of the treatment.  
+14. Verify that a configuration change requires a conscious, free, and intentional action from the user.  
+15. Verify the possibility of revoking choices at any time with the same ease with which they were selected.  
+16. Verify that the user can return to the initial, more restrictive configuration in case of choosing to change the configuration.  
+17. Verify that a configuration change initiated by the user, especially if it is a change towards more restrictive treatment conditions regarding minimization, does not negatively affect the user.  
+18. Verify that the relevant documentation related to the implementation of data protection measures has been transferred to the risk management stage for rights and freedoms and, in particular, to security risk management.  
+19. Verify that the relevant documentation of the implementation of data protection measures has been used to configure the information and transparency policy provided to the user.  
+In accordance with the provisions of control number 6: "the controller adjusts the use cases to the actual operations and needs of the user and monitors the evolution of this operation over time," the above list should be considered a generic minimum of controls to review and may be subject to expansion for specific treatments. Due to the evolution of the treatment environment, updates to it, and the potential social impact, which can be unpredictable, it is necessary to continuously adapt the defined use cases in the treatment and, consequently, the necessary verification controls.
+Page: 27 of 39  
+IX.  
+CONCLUSIONS  
+Article 25 of the GDPR establishes Data Protection by Design (DPbD) as one of the measures of proactive responsibility, integrated with the other guarantees established in the GDPR, and allowing for different approaches and alternatives when implementing the DPbD dimension.  
+Although this document focuses on how to address the obligations of Article 25 concerning DPbD, all actions related to the implementation of DPbD in processing must be approached in conjunction with the other measures and guarantees established in the GDPR.  
+Both data controllers and processors, as well as developers to the extent of their obligations, must keep DPbD measures in mind. On one hand, developers should provide technical solutions that include the possibility of establishing default settings that respect the principles of the GDPR, and on the other hand, controllers and processors, to the extent that they offer services to execute their instructions, must select solutions that meet these requirements and demand compliance from developers.  
+The GDPR requires the controller to configure processing by default in a manner that respects data protection principles, advocating for minimally intrusive processing: minimal amount of personal data, minimal extent of processing, minimal retention period, and minimal accessibility to personal data.  
+These minimums must be established "by default," meaning that DPbD must be applied whenever personal data processing occurs, regardless of the nature of the processing carried out. The establishment of default privacy measures does not result from a risk analysis for rights and freedoms, but rather these are measures and guarantees that must be established in any case.  
+Privacy panels for users should facilitate configurability by offering a two-level approach through use cases and specific configuration options. Furthermore, information provided to users about the consequences of their choices must be complete and transparent. It would also be advisable for such panels and the manner of providing information to be somewhat standardized, both in the use of icons and in the distribution of configuration options in the user interface, in order to improve transparency and usability.  
+The application of DPbD must be demonstrable, which implies that its implementation must be justified, documented, and auditable. In this regard, the third paragraph of Article 25 of the GDPR states that:  
+3. An approved certification mechanism under Article 42 may be used as an element to demonstrate compliance with the obligations established in paragraphs 1 and 2 of this article.  
+The use of certifications approved under Article 42 of the GDPR is one of the ways for the controller to demonstrate compliance with the application of DPbD measures.
+Page: 28 of 39  
+X.  
+ANNEX I: GDPR  
+A.  
+ARTICLE 6.4  
+4. When the processing for a purpose other than that for which the personal data were collected is not based on the consent of the data subject or on Union or Member State law that constitutes a necessary and proportionate measure in a democratic society to safeguard the objectives set out in Article 23(1), the data controller, in order to determine whether the processing for another purpose is compatible with the purpose for which the personal data were initially collected, shall take into account, among other things:  
+a. any relationship between the purposes for which the personal data were collected and the purposes of the intended further processing;  
+b. the context in which the personal data were collected, in particular regarding the relationship between the data subjects and the data controller;  
+c. the nature of the personal data, in particular when special categories of personal data are processed in accordance with Article 9, or personal data relating to criminal convictions and offenses in accordance with Article 10;  
+d. the possible consequences for the data subjects of the intended further processing;  
+e. the existence of appropriate safeguards, which may include encryption or pseudonymization.  
+B.  
+ARTICLE 25 DATA PROTECTION BY DESIGN AND BY DEFAULT  
+1. Taking into account the state of the art, the cost of implementation, and the nature, scope, context, and purposes of the processing, as well as the risks of varying likelihood and severity posed to the rights and freedoms of natural persons, the data controller shall implement, both at the time of determining the means of processing and at the time of the processing itself, appropriate technical and organizational measures, such as pseudonymization, designed to effectively apply the principles of data protection, such as data minimization, and to integrate the necessary safeguards into the processing, in order to meet the requirements of this Regulation and protect the rights of data subjects.  
+2. The data controller shall implement appropriate technical and organizational measures to ensure that, by default, only personal data which are necessary for each specific purpose of the processing are processed. This obligation applies to the amount of personal data collected, the extent of their processing, the duration of their storage, and their accessibility. Such measures shall ensure in particular that, by default, personal data are not accessible, without the intervention of the data subject, to an indefinite number of natural persons.  
+3. An approved certification mechanism under Article 42 may be used as an element to demonstrate compliance with the obligations set out in paragraphs 1 and 2 of this Article.  
+C.  
+CONSIDERING 78  
+78. The protection of the rights and freedoms of natural persons with regard to the processing of personal data requires the adoption of appropriate technical and organizational measures to ensure compliance with the requirements of this Regulation. In order to demonstrate compliance with this Regulation, the data controller must adopt internal policies and implement measures that comply in particular with the principles of data protection by design and by default. Such measures could consist, among others, of minimizing the processing of personal data, pseudonymizing personal data as soon as possible, providing transparency regarding the functions and processing of personal data, allowing data subjects to monitor the processing of data, and enabling the data controller to create and improve security elements. When developing, designing, selecting, and using applications, services, and products that are based on the processing of personal data or that process personal data to fulfill their function, producers of products, services, and applications should be encouraged to take into account the right to data protection when developing and designing these products, services, and applications, and to ensure, with due regard to the state of the art, that data controllers and processors are in a position to fulfill their obligations regarding data protection. The principles of data protection by design and by default should also be considered in the context of public contracts.
+Page: 30 of 39  
+XI.  
+ANNEX II: LIST OF CONFIGURATION OPTIONS  
+Non-exhaustive and indicative list of those options in which a processing operation could be configurable to implement measures regarding the amount of personal data used, the extent of the processing, the retention period, the accessibility of the data, and any other circumstance in the processing process that may affect the privacy of users.  
+
+Configuration options grouped by type of measure  
+Options that  
+could be set  
+in the processing  
+by the controller  
+Options that  
+could be included  
+in the privacy  
+panel  
+Configuration options  
+that could  
+be established in  
+off-the-shelf  
+components  
+Amount of personal data  
+
+Operation in anonymous mode.  
+X  
+X  
+
+Operation without the need to create a user account.  
+X  
+X  
+
+Operation with different user accounts on the same device for the same  
+data subject.  
+X  
+X  
+
+Operation with different user accounts on different devices for the same  
+data subject and processing.  
+X  
+X  
+
+Identification using tools and technologies that enhance privacy such as  
+attribute-based credentials, zero-knowledge proofs, …  
+X  
+X  
+
+Data aggregation: over time, in space, by groups…  
+X  
+
+Calibration of the granularity of the data: e.g., reducing the frequency of  
+location data collection, measurement, etc.  
+X  
+
+Generalization of the data: using ranges for age, postal addresses for  
+addresses.  
+X  
+
+Page: 31 of 39  
+
+Graduation of the extent of the data collected based on use cases  
+X  
+
+Alternatives and voluntariness in the contact information requested from the user: e-mail, postal, phone…  
+X  
+X  
+
+Tracking techniques in the processing (cookies, pixel tags, fingerprinting,  
+etc.)  
+X  
+X  
+
+Configuration of unique identifiers (tracking IDs), the scheduling of their  
+resetting, and the notification of activation times.  
+X  
+X  
+
+Device metadata collected from the device (battery consumption, OS,  
+versions, languages, etc.).  
+X  
+X  
+
+Metadata included in the processed or generated media (in documents, photos,  
+videos, etc.)  
+X  
+X  
+
+Information collected about the user's internet connection (device used to  
+connect, IP address, device sensor data, application used, browsing and search  
+logs, date and time of web page request, etc.) and information about elements  
+near the device (Wi-Fi access points, mobile phone service antennas, activated  
+Bluetooth devices, etc.).  
+X  
+X  
+
+Information collected about the user's activity on the device: power on,  
+application activation, keyboard, mouse usage, etc.  
+X  
+X  
+
+Mechanisms for staggered collection of the information necessary for the  
+processing. Delay the collection of data until the phase in which they are  
+needed.  
+X  
+
+Type and volume of new data inferred from automated processes such as  
+machine learning or other artificial intelligence techniques.  
+X  
+
+Data enrichment and linking with external datasets  
+X  
+
+Activation and deactivation at will of data collection systems (cameras,  
+microphones, GPS, Bluetooth, Wi-Fi, motion, etc.).  
+X  
+X  
+
+Page: 32 of 39  
+
+Establish a temporal schedule for when sensors (e.g., cameras,  
+microphones, etc.) may be operational.  
+X  
+X  
+
+Incorporation of obfuscation mechanisms to prevent the processing of  
+biometric data in photos, videos, keyboard, mouse, etc.  
+X  
+X  
+
+Physical blockers (such as tabs to cover camera lenses, speaker blockers,  
+etc.).  
+X  
+X  
+
+Use of privacy masks or pixelation in surveillance systems.  
+X  
+
+Extent of the processing  
+
+Definition and design of the processing to minimize the number of temporary  
+copies of data generated and to reduce retention times, transfers, and  
+communications to the maximum extent  
+X  
+
+Pseudonymization considering the processing operations that may exist at  
+each phase or stage.  
+X  
+
+Local and isolated processing, including the possibility of local storage.  
+X  
+
+Additional processing of the collected metadata – log files.  
+X  
+
+Exercise of rights of opposition, limitation, or deletion.  
+X  
+X  
+
+Configuration of processing for profiling or automated decisions (case of  
+cookies)  
+X  
+
+Possibility to configure all optional processing operations for non-essential  
+purposes: for example, data processing for service improvement, usage analysis,  
+advertisement personalization, pattern detection, etc.  
+X  
+X  
+
+Configuration of a secure deletion of temporary files, mainly those  
+located outside the user's device and outside the controller's systems  
+X  
+
+Incorporation of an option to reset user data to restart the relationship  
+from scratch  
+X  
+X
+Page: 33 of 39
+
+Data enrichment option configuration  
+X
+
+Consider mechanisms to audit the existence of Dark Patterns  
+X
+
+Specific section for configuration options related to sensitive data  
+X
+
+Help and transparency panel with usage examples and possible risks and consequences for the rights and freedoms of the user  
+X
+
+Incorporation of a specific means (button or link) to return to the initial configuration with default values  
+X
+
+Storage period
+
+Configuration for deleting session data after closure.  
+X  
+X
+
+Configuration of maximum time limits for logging out of the application or devices.  
+X  
+X
+
+Retention periods for user profiles.  
+X
+
+Configuration of temporary copy management.  
+X
+
+Control of the deletion of temporary copies.  
+X
+
+Elimination of the user's trace in the service: "right to be forgotten."  
+X  
+X
+
+Identification, within the record of data collection files from the sections, or data within sections, that may be anonymizable.  
+X
+
+Programming of automatic blocking and deletion mechanisms.  
+X
+
+Programming of automatic deletion mechanisms for outputs to printing devices.  
+X
+
+Page: 34 of 39
+
+Configuration of data retention periods for historical data in the service: e.g., in purchase sites, last items, last queries, etc.  
+X  
+X
+
+Incorporation of generic anonymization mechanisms.  
+X
+
+Data accessibility
+
+Profile information of the interested party displayed to the user and third parties: name, pseudonym, phone, etc.  
+X  
+X
+
+Information of the interested party shown to third parties: e.g., selective disclosure of elements of the CV, medical history, etc.  
+X
+
+Information about the status of the interested party accessible to third parties. E.g., in messaging applications, information about availability, message writing, message receipt, message reading, …  
+X  
+X
+
+Classification and labeling of processing operations, sections of documents and/or data within sections, that can be managed through an access control policy.  
+X
+
+Organization, classification, and labeling of the application or service according to the sensitivity of data, sections, or processing operations.  
+X
+
+Possibility of defining and configuring access profiles and granular assignment of privileges  
+X
+
+Automatic session locks.  
+X  
+X
+
+Assignment of access profiles to data according to user roles for each phase of processing.  
+X
+
+Design of the workspace (isolated interview areas, inaccessible physical files, non-transparent folders, screens not exposed to third parties or with privacy filters, headsets for phones, booths, clean desk policies, etc.)  
+X
+
+Page: 35 of 39
+
+Information management parameters such as where data is stored and processed, whether it is done in clear or using an encryption system, the access control mechanisms implemented, whether there are multiple copies of the data, including instances deleted unsafely, that can be accessed by third parties.  
+X
+
+Control of data storage encryption  
+X  
+X
+
+Control of data communication encryption  
+X  
+X
+
+Access management procedures for shared printing/output devices where documents may be left abandoned by the user.  
+X
+
+If applicable, prohibition of printing.  
+X
+
+Control of the deletion of print outputs  
+X
+
+Management procedures for portable storage devices for periodic formatting  
+X
+
+Retention or deletion of session information, in applications, shared systems, communications, or systems provided to the employee or end user.  
+X
+
+The type and amount of metadata collected in the documentation generated by system utilities (word processors, drawing tools, cameras, and videos, etc.)  
+X
+
+In message sending, configure the incorporation of conversation threads, as well as configure the possibility of multiple recipient send confirmation.  
+X
+
+Mechanisms to prevent indexing on the Internet  
+X
+
+Organizational and technical measures for reviewing and filtering information that will be made public.  
+X
+
+Anonymization and/or pseudonymization systems for texts to be disseminated.  
+X
+Page: 36 of 39
+
+Management parameters for the connectivity elements of devices (Wifi, Bluetooth, NFC, etc.).  
+X
+
+Alerts regarding the connectivity status of devices.  
+X  
+X
+
+Controls to prevent the communication of unique device identifiers (Advertising-ID, IP, MAC, serial number, IMSI, IMEI, etc.)  
+X
+
+Access control mechanisms for passive systems (such as contactless cards) incorporating terminal authentication protocols or physical measures to prevent electromagnetic access.  
+X
+
+Controls for accessibility to user content on social networks.  
+X
+
+Incorporation of controls to collect affirmative and clear actions of confirmation before making personal data public, so that dissemination is blocked by default.  
+X
+
+Configuration of notices and reminders to interested parties about what dissemination and information communication policies are established.  
+X  
+X
+
+Definition and configuration of access permissions over data sets (databases, file systems, image galleries, etc.) and information capture elements such as sensors (cameras, GPS, microphones, etc.) of the device and information about elements near the device (Wi-Fi access points, mobile phone service antennas, activated Bluetooth devices, etc.).  
+X
+
+Definition and configuration of data access permission policies between applications and libraries, as in the case of mobile phones.  
+X
+
+Definition of access profiles based on privileges or other types of technological and procedural barriers that prevent unauthorized linking of independent data sources.  
+X
+
+Content recorded in logs (who, when, to what, what action, for what purpose, ... accesses the data).  
+X
+
+Definition of automatic alert systems for specific events.  
+X
+
+Page: 37 of 39
+
+Traceability of data communication between data controllers, processors, and sub-processors.  
+X
+
+Configurable security options (aside from encryption options).  
+X
+
+Allow different access configurations based on different devices.  
+X
+
+Configure alert systems for anomalous access to data.  
+X
+
+Configuration of some security parameters, particularly keys and how to balance the security/performance/functionality relationship based on the robustness desired by the user.  
+X
+
+Control of the scope of information distribution in the application environment (social networks, work networks, etc.).  
+X
+
+Configuration of receiving alerts when information is being made accessible to third parties.  
+X
+
+Control of the metadata incorporated in the generated or distributed information.  
+X
+
+Mechanism for the "right to be forgotten" of information published on social networks or other systems.  
+X
+
+Options regarding where personal data is stored, whether on local or remote devices, and in the latter case, other parameters such as processors or countries.  
+X
+
+History of profiles and entities that have accessed your information.  
+X
+
+Information about access to your data by authorized users.  
+X
+
+Information about the latest changes made and the profile that made the change.  
+X
+
+Page: 38 of 39
+
+Configurability of access controls by provided functionalities.  
+X
+
+Configurability of logical separation of data groups.  
+X
+
+Configurability of physical separation of data groups.  
+X
+
+Selective disabling or annulment of functionalities.  
+X
+
+General
+
+In the case that the service is multi-device, the possibility (not obligation) to apply general privacy criteria applicable to all of them in a single action.  
+X  
+X
+
+Reminders, icons, and notices of all actions that affect the privacy of information: configuration changes, access to data by third parties such as video capture, sound, position, etc.  
+X  
+X
+
+Page: 39 of 39  
+XII.  
+BIBLIOGRAPHY  
+-  
+Regulation (EU) 2016/679 of the European Parliament and of the Council, of April 27, 2016, on the protection of natural persons with regard to the processing of personal data and on the free movement of such data, and repealing Directive 95/46/EC (General Data Protection Regulation)  
+https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&qid=1592307014433&from=ES  
+-  
+Guidelines 4/2019 on Article 25 Data Protection by Design and by Default  
+https://edpb.europa.eu/our-work-tools/public-consultations-art-704/2019/guidelines-42019-article-25-data-protection-design_en  
+-  
+“Recommendations on shaping technology according to GDPR provisions. Exploring the notion of data protection by default”, Dec 2018. European Union Agency for Cybersecurity (ENISA).  
+https://www.enisa.europa.eu/publications/recommendations-on-shaping-technology-according-to-gdpr-provisions-part-2

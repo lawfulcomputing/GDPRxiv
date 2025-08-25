@@ -1,0 +1,123 @@
+PRIVACY IN DNS  
+November 2019  
+
+Page: 2 of 11  
+
+EXECUTIVE SUMMARY  
+Access to the Internet, both from smartphones and desktop computers, uses services to facilitate access to websites in a way that is transparent and convenient for the user. These services, known as the DNS protocol, involve the processing of data by third parties distinct from those providing the services we wish to access. This processing could reveal browsing habits and geolocation information, allows for the generation of profiles, and can be retained indefinitely, posing a serious risk to user privacy.  
+Despite the increasing awareness of privacy on the Internet, the DNS protocol is probably the great forgotten one. This note identifies the privacy issues that may arise from the use of the DNS protocol and the implications that the unlawful processing of such data could have. It also identifies the safeguards that can be implemented to manage these risks for both users and service providers in domestic and professional environments.  
+
+Keywords: Privacy, Internet, Confidentiality, Integrity, Authenticity, Encryption, Domains, GDPR, LOPDGDD, AEPD, UEET, DNS, TLS, HTTPS, DNSSEC, Innovation.  
+
+Page: 3 of 11  
+
+INDEX  
+I. INTRODUCTION 4  
+II. OBJECTIVE AND TARGET AUDIENCE 4  
+III. IMPLICATIONS FOR PRIVACY OF THE DNS PROTOCOL 5  
+IV. CONCLUSIONS 9  
+V. BIBLIOGRAPHY 10  
+
+Page: 4 of 11  
+
+I. INTRODUCTION  
+
+To allow users to enter service names into browsers instead of a numerical code to identify servers on the Internet, the Domain Name System or DNS was developed.  
+When we browse the Internet, our devices make constant queries through the DNS protocol to various machines on the network to determine the IP address to access. In this way, instead of having to remember a number of up to twelve digits, it is possible to access, for example, the newspaper's website each morning by typing a commercial name or an easy-to-remember name. These queries are made transparently to the user, accessing specific servers, called DNS servers, that are configured on the network.  
+A DNS query contains an IP address that identifies the user and can geolocate the person browsing the Internet, and it also contains the name of the page to which one wishes to navigate. This allows for the assignment of browsing habits to unique identifiers, profiling a user by providing the queries.  
+For example, a person could be profiled based on their political opinion depending on the online sites they visit to stay informed. Another example could be deducing health issues based on the types of forums, blogs, or websites they participate in.  
+In the vast majority of cases, queries over the network are not protected by, for example, encryption. Additionally, when processing the request, some DNS servers may be configured to keep a record of these queries and use that data, not only legitimately to ensure the security of the services, but also for purposes other than the mere functioning of the DNS system, in addition to being sensitive information that could be leaked to third parties.  
+An added problem in the case that necessary safeguards are not adopted is that the origin of the responses cannot be assured, nor can it be guaranteed that the response has not been modified by a third party, so the use of DNS spoofing techniques can lead us to websites that are not the ones we actually want to visit, with the consequent risks to privacy: information theft, ransomware, etc.  
+This note focuses on the transversal use of the DNS protocol in communications, emphasizing the lack of security measures in the DNS protocol that can  
+
+1 Recital 49 of the GDPR states: The processing of personal data to the extent strictly necessary and proportionate to ensure the security of the network and information constitutes a legitimate interest of the data controller, that is, the ability of a network or information system to withstand, at a certain level of trust, accidental events or unlawful or malicious actions that compromise the availability, authenticity, integrity, and confidentiality of the personal data stored or transmitted, and the security of the related services offered by or accessible through these systems and networks, by public authorities, computer emergency response teams (CERT), computer security incident response teams (CSIRT), providers of networks and electronic communications services, and providers of security technologies and services. This could include, for example, preventing unauthorized access to electronic communications networks and the malicious distribution of codes, and stopping denial-of-service attacks and damage to computer and electronic communications systems.  
+2 DNS attacks: how they try to direct you to fake pages  
+3 Transversal in the sense that all services on the Internet are accessed using the DNS protocol
+Page: 5 of 11  
+originating problems in privacy, the improvements that have been adopted, and the implications that the illegitimate processing of such data may have. DNS has evolved in response to the need for security in communications, thus the (still slow) implementation of DNSSEC is providing dimensions of integrity and authenticity. At this moment, there are two proposals to enable confidentiality through the encryption of queries: DNS Over TLS and DNS Over HTTPS. These new security measures help to improve the level of privacy, but, as will be seen throughout this study, do not guarantee it.  
+II.  
+OBJECTIVE AND AUDIENCE  
+Since DNS is a cross-cutting protocol in Internet services, privacy considerations must be taken into account by a large number of stakeholders, including software developers, network administrators, DNS service providers, and Internet access providers.  
+The purpose of this technical note is to analyze the evolution of the DNS name resolution protocol from the perspective of the implications for individuals' privacy, how it is currently used, the risks that arise, the efforts being made to mitigate these risks, and the implications that these changes could have on users' privacy on the Internet. Additionally, recommendations to consider in the selection of DNS services are included.  
+This technical note is part of the Agency's strategic plan, which promotes public awareness of the rights and guarantees that assist them in data protection matters, with special attention to the protection of citizens concerning activities carried out on the Internet, and aims to boost initiatives from the digital economy industry that provide benefits for individuals' privacy in their use of the Internet.  
+III.  
+IMPLICATIONS FOR PRIVACY OF THE DNS PROTOCOL  
+THE DNS PROTOCOL AND ASSOCIATED RISKS  
+The foundations of the name resolution protocol or DNS were initially established in 1983 by the IETF, being updated in 1987, specifying how IP addresses of Internet devices will be resolved into names, as well as a distributed hierarchical system of domain names in which the domain owner, whether on their own DNS servers or those they designate, will establish the relationship between domain names and IP addresses. These are known as authoritative DNS servers, which will communicate with the DNS servers queried by client devices (PCs, mobile phones...), referred to as DNS resolvers.  
+Subsequently, to provide security measures in the DNS protocol, the so-called security extensions or DNSSEC were incorporated, which use public key cryptography, so that the integrity of the DNS response and its authenticity can be guaranteed. However, DNSSEC does not provide encryption mechanisms that allow for the confidentiality of DNS communications. The reality is that the use of DNSSEC has not spread as much as intended, and its use on the Internet is very uneven.  
+On the other hand, the standard configuration in local area networks uses the DHCP protocol to provide clients, at the operating system level, information such as the IP address, gateway, network domain name, and the DNS servers that the device will query. Thus, it will be the network to which we connect that will set the DNS servers to be queried; that is, in home networks, it is usually the operator who defines the DNS to be used, while in work networks, administrators will decide whether to use their own DNS server, the communications operator's, or any other public DNS.  
+When browsing the Internet from a device to different web pages, the first thing the device needs to know is the IP address corresponding to the name of the page we have typed in the browser. These queries are sent (and forwarded) unencrypted through the various elements of the network and are processed by the DNS servers. This mechanism is particularly vulnerable in open Wi-Fi networks or guest networks and results in two distinct confidentiality risks.  
+On one hand, DNS queries can be intercepted on the network and thus can be read and processed by a third party. On the other hand, DNS servers can log information about the queries from each device when the user browses the Internet or uses other network services.  
+DNS OVER TLS AND DNS OVER HTTPS  
+To provide confidentiality in DNS queries, different alternatives have been developed, among which DNS over TLS (DoT) and DNS over HTTPS (DoH) stand out recently. Both solutions are designed to mitigate the risk that
+Page: 7 of 11  
+DNS queries may be intercepted, and in the event that they are, the information may become unreadable, contributing to improved confidentiality.  
+Recently, the DNS over HTTPS (DoH) protocol has been defined in draft phase.  
+In this way, functionalities present in HTTP can be leveraged, such as compression, redirection, and encryption of DNS queries through TLS. The latter, TLS, is the protocol currently used to encrypt HTTPS communications of browsers; thus, DNS queries become HTTPS queries between client and server. In principle, this would represent a significant improvement in the privacy of communications, as it prevents third parties from knowing the DNS queries made by any device.  
+A third party analyzing the network traffic generated by a browser with DoH enabled (Figure 3) will only identify standard HTTPS communications made through TCP port 443. DoH queries will be masked among the rest of the communications with a secure website.  
+To use DoH, we must have access to DNS servers that accept queries based on this protocol. In the definition of DoH, it is established that DoH servers can be manually selected (simplified as if it were the address of a webpage) or can continue to be provided through DHCP or similar protocols.  
+
+Some web browsers have opted for the use of DoH. For example, Firefox allows it to be enabled in the browser options (Figure 4) and plans to establish it as the default configuration. However, since it is a setting established in the browser, it will only affect the DNS requests made by the browser itself, not affecting other browsers or applications on the device that access the Internet.  
+
+Figure 3. Network traffic of DNS over HTTPS query  
+
+Page: 8 of 11  
+
+Figure 4. DoH configuration in Firefox.  
+Although Firefox allows free configuration of the DoH server, when this option is activated, the default (Figure 5) is set to Cloudflare's default server, which stores the queries made for 24 hours, as reported on its website.  
+
+To avoid connectivity issues, in case Firefox cannot resolve addresses through DoH, detects a parental control system, or corporate DNS configurations, it will make an unencrypted query to the DNS servers set at the operating system level, a Multicast DNS query (Figure 6).  
+
+On its part, Google plans to incorporate DoH for version 78 of its Chrome browser, which, as they indicate, will experimentally include the option to choose the following DoH service providers: Cleanbrowsing, Cloudflare, DNS.SB, Google, OpenDNS, Quad9.  
+
+Figure 5. Default DoH provider in Firefox  
+Figure 6. Multicast DNS query.  
+
+Page: 9 of 11  
+DNS over TLS, or DoT, is another alternative that implements encryption capabilities provided by TLS over the DNS protocol, so that a standard DNS query is encrypted with TLS and sent to a server configured to respond to DoT. At the network level, the DoT server must be listening on TCP port 853 where the client will make requests. BIND is the most widely used DNS server today and allows for easy configuration as a DoT server.  
+Regarding mobile devices, since Android 9, it is natively possible to set the DNS servers that the Smartphone will use regardless of the network it is connected to. Currently, Microsoft and Apple systems do not have this option without resorting to third-party software.  
+
+IV.  
+CONCLUSIONS  
+For over 35 years, the DNS protocol has been one of the pillars of Internet use and data networks in general, facilitating access to websites without having to remember a numerical address such as an IP address.  
+Despite the increasing concern and awareness regarding privacy on the Internet, the DNS protocol is probably the great forgotten one. However, as we have seen, the information collected through this service can have a significant impact on individuals' privacy because, through the queries made to the DNS server, it is possible to know in detail the browsing habits and profile the owner of a device.  
+Like most Internet protocols, DNS was defined without considering security, and subsequently, measures were developed to ensure the integrity and authenticity of the response, such as DNSSEC, and more recently measures to ensure confidentiality, such as DoT and DoH.  
+The incorporation of these solutions can represent a significant advance for the privacy of communications, especially in untrusted networks, but they are not without some limitations that must be overcome when the technology matures and its implementation becomes more widespread:  
+
+• Currently, only web browsers implement DoH, so the rest of the queries made by applications on devices and the operating system itself continue to be made without encrypting the communication. DoT is still not natively implemented on most devices.  
+• The implementation of DoH in fallback mode in the browser means that, in some cases, requests will continue to be made through the DNS protocol.  
+Figure 7. Selection of private DNS in Android.
+Page: 10 of 11  
+traditional, with the uncertainty of not knowing which request has been made encrypted and which has not.  
+• Although users will be able to easily set up DoH servers through their browser settings, which is initially an advantage for their privacy, this option must be carefully analyzed, as it may lead to choosing a provider that has servers in countries outside the EEA and/or that uses query logs for purposes other than solely providing the DNS service, resulting in possible processing activities subject to the GDPR. This last consideration is not exclusive to DoH and DoT, but can also extend to the original DNS.  
+• By allowing queries to other DNS servers different from those already defined by the operating system and tunneled through HTTPS, DoH will facilitate malware in evading detection mechanisms.  
+• DoH can create a false sense of security, as the use of DNS queries over HTTPS can be identified through different techniques such as TLS fingerprinting, identifying the destination if it corresponds to a DoH server, or analyzing unencrypted HTTPS traffic.  
+
+As recommendations to the industry and other involved parties, each in their respective area of action, the following lines of action are proposed:  
+
+• Promote and facilitate a greater implementation of DNSSEC, activating it in all DNS, both resolvers and authoritative.  
+• Promote and facilitate the widespread use of encrypted DNS queries with one of the methods mentioned at the operating system level without the need to resort to third-party software.  
+• DNS service providers must inform about the terms of use of the service, including the applicable legal basis in case of storing and/or processing query data, as well as other information related to possible processing activities subject to the GDPR.  
+• In the case of Internet access companies that provide their customers access to third-party DNS servers, they must ensure that they select providers that comply with the requirements of the GDPR, choosing those DNS services that offer sufficient guarantees that any possible data processing ensures the rights of the data subjects.  
+Finally, it is important to remember that the data processed by the DNS server is collected for a specific processing purpose, to provide the domain name resolution service, and that any other type of additional processing, particularly the communication of such data for other purposes such as user profiling, has serious implications for privacy. In such a case, there would be a processing of personal data for which its legal basis must be identified, the user must be informed, the exercise of the user's rights must be guaranteed, and compliance with the GDPR must be ensured in its entirety. Otherwise, it would constitute an unlawful processing of such personal data.  
+
+V.  
+BIBLIOGRAPHY  
+[1] Liu, C. and Albitz, P. (2009). DNS and BIND. O'Reilly Media, Inc.  
+
+Page: 11 of 11  
+[2] Deckelmann, S. (2019). What’s next in making Encrypted DNS-over-HTTPS the Default – Future Releases. [online] Future Releases. Available at: https://blog.mozilla.org/futurereleases/2019/09/06/whats-next-in-making-dns-over-https-the-default/  
+[3] McManus, P. (2019). Improving DNS Privacy in Firefox – Firefox Nightly News. [online] Firefox Nightly News. Available at: https://blog.nightly.mozilla.org/2018/06/01/improving-dns-privacy-in-firefox/  
+[4] Chromium Blog. (2019). Experimenting with same-provider DNS-over-HTTPS upgrade. [online] Available at: https://blog.chromium.org/2019/09/experimenting-with-same-provider-dns.html  
+[5] Bradbury, D. (2019). Mozilla increases browser privacy with encrypted DNS. [online] Naked Security. Available at: https://nakedsecurity.sophos.com/2019/09/10/mozilla-increases-browser-privacy-with-encrypted-dns/  
+[6] Hunter, M. (2019). Encrypted DNS Could Help Close the Biggest Privacy Gap on the Internet. Why Are Some Groups Fighting Against It?. [online] Electronic Frontier Foundation. Available at: https://www.eff.org/deeplinks/2019/09/encrypted-dns-could-help-close-biggest-privacy-gap-Internet-why-are-some-groups  
+[7] GitHub. (2019). folbricht/routedns. [online] Available at: https://github.com/folbricht/routedns  
+[8] ag, u. (2019). ungleich blog - Mozilla's new DNS resolution is dangerous. [online] Ungleich.ch. Available at: https://ungleich.ch/en-us/cms/blog/2018/08/04/mozillas-new-dns-resolution-is-dangerous/  
+[9] Dnscrypt.info. (2019). Home page of the DNSCrypt project [DNS security]. [online] Available at: https://dnscrypt.info/protocol/  
+[10] Tools.ietf.org. (2019). RFC 7858 - Specification for DNS over Transport Layer Security (TLS). [online] Available at: https://tools.ietf.org/html/rfc7858  
+[11] Tools.ietf.org. (2019). RFC 8484 - DNS Queries over HTTPS (DoH). [online] Available at: https://tools.ietf.org/html/rfc8484  
+[12] Simplednscrypt.org. (2019). Simple DNSCrypt. [online] Available at: https://simplednscrypt.org/  
+[13] Hashed Out by The SSL Store™. (2019). What is the difference between DNS over TLS & DNS over HTTPS?. [online] Available at: https://www.thesslstore.com/blog/dns-over-tls-vs-dns-over-https/  
+[14] Kb.isc.org. (2019). DNS over TLS - BIND 9. [online] Available at: https://kb.isc.org/docs/aa-01386  
+[15] Android Developers. (2019). Distribution dashboard | Android Developers. [online] Available at: https://developer.android.com/about/dashboards  
+[16] Sans.org. (2019). SANS Institute: Reading Room - DNS Issues. [online] Available at: https://www.sans.org/reading-room/whitepapers/dns/needle-haystack-detecting-dns-https-usage-39160

@@ -1,0 +1,84 @@
+1  
+Identification is the process of recognizing a particular individual among a group. This process compares the data of the individual to be identified with the data of each individual in the group. Authentication is the process of proving that the identity claimed by an individual is true. This process compares the data of the individual solely with the data associated with the claimed identity.  
+In parallel to the recent popularization of the use of biometric data for identification and authentication purposes (for example, fingerprints or facial measurements), a series of misconceptions regarding this technology have spread. This document lists fourteen of them, explains their basis, and provides scientific references that support the clarifications.  
+1. “Biometric information is stored in an algorithm”  
+An algorithm (RAE) is a method, an ordered set of operations, or a recipe, and not a means to store biometric data. The biometric information collected (for example, the image of a fingerprint) is processed following procedures defined in standards¹, and the result of that process is stored in data records known as signatures, patterns, or “templates.” These patterns numerically record the physical characteristics that allow for the differentiation of individuals.  
+On the other hand, it should be noted that for some identification and authentication treatments, there are solutions implemented with Machine Learning techniques that contain, within the application itself and accessible, part of the biometric data used for their development².  
+2. “The use of biometric data is equally intrusive as any other identification/authentication system”  
+Unlike a password or a certificate, the biometric data collected during an authentication or identification procedure reveals more personal information about the subject. Depending on the biometric data collected, data about the subject can be derived, such as their race or gender (even from fingerprints³), their emotional state, illnesses, disabilities and genetic characteristics, substance use, etc.⁴ Since it is implicit, the user cannot prevent the collection of such supplementary information.  
+¹ On page 2, the format of digitized fingerprint data ISO 19794-2 can be seen: https://www.ekds.gov.tr/bio/FM3_README.pdf  
+A much more extensive example for handwritten signature: https://e-archivo.uc3m.es/bitstream/handle/10016/10990/PFC_Roberto_Pizarro_Santos.pdf?sequence=1&isAllowed=y  
+² Machine Learning Models that Remember Too Much: https://arxiv.org/pdf/1709.07886.pdf  
+³ Information that can be extracted from a fingerprint: https://www.scientificamerican.com/article/the-hidden-data-in-your-fingerprints/  
+⁴ Soft biometrics is the field of study of non-unique characteristics of the individual based on their biometric information, such as mental state, health, etc. Predictive biometrics: a review and analysis of predicting personal characteristics from biometric data. IET Biometrics https://digital-library.theiet.org/docserver/fulltext/iet-bmt/6/6/IET-BMT.2016.0169.pdf?expires=1588324856&id=id&accname=guest&checksum=FC6EA4A19D569EC51629E68254BB0884  
+Fourteen misconceptions regarding biometrics  
+June 2020  
+www.edps.europa.eu  
+www.aepd.es/es
+2  
+3. “Biometric identification/authentication is accurate”  
+Unlike processes based on passwords or certificates, which are 100% accurate (e.g., a key can either be correct or incorrect), biometric identification/authentication is based on probabilities (e.g., a digitized fingerprint will provide a 96% match with an individual). There is a certain rate of false positives (accepting an impersonation) and false negatives (rejecting an authorized individual). These rates are higher the less precise the data capture equipment is and depend on the conditions of collection (e.g., the brightness or cleanliness of the sensor). The accuracy of some biometric data, such as fingerprints, also depends on the age of the individual and is affected by their aging.  
+
+4. “Biometric identification/authentication is sufficiently accurate to always differentiate between two people”  
+It has been demonstrated that biometric similarity between siblings or relatives has confused biometric systems. In particular, the identity of biometric patterns for the identification of twins beyond facial recognition is a field of study. Moreover, environmental conditions in uncontrolled settings (i.e., facial recognition in public spaces, the use of face paint or antiviral masks) increase the error rate and therefore make confusion more likely.  
+
+5. “Biometric identification/authentication is suitable for all people”  
+Some individuals cannot use certain types of biometrics because their physical characteristics are not recognized by the system. In cases of injuries, accidents, health issues (such as paralysis), and others, the incompatibility may be temporary. Permanent biometric incompatibility can be a cause of social exclusion.  
+
+6. “The biometric identification/authentication process cannot be circumvented”  
+There are procedures and techniques that allow for the circumvention of biometric authentication systems and the assumption of another person's identity. Some of these means, such as the use of masks or reproductions of fingerprints, do not...  
+
+Misunderstandings regarding biometrics  
+5  Poor performance of British police facial recognition systems: https://www.theguardian.com/uk-news/2018/may/15/uk-police-use-of-facial-recognition-technology-failure  
+6  On the degradation of the quality of information collected from individuals as they age: https://www.researchgate.net/publication/328526153_A_Study_of_Age_and_Ageing_in_Fingerprint_Biometrics  
+7  Circumvention of facial recognition: https://www.ipadizate.es/2017/11/04/hermanos-burlan-face-id-iphone-x/  
+8  Biometric Identification of Identical Twins: A Survey. Conference: 2016 IEEE 8th International Conference on Biometrics Theory, Applications and Systems (BTAS). https://www3.nd.edu/~kwb/Bowyer_Flynn_BTAS_2016.pdf  
+9  Risks of social exclusion from biometric ID card systems in the UK: https://privacyinternational.org/sites/default/files/2017-12/UK%20Identity%20Cards.pdf  
+10 A $200 mask bypasses the Face ID of the iPhone X: https://www.cnet.com/es/noticias/mascara-200-dolares-burla-face-id-del-iphone-x/  
+11 Students who bypass the fingerprint identification system at their institution: https://www.hindustantimes.com/mumbai-news/you-will-be-glued-to-this-mumbai-college-s-students-trick-biometric-system/story-W64f1jdMtecxKDml2DakeI.html  
+www.aepd.es     |     www.edps.europa.eu
+3  
+Misunderstandings regarding biometrics require extensive technical knowledge or economic resources. There are also so-called "adversarial systems," which are specifically designed to try to deceive image recognition systems and can be used to circumvent biometric identification.  
+
+7. “Biometric information is not exposed”  
+Unlike processes based on passwords or certificates, most biometric characteristics of a person are exposed and can be captured from a distance, as the face, fingerprints, mannerisms, thermal footprint, etc., are not usually concealed. On the other hand, those individuals who want to actively circumvent tracking or biometric identification systems have resources available to do so, which is not the case for the vast majority of citizens. If measures are not taken to reduce the risk of unauthorized use of biometric data, its use is equivalent to having our access keys written on our foreheads.  
+
+8. “All biometric processing implies identification/authentication”  
+Not necessarily. For example, the biometric processing of mouse movement used to determine whether a robot is accessing a webpage involves processing biometric information to differentiate human from machine. Similarly, biometric processing can be performed to determine whether there is a human or animal intruder in a restricted space, or in digital signage systems, it can differentiate between a man, woman, or child. What exists is a risk of processing that information beyond the original purpose in the event that, for example, a security breach occurs, a regulatory change happens, or illegitimate processing takes place.  
+
+9. “Biometric identification/authentication systems are more secure for users”  
+Any of the multiple systems in which our biometric data is being processed can suffer a security breach. Unauthorized access to our biometric data in one system would allow or facilitate (in the case of using multiple authentication factors) access to the rest of the systems that use such biometric data. It could have the same effect as using the same password across many different systems, which makes the scale of biometric implementation a problem in itself. And, unlike password-based systems, once biometric information has been compromised, it cannot be canceled.  
+Previously, biometric information was stored in a few databases (mainly for public safety or border control purposes), but now it is increasingly stored in more entities and devices. This increases the risk of exposure.  
+12 On adversarial patches: real-world attack on ArcFace-100 face recognition systems https://arxiv.org/pdf/1910.07067.pdf  
+13 Accessories to evade facial recognition: https://www.businessinsider.com/clothes-accessories-that-outsmart-facial-recognition-tech-2019-10?IR=T#images-from-echizens-lab-shows-how-the-visor-blocks-ais-ability-to-detect-a-face-6  
+14 Danger of exposing fingerprints in photos uploaded to the Internet: https://www.bleepingcomputer.com/news/security/scientists-extract-fingerprints-from-photos-taken-from-up-to-three-meters-away/  
+15 Projectors that use technologies such as LCD, LED, projection, and e-paper to display digital images, video, web pages, weather information, menus, or text.  
+www.aepd.es | www.edps.europa.eu
+4  
+Misconceptions Regarding Biometrics  
+greatly increase the likelihood of a breach of biometric information security (during its collection, transmission, storage, or processing), something that is already happening16.  
+10. “Biometric authentication is strong”  
+By definition, a strong authentication system is one that requires at least two of the following: something you know, something you have, or something you are (biometrics). By definition, using only biometrics is a weak authentication process, while using an access card and password is strong. Although biometric authentication often requires a prior registration or identification process in which, for example, in facial recognition, it must be compared with the photo on the ID, if, after the identification process, the authentication process is only biometric, it remains a weak system.  
+11. “Biometric identification/authentication is more convenient for the user”  
+This statement depends on the technology used and the circumstances, perception, and culture of each user. Aside from the suitability issues described in point 5, there may be other problems that negatively affect the user's perception: feelings of invasion of privacy, failures in biometric systems that prevent access to services, lack of non-biometric alternatives eliminated or inadequate to provide the same service, as well as the need to carry out data registration processes in each entity17.  
+12. “Biometric information converted to a hash is not recoverable”  
+To add security to the processing of biometric information, it is advisable to eliminate the biometric pattern from which the hash18 or biohash19 has been obtained. However, there are studies that demonstrate that the hash can be reversible, meaning it could be possible to obtain the original biometric pattern, especially if the secrecy of the key used to generate the hash is compromised20.  
+13. “Stored biometric information does not allow reconstruction of the original biometric information from which it was extracted”  
+Stored biometric information (e.g., the pattern) allows for partial reconstruction of the original biometric information (e.g., the face). This partial reconstruction sometimes has sufficient fidelity for another biometric system to recognize it as the original. For example, in facial biometric information, there are studies that demonstrate that it is possible to obtain anything from a composite image to a faithful representation21. The fidelity of the reconstruction depends on the amount of biometric information collected.  
+14. “Biometric information is not interoperable”  
+On the contrary, biometric information processing systems are developed following standards to ensure their interoperability22. Systems that operate by comparing the result of applying a hash function to biometric patterns can also be made interoperable by the simple method of sharing the keys used during the hashing process.  
+16 A security breach exposes millions of records of fingerprints and facial recognition collected in the financial system:  
+https://www.forbes.com/sites/zakdoffman/2019/08/14/new-data-breach-has-exposed-millions-of-fingerprint-and-facial-recognition-records-report/#15cedb5f46c6  
+17 Caixabank offers an appointment to capture facial recognition: https://www.caixabank.es/particular/banca-digital/face-id_es.html#  
+18 A hash function is a process that transforms any set of data (e.g., a digitized fingerprint) into a set of fixed-length values. For more information on hash functions and their use as a pseudonymization technique, see: https://www.aepd.es/sites/default/files/2020-05/estudio-hash-anonimidad.pdf  
+19 Biohash is a technique used to combine random tokens with biometric data. For more information, see: https://www.researchgate.net/publication/234809846_Remarks_on_BioHash_and_its_mathematical_foundation  
+20 Attack models for inversion: https://link.springer.com/article/10.1186/s13634-016-0396-1#Sec5  
+The pattern can be obtained from a biohash: https://bit.ly/3gPfNhJ  
+21 On page 3, original faces and faces reconstructed from patterns can be compared:  
+https://www.ntia.doc.gov/files/ntia/publications/uniqueness_of_face_recognition_templates_-_ipc_march-2014.pdf  
+22 Example of conversion between biometric formats:  
+https://jomutech.com/convertfingerprintimagestoisooransifingerprinttemplateformats/  
+Description of biometric interoperability standards:  
+http://biometria611.blogspot.com/p/estandares.html  
+Misconceptions Regarding Biometrics  
+www.aepd.es | www.edps.europa.eu

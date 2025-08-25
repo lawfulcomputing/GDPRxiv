@@ -1,0 +1,480 @@
+Index  
+–  
+INTRODUCTION…………………………………………………………………………….............………................…..............   1  
+–  
+1.  ANONYMIZATION…………………………………………………………………….............….............….............…........   2  
+–  
+2.  PRINCIPLES OF ANONYMIZATION……………………………..…....…......................…….….............….........  3  
+–  
+3.  PHASES OF ANONYMIZATION………………………………………….............….............…….….............…........   5  
+–  
+3.1. DEFINITION OF THE WORKING TEAM………………………….............….............………….............…........    5  
+–  
+3.2. INDEPENDENCE OF FUNCTIONS…………………………………….............……….............….............….........   7  
+–  
+3.3. RISK ASSESSMENT OF REIDENTIFICATION………….............…….….............….............….........   7  
+–  
+3.4. DEFINITION OF OBJECTIVES AND PURPOSE OF ANONYMIZED INFORMATION
+……………………………………………………………..……….............….............….............….............….........  11  
+–  
+3.5. FEASIBILITY OF THE PROCESS………………………………………….............….............….............…................... 11  
+–  
+3.6. PRE-ANONYMIZATION: DEFINITION OF IDENTIFICATION VARIABLES….............….............….....  12  
+–  
+3.7. ELIMINATION/REDUCTION OF VARIABLES……………………………………….............….............…............ 13  
+–  
+3.8. SELECTION OF ANONYMIZATION TECHNIQUES: KEYS ……………………….............….............. 14  
+–  
+3.9. SEGREGATION OF INFORMATION………………………………………….............….............…................. 18  
+–  
+3.10. PILOT PROJECT………………………………………….............….............….............….............…............ 19  
+–  
+3.11. ANONYMIZATION ……………………………………….............….............….............….............…............... 19  
+–  
+4. TRAINING AND INFORMATION FOR PERSONNEL INVOLVED IN THE 
+ANONYMIZATION PROCESSES AND FOR PERSONNEL WORKING WITH 
+ANONYMIZED DATA….............….............….............….............….............….............….............….................  21  
+–  
+5. GUARANTEES….............….............….............….............….............….............….............….....................    21  
+–  
+6. AUDIT OF THE ANONYMIZATION PROCESS….............….............….............….............….............  22  
+–  
+7. DOCUMENTATION….............….............….............….............….............….............….............…..........   23  
+–  
+8. CONCLUSION….............….............….............….............….............….............….............….............…..    23  
+–  
+9. REFERENCES….............….............….............….............….............….............….............….............…..    24
+INTRODUCTION  
+Information is a fundamental resource in today's society for decision-making in all aspects and sectors. The processing and exploitation of large volumes of information can offer multiple benefits to society, provided that respect for individuals' rights, their privacy, and the protection of their personal data is maintained. In this context, the anonymization of personal data acquires special value as a formula that can ensure the advancement of the information society without undermining respect for data protection.  
+To achieve this objective, it is necessary to guarantee the irreversibility of anonymization, and for this, both the available information sources in different media, particularly through the internet, and the applicable technology in the processes of anonymization and reidentification must be assessed.  
+The anonymization of data should be considered as a way to eliminate the possibilities of identifying individuals. The advancement of technology and the available information makes it difficult to guarantee absolute anonymity, especially over time; however, in any case, anonymization will offer greater privacy guarantees to individuals.  
+The techniques that can be used must be evaluated both for the processes of anonymization and for possible attempts at reidentification of the affected individuals, so that the effort of reidentifying the subjects entails a sufficiently high cost that it cannot be approached in terms of a cost-benefit relationship. In other words, since anonymization would never be absolute, the reidentification of subjects must involve a considerable effort, making any potential benefit negligible or making such effort unfeasible for the person or entity with access to the anonymized information.  
+Therefore, in an anonymization process, it is essential to assess the risks of reidentification a posteriori and how the confidentiality of the anonymized personal information will be guaranteed. The risks of reidentification of subjects should be addressed as a residual risk that must be managed and not as a failure to comply with the security measures for the protection of personal data. In this sense, the use of measures such as, for example, mechanisms and protocols for anonymization that involve defining the work team, organizational measures, staff training, confidentiality measures, the use of possible standards, the use of codes of good practices, etc., explicitly define the intention and diligence of the data controller in the processes of anonymizing personal data.  
+The Agency considers that the development of data anonymization techniques acquires vital importance to guarantee the protection of personal data in the development of studies and research of social, scientific, and economic interest, and with these guidelines, it aims to provide useful guidelines for implementing these techniques, while also promoting their knowledge and encouraging their development and dissemination.  
+In this document, the term "chain" is used to refer to a set of technical measures aimed at the concealment, masking, or dissociation of personal data. These measures constitute what has been termed the "anonymization chain" or "confidentiality chain," the breaking of which implies the possibility of reidentifying the interested parties.  
+1
+The design of the confidentiality chain involves specific study and analysis for each block of personal data, which must be adapted to each specific situation and each block of data intended for anonymization. This document provides some guidelines that can be considered by those responsible for the processing of personal data, encouraging them to implement anonymization procedures. 
+
+The processes and techniques described in these guidelines may be useful both for the anonymization processes themselves and for reinforcing the security of the information, providing greater guarantees in the processing and preservation of personal data. 
+
+In this regard, the measures proposed can be applied to data of natural persons, as well as to data of legal entities such as administrations, companies, educational centers, associations, etc., from which information is collected and compiled and that, for various reasons, do not wish to be identified or have made anonymity a condition for providing that data for publication. 
+
+The purpose of the anonymization process is to eliminate or minimize the risks of reidentification of the anonymized data while maintaining the accuracy of the results of the processing of the same; that is, in addition to avoiding the identification of individuals, the anonymized data must ensure that any operation or processing that may be carried out after anonymization does not lead to a distortion of the actual data. A massive analysis of the data or macrodata that may derive from the anonymized data should not differ from the analysis that could be obtained if it had been conducted with non-anonymized data. 
+
+In the anonymization process, the break in the identification chain of individuals must occur. This chain consists of microdata or direct identification data and indirect identification data. Microdata allows for the direct identification of individuals, while indirect identification data are cross-referenced data from the same or different sources that may allow for the reidentification of individuals, such as information from other databases of the same or another responsible party, social networks, search engines, blogs, etc. 
+
+In designing the anonymization process, it will be necessary to foresee the consequences of a potential reidentification of individuals that could cause harm or diminish their rights. It will also be necessary to anticipate a hypothetical loss of information due to negligence of the involved personnel, due to a lack of an adequate anonymization policy, or due to an intentional disclosure of secrets that could lead to the loss of the identification variables or identification keys of individuals. 
+
+1. INDIRECT IDENTIFICATION: the identification that may occur as a result of information from one or several sources that, by itself or in combination with other factors, may allow for the reidentification of individuals when their data has been anonymized. For example, the combination of sex, age, place of birth, and suffering from a particular disease may allow for the indirect identification of a specific individual. 
+
+1. ANONYMIZATION
+Below are some principles to consider in an anonymization process.  
+Anonymization processes should be approached from the concept of data protection by design, which means that privacy requirements will be taken into account from the initial stages of the design of the information system or the product used for the anonymization process and throughout the entire lifecycle of that product or information system. The concept of privacy by design in anonymization processes can be summarized in the application of the following principles:  
+1. Proactive Principle. The protection of privacy is the primary objective of anonymization, and its management must be carried out proactively rather than reactively. From the conceptual inception of the design of the information system or product to be used in the anonymization process, necessary measures will be taken to ensure the privacy of individuals. Privacy cannot be guaranteed a posteriori as a result of remedying existing gaps in the anonymization process or harms caused to the data subjects, so it is essential to ensure the non-existence of potential re-identification chains of the data subjects in the anonymized data.  
+An important measure at the initial state of the concept of an information system or product used in anonymization processes is to carry out an initial classification of the data and have a scale or gradient of sensitivity of the information. This classification can be qualitative or quantitative and will serve as a reference within an organization.  
+For example, a classification scheme can be developed consisting of a scheme based on at least three levels of identification of individuals (microdata, indirect identification data, and sensitive data), where a quantitative value is assigned to each of the identification variables. The scale will be known to all personnel involved in the anonymization process and will be a fundamental key to consider in the risk analysis or Data Protection Impact Assessment (DPIA) of the anonymization process.  
+2. Privacy by Default Principle. The first conceptual requirement in the design of an information system will be to guarantee the confidentiality of the data subjects. Therefore, it is advisable to safeguard privacy from the outset, taking into account the granularity or degree of final detail that the anonymized data should have. In this sense, maintaining a qualitative or quantitative scale as referred to in the previous point is an undoubtedly useful tool for the elimination of variables according to pre-established granularity criteria.  
+2 DPIA: For more information on privacy impact assessments, the Guide for a Data Protection Impact Assessment from this Agency can be consulted.  
+3. Objective Privacy Principle. As a result of the DPIA, there will be a threshold of risk or residual risk index of re-identification. This risk index will be assumed by the data controller as an acceptable risk and will be taken into consideration for the design of the anonymization process. Finally, the residual risk threshold of re-identification will be known by the recipient of the anonymized information and, when the anonymized data is for public use, it will also be made publicly known, informing the individuals or entities that use the information about this risk.  
+4. Full Functionality Principle. From the outset of the design of the information system, the final utility of the anonymized data will be taken into account, ensuring, as far as possible, the non-existence of distortion in relation to the non-anonymized data. In this way, the utility of the anonymized data will be guaranteed.  
+In some cases, in order to ensure the privacy of individuals, it may be necessary to use geographic range distortions, as in the case of individuals with extremely rare pathologies. In these cases, the recipient of the information will be informed of the reason for the use of geographic range variances or any other type of variances that may have been used in the anonymization process (temporal, length, etc.).  
+5. Privacy in the Information Lifecycle Principle. The measures that guarantee the privacy of the data subjects are applicable throughout the entire lifecycle of the information starting from the non-anonymized information. For example, at the beginning of the anonymization process, the identification variables that are not deemed necessary or that cannot be anonymized will be eliminated, and once the exploitation of the anonymized information begins, measures will continue to be taken to ensure the privacy of the data subjects, such as audits to verify the use of the information, procedures for the destruction of the information, etc.  
+6. Information and Training Principle. One of the keys to ensuring the privacy of the data subjects is the training and information provided to the personnel involved in the anonymization process and in the exploitation of the anonymized information. Throughout the lifecycle of the information, all personnel with access to the anonymized or non-anonymized data will be appropriately trained and informed about their obligations. The design of the information system or product used for the anonymization process will take this need into account from its conceptual design, considering the profiles and needs of each of the actors involved in the anonymization process.
+In an anonymization process, it is advisable to define a protocol of action. The elements described in this section can serve as guidance when defining this protocol, but it is in no case intended to be a closed conceptual or operational scheme; rather, it reflects the proposal of a structure that can be taken into account in anonymization processes. In the development of an anonymization process, it would be possible to segregate functions according to profiles or roles. Some of the profiles that may be considered within the anonymization process are as follows:  
+–  
+Data Controller.  
+–  
+Data Protection Officers or Data Protection Delegate or DPD (figure established by the GDPR).  
+–  
+Recipient or data controller of the anonymized personal information.  
+–  
+Risk assessment team.  
+–  
+Pre-anonymization team and anonymization team.  
+–  
+Information security team and the anonymization process: security officer and other personnel involved in information security tasks (security operators, departmental or regional information security officers, information systems managers, etc.), ethical committee, etc.  
+It is advisable that the necessary functions and the details of the scope of each of the profiles that may ultimately be designated in relation to them are defined in the anonymization processes. It is recommended to ensure, as far as possible, that each of the actors will generally act within the scope of their competence, independently of the other actors. Logically, the number of actors involved and their independence will be proportional to the volume of data processing and the complexity of the anonymization process, making it possible and sometimes necessary for some of the involved actors to hold several of the functions that have been defined.  
+Below is the detail of some of the possible tasks that could be segregated according to the functions assigned to each of the actors involved in the anonymization process:  
+3 REGULATION (EU) 2016/679 OF THE EUROPEAN PARLIAMENT AND OF THE COUNCIL of April 27, 2016, on the protection of natural persons with regard to the processing of personal data and on the free movement of such data, and repealing Directive 95/46/EC. General Data Protection Regulation.  
+3. PHASES OF ANONYMIZATION  
+3.1. DEFINITION OF THE WORKING TEAM  
+
+Anonymization:  
+–  
+Data Controller: decide on the purpose and objectives that the information must respond to.  
+–  
+Data Protection Officer or, if applicable, DPD: promote the conduct of prior impact assessments on privacy in anonymization processes, verify the execution of anonymization processes, ensure the independence of roles and functions, report to the information and data processing controller on the anonymization processes, promote compliance audits of the anonymization processes, or respond to citizens' requests for information regarding their anonymized or non-anonymized personal data, among other functions.  
+–  
+Recipient of the anonymized information and data controller of anonymized data: both are the final recipients of the anonymized information and decide on the requirements of the information according to the final objectives for which it is intended.  
+–  
+Risk assessment team: responsible for conducting the initial risk assessment, evaluating the results of the anonymization process, auditing the anonymization procedure, auditing the use of anonymized information, and ultimately responsible for ensuring that the anonymized file meets the requirements related to the residual risk of re-identification, conducting ethical hacking tests aimed at assessing the strength of the procedures that must guarantee the irreversibility of the anonymization, or conducting tests in which the possible participation of the systems team must be taken into account, among others.  
+–  
+Pre-anonymization and anonymization team: responsible for determining the variables that need to be anonymized and proposing anonymization techniques that will be selected or validated by the risk assessment team. They will also be responsible for eliminating those variables whose anonymization is not viable or does not fit the purpose of the anonymized data, facilitating the final work of the anonymization team and ensuring the value of the anonymized data. The anonymization team may consist of individuals who have participated in the pre-anonymization of personal data, although it is also possible to segregate their function and keep it separate from the functions of the pre-anonymization team. The anonymization team will be responsible for choosing the necessary anonymization techniques and their application.  
+–  
+Information security and process team: this team will be responsible for ensuring the security measures that may be necessary during the life cycle of the anonymized information and during the anonymization processes, in addition to evaluating the results of the DPIA and implementing measures aimed at mitigating risks to the anonymized personal information.  
+Another possibility would be to establish a multidisciplinary team that would be responsible for the prior study of the feasibility of the anonymization process and the use of the anonymized information.
+This team would be responsible for defining the process and the involved agents as well as the functions of each of them, ensuring that there is no task that, being necessary to guarantee confidentiality, has not been assigned to a specific responsible party. This possible scheme of segregation of roles and tasks ultimately presents a potential functional and organizational inventory that could serve as guidance when planning the anonymization processes. 
+
+As already indicated, it would be advisable for the definition of the working team and the different involved actors to be carried out according to the principle of professional independence, so that each of them acts within the scope of the functions assigned to them and, whenever possible, efforts are made to avoid having the same person involved in several different profiles or functions. 
+
+One of the objectives of the principle of independence of functions is to prevent an error that occurs at a certain level from being supervised and approved at another distinct level by the same person. However, the conditions and resources available to address an anonymization process may not allow for a thorough segregation of functions, and it may be necessary for some members of the working team to perform several different roles. 
+
+It is essential that there is a document defining the working team in which each of the functions of the involved persons is expressly delineated. This document must be approved by the information responsible party and updated whenever necessary by the responsible party for anonymization. In cases where segregation and independence of functions are not possible, the reasons or situations that condition the independence or segregation of functions must be noted in the document. The objective of this document is to ensure that each task aimed at the anonymization or definitive dissociation of personal data has an associated responsible party. 
+
+The processes of data anonymization have a direct impact on the resources of an organization. This effort associated with the anonymization processes (economic, technological, human, etc.) must be adequate to the objectives and requirements of the anonymization process. The effort required will depend on the measures that need to be implemented to guarantee the privacy of personal data, adapting the necessary measures to the purpose of the anonymized data and to the possible risks of reidentification of individuals. 
+
+When anonymization mechanisms are used exclusively without conducting a prior DPIA (Data Protection Impact Assessment)  
+3.2. INDEPENDENCE OF FUNCTIONS  
+3.3. EVALUATION OF REIDENTIFICATION RISKS  
+7
+it. This involves identifying and categorizing the assets involved in the anonymization process to assess the inherent risks associated with each.
+
+2. ANÁLISIS DE RIESGOS: una vez identificados los activos, se debe llevar a cabo un análisis exhaustivo de los riesgos de reidentificación, considerando factores como la naturaleza de los datos, el contexto en el que se utilizan y las posibles amenazas externas.
+
+3. IMPLEMENTACIÓN DE MEDIDAS DE MITIGACIÓN: tras el análisis de riesgos, es fundamental implementar medidas técnicas y organizativas para mitigar los riesgos identificados. Esto puede incluir la mejora de los procedimientos de anonimización, la capacitación del personal y la gestión adecuada de las claves de cifrado.
+
+4. MONITORIZACIÓN Y REVISIÓN: es necesario establecer un sistema de monitoreo continuo para evaluar la efectividad de las medidas de mitigación implementadas y realizar revisiones periódicas del proceso de anonimización, adaptándose a los cambios en el entorno y en los riesgos asociados.
+
+5. DOCUMENTACIÓN Y REPORTING: se debe llevar un registro detallado de todas las actividades relacionadas con el proceso de anonimización, incluyendo el análisis de riesgos, las medidas de mitigación implementadas y los resultados de las revisiones. Esto no solo es importante para la rendición de cuentas, sino también para facilitar futuras evaluaciones y auditorías.
+
+En conclusión, la gestión de los riesgos de reidentificación en el proceso de anonimización es un aspecto crítico que debe ser abordado de manera sistemática y continua, asegurando así la protección de la privacidad de los individuos y el cumplimiento de la normativa de protección de datos.
+one of them. Some of the assets that we must take into account in the preparation of the risk analysis are:  
+a. Personal data to be anonymized.  
+b. Anonymized information assets and associated identification variables.  
+c. Anonymization processes and subprocesses.  
+d. Information systems involved: hardware used, limitations of the anonymization software concerning the information assets that need to be anonymized.  
+e. Dependency analysis of assets involved in the anonymization process.  
+f. Categorization of assets: it is possible to establish a categorization based on the criticality of each asset, taking into account aspects such as, for example, the degree of sensitivity of the information.  
+
+2. CONSTITUTION OF THE WORKING TEAM: the degree of specialization in risk analysis and data protection are two factors to consider when forming the working team. It will be necessary to take into account the participation of the representatives of the working team, who will ultimately have to accept the proposal for the acceptable residual risk.  
+
+3. IDENTIFICATION OF RISKS: The first aspect to consider in the risk analysis is the initial cataloging of risks according to three categories:  
+a. Known existing re-identification risks  
+b. Potential re-identification risks  
+c. Unknown risks  
+Each identified risk in the aforementioned categories will be assigned a specific value from a quantitative or qualitative scale based on the probability of occurrence. The set of all risks will result in the risk catalog of a block of information intended for anonymization.  
+Some of the risks that may be taken into account are: re-identification risks due to correlation with other data sets, risks of breaching the duty of confidentiality due to unauthorized access to non-anonymized information, risks of disclosure of anonymization keys for the information, the existence of a potential attacker or adversary, or what may be considered the role of the "pursuer," or the existence of a subject who knows the identity of a person in a block of information and seeks to obtain more information, etc.  
+
+4. ASSESSMENT OF EXISTING RISKS: based on the set of assets and the catalog of existing risks, a categorization of each of the re-identification risks that have been detected will be carried out. This categorization will be taken into account in the phases of the anonymization process and especially when eliminating variables.  
+
+5. SAFEGUARDS: for each of the identified risks, one or more safeguards must be proposed aimed at preventing a specific risk from materializing. Finally, a catalog of risks and a catalog of safeguards will be obtained, categorized based on the criticality of the assets that need to be protected.  
+
+6. QUANTIFYING THE IMPACT: it is advisable to conduct an accumulated or compounded risk analysis in which each asset inherits the risks of the assets it depends on. In this sense, it may be useful to create diagrams that represent the flows of risks and from which a graphical image of the critical areas can be obtained, along with the safeguards that have been assigned and the asset on which the safeguards are implemented.  
+Once the risks and safeguards have been identified, it is time to assess or quantify the impact of the possible materialization of a risk. It should be noted that the impact can be tangible (for example, material damages, possible compensations, etc.) or intangible (loss of trust, deterioration of the image of the data controller, stigmatization of the data subjects, etc.), but in both cases, we must assign a quantitative or qualitative value to the possible impact.  
+
+7. RISK REPORT: the report of the resulting risks will be executive in nature and will clearly reflect the existing risks and their level of criticality according to the scale that has been used for their identification. The working team conducting the risk assessment will present to the data controller and the security team a proposal with the acceptable risk threshold for each anonymization process, so that each of them can issue their opinion.  
+
+8. DETERMINATION OF THE ACCEPTABLE RISK THRESHOLD: the data controller, at the proposal of the risk assessment team, the anonymization team, and the information security team, will ultimately decide on the acceptable risks resulting from the anonymization process. All personnel involved in the anonymization processes will be aware of the acceptable risk threshold, and the recipient of the anonymized information will have access to the risk catalog prepared by the data controller in order to adopt the appropriate measures to mitigate the possible consequences that may arise from the identification of individuals in the anonymized data.  
+
+9. MANAGEMENT OF ACCEPTABLE RISKS: for each of the risks that have been determined as acceptable, measures will be established aimed at mitigating the possible impact on the privacy of individuals who could be re-identified.  
+
+10. FINAL REPORT: The possible measures that are established will be known by all individuals involved in the anonymization processes and in the processing of anonymized data. All personnel involved will have knowledge and training regarding the actions they should take to mitigate the impact resulting from the materialization of any of the re-identification risks of individuals. In order to minimize its impact, the final report will reflect the existing risks by category and the measures or
+Recommendations to be implemented in the processes of anonymization and in the exploitation of anonymized information.  
+11. RISK REVIEW: The risk analysis must be conducted periodically throughout the entire lifecycle of the information and whenever changes occur in the anonymization processes or in the handling of anonymized information. Periodic reviews aim to verify that the actual state of risks aligns with the acceptable risk of reidentification, assessing the effectiveness of the measures in place to mitigate the potential impact that reidentification of individuals may have. For its part, the data controller of the anonymized data must take into account the initial risk catalog prepared by the data controller to continue developing its own analysis throughout the lifecycle of the anonymized information.  
+In addition to ensuring the privacy of the data subjects, the data controller will determine the objectives that the anonymized information must meet based on the legitimate interests of its recipient. The design of the anonymization process will be conditioned by the final objective of the anonymized information, leading to either restricted use information or open data.  
+When the anonymized information is intended to become restricted use information, the privacy of personal data will be reinforced through confidentiality agreements that will be part of the set of legal guarantees of the anonymization process. In the case of restricted use anonymized information, the data controller may consider the development of possible contractual clauses, codes of conduct, and certification mechanisms that include the recipient's commitment not to attempt any reidentification of individuals and that guarantee the privacy of the information even in the event of reidentification breaches.  
+When it is intended to anonymize data belonging to the special categories referred to in Article 9 of the GDPR, the existence of a team to study the feasibility of the anonymization process could be taken into account. The work of this team will be particularly relevant, and its main task will be to prepare a feasibility report that will detail the specific reasons and conditions for the anonymization of specially protected data. This report may include, among other things, the ethical foundations or linkages of the anonymization process.  
+3.4. DEFINITION OF OBJECTIVES AND PURPOSE OF ANONYMIZED INFORMATION  
+3.5. FEASIBILITY OF THE PROCESS  
+11  
+
+Security experts will act as an advisory body to provide technical feasibility to the foundations that enable the use of anonymized information and the anonymization process. Together, they will agree on the acceptable risk threshold resulting from the DPIA, and if they do not agree, they must issue the corresponding reasoned opinion.  
+The pre-anonymization of microdata is the initial part of the anonymization process, in which the possible identification variables (direct and indirect) to be considered in the design of the anonymization tools will be determined. During the pre-anonymization process, the following will be taken into account:  
+–  
+The determination of variables: personal data, direct and indirect identifiers, specially protected data, and other confidential data.  
+–  
+The classification and sensitivity of the variables by categories: direct identification, geographical identification, specially protected, numerical, temporal, metadata, etc.  
+–  
+Identification variables that cannot be anonymized and that must be eliminated from the anonymization process.  
+–  
+Anonymized variables that are essential for the purpose to which the anonymized data will be allocated.  
+Once a categorization of the variables has been made, the necessary protection criteria are established to ensure the privacy of individuals, aiming to minimize the amount of personal information that will be used during the anonymization process. The anonymization process of variables cannot be addressed without first defining the possible identification variables that will be truly necessary for the purpose to which the anonymized information will be allocated. In this process, there are variables or microdata that are tangible identification elements, but there are also other indirect identification variables that allow for the identification of individuals in a less tangible way. This fact contributes to the difficulty of the process of identifying variables.  
+Starting from a dataset that has been collected from the data subjects following the principles established in Article 5 of the GDPR, the data is suitable for a specific purpose. In this dataset, we have:  
+–  
+Microdata or direct identifiers of individuals: all those characteristics that by themselves allow for the identification of a person.  
+–  
+Indirect identifiers: while they do not identify a person, the combination of several indirect identifiers could allow for the identification of a person.  
+4 Indirect identifiers or quasi-identifiers: variables that in combination with other information allow for the identification of individuals, for example: gender, marital status, postal code or other location data, significant dates (birth, date of hospital admission, etc.), professions, race, membership in minority social groups, economic income, etc.  
+3.6. PRE-ANONYMIZATION: DEFINITION OF IDENTIFICATION VARIABLES  
+12
+–
+Specially protected or sensitive data: those referred to in Article 9 of the GDPR, financial data, data on infringements, etc.  
+The process of data anonymization will be carried out in a structured manner, taking into account the purpose intended for the data once anonymized, ensuring the privacy of individuals and avoiding distortion of the results of the anonymized information in relation to the non-anonymized data.  
+In this phase of the process, attention must be paid to the specific difficulties of anonymization for certain variables, such as, for example, in cases where it is necessary to anonymize voice recordings, image recordings, or biometric and/or genetic information.  
+The objective of this phase is to minimize the number of variables that allow for the identification of individuals, restricting access to confidential information to the work team involved in the process and optimizing the computational cost of operations with anonymized data.  
+The act of reducing the existing information to the minimum necessary to meet the objectives that the anonymized information must fulfill directly implies a reduction in the risk of reidentification, as a smaller amount of personal data will result in a lower inherent risk arising from the processing carried out during the anonymization process: breach of the duty of confidentiality, loss of information, security breaches, theft of keys, etc.  
+Some aspects that may be considered by the data controller to address the elimination or masking of identification variables may include the following:  
+–  
+Determine the purpose of the anonymized data: retention periods, statistical use, scientific use, or any subsequent use.  
+–  
+Establish the confidential variables necessary for the processing of anonymized data and identify the confidentiality variables that will not be necessary in the processing of anonymized data. A confidentiality variable will be understood as any existing information about a person, whether it allows for their identification or whether their identification is not possible a priori.  
+–  
+Elimination of unnecessary direct or indirect identifying data: names, date of birth, phone number, ID number, email, postal address, bank account numbers, vehicle registration numbers, mobile device identifiers, serial numbers, IP address, biometric identifiers, photographs or images, etc.  
+–  
+Segregated control of users with access to personal data and users with access to anonymized data: the information, whether anonymized or not, may be structured, and each user has access to the data necessary for them to perform their work, so that the rest of the information or variables that could allow for the reidentification of subjects and are not necessary for the performance of a worker's functions are not accessible to them.  
+3.7. ELIMINATION/REDUCTION OF VARIABLES  
+13
+---
+**Use of Ranges to Mask Individuals When Specific Microdata Exists That Allows for Direct Identification of Individuals or Specific Groups.** For example, in the case of extremely small groups of individuals, the information of this small group must be diluted within a larger numerical group by adding, if necessary, a reference to a percentage that highlights the existence of the smaller group as part of a larger set.
+
+**Having a Key Usage Policy to Conceal the Identification of Individuals Will Be Very Useful in This Phase of Anonymization.** The key policy will establish the levels and the minimum number of keys to be considered based on the purpose of the anonymized information.
+
+**3.8 SELECTION OF ANONYMIZATION TECHNIQUES: KEYS**
+
+1. **HASH ALGORITHMS:** The utility of encryption algorithms is unquestionable when we need to anonymize microdata, with "hash" algorithms being particularly useful. A hash algorithm is a mechanism that, when applied to a specific piece of data, generates a unique or nearly unique key that can be used to represent that data. For example, we have a piece of data that we want to hide or anonymize, and for this, we use a hash algorithm, such as SHA1 or MD5. By applying the algorithm to a specific piece of data, we obtain a key or digital fingerprint that can be used to replace the actual data. The hash algorithm generates a digital fingerprint and makes it impossible to reconstruct the original data from the fingerprint, and on the other hand, any variation in the original data will result in a different digital fingerprint. In computational terms, it could be said that modifying a single bit in the original information stored on a computer would result in a different key or a different digital fingerprint.
+
+The hash algorithm allows us to generate the same digital fingerprint from the same piece of data or microdata, but starting from a specific digital fingerprint, we will never be able to obtain the original data, thus guaranteeing confidentiality as it is a one-way mathematical operation. The keys resulting from the application of a hash algorithm are commonly known as "digital fingerprints" because they are understood to uniquely represent a specific piece of data or microdata.
+
+However, a hash algorithm alone is not sufficient to make the anonymization irreversible, as small text strings such as, for example, the microdata corresponding to a person's postal code, a phone number, etc., can be easily re-identified with a computer program that generates consecutive numbers and their corresponding digital fingerprints. If what we want is to guarantee the anonymization of a microdata, it is necessary to use a cryptographic mechanism that ensures the confidentiality of the anonymized data.
+
+**5 Key:** By key, we will understand the result of applying any technique to ensure the confidentiality of the anonymized data. For example, if the string AAA replaces the name of a person, AAA becomes a key or pseudonym.
+
+**6 Hash Algorithm:** A mathematical algorithm that allows generating the digital fingerprint of a document or unit of digital information (file, image, alphanumeric string, etc.). 
+---
+**Secret of the digital fingerprint we have generated. A good option is the HMAC algorithm based on RFC2014. HMAC can be used in combination with various hash algorithms such as, for example, MD5, and on the resulting fingerprint or key from the hash algorithm, a cryptographic algorithm is applied that generates a new fingerprint or key based on a secret key.**  
+The use of HMAC in combination with non-trivial secret keys and a diligent key destruction policy can help ensure the irreversibility of the anonymization process. When the keys used with HMAC are retained, they can be used to generate pseudonymized data that require subsequent re-identification of the data subjects. Secret key hash mechanisms can be useful for masking data. However, there must be a procedure that allows for the secure deletion of the keys and the ability to verify that the procedure has been followed to ensure the irreversibility of the process.  
+**2. ENCRYPTION ALGORITHMS:** Encryption algorithms with homomorphic properties open new possibilities for the processing of anonymized data. A homomorphic encryption algorithm allows operations to be performed on encrypted data in such a way that the result of the operations is the same as if the operations had been performed on the unencrypted data. The results of operations with encrypted data yield equally encrypted values that can later be decrypted by the user who possesses the decryption key. The homomorphic encryption scheme opens the possibility for the processing of anonymized personal data, ensuring the privacy of the processing and that the results of the processing will be accessible only to the holder of the decryption key.  
+The implementation of homomorphic encryption schemes can provide a high degree of confidentiality to data processing in the cloud, data processing obtained from wearables, telemedicine systems, etc.  
+**3. TIME STAMP:** It is also important to consider the possibility of using timestamp algorithms in the anonymization process in order to guarantee the date and time when the anonymization was performed, or even electronic signature algorithms that allow for the electronic identity of the person who performed the anonymization to be guaranteed.  
+**4. LAYERS OF ANONYMIZATION:** Along with these masking and anonymization processes, we can use what could be termed layer anonymization. For example, the data controller has anonymized all data that could serve to re-identify individuals and sends the information to its legitimate recipient who, in order to prevent re-identification from occurring, decides to perform a second anonymization of the already anonymized data. In this way, the recipient of the anonymized information ensures that their processes use their own anonymization resources, preventing the identity of individuals from being affected in the event of fragility in the anonymization processes of the data controller.  
+**7 RFC2014:** RFC (“Request For Comments”) is the acronym used referring to the de facto standards that have led to standards on the Internet.  
+15
+In short, the recipient of the information ensures the privacy of individuals in the processing of anonymized data with their own quality guarantees. This reanonymization process can be used in an interdepartmental manner so that, as the data moves from one department to another, different anonymization processes are carried out, making it necessary for all actors involved in the various layers of anonymization to be present for a real reidentification. 
+
+It can therefore be said that the anonymization process can be single-layer or multi-layer. We speak of a single-layer anonymization process when the anonymization of the variables is performed only once and the process is considered complete; however, sometimes the reanonymization of variables or multi-layer anonymization can provide additional guarantees to prevent the reidentification of individuals. 
+
+The criteria for layer-based anonymization can be established in response to the requirements of the information, the processing of the anonymized data, or the anonymization policy of the data controller of the anonymized data: 
+
+– Considering the classification of identification variables: it is possible to develop a procedure such that there are several levels of anonymization. The identifying data that has the lowest level of criticality can be anonymized in the initial layer with a certain set of secret keys. In this phase, all data that allows for the identification of individuals is coded. Subsequently, it is possible to proceed to a second anonymization of the personal data with a second set of secret keys with information that has been classified with a higher degree of criticality, and so on, the data can be reanonymized, thereby strengthening the anonymization chain as many times as necessary. This method will establish a difficulty proportional to the criticality or sensitivity of the anonymized information, multiplying the effort required for the reidentification of individuals.
+
+– Considering internal organization: sometimes the processing of data is structured by departments within an organization, such that each department needs to access the information for a different purpose. In this case, it is possible to use sets of secret keys to proceed with the anonymization and reanonymization specifically for each department. This multi-layer anonymization procedure guarantees the privacy of the anonymized data in an interdepartmental manner, making the participation of several departments necessary to reach the original data, which will only be available to the department that performed the initial anonymization.
+
+Example: The key AAA replaces the name of a person; it would be possible to apply a hash algorithm adding random text such as AAA1k2j3j so that over the pseudonym AAA we would have a secret key (1k2j3j) that would strengthen the confidentiality chain; in this case, the possibility of having a secret key policy to carry out the anonymization should be considered. If we apply an MD5 hash algorithm to the chain AAA, reidentification would be relatively simple through brute force mechanisms, whereas adding text or an additional key to the pseudonym would imply greater effort to reidentify a person.
+–
+Considering the specific guarantees of the anonymization policy of the data controller of the anonymized data: the recipient of the anonymized information decides to apply its own anonymization policy to process the information with its own guarantees so that in the event of a reidentification breach, it is possible to identify the origin and responsibility for the breach in the anonymization.
+
+In combination with cryptographic anonymization techniques, other techniques can be used as described below:  
+5.  
+DATA PERTURBATION: systematic variation and suppression of data that prevents the resulting figures from providing information about specific cases:  
+–  
+Microaggregation: a technique used to anonymize numerical data consisting of the substitution of specific numerical values with the mean value calculated for a certain group of data through the aggregation, segregation, suppression, or substitution of independent records.  
+–  
+Random data swapping: introduces random distortion into a set of microdata while maintaining the detail and structure of the original information.  
+–  
+Synthetic data:  
+  
+Data distortion: random data is generated that maintains the results of the original dataset.  
+  
+Distortion with hybrid microdata: a combination of original data with synthetic data.  
+–  
+Record permutation: swapping of data values with key values that ensures average values and statistical distributions.  
+–  
+Temporal permutation: random movement of time ranges that does not generate distortion on the final average results.  
+–  
+Rounding: substitution of variables with randomly rounded values.  
+–  
+Weight adjustment: when working with known data samples, this involves distorting the values of the original samples to prevent reidentification.  
+–  
+Random noise: injects noise while maintaining the structure of the original data.  
+6.  
+DATA REDUCTION: the number of original data is reduced without altering them, decreasing the level of detail of the original data while avoiding the presence of unique or atypical data that is not relevant to the final result:  
+–  
+Variable elimination: removal of especially sensitive data that may be direct identifiers.  
+–  
+Record reduction: when, after applying another measure, subjects remain identifiable.  
+–  
+Global recoding: certain categories of data are grouped into a new category, reducing the possibilities of reidentification.  
+–  
+Upper or lower coding: for cases where upper or lower values of a range are identifiable, it consists of expanding or reducing the upper or lower range.  
+17
+---
+**Suppression of Records:** deletion of data records that contain information allowing for the identification of subjects. This measure will be used when it is impossible to anonymize a particular subject, and there will be an express indication of the records deleted and the reason for their exclusion from the final result of the anonymization.
+
+In relation to anonymization techniques, the Article 29 Working Party issued its Opinion 05/2014, which provides a technical analysis regarding the robustness, weaknesses, and guarantees of anonymization techniques. This Opinion outlines some of the limits, risks, and errors that may occur as a result of the anonymization techniques used.
+
+It is important to note that the anonymization of information will always generate, regardless of the good practices employed, a certain degree of distortion between the anonymized information and the non-anonymized information. This distortion is known as "privacy differential," which will be taken into account in the anonymization processes, and whose indices must be quantifiable and acceptable within the purpose for which the anonymized data will be used, which may imply a certain degree of distrust towards the results of the information analysis.
+
+The rapid technological advancement could render the chosen anonymization techniques obsolete in a short period due to the emergence of more secure techniques or techniques that allow for their breach. The selection of technical anonymization measures should also be subjected to the risk analysis mentioned for each anonymization process, assisting in the establishment of guidelines or principles that enable and assist the person responsible for the anonymization process in choosing or deciding on the most appropriate techniques at each specific moment.
+
+In line with the aforementioned principles and in order to guarantee the confidentiality of the anonymized information, it is necessary to develop a map of information systems that ensures separate environments for each processing of personal data or anonymized personal information.
+
+It is advisable that the anonymization process is carried out starting from personal data but in a segregated environment. At the same time, the exploitation of the anonymized information should take place in an environment separate from the environments where personal data is exploited or where the anonymization of the information is carried out.
+
+The segregation of environments for information processing will also imply the segregation of personnel who access the information and personal data. An additional guarantee to prevent re-identification is that those involved in the processing of anonymized personal information do not have access to non-anonymized personal data or cannot access the knowledge of the mechanisms and keys of anonymization used in the anonymization processes.
+
+The Article 29 Working Party (GT29) is established as a result of the application of the European Data Protection Directive (95/46/EC). For more information about its operation and structure or to consult its Opinion 5/2014 on anonymization techniques, you can consult this link.
+
+**3.9. SEGREGATION OF INFORMATION**  
+18  
+---
+It is advisable to carry out a pilot project with a small sample of test data (not real) in which objective conclusions can be drawn regarding the feasibility of all the proposals from the members of the anonymization team. Some of the objectives that may be considered for the implementation of the pilot project are the following:  
+–  
+To shed light on the results of the proposed anonymization techniques.  
+–  
+To verify the robustness of the results against possible attempts at re-identification.  
+–  
+To quantify the costs of the anonymization process.  
+–  
+To ensure that the objectives intended by the anonymization procedures are feasible.  
+–  
+To guarantee the privacy differential  
+10 through tests aimed at evaluating and quantifying the deviations or distortions resulting from the anonymization process.  
+–  
+To evaluate the results of the project against the results of the risk analysis.  
+The results of the pilot project must be shared with the recipient of the anonymized information along with the non-real data that have been used for the implementation of the pilot project, in such a way that it is possible to assess whether the outcome of the anonymization process aligns with the objectives for which the information is intended, allowing its legitimate recipient to determine whether the privacy differential is acceptable or, on the contrary, whether the distortion generated by the anonymization process results in a privacy differential that renders the resulting information unusable for the intended purpose.  
+Finally, in the anonymization phase, the definitive and irreversible dissociation of personal data is carried out. The anonymization process must be performed as many times as necessary according to the purpose of the anonymized information and its recipient. It is advisable that each of the recipients has anonymized data with different keys, just as it is necessary for the anonymization process to be carried out ad hoc with a specific objective, purpose, and recipient. Under no circumstances is it recommended to use a general-purpose anonymization process regardless of the recipient of the information, the type of information to be anonymized, and the purpose for which the anonymized data will be used.  
+Below are some of the tasks or activities that can be carried out during the anonymization phase:  
+10 The privacy differential is the difference or distortion resulting from the analysis of the anonymized personal information compared to the analysis of the non-anonymized personal data.  
+3.10. PILOT PROJECT  
+3.11. ANONYMIZATION  
+19
+–
+Determine the anonymization technique that is most appropriate based on the variables that have been identified in the pre-anonymization phase.
+–
+Planning and assignment of specific tasks to each member of the work team concerning the functions assigned for each profile involved in the anonymization process.
+–
+Determine the resources and technical equipment necessary to proceed with the anonymization of the data.
+–
+Validate the anonymization technique by experts (unit or organization expert in statistics, ethics, etc.)
+–
+Apply the selected technique and execute the anonymization process; conduct tests.
+–
+Relational break of the keys based on the use of the information (internal use and external use). Whenever possible, different keys will be used based on the intended use of the anonymized information.
+–
+Recoding or reduction of variables for the residual sensitive data after the anonymization process.
+–
+Apply data reduction techniques (suppression of fields that are not significant for subsequent use).
+–
+Limit the level of disaggregation based on the geographical level affected by the file and the sensitivity of the information.
+–
+Apply data perturbation techniques (modify quantitative data in small random amounts, exchange attributes in a controlled manner between records from nearby geographical areas, respecting the distributions).
+–
+Validation and approval of the anonymized files by experts and by the evaluation team.
+–
+Periodic review of the process.
+–
+Audit the anonymization process and the subsequent use of the data through metrics or scales that provide an objective interpretation of the results. During the anonymization process, biometric data, voice recordings, or image recordings may present specific complexities that must be addressed in the initial phases of the anonymization process beforehand. For example, regarding voice recordings, there is the possibility of performing a prior transcription with the respective removal of potential identifiers (indigenous expressions, epideictic elements, rhetorical identifiers, etc.) to subsequently proceed with the reproduction of the transcriptions using voice synthesizer devices if it is necessary to maintain an audio record.  
+Image recordings present their risk of re-identification within the image as sometimes individuals can be re-identified by their surroundings rather than directly by their own generic features. The variables for re-identifying individuals through images can be multiple, so sometimes image data will require specific treatment to prevent the re-identification of individuals. For example, in the case of a specific dermatological condition where the individual has a particular tattoo or scar that reveals their identity, the image must undergo digital treatment that makes the re-identification of the person irreversible.  
+Regarding biometric data, the purpose of the anonymized information may impose a limitation on the anonymization of the information, leading to certain exceptions where the data cannot be anonymized to avoid any critical distortion that may arise concerning the non-anonymized information. These situations will be considered in the initial phases of anonymization and especially in the DPIA as an implicit risk to the process itself given the characteristics of the information. In this case, the DPIA itself may raise the need to use encryption mechanisms for restricted and controlled access to biometric data, mechanisms that must be agreed upon by the data controller and the controller of the anonymized or encrypted information.  
+The personnel involved in the anonymization process must meet all training and information requirements related to compliance with personal data protection regulations, especially concerning the security measures referred to in Article 32 of the GDPR.  
+Once the personal data has been anonymized, the personnel with access to the anonymized information will also be informed of:  
+–
+The existence and application of the anonymization policy.
+–
+Principles of data protection by design in the anonymization processes.
+–
+Objectives set in risk management (DPIA).
+–
+Structure and responsibilities of the work team involved in the anonymization processes.
+–
+Objectives and purpose of the anonymized information.
+–
+Anonymization variables: identification and classification.
+–
+Anonymization techniques used.
+–
+Terms of use and access to the anonymized information.
+–
+Control measures for personnel with access to the anonymized information (traceability).
+–
+Obligations and duties in case of a break in the chain of anonymization that enables the re-identification of the data subjects.  
+The information provided to the personnel will be given in such a way that it can be auditable, meaning there will be a record of the information provided and the personnel to whom it was given.  
+The anonymization process cannot ensure the impossibility of re-identifying individuals in absolute terms, which is why the necessary legal guarantees must be taken into account to preserve the rights of the data subjects.  
+11 Chain of confidentiality or anonymization: sum of operations carried out to eliminate direct identification variables or microdata and indirect identification data.  
+4. TRAINING AND INFORMATION FOR PERSONNEL INVOLVED IN THE ANONYMIZATION PROCESSES AND FOR PERSONNEL WORKING WITH ANONYMIZED DATA  
+5. GUARANTEES
+In this regard, some of the aspects that must be taken into account are:  
+–  
+Confidentiality agreements involving the following actors:  
+–  
+Data controller.  
+–  
+Responsible for the anonymization process.  
+–  
+Responsible for the processing of anonymized data.  
+–  
+Personnel with access to the anonymized information.  
+–  
+Obtain the commitment of the information recipient to maintain the anonymization and the obligation to inform the data controller of any suspicion of re-identification.  
+–  
+Conduct audits of the use of anonymized information by the data controller to the responsible party for the processing of anonymized data.  
+–  
+The guarantees will be included in the contract signed between the data controller and the recipient of the anonymized information.  
+These and other possible guarantees that may be necessary for the processing of anonymized information will be taken into account in the DPIA as part of the safeguards aimed at minimizing harm in the event of a potential re-identification of the data subjects.  
+The purpose of the audit of the anonymization process is to ensure compliance with the anonymization policy, providing an objective opinion on the entire anonymization process. The audit may be internal or external and will be periodic.  
+The quality of the audit itself is fundamental to maintaining the trust of the data subjects in the anonymization processes, as the lack of trust from the data subjects in the confidentiality of the anonymization processes could provoke social unrest, negatively impacting the exploitation of anonymized data.  
+The results of the audit may be disclosed to the data subjects, providing them with information about the probabilities of re-identification and the best practices accredited in the anonymization process. In order to ensure the quality of the audit, it is advisable to use internationally recognized standards, methodologies, and benchmarks.  
+The audit of the anonymization process will show results related to the quality objectives of the anonymization processes that were initially anticipated by the data controller.  
+The data controller or the responsible party for the processing of anonymized data will ensure the existence of periodic audit reports in which at least the following is recorded:  
+–  
+The scope and objective of the audit.  
+–  
+Definition of the audit team and resources used in conducting the audit.  
+–  
+Phases and planning of the audit.  
+6. AUDIT OF THE ANONYMIZATION PROCESS  
+22  
+–  
+Tests and verifications performed.  
+–  
+Assessment of the results.  
+–  
+Proposals for the improvement of the anonymization process.  
+–  
+Audit of the exploitation of the anonymized information.  
+The audit will entail the necessary checks aimed at verifying the implementation of the proposals for the improvement of the anonymization process and will allow for the verification and monitoring of the effectiveness of the measures implemented.  
+The applicable anonymization policy must be documented and accessible to personnel involved in the processing of anonymized data. Below is a possible outline of the documentary content that may be considered for the anonymization process:  
+–  
+Policy for the use and access to anonymized data: obligations of the personnel.  
+–  
+Document of applicability of anonymization measures that will contain at least:  
+–  
+Responsible parties for the pre-anonymization and anonymization process.  
+–  
+Organizational measures.  
+–  
+Definition of identification variables.  
+–  
+Technical mechanisms for anonymization.  
+–  
+Key policy.  
+–  
+Confidentiality agreements.  
+–  
+Standards and procedures.  
+–  
+Reports and opinions:  
+–  
+From the feasibility team if defined.  
+–  
+From the security team.  
+–  
+From risk analysis (DPIA).  
+–  
+From the audit of the information and the anonymization process.  
+The value of the documentary management carried out on the anonymization process is particularly relevant as it justifiably reflects the actions that the data controller and the responsible party for the anonymized information take in order to protect the privacy and data of the data subjects.  
+The documentation will be updated whenever necessary due to changes in the anonymization process, legal requirements, or technological evolution constraints.  
+The processes of anonymization and pseudonymization are a valid tool to ensure the privacy of personal data, and their limitations are inherent to the advancement of technology.  
+There is a manifest proportionality regarding the technological capacity to anonymize and the possibility of re-identifying individuals whose data has been  
+7. DOCUMENTATION  
+8. CONCLUSION  
+23
+anonymized, that is, the same capability of technology to anonymize personal data can be used for the re-identification of individuals. Furthermore, it is important to consider the risk that the information society itself adds to anonymized data, a risk that evolves over time, which means that the risk of anonymization processes must be viewed as a latent contingency throughout the life of the information and not at a specific moment, and, consequently, the measures aimed at assessing and managing risks must be periodic.
+
+It is not possible to consider that anonymization processes guarantee 100% that individuals will not be re-identified, so it will be necessary to support the strength of anonymization with impact assessment measures (EIPD), organizational measures, information security measures, technological measures, and, ultimately, any measures that serve both to mitigate the risks of re-identification of individuals and to alleviate the consequences of their materialization.
+
+– “Opinion 05/2014” of the Article 29 Working Party on anonymization techniques.  
+– “Opinion 06/2014” of the Article 29 Working Party on the notion of legitimate interest referred to in Article 7 of Directive 95/46/EC.  
+– “Code of Good Practice for European Statistics for National and Community Statistical Services,” adopted by the Committee of the European Statistical System on September 28, 2011 (EUROSTAT).  
+– “Looking Forward: De-identification Developments – New Tools, New Challenges” (May 2013, Information & Privacy Commissioner Ontario, Canada).  
+– “De-identification Protocols: Essential for Protecting Privacy” (June 2014, Information & Privacy Commissioner Ontario, Canada).  
+– “Dispelling the Myths Surrounding De-identification: Anonymization Remains a Strong Tool for Protecting Privacy” (June 2011, Information & Privacy Commissioner Ontario, Canada).  
+– “Big Data and Innovation, Setting the Record Straight: De-identification Does Work” (June 2014, Information & Privacy Commissioner Ontario, Canada).  
+– “Pan-Canadian De-Identification Guidelines for Personal Health Information” (2007, Information & Privacy Commissioner Ontario, Canada).  
+– “Anonymisation: Managing Data Protection Risk” (November 2012, Information Commissioner’s Office, UK).  
+– “CNIL – Data Security Guide” (2010, National Commission on Informatics and Liberties).  
+– “Guidelines for the Anonymization of Microdata” (August 2014, Directorate of Regulation, Planning, Standardization, and Normalization – DIRPEN – Colombia).  
+– “Standard PNE 178301, Smart Cities. Open Data – Version for Public Information.”  
+– “A Systematic Review of Re-Identification Attacks on Health Data” (US National Library of Medicine, National Institutes of Health).  
+– “Perspectives on Health Data De-identification” (Privacy Analytics, Khaled El Emam, PhD).  
+9. REFERENCES

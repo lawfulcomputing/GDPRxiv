@@ -1,0 +1,194 @@
+INTRODUCTION TO 5G TECHNOLOGIES AND THEIR RISKS TO PRIVACY  
+v. May 2020
+
+Page: 2 of 13
+
+EXECUTIVE SUMMARY  
+The use of mobile telephony is present in virtually all social activities. Since the third generation of telephony, mobile devices have exponentially increased in functionalities, but so have the threats to the privacy of the individuals who use them. Currently, a technological leap is taking place from the fourth to the fifth generation of mobile telephony, better known by its acronym 5G.  
+This technical note reviews the evolution of mobile technology since its implementation, presents the new functionalities of 5G technology (increased geolocation accuracy, virtualization, distributed processing, etc.), as well as the identification of its risks. A series of recommendations and conclusions are also proposed for all stakeholders involved, with the aim of ensuring that 5G does not pose a threat to the rights and freedoms of individuals.  
+Finally, a reflection is proposed on the need to adapt the regulations on the collection and retention of traffic data to the changing proportionality of the data collected.
+
+Keywords: 5G, Edge Computing, AI, IoT, Mobile, Privacy, Data Protection, GDPR, Risk, Technology, Telephony, Virtualization, Slice.
+
+Page: 3 of 13
+
+INDEX  
+I. INTRODUCTION 4  
+II. OBJECTIVE AND TARGET AUDIENCE 4  
+III. EVOLUTION OF MOBILE TELEPHONY 4  
+IV. MAIN INNOVATIONS IN 5G 5  
+A. VIRTUALIZATION 6  
+B. EDGE COMPUTING 8  
+C. LOCATION 8  
+D. SECURITY 9  
+V. RISKS TO PRIVACY 9  
+VI. CONCLUSIONS AND RECOMMENDATIONS 11  
+VII. REFERENCES 13
+
+Page: 4 of 13
+
+I. INTRODUCTION  
+The fifth generation of mobile communications (5G) began to be deployed in Europe in early 2019 and is expected to have a significant impact on digital society.  
+The main improvements that 5G will offer users are:  
+- High transfer speed (enhanced mobile broadband or eMBB)  
+- Greater connection capacity (massive machine communications or mMTC)  
+- Low latency in communications (ultra-reliable and low latency communications or URLLC)  
+These characteristics will enable the launch of products and services that require high speed, such as multimedia or augmented reality applications, as well as the definitive take-off of the Internet of Things (IoT), due to the possibility of having a massive volume of devices connected simultaneously. On the other hand, it will make applications that require real-time responses a reality, such as those typical of connected industry or remote-assisted surgery, and will enable the expansion of services based on automated decisions, often using artificial intelligence.  
+To deploy 5G networks, an unprecedented technological renewal is being planned in the recent history of mobile technology. The network architecture and network functions will undergo significant changes with the introduction of technologies such as virtualization (software-defined networking and network function virtualization), edge computing, and network slicing.  
+
+II. OBJECTIVE AND TARGET AUDIENCE  
+The objective of this document is to provide an overview of the innovations presented by 5G mobile communications technology and to conduct a preliminary non-exhaustive study of the privacy risks that this technology, as well as other technologies that utilize it, may entail.  
+It is specifically aimed at all those agents who, from a certain lack of knowledge about 5G, have concerns about the privacy implications that its widespread implementation may entail.  
+It is also directed at manufacturers, suppliers, service operators, telecommunications companies, and application developers who establish business models in 5G and wish to delve into the privacy implications of the products and services they develop, such as developers of any OTT service.  
+
+III. EVOLUTION OF MOBILE TELEPHONY  
+Since 1980, there has been a significant advancement in mobile telephony every decade, which has been described in terms of generations. In each generation, new functionalities have emerged that have contributed to the popularization of mobile devices, but at the same time have led to the emergence of new threats to individuals' privacy:
+
+1 Latency is the response time between action and reaction. In communications, it is the time that elapses from the moment a message is sent until the first bit reaches its destination. Transmission time is the time that elapses from when the first bit arrives until the last one arrives. These are independent values. Low latency allows for real-time applications.  
+2 Technology that allows different independent operating systems to run within the same host machine.  
+3 Technology that allows systems that perform processing and data to be physically closer to the user, thus minimizing delays caused during the transmission of information over long distances.  
+4 Technology that allows the same physical network infrastructure to be used to multiplex virtual networks within the same physical network infrastructure.  
+5 Broadcasting and communication services that use the services of communication operators (Over The Top).
+Page: 5 of 13  
+- 1G: In the early 1980s, the first analog mobile phones appeared with very limited capabilities, being able to make calls only. At that time, functionality was prioritized without considering data protection, as, although their use was minimal, communications between people were less private than users might have thought.  
+- 2G: In 1991, the second generation, now digital telephony, introduced the functionality of sending text messages through user terminals, such as the well-known SMS. In this generation, encryption techniques were introduced in communications that improved confidentiality, although many unresolved issues remained regarding authenticity. Users experienced the first attacks of SPAM and the interception of communications through fake base stations.  
+- 3G: By the year 2000, the first 3G devices appeared with multimedia functionalities, internet access, and television. These phones also brought the first vulnerabilities from malicious code, GPS tracking, and others.  
+- 4G: In 2010, 4G telephony began to be deployed, allowing high-speed internet access, and more robust encryption techniques were implemented. Being a network based on IP technology, all traditional threats present in LAN and Internet networks were transferred to the world of telephony: APTs, DDoS, viruses, etc., along with the associated risks for privacy. The massive use of mobile phones resulted in an increase in the scale of threats.  
+- 5G: This is the technology of this decade, and the first terminals and services are already being marketed.  
+IV. MAIN INNOVATIONS IN 5G  
+The fifth generation (5G) of mobile telephony represents a substantial change compared to previous generations. For the first time, specific telephony hardware is no longer used, giving way to general-purpose equipment that does not differ from what can be found in any ICT data processing center, utilizing virtualization, containers, and orchestration technologies. This represents an advantage in terms of cost and implementation flexibility, and on the other hand, makes the infrastructure interoperable and accessible by devices on the Internet.  
+There are three characteristics that allow us to speak of 5G as a disruptive technology and a paradigm shift in the conception of mobile communication networks: virtualization, edge computing, and localization; in addition to significant changes in security strategies.  
+Before describing them, and to better understand all the concepts used, it is necessary to know the two distinct parts of the architecture of a mobile telephony network:  
+- Access Network: This is the part of the network that connects end users (mobile devices) with the operator's core network. It is the part of the infrastructure that enables the air connection, via radio, between mobile devices and the operator's network.  
+- Core Network: This is the central part of a telecommunications operator's network. It manages all the functionalities and services of the operator or, in other words, contains the network functions.  
+
+6 Advanced persistent threat is a set of hidden computer processes with the intent and capability to attack a specific target in an advanced and sustained manner over time.  
+7 Distributed denial-of-service attacks.
+Page: 6 of 13  
+With 5G, new developments arrive at both ends of the network, but the most disruptive apply to the core network. Figure 1 includes a diagram with the basic architecture of a 5G network.  
+
+Figure 1. Basic architecture of a 5G network.  
+A.  
+VIRTUALIZATION  
+Undoubtedly, the greatest revolution and what may have the most significant impact on privacy is the use of virtualization technologies, which encompasses new concepts such as:  
+- Software Defined Networking (SDN): current telephone networks are very static, and any change involves hardware modifications, with costly manual processes. SDN enables operators to make changes to the network quickly and, in some circumstances, also automatically, adapting to the demand needs in the network.  
+- Network Function Virtualization (NFV): represents a novel way to create, deploy, and manage services by virtualizing each and every function provided by the network.  
+- Network Slicing (NS): involves enhancing and adapting support for different types of traffic in 5G networks by virtualizing a set of network functions that are part of the core network. Conceptually, it would be equivalent to saying that each core network can be made up of a set of slices or virtual core networks.  
+Virtualization is already a mature technology in the ICT environment, but 5G marks its debut in the mobile communications context, bringing with it its advantages and disadvantages.  
+The core network will be divided into what are known as network slices. Network slicing allows for the establishment of logical networks, with their own network functions, over a single physical telecommunications infrastructure, with parameters specifically configured to respond to the different requirements of each application. The network functions consist of a set of virtual, parameterizable, and dynamically creatable components, each with a specific function, designed to be stateless and separating computing functions from data storage functions. Each slice is formed by a set of network functions defined in the 5G standard.  
+The connection of devices will be managed by the device manufacturers themselves or service providers through an integrated SIM (eSIM) connected to a slice of the network also under their control. In this way, the user will no longer have to manage the connection with an operator or insert a SIM into the device.  
+The 5G specification defines three standard network slices, each defined to provide one of the functional requirements of 5G (uLRLLC8, eMBB9, mMTC10), but does not impose a limitation on the number of slices that can be established. The network slices operate as independent virtual networks formed by a complete set of network functions, but they are not completely isolated from each other because there is a network function that can be shared among several slices.  
+Thus, the core network of each operator will be made up of several slices, each slice formed by a set of network functions, and the core networks of different operators will be interconnected through a specific network function that will perform proxy functions.  
+The only network function that can be shared among several slices of the same core network, according to the 5G standard, is the Access and Mobility Management Function (AMF). This is a key function as it manages the registration, access, and mobility of user devices, geolocation services, and the potential legal interception of communications by law enforcement.  
+The access network is aware of the available slices and the access capability requirements that it must provide to each user device, managing which slice it should connect to. If the requirements of a device are very demanding, and the device is prepared for it, a single device could connect to multiple slices. For example, a mobile phone will connect through the access network to the slice corresponding to general-purpose telephony, while an intelligent traffic signal could be connected to a different slice, specifically intended for traffic management in a city. Both devices would share the access network but end up receiving service from different slices.  
+This architecture based on virtualization and slices enables the implementation of management models that allow offering slices as services (NSaaS). That is, an operator could commercially offer the management of a slice to a third party, such as could be the case with virtual operators, but not limited to this specific case.  
+In turn, the network slice technology could allow for the replacement of traditional dedicated networks, thus we could see slices with different priorities and qualities according to the contracted SLAs11. For example, slices could be established to service emergencies, traffic signaling, sporting events, national defense, etc., as well as slices managed by the municipality itself, an administration responsible for the service, and private organizations.  
+This slice management model combined with the low latency and massive connectivity characteristics provided by 5G will likely facilitate the definitive development of the IoT and Artificial Intelligence duo, with an exponential increase in the number of devices connected to the 5G network through the slices they need to meet their operational requirements.  
+
+8 Low latency in communications.  
+9 Significant increase in bandwidth.  
+10 Massive connectivity of devices.  
+11 SLA: service level agreements.
+Page: 8 of 13  
+B.  
+EDGE COMPUTING  
+Cloud computing is based on the use of large data processing centers located around the world, intended to store and process vast amounts of data. The service model on mobile devices, as we know it today, uses mobile applications (Apps) that exchange data with Internet servers without the user having to manage, at least a priori, their physical location. Although this architecture is useful in many cases, there are situations where it cannot be applied due to having very high or unpredictable latency, which does not allow for real-time applications.  
+The use of general-purpose hardware to contain virtualized services from the operator or other service providers enables the implementation of one of the most innovative elements of 5G, known as MEC (Multi-Access Edge Computing). Edge computing technology will allow the "center of gravity" of data processing to shift from servers to locations closer to the user's terminal device when necessary. Ultimately, there will be a flow of information and/or services between different locations agreed upon by network operators and service managers, at points close to the end user and within the mobile network of a telecommunications operator, initially without being on the Internet.  
+By performing computing tasks as close as possible to the end user, 5G will allow for a reduction in communication latency such that it will enable capabilities close to real-time, which are indispensable in scenarios such as, for example:  
+- Autonomous vehicles  
+- Industrial automation  
+- Augmented reality  
+- Connected homes and offices  
+- Video games  
+- Remote-assisted surgery  
+C.  
+LOCATION  
+The deployment of 5G is expected to use higher transmission frequencies (in the 26GHz band) than those currently used in previous mobile phone networks, which will allow for much faster transmissions. However, the range of the signal will be more limited in open fields and very sensitive to obstacles such as walls and barriers indoors.  
+The way to overcome these drawbacks will be the installation of a denser network of access points outdoors and an unprecedented deployment of mobile access points indoors, especially in large public spaces with high foot traffic.  
+In short, a much more compact access network is needed, with many access points and shorter distances between them. This greater density will provide the operator and other agents linked to the exploitation of network data with the ability to locate the user terminal with much greater precision than currently available, achieving location resolutions of less than one meter and, unlike previous generations to 5G, including three-dimensional positioning. Therefore, the development of novel location-based services (LBS) is to be expected.
+Page: 9 of 13  
+D.  
+SECURITY  
+From a security standpoint, the specification of 5G technology incorporates significant improvements in security measures compared to previous generations, both in the access network and in the core network.  
+Some of these are:  
+- A new structure of permanent user identifiers that are also encrypted to prevent them from being transmitted in clear text via radio, as occurred under certain circumstances with generations prior to 5G.  
+- Improvements in authentication mechanisms with the introduction of 5G-AKA12, whose main enhancements are that the operator's network with which the service is contracted (home network) is responsible for authenticating both the user terminal and the network to which the mobile intends to connect (service network); the service network does not have keys to decrypt communications until it has been authenticated by the home network, and it also includes various fraud control mechanisms.  
+- User data protected in integrity at the radio interface, in addition to the confidentiality protection already provided in 4G.  
+- Enabling access from non-3GPP13 networks by creating an encrypted tunnel using a key provided by the operator.  
+- TLS encryption of communications between network functions within the core network.  
+- Incorporation of traceability options that facilitate the logging of operations to audit network security.  
+The capabilities of virtualization, the implementation of a Service Based Architecture (SBA), and the separation of the user plane from the control plane (Control and User Plane Separation - CUPS) would allow 5G networks to be deployed respecting the principle of security by default.  
+These security improvements represent a significant advance in the reliability of airborne communications in the access network (user device-antenna) as well as within the core network. However, the specification leaves the implementation of some of these mechanisms to the operator's discretion, meaning that the increase in security in 5G networks can vary greatly among different telecommunications operators depending on the deployment of the technology, affecting the decisions of a single actor on the overall security of 5G network communications.  
+Moreover, circumstances could potentially arise where security is degraded by accessing the service through a network with implementation deficiencies in roaming situations. The need to maintain compatibility with protocols from generations prior to 5G means that the vulnerabilities present in them persist over time.  
+V. PRIVACY RISKS  
+5G is expected to be the major communication channel of this decade. All data from public or private networks could end up using 5G communication infrastructures, and linking this to the increase in connected devices suggests that in practice, all individuals will be users of this network and all devices will be connected.  
+
+12 Authentication and Key Agreement  
+13 3GPP: 3rd Generation Partnership Project, an association of telecommunications groups participating in the standardization of mobile networks since 3G
+Page: 10 of 13  
+In a non-exhaustive manner and in accordance with the above, at least the following risks to data privacy can be identified. Many of these risks are interrelated and are not new; they were present with previous generations of mobile telephony, but they may be exponentially increased if the implementation of 5G meets the expected success.  
+- **Precise geolocation of the user:** The fact that 5G employs many more base stations and less distance between them makes network-based geographical location much more precise.  
+- **Profiling and automated decisions:** The increase in the quantity and categories of data circulating through the network, multiplied by the number of devices that each citizen will have connected via 5G (IoT), will allow for precise individualization of people and the development of services that enable automatic decision-making about individuals (AI and real-time services).  
+- **Distribution of responsibility among manufacturers, network operators, and service providers:** A substantial increase in the number of agents participating in the processing of personal data is anticipated with the deployment of 5G networks and the explosion of new services. This could lead to ambiguity regarding responsibility for data processing, meaning that the responsibility of each party could become diluted.  
+- **Different privacy objectives and interests among the parties involved:** Related to the above, the agents involved in telecommunications networks will have different privacy interests, commercial interests, national security, etc., with manufacturers, telecommunications operators, and service providers subject to different regulations, including obligations to provide legal access to communications to law enforcement agencies of various states.  
+- **Lack of a homogeneous security model:** By allowing the existence of numerous agents in the communication chain, even within the core network of operators, through services deployed by various service providers within the MEC, 5G introduces variability in security standards. Each agent may comply with different security standards and may include segments corresponding to protocols from earlier generations, meaning that overall security will be equivalent to that of the weakest element.  
+- **Exponential increase in the surface area exposed to cyberattacks:** The increase in services, connectivity, interoperability, and entry and management points to the network will increase opportunities for threats to privacy to materialize.  
+- **Inheritance of privacy issues arising from interoperable standard infrastructures:** As 5G is implemented with general-purpose equipment, an infrastructure that was previously technologically differentiated will be susceptible to the same attacks faced by conventional information technologies.  
+- **Vulnerabilities arising from virtual environments and shared functions:** In the same vein as the previous section, privacy issues from virtualization technologies will be inherited, as well as the risk of data leakage between shared functions across different slices, such as the aforementioned Access and Mobility Management Function (AMF).  
+- **Dynamism in communication management functions:** If in previous generations the network management functions were, de facto, hardwired, the possibility of updating these via software introduces issues of stability, version traceability, updates by various interveners, backdoors, factory malware, and hacking.
+Page: 11 of 13  
+  
+Possible loss of user control: this may occur over data flows, with potential cross-border implications, as well as in the exercise of rights. 5G uses a distributed and dynamic processing model, where it is expected that data and processing will move in real-time to the physical location where they are most needed or where their processing is most efficient.  
+Although this is not an exhaustive list of risks, they must be taken into account from the early design phases of the processing activities to implement technical and organizational measures that mitigate them, integrating them into the nature of the products and services that use or rely on 5G technology in order to comply with the requirements of Article 25 of the GDPR. Efforts must also be made to identify and mitigate new risks through relevant risk management processes and data protection impact assessments, particularly in service providers, operators, and, above all, manufacturers.  
+VI. CONCLUSIONS AND RECOMMENDATIONS  
+When 5G technology reaches an adequate level of maturity, the necessary conditions will be established for the 5G-IoT-AI triad to provide novel and disruptive services. This situation is likely to have a high and unpredictable impact on individuals' privacy.  
+The decisions of operators in the implementation of the network, the management of configuration, and its operation will have a definitive impact on the level of privacy achieved, which is why they are urged to define 5G infrastructures within the framework of privacy by design and by default. Developers and manufacturers of the base network technology for 5G will have the duty to supply products with an adequate level of compliance with the GDPR that facilitates the deployment of networks. In turn, the other agents providing services within these communication networks, creating and managing new products and services, will also bear a level of responsibility in the implementation of measures and guarantees.  
+It will be necessary for all participants in the implementation, management, and operation of the 5G network to consider the following recommendations:  
+  
+In new applications and services based on 5G, the information that must be provided to data subjects according to data protection regulations must be particularly clear and understandable, especially regarding the data controllers, purposes, automated decision-making, and profiling, as well as access to and use of control measures by users. This last point should be emphasized.  
+  
+Furthermore, implement mechanisms for transparency and traceability both in cases of connecting devices to the 5G service and in cases where distributed processing is carried out.  
+  
+Carefully define the roles and corresponding areas of responsibility (from the perspective of data protection) and clearly delineate the obligations of developers, manufacturers, operators, and agents. The delineation of responsibilities of the intervening agents must respond to the decisions they effectively make regarding the means and purposes of processing, to avoid shifting responsibilities through contractual means.  
+  
+Implement measures for user control over personal data, both regarding data collected from users and those...
+Page: 12 of 13  
+inferred about its activity or the activity of other devices connected to the network  
+within the framework of IoT.  
+  
+Implement data minimization measures, in particular, regarding geolocation, taking into account the principle of privacy by default from the initial design phase of products that use 5G services.  
+  
+Establish measures that ensure data compartmentalization to prevent information leakage between processes in cases of distributed processing and in the sharing of network functions.  
+  
+The application of homogeneous security criteria across different agents and network segments based on a risk analysis for rights and freedoms, as established by the GDPR. The risk analysis must be oriented towards managing threats in the 5G network as a whole and not just in the singular operation of each agent.  
+  
+Ensure end-to-end encrypted communications and, additionally, develop encryption models that protect the process and transmission of information in the edge computing model (such as homomorphic encryption, network coding techniques, or others).  
+  
+Adapt the use of automated decisions to what is established in the GDPR.  
+  
+Establish the necessary guarantees in the case of international data transfers.  
+  
+Independent auditing of infrastructures and services, including adherence to data protection certification mechanisms referred to in the GDPR.  
+  
+Learn lessons from the world of the Internet and not directly import models that have proven to be vulnerable.  
+Predictably, infrastructure models, use cases, and new services will emerge that will involve the processing of personal data that could fall under those requiring a data protection impact assessment (DPIA) as mandated by the GDPR. Even if the residual risk remains high, they will require prior consultation with the supervisory authority at the beginning of processing activities under the lists prepared by the supervisory authorities to comply with Article 35.4 of the GDPR.  
+This new scenario of diverse services and products presents an opportunity for the development of certification schemes provided for in the GDPR. Certification schemes are very useful for the implementation and demonstration of compliance with proactive accountability measures in the processing of personal data. Establishing a framework of trust in the security of data processing in 5G is an essential factor for ensuring its success.  
+Finally, it is necessary to reflect on the regulations and standards related to the processing and retention of traffic data by telecommunications operators, particularly regarding geolocation. For example, Law 25/2007 (transposition of Directive 2006/24/EC), of October 18, on the retention of data related to electronic communications and public communications networks, was approved when the standard resolution for geolocation of 1G to 3G networks required operators to locate users with a precision of between 100 and 300 on the plane. Currently, in 2020, 4G networks require a precision of 50 meters, but with 5G, resolutions of less than 1 meter in three dimensions will be achieved. The threat to privacy posed in 2007 by the retention of geolocation information is not comparable to what a scenario with deployed 5G networks may entail. Therefore, it is necessary to adapt the regulations to establish adequate guarantees for the processing of new traffic information and, above all, regarding its retention.  
+
+Page: 13 of 13  
+VII.  
+REFERENCES  
+5G Americas TM, “The Evolution of Security in 5G”  
+Data Protection Delegates and teams from Ericsson Spain, Huawei Spain, Movistar, Orange Spain, and Vodafone Spain, information provided in meetings held at AEPD.  
+European 5G Observatory, 5G Observatory Quarterly Reports  
+European Commission, EU coordinated risk assessment of the cybersecurity of 5G networks  
+Federal Communications Commission, 5G Edge Computing Whitepaper  
+Federal Communications Commission, 5G Network Slicing Whitepaper  
+R. Khan, P. Kumar, D. N. K. Jayakody, and M. Liyanage, "A Survey on Security and Privacy of 5G Technologies: Potential Solutions, Recent Advancements and Future Directions," in IEEE Communications Surveys & Tutorials.  
+Organic Law 3/2018, of December 5, on Personal Data Protection and Guarantee of Digital Rights  
+M. Liyanage, J. Salo, A. Braeken, T. Kumar, S. Seneviratne, and M. Ylianttila, "5G Privacy: Scenarios and Solutions," 2018 IEEE 5G World Forum (5GWF), Silicon Valley, CA, 2018, pp. 197-203.  
+Manuel Lorenzo, Ericsson Spain, talk at t3chfest - The Convergence of 5G, AI, and IoT  
+José Picó J., Pérez D., CCN-CERT, Plataforma Vanesa, Security in 5G communication protocols  
+Privacy International - “Welcome to 5G: Privacy and security in a hyperconnected world (or not?)”  
+Regulation (EU) 2016/679 of the European Parliament and of the Council of April 27, 2016, on the protection of natural persons with regard to the processing of personal data and on the free movement of such data, and repealing Directive 95/46/EC (General Data Protection Regulation).  
+Organic Law 3/2018, of December 5, on Personal Data Protection and Guarantee of Digital Rights

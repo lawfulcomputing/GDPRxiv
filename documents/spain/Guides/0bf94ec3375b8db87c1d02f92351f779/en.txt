@@ -1,0 +1,101 @@
+10 MISUNDERSTANDINGS RELATED TO ANONYMIZATION  
+10  
+MISUNDERSTANDINGS RELATED TO ANONYMIZATION  
+
+10 MISUNDERSTANDINGS RELATED TO ANONYMIZATION  
+Anonymization is the process by which personal data is transformed into anonymous data. In accordance with the data protection legislation of the European Union, specifically the General Data Protection Regulation (GDPR)1, anonymous data constitutes "information that does not relate to identified or identifiable natural persons or personal data that is anonymized in such a way that it ceases to be identifiable." Datasets2 that include personal data may contain direct and indirect identifiers, allowing for the identification or potential identification of a natural person. A direct identifier is specific information that can be attributed to an individual, such as their name or an identification number. An indirect identifier (also referred to as a quasi-identifier) is any data (for example, a geographical location at a specific time or an opinion on a particular topic) that could be used, either individually or in combination with other quasi-identifiers, by someone who has knowledge about that individual to reidentify them in the dataset3 4. The probability of reidentification is the likelihood that an individual will be reidentified in a given dataset by converting anonymized data back into personal data through the use of data comparison or similar techniques. The utility of a dataset is a unit that measures the usefulness of that information for a specific purpose (for example, a research study on a specific disease).  
+Over the years, there have been several examples of anonymization processes that have been carried out incompletely or incorrectly, resulting in the reidentification of individuals. For example, in 2006, a movie streaming service published a dataset containing 10 million movie ratings made by 500,000 customers, claiming it was anonymous, but it was later discovered that knowing just a few details about the subscriber was sufficient to identify them in the record of that dataset5. Another example of poor anonymization: in 2013, the New York City Taxi and Limousine Commission published a data file with over 173 million individual taxi trips that contained pickup and drop-off locations, times, and supposedly anonymized license numbers. The dataset was not properly anonymized, making it possible to identify the original license numbers and even the drivers of those taxis6.  
+Anonymous data plays an important role in the context of research in areas such as medicine, demographics, marketing, economics, statistics, and many others. However, this interest has led to the spread of misunderstandings regarding it. The purpose of this document is to raise public awareness about some misunderstandings related to anonymization and to encourage its readers to verify claims about the technology, rather than accepting them without verification.  
+This document includes a list of ten of these misunderstandings, explains the reality, and provides references for further reading.  
+1  
+http://data.europa.eu/eli/reg/2016/679/2016-05-04  
+2  
+A dataset is a structured collection of data. An example of a dataset is a table where each column represents a specific variable and each row corresponds to a different record.  
+3  
+Barth-Jones, D. (2012). The ‘re-identification’ of Governor William Weld’s medical information: a critical re-examination of health data identification risks and privacy protections, then and now. Then and Now (July 2012). https://papers.ssrn.com/sol3/papers.cfm?abstract_id=2076397.  
+4  
+Khaled El Emam and Bradley Malin, “Appendix B: Concepts and Methods for De-identifying Clinical Trial Data,” Sharing Clinical Trial Data: Maximizing Benefits, Minimizing Risk (Washington D.C.: National Academies Press, 2015), http://www.ncbi.nlm.nih.gov/books/NBK285994.  
+5  
+Narayanan, A., & Shmatikov, V. (2006). How to break anonymity of the Netflix prize dataset. arXiv preprint cs/0610105. https://arxiv.org/abs/cs/0610105.  
+6  
+Pandurangan, V. (2014). On taxis and rainbows: Lessons from NYC’s improperly anonymized taxi logs. Medium. Retrieved on November 30, 2015. https://tech.vijayp.ca/of-taxis-and-rainbows-f6bc289679a1.
+10 MISUNDERSTANDINGS RELATED TO ANONYMIZATION  
+MISTAKE 1.  
+“Pseudonymization is the same as anonymization”  
+Reality: “Pseudonymization is not the same as anonymization”  
+The GDPR defines “pseudonymization” as “the processing of personal data in such a way that the data can no longer be attributed to a specific data subject without the use of additional information, provided that such additional information is kept separately and is subject to technical and organizational measures to ensure that the personal data cannot be attributed to an identified or identifiable natural person.” This means that the use of “additional information” may lead to the identification of individuals; for this reason, pseudonymized personal data are still considered personal data.  
+In contrast, anonymous data cannot be associated with a particular individual. Once the data is truly anonymous and individuals can no longer be identified, they fall outside the scope of the GDPR.  
+
+MISTAKE 2.  
+“Encryption is anonymization”  
+Reality: Encryption does not constitute a technique for anonymization, but it can be a good tool for pseudonymization.  
+The encryption process uses secret keys to transform information in such a way that the risk of misuse is reduced while maintaining confidentiality for a specified period of time. Since the original information must remain accessible, the transformations applied by encryption algorithms are designed to be reversible, which is known as decryption.  
+The private keys used for decryption are the “additional information” mentioned earlier (see Mistake 1), which can make the data readable and ultimately allow for identification.  
+In theory, it could be considered that the removal of the encryption key from the encrypted data would render it anonymous, but this is not the case. It cannot be assumed that encrypted data cannot be decrypted simply because it is said that the decryption key has been “deleted” or is “unknown.” There are many factors that affect the confidentiality of encrypted data, particularly in the long term. These factors include the strength of the encryption algorithm and key, information leaks, implementation issues, the amount of encrypted data, or technological advancements (for example, quantum computing).  
+7  
+TechDispatch #2/2020: Quantum Computing and Cryptography, 7 August 2020, European Data Protection Supervisor  
+https://edps.europa.eu/data-protection/our-work/publications/techdispatch/techdispatch-22020-quantum-computing-and_en  
+7
+10 MISUNDERSTANDINGS RELATED TO ANONYMIZATION  
+MISTAKE 3.  
+"Data can always be anonymized"  
+Reality: It is not always possible to reduce the risk of reidentification below a predefined threshold while simultaneously maintaining the utility of a dataset for a specific treatment.  
+Anonymization is a process that seeks to find the right balance between reducing the risk of reidentification and maintaining the utility of a dataset for its intended purposes. However, depending on the context or the nature of the data, the risks of reidentification may not be sufficiently mitigated. This situation can occur when the total number of possible individuals ("universe of subjects") is too small (for example, an anonymous dataset containing only the 705 members of the European Parliament), when the data categories are so different among individuals that they can be individualized (for example, the device fingerprint of the systems that accessed a particular website), or when the dataset includes a high number of demographic attributes or location data.  
+
+8  
+Rocher, L., Hendrickx, J. M., & De Montjoye, Y. A. (2019). Estimating the success of re-identifications in incomplete datasets using generative models. Nature communications, 10(1), 1-9, https://doi.org/10.1038/s41467-019-10933-3  
+9  
+Xu, F., Tu, Z., Li, Y., Zhang, P., Fu, X., & Jin, D. (2017, April). Trajectory recovery from ash: User privacy is not preserved in aggregated mobility data. In Proceedings of the 26th international conference on world wide web (pages 1241-1250), https://dl.acm.org/doi/abs/10.1145/3038912.3052620  
+
+MISTAKE 4.  
+"Anonymization is permanent"  
+Reality: There is a risk that certain anonymization processes may be reversible in the future. Circumstances may change over time, and new technical advancements and the availability of additional information may jeopardize previous anonymization processes.  
+The computing resources and new technologies (or new uses of existing technologies) available to an attacker who might attempt to reidentify an anonymous dataset change over time. Nowadays, cloud computing provides affordable computing power at levels and prices that were unthinkable years ago. In the future, quantum computers could also alter what is currently considered "acceptable means."  
+Furthermore, the disclosure of additional data over the years (for example, in a leak of personal data) may allow data that was previously anonymous to be attributed to identified individuals. The disclosure of records from many decades ago containing highly sensitive data (for example, criminal records) could continue to have a significantly detrimental effect on an individual or their relatives.  
+
+10  
+EDPS TechDispatch - Quantum computing and cryptography. Issue 2, 2020, https://data.europa.eu/doi/10.2804/36404  
+11  
+Graham, C. (2012). Anonymisation: managing data protection risk code of practice. Information Commissioner’s Office. https://ico.org.uk/media/1061/anonymisation-code.pdf.  
+
+10 MISUNDERSTANDINGS RELATED TO ANONYMIZATION  
+MISTAKE 5.  
+"Anonymization always reduces the probability of reidentification of a dataset to zero"  
+Reality: The anonymization process and the way it is applied will have a direct influence on the likelihood of reidentification risks.  
+A robust anonymization process aims to reduce the risk of reidentification below a certain threshold. This threshold will depend on various factors, such as existing mitigation controls (none in the context of public disclosure), the impact on individuals' privacy in the event of reidentification, the motives, and the capability of an attacker to reidentify the data.  
+While 100% anonymization is the most desirable goal from a personal data protection perspective, in some cases, it is not possible, and a residual risk of reidentification must be considered.  
+
+12  
+External guidance on the implementation of the European Medicines Agency policy on the publication of clinical data for medicinal products for human use (2016) https://www.ema.europa.eu/en/documents/regulatory-procedural-guideline/external-guidance-implementation-european-medicines-agency-policy-publication-clinical-data_en-0.pdf  
+
+MISTAKE 6.  
+"Anonymization is a binary concept that cannot be measured"  
+Reality: The degree of anonymization can be analyzed and measured.  
+The term "anonymous data" cannot be understood as if datasets could be labeled as either anonymous or not. There is a probability that the records of any dataset can be reidentified based on the possibility of individualization. Any robust anonymization process will assess the risk of reidentification, which must be managed and controlled over time.  
+Except in specific cases where the data is highly generalized (for example, a dataset counting the number of visitors to a website by country in a year), the risk of reidentification can never be considered zero.  
+
+13  
+Step 4: Measure the data risk. De-identification Guidelines for Structured Data, Information and Privacy Commissioner of Ontario June 2016. https://www.ipc.on.ca/wp-content/uploads/2016/08/Deidentification-Guidelines-for-Structured-Data.pdf
+10 MISUNDERSTANDINGS RELATED TO ANONYMIZATION  
+MISTAKE 7.  
+“Anonymization can be fully automated”  
+Reality: It is possible to use automatic tools during the anonymization process; however, given the importance of context in evaluating this process, the intervention of a human expert is necessary. On the contrary, it requires an analysis of the original dataset, its intended purposes, the techniques to be applied, and the risk of reidentification of the resulting data. Despite the fact that the identification and removal of direct identifiers (also known as “masking”) constitutes an important part of the anonymization process, it must always be accompanied by a cautious analysis that seeks other sources of identification (indirect) (generally, through quasi-identifiers). While finding direct identifiers is trivial, indirect identifiers, on the other hand, are not always obvious, and failing to detect them can lead to the reversal of the process (i.e., reidentification), which has implications for the privacy of individuals. Automation could be key in some steps of the anonymization process, such as the removal of direct identifiers or the consistent application of a generalization procedure on a variable. Conversely, it seems unlikely that a fully automated process could identify quasi-identifiers in different contexts or decide how to maximize the utility of the data by applying specific techniques to particular variables.  
+MISTAKE 8.  
+“Anonymization renders data useless”  
+Reality: An adequate anonymization process maintains the functionality of the data for a specific purpose. The goal of anonymization is to prevent individuals from being identified from a dataset. Anonymization techniques will always restrict the ways in which the resulting dataset can be used. For example, grouping birth dates into one-year intervals will reduce the risk of reidentification while simultaneously reducing the utility of the dataset in some cases. This does not mean that anonymous data is useless; rather, its utility will depend on the purpose and the acceptable risk of reidentification. Furthermore, personal data cannot be stored permanently beyond what is stipulated by its original purpose, awaiting an opportunity when it may be useful for other purposes. The solution for some data controllers could be anonymization, where personal data can be separated and discarded from the dataset, while the remaining dataset continues to retain useful meaning. An example could be the anonymization of access logs to a website, if only the access date and the page accessed are retained, but not the information about who accessed it. The principle of “data minimization” requires the data controller to determine whether it is necessary to process personal data to achieve a specific objective, or if that objective can also be achieved with anonymous data. In some cases, this may lead to the conclusion that the anonymization of the data does not fit the intended purpose. In these cases, the data controller will have to decide between processing personal data (and using, for example, pseudonymization) and applying the GDPR, or not processing the data at all.  
+MISTAKE 9.  
+“Following an anonymization process that others have successfully used will result in our organization achieving equivalent outcomes”  
+Reality: Anonymization processes must be adapted to the nature, scope, context, and purposes of the processing, as well as to the risks of varying probability and severity for the rights and freedoms of individuals. Anonymization cannot be applied as if following a recipe, because the context (nature, scope, context, and purposes of data processing) will likely differ from one circumstance to another and from one organization to another. An anonymization process may have a reidentification risk below a certain threshold when the data is only made available to a limited number of recipients, while the reidentification risk may not reach that threshold when the data is made available to the general public. There may be different datasets available in different contexts. These could intersect with the anonymous data, affecting the reidentification risk. For example, in Sweden, information regarding the personal data of taxpayers is publicly available, while in Spain it is not. Therefore, even if the datasets that include information about Spanish and Swedish citizens were anonymized following the same procedure, the reidentification risks could be different.
+10 MISUNDERSTANDINGS RELATED TO ANONYMIZATION  
+MISTAKE 10.  
+"There is no risk or interest in knowing to whom these data are attributed."  
+Reality: Personal data have value in themselves, for the individuals themselves and for third parties. The reidentification of an individual could have serious repercussions regarding their rights and freedoms.  
+Attacks against anonymization can manifest as deliberate attempts at reidentification, unintentional attempts at reidentification, security breaches, or public data disclosure. The likelihood that someone will attempt to reidentify an individual only pertains to the first type. The possibility that someone may reidentify at least one person in a dataset cannot be ruled out, whether out of curiosity, by chance, or due to a genuine interest (for example, scientific research, journalism, or criminal activity).  
+It can be difficult to accurately assess the impact of reidentification on a person's privacy, as it will always depend on the context and the information that is correlated. For example, the reidentification of an individual in the seemingly harmless context of their movie preferences could lead to inferences about that person's political inclinations or sexual orientation.  
+17 Khaled El Emam and Luk Arbuckle, Anonymizing Health Data (pp. 29-33).  
+18 Khaled El Emam, Elizabeth Jonker, Luk Arbuckle, Bradley Malin, “A Systematic Review of Re-Identification Attacks on Health Data,” December 11, 2011. https://journals.plos.org/plosone/article/file?id=10.1371/journal.pone.0028071&type=printable  
+19 Narayanan, Arvind; Shmatikov, Vitaly. “Robust De-anonymization of Large Sparse Datasets” (PDF). Retrieved March 2, 2021. https://www.cs.utexas.edu/~shmat/shmat_oak08netflix.pdf.  
+However, this especially sensitive data enjoys special protection under the GDPR.  
+17  
+18  
+19
