@@ -1,3 +1,5 @@
+
+
 #!/usr/bin/env python3
 """
 metadata.py
@@ -32,7 +34,7 @@ except Exception:
     print("Please install the OpenAI SDK:  pip install openai", file=sys.stderr)
     raise
 
-MODEL_NAME = os.getenv("OPENAI_MODEL", "gpt-5")  # default to gpt-5 if available
+MODEL_NAME = os.getenv("OPENAI_MODEL", "gpt-5")
 OPENAI_KEY = os.getenv("OPENAI_API_KEY")
 if not OPENAI_KEY:
     raise RuntimeError("Set OPENAI_API_KEY first, e.g.: export OPENAI_API_KEY='sk-...'")
@@ -43,11 +45,6 @@ RAW_TEMP = os.getenv("OPENAI_TEMPERATURE", "").strip()
 TEMPERATURE = None if RAW_TEMP == "" else float(RAW_TEMP)
 
 def _chat_complete(messages, model=MODEL_NAME, temperature=TEMPERATURE):
-    """
-    Safe chat completion that works with models which disallow explicit temperature.
-    - Tries with provided temperature if not None
-    - On 400 'unsupported_value' for 'temperature', retries WITHOUT the temperature field
-    """
     kwargs = dict(model=model, messages=messages)
     if temperature is not None:
         kwargs["temperature"] = temperature
@@ -55,7 +52,6 @@ def _chat_complete(messages, model=MODEL_NAME, temperature=TEMPERATURE):
         try:
             return client.chat.completions.create(**kwargs)
         except AttributeError:
-            # for older SDK variants
             return client.chat_completions.create(**kwargs)
     except Exception as e:
         msg = str(e)
@@ -70,7 +66,7 @@ def _chat_complete(messages, model=MODEL_NAME, temperature=TEMPERATURE):
                 raise
         raise
 
-# ========= Readers (TXT preferred, PDF fallback) =========
+# ========= Readers =========
 def read_pdf_text(pdf_path: Path) -> str:
     try:
         import fitz  # PyMuPDF
@@ -104,6 +100,17 @@ def load_text_from_folder(folder: Path) -> str:
         return read_pdf_text(pdf_path)
     raise FileNotFoundError(f"Neither en.txt nor en.pdf found in {folder}")
 
+def load_text_from_folder_txt_only(folder: Path) -> str:
+    """
+    Only read en.txt (skip en.pdf). Used when metadata is missing or missing target keys.
+    """
+    txt_path = folder / "en.txt"
+    if txt_path.exists() and txt_path.is_file():
+        t = read_txt_text(txt_path)
+        if t.strip():
+            return t
+    raise FileNotFoundError(f"en.txt missing or empty in {folder}")
+
 def load_text_from_file(file_path: Path) -> str:
     if not file_path.exists() or not file_path.is_file():
         raise FileNotFoundError(f"File not found: {file_path}")
@@ -115,29 +122,47 @@ def load_text_from_file(file_path: Path) -> str:
     else:
         raise RuntimeError(f"Unsupported file type: {suf}. Use .txt or .pdf")
 
-# ========= metadata.json I/O (write only if changed) =========
+# ========= metadata.json normalization & I/O =========
+TARGET_KEYS = ("decision", "fine", "controller", "articles")
+
+def _normalize_meta(meta) -> Dict[str, Any] | None:
+    """
+    Normalize arbitrary JSON into a dict (for robustness against array-shaped files).
+    - dict -> dict
+    - list -> first element if it's a dict; [] or other -> None
+    - else -> None
+    """
+    if isinstance(meta, dict):
+        return meta
+    if isinstance(meta, list):
+        if meta and isinstance(meta[0], dict):
+            return meta[0]
+        return None
+    return None
+
 def load_metadata(path: Path) -> Dict[str, Any]:
     if not path.exists():
         return {}
     try:
-        return json.loads(path.read_text(encoding="utf-8"))
+        raw = json.loads(path.read_text(encoding="utf-8"))
+        return _normalize_meta(raw) or {}
     except Exception:
         return {}
 
 def save_metadata_if_changed(meta_path: Path, new: Dict[str, Any]) -> bool:
     old = load_metadata(meta_path)
     changed = False
-    for k in ("decision", "fine", "controller", "articles"):
+    for k in TARGET_KEYS:
         if str(old.get(k, "")).strip() != str(new.get(k, "")).strip():
             changed = True
             break
     if changed:
-        meta = old
+        meta = dict(old)
         meta.update(
             {
-                "decision": new.get("decision", ""),
-                "fine": new.get("fine", ""),
-                "controller": new.get("controller", ""),
+                "decision": new.get("decision", "unknown"),
+                "fine": new.get("fine", "0"),
+                "controller": new.get("controller", "unknown"),
                 "articles": new.get("articles", ""),
             }
         )
@@ -149,6 +174,20 @@ def save_metadata_if_changed(meta_path: Path, new: Dict[str, Any]) -> bool:
     else:
         print("[=] metadata.json unchanged")
         return False
+
+# ---- only check for missing keys, not emptiness ----
+def metadata_missing_or_empty(meta: Dict[str, Any]) -> bool:
+    """
+    PER YOUR RULE:
+    Return True ONLY if at least one of the TARGET_KEYS is NOT PRESENT in the metadata object.
+    If keys exist (even empty), return False.
+    Also robust to malformed/array-shaped metadata via _normalize_meta().
+    """
+    meta = _normalize_meta(meta) or {}
+    for k in TARGET_KEYS:
+        if k not in meta:
+            return True
+    return False
 
 # ========= chunking =========
 def chunks(s: str, max_chars: int = 14000):
@@ -275,7 +314,7 @@ OUTPUT
 - Only valid JSON with exactly key "articles" and a comma-separated list, e.g., "4, 5, 6".
 """
 
-ARTICLES_ONLY_USER = """Document:
+ARTICLES_ONLY_USER = """Text from en.txt:
 ---
 {body}
 ---"""
@@ -707,9 +746,12 @@ def llm_extract_fields(text: str,progress_path: Path | None = None, retries: int
     }
 
 
-def run_case_and_write(target: Path, is_file: bool) -> Dict[str, str]:
+def run_case_and_write(target: Path, is_file: bool,txt_only: bool = False) -> Dict[str, str]:
     # Read document
-    text = load_text_from_file(target) if is_file else load_text_from_folder(target)
+    if is_file:
+        text = load_text_from_file(target)
+    else:
+        text = load_text_from_folder_txt_only(target) if txt_only else load_text_from_folder(target)
     if not text.strip():
         raise RuntimeError("No text content found (empty/failed read).")
     
@@ -769,10 +811,10 @@ SECTION_ALLOWLIST = {
     "decisions & judgments",
     "Decisions & Reports",
     "Decisions & Deliberations",
-    "Annual Reports",
-    "Reports",
+    #"Annual Reports",
+    #"Reports",
     "Decisions_2",
-    "AnnualReports",
+    #"AnnualReports",
 }
 
 DECISION_LIKE_SECTIONS = { 
@@ -781,34 +823,36 @@ DECISION_LIKE_SECTIONS = {
     "decisions & judgments",
     "Decisions & Reports",
     "Decisions & Deliberations",
-    "Annual Reports",
-    "Reports",
+    #"Annual Reports",
+    #"Reports",
     "Decisions_2",
-    "AnnualReports",
+   # "AnnualReports",
 }
 
-def metadata_missing_or_empty(meta: Dict[str, Any]) -> bool: 
-    for k in ("decision", "fine", "controller", "articles"):
-        v = str(meta.get(k, "")).strip()
-        if v == "":
-            return True
-    return False
 
-def should_process_case_folder(case_dir: Path, force: bool) -> Tuple[bool, str]: 
-    """
-    Returns (should_process, reason)
-    """
-    if not ((case_dir / "en.txt").exists() or (case_dir / "en.pdf").exists()):
-        return (False, "no en.txt/en.pdf")
+def should_process_case_folder(case_dir: Path, force: bool) -> Tuple[bool, str]:
+    has_txt = (case_dir / "en.txt").exists()
+    has_pdf = (case_dir / "en.pdf").exists()
     meta_path = case_dir / "metadata.json"
+
     if force:
+        if not (has_txt or has_pdf):
+            return (False, "no en.txt/en.pdf")
         return (True, "--force")
+
     if not meta_path.exists():
-        return (True, "metadata.json missing")
+        if not has_txt:
+            return (False, "metadata.json missing but no en.txt")
+        return (True, "metadata.json missing (txt-only)")
+
     meta = load_metadata(meta_path)
-    if metadata_missing_or_empty(meta):
-        return (True, "metadata fields missing/empty")
-    return (False, "metadata complete")
+    if metadata_missing_or_empty(meta):  # presence-only
+        if not has_txt:
+            return (False, "required keys absent but no en.txt")
+        return (True, "required keys absent (txt-only)")
+
+    return (False, "metadata complete (all target keys present)")
+
 
 def iter_case_folders(  
     repo_root: Path,
@@ -873,7 +917,8 @@ def run_repo_scan(
         if dry_run:
             continue
         try:
-            run_case_and_write(case_dir, is_file=False)
+            txt_only = reason in ("metadata.json missing (txt-only)", "required keys absent (txt-only)")
+            run_case_and_write(case_dir, is_file=False, txt_only=txt_only)
             processed += 1
         except Exception as e:
             print(f"[!] Failed on {case_dir}: {e}", file=sys.stderr)
@@ -898,6 +943,8 @@ def main():
     ) 
 
     # Optional behavior flags
+    ap.add_argument("--txt-only", action="store_true",
+                help="Force reading en.txt (ignore en.pdf)")
     ap.add_argument("--force", action="store_true", help="Re-extract even if metadata fields already exist")  
     ap.add_argument("--dry-run", action="store_true", help="List what would be processed without calling OpenAI")  
     ap.add_argument("--all-sections", action="store_true", help="Process across SECTION_ALLOWLIST, not just decision-like sections")
