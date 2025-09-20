@@ -830,7 +830,7 @@ SECTION_ALLOWLIST = {
     "Decisions & Deliberations",
     #"Annual Reports",
     #"Reports",
-    "Decisions_2",
+    "Decisions 2",
     #"AnnualReports",
 }
 
@@ -842,7 +842,7 @@ DECISION_LIKE_SECTIONS = {
     "Decisions & Deliberations",
     #"Annual Reports",
     #"Reports",
-    "Decisions_2",
+    "Decisions 2",
    # "AnnualReports",
 }
 
