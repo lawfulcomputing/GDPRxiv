@@ -34,7 +34,7 @@ except Exception:
     print("Please install the OpenAI SDK:  pip install openai", file=sys.stderr)
     raise
 
-MODEL_NAME = os.getenv("OPENAI_MODEL", "gpt-5")
+MODEL_NAME = os.getenv("OPENAI_MODEL", "gpt-5-mini")
 OPENAI_KEY = os.getenv("OPENAI_API_KEY")
 if not OPENAI_KEY:
     raise RuntimeError("Set OPENAI_API_KEY first, e.g.: export OPENAI_API_KEY='sk-...'")
@@ -346,10 +346,27 @@ Rules for "articles" (context-aware GDPR inference):
 - EXCLUDE if the same sentence/clause ties the number to a non-GDPR instrument.
 - Reduce to base numbers, expand ranges, deduplicate, sort. No guessing beyond the evidence.
 
-Controller:
-- Return the controller(s) named or addressed by the decision (company/authority/person) WITHOUT truncation.
-- Prefer full legal names as they appear. If multiple, join with '; '.
-- If truly absent, return "unknown".
+
+Rules for "Controller":
+- Return ONLY the official legal name of the controller entity as it appears in the decision.
+- Allowed content: letters, digits, spaces, punctuation that can be part of legal names (., & , - , ' , " , /).
+- Not allowed: addresses; zip codes; city/country names; “registered office/seat”; registration numbers (NIF, VAT, “company number …”);
+  representatives (“represented by …” / “acting through …”); appositives (“hereinafter referred to as …”); roles (controller/processor);
+  quotes around nicknames; any trailing explanatory clauses.
+- If multiple controllers truly exist, join names with “; ” but keep only the names, no extras.
+- If absent, return "unknown".
+
+Examples:
+GOOD → "RTL Belgium"
+BAD  → "RTL Belgium, whose registered office is …"         (contains address)
+BAD  → "RTL Belgium, company number 0428.201.847"          (registration number)
+BAD  → "RTL Belgium, represented by Laurence Vandenbrouck" (representative)
+BAD  → "RTL Belgium (hereinafter 'the defendant')"         (appositive/role)
+GOOD → "LÍNEA DIRECTA ASEGURADORA, S.A."
+GOOD → "Y BANK"
+BAD  → "Y BANK, represented by Me Heidi Waem"              (representative)
+
+
 
 General:
 - If a field is not present, use "unknown" for decision/controller and "0" for fine.
