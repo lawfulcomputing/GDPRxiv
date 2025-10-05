@@ -831,6 +831,7 @@ SECTION_ALLOWLIST = {
     #"Annual Reports",
     #"Reports",
     "Decisions_2",
+    "Courts Decisions",
     #"AnnualReports",
 }
 
@@ -843,6 +844,7 @@ DECISION_LIKE_SECTIONS = {
     #"Annual Reports",
     #"Reports",
     "Decisions_2",
+    "Courts Decisions",
    # "AnnualReports",
 }
 
@@ -871,41 +873,106 @@ def should_process_case_folder(case_dir: Path, force: bool) -> Tuple[bool, str]:
     return (False, "metadata complete (all target keys present)")
 
 
-def iter_case_folders(  
+def iter_case_folders(
     repo_root: Path,
     only_decision_like: bool,
     country_names: List[str] | None = None,
+    subregion: str | None = None,
 ) -> Iterable[Path]:
     """
     Yields paths like: documents/<country>/<section>/<case_folder>,
     filtered by selected country names (case-insensitive).
+
+    - Germany: supports optional subregion and deep traversal with irregular structure.
+    - Other countries: treats the country folder as root and descends into
+      allowed section folders (like "Decisions"), then yields case folders.
     """
     documents_root = repo_root / "documents"
     if not documents_root.exists():
-        return
+        documents_root = repo_root
 
-    sel_names = set(n.lower() for n in country_names) if country_names else None
+    sel_names = {n.lower() for n in country_names} if country_names else None
 
-    # Pick countries
-    country_iter = [p for p in documents_root.iterdir() if p.is_dir()]
-    for country_dir in country_iter:
-        if sel_names is not None and country_dir.name.lower() not in sel_names:
+    allowed_sections_raw = DECISION_LIKE_SECTIONS if only_decision_like else SECTION_ALLOWLIST
+    allowed_sections = {s.lower() for s in allowed_sections_raw}
+
+    def is_section_name(name: str) -> bool:
+        return name.lower() in allowed_sections
+
+    def has_case_files(p: Path) -> bool:
+        return p.is_dir() and ((p / "en.txt").exists() or (p / "en.pdf").exists())
+
+    subnorm = subregion.casefold().strip() if subregion else None
+
+    # Walk each country folder
+    for country_dir in (p for p in documents_root.iterdir() if p.is_dir()):
+        cname = country_dir.name
+        if cname.startswith("."):
+            continue
+        if sel_names is not None and cname.lower() not in sel_names:
             continue
 
-        for section_dir in country_dir.iterdir():
-            if not section_dir.is_dir():
-                continue
-            section_name = section_dir.name
-            if only_decision_like:
-                if section_name not in DECISION_LIKE_SECTIONS:
-                    continue
-            else:
-                if section_name not in SECTION_ALLOWLIST:
+        # ------------------- GERMANY -------------------
+        if cname.lower() == "germany":
+            for root, dirs, _files in os.walk(country_dir):
+                dirs[:] = [d for d in dirs if not d.startswith(".")]
+                try:
+                    rel = Path(root).relative_to(country_dir)
+                except Exception:
+                    rel = Path("")
+                depth = 0 if str(rel) == "." else len(rel.parts)
+
+                # filter subregion if provided
+                if subnorm:
+                    if depth == 0:
+                        dirs[:] = [d for d in dirs if d.casefold() == subnorm]
+                    else:
+                        top = rel.parts[0].casefold() if rel.parts else ""
+                        if top != subnorm:
+                            dirs[:] = []
+                            continue
+
+                if depth > 3:
+                    dirs[:] = []
                     continue
 
-            for case_dir in section_dir.iterdir():
-                if case_dir.is_dir():
+                current = Path(root).name
+
+                # If folder matches allowed section
+                if is_section_name(current):
+                    for d in list(dirs):
+                        case_dir = Path(root) / d
+                        if has_case_files(case_dir):
+                            yield case_dir
+                    dirs[:] = [d for d in dirs if not has_case_files(Path(root) / d)]
+                    continue
+
+                # Generic fallback: any dir containing en.txt/en.pdf
+                candidate_case_dirs = []
+                for d in list(dirs):
+                    child = Path(root) / d
+                    if has_case_files(child):
+                        candidate_case_dirs.append(child)
+                if candidate_case_dirs:
+                    for case_dir in candidate_case_dirs:
+                        yield case_dir
+                    dirs[:] = [d for d in dirs if (Path(root) / d) not in candidate_case_dirs]
+            continue
+
+        # ------------------- NON-GERMANY -------------------
+        # Expected layout: documents/<country>/<SECTION>/<case_folder>/en.txt
+        for section_dir in (p for p in country_dir.iterdir()
+                            if p.is_dir() and not p.name.startswith(".") and is_section_name(p.name)):
+            for case_dir in (p for p in section_dir.iterdir() if p.is_dir()):
+                if has_case_files(case_dir):
                     yield case_dir
+                    continue
+                # handle one extra nesting level (e.g., SECTION/<wrapper>/<case>)
+                for maybe_case in (q for q in case_dir.iterdir() if q.is_dir()):
+                    if has_case_files(maybe_case):
+                        yield maybe_case
+
+
 
 def run_repo_scan(  
     repo_root: Path,
@@ -913,6 +980,7 @@ def run_repo_scan(
     dry_run: bool = False,
     only_decision_like: bool = True,
     country_names: List[str] | None = None,
+    subregion: str | None = None,
 ):
     """
     Walk the repository and process case folders whose metadata.json
@@ -923,6 +991,7 @@ def run_repo_scan(
         repo_root,
         only_decision_like=only_decision_like,
         country_names=country_names,
+        subregion=subregion,
     ):
         total += 1
         ok, reason = should_process_case_folder(case_dir, force=force)
@@ -956,7 +1025,10 @@ def main():
     ap.add_argument(
         "--country",
         nargs="+",
-        help="One or more country folder names under documents/ (case-insensitive), e.g. --country Spain Germany",
+        help=(
+        "Country name (case-insensitive). For Germany, you may append a subregion name, "
+        "e.g. --country Germany Bavaria"
+    ),
     ) 
 
     # Optional behavior flags
@@ -968,17 +1040,25 @@ def main():
 
 
     args = ap.parse_args()
-    if args.repo:  # <<< ADDED
+    if args.repo: 
         repo_root = args.repo.resolve()
         if not args.country:
             print("[error] --repo requires --country (one or more country folder names under documents/).", file=sys.stderr)
             sys.exit(2)
+        
+        countries = args.country[:]  
+        subregion = None
+        if any(c.lower() == "germany" for c in countries) and len(countries) > 1:
+            subregion = " ".join(countries[1:]).strip()
+
+
         run_repo_scan(
             repo_root=repo_root,
             force=args.force,
             dry_run=args.dry_run,
             only_decision_like=not args.all_sections,
-            country_names=args.country,
+            country_names=countries,
+            subregion=subregion if subregion else None,
         )
         return
     
