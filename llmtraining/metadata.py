@@ -832,6 +832,9 @@ SECTION_ALLOWLIST = {
     #"Reports",
     "Decisions_2",
     "Courts Decisions",
+    "CPDP Decisions or Opinion",
+    "SCA Decisions",
+    "CourtRulings"
     #"AnnualReports",
 }
 
@@ -845,6 +848,9 @@ DECISION_LIKE_SECTIONS = {
     #"Reports",
     "Decisions_2",
     "Courts Decisions",
+    "CPDP Decisions or Opinion",
+    "SCA Decisions",
+    "CourtRulings"
    # "AnnualReports",
 }
 
