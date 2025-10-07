@@ -845,7 +845,8 @@ SECTION_ALLOWLIST = {
     "SCA Decisions",
     "CourtRulings",
     "Hearings",
-    "Enforcements"
+    "Enforcements",
+    "Decision-Making Activities"
     #"AnnualReports",
 }
 
@@ -864,7 +865,8 @@ DECISION_LIKE_SECTIONS = {
     "SCA Decisions",
     "CourtRulings",
     "Hearings",
-    "Enforcements"
+    "Enforcements",
+    "Decision-Making Activities"
    # "AnnualReports",
 }
 
