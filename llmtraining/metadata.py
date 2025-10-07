@@ -89,12 +89,18 @@ def read_txt_text(txt_path: Path) -> str:
         print(f"Failed to read TXT {txt_path}: {e}", file=sys.stderr)
         return ""
 
+CANDIDATE_TXT_NAMES: List[str] = [
+    "en-article_content.txt",
+    "en.txt",
+]
 def load_text_from_folder(folder: Path) -> str:
-    txt_path = folder / "en.txt"
-    if txt_path.exists() and txt_path.is_file():
-        t = read_txt_text(txt_path)
-        if t.strip():
-            return t
+    for name in CANDIDATE_TXT_NAMES:
+        p = folder / name
+        if p.exists() and p.is_file():
+            t = read_txt_text(p)
+            if t.strip():
+                print(f"[read] using {p.name}")
+                return t
     pdf_path = folder / "en.pdf"
     if pdf_path.exists() and pdf_path.is_file():
         return read_pdf_text(pdf_path)
@@ -104,11 +110,13 @@ def load_text_from_folder_txt_only(folder: Path) -> str:
     """
     Only read en.txt (skip en.pdf). Used when metadata is missing or missing target keys.
     """
-    txt_path = folder / "en.txt"
-    if txt_path.exists() and txt_path.is_file():
-        t = read_txt_text(txt_path)
-        if t.strip():
-            return t
+    for name in CANDIDATE_TXT_NAMES:
+        p = folder / name
+        if p.exists() and p.is_file():
+            t = read_txt_text(p)
+            if t.strip():
+                print(f"[read] using {p.name}")
+                return t
     raise FileNotFoundError(f"en.txt missing or empty in {folder}")
 
 def load_text_from_file(file_path: Path) -> str:
@@ -836,7 +844,8 @@ SECTION_ALLOWLIST = {
     "CPDP Decisions or Opinion",
     "SCA Decisions",
     "CourtRulings",
-    "Hearings"
+    "Hearings",
+    "Enforcements"
     #"AnnualReports",
 }
 
@@ -854,13 +863,14 @@ DECISION_LIKE_SECTIONS = {
     "CPDP Decisions or Opinion",
     "SCA Decisions",
     "CourtRulings",
-    "Hearings"
+    "Hearings",
+    "Enforcements"
    # "AnnualReports",
 }
 
 
 def should_process_case_folder(case_dir: Path, force: bool) -> Tuple[bool, str]:
-    has_txt = (case_dir / "en.txt").exists()
+    has_txt = any((case_dir / name).exists() for name in CANDIDATE_TXT_NAMES)
     has_pdf = (case_dir / "en.pdf").exists()
     meta_path = case_dir / "metadata.json"
 
@@ -910,7 +920,11 @@ def iter_case_folders(
         return name.lower() in allowed_sections
 
     def has_case_files(p: Path) -> bool:
-        return p.is_dir() and ((p / "en.txt").exists() or (p / "en.pdf").exists())
+        if not p.is_dir():
+            return False
+        if any((p / name).exists() for name in CANDIDATE_TXT_NAMES):
+            return True
+        return (p / "en.pdf").exists()
 
     subnorm = subregion.casefold().strip() if subregion else None
 
