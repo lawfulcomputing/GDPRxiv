@@ -15,8 +15,8 @@ from reportlab.lib.units import mm
 
 # ======== CONFIG ========
 REPO_ROOT = Path(__file__).resolve().parent
-COUNTRY = "italy"     
-FILENAMES = ["it.txt"]               
+COUNTRY = "croatia"     
+FILENAMES = ["hr.txt"]               
 MODEL_NAME = "gpt-4o-mini"
 # =========================
 

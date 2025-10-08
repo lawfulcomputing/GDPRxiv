@@ -91,33 +91,66 @@ def read_txt_text(txt_path: Path) -> str:
 
 CANDIDATE_TXT_NAMES: List[str] = [
     "en-article_content.txt",
-    "en.txt",
+    "en_1.txt",
+    "en_2.txt",
+    "en_3.txt",
+    "en1.txt",
+    "en2.txt",
+    "en3.txt",
+    "enSummary.txt",
+    "en.txt"
 ]
 def load_text_from_folder(folder: Path) -> str:
+    all_text_parts: List[str] = []
+
     for name in CANDIDATE_TXT_NAMES:
         p = folder / name
         if p.exists() and p.is_file():
             t = read_txt_text(p)
             if t.strip():
                 print(f"[read] using {p.name}")
-                return t
+                all_text_parts.append(t)
+
+    for p in sorted(folder.glob("en_*.txt")):
+        if p.is_file() and p.name not in CANDIDATE_TXT_NAMES:
+            t = read_txt_text(p)
+            if t.strip():
+                print(f"[read] using {p.name}")
+                all_text_parts.append(t)
+
+    if all_text_parts:
+        return "\n\n".join(all_text_parts)
+
     pdf_path = folder / "en.pdf"
     if pdf_path.exists() and pdf_path.is_file():
         return read_pdf_text(pdf_path)
-    raise FileNotFoundError(f"Neither en.txt nor en.pdf found in {folder}")
+    raise FileNotFoundError(f"No valid TXT or en.pdf found in {folder}")
 
 def load_text_from_folder_txt_only(folder: Path) -> str:
     """
     Only read en.txt (skip en.pdf). Used when metadata is missing or missing target keys.
     """
+    all_text_parts: List[str] = []
+
     for name in CANDIDATE_TXT_NAMES:
         p = folder / name
         if p.exists() and p.is_file():
             t = read_txt_text(p)
             if t.strip():
                 print(f"[read] using {p.name}")
-                return t
-    raise FileNotFoundError(f"en.txt missing or empty in {folder}")
+                all_text_parts.append(t)
+
+    for p in sorted(folder.glob("en_*.txt")):
+        if p.is_file() and p.name not in CANDIDATE_TXT_NAMES:
+            t = read_txt_text(p)
+            if t.strip():
+                print(f"[read] using {p.name}")
+                all_text_parts.append(t)
+
+    if all_text_parts:
+        return "\n\n".join(all_text_parts)
+
+    raise FileNotFoundError(f"No non-empty TXT files found among {CANDIDATE_TXT_NAMES} or en_*.txt in {folder}")
 
 def load_text_from_file(file_path: Path) -> str:
     if not file_path.exists() or not file_path.is_file():
@@ -846,7 +879,16 @@ SECTION_ALLOWLIST = {
     "CourtRulings",
     "Hearings",
     "Enforcements",
-    "Decision-Making Activities"
+    "Decision-Making Activities",
+    "2018 Finland Documents",
+    "2019 Finland Documents",
+    "2020 Finland Documents",
+    "2021 Finland Documents",
+    "2022 Finland Documents",
+    "2023 Finland Documents",
+    "2024 Finland Documents",
+    "2025 Finland Documents"
+
     #"AnnualReports",
 }
 
@@ -866,15 +908,31 @@ DECISION_LIKE_SECTIONS = {
     "CourtRulings",
     "Hearings",
     "Enforcements",
-    "Decision-Making Activities"
+    "Decision-Making Activities",
+    "2018 Finland Documents",
+    "2019 Finland Documents",
+    "2020 Finland Documents",
+    "2021 Finland Documents",
+    "2022 Finland Documents",
+    "2023 Finland Documents",
+    "2024 Finland Documents",
+    "2025 Finland Documents"
    # "AnnualReports",
 }
 
 
 def should_process_case_folder(case_dir: Path, force: bool) -> Tuple[bool, str]:
-    has_txt = any((case_dir / name).exists() for name in CANDIDATE_TXT_NAMES)
+    has_txt = any((case_dir / name).exists() for name in CANDIDATE_TXT_NAMES) or any(case_dir.glob("en_*.txt"))
     has_pdf = (case_dir / "en.pdf").exists()
     meta_path = case_dir / "metadata.json"
+    if "sweden" in str(case_dir).lower():
+        finland_txt_candidates = [
+            "en_1.txt", "en_2.txt", "en_3.txt"
+        ]
+        for txt_name in finland_txt_candidates:
+            if (case_dir / txt_name).exists():
+                return (True, f"Finland override ({txt_name} present)")
+
 
     if force:
         if not (has_txt or has_pdf):
@@ -925,6 +983,8 @@ def iter_case_folders(
         if not p.is_dir():
             return False
         if any((p / name).exists() for name in CANDIDATE_TXT_NAMES):
+            return True
+        if any(p.glob("en_*.txt")):
             return True
         return (p / "en.pdf").exists()
 
