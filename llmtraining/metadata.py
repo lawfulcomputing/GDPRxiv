@@ -887,7 +887,8 @@ SECTION_ALLOWLIST = {
     "2022 Finland Documents",
     "2023 Finland Documents",
     "2024 Finland Documents",
-    "2025 Finland Documents"
+    "2025 Finland Documents",
+    "Fine & Reports"
 
     #"AnnualReports",
 }
@@ -916,7 +917,8 @@ DECISION_LIKE_SECTIONS = {
     "2022 Finland Documents",
     "2023 Finland Documents",
     "2024 Finland Documents",
-    "2025 Finland Documents"
+    "2025 Finland Documents",
+    "Fine & Reports"
    # "AnnualReports",
 }
 
@@ -925,13 +927,13 @@ def should_process_case_folder(case_dir: Path, force: bool) -> Tuple[bool, str]:
     has_txt = any((case_dir / name).exists() for name in CANDIDATE_TXT_NAMES) or any(case_dir.glob("en_*.txt"))
     has_pdf = (case_dir / "en.pdf").exists()
     meta_path = case_dir / "metadata.json"
-    if "sweden" in str(case_dir).lower():
-        finland_txt_candidates = [
-            "en_1.txt", "en_2.txt", "en_3.txt"
-        ]
-        for txt_name in finland_txt_candidates:
-            if (case_dir / txt_name).exists():
-                return (True, f"Finland override ({txt_name} present)")
+    # if "sweden" in str(case_dir).lower():
+    #     finland_txt_candidates = [
+    #         "en_1.txt", "en_2.txt", "en_3.txt"
+    #     ]
+    #     for txt_name in finland_txt_candidates:
+    #         if (case_dir / txt_name).exists():
+    #             return (True, f"Finland override ({txt_name} present)")
 
 
     if force:
