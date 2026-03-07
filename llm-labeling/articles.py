@@ -33,15 +33,33 @@ def _read_pdf_text(pdf: Path) -> str:
 
 
 def _read_en_text(folder: Path) -> str:
-    p = folder / "en.txt"
-    if p.exists():
+    # Priority order:
+    # en.txt -> en.pdf -> en_Full.txt -> en_Summary.pdf -> en_1.pdf -> en-Enforcement notices.txt
+
+    file_order = [
+        "en.txt",
+        "en.pdf",
+        "en_Full.txt",
+        "en_Summary.pdf",
+        "enSummary.txt",
+        "en_1.pdf",
+        "en-Enforcement notices.txt",
+        "en-Monetary penalties.pdf"
+    ]
+
+    for name in file_order:
+        p = folder / name
+        if not p.exists():
+            continue
+
         try:
-            return p.read_text(encoding="utf-8", errors="ignore")
+            if p.suffix.lower() == ".pdf":
+                return _read_pdf_text(p)
+            else:
+                return p.read_text(encoding="utf-8", errors="ignore")
         except Exception:
-            return ""
-    p = folder / "en.pdf"
-    if p.exists():
-        return _read_pdf_text(p)
+            continue
+
     return ""
 
 
@@ -158,21 +176,21 @@ def _fmt(x: Optional[float]) -> str:
 
 
 # ================== LLM extractor ==================
-def _require_gemini():
-    """
-    Gemini client.
-    Env:
-      - GEMINI_API_KEY 
-      - GEMINI_MODEL  
-    """
-    key = os.getenv("GEMINI_API_KEY", "").strip()
-    if not key:
-        _die("GEMINI_API_KEY is not set.")
-    try:
-        from google import genai
-    except Exception:
-        _die("Gemini SDK not installed. Run: pip install google-genai")
-    return genai.Client(api_key=key)
+# def _require_gemini():
+#     """
+#     Gemini client.
+#     Env:
+#       - GEMINI_API_KEY 
+#       - GEMINI_MODEL  
+#     """
+#     key = os.getenv("GEMINI_API_KEY", "").strip()
+#     if not key:
+#         _die("GEMINI_API_KEY is not set.")
+#     try:
+#         from google import genai
+#     except Exception:
+#         _die("Gemini SDK not installed. Run: pip install google-genai")
+#     return genai.Client(api_key=key)
 
 def _extract_first_json_object(raw: str) -> str:
     raw = (raw or "").strip()
@@ -183,14 +201,63 @@ def _extract_first_json_object(raw: str) -> str:
     return m.group(0)
 
 
-def extract_violated_articles_with_gemini(text: str) -> List[str]:
-    client = _require_gemini()
-    model = os.getenv("GEMINI_MODEL", "gemini-2.5-pro").strip()
+# def extract_violated_articles_with_gemini(text: str) -> List[str]:
+#     client = _require_gemini()
+#     model = os.getenv("GEMINI_MODEL", "gemini-2.5-pro").strip()
 
-    prompt = (
+#     prompt = (
+#         "Extract GDPR article numbers that are explicitly stated as violated, breached, infringed, "
+#         "or not complied with.\n"
+#         # "- Include ONLY explicitly violated/non-compliant articles.\n"
+#         "- Ignore articles cited only for competence/procedure/background.\n"
+#         "- Treat GDPR synonyms (GDPR, Regulation (EU) 2016/679, DSGVO, RGPD, RODO) as GDPR.\n"
+#         "- Output ONLY main article numbers (e.g., 83(5)->\"83\", 6(1)(a)->\"6\").\n"
+#         "- If the decision is non-negative (dismissed, rejected, inadmissible, or no violation found), extract GDPR articles that were explicitly assessed, examined, or discussed in the legal analysis, even if no violation was found."
+#         "- If no articles are found using the above rules AND the document explicitly states a GDPR legal basis, then extract the GDPR article number(s) mentioned as the legal basis."
+#         "- Do NOT output any article number less than 5 or greater than 50"
+#         "- Sort the article numbers numerically in ascending order.\n"
+#         "Return STRICT JSON only:\n"
+#         "{\"violatedGDPRArticles\":[\"5\",\"6\"]} or {\"violatedGDPRArticles\":[]}\n\n"
+#         "Document:\n---\n"
+#         f"{text[:180000]}\n"
+#         "---"
+#     )
+
+#     try:
+#         resp = client.models.generate_content(model=model, contents=prompt)
+#     except Exception as e:
+#         _die(f"Gemini call failed: {e}")
+
+#     # google-genai returns .text for convenience
+#     raw = getattr(resp, "text", None) or ""
+#     json_str = _extract_first_json_object(raw)
+
+#     try:
+#         obj = json.loads(json_str)
+#     except Exception:
+#         _die(f"Invalid JSON from Gemini:\n{raw[:500]}")
+
+#     arts = _norm_main_articles(obj.get("violatedGDPRArticles", []))
+#     arts = sorted(set(arts), key=int)  # enforce numeric sorting + dedupe
+#     return arts
+def _require_grok():
+    key = os.getenv("XAI_API_KEY", "").strip()
+    if not key:
+        _die("XAI_API_KEY is not set.")
+    try:
+        from openai import OpenAI
+    except Exception:
+        _die("OpenAI SDK not installed. Run: pip install openai")
+    return OpenAI(api_key=key, base_url="https://api.x.ai/v1")
+
+
+def extract_violated_articles_with_grok(text: str) -> List[str]:
+    client = _require_grok()
+    model = os.getenv("GROK_MODEL", "grok-4-1-fast-reasoning").strip()
+
+    system = (
         "Extract GDPR article numbers that are explicitly stated as violated, breached, infringed, "
         "or not complied with.\n"
-        # "- Include ONLY explicitly violated/non-compliant articles.\n"
         "- Ignore articles cited only for competence/procedure/background.\n"
         "- Treat GDPR synonyms (GDPR, Regulation (EU) 2016/679, DSGVO, RGPD, RODO) as GDPR.\n"
         "- Output ONLY main article numbers (e.g., 83(5)->\"83\", 6(1)(a)->\"6\").\n"
@@ -205,80 +272,37 @@ def extract_violated_articles_with_gemini(text: str) -> List[str]:
         "---"
     )
 
-    try:
-        resp = client.models.generate_content(model=model, contents=prompt)
-    except Exception as e:
-        _die(f"Gemini call failed: {e}")
 
-    # google-genai returns .text for convenience
-    raw = getattr(resp, "text", None) or ""
-    json_str = _extract_first_json_object(raw)
+    user = f"Document:\n---\n{text[:180000]}\n---"
+
+    try:
+        r = client.chat.completions.create(
+            model=model,
+            messages=[
+                {"role": "system", "content": system},
+                {"role": "user", "content": user},
+            ],
+        )
+    except Exception as e:
+        _die(f"Grok call failed: {e}")
+
+    raw = (r.choices[0].message.content or "").strip()
+    raw = re.sub(r"^```(?:json)?\s*|\s*```$", "", raw)
+
+    m = re.search(r"\{[\s\S]*?\}", raw)
+    if not m:
+        _die(f"No JSON object found in Grok output:\n{raw[:500]}")
+    json_str = m.group(0)
 
     try:
         obj = json.loads(json_str)
     except Exception:
-        _die(f"Invalid JSON from Gemini:\n{raw[:500]}")
+        _die(f"Invalid JSON from Grok:\n{raw[:500]}")
 
     arts = _norm_main_articles(obj.get("violatedGDPRArticles", []))
-    arts = sorted(set(arts), key=int)  # enforce numeric sorting + dedupe
+    # enforce numeric sorting + dedupe just in case
+    arts = sorted(set(arts), key=int)
     return arts
-# def _require_grok():
-#     key = os.getenv("XAI_API_KEY", "").strip()
-#     if not key:
-#         _die("XAI_API_KEY is not set.")
-#     try:
-#         from openai import OpenAI
-#     except Exception:
-#         _die("OpenAI SDK not installed. Run: pip install openai")
-#     return OpenAI(api_key=key, base_url="https://api.x.ai/v1")
-
-
-# def extract_violated_articles_with_grok(text: str) -> List[str]:
-#     client = _require_grok()
-#     model = os.getenv("GROK_MODEL", "grok-4-1-fast-reasoning").strip()
-
-#     system = (
-#         "Extract GDPR article numbers that are explicitly stated as violated, "
-#         "breached, infringed, or not complied with.\n"
-#         "- Include ONLY explicitly violated/non-compliant articles.\n"
-#         "- Ignore articles cited only for competence/procedure/background.\n"
-#         "- Treat GDPR synonyms (GDPR, Regulation (EU) 2016/679, DSGVO, RGPD, RODO) as GDPR.\n"
-#         "- Output ONLY main article numbers (e.g., 83(5)->\"83\", 6(1)(a)->\"6\").\n"
-#         "- Sort the article numbers numerically in ascending order.\n"
-#         "Return STRICT JSON only:\n"
-#         "{\"violatedGDPRArticles\":[\"5\",\"6\"]} or {\"violatedGDPRArticles\":[]}"
-#     )
-
-#     user = f"Document:\n---\n{text[:180000]}\n---"
-
-#     try:
-#         r = client.chat.completions.create(
-#             model=model,
-#             messages=[
-#                 {"role": "system", "content": system},
-#                 {"role": "user", "content": user},
-#             ],
-#         )
-#     except Exception as e:
-#         _die(f"Grok call failed: {e}")
-
-#     raw = (r.choices[0].message.content or "").strip()
-#     raw = re.sub(r"^```(?:json)?\s*|\s*```$", "", raw)
-
-#     m = re.search(r"\{[\s\S]*?\}", raw)
-#     if not m:
-#         _die(f"No JSON object found in Grok output:\n{raw[:500]}")
-#     json_str = m.group(0)
-
-#     try:
-#         obj = json.loads(json_str)
-#     except Exception:
-#         _die(f"Invalid JSON from Grok:\n{raw[:500]}")
-
-#     arts = _norm_main_articles(obj.get("violatedGDPRArticles", []))
-#     # enforce numeric sorting + dedupe just in case
-#     arts = sorted(set(arts), key=int)
-#     return arts
 
 # def _require_openai():
 #     key = os.getenv("OPENAI_API_KEY", "").strip()
@@ -296,16 +320,22 @@ def extract_violated_articles_with_gemini(text: str) -> List[str]:
 #     model = os.getenv("OPENAI_MODEL", "gpt-5").strip()
 
 #     system = (
-#         "Extract GDPR article numbers that are explicitly stated as violated, "
-#         "breached, infringed, or not complied with.\n"
-#         "- Include ONLY explicitly violated/non-compliant articles.\n"
+#         "Extract GDPR article numbers that are explicitly stated as violated, breached, infringed, "
+#         "or not complied with.\n"
 #         "- Ignore articles cited only for competence/procedure/background.\n"
 #         "- Treat GDPR synonyms (GDPR, Regulation (EU) 2016/679, DSGVO, RGPD, RODO) as GDPR.\n"
 #         "- Output ONLY main article numbers (e.g., 83(5)->\"83\", 6(1)(a)->\"6\").\n"
+#         "- If the decision is non-negative (dismissed, rejected, inadmissible, or no violation found), extract GDPR articles that were explicitly assessed, examined, or discussed in the legal analysis, even if no violation was found."
+#         "- If no articles are found using the above rules AND the document explicitly states a GDPR legal basis, then extract the GDPR article number(s) mentioned as the legal basis."
+#         "- Do NOT output any article number less than 5 or greater than 50"
 #         "- Sort the article numbers numerically in ascending order.\n"
 #         "Return STRICT JSON only:\n"
-#         "{\"violatedGDPRArticles\":[\"5\",\"6\"]} or {\"violatedGDPRArticles\":[]}"
+#         "{\"violatedGDPRArticles\":[\"5\",\"6\"]} or {\"violatedGDPRArticles\":[]}\n\n"
+#         "Document:\n---\n"
+#         f"{text[:180000]}\n"
+#         "---"
 #     )
+
 
 #     user = f"Document:\n---\n{text[:180000]}\n---"
 
@@ -356,31 +386,55 @@ def iter_case_folders(
         if wanted_countries and country_name not in wanted_countries:
             continue
 
-        # germany/<subplace>/<case>
-        if country_name == "germany":
-            for sub_dir in country_dir.iterdir():
-                if not sub_dir.is_dir():
+                # ===== RTBF wrapper layout: documents/rtbf/<country>/<section>/<case> =====
+        if country_name == "rtbf":
+            for sub_country_dir in country_dir.iterdir():
+                if not sub_country_dir.is_dir():
                     continue
-                if wanted_subplaces and sub_dir.name.lower() not in wanted_subplaces:
+
+                sub_country = sub_country_dir.name.lower()
+
+                # Preserve Germany special layout inside rtbf
+                if sub_country == "germany":
+                    for subplace_dir in sub_country_dir.iterdir():
+                        if not subplace_dir.is_dir():
+                            continue
+                        for case_dir in subplace_dir.iterdir():
+                            if case_dir.is_dir():
+                                yield case_dir
                     continue
-                for case_dir in sub_dir.iterdir():
-                    if case_dir.is_dir():
-                        yield case_dir
+
+                # Czech Republic Inspections inside rtbf
+                if sub_country == "czech_republic":
+                    for section_dir in sub_country_dir.iterdir():
+                        if not section_dir.is_dir():
+                            continue
+                        if section_dir.name == "Inspections":
+                            for subsec_dir in section_dir.iterdir():
+                                if not subsec_dir.is_dir():
+                                    continue
+                                for case_dir in subsec_dir.iterdir():
+                                    if case_dir.is_dir():
+                                        yield case_dir
+                            continue
+                        for case_dir in section_dir.iterdir():
+                            if case_dir.is_dir():
+                                yield case_dir
+                    continue
+
+                # Normal countries inside rtbf
+                for section_dir in sub_country_dir.iterdir():
+                    if not section_dir.is_dir():
+                        continue
+                    for case_dir in section_dir.iterdir():
+                        if case_dir.is_dir():
+                            yield case_dir
             continue
-
-        # country/<section>/<case>
-        for section in country_dir.iterdir():
-            if not section.is_dir():
-                continue
-            for case_dir in section.iterdir():
-                if case_dir.is_dir():
-                    yield case_dir
-
 
 # ================== CSV + resume helpers ==================
 def _country_results_csv(repo_root: Path, model_name: str, country: str) -> Path:
     safe_model = re.sub(r"[^a-zA-Z0-9._-]+", "_", model_name)
-    out_dir = repo_root / "llmtraining" / "article_results_gemini_new" / safe_model
+    out_dir = repo_root / "llm-labeling" / "rtbf_results" / "articles" / safe_model
     out_dir.mkdir(parents=True, exist_ok=True)
     return out_dir / f"{country}.csv"
 
@@ -596,8 +650,9 @@ def run_articles_repo(
     countries: Optional[Set[str]] = None,
     subplaces: Optional[Set[str]] = None,
 ):
-    # model_name = os.getenv("GROK_MODEL", "grok-4-1-fast-reasoning").strip()
-    model_name = os.getenv("GEMINI_MODEL", "gemini-2.5-pro").strip()
+    model_name = os.getenv("GROK_MODEL", "grok-4-1-fast-reasoning").strip()
+    # model_name = os.getenv("GEMINI_MODEL", "gemini-2.5-pro").strip()
+    # model_name = os.getenv("OPENAI_MODEL", "gpt-5").strip()
 
 
     # Build eligible set per country first (same idea as documenttype verify)
@@ -614,7 +669,19 @@ def run_articles_repo(
 
 
         # Need text file
-        if not ((case / "en.txt").exists() or (case / "en.pdf").exists()):
+        if not any(
+        (case / name).exists()
+         for name in [
+         "en.txt",
+         "en.pdf",
+         "en_Full.txt",
+         "en_Summary.pdf",
+         "enSummary.txt",
+         "en_1.pdf",
+         "en-Enforcement notices.txt",
+         "en-Monetary penalties.pdf"
+            ]
+        ):
             continue
 
         ctry = _extract_country(case, repo_root)
@@ -659,7 +726,7 @@ def run_articles_repo(
                     print(f"[skip: no text] {case}", file=sys.stderr)
                     continue
 
-                new_articles = extract_violated_articles_with_gemini(text)
+                new_articles = extract_violated_articles_with_grok(text)
 
                 _append_result_row(
                     out_csv,

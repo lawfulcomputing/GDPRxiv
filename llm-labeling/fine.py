@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
-""" """
+"""
+"""
 
 import csv
 import os
@@ -32,9 +33,6 @@ def _read_pdf_text(pdf: Path) -> str:
 
 
 def _read_en_text(folder: Path) -> str:
-    # Priority order:
-    # en.txt -> en.pdf -> en_Full.txt -> en_Summary.pdf -> en_1.pdf -> en-Enforcement notices.txt
-
     file_order = [
         "en.txt",
         "en.pdf",
@@ -43,34 +41,79 @@ def _read_en_text(folder: Path) -> str:
         "enSummary.txt",
         "en_1.pdf",
         "en-Enforcement notices.txt",
-        "en-Monetary penalties.pdf"
-
+        "en-Monetary penalties.pdf",
     ]
 
     for name in file_order:
         p = folder / name
         if not p.exists():
             continue
-
         try:
             if p.suffix.lower() == ".pdf":
                 txt = _read_pdf_text(p)
             else:
                 txt = p.read_text(encoding="utf-8", errors="ignore")
-
             if txt and txt.strip():
                 return txt
         except Exception:
             continue
-
     return ""
 
 
+def _articles_contains_17(meta: dict) -> bool:
+    arts = meta.get("articles", "")
+    if not arts:
+        return False
+
+    # your structure: "15, 17, 21"
+    nums = re.findall(r"\d+", str(arts))
+    return "17" in nums
+
 def _load_metadata(p: Path) -> dict:
+    folder = p.parent
+
+    def has_article_17(d: dict) -> bool:
+        arts = d.get("articles", "")
+        nums = re.findall(r"\d+", str(arts))
+        return "17" in nums
+
+    def coerce_to_record(obj) -> dict:
+        if isinstance(obj, dict):
+            return obj
+        if isinstance(obj, list):
+            if len(obj) > 1:
+                for it in obj:
+                    if isinstance(it, dict) and has_article_17(it):
+                        return it
+            for it in obj:
+                if isinstance(it, dict):
+                    return it
+        return {}
+
+    meta_files = sorted(folder.glob("metadata*.json"))
+
+    if len(meta_files) > 1:
+        for mf in meta_files:
+            try:
+                obj = json.loads(mf.read_text(encoding="utf-8"))
+            except Exception:
+                continue
+            rec = coerce_to_record(obj)
+            if rec and has_article_17(rec):
+                return rec
+
+        if p.exists():
+            try:
+                return coerce_to_record(json.loads(p.read_text(encoding="utf-8")))
+            except Exception:
+                return {}
+        return {}
+
     if not p.exists():
         return {}
     try:
-        return json.loads(p.read_text(encoding="utf-8"))
+        obj = json.loads(p.read_text(encoding="utf-8"))
+        return coerce_to_record(obj)
     except Exception:
         return {}
 
@@ -88,128 +131,150 @@ def _extract_country(folder: Path, repo_root: Path) -> str:
     return "unknown"
 
 
-def _norm_decision(x: object) -> str:
-    """
-    Normalize decisions for comparison.
-    - lowercases
-    - collapses whitespace
-    - strips punctuation at ends
-    """
-    s = str(x).strip().lower()
-    s = re.sub(r"\s+", " ", s)
-    s = s.strip(" .;:\t\r\n\"'")
-    return s
+# ================== Amount normalization + matching ==================
+def _to_int_amount(x: object) -> int:
+    if x is None or isinstance(x, bool):
+        return 0
+    if isinstance(x, int):
+        return x if x >= 0 else 0
+    if isinstance(x, float):
+        return int(x) if x >= 0 else 0
 
-def _decision_match(existing: str, predicted: str) -> bool:
-    a = _norm_decision(existing)
-    b = _norm_decision(predicted)
+    s = str(x).strip()
+    if not s:
+        return 0
 
-    if not a or not b:
-        return False
-
-    if a == b:
-        return True
-
-    # substring either way
-    return (b in a) or (a in b)
+    s2 = re.sub(r"[^0-9,.\-]", "", s)
 
 
-# ================== GPT extractor ==================
-def _require_openai():
-    key = os.getenv("OPENAI_API_KEY", "").strip()
+    if "." in s2:
+        s2 = s2.split(".", 1)[0]
+
+    digits = re.sub(r"\D+", "", s2)
+    if not digits:
+        return 0
+
+    try:
+        val = int(digits)
+        return val if val >= 0 else 0
+    except Exception:
+        return 0
+
+
+# ================== Prompt ==================
+SYSTEM_FINE = (
+    "You will be given a legal decision / enforcement document.\n"
+    "Extract the fine that is FINAL/PAID/IMPOSED.\n"
+    "Ignore proposed fines, maximum statutory fines and non-final amounts.\n"
+    "If multiple final/paid amounts exist, return their SUM.\n"
+    "If a range is present, use the UPPER bound."
+    "If no final/paid fine exists, return 0.\n\n"
+)
+
+
+# ================== Providers ==================
+def _require_openai_client(api_key_env: str, *, base_url: Optional[str] = None):
+    key = os.getenv(api_key_env, "").strip()
     if not key:
-        _die("OPENAI_API_KEY is not set.")
+        _die(f"{api_key_env} is not set.")
     try:
         from openai import OpenAI
     except Exception:
         _die("OpenAI SDK not installed. Run: pip install openai")
+    if base_url:
+        return OpenAI(api_key=key, base_url=base_url)
     return OpenAI(api_key=key)
-# def _require_grok():
-#     """
-#     Grok (xAI) is OpenAI-compatible.
-#     Env:
-#       - XAI_API_KEY (required)
-#       - GROK_MODEL  (optional)
-#     """
-#     key = os.getenv("XAI_API_KEY", "").strip()
-#     if not key:
-#         _die("XAI_API_KEY is not set.")
-#     try:
-#         from openai import OpenAI
-#     except Exception:
-#         _die("OpenAI SDK not installed. Run: pip install openai")
-#     return OpenAI(api_key=key, base_url="https://api.x.ai/v1")
-# def _require_gemini():
-#     """
-#     Gemini client.
-#     Env:
-#       - GEMINI_API_KEY 
-#       - GEMINI_MODEL  
-#     """
-#     key = os.getenv("GEMINI_API_KEY", "").strip()
-#     if not key:
-#         _die("GEMINI_API_KEY is not set.")
-#     try:
-#         from google import genai
-#     except Exception:
-#         _die("Gemini SDK not installed. Run: pip install google-genai")
-#     return genai.Client(api_key=key)
 
-# def extract_decision_with_grok(text: str) -> str:
-#     client = _require_grok()
-#     # model = os.getenv("OPENAI_MODEL", "gpt-5").strip()
-#     # client = _require_openai()
-#     model = os.getenv("GROK_MODEL", "grok-4-1-fast-reasoning").strip()
 
-#     system = (
-#         "You will be given a legal decision document.\n"
-#         "Extract ONLY the final operative decision/outcome of the case.\n"
-#         "Focus on the dispositive or concluding part of the document, not background or reasoning.\n"
-#         "Return a label with one word describing the final outcome.\n"
-#         "Return STRICT JSON only:\n"
-#         '{"decision":"..."}'
-#     )
+def _require_gemini_client():
+    key = os.getenv("GEMINI_API_KEY", "").strip()
+    if not key:
+        _die("GEMINI_API_KEY is not set.")
+    try:
+        from google import genai
+    except Exception:
+        _die("Gemini SDK not installed. Run: pip install google-genai")
+    return genai.Client(api_key=key)
 
-#     user = f"Document:\n---\n{text[:180000]}\n---"
 
-#     try:
-#         r = client.chat.completions.create(
-#             model=model,
-#             messages=[
-#                 {"role": "system", "content": system},
-#                 {"role": "user", "content": user},
-#             ],
-#         )
-#     except Exception as e:
-#         _die(f"GPT call failed: {e}")
+def _parse_fine_json(raw: str) -> int:
+    raw = (raw or "").strip()
+    raw = re.sub(r"^```(?:json)?\s*|\s*```$", "", raw).strip()
 
-#     raw = (r.choices[0].message.content or "").strip()
-#     raw = re.sub(r"^```(?:json)?\s*|\s*```$", "", raw)
+    if re.fullmatch(r"\d+(\.\d+)?", raw):
+        try:
+            return int(float(raw))
+        except Exception:
+            return 0
 
-#     m = re.search(r"\{[\s\S]*?\}", raw)
-#     if not m:
-#         _die(f"No JSON object found in Grok output:\n{raw[:500]}")
-#     json_str = m.group(0)
-#     try:
-#         obj = json.loads(json_str)
-#     except Exception:
-#         _die(f"Invalid JSON from Grok:\n{raw[:500]}")
+    m = re.search(r"\{[\s\S]*?\}", raw)
+    if not m:
+        return _to_int_amount(raw)
 
-#     val = obj.get("decision", "unknown")
-#     return _norm_decision(val)
-def extract_decision_with_gpt(text: str) -> str:
-    client = _require_openai()
-    # model = os.getenv("GEMINI_MODEL", "gemini-2.5-pro").strip()
+    try:
+        obj = json.loads(m.group(0))
+    except Exception:
+        return _to_int_amount(raw)
+
+    fine_val = obj.get("fine", 0)
+
+    # enforce integer output
+    if isinstance(fine_val, bool):
+        return 0
+    if isinstance(fine_val, int):
+        return fine_val if fine_val >= 0 else 0
+    if isinstance(fine_val, float):
+        return int(fine_val) if fine_val >= 0 else 0
+    return _to_int_amount(fine_val)
+
+
+def extract_fine_openai(text: str) -> int:
+    client = _require_openai_client("OPENAI_API_KEY")
     model = os.getenv("OPENAI_MODEL", "gpt-5").strip()
 
-    system = (
-        "You will be given a legal decision document.\n"
-        "Extract ONLY the final operative decision/outcome of the case.\n"
-        "Focus on the dispositive or concluding part of the document, not background or reasoning.\n"
-        "Return a label with one word describing the final outcome.\n"
-        "Return STRICT JSON only:\n"
-        '{"decision":"..."}'
-    )
+    user = f"Document:\n---\n{text[:180000]}\n---"
+
+    try:
+        resp = client.responses.create(
+            model=model,
+            input=[
+                {"role": "system", "content": SYSTEM_FINE},
+                {"role": "user", "content": user},
+            ],
+        )
+        raw = getattr(resp, "output_text", "") or ""
+    except Exception as e:
+        _die(f"OpenAI call failed: {e}")
+
+    return _parse_fine_json(raw)
+
+
+def extract_fine_grok(text: str) -> int:
+    # xAI Grok is OpenAI-compatible at this base_url
+    client = _require_openai_client("XAI_API_KEY", base_url="https://api.x.ai/v1")
+    model = os.getenv("GROK_MODEL", "grok-4-1-fast-reasoning").strip()
+
+    user = f"Document:\n---\n{text[:180000]}\n---"
+
+    try:
+        resp = client.chat.completions.create(
+            model=model,
+            messages=[
+                {"role": "system", "content": SYSTEM_FINE},
+                {"role": "user", "content": user},
+            ],
+            temperature=0,
+        )
+        raw = (resp.choices[0].message.content or "").strip()
+    except Exception as e:
+        _die(f"Grok call failed: {e}")
+
+    return _parse_fine_json(raw)
+
+
+def extract_fine_gemini(text: str) -> int:
+    client = _require_gemini_client()
+    model = os.getenv("GEMINI_MODEL", "gemini-2.5-pro").strip()
 
     user = f"Document:\n---\n{text[:180000]}\n---"
 
@@ -220,28 +285,28 @@ def extract_decision_with_gpt(text: str) -> str:
             model=model,
             contents=user,
             config=types.GenerateContentConfig(
-                system_instruction=system,
+                system_instruction=SYSTEM_FINE,
                 temperature=0,
                 response_mime_type="application/json",
             ),
         )
+        raw = (getattr(resp, "text", None) or "").strip()
     except Exception as e:
         _die(f"Gemini call failed: {e}")
 
-    raw = (getattr(resp, "text", None) or "").strip()
-    raw = re.sub(r"^```(?:json)?\s*|\s*```$", "", raw)
+    return _parse_fine_json(raw)
 
-    # Gemini can still sometimes wrap/append; parse first JSON object defensively
-    m = re.search(r"\{[\s\S]*?\}", raw)
-    if not m:
-        _die(f"No JSON object found in Gemini output:\n{raw[:500]}")
 
-    try:
-        obj = json.loads(m.group(0))
-    except Exception:
-        _die(f"Invalid JSON from Gemini:\n{raw[:500]}")
-
-    return _norm_decision(obj.get("decision", "unknown"))
+def extract_fine(text: str) -> int:
+    provider = os.getenv("LLM_PROVIDER", "openai").strip().lower()
+    if provider == "openai":
+        return extract_fine_openai(text)
+    if provider == "grok":
+        return extract_fine_grok(text)
+    if provider == "gemini":
+        return extract_fine_gemini(text)
+    _die(f"Unknown LLM_PROVIDER={provider}. Use one of: openai, grok, gemini.")
+    return 0
 
 
 # ================== Repo walker (GDPRxiv structure) ==================
@@ -265,7 +330,7 @@ def iter_case_folders(
         if wanted_countries and country_name not in wanted_countries:
             continue
 
-                 # ===== RTBF wrapper layout: documents/rtbf/<country>/<section>/<case> =====
+        # RTBF wrapper layout: documents/rtbf/<country>/<section>/<case>
         if country_name == "rtbf":
             for sub_country_dir in country_dir.iterdir():
                 if not sub_country_dir.is_dir():
@@ -273,17 +338,19 @@ def iter_case_folders(
 
                 sub_country = sub_country_dir.name.lower()
 
-                # Preserve Germany special layout inside rtbf
+                # Germany special layout inside rtbf: documents/rtbf/germany/<subplace>/<case>
                 if sub_country == "germany":
                     for subplace_dir in sub_country_dir.iterdir():
                         if not subplace_dir.is_dir():
+                            continue
+                        if wanted_subplaces and subplace_dir.name.lower() not in wanted_subplaces:
                             continue
                         for case_dir in subplace_dir.iterdir():
                             if case_dir.is_dir():
                                 yield case_dir
                     continue
 
-                # Czech Republic Inspections inside rtbf
+                # Czech Republic inspections inside rtbf
                 if sub_country == "czech_republic":
                     for section_dir in sub_country_dir.iterdir():
                         if not section_dir.is_dir():
@@ -310,10 +377,11 @@ def iter_case_folders(
                             yield case_dir
             continue
 
+
 # ================== CSV + resume helpers ==================
 def _country_results_csv(repo_root: Path, model_name: str, country: str) -> Path:
     safe_model = re.sub(r"[^a-zA-Z0-9._-]+", "_", model_name)
-    out_dir = repo_root / "llm-labeling" / "rtbf_results"/"decisions" / safe_model
+    out_dir = repo_root / "llm-labeling" / "rtbf_results" / "fines" / safe_model
     out_dir.mkdir(parents=True, exist_ok=True)
     return out_dir / f"{country}.csv"
 
@@ -337,14 +405,14 @@ def _append_result_row(
     model_name: str,
     country: str,
     case_path: Path,
-    existing_decision: str,
-    new_decision: str,
+    existing_fine: int,
+    new_fine: int,
 ):
     csv_path.parent.mkdir(parents=True, exist_ok=True)
     file_exists = csv_path.exists()
     ts = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
 
-    status = "MATCH" if _decision_match(existing_decision, new_decision) else "DIFF"
+    status = "MATCH" if existing_fine == new_fine else "DIFF"
 
     with csv_path.open("a", newline="", encoding="utf-8") as f:
         w = csv.writer(f)
@@ -352,92 +420,60 @@ def _append_result_row(
             w.writerow(
                 [
                     "timestamp_utc",
+                    "provider",
                     "model",
                     "country",
                     "case_path",
-                    "existing_decision",
-                    "new_decision",
+                    "existing_fine",
+                    "new_fine",
                     "status",
                 ]
             )
         w.writerow(
             [
                 ts,
+                os.getenv("LLM_PROVIDER", "openai").strip().lower(),
                 model_name,
                 country,
                 str(case_path),
-                existing_decision,
-                new_decision,
+                existing_fine,
+                new_fine,
                 status,
             ]
         )
 
 
-def _compute_country_metrics_from_csv(
-    csv_path: Path,
-) -> Tuple[int, float, Optional[float], Optional[float]]:
-    """
-    Computes multiclass metrics:
-      - accuracy (exact match)
-      - macro_precision/macro_recall over labels observed in TRUTH
-
-    Returns: (N, accuracy, macro_precision, macro_recall)
-    """
+def _compute_country_metrics_from_csv(csv_path: Path) -> Tuple[int, float]:
     if not csv_path.exists():
-        return 0, 0.0, None, None
+        return 0, 0.0
 
-    truth: List[str] = []
-    pred: List[str] = []
+    truth: List[int] = []
+    pred: List[int] = []
 
     with csv_path.open("r", encoding="utf-8", errors="ignore") as f:
         r = csv.DictReader(f)
         for row in r:
-            t = _norm_decision(row.get("existing_decision", ""))
-            p = _norm_decision(row.get("new_decision", ""))
-            if not t:
-                continue
+            t = _to_int_amount(row.get("existing_fine", 0))
+            p = _to_int_amount(row.get("new_fine", 0))
             truth.append(t)
             pred.append(p)
 
     n = len(truth)
     if n == 0:
-        return 0, 0.0, None, None
+        return 0, 0.0
 
-    correct = sum(1 for t, p in zip(truth, pred) if _decision_match(t, p))
-    acc = correct / n
-
-    labels = sorted(set(truth))  # macro over truth labels
-    # per-label TP/FP/FN
-    precs: List[float] = []
-    recs: List[float] = []
-
-    for lab in labels:
-        tp = sum(1 for t, p in zip(truth, pred) if t == lab and p == lab)
-        fp = sum(1 for t, p in zip(truth, pred) if t != lab and p == lab)
-        fn = sum(1 for t, p in zip(truth, pred) if t == lab and p != lab)
-
-        if tp + fp > 0:
-            precs.append(tp / (tp + fp))
-        # else: skip (no predicted positives for this label)
-
-        if tp + fn > 0:
-            recs.append(tp / (tp + fn))
-        # else: skip (shouldn't happen since label is in truth, but keep safe)
-
-    macro_p = sum(precs) / len(precs) if precs else None
-    macro_r = sum(recs) / len(recs) if recs else None
-    return n, acc, macro_p, macro_r
+    correct = sum(1 for t, p in zip(truth, pred) if t == p)
+    return n, correct / n
 
 
 def _append_country_metrics_row(
     metrics_csv: Path,
     *,
+    provider: str,
     model_name: str,
     country: str,
     n: int,
     acc: float,
-    macro_p: Optional[float],
-    macro_r: Optional[float],
 ):
     metrics_csv.parent.mkdir(parents=True, exist_ok=True)
     file_exists = metrics_csv.exists()
@@ -446,28 +482,8 @@ def _append_country_metrics_row(
     with metrics_csv.open("a", newline="", encoding="utf-8") as f:
         w = csv.writer(f)
         if not file_exists:
-            w.writerow(
-                [
-                    "run_id",
-                    "model",
-                    "country",
-                    "N",
-                    "accuracy",
-                    "macro_precision",
-                    "macro_recall",
-                ]
-            )
-        w.writerow(
-            [
-                run_id,
-                model_name,
-                country,
-                n,
-                round(acc, 6),
-                round(macro_p, 6) if macro_p is not None else "",
-                round(macro_r, 6) if macro_r is not None else "",
-            ]
-        )
+            w.writerow(["run_id", "provider", "model", "country", "N", "accuracy"])
+        w.writerow([run_id, provider, model_name, country, n, round(acc, 6)])
 
 
 def _maybe_finalize_country_metrics(
@@ -489,65 +505,71 @@ def _maybe_finalize_country_metrics(
     if marker.exists():
         return
 
-    n, acc, mp, mr = _compute_country_metrics_from_csv(results_csv)
+    n, acc = _compute_country_metrics_from_csv(results_csv)
 
-    metrics_csv = repo_root / "verification_metrics_by_country_decision.csv"
+    metrics_csv = repo_root / "verification_metrics_by_country_fine.csv"
     _append_country_metrics_row(
         metrics_csv,
+        provider=os.getenv("LLM_PROVIDER", "openai").strip().lower(),
         model_name=model_name,
         country=country,
         n=n,
         acc=acc,
-        macro_p=mp,
-        macro_r=mr,
     )
 
     marker.write_text(
         f"finalized_utc={datetime.now(timezone.utc).strftime('%Y-%m-%dT%H:%M:%SZ')}\n"
-        f"country={country}\nmodel={model_name}\nN={n}\n"
-        f"accuracy={acc}\nmacro_precision={mp}\nmacro_recall={mr}\n",
+        f"country={country}\nprovider={os.getenv('LLM_PROVIDER','openai').strip().lower()}\n"
+        f"model={model_name}\nN={n}\naccuracy={acc}\n",
         encoding="utf-8",
     )
 
 
 # ================== Main processing ==================
-def run_decision_repo(
+def run_fine_repo(
     repo_root: Path,
     *,
     countries: Optional[Set[str]] = None,
     subplaces: Optional[Set[str]] = None,
 ):
-    model_name = os.getenv("OPENAI_MODEL", "gpt-5").strip()
-    # model_name = os.getenv("GROK_MODEL", "grok-4-1-fast-reasoning").strip()
-    # model_name = os.getenv("GEMINI_MODEL", "gemini-2.5-pro").strip()
+    provider = os.getenv("LLM_PROVIDER", "openai").strip().lower()
 
+    # Pick model name based on provider (for output folder naming)
+    if provider == "openai":
+        model_name = os.getenv("OPENAI_MODEL", "gpt-5").strip()
+    elif provider == "grok":
+        model_name = os.getenv("GROK_MODEL", "grok-4-1-fast-reasoning").strip()
+    elif provider == "gemini":
+        model_name = os.getenv("GEMINI_MODEL", "gemini-2.5-pro").strip()
+    else:
+        _die(f"Unknown LLM_PROVIDER={provider}. Use one of: openai, grok, gemini.")
+        return
 
     # Build eligible set per country first
     eligible_by_country: Dict[str, Set[str]] = {}
     for case in iter_case_folders(repo_root, countries=countries, subplaces=subplaces):
         meta = _load_metadata(case / "metadata.json")
 
-        # decision must exist
-        if "decision" not in meta:
+        # fine must exist (adjust if your key differs)
+        if "fine" not in meta:
             continue
 
-        # accept string-ish
-        if not isinstance(meta["decision"], (str, int, float)):
+        if not isinstance(meta["fine"], (str, int, float)):
             continue
 
         # need text
         if not any(
-        (case / name).exists()
-        for name in [
-            "en.txt",
-            "en.pdf",
-            "en_Full.txt",
-            "en_Summary.pdf",
-            "enSummary.txt",
-            "en_1.pdf",
-            "en-Enforcement notices.txt",
-            "en-Monetary penalties.pdf"
-        ]        
+            (case / name).exists()
+            for name in [
+                "en.txt",
+                "en.pdf",
+                "en_Full.txt",
+                "en_Summary.pdf",
+                "enSummary.txt",
+                "en_1.pdf",
+                "en-Enforcement notices.txt",
+                "en-Monetary penalties.pdf",
+            ]
         ):
             continue
 
@@ -555,7 +577,7 @@ def run_decision_repo(
         eligible_by_country.setdefault(ctry, set()).add(str(case))
 
     if not eligible_by_country:
-        _die("No eligible cases found (need metadata['decision'] + en.txt/en.pdf).")
+        _die("No eligible cases found (need metadata['fine'] + en.txt/en.pdf).")
 
     for ctry in sorted(eligible_by_country.keys()):
         out_csv = _country_results_csv(repo_root, model_name, ctry)
@@ -571,26 +593,26 @@ def run_decision_repo(
             case = Path(case_path_str)
             try:
                 meta = _load_metadata(case / "metadata.json")
-                existing = _norm_decision(meta["decision"])
+                existing = _to_int_amount(meta.get("fine", 0))
 
                 text = _read_en_text(case)
                 if not text.strip():
                     print(f"[skip: no text] {case}", file=sys.stderr)
                     continue
 
-                new_dec = extract_decision_with_gpt(text)
+                new_fine = int(extract_fine(text))
 
                 _append_result_row(
                     out_csv,
                     model_name=model_name,
                     country=ctry,
                     case_path=case,
-                    existing_decision=existing,
-                    new_decision=new_dec,
+                    existing_fine=existing,
+                    new_fine=new_fine,
                 )
 
-                status = "MATCH" if _decision_match(existing, new_dec) else "DIFF"
-                print(f"[{ctry}] {case} → {status} existing={existing} new={new_dec}")
+                status = "MATCH" if existing == new_fine else "DIFF"
+                print(f"[{ctry}] {case} → {status} existing={existing} new={new_fine}")
 
             except SystemExit:
                 raise
@@ -606,11 +628,11 @@ def run_decision_repo(
             eligible_cases=eligible_by_country[ctry],
         )
 
-    print("\nPer-country CSVs:")
     safe_model = re.sub(r"[^a-zA-Z0-9._-]+", "_", model_name)
-    print("  →", repo_root / "llmtraining" / "decision_results" / safe_model)
+    print("\nPer-country CSVs:")
+    print("  →", repo_root / "llm-labeling" / "rtbf_results" / "fines" / safe_model)
     print("\nCountry metrics (finalized rows) appended to:")
-    print("  →", repo_root / "verification_metrics_by_country_decision.csv")
+    print("  →", repo_root / "verification_metrics_by_country_fine.csv")
 
 
 # ================== CLI ==================
@@ -619,8 +641,8 @@ if __name__ == "__main__":
 
     ap = argparse.ArgumentParser(
         description=(
-            "Resumable per-country verification of GPT-extracted decision outcome "
-            "vs existing metadata['decision']. Writes per-country CSVs and finalizes country metrics "
+            "Resumable per-country verification of LLM-extracted fine amount "
+            "vs existing metadata['fine']. Writes per-country CSVs and finalizes country accuracy "
             "once all eligible cases are processed."
         )
     )
@@ -630,13 +652,11 @@ if __name__ == "__main__":
         required=True,
         help="Root folder of repository containing /documents",
     )
-
     ap.add_argument(
         "--country",
         action="append",
         help="Limit processing to specific country folder(s) under /documents (case-insensitive). Can be used multiple times.",
     )
-
     ap.add_argument(
         "--subplace",
         action="append",
@@ -647,4 +667,4 @@ if __name__ == "__main__":
     countries = set(args.country) if args.country else None
     subplaces = set(args.subplace) if args.subplace else None
 
-    run_decision_repo(args.repo.resolve(), countries=countries, subplaces=subplaces)
+    run_fine_repo(args.repo.resolve(), countries=countries, subplaces=subplaces)
